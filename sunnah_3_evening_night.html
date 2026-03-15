@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daily Sunnah — Evening, Night &amp; Sleep | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#04070D;--card:#080E1C;--gold:#C9A84C;--gold-dim:rgba(201,168,76,0.15);--gold-mid:rgba(201,168,76,0.35);--teal:#2FB89A;--teal-dim:rgba(47,184,154,0.12);--text:#D4CBB8;--text-dim:#8A8275;--border:rgba(201,168,76,0.15);--green:#2A7A4B;--green-bg:rgba(42,122,75,0.15);--blue:#2A5FA8;--blue-bg:rgba(42,95,168,0.15);--amber:#B8760A;--amber-bg:rgba(184,118,10,0.15);--font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.75;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,168,76,0.04) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(47,184,154,0.03) 0%,transparent 60%);pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(4,7,13,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 1.5rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;min-height:60px}
+.nav-left{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap}
+.nav-left a{font-family:var(--font-head);font-size:0.68rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.06em;padding:0.25rem 0.6rem;border:1px solid rgba(201,168,76,0.1);border-radius:3px;transition:all 0.2s}
+.nav-left a:hover{color:var(--gold);border-color:var(--gold-mid)}
+.nav-left span{color:var(--text-dim);font-size:0.65rem}
+.nav-centre{text-align:center}
+.nav-centre .ar-title{display:block;font-family:var(--font-arab);font-size:1rem;color:var(--gold);line-height:1.3}
+.nav-centre .en-title{display:block;font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;margin-top:2px}
+.nav-right{display:flex;justify-content:flex-end;align-items:center;gap:0.75rem}
+.lang-toggle{display:flex;background:rgba(201,168,76,0.07);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.lang-btn{padding:0.3rem 0.65rem;font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.08em;color:var(--text-dim);cursor:pointer;border:none;background:transparent;transition:all 0.2s}
+.lang-btn.active{background:var(--gold);color:#04070D;font-weight:600}
+.nav-badge{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;padding:0.25rem 0.65rem;border:1px solid var(--gold-mid);border-radius:3px;color:var(--gold);white-space:nowrap}
+.wrapper{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:2rem 1.25rem 5rem}
+.page-header{text-align:center;padding:2.5rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.page-header .period-icon{font-size:2rem;margin-bottom:0.75rem;display:block}
+.page-header h1{font-family:var(--font-head);font-size:clamp(1.5rem,4vw,2rem);font-weight:600;color:var(--gold);letter-spacing:0.05em;margin-bottom:0.4rem}
+.page-header .subtitle{font-family:var(--font-arab);font-size:1.2rem;color:var(--text-dim);direction:rtl}
+.page-header .desc{max-width:580px;margin:1rem auto 0;color:var(--text-dim);font-size:0.9rem;font-style:italic}
+.today-box{border:1px solid var(--gold);border-radius:8px;background:linear-gradient(135deg,rgba(201,168,76,0.07) 0%,rgba(201,168,76,0.02) 100%);padding:1.5rem 1.75rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.today-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.today-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
+.today-label::after{content:'';flex:1;height:1px;background:var(--gold-dim)}
+.today-name{font-family:var(--font-head);font-size:1.1rem;color:var(--text);margin-bottom:1rem;font-weight:600}
+.today-arabic{font-family:var(--font-arab);font-size:1.5rem;direction:rtl;text-align:right;color:var(--gold);line-height:2;margin-bottom:0.5rem}
+.today-translit{font-style:italic;color:var(--teal);font-size:0.9rem;margin-bottom:0.25rem}
+.today-trans{color:var(--text-dim);font-size:0.88rem;margin-bottom:1rem}
+.today-how{background:rgba(47,184,154,0.07);border-left:2px solid var(--teal);padding:0.75rem 1rem;border-radius:0 4px 4px 0;font-size:0.88rem}
+.today-how strong{color:var(--teal);font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.1em;display:block;margin-bottom:0.25rem}
+.today-source{margin-top:0.75rem;font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.06em;color:var(--text-dim)}
+.period-header{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.5rem}
+.period-header .ph-icon{font-size:1.4rem}
+.period-header h2{font-family:var(--font-head);font-size:0.78rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;font-weight:600}
+.period-header .ph-ar{font-family:var(--font-arab);font-size:0.95rem;color:var(--text-dim);direction:rtl;margin-left:auto}
+.period-header::after{content:'';flex:1;height:1px;background:var(--border);order:3}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:1.5rem;position:relative;overflow:hidden;transition:border-color 0.3s}
+.card:hover{border-color:var(--gold-mid)}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);opacity:0.4}
+.card.tier1::before{background:#2A7A4B;opacity:0.7}
+.card.tier2::before{background:#2A5FA8;opacity:0.7}
+.card.tier3::before{background:#B8760A;opacity:0.7}
+.card-meta{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:1rem}
+.badge{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.1em;padding:0.25rem 0.6rem;border-radius:3px;font-weight:600}
+.badge-sahih{background:var(--green-bg);color:#5DC88A;border:1px solid rgba(93,200,138,0.25)}
+.badge-hasan-s{background:var(--blue-bg);color:#7AABF0;border:1px solid rgba(122,171,240,0.25)}
+.badge-hasan{background:var(--amber-bg);color:#E0A030;border:1px solid rgba(224,160,48,0.25)}
+.time-chip{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.08em;color:var(--text-dim);border:1px solid rgba(212,203,184,0.1);padding:0.25rem 0.6rem;border-radius:3px}
+.card-num{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);margin-left:auto;opacity:0.6}
+.card h3{font-family:var(--font-head);font-size:1rem;color:var(--text);font-weight:600;margin-bottom:1rem;letter-spacing:0.02em}
+.arabic-block{direction:rtl;text-align:right;font-family:var(--font-arab);font-size:1.4rem;line-height:2.1;color:var(--gold);background:rgba(201,168,76,0.04);border:1px solid var(--gold-dim);border-radius:6px;padding:0.75rem 1.1rem;margin-bottom:0.75rem}
+.arabic-block.small{font-size:1.1rem}
+.arabic-block.medium{font-size:1.25rem}
+.translit{font-style:italic;color:var(--teal);font-size:0.88rem;margin-bottom:0.3rem;line-height:1.6}
+.translation{color:var(--text-dim);font-size:0.88rem;margin-bottom:1rem}
+.narrative{margin-bottom:1rem;font-size:0.93rem;line-height:1.8}
+.narrative-ur{direction:rtl;text-align:right;font-family:var(--font-arab);font-size:1rem;line-height:2;display:none;margin-bottom:1rem}
+.source-line{display:flex;align-items:flex-start;gap:0.5rem;font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.05em;color:var(--text-dim);border-top:1px solid var(--border);padding-top:0.75rem;margin-top:0.75rem;line-height:1.6}
+.source-line .src-icon{color:var(--gold);flex-shrink:0}
+.why-box{background:rgba(47,184,154,0.06);border-left:2px solid var(--teal);padding:0.65rem 0.9rem;border-radius:0 4px 4px 0;margin:0.75rem 0;font-size:0.87rem}
+.why-box .why-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.12em;color:var(--teal);display:block;margin-bottom:0.25rem}
+.try-box{background:rgba(201,168,76,0.05);border:1px dashed rgba(201,168,76,0.25);border-radius:5px;padding:0.65rem 0.9rem;font-size:0.87rem;margin-top:0.75rem}
+.try-box .try-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.12em;color:var(--gold);display:block;margin-bottom:0.25rem}
+.note-box{background:rgba(184,118,10,0.07);border:1px solid rgba(184,118,10,0.2);border-radius:5px;padding:0.65rem 0.9rem;font-size:0.84rem;margin:0.75rem 0;color:#E0A030}
+.note-box .note-label{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.12em;color:#E0A030;display:block;margin-bottom:0.25rem}
+.sub-hadith{background:rgba(47,184,154,0.04);border:1px solid rgba(47,184,154,0.12);border-radius:5px;padding:0.75rem 1rem;margin:0.65rem 0}
+.sub-hadith-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.12em;color:var(--teal);margin-bottom:0.5rem;display:block}
+.adhkar-container{display:flex;flex-direction:column;gap:1.1rem}
+.adhkar-item{background:rgba(201,168,76,0.03);border:1px solid var(--border);border-radius:6px;padding:1rem 1.25rem}
+.adhkar-item-label{font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;margin-bottom:0.65rem;display:flex;align-items:center;gap:0.5rem}
+.adhkar-item-label::after{content:'';flex:1;height:1px;background:var(--gold-dim)}
+.adhkar-arabic{direction:rtl;text-align:right;font-family:var(--font-arab);font-size:1.2rem;line-height:2;color:var(--gold);margin-bottom:0.4rem}
+.adhkar-translit{font-style:italic;color:var(--teal);font-size:0.82rem;margin-bottom:0.2rem}
+.adhkar-trans{color:var(--text-dim);font-size:0.82rem;margin-bottom:0.5rem}
+.adhkar-urdu{direction:rtl;text-align:right;font-family:var(--font-arab);font-size:0.88rem;color:var(--text-dim);display:none;margin-bottom:0.5rem;line-height:1.9}
+.adhkar-meaning{font-size:0.8rem;color:var(--text-dim);font-style:italic;border-left:1px solid var(--gold-dim);padding-left:0.6rem;margin-top:0.4rem}
+.adhkar-source{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.06em;color:var(--text-dim);margin-top:0.4rem}
+/* TAHAJJUD special highlight */
+.tahajjud-banner{background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,rgba(47,184,154,0.06) 100%);border:1px solid var(--gold-mid);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1rem;text-align:center}
+.tahajjud-banner .tb-icon{font-size:1.5rem;margin-bottom:0.5rem;display:block}
+.tahajjud-banner .tb-text{font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.12em;color:var(--gold)}
+/* TIMELINE */
+.timeline-section{margin:3rem 0 2rem;padding:2rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden}
+.timeline-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--teal),transparent)}
+.timeline-title{font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.18em;color:var(--gold);text-align:center;margin-bottom:0.3rem;text-transform:uppercase}
+.timeline-subtitle{font-family:var(--font-arab);font-size:0.9rem;color:var(--text-dim);text-align:center;direction:rtl;margin-bottom:1.75rem}
+.timeline-track{position:relative;padding:0.5rem 0}
+.timeline-line{position:absolute;top:50%;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold-dim),var(--gold-mid),var(--gold-dim));transform:translateY(-50%)}
+.timeline-nodes{display:flex;justify-content:space-between;align-items:center;position:relative;gap:0.25rem;flex-wrap:nowrap;overflow-x:auto;padding-bottom:0.5rem}
+.tl-node{display:flex;flex-direction:column;align-items:center;gap:0.35rem;flex-shrink:0}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--card);border:2px solid var(--gold);position:relative;z-index:1;transition:all 0.2s;cursor:default}
+.tl-node:hover .tl-dot{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,0.4)}
+.tl-label{font-family:var(--font-head);font-size:0.5rem;letter-spacing:0.06em;color:var(--text-dim);text-align:center;max-width:52px;line-height:1.3}
+.tl-icon{font-size:0.9rem}
+.tl-node a{text-decoration:none}
+.tl-node a .tl-label{color:var(--text-dim);transition:color 0.2s}
+.tl-node a:hover .tl-label{color:var(--gold)}
+/* URDU MODE */
+body.ur-mode .narrative{display:none}
+body.ur-mode .narrative-ur{display:block}
+body.ur-mode .adhkar-urdu{display:block}
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);margin-top:3rem;font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.1em;color:var(--text-dim)}
+footer span{color:var(--gold)}
+@media(max-width:640px){
+  nav{grid-template-columns:1fr;grid-template-rows:auto auto auto;padding:0.75rem 1rem;gap:0.5rem;min-height:auto}
+  .nav-right{justify-content:center}
+  .nav-centre{order:-1}
+  .wrapper{padding:1.5rem 1rem 4rem}
+  .today-box,.card{padding:1.1rem 1.15rem}
+  .arabic-block{font-size:1.15rem}
+  .adhkar-arabic{font-size:1rem}
+  .timeline-nodes{gap:0.15rem}
+  .tl-label{font-size:0.44rem;max-width:44px}
+}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.card,.today-box,.period-header{animation:fadeInUp 0.5s ease both}
+.card:nth-child(2){animation-delay:0.05s}
+.card:nth-child(3){animation-delay:0.1s}
+.card:nth-child(4){animation-delay:0.15s}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span>|</span>
+    <a href="sunnah_index.html">← Daily Sunnah</a>
+  </div>
+  <div class="nav-centre">
+    <span class="ar-title">السنة اليومية</span>
+    <span class="en-title">Daily Sunnah — Evening, Night &amp; Sleep</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+    </div>
+    <div class="nav-badge">Evening · Night · Sleep</div>
+  </div>
+</nav>
+
+<div class="wrapper">
+<header class="page-header">
+  <span class="period-icon">🌆</span>
+  <h1>From Evening to Tahajjud</h1>
+  <div class="subtitle">من المساء حتى تهجد الليل</div>
+  <p class="desc">The final part of the authenticated daily practices of the Prophet Muhammad ﷺ — his evening adhkar, preparation for sleep, night prayer, and weekly practices that completed his sunnah.</p>
+</header>
+
+<div class="today-box">
+  <div class="today-label">✦ Today's Practice</div>
+  <div class="today-name" id="today-name"></div>
+  <div class="today-arabic" id="today-arabic"></div>
+  <div class="today-translit" id="today-translit"></div>
+  <div class="today-trans" id="today-trans"></div>
+  <div class="today-how">
+    <strong>📿 How to Begin</strong>
+    <span id="today-how"></span>
+  </div>
+  <div class="today-source" id="today-source"></div>
+</div>
+
+<!-- ══════════════════════════════════ PERIOD 8: EVENING -->
+<div class="period-header">
+  <span class="ph-icon">🌆</span>
+  <h2>Period 8 — Evening</h2>
+  <span class="ph-ar">المساء</span>
+</div>
+
+<!-- CARD 23: Evening Adhkar -->
+<div class="card tier1" id="p23">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih / Hasan Sahih</span>
+    <span class="time-chip">🌆 After Asr / After Maghrib</span>
+    <span class="card-num">PRACTICE 23</span>
+  </div>
+  <h3>Evening Adhkar — The Daily Armour</h3>
+
+  <p class="narrative">Just as the morning had its shield of remembrance, the evening had its counterpart — a comprehensive wrap of protection, gratitude, and forgiveness that closed the day's account. He ﷺ was consistent with both sets. The timing of evening adhkar: scholars differ slightly — most hold they begin after Asr and are best completed before or after Maghrib. This scholarly difference is noted where relevant below.</p>
+  <p class="narrative-ur">جس طرح صبح کے اذکار کا ایک حصار تھا، شام کے اذکار اس کا جوڑ تھے — حفاظت، شکر اور معافی کی ایک جامع چادر جو دن کا حساب بند کرتی تھی۔ آپ ﷺ دونوں پر یکساں پابند تھے۔ شام کے اذکار کا وقت: علماء میں معمولی اختلاف ہے — اکثر کا مؤقف ہے کہ یہ عصر کے بعد شروع ہوتے ہیں اور مغرب کے قریب یا بعد مکمل ہونے چاہیے۔</p>
+
+  <div class="adhkar-container">
+
+    <!-- 23a -->
+    <div class="adhkar-item">
+      <div class="adhkar-item-label">23a — Master Evening Dua · دعاء المساء</div>
+      <div class="adhkar-arabic">اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ الْمَصِيرُ</div>
+      <div class="adhkar-translit">Allahumma bika amsayna wa bika asbahna wa bika nahya wa bika namutu wa ilayka-l-masir</div>
+      <div class="adhkar-trans">O Allah, by You we have reached the evening, and by You we reach the morning; by You we live and by You we die, and to You is the final destination.</div>
+      <div class="adhkar-urdu">اے اللہ، تیرے ہی ذریعے ہم نے شام کی اور تیرے ہی ذریعے صبح کریں گے؛ تیرے ہی ذریعے ہم جیتے ہیں اور تیرے ہی ذریعے مریں گے، اور تیری ہی طرف لوٹنا ہے۔</div>
+      <div class="adhkar-meaning">The evening mirror of the morning dua — surrendering the entire night: its waking, its sleep, its life, its death — all placed in Allah's hands before the world grows dark.</div>
+      <div class="adhkar-source">📚 Sunan Abu Dawud, Hadith 5068; Sunan al-Tirmidhi, Hadith 3391 — Hasan Sahih</div>
+    </div>
+
+    <!-- 23b: Ayat al-Kursi -->
+    <div class="adhkar-item">
+      <div class="adhkar-item-label">23b — Ayat al-Kursi · آية الكرسي · Evening</div>
+      <div class="adhkar-arabic">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div>
+      <div class="adhkar-trans">Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great. [Quran 2:255]</div>
+      <div class="adhkar-urdu">اللہ — اس کے سوا کوئی معبود نہیں، ہمیشہ زندہ، ہمیشہ قائم۔ نہ اسے اونگھ آتی ہے نہ نیند۔ آسمانوں اور زمین میں جو کچھ ہے اسی کا ہے۔ اس کی کرسی آسمانوں اور زمین پر محیط ہے۔ وہی بلند و برتر ہے۔</div>
+      <div class="adhkar-meaning">Recited once in the evening — provides Allah's protection until the following morning. The companion piece to its morning recitation, forming a complete daily shield.</div>
+      <div class="adhkar-source">📚 Sunan al-Nasai al-Kubra, Hadith 9928 — authenticated by Imam al-Albani: Sahih</div>
+    </div>
+
+    <!-- 23c: Three Quls evening -->
+    <div class="adhkar-item">
+      <div class="adhkar-item-label">23c — Three Quls · Evening · Three times each</div>
+      <div class="adhkar-arabic">قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</div>
+      <div class="adhkar-trans">Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent. [Quran 112]</div>
+      <div class="adhkar-arabic" style="margin-top:0.5rem;">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ</div>
+      <div class="adhkar-trans" style="margin-top:0.25rem;">Say: I seek refuge in the Lord of the daybreak, from the evil of what He has created, from the evil of darkness when it settles, from the evil of the blowers in knots, from the evil of an envier when he envies. [Quran 113]</div>
+      <div class="adhkar-arabic" style="margin-top:0.5rem;">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ</div>
+      <div class="adhkar-trans" style="margin-top:0.25rem;">Say: I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating whisperer — who whispers in the breasts of mankind — from among jinn and mankind. [Quran 114]</div>
+      <div class="adhkar-urdu">یہ تینوں سورتیں شام کو تین تین بار — ہر شے سے کافی ہیں۔ سورۃ الاخلاص، سورۃ الفلق، سورۃ الناس۔</div>
+      <div class="adhkar-meaning">Recited three times each in the evening — "They are sufficient for you against everything." Complete protection for the night ahead.</div>
+      <div class="adhkar-source">📚 Sunan Abu Dawud, Hadith 5082; Sunan al-Tirmidhi, Hadith 3575 — Sahih</div>
+    </div>
+
+    <!-- 23d: Sayyid al-Istighfar evening -->
+    <div class="adhkar-item">
+      <div class="adhkar-item-label">23d — Sayyid al-Istighfar · Evening · سيد الاستغفار</div>
+      <div class="adhkar-arabic">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</div>
+      <div class="adhkar-translit">Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana 'abduka, wa ana 'ala 'ahdika wa wa'dika mastata'tu, a'udhu bika min sharri ma sana'tu, abu'u laka bini'matika 'alayya, wa abu'u laka bidhanbi, faghfir li fa-innahu la yaghfiru-dh-dhunuba illa ant</div>
+      <div class="adhkar-trans">O Allah, You are my Lord, there is no god but You. You created me and I am Your servant, and I am upon Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favour upon me and I acknowledge my sin, so forgive me, for none forgives sins but You.</div>
+      <div class="adhkar-urdu">اے اللہ، تو میرا رب ہے، تیرے سوا کوئی معبود نہیں۔ تو نے مجھے پیدا کیا اور میں تیرا بندہ ہوں۔ میں تجھ سے اپنے اعمال کے شر سے پناہ مانگتا ہوں۔ پس مجھے معاف کر دے کیونکہ تیرے سوا کوئی گناہ نہیں بخشتا۔</div>
+      <div class="adhkar-meaning">Said once with conviction in the evening — "whoever says it and dies before morning enters Paradise." The closing forgiveness of the day's account.</div>
+      <div class="adhkar-source">📚 Sahih Bukhari, Book of Invocations (Kitab al-Da'awat), Hadith 6306 — Sahih</div>
+    </div>
+
+    <!-- 23e: Protection from evil -->
+    <div class="adhkar-item">
+      <div class="adhkar-item-label">23e — Evening Protection Dua · Three times</div>
+      <div class="adhkar-arabic">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</div>
+      <div class="adhkar-translit">A'udhu bi-kalimatillahi-t-tammati min sharri ma khalaq</div>
+      <div class="adhkar-trans">I seek refuge in the perfect words of Allah from the evil of what He has created.</div>
+      <div class="adhkar-urdu">میں اللہ کے کامل کلمات کی پناہ میں آتا ہوں اس کی مخلوق کے شر سے۔</div>
+      <div class="adhkar-meaning">Said three times in the evening — "nothing will harm him until morning." One of the shortest and most powerful protection formulas in the Sunnah.</div>
+      <div class="adhkar-source">📚 Sahih Muslim, Book of Dhikr and Dua (Kitab al-Dhikr), Hadith 2708 — Sahih</div>
+    </div>
+
+  </div><!-- end adhkar-container -->
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>All five evening adhkar sourced individually above. Completeness of morning + evening adhkar: Sunan Abu Dawud, Hadith 1522 — <strong style="color:#5DC88A">Sahih</strong> — "The one who recites the morning and evening adhkar has fully fulfilled dhikr day and night."</span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    You end the day the way you began it — with gratitude, with reliance, with protection sought. The morning and evening adhkar together are a complete daily envelope. He ﷺ never left either end of the day without this.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Pick just one of these duas and say it after Maghrib tonight — start with 23e (three times, thirty seconds). Build from there.
+  </div>
+</div>
+
+<!-- CARD 24: Maghrib and Isha Pattern -->
+<div class="card tier1" id="p24">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">🕌 Evening Prayers</span>
+    <span class="card-num">PRACTICE 24</span>
+  </div>
+  <h3>Maghrib and Isha — His Evening Prayer Pattern</h3>
+
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">After Maghrib — Two Sunnah Rakats</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">Part of the twelve rawatib rakats (Practice 16) — the two after Maghrib were among his most consistently observed. These are prayed in the home according to his practice. <em>(Sahih Muslim, Kitab Salat al-Musafirin, Hadith 728 — Sahih)</em></div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">He Disliked Sleeping Before Isha · كَرَاهِيَةُ النَّوْمِ قَبْلَهَا</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">كَانَ يَكْرَهُ النَّوْمَ قَبْلَ الْعِشَاءِ وَالْحَدِيثَ بَعْدَهَا</div>
+    <div class="translit" style="font-size:0.82rem;">Kana yakrahu-n-nawma qabla-l-'isha'i wa-l-hadithu ba'daha</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);">He disliked sleeping before Isha and talking excessively after it.</div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim);margin-top:0.3rem;">📚 Sahih Bukhari, Book of the Times of Prayer (Kitab Mawaqit al-Salah), Hadith 568 — Sahih</div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">After Isha — Two Sunnah Rakats</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">The final two rakats of the twelve rawatib — prayed after Isha, completing the day's voluntary architecture. <em>(Sahih Muslim 728 — Sahih)</em></div>
+  </div>
+
+  <p class="narrative">His evenings were not formless. Between Maghrib and Isha he was present with his family — engaged, warm, not withdrawn. He used this time for beneficial conversation, sometimes receiving companions and discussing matters of the community. After Isha he wound down — aware that the night had a higher purpose. He did not treat the hours before sleep as dead time to be filled. They were the transition toward tahajjud, and he treated them accordingly.</p>
+  <p class="narrative-ur">ان کی شامیں بے ترتیب نہیں تھیں۔ مغرب اور عشاء کے درمیان وہ اپنے اہل خانہ کے ساتھ موجود تھے — گرم جوش، حاضر۔ کبھی صحابہ آتے اور امور امت پر گفتگو ہوتی۔ عشاء کے بعد وہ سکون کی طرف آتے — جانتے ہوئے کہ رات کا ایک اعلیٰ مقصد ہے۔ سونے سے پہلے کے گھنٹوں کو بے مقصد نہیں جانے دیتے تھے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Rawatib after Maghrib and Isha: Sahih Muslim, Hadith 728 — <strong style="color:#5DC88A">Sahih</strong>; Disliked sleeping before Isha: Sahih Bukhari, Hadith 568 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    His evenings were structured — prayer, family, beneficial conversation, rest. There was no dead time. Every hour had a colour. The transition from Isha to sleep was itself a preparation for the night's most valuable act.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Pray the two sunnah rakats after Maghrib tonight. After Isha, choose beneficial rest over scrolling. Let the evening be preparation, not distraction.
+  </div>
+</div>
+
+<!-- CARD 25: Limited Talk After Isha -->
+<div class="card tier1" id="p25">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari</span>
+    <span class="time-chip">🌙 After Isha</span>
+    <span class="card-num">PRACTICE 25</span>
+  </div>
+  <h3>Limited Talk After Isha — The Discipline of the Night</h3>
+
+  <div class="arabic-block medium">كَانَ يَكْرَهُ النَّوْمَ قَبْلَ الْعِشَاءِ وَالْحَدِيثَ بَعْدَهَا</div>
+  <div class="translit">Kana yakrahu-n-nawma qabla-l-'isha'i wa-l-hadithu ba'daha</div>
+  <div class="translation">He disliked sleeping before Isha and [excessive] talking after it.</div>
+
+  <div class="note-box">
+    <span class="note-label">📋 Scholarly Clarification — Ibn Hajar (Fath al-Bari)</span>
+    This refers to excessive, purposeless talk — not all conversation. Ibn Hajar al-Asqalani notes in his commentary on this hadith that the Prophet ﷺ himself would speak after Isha with his wives, with companions, about knowledge and important matters. The prohibition is specifically against idle, time-wasting speech that drains the energy needed for Fajr and tahajjud.
+  </div>
+
+  <p class="narrative">This was one of the most quietly practical of his daily disciplines. He understood the architecture of the night: Isha was not the end of the day — it was the gateway to the night's most sacred time. Purposeless conversation, entertainment for its own sake, and idle interaction after Isha all have the effect of keeping the mind and body engaged when they should be winding down. His conversations after Isha — when he did have them — were always purposeful: learning, community matters, the affairs of his family. He knew that what you do in the hour before sleep shapes the quality of that sleep and, crucially, your ability to rise for tahajjud and Fajr.</p>
+  <p class="narrative-ur">یہ آپ ﷺ کے روزمرہ کے سب سے خاموش اور عملی ضبط نفس میں سے ایک تھا۔ آپ رات کے ڈھانچے کو سمجھتے تھے: عشاء دن کا اختتام نہیں تھا — یہ رات کے مقدس ترین وقت کا دروازہ تھا۔ بے مقصد گفتگو اور وقت ضائع کرنے والی بات چیت ذہن اور جسم کو اس وقت مشغول رکھتی ہے جب انہیں سکون کی طرف آنا چاہیے۔ آپ جانتے تھے کہ سونے سے پہلے کا گھنٹہ نیند کا معیار اور تہجد و فجر کے لیے اٹھنے کی صلاحیت کو متاثر کرتا ہے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of the Times of Prayer (Kitab Mawaqit al-Salah), Hadith 568 — <strong style="color:#5DC88A">Sahih</strong>; Scholarly commentary: Fath al-Bari (Ibn Hajar al-Asqalani), explanation of Hadith 568</span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    What you do in the hour before sleep shapes its quality and your Fajr. He was not anti-social after Isha — he was intentional. The night had a purpose that idle talk threatened.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    After Isha tonight — no social media scrolling, no idle group chats. Beneficial reading, dhikr, or early rest. Protect the gateway to your night.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ PERIOD 9: PREPARING FOR SLEEP -->
+<div class="period-header">
+  <span class="ph-icon">🌙</span>
+  <h2>Period 9 — Preparing for Sleep</h2>
+  <span class="ph-ar">الاستعداد للنوم</span>
+</div>
+
+<!-- CARD 26: Wudu Before Sleep -->
+<div class="card tier1" id="p26">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari</span>
+    <span class="time-chip">🌙 Before Sleep</span>
+    <span class="card-num">PRACTICE 26</span>
+  </div>
+  <h3>Wudu Before Sleep — Every Night</h3>
+  <div class="arabic-block medium">إِذَا أَتَيْتَ مَضْجَعَكَ فَتَوَضَّأْ وُضُوءَكَ لِلصَّلَاةِ</div>
+  <div class="translit">Idha atayta madja'aka fa-tawadda' wudu'aka lil-salah</div>
+  <div class="translation">"When you go to your bed, perform wudu as you do for prayer."</div>
+
+  <p class="narrative">He ﷺ taught this as part of a comprehensive bedtime routine to al-Bara ibn Azib RA — personally, deliberately, with care. The full instruction covers: wudu, sleeping on the right side, the sleep dua. Wudu before sleep maintains ritual purity through the night — the body clean, the state one of readiness. He ﷺ remained in wudu consistently. Sleep in Islam is a form of death — the soul is taken and returned. He chose to meet this minor death in a state of purity, as one should wish to meet the final death. The angels of mercy do not leave a person who sleeps in a state of wudu — they continue to make dua for them throughout the night.</p>
+  <p class="narrative-ur">آپ ﷺ نے یہ حضرت براء بن عازب رضی اللہ عنہ کو سونے کے وقت کے ایک جامع معمول کے طور پر سکھایا — ذاتی طور پر، ارادے کے ساتھ۔ مکمل ہدایت میں شامل ہیں: وضو، دائیں کروٹ پر لیٹنا، سونے کی دعا۔ رات بھر طہارت برقرار رہتی ہے۔ نیند اسلام میں ایک چھوٹی موت ہے — آپ نے اس چھوٹی موت کو پاکیزگی کی حالت میں ملنا پسند کیا۔ رحمت کے فرشتے اس شخص سے نہیں جاتے جو وضو کی حالت میں سوتا ہے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of Ablution (Kitab al-Wudu), Hadith 247 — <strong style="color:#5DC88A">Sahih</strong> (narrated by al-Bara ibn Azib RA)</span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    You don't know if you will wake. Sleeping in a state of wudu means you meet your Lord — if you do not wake — in that state. It also keeps the angels of mercy with you through the night.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Wudu before sleep tonight. Make it the last act before you lie down. Let the night begin in purity.
+  </div>
+</div>
+
+<!-- CARD 27: Ruqyah — Three Quls -->
+<div class="card tier1" id="p27">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari</span>
+    <span class="time-chip">🌙 In Bed, Before Sleep</span>
+    <span class="card-num">PRACTICE 27</span>
+  </div>
+  <h3>Ruqyah on Himself — The Three Quls Before Sleep</h3>
+
+  <div class="arabic-block">قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</div>
+  <div class="translit">Qul huwa Allahu ahad. Allahu-s-samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</div>
+  <div class="translation">Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent. [Al-Ikhlas — 112]</div>
+
+  <div class="arabic-block" style="margin-top:0.5rem;">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ</div>
+  <div class="translit">Qul a'udhu bi-rabi-l-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharri-n-naffathati fi-l-'uqad. Wa min sharri hasidin idha hasad.</div>
+  <div class="translation">Say: I seek refuge in the Lord of the daybreak, from the evil of what He has created, from the evil of darkness when it settles, from the evil of the blowers in knots, from the evil of an envier when he envies. [Al-Falaq — 113]</div>
+
+  <div class="arabic-block" style="margin-top:0.5rem;">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ</div>
+  <div class="translit">Qul a'udhu bi-rabbi-n-nas. Maliki-n-nas. Ilahi-n-nas. Min sharri-l-waswasi-l-khannas. Alladhi yuwaswisu fi suduri-n-nas. Mina-l-jinnati wa-n-nas.</div>
+  <div class="translation">Say: I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating whisperer — who whispers in the breasts of mankind — from among jinn and mankind. [An-Nas — 114]</div>
+
+  <p class="narrative">Every night before sleep, he ﷺ would cup his hands, recite these three surahs, blow gently into his cupped palms, and then wipe his hands over his face and as much of his body as he could reach — doing this three times. Aisha RA described this practice with care and specificity. During his final illness, when he was too weak to perform the ruqyah on himself, she would do it for him — wiping his hands over his body with his own blessed hands. This nightly ruqyah was his personal spiritual armour against the vulnerabilities of the night — the fears, the dreams, the whispers that come in darkness. He faced them with Quran.</p>
+  <p class="narrative-ur">ہر رات سونے سے پہلے آپ ﷺ اپنی ہتھیلیاں جوڑتے، یہ تین سورتیں پڑھتے، ہتھیلیوں میں ہلکی پھونک مارتے، پھر چہرے اور جسم پر ہاتھ پھیرتے — تین بار۔ حضرت عائشہ رضی اللہ عنہا نے یہ عمل بڑی تفصیل سے بیان کیا۔ آپ کی آخری بیماری میں جب آپ خود نہیں کر سکتے تھے، حضرت عائشہ آپ کے ہاتھوں سے یہ کام کرتیں۔ یہ رات کی کمزوریوں کے خلاف آپ ﷺ کی ذاتی روحانی ڈھال تھی — اندھیرے کے خوف اور وسوسوں کا مقابلہ قرآن سے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of Medicine (Kitab al-Tibb), Hadith 5017 — <strong style="color:#5DC88A">Sahih</strong> (narrated by Aisha RA, also Muslim)</span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    The night brings its own fears and vulnerabilities — anxieties, intrusive thoughts, the weight of the day carried into sleep. He faced them with Quran, not with distraction. The three surahs blow into cupped hands are his prescription.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    In bed tonight: cup your hands, recite the three surahs, blow gently into your palms, wipe over your face. Three times. His personal nightly shield — now yours.
+  </div>
+</div>
+
+<!-- CARD 28: Last Two Verses of Baqarah -->
+<div class="card tier1" id="p28">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">🌙 Before Sleep</span>
+    <span class="card-num">PRACTICE 28</span>
+  </div>
+  <h3>The Last Two Verses of Surah Baqarah — Before Sleep</h3>
+
+  <div class="arabic-block medium">آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ</div>
+  <div class="translation">The Messenger has believed in what was revealed to him from his Lord, and so have the believers. All of them have believed in Allah and His angels and His books and His messengers, saying: "We make no distinction between any of His messengers." And they say: "We hear and we obey. Your forgiveness, our Lord, and to You is the final destination." [Quran 2:285]</div>
+
+  <div class="arabic-block medium" style="margin-top:0.75rem;">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ</div>
+  <div class="translation">Allah does not burden a soul beyond that it can bear. It will have the reward of what it earned, and it will bear the consequence of what it did. Our Lord, do not impose blame upon us if we forget or make an error. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people. [Quran 2:286]</div>
+
+  <p class="narrative">These two ayahs are among the most complete in the entire Quran. The first is a creed — a declaration of comprehensive faith by the Prophet and the believers, ending in surrender: "We hear and we obey." The second is the most beautiful comprehensive dua in the scripture — beginning with the most comforting truth (Allah does not burden a soul beyond its capacity) and ending with seven requests: no blame for forgetfulness, no burden like those before, no unbearable burden, pardoning, forgiveness, mercy, and victory. He ﷺ said they will "suffice" whoever recites them at night — scholars understand this as both spiritual protection and the settlement of the night's account before sleep.</p>
+  <p class="narrative-ur">یہ دو آیات پورے قرآن میں سب سے جامع آیات میں سے ہیں۔ پہلی ایمان کا اقرار ہے — سمعنا واطعنا۔ دوسری کتاب میں سب سے خوبصورت جامع دعا ہے — سب سے تسلی بخش حقیقت سے شروع ہوتی ہے (اللہ کسی کو اس کی طاقت سے زیادہ بوجھ نہیں دیتا) اور سات درخواستوں پر ختم ہوتی ہے۔ آپ ﷺ نے فرمایا: یہ دو آیات رات کو پڑھنے والے کو کافی ہوں گی۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of the Virtues of the Quran (Kitab Fada'il al-Quran), Hadith 5009; Sahih Muslim, Book of Prayer of Travellers, Hadith 807 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    End your day with the most complete statement of faith and the most beautiful plea for mercy in the Quran. "Allah does not burden a soul beyond that it can bear" — let that be the last theological truth you carry into sleep.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Recite these two ayahs before you close your eyes tonight. Read the translation first — carry the meaning with you into sleep, not just the words.
+  </div>
+</div>
+
+<!-- CARD 29: Sleep Dua -->
+<div class="card tier1" id="p29">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih / Hasan Sahih — Bukhari &amp; Abu Dawud</span>
+    <span class="time-chip">🌙 Last Words Before Sleep</span>
+    <span class="card-num">PRACTICE 29</span>
+  </div>
+  <h3>The Sleep Dua — Last Words Before Closing the Eyes</h3>
+
+  <div class="arabic-block">بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا</div>
+  <div class="translit">Bismika Allahumma amutu wa ahya</div>
+  <div class="translation">In Your name, O Allah, I die and I live.</div>
+
+  <div class="arabic-block medium" style="margin-top:0.75rem;">اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ</div>
+  <div class="translit">Allahumma qini adhabaka yawma tab'athu ibadak</div>
+  <div class="translation">O Allah, protect me from Your punishment on the Day You resurrect Your servants.</div>
+
+  <p class="narrative">These were his last words before sleep — not a mechanical recitation but a theological statement. "In Your name I die and I live" — not poetry, but truth. Sleep is a taking of the soul. He was acknowledging, at the threshold of unconsciousness, that his life and his death were both in Allah's name. Every night he made this surrender explicit. He also paired this with the dua asking for protection from punishment on the Day of Resurrection — connecting the small death of sleep to the great death ahead. Both duas together are a complete orientation: the soul surrendered to Allah in the name of Allah, asking for protection until the final account.</p>
+  <p class="narrative-ur">یہ ان کے سونے سے پہلے کے آخری الفاظ تھے — کوئی رسمی ورد نہیں بلکہ ایک عقیدی بیان۔ "تیرے نام پر مرتا اور جیتا ہوں" — شاعری نہیں، سچائی۔ نیند روح کا قبض کیا جانا ہے۔ آپ ﷺ لاشعوری کی دہلیز پر یہ اقرار کرتے تھے کہ ان کی زندگی اور موت دونوں اللہ کے نام پر ہیں۔ ہر رات انہوں نے یہ تسلیم صراحت سے کی۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sleep dua (amutu wa ahya): Sahih Bukhari, Book of Invocations (Kitab al-Da'awat), Hadith 6311, Hadith 6324 — <strong style="color:#5DC88A">Sahih</strong>; Dua for protection from punishment: Sunan Abu Dawud, Hadith 5045; Sunan al-Tirmidhi, Hadith 3401 — <strong style="color:#7AABF0">Hasan Sahih</strong></span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    What are your last words before sleep? He chose surrender — complete, explicit, theological surrender. "In Your name I die and I live" is the most honest thing a person can say at the edge of sleep.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Make "Bismika Allahumma amutu wa ahya" your literal last words before sleep — after everything else, after the phone is down, after the light is off. Let surrender be the last conscious act.
+  </div>
+</div>
+
+<!-- CARD 30: Sleeping on the Right Side -->
+<div class="card tier2" id="p30">
+  <div class="card-meta">
+    <span class="badge badge-hasan-s">◈ Sahih / Hasan Sahih — Bukhari &amp; Abu Dawud</span>
+    <span class="time-chip">🌙 Sleeping Position</span>
+    <span class="card-num">PRACTICE 30</span>
+  </div>
+  <h3>Sleeping on the Right Side — Even Sleep Had Sunnah</h3>
+
+  <div class="arabic-block small">اجْعَلْ يَمِينَكَ تَحْتَ خَدِّكَ الأَيْمَنِ</div>
+  <div class="translit">Ij'al yaminaka tahta khaddika-l-ayman</div>
+  <div class="translation">"Place your right hand under your right cheek."</div>
+
+  <p class="narrative">His sleeping position was specific and documented: on his right side, right hand placed under his right cheek. Multiple narrations confirm this as his established practice. It is part of the same comprehensive bedtime routine taught to al-Bara ibn Azib RA — wudu, right side, sleep dua. The right side carries consistent significance across the Sunnah: he used his right hand for eating, for greeting, for giving. Even in sleep, his body maintained a deliberate, sunnah orientation. Modern cardiac research independently notes that sleeping on the right side is optimal for heart position — the heart sits slightly toward the left in the chest, and right-side sleeping reduces compression on it.</p>
+  <p class="narrative-ur">آپ ﷺ کی سونے کی پوزیشن مخصوص اور دستاویزی ہے: دائیں کروٹ پر، دایاں ہاتھ دائیں گال کے نیچے۔ متعدد روایات اسے آپ کا مستقل عمل ثابت کرتی ہیں۔ یہ حضرت براء بن عازب کو سکھائے گئے جامع سونے کے معمول کا حصہ ہے۔ دائیں جانب پوری سنت میں مستقل اہمیت رکھتا ہے — کھانے، سلام کرنے، دینے میں۔ حتی کہ نیند میں بھی آپ ﷺ کے جسم نے ایک ارادی، سنت رخ اختیار کیا۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of Invocations, Hadith 6311 — <strong style="color:#5DC88A">Sahih</strong>; Right hand under cheek: Sunan Abu Dawud, Hadith 5045 — <strong style="color:#7AABF0">Hasan Sahih</strong></span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Even his sleep had sunnah — every moment of the day and night was a potential act of worship. The right side is not just tradition; it is a deliberate orientation that runs through the entire fabric of his practice.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Right side. Right hand under right cheek. Before you do anything else in bed — make this physical intention. It takes one second and completes the bedtime sunnah.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ PERIOD 10: TAHAJJUD -->
+<div class="period-header">
+  <span class="ph-icon">🌟</span>
+  <h2>Period 10 — Tahajjud: The Night Prayer</h2>
+  <span class="ph-ar">قيام الليل</span>
+</div>
+
+<div class="tahajjud-banner">
+  <span class="tb-icon">🌟</span>
+  <div class="tb-text">THE MOST IMPORTANT SECTION OF THIS FILE</div>
+  <div style="font-family:var(--font-arab);font-size:0.95rem;color:var(--text-dim);direction:rtl;margin-top:0.4rem;">وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ عَسَىٰ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا</div>
+  <div style="font-size:0.83rem;color:var(--text-dim);margin-top:0.4rem;">"And from the night, pray with it as additional worship for you. Your Lord will resurrect you to a praised station." — Quran 17:79</div>
+</div>
+
+<!-- CARD 31: Tahajjud -->
+<div class="card tier1" id="p31">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">🌟 Last Third of the Night</span>
+    <span class="card-num">PRACTICE 31</span>
+  </div>
+  <h3>Tahajjud — The Prayer He Never Abandoned</h3>
+
+  <div class="arabic-block">
+    أَفَلَا أَكُونُ عَبْدًا شَكُورًا
+  </div>
+  <div class="translit">Afala akunu 'abdan shakura</div>
+  <div class="translation">"Should I not be a grateful servant?"</div>
+
+  <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:1rem;font-style:italic;">Aisha RA asked him ﷺ: "Why do you do this when Allah has forgiven your past and future sins?" This was his answer.</p>
+
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">He Prayed Until His Feet Swelled — Sahih Bukhari 1130</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">Aisha RA: "He ﷺ would pray at night until his feet became swollen. I said: 'O Messenger of Allah, why do you do this when Allah has already forgiven your past and future sins?' He said: 'Should I not be a grateful servant?'" <em>(Sahih Bukhari, Book of Tahajjud, Hadith 1130; Sahih Muslim, Hadith 2819 — Sahih)</em></div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">The Best Prayer After the Obligatory · أفضل الصلاة</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">أَفْضَلُ الصَّلَاةِ بَعْدَ الْفَرِيضَةِ صَلَاةُ اللَّيْلِ</div>
+    <div class="translit" style="font-size:0.82rem;">Afdalu-s-salati ba'da-l-farida salatu-l-layl</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);margin-bottom:0.3rem;">"The best prayer after the obligatory is the night prayer."</div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim);">📚 Sahih Muslim, Book of Fasting (Kitab al-Siyam), Hadith 1163 — Sahih</div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">The Divine Descent — Last Third of the Night · النزول الإلهي</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">يَنْزِلُ رَبُّنَا تَبَارَكَ وَتَعَالَى كُلَّ لَيْلَةٍ إِلَى السَّمَاءِ الدُّنْيَا حِينَ يَبْقَى ثُلُثُ اللَّيْلِ الْآخِرُ فَيَقُولُ مَنْ يَدْعُونِي فَأَسْتَجِيبَ لَهُ مَنْ يَسْأَلُنِي فَأُعْطِيَهُ مَنْ يَسْتَغْفِرُنِي فَأَغْفِرَ لَهُ</div>
+    <div class="translit" style="font-size:0.81rem;">Yanzilu rabbuna tabaraka wa ta'ala kulla laylatin ila-s-sama'i-d-dunya hina yabqa thuluthu-l-layli-l-akhiru fa-yaqulu: man yad'uni fa-astajiba lah, man yas'aluni fa-u'tiyah, man yastaghfiruni fa-aghfira lah</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);margin-bottom:0.3rem;">"Our Lord descends to the lowest heaven in the last third of every night and says: Who is calling upon Me that I may answer? Who is asking of Me that I may give? Who is seeking My forgiveness that I may forgive?"</div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim);">📚 Sahih Bukhari, Book of Tahajjud (Kitab al-Tahajjud), Hadith 1145; Sahih Muslim, Book of Prayer of Travellers, Hadith 758 — Sahih</div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">How He Prayed — Number of Rakats · عدد الركعات</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">Aisha RA: "He ﷺ never exceeded eleven rakats in Ramadan or other months." His typical pattern: 8 rakats of tahajjud + 3 Witr. <em>(Sahih Bukhari, Book of Tahajjud, Hadith 1147 — Sahih)</em> The minimum is two rakats — he said: "The night prayer is two rakats by two rakats." <em>(Sahih Bukhari 990 — Sahih)</em></div>
+  </div>
+
+  <div class="note-box">
+    <span class="note-label">📋 Scholarly Note — Obligatory for the Prophet ﷺ, Recommended for the Ummah</span>
+    Tahajjud was specifically obligatory for the Prophet ﷺ (Quran 73:2–4). For the ummah it is the most recommended voluntary prayer — not obligatory. Scholars across all schools of fiqh are unanimous that it was his most consistent practice beyond the five obligatory prayers and the most recommended voluntary act of worship for believers.
+  </div>
+
+  <p class="narrative">Tahajjud was not an "extra" for him ﷺ — it was the foundation. He prayed it every night of his adult life: in Makkah when he was persecuted, in Madinah when he was statesman and prophet simultaneously, while travelling, during illness, in times of grief and in times of joy. It was where the Quran was first revealed — in the quiet of the night. It was the prayer of every prophet before him. It is where the deepest intimacy with Allah is accessible in this life. He said the closest you are to Allah is in the last third of the night — and he was there, every night, standing on swollen feet out of gratitude for an already-forgiven soul. He did not pray tahajjud because he needed to. He prayed it because he wanted to.</p>
+  <p class="narrative-ur">تہجد آپ ﷺ کے لیے "اضافی" نہیں تھی — یہ بنیاد تھی۔ آپ نے اپنی پوری بالغ زندگی میں ہر رات یہ نماز ادا کی: مکہ میں جب ستائے جاتے تھے، مدینہ میں جب بیک وقت رہنما اور نبی تھے، سفر میں، بیماری میں، غم اور خوشی دونوں میں۔ یہیں قرآن نازل ہوا — رات کی خاموشی میں۔ یہ ان تمام انبیاء کی نماز تھی جو آپ سے پہلے آئے۔ آپ نے تہجد اس لیے نہیں پڑھی کہ ضرورت تھی۔ آپ نے اس لیے پڑھی کیونکہ چاہتے تھے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Feet swollen: Sahih Bukhari, Kitab al-Tahajjud, Hadith 1130; Muslim 2819 — <strong style="color:#5DC88A">Sahih</strong> | Best prayer: Muslim 1163 — <strong style="color:#5DC88A">Sahih</strong> | Divine descent: Bukhari 1145, Muslim 758 — <strong style="color:#5DC88A">Sahih</strong> | 11 rakats: Bukhari 1147 — <strong style="color:#5DC88A">Sahih</strong> | Quran 17:79; 73:2–4</span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Every prophet was known for their night prayer. Every wali is described by their tahajjud. The last third of the night is when Allah asks: "Who is calling upon Me?" — and He is already there, already descending, already asking. The question is only whether we are awake.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Set an alarm for 30 minutes before Fajr. Pray just two rakats. Make your dua in sujood. Begin tonight — not next week, not in Ramadan. Tonight. The Lord descends every night.
+  </div>
+</div>
+
+<!-- CARD 32: Witr -->
+<div class="card tier1" id="p32">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">🌟 After Tahajjud — Before Fajr</span>
+    <span class="card-num">PRACTICE 32</span>
+  </div>
+  <h3>Witr — The Seal of the Night Prayer</h3>
+
+  <div class="arabic-block medium">اجْعَلُوا آخِرَ صَلَاتِكُمْ بِاللَّيْلِ وِتْرًا</div>
+  <div class="translit">Ij'alu akhira salatikum bi-l-layli witran</div>
+  <div class="translation">"Make Witr the last of your night prayer."</div>
+
+  <div class="arabic-block" style="margin-top:0.75rem;">اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ وَعَافِنِي فِيمَنْ عَافَيْتَ وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ وَبَارِكْ لِي فِيمَا أَعْطَيْتَ وَقِنِي شَرَّ مَا قَضَيْتَ فَإِنَّكَ تَقْضِي وَلَا يُقْضَى عَلَيْكَ وَإِنَّهُ لَا يَذِلُّ مَنْ وَالَيْتَ وَلَا يَعِزُّ مَنْ عَادَيْتَ تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ</div>
+  <div class="translit">Allahumma-hdini fiman hadayt, wa 'afini fiman 'afayt, wa tawallani fiman tawallayt, wa barik li fima a'tayt, wa qini sharra ma qadayt — fa-innaka taqdi wa la yuqda 'alayk, wa innahu la yadhillu man walayt, wa la ya'izzu man 'adayt, tabarakta rabbana wa ta'alayt</div>
+  <div class="translation">O Allah, guide me among those You have guided, grant me wellbeing among those You have granted wellbeing, take me as an ally among those You have taken as allies, bless me in what You have given, and protect me from the evil of what You have decreed — for You decree and none decrees against You. Indeed, he is not humiliated whom You befriend, nor is he honoured whom You oppose. Blessed are You, our Lord, and Exalted.</div>
+
+  <p class="narrative">Witr — the odd-numbered prayer that seals the night — was something he ﷺ never abandoned, whether at home or travelling. He commanded the believers to make it the last prayer of the night. The number of rakats: minimum one, his practice was typically three. He taught the dua of Qunoot above to his grandson al-Hasan ibn Ali RA to recite in Witr. Witr is the mathematical completion of the night's worship — the even made odd, the account formally closed. He would not leave the night unsealed. Every night of tahajjud ended with Witr, and the night was complete.</p>
+  <p class="narrative-ur">وتر — طاق رکعت والی نماز جو رات کو مہر کرتی ہے — آپ ﷺ نے گھر ہو یا سفر، کبھی نہیں چھوڑی۔ آپ نے اسے رات کی آخری نماز بنانے کا حکم دیا۔ رکعتوں کی تعداد: کم از کم ایک، آپ کا عمل عموماً تین تھا۔ آپ نے یہ دعائے قنوت اپنے نواسے حضرت حسن بن علی رضی اللہ عنہ کو وتر میں پڑھنے کے لیے سکھائی۔ تہجد کی ہر رات وتر پر ختم ہوتی اور رات مکمل ہو جاتی۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Witr as last prayer: Sahih Bukhari, Book of Witr (Kitab al-Witr), Hadith 998; Sahih Muslim, Hadith 751 — <strong style="color:#5DC88A">Sahih</strong> | Never abandoned: Sahih Bukhari, Hadith 999 — <strong style="color:#5DC88A">Sahih</strong> | Qunoot: Sunan Abu Dawud, Hadith 1425; Sunan al-Tirmidhi, Hadith 464 — <strong style="color:#7AABF0">Hasan Sahih</strong></span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    End your night prayer as he ﷺ ended his — with Witr, with the Qunoot dua, with the formal sealing of the night's worship. Even if you cannot pray tahajjud tonight, pray at least Witr. The night should not be left unsealed.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    If you cannot pray tahajjud tonight — pray at minimum one rakat of Witr before sleep. Recite the Qunoot dua above. Seal your night.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ PERIOD 11: CHARACTER & WEEKLY -->
+<div class="period-header">
+  <span class="ph-icon">✨</span>
+  <h2>Period 11 — Character &amp; Weekly Practices</h2>
+  <span class="ph-ar">الأخلاق والأعمال الأسبوعية</span>
+</div>
+
+<!-- CARD 33: His Character at Home -->
+<div class="card tier1" id="p33">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari</span>
+    <span class="time-chip">✨ At Home, Daily</span>
+    <span class="card-num">PRACTICE 33</span>
+  </div>
+  <h3>His Character at Home — The Hidden Sunnah</h3>
+
+  <div class="arabic-block medium">كَانَ يَكُونُ فِي مِهْنَةِ أَهْلِهِ فَإِذَا حَضَرَتِ الصَّلَاةُ خَرَجَ إِلَى الصَّلَاةِ</div>
+  <div class="translit">Kana yakunu fi mihnati ahlihi — fa-idha hadarat-is-salatu kharaja ila-s-salah</div>
+  <div class="translation">"He would be helping his family with their work — and when the time for prayer came, he would go out to prayer."</div>
+  <p style="font-size:0.83rem;color:var(--text-dim);margin-bottom:1rem;">Aisha RA was asked: "What did the Prophet ﷺ do at home?" This was her answer. She also said: "He would sew his sandals, patch his clothes, and help with housework — just as any of you would help in his home." <em>(Sahih Bukhari, Book of Good Manners, Hadith 676 — Sahih)</em></p>
+
+  <p class="narrative">He was the Messenger of Allah, the leader of the first Muslim community, the recipient of revelation — and he sewed his own sandals, patched his own clothes, milked his own goats, and helped in the home. There was no gap between who he was in the masjid and who he was at home. Aisha RA lived with him — she would have known if there was any difference between the public prophet and the private person. There was none. His home was not the place where the mask came off; it was where the same person continued, in a smaller, more intimate register. The domestic was not beneath him. It was part of his sunnah — perhaps the most personal and most difficult to imitate of all.</p>
+  <p class="narrative-ur">آپ اللہ کے رسول تھے، پہلی مسلم جماعت کے رہنما، وحی کے وصول کنندہ — اور آپ اپنے جوتے خود سیتے تھے، کپڑے خود پیوند کرتے تھے، بکریاں خود دوہتے تھے، گھر کے کام میں ہاتھ بٹاتے تھے۔ مسجد کے آپ ﷺ اور گھر کے آپ ﷺ میں کوئی فرق نہیں تھا۔ حضرت عائشہ رضی اللہ عنہا ان کے ساتھ رہتی تھیں — اگر کوئی فرق ہوتا تو انہیں ضرور معلوم ہوتا۔ کوئی فرق نہیں تھا۔ گھر کا کام ان کے لیے کمتر نہیں تھا۔ یہ ان کی سنت کا حصہ تھا۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of Good Manners (Kitab al-Adab), Hadith 676 — <strong style="color:#5DC88A">Sahih</strong> (narrated by Aisha RA via al-Aswad ibn Yazid)</span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Spirituality that only exists in the masjid is incomplete. His sunnah was total — it ran through the prayer hall and the kitchen with equal integrity. The person who prays tahajjud but does not help at home has not yet fully followed him ﷺ.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Do one household task today that you would normally leave for someone else. Wash the dishes. Make the bed. Fold the laundry. His sunnah is waiting in the ordinary.
+  </div>
+</div>
+
+<!-- CARD 34: Friday Practices -->
+<div class="card tier1" id="p34">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Muslim / Bukhari</span>
+    <span class="time-chip">✨ Every Friday</span>
+    <span class="card-num">PRACTICE 34</span>
+  </div>
+  <h3>Friday — The Weekly Eid</h3>
+
+  <div class="arabic-block medium">خَيْرُ يَوْمٍ طَلَعَتْ عَلَيْهِ الشَّمْسُ يَوْمُ الْجُمُعَةِ</div>
+  <div class="translit">Khayru yawmin tala'at 'alayhi-sh-shamsu yawmu-l-jumu'ah</div>
+  <div class="translation">"Friday is the best day the sun rises upon."</div>
+
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">34a — Surah Al-Kahf on Friday · سورة الكهف</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">"Whoever reads Surah Al-Kahf on Friday, a light will shine for him between the two Fridays." <em>(Mustadrak al-Hakim 2:399; authenticated by Imam al-Albani — Sahih)</em></div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">34b — Abundant Salawat · الصلاة على النبي ﷺ</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);">"Send abundant salawat on me on Friday, for your salawat is presented to me." <em>(Sunan Abu Dawud, Hadith 1047; Sunan Ibn Majah, Hadith 1636 — Sahih)</em></div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">34c — Ghusl on Friday · الغسل</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">"The ghusl on Friday is obligatory upon every adult." <em>(Sahih Bukhari, Book of Friday, Hadith 877 — Sahih)</em></div>
+    <div class="note-box" style="margin-top:0.5rem;font-size:0.8rem;">
+      <span class="note-label">📋 Scholarly Note</span>
+      The Hanbali school holds Friday ghusl as wajib (obligatory). The Shafi'i, Maliki, and Hanafi schools hold it as sunnah mu'akkadah (strongly recommended). This difference is well-documented. All schools agree it is one of the most emphasised sunnahs of the week.
+    </div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">34d — The Hidden Hour of Acceptance · ساعة الإجابة</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">"There is an hour on Friday in which, if a Muslim is standing in prayer and asks Allah for something, He gives it to him." — Scholars say: most likely the last hour before Maghrib on Friday. Be present in dua at that time. <em>(Sahih Bukhari, Book of Friday, Hadith 935; Sahih Muslim, Book of Friday, Hadith 852 — Sahih)</em></div>
+  </div>
+
+  <p class="narrative">Friday was the weekly Eid — not in the sense of celebration alone but in the sense of distinct spiritual elevation. Its practices are specific, sourced, and layered: ghusl to prepare the body, Surah Al-Kahf to light the week ahead, salawat to connect with the Prophet ﷺ whose salawat are presented to him, and the hidden hour of acceptance to close it with dua. The Prophet ﷺ elevated Friday beyond the obligation of Jumu'ah — the day itself was to be treated as the best day of the week in every practice.</p>
+  <p class="narrative-ur">جمعہ ہفتہ وار عید تھی — صرف خوشی کے معنی میں نہیں بلکہ روحانی بلندی کے لحاظ سے۔ اس کے اعمال مخصوص، مستند اور تہہ دار ہیں: جسم کی تیاری کے لیے غسل، آنے والے ہفتے کو روشن کرنے کے لیے سورۃ الکہف، نبی ﷺ سے تعلق کے لیے درود، اور قبولیت کی پوشیدہ گھڑی کو دعا سے بند کرنا۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Best day: Sahih Muslim, Book of Friday (Kitab al-Jumu'ah), Hadith 854 — <strong style="color:#5DC88A">Sahih</strong> | Al-Kahf: al-Hakim 2:399 — <strong style="color:#5DC88A">Sahih (al-Albani)</strong> | Salawat: Abu Dawud 1047, Ibn Majah 1636 — <strong style="color:#5DC88A">Sahih</strong> | Ghusl: Bukhari 877 — <strong style="color:#5DC88A">Sahih</strong> | Hidden hour: Bukhari 935, Muslim 852 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Friday is the highest day of the week — not by cultural tradition but by prophetic designation. Its practices are complete, specific, and accessible. Each one takes minutes. Together they mark the week's spiritual peak.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today (This Friday)</span>
+    Begin with ghusl. Read Surah Al-Kahf — even in parts. Increase salawat. Before Maghrib on Friday: stand in dua. Let the best day of the week be treated as such.
+  </div>
+</div>
+
+<!-- CARD 35: Monday Thursday Fasting -->
+<div class="card tier1" id="p35">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Muslim</span>
+    <span class="time-chip">✨ Monday &amp; Thursday</span>
+    <span class="card-num">PRACTICE 35</span>
+  </div>
+  <h3>Monday and Thursday Fasting — Presenting Deeds in the Best State</h3>
+
+  <div class="arabic-block">ذَانِكَ يَوْمَانِ تُعْرَضُ فِيهِمَا الْأَعْمَالُ عَلَى رَبِّ الْعَالَمِينَ فَأُحِبُّ أَنْ يُعْرَضَ عَمَلِي وَأَنَا صَائِمٌ</div>
+  <div class="translit">Dhanika yawmani tu'radu fihima-l-a'malu 'ala rabbi-l-'alamin, fa-uhibbu an yu'rada 'amali wa ana sa'im</div>
+  <div class="translation">"Those are two days on which deeds are presented to the Lord of the worlds, and I love that my deeds are presented while I am fasting."</div>
+
+  <p class="narrative">This was his most consistent voluntary fast — not Ramadan, which is obligatory, but the weekly Monday and Thursday fast that he maintained throughout his life. He was asked why he observed these two days specifically, and his answer was both simple and profound: deeds are presented to Allah on Monday and Thursday, and he wanted his deeds to reach Allah while he was fasting. He was also asked about Monday specifically, and he said: "That is the day I was born, the day I received revelation, and the day I died — and I love to fast on it." (Sahih Muslim 1162). The fast was his way of managing the presentation of his life's work to his Lord.</p>
+  <p class="narrative-ur">یہ آپ ﷺ کا سب سے مستقل نفل روزہ تھا — رمضان نہیں جو فرض ہے، بلکہ ہفتہ وار پیر اور جمعرات کا روزہ جو آپ نے پوری زندگی رکھا۔ آپ ﷺ سے ان دو دنوں کی وجہ پوچھی گئی تو آپ نے سادہ اور گہرا جواب دیا: پیر اور جمعرات کو اعمال اللہ کے سامنے پیش ہوتے ہیں، اور آپ چاہتے تھے کہ ان کے اعمال روزے کی حالت میں پیش ہوں۔ پیر کے بارے میں آپ نے فرمایا: "یہ وہ دن ہے جس میں میری ولادت ہوئی، مجھ پر وحی نازل ہوئی اور میں نے وفات پائی۔"</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Muslim, Book of Fasting (Kitab al-Siyam), Hadith 1162 — <strong style="color:#5DC88A">Sahih</strong>; Monday's significance: Sahih Muslim 1162 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    You can choose what state your deeds are in when they are presented to Allah. He chose fasting — the act of restraint and gratitude that prepares the soul. Monday and Thursday come every week. The choice is weekly.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Try fasting next Monday or Thursday. Start with one day — begin with the intention tonight. His practice was both days; your beginning is one.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ CLOSING: CIRCLE OF THE DAY -->
+<div style="margin:3rem 0 1rem;text-align:center;">
+  <div style="font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;margin-bottom:0.25rem;">The Circle of His Day</div>
+  <div style="font-family:var(--font-arab);font-size:0.9rem;color:var(--text-dim);direction:rtl;">دائرة يومه ﷺ — من الاستيقاظ إلى النوم</div>
+</div>
+
+<div class="timeline-section" id="timeline">
+  <div class="timeline-title">24 Hours with the Prophet ﷺ</div>
+  <div class="timeline-subtitle">من الفجر إلى التهجد — كل لحظة عبادة</div>
+
+  <!-- ROW 1: pre-dawn to mid-morning -->
+  <div style="margin-bottom:1.5rem;">
+    <div style="font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.14em;color:var(--text-dim);text-transform:uppercase;margin-bottom:0.75rem;padding-left:0.25rem;">🌙 Pre-Dawn → Morning</div>
+    <div style="position:relative;">
+      <div style="position:absolute;top:22px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,var(--gold-dim),var(--gold-mid),var(--gold-dim));z-index:0;"></div>
+      <div class="timeline-nodes">
+        <div class="tl-node"><div class="tl-icon">🌙</div><a href="#p29"><div class="tl-dot"></div></a><div class="tl-label">Wake<br/>Dua</div></div>
+        <div class="tl-node"><div class="tl-icon">🪥</div><a href="#p23"><div class="tl-dot"></div></a><div class="tl-label">Miswak<br/>&amp; Wudu</div></div>
+        <div class="tl-node"><div class="tl-icon">🤲</div><a href="#p31"><div class="tl-dot" style="border-color:var(--teal)"></div></a><div class="tl-label" style="color:var(--teal)">2 Rakats<br/>Fajr</div></div>
+        <div class="tl-node"><div class="tl-icon">☀️</div><a href="#p23"><div class="tl-dot" style="border-color:#5DC88A"></div></a><div class="tl-label" style="color:#5DC88A">Fajr<br/>Prayer</div></div>
+        <div class="tl-node"><div class="tl-icon">📿</div><a href="#p23"><div class="tl-dot"></div></a><div class="tl-label">Morning<br/>Adhkar</div></div>
+        <div class="tl-node"><div class="tl-icon">🌴</div><a href="#p33"><div class="tl-dot"></div></a><div class="tl-label">Breakfast<br/>Dates</div></div>
+        <div class="tl-node"><div class="tl-icon">🌅</div><a href="#p32"><div class="tl-dot" style="border-color:var(--teal)"></div></a><div class="tl-label" style="color:var(--teal)">Duha<br/>Prayer</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: midday -->
+  <div style="margin-bottom:1.5rem;">
+    <div style="font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.14em;color:var(--text-dim);text-transform:uppercase;margin-bottom:0.75rem;padding-left:0.25rem;">☀️ Midday → Afternoon</div>
+    <div style="position:relative;">
+      <div style="position:absolute;top:22px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,var(--gold-dim),var(--gold-mid),var(--gold-dim));z-index:0;"></div>
+      <div class="timeline-nodes">
+        <div class="tl-node"><div class="tl-icon">🕌</div><a href="#p31"><div class="tl-dot" style="border-color:#5DC88A"></div></a><div class="tl-label" style="color:#5DC88A">4 Sunnah<br/>Dhuhr</div></div>
+        <div class="tl-node"><div class="tl-icon">🕐</div><a href="#p31"><div class="tl-dot" style="border-color:#5DC88A"></div></a><div class="tl-label" style="color:#5DC88A">Dhuhr<br/>Fard</div></div>
+        <div class="tl-node"><div class="tl-icon">📿</div><a href="#p31"><div class="tl-dot"></div></a><div class="tl-label">2 Sunnah<br/>Dhuhr</div></div>
+        <div class="tl-node"><div class="tl-icon">💤</div><a href="#p33"><div class="tl-dot"></div></a><div class="tl-label">Qailulah<br/>Rest</div></div>
+        <div class="tl-node"><div class="tl-icon">🕓</div><a href="#p31"><div class="tl-dot" style="border-color:#5DC88A"></div></a><div class="tl-label" style="color:#5DC88A">Asr<br/>Fard</div></div>
+        <div class="tl-node"><div class="tl-icon">📿</div><a href="#p23"><div class="tl-dot"></div></a><div class="tl-label">Evening<br/>Adhkar</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3: evening to night -->
+  <div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.14em;color:var(--text-dim);text-transform:uppercase;margin-bottom:0.75rem;padding-left:0.25rem;">🌆 Evening → Night → Tahajjud</div>
+    <div style="position:relative;">
+      <div style="position:absolute;top:22px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,var(--gold-dim),var(--gold-mid),var(--gold-dim));z-index:0;"></div>
+      <div class="timeline-nodes">
+        <div class="tl-node"><div class="tl-icon">🕕</div><a href="#p24"><div class="tl-dot" style="border-color:#5DC88A"></div></a><div class="tl-label" style="color:#5DC88A">Maghrib<br/>+ 2</div></div>
+        <div class="tl-node"><div class="tl-icon">🌙</div><a href="#p24"><div class="tl-dot" style="border-color:#5DC88A"></div></a><div class="tl-label" style="color:#5DC88A">Isha<br/>+ 2</div></div>
+        <div class="tl-node"><div class="tl-icon">🛁</div><a href="#p26"><div class="tl-dot"></div></a><div class="tl-label">Wudu<br/>Sleep</div></div>
+        <div class="tl-node"><div class="tl-icon">📖</div><a href="#p28"><div class="tl-dot"></div></a><div class="tl-label">Baqarah<br/>285-286</div></div>
+        <div class="tl-node"><div class="tl-icon">🤲</div><a href="#p27"><div class="tl-dot"></div></a><div class="tl-label">3 Quls<br/>Ruqyah</div></div>
+        <div class="tl-node"><div class="tl-icon">😴</div><a href="#p29"><div class="tl-dot"></div></a><div class="tl-label">Sleep<br/>Dua</div></div>
+        <div class="tl-node"><div class="tl-icon">🌟</div><a href="#p31"><div class="tl-dot" style="border-color:var(--gold);background:rgba(201,168,76,0.2)"></div></a><div class="tl-label" style="color:var(--gold)">Tahajjud<br/>+ Witr</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;">
+    <div style="display:flex;align-items:center;gap:0.4rem;font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.06em;color:var(--text-dim);">
+      <div style="width:8px;height:8px;border-radius:50%;border:2px solid #5DC88A;"></div> Obligatory Prayer
+    </div>
+    <div style="display:flex;align-items:center;gap:0.4rem;font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.06em;color:var(--text-dim);">
+      <div style="width:8px;height:8px;border-radius:50%;border:2px solid var(--teal);"></div> Sunnah Prayer
+    </div>
+    <div style="display:flex;align-items:center;gap:0.4rem;font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.06em;color:var(--text-dim);">
+      <div style="width:8px;height:8px;border-radius:50%;border:2px solid var(--gold);background:rgba(201,168,76,0.2)"></div> Tahajjud
+    </div>
+    <div style="display:flex;align-items:center;gap:0.4rem;font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.06em;color:var(--text-dim);">
+      <div style="width:8px;height:8px;border-radius:50%;border:2px solid var(--gold);"></div> Practice / Dhikr
+    </div>
+  </div>
+</div>
+
+</div><!-- .wrapper -->
+
+<footer>
+  <span>Al-Maktaba</span> · Daily Sunnah Series · Part 3 of 3 · Evening, Night &amp; Sleep<br/>
+  All practices sourced from authenticated hadith collections with explicit hadith numbers and grades.<br/>
+  No practice included without a primary source citation. Series complete: Parts 1–3.
+</footer>
+
+<script>
+function setLang(lang) {
+  if (lang === 'ur') {
+    document.body.classList.add('ur-mode');
+    document.getElementById('btn-en').classList.remove('active');
+    document.getElementById('btn-ur').classList.add('active');
+    document.documentElement.setAttribute('lang','ur');
+  } else {
+    document.body.classList.remove('ur-mode');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ur').classList.remove('active');
+    document.documentElement.setAttribute('lang','en');
+  }
+}
+
+const practices = [
+  {
+    name: "Sayyid al-Istighfar — Evening",
+    arabic: "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ",
+    translit: "Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana 'abduka...",
+    trans: "O Allah, You are my Lord, there is no god but You. You created me and I am Your servant...",
+    how: "Say the full Sayyid al-Istighfar once after Maghrib tonight with conviction. The Prophet ﷺ said: whoever says it and dies before morning enters Paradise.",
+    source: "📚 Sahih Bukhari, Kitab al-Da'awat, Hadith 6306 — Sahih"
+  },
+  {
+    name: "The Sleep Dua — Last Words",
+    arabic: "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+    translit: "Bismika Allahumma amutu wa ahya",
+    trans: "In Your name, O Allah, I die and I live.",
+    how: "Make this your literal last words before sleep tonight — after the light is off, after the phone is down. Let surrender be the final act of the day.",
+    source: "📚 Sahih Bukhari, Kitab al-Da'awat, Hadith 6311 — Sahih"
+  },
+  {
+    name: "Tahajjud — Begin Tonight",
+    arabic: "أَفَلَا أَكُونُ عَبْدًا شَكُورًا",
+    translit: "Afala akunu 'abdan shakura",
+    trans: "'Should I not be a grateful servant?' — His answer when asked why he prayed until his feet swelled.",
+    how: "Set an alarm for 30 minutes before Fajr tonight. Pray just two rakats. Make one sincere dua in sujood. The Lord descends asking: who is calling upon Me?",
+    source: "📚 Sahih Bukhari, Kitab al-Tahajjud, Hadith 1130 — Sahih"
+  },
+  {
+    name: "Witr — Seal Your Night",
+    arabic: "اجْعَلُوا آخِرَ صَلَاتِكُمْ بِاللَّيْلِ وِتْرًا",
+    translit: "Ij'alu akhira salatikum bi-l-layli witran",
+    trans: "Make Witr the last of your night prayer.",
+    how: "Tonight: pray at minimum one rakat of Witr before sleep. Recite the Qunoot dua. Seal your night as he ﷺ sealed his.",
+    source: "📚 Sahih Bukhari, Kitab al-Witr, Hadith 998 — Sahih"
+  },
+  {
+    name: "Qunoot of Witr",
+    arabic: "اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ وَعَافِنِي فِيمَنْ عَافَيْتَ",
+    translit: "Allahumma-hdini fiman hadayt, wa 'afini fiman 'afayt...",
+    trans: "O Allah, guide me among those You have guided, grant me wellbeing among those You have granted wellbeing...",
+    how: "Recite this in the last rakat of Witr, after ruku, hands raised. It was taught by the Prophet ﷺ to his grandson al-Hasan RA.",
+    source: "📚 Sunan Abu Dawud, Hadith 1425; Tirmidhi, Hadith 464 — Hasan Sahih"
+  },
+  {
+    name: "Wudu Before Sleep",
+    arabic: "إِذَا أَتَيْتَ مَضْجَعَكَ فَتَوَضَّأْ وُضُوءَكَ لِلصَّلَاةِ",
+    translit: "Idha atayta madja'aka fa-tawadda' wudu'aka lil-salah",
+    trans: "When you go to your bed, perform wudu as you do for prayer.",
+    how: "Wudu before sleep tonight. The angels of mercy remain with you through the night when you sleep in wudu. You don't know if you will wake — meet that possibility in purity.",
+    source: "📚 Sahih Bukhari, Kitab al-Wudu, Hadith 247 — Sahih"
+  },
+  {
+    name: "Protection from Evil — Evening",
+    arabic: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+    translit: "A'udhu bi-kalimatillahi-t-tammati min sharri ma khalaq",
+    trans: "I seek refuge in the perfect words of Allah from the evil of what He has created.",
+    how: "Say this three times this evening. It takes ten seconds. The Prophet ﷺ said nothing will harm you until morning.",
+    source: "📚 Sahih Muslim, Kitab al-Dhikr, Hadith 2708 — Sahih"
+  }
+];
+
+function loadToday() {
+  const d = new Date();
+  const dayOfYear = Math.floor((d - new Date(d.getFullYear(),0,0)) / 86400000);
+  const idx = (dayOfYear + 14) % practices.length;
+  const p = practices[idx];
+  document.getElementById('today-name').textContent = p.name;
+  document.getElementById('today-arabic').textContent = p.arabic;
+  document.getElementById('today-translit').textContent = p.translit;
+  document.getElementById('today-trans').textContent = p.trans;
+  document.getElementById('today-how').textContent = p.how;
+  document.getElementById('today-source').textContent = p.source;
+}
+loadToday();
+</script>
+</body>
+</html>

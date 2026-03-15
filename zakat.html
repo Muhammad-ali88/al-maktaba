@@ -887,7 +887,7 @@ function calc() {
 // ═══════════════════════════════════════
 function calculateZakat() {
   if (!goldPrice) {
-    alert('Please enter today's gold price per gram in Step 1 first.');
+    alert("Please enter today's gold price per gram in Step 1 first.");
     document.getElementById('gold-price').focus();
     if (document.getElementById('panel-calc').classList.contains('active')) {
       document.getElementById('gold-price').scrollIntoView({behavior:'smooth',block:'center'});
@@ -966,7 +966,7 @@ function calcFitr() {
     out.textContent = m + ' members × ' + getSym() + s.toFixed(2) + ' = ' + getSym() + total.toFixed(2);
     out.style.color = 'var(--teal)';
   } else {
-    out.textContent = 'Enter members and Sa' value';
+    out.textContent = "Enter members and Sa' value";
     out.style.color = 'var(--text-dim)';
   }
 }

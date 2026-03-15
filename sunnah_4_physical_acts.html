@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Physical Sunnah — Every Small Act | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#04070D;--card:#080E1C;--gold:#C9A84C;--gold-dim:rgba(201,168,76,0.15);--gold-mid:rgba(201,168,76,0.35);--teal:#2FB89A;--teal-dim:rgba(47,184,154,0.12);--text:#D4CBB8;--text-dim:#8A8275;--border:rgba(201,168,76,0.15);--green:#2A7A4B;--green-bg:rgba(42,122,75,0.15);--blue:#2A5FA8;--blue-bg:rgba(42,95,168,0.15);--amber:#B8760A;--amber-bg:rgba(184,118,10,0.15);--shamaal:rgba(47,184,154,0.15);--font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.75;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,168,76,0.04) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(47,184,154,0.03) 0%,transparent 60%);pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(4,7,13,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 1.5rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;min-height:60px}
+.nav-left{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap}
+.nav-left a{font-family:var(--font-head);font-size:0.68rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.06em;padding:0.25rem 0.6rem;border:1px solid rgba(201,168,76,0.1);border-radius:3px;transition:all 0.2s}
+.nav-left a:hover{color:var(--gold);border-color:var(--gold-mid)}
+.nav-left span{color:var(--text-dim);font-size:0.65rem}
+.nav-centre{text-align:center}
+.nav-centre .ar-title{display:block;font-family:var(--font-arab);font-size:1rem;color:var(--gold);line-height:1.3}
+.nav-centre .en-title{display:block;font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;margin-top:2px}
+.nav-right{display:flex;justify-content:flex-end;align-items:center;gap:0.75rem}
+.lang-toggle{display:flex;background:rgba(201,168,76,0.07);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.lang-btn{padding:0.3rem 0.65rem;font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.08em;color:var(--text-dim);cursor:pointer;border:none;background:transparent;transition:all 0.2s}
+.lang-btn.active{background:var(--gold);color:#04070D;font-weight:600}
+.nav-badge{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;padding:0.25rem 0.65rem;border:1px solid var(--gold-mid);border-radius:3px;color:var(--gold);white-space:nowrap}
+.wrapper{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:2rem 1.25rem 5rem}
+.page-header{text-align:center;padding:2.5rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.page-header .period-icon{font-size:2rem;margin-bottom:0.75rem;display:block}
+.page-header h1{font-family:var(--font-head);font-size:clamp(1.4rem,4vw,1.9rem);font-weight:600;color:var(--gold);letter-spacing:0.05em;margin-bottom:0.4rem}
+.page-header .subtitle{font-family:var(--font-arab);font-size:1.2rem;color:var(--text-dim);direction:rtl}
+.page-header .desc{max-width:600px;margin:1rem auto 0;color:var(--text-dim);font-size:0.9rem;font-style:italic}
+/* RIGHT-LEFT PRINCIPLE BOX */
+.rl-box{border:1px solid var(--gold);border-radius:8px;background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 100%);padding:1.5rem 1.75rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.rl-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.rl-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
+.rl-label::after{content:'';flex:1;height:1px;background:var(--gold-dim)}
+.rl-ar{font-family:var(--font-arab);font-size:1.8rem;direction:rtl;text-align:right;color:var(--gold);line-height:1.8;margin-bottom:0.5rem}
+.rl-translit{font-style:italic;color:var(--teal);font-size:0.88rem;margin-bottom:0.25rem}
+.rl-trans{color:var(--text-dim);font-size:0.88rem;margin-bottom:0.75rem}
+.rl-hadith{font-size:0.9rem;line-height:1.75;margin-bottom:0.5rem}
+.rl-source{font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.06em;color:var(--text-dim)}
+/* SECTION HEADERS */
+.period-header{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.5rem}
+.period-header .ph-icon{font-size:1.4rem}
+.period-header h2{font-family:var(--font-head);font-size:0.78rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;font-weight:600}
+.period-header .ph-ar{font-family:var(--font-arab);font-size:0.95rem;color:var(--text-dim);direction:rtl;margin-left:auto}
+.period-header::after{content:'';flex:1;height:1px;background:var(--border);order:3}
+.section-intro{font-size:0.9rem;color:var(--text-dim);font-style:italic;margin-bottom:1.5rem;padding-left:0.75rem;border-left:2px solid var(--gold-dim);line-height:1.8}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem 1.65rem;margin-bottom:1.25rem;position:relative;overflow:hidden;transition:border-color 0.3s}
+.card:hover{border-color:var(--gold-mid)}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;opacity:0.7}
+.card.tier1::before{background:#2A7A4B}
+.card.tier2::before{background:#2A5FA8}
+.card.tier3::before{background:#B8760A}
+.card.shamaa::before{background:var(--teal)}
+.card-meta{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.85rem}
+.badge{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.1em;padding:0.22rem 0.55rem;border-radius:3px;font-weight:600}
+.badge-sahih{background:var(--green-bg);color:#5DC88A;border:1px solid rgba(93,200,138,0.25)}
+.badge-hasan-s{background:var(--blue-bg);color:#7AABF0;border:1px solid rgba(122,171,240,0.25)}
+.badge-hasan{background:var(--amber-bg);color:#E0A030;border:1px solid rgba(224,160,48,0.25)}
+.badge-shamaa{background:var(--shamaal);color:var(--teal);border:1px solid rgba(47,184,154,0.3)}
+.time-chip{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.08em;color:var(--text-dim);border:1px solid rgba(212,203,184,0.1);padding:0.22rem 0.55rem;border-radius:3px}
+.rl-chip{font-family:var(--font-head);font-size:0.54rem;letter-spacing:0.06em;color:var(--gold);background:rgba(201,168,76,0.08);border:1px solid var(--gold-dim);padding:0.2rem 0.5rem;border-radius:3px}
+.card-num{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.15em;color:var(--gold);margin-left:auto;opacity:0.6}
+.card h3{font-family:var(--font-head);font-size:0.95rem;color:var(--text);font-weight:600;margin-bottom:0.85rem;letter-spacing:0.02em}
+.arabic-block{direction:rtl;text-align:right;font-family:var(--font-arab);line-height:2.1;color:var(--gold);background:rgba(201,168,76,0.04);border:1px solid var(--gold-dim);border-radius:6px;padding:0.7rem 1rem;margin-bottom:0.65rem;font-size:1.35rem}
+.arabic-block.small{font-size:1.1rem}
+.arabic-block.medium{font-size:1.2rem}
+.arabic-block.large{font-size:1.5rem}
+.arabic-block.quran{background:rgba(47,184,154,0.04);border-color:rgba(47,184,154,0.2);color:#a0d8c8}
+.translit{font-style:italic;color:var(--teal);font-size:0.87rem;margin-bottom:0.25rem;line-height:1.6}
+.translation{color:var(--text-dim);font-size:0.87rem;margin-bottom:0.85rem}
+.narrative{margin-bottom:0.85rem;font-size:0.92rem;line-height:1.8}
+.narrative-ur{direction:rtl;text-align:right;font-family:var(--font-arab);font-size:0.98rem;line-height:2;display:none;margin-bottom:0.85rem}
+.note-box{background:rgba(184,118,10,0.07);border:1px solid rgba(184,118,10,0.2);border-radius:5px;padding:0.6rem 0.85rem;font-size:0.83rem;margin:0.65rem 0;color:#E0A030}
+.note-box .note-label{font-family:var(--font-head);font-size:0.57rem;letter-spacing:0.12em;color:#E0A030;display:block;margin-bottom:0.2rem}
+.source-line{display:flex;align-items:flex-start;gap:0.5rem;font-family:var(--font-head);font-size:0.61rem;letter-spacing:0.05em;color:var(--text-dim);border-top:1px solid var(--border);padding-top:0.65rem;margin-top:0.65rem;line-height:1.6}
+.source-line .src-icon{color:var(--gold);flex-shrink:0}
+.why-box{background:rgba(47,184,154,0.06);border-left:2px solid var(--teal);padding:0.6rem 0.85rem;border-radius:0 4px 4px 0;margin:0.65rem 0;font-size:0.86rem}
+.why-box .why-label{font-family:var(--font-head);font-size:0.59rem;letter-spacing:0.12em;color:var(--teal);display:block;margin-bottom:0.2rem}
+.try-box{background:rgba(201,168,76,0.05);border:1px dashed rgba(201,168,76,0.25);border-radius:5px;padding:0.6rem 0.85rem;font-size:0.86rem;margin-top:0.65rem}
+.try-box .try-label{font-family:var(--font-head);font-size:0.59rem;letter-spacing:0.12em;color:var(--gold);display:block;margin-bottom:0.2rem}
+.quran-tag{font-family:var(--font-head);font-size:0.56rem;letter-spacing:0.1em;background:rgba(47,184,154,0.12);color:var(--teal);border:1px solid rgba(47,184,154,0.25);padding:0.18rem 0.45rem;border-radius:3px}
+body.ur-mode .narrative{display:none}
+body.ur-mode .narrative-ur{display:block}
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);margin-top:3rem;font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.1em;color:var(--text-dim)}
+footer span{color:var(--gold)}
+@media(max-width:640px){nav{grid-template-columns:1fr;grid-template-rows:auto auto auto;padding:0.75rem 1rem;gap:0.5rem;min-height:auto}.nav-right{justify-content:center}.nav-centre{order:-1}.wrapper{padding:1.5rem 1rem 4rem}.card{padding:1.05rem 1.1rem}.arabic-block{font-size:1.1rem}.arabic-block.large{font-size:1.3rem}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card,.rl-box,.period-header{animation:fadeInUp 0.45s ease both}
+.card:nth-child(2){animation-delay:.05s}.card:nth-child(3){animation-delay:.1s}.card:nth-child(4){animation-delay:.15s}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span>|</span>
+    <a href="sunnah_index.html">← Daily Sunnah</a>
+  </div>
+  <div class="nav-centre">
+    <span class="ar-title">السنة الجسدية</span>
+    <span class="en-title">The Physical Sunnah — Every Small Act</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+    </div>
+    <div class="nav-badge">Every Small Act</div>
+  </div>
+</nav>
+
+<div class="wrapper">
+<header class="page-header">
+  <span class="period-icon">🤲</span>
+  <h1>The Physical Sunnah</h1>
+  <div class="subtitle">كيف تحرّك ﷺ في كل لحظة</div>
+  <p class="desc">The precise physical practices of Muhammad ﷺ — every posture, every movement, every small act documented by the companions. Forty-eight authenticated acts across eight domains of daily life.</p>
+</header>
+
+<!-- RIGHT / LEFT PRINCIPLE -->
+<div class="rl-box">
+  <div class="rl-label">⚖ The Master Principle — Runs Through Every Act</div>
+  <div class="rl-ar">الْيُمْنَى قَبْلَ الْيُسْرَى</div>
+  <div class="rl-translit">Al-yumna qabla al-yusra</div>
+  <div class="rl-trans">The right before the left</div>
+  <p class="rl-hadith">Aisha RA said: <em>"The Prophet ﷺ loved to begin from the RIGHT in all his affairs — his purification, his combing, and his putting on shoes."</em> This single principle governed hundreds of daily acts. Wherever you see the right-left chip on a card below, trace it back here: this one narration of Aisha RA is the root.</p>
+  <div class="rl-source">📚 Sahih Bukhari, Book of Dress (Kitab al-Libas), Hadith 5854 — <strong style="color:#5DC88A">Sahih</strong> · Narrated by Aisha RA</div>
+</div>
+
+<!-- ══════════════════ SECTION 1: BATHROOM ══════════════════ -->
+<div class="period-header"><span class="ph-icon">🚿</span><h2>Section 1 — The Bathroom</h2><span class="ph-ar">آداب قضاء الحاجة</span></div>
+<p class="section-intro">He ﷺ transformed even the most private moments into acts of remembrance. The bathroom was not a space outside the sunnah — it had a complete etiquette, from the foot that crosses the threshold to the single word said upon leaving.</p>
+
+<!-- ACT 1 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🚿 At the Door — Before Entering</span><span class="card-num">ACT 01</span></div>
+  <h3>Dua Before Entering — Said Outside the Door</h3>
+  <div class="arabic-block">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ</div>
+  <div class="translit">Allahumma inni a'udhu bika minal-khubuthi wal-khaba'ith</div>
+  <div class="translation">O Allah, I seek refuge in You from male and female evil spirits.</div>
+  <p class="narrative">This dua is said standing at the threshold — outside the door, before the foot crosses in. Not inside. Anas RA narrated this as his consistent practice. In Islamic understanding, bathrooms and unclean spaces are inhabited by evil spirits, and the dua is a shield erected at the boundary before entry. The act is architecturally precise: there is a line between the clean world and the unclean space, and the dua is placed exactly at that line.</p>
+  <p class="narrative-ur">یہ دعا دہلیز پر کھڑے ہو کر پڑھی جاتی ہے — دروازے کے باہر، قدم داخل ہونے سے پہلے۔ اندر نہیں۔ حضرت انس رضی اللہ عنہ نے اسے آپ ﷺ کا مستقل عمل بتایا۔ اسلامی تصور میں، بیت الخلاء اور ناپاک مقامات برے جنوں کا ٹھکانہ ہوتے ہیں اور یہ دعا اس حد پر ایک ڈھال بناتی ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Ablution (Kitab al-Wudu), Hadith 142; Sahih Muslim, Book of Purification, Hadith 375 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 2 -->
+<div class="card tier3">
+  <div class="card-meta"><span class="badge badge-hasan">◇ Hasan — Ibn Majah (al-Albani)</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🚿 Entering</span><span class="card-num">ACT 02</span></div>
+  <h3>Enter with the Left Foot</h3>
+  <p class="narrative">He ﷺ entered the bathroom with his left foot first. The right side, in his entire practice, was reserved for acts of honour — eating, greeting, praying, putting on shoes. The left is assigned to acts of lesser honour or acts involving uncleanliness. Entering a space that is by nature unclean belongs to the left. This small act connects directly to the master right/left principle: the right is preserved for the sacred, the left handles what the right should not touch.</p>
+  <p class="narrative-ur">آپ ﷺ بیت الخلاء میں بائیں پیر سے داخل ہوتے تھے۔ دائیں جانب آپ کی پوری سنت میں عزت والے اعمال کے لیے مخصوص تھی — کھانا، سلام، نماز، جوتا پہننا۔ بائیں جانب ان اعمال کے لیے ہے جن میں کم عزت یا ناپاکی ہو۔ یہ چھوٹا سا عمل بائیں دائیں کے اصول سے براہ راست جڑتا ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Ibn Majah, Book of Purification (Kitab al-Taharah), Hadith 296 — <strong style="color:#E0A030">Hasan</strong> (graded by Imam al-Albani)</span></div>
+</div>
+
+<!-- ACT 3 -->
+<div class="card tier3">
+  <div class="card-meta"><span class="badge badge-hasan">◇ Hasan — Ibn Majah (al-Albani)</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🚿 Exiting</span><span class="card-num">ACT 03</span></div>
+  <h3>Exit with the Right Foot</h3>
+  <p class="narrative">Upon leaving the bathroom he ﷺ stepped out with his right foot first — reversing the entry. He was leaving the unclean space and returning to purity, and the right foot led that return. The pattern is consistent across the sunnah: enter honourable spaces right-first (masjid, home), leave dishonourable spaces right-first (bathroom exit returning to purity). The left leads into the lesser; the right leads out into the better.</p>
+  <p class="narrative-ur">بیت الخلاء سے نکلتے وقت آپ ﷺ دائیں پیر سے باہر نکلتے — داخلے کے برعکس۔ آپ ناپاک جگہ چھوڑ کر پاکیزگی کی طرف لوٹ رہے ہوتے تھے اور دایاں پیر اس واپسی کی رہنمائی کرتا تھا۔ یہ طریقہ پوری سنت میں مستقل ہے: شریف مقامات میں دائیں سے داخل، کم شریف جگہ سے نکلتے وقت دائیں سے باہر۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Ibn Majah, Book of Purification, Hadith 296 — <strong style="color:#E0A030">Hasan</strong> (al-Albani)</span></div>
+</div>
+
+<!-- ACT 4 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Abu Dawud / Tirmidhi</span><span class="time-chip">🚿 After Exiting</span><span class="card-num">ACT 04</span></div>
+  <h3>Dua After Exiting — One Word, Infinite Depth</h3>
+  <div class="arabic-block large">غُفْرَانَكَ</div>
+  <div class="translit">Ghufranaka</div>
+  <div class="translation">I seek Your forgiveness.</div>
+  <p class="narrative">Aisha RA narrated: "When the Prophet ﷺ exited the toilet he would say: Ghufranaka." One word. The shortest dua in the Sunnah — and one of the deepest. The body has just been relieved of its physical burden; now the soul seeks relief from its own burden. Scholars explain the connection: just as the body is eased of what weighed it down, the person turns immediately to seek ease from what weighs the soul — sin and shortcoming. Physical and spiritual purification in sequence. He did not wait. He did not think about it. Ghufranaka was the reflex upon stepping out.</p>
+  <p class="narrative-ur">حضرت عائشہ رضی اللہ عنہا نے بیان کیا: "جب نبی ﷺ بیت الخلاء سے نکلتے تو کہتے: غفرانک۔" ایک لفظ۔ سنت کی سب سے مختصر دعا — اور گہری ترین میں سے ایک۔ جسم اپنا بوجھ اتار چکا ہے؛ اب روح اپنا بوجھ اتارنا چاہتی ہے۔ علما بیان کرتے ہیں: جیسے جسم کو سکون ملا، وہ فوری طور پر روح کی سکون کی طرف متوجہ ہوتے — گناہ سے سکون۔ غفرانک ان کا آنکھ جھپکتے عمل تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Abu Dawud, Book of Purification (Kitab al-Taharah), Hadith 30; Sunan al-Tirmidhi, Hadith 7; Sunan Ibn Majah, Hadith 300 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+  <div class="why-box"><span class="why-label">◈ Why This Matters</span>One word after leaving the bathroom. It takes one second. It is authenticated. It was his reflex. There is no smaller, easier act in the entire Sunnah.</div>
+</div>
+
+<!-- ACT 5 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🚿 Istinja</span><span class="card-num">ACT 05</span></div>
+  <h3>Use Left Hand for Cleaning (Istinja)</h3>
+  <p class="narrative">He ﷺ explicitly prohibited using the right hand for cleaning after relieving oneself. The right hand is honoured — it is the hand of eating, of greeting, of giving. It is reserved for what is elevated. The left handles what the right should not touch. He performed istinja with water — this was his consistent practice. The companions noted that Muslims were known for this even among other peoples. He used water, used his left hand, and kept the right hand elevated in its honour.</p>
+  <p class="narrative-ur">آپ ﷺ نے صراحت کے ساتھ منع فرمایا کہ استنجاء میں دایاں ہاتھ استعمال کیا جائے۔ دایاں ہاتھ شریف ہے — کھانے، سلام، دینے کا ہاتھ۔ بایاں ہاتھ وہ کام کرتا ہے جو دایاں نہیں کرنا چاہیے۔ آپ ﷺ نے پانی سے استنجاء کیا — یہ آپ کا مستقل عمل تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Ablution, Hadith 154; Sahih Muslim, Book of Purification, Hadith 267 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 6 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🚿 Open Areas</span><span class="card-num">ACT 06</span></div>
+  <h3>Never Face or Turn Back to Qibla in Open Areas</h3>
+  <p class="narrative">In open areas — fields, deserts, unenclosed spaces — he ﷺ would neither face the direction of the Qibla nor turn his back to it when relieving himself. Respect for the direction of prayer extended to every physical act. The note about built structures: Ibn Umar RA narrated that he saw the Prophet ﷺ relieve himself facing toward Syria (and thus with his back to the Qibla) on Hafsa's roof — inside a built structure with a wall. The majority of scholars use this to permit it indoors where walls create a separation.</p>
+  <p class="narrative-ur">کھلی جگہوں میں — کھیت، صحرا — آپ ﷺ قضائے حاجت کے وقت نہ قبلے کی طرف منہ کرتے نہ پیٹھ۔ نماز کی سمت کا احترام ہر جسمانی عمل میں تھا۔ بند عمارات کے بارے میں: ابن عمر رضی اللہ عنہ نے گواہی دی کہ آپ ﷺ نے حفصہ ؓ کی چھت پر بند کمرے میں ایسا کیا — اس سے علما نے اندرونی دیوار والی جگہوں میں اجازت دی ہے۔</p>
+  <div class="note-box"><span class="note-label">📋 Scholarly Note</span>In open areas: unanimous prohibition. Inside structures: Ibn Umar RA narrated the Prophet ﷺ did so (Bukhari 148), giving the majority of scholars basis to permit it indoors. Both narrations are Sahih — the distinction is open vs. enclosed.</div>
+  <div class="source-line"><span class="src-icon">📚</span><span>Open areas: Sahih Bukhari, Hadith 394; Sahih Muslim, Hadith 264 — <strong style="color:#5DC88A">Sahih</strong> | Indoor exception: Sahih Bukhari, Hadith 148 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 7 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="time-chip">🚿 Inside</span><span class="card-num">ACT 07</span></div>
+  <h3>No Speaking in the Toilet</h3>
+  <p class="narrative">A man greeted him ﷺ while he was relieving himself. He did not respond. When he had finished and performed tayammum (dry purification), he responded to the greeting and then said: "I disliked mentioning the name of Allah except in a state of purity." Even returning a greeting — a social obligation — was delayed because it would have required a response involving or implying Allah's name. The bathroom was a space of silence for him. The world paused at that door.</p>
+  <p class="narrative-ur">ایک آدمی نے آپ ﷺ کو سلام کیا جب آپ قضائے حاجت میں تھے۔ آپ نے جواب نہیں دیا۔ جب فارغ ہوئے اور تیمم کیا تو سلام کا جواب دیا اور فرمایا: "مجھے یہ ناپسند تھا کہ پاکیزگی کے بغیر اللہ کا نام لوں۔" حتی کہ سلام کا جواب — ایک سماجی فریضہ — مؤخر کر دیا۔ بیت الخلاء ان کے لیے خاموشی کی جگہ تھی۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Purification, Hadith 370 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 8 -->
+<div class="card tier3">
+  <div class="card-meta"><span class="badge badge-hasan">◇ Hasan — Tirmidhi / Nasai</span><span class="time-chip">🚿 Posture</span><span class="card-num">ACT 08</span></div>
+  <h3>Squatting Position — His Consistent Norm</h3>
+  <p class="narrative">Aisha RA rejected outright the claim that he ﷺ ever urinated standing — she said: "Whoever tells you he urinated standing — do not believe him." His norm was squatting, consistent with modesty, hygiene, and humility. One narration exists of him urinating near a garbage dump in a squatting position that Hudhayfah RA described as unusual proximity to the ground for that location (Bukhari 224). Scholars examine this: al-Nawawi explains the Bukhari narration describes him crouching near a garbage heap — not standing upright. His physical norm was the ground-level posture.</p>
+  <p class="narrative-ur">حضرت عائشہ رضی اللہ عنہا نے سختی سے اس بات کو رد کیا کہ آپ ﷺ نے کبھی کھڑے ہو کر پیشاب کیا — انہوں نے فرمایا: "جو تمہیں بتائے کہ آپ نے کھڑے ہو کر پیشاب کیا تو اسے نہ مانو۔" آپ کا معمول بیٹھنا تھا، جو پردے، صفائی اور عاجزی سے مطابقت رکھتا تھا۔ علما نے بخاری کی روایت کا تجزیہ کیا ہے: امام نووی بیان کرتے ہیں کہ وہ روایت کچرے کے ڈھیر کے قریب بیٹھنے کا حال بیان کرتی ہے — کھڑے ہو کر نہیں۔</p>
+  <div class="note-box"><span class="note-label">📋 Honest Scholarly Note</span>The narration in Bukhari 224 (Hudhayfah RA) is authentic but describes proximity to a garbage dump — al-Nawawi and others explain this was squatting in a low position near refuse, not standing urination. Aisha RA's rejection (Tirmidhi 12) addresses the standing practice specifically. His norm was squatting.</div>
+  <div class="source-line"><span class="src-icon">📚</span><span>Aisha RA's rejection: Sunan Tirmidhi, Hadith 12 — <strong style="color:#E0A030">Hasan</strong>; Sunan Nasai, Hadith 29; Bukhari 224 (exceptional narration) — noted above</span></div>
+</div>
+
+<!-- ══════════════════ SECTION 2: WUDU ══════════════════ -->
+<div class="period-header"><span class="ph-icon">🌊</span><h2>Section 2 — Wudu</h2><span class="ph-ar">الوضوء الدقيق</span></div>
+<p class="section-intro">His wudu was not a hurried routine — it was a deliberate, unhurried act of purification. The companions watched him perform it thousands of times and remembered every movement. What follows is what they preserved.</p>
+
+<!-- ACT 9 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-hasan-s">◈ Hasan Sahih — Abu Dawud / Tirmidhi</span><span class="time-chip">🌊 Begin</span><span class="card-num">ACT 09</span></div>
+  <h3>Bismillah — The Opening of Every Wudu</h3>
+  <div class="arabic-block small">بِسْمِ اللَّهِ</div>
+  <div class="translation">In the name of Allah.</div>
+  <p class="narrative">He ﷺ began wudu with Bismillah. He taught: "There is no wudu for one who does not mention Allah's name." The act of purification begins with a declaration — not with water. The name of Allah is placed first, before the hands enter the water, establishing that this is not merely a physical washing but a sacred preparation for standing before Allah. The Bismillah is the intention made audible.</p>
+  <p class="narrative-ur">آپ ﷺ نے وضو بسم اللہ سے شروع کیا۔ آپ نے فرمایا: "جو اللہ کا نام نہ لے اس کا وضو نہیں۔" پاکیزگی کا عمل ایک اعلان سے شروع ہوتا ہے — پانی سے نہیں۔ اللہ کا نام پہلے آتا ہے، ہاتھ پانی میں جانے سے پہلے، اس بات کا اثبات کرتے ہوئے کہ یہ محض جسمانی صفائی نہیں بلکہ اللہ کے سامنے کھڑے ہونے کی تقدیسی تیاری ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Abu Dawud, Book of Purification, Hadith 101; Sunan al-Tirmidhi, Hadith 25 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ACT 10 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="time-chip">🌊 First Step</span><span class="card-num">ACT 10</span></div>
+  <h3>Wash Hands Three Times First — Before the Water Vessel</h3>
+  <p class="narrative">Before dipping his hands into any water vessel, he ﷺ washed them three times separately. His teaching: "Do not dip your hand in until you have washed it three times — for you do not know where your hand spent the night." The hand that might have touched something unknowingly during sleep is not permitted to contaminate the water used for purification. He washed first, then entered the water. The sequence matters: clean the instrument before you use it to clean.</p>
+  <p class="narrative-ur">کسی بھی برتن میں ہاتھ ڈالنے سے پہلے آپ ﷺ نے انہیں تین بار الگ سے دھویا۔ آپ نے فرمایا: "اپنا ہاتھ برتن میں نہ ڈالو جب تک تین بار نہ دھو لو — تمہیں نہیں معلوم رات کو تمہارا ہاتھ کہاں رہا۔" رات میں انجانے میں چھوئی گئی چیز کا ہاتھ پاکیزگی کے پانی کو آلودہ نہ کرے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Purification, Hadith 235 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 11 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🌊 Throughout</span><span class="card-num">ACT 11</span></div>
+  <h3>Right Before Left — Throughout Every Step</h3>
+  <p class="narrative">Through every step of wudu he ﷺ maintained the right-before-left sequence: right hand washed before left, right arm before left arm, right foot before left foot. This is consistent with the master principle narrated by Aisha RA. In wudu it has a technical dimension as well — the right side of the body is washed first, completing one side before beginning the other. This creates a deliberate, structured purity rather than a scattered, simultaneous washing.</p>
+  <p class="narrative-ur">وضو کے ہر مرحلے میں آپ ﷺ نے دائیں سے پہلے بائیں کا سلسلہ برقرار رکھا: دایاں ہاتھ بائیں سے پہلے، دایاں بازو بائیں سے پہلے، دایاں پیر بائیں سے پہلے۔ یہ حضرت عائشہ رضی اللہ عنہا کی بیان کردہ مرکزی اصول سے مطابقت رکھتا ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Ablution (Kitab al-Wudu), Hadith 166 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 12 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="time-chip">🌊 Mouth &amp; Nose</span><span class="card-num">ACT 12</span></div>
+  <h3>Mouth and Nose Together — One Motion, Three Times</h3>
+  <p class="narrative">He ﷺ rinsed his mouth and sniffed water into his nose from a single scoop — done together in one motion. He rinsed the mouth, then sniffed water in and blew it out, three times. The right hand brought water to the mouth and nose; the left hand was used to blow the water out from the nose. One fluid movement combining two acts of purification — efficient, unhurried, and precise. The companions who recorded this had observed it so many times they could describe the exact mechanics of each hand.</p>
+  <p class="narrative-ur">آپ ﷺ ایک ہی چلو میں منہ کللا کرتے اور ناک میں پانی ڈالتے — ایک ساتھ ایک حرکت میں۔ تین بار۔ دایاں ہاتھ پانی لاتا، بایاں ناک صاف کرتا۔ ایک ہموار حرکت جس میں دو پاکیزگی کے اعمال جمع تھے — موثر، بے جلدی، درست۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Ablution, Hadith 191 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 13 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🌊 Head</span><span class="card-num">ACT 13</span></div>
+  <h3>Wiping the Head — Front to Back, Back to Front</h3>
+  <p class="narrative">Both hands placed flat at the hairline, wiped slowly toward the back of the head, then reversed and returned to the front. Done once — not three times like the hands and feet. The head receives a single, complete wiping. He placed his wet hands at the forehead and drew them all the way to the nape of the neck, then brought them back. One deliberate pass in each direction. The companions noted this specific motion as distinct from any washing — it was a wiping, a masah, not a washing.</p>
+  <p class="narrative-ur">دونوں ہاتھوں کو سر کی پیشانی پر رکھ کر گدی تک پھیرا، پھر واپس پیشانی تک لایا۔ ایک بار — ہاتھوں اور پیروں کی طرح تین بار نہیں۔ یہ مسح تھا، دھونا نہیں۔ صحابہ نے اس مخصوص حرکت کو الگ سے نوٹ کیا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Hadith 185; Sahih Muslim, Book of Purification, Hadith 235 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 14 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-hasan-s">◈ Hasan Sahih — Abu Dawud / Tirmidhi</span><span class="time-chip">🌊 Ears</span><span class="card-num">ACT 14</span></div>
+  <h3>Ears — Inside with Index Fingers, Behind with Thumbs</h3>
+  <p class="narrative">After wiping the head, he ﷺ wiped his ears — index fingers inserted into the ear canals, thumbs wiped around the back of the ears. Done with the same water remaining on his hands from the head — no new water was taken. The ears share the water of the head. This precision — which fingers, which water — was remembered by the companions with the same care they remembered his prayer positions. Every part of the body had a technique, and every technique had a reason.</p>
+  <p class="narrative-ur">سر کے مسح کے بعد آپ ﷺ کانوں کا مسح کرتے — شہادت کی انگلیاں کان کے اندر، انگوٹھے کان کے پیچھے۔ سر سے بچے ہوئے پانی سے — نیا پانی نہیں۔ کان سر کا پانی شیئر کرتے ہیں۔ یہ دقت — کون سی انگلیاں، کون سا پانی — صحابہ کو یاد تھی جیسے نماز کی حرکات یاد تھیں۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Abu Dawud, Book of Purification, Hadith 135; Sunan al-Tirmidhi, Book of Purification, Hadith 36 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ACT 15 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="time-chip">🌊 Feet</span><span class="card-num">ACT 15</span></div>
+  <h3>Feet — Water Between Every Toe</h3>
+  <p class="narrative">He ﷺ washed his feet ensuring water reached between every toe — using his little finger to run through the gaps. He was specific and warned specifically about the heels: "Woe to the heels from the Fire" — said to those whose heels were left dry in an incomplete wudu. The smallest, most neglected area of the body received explicit attention. He did not assume the water reached; he ensured it did. His wudu left no part of the washed area unwashed.</p>
+  <p class="narrative-ur">آپ ﷺ نے پاؤں دھوتے وقت پانی ہر انگلی کے درمیان پہنچایا — چھوٹی انگلی سے خلاء میں پھیرتے۔ آپ نے خاص طور پر ایڑیوں کے بارے میں متنبہ کیا: "ایڑیوں کے لیے جہنم سے ہلاکت ہے" — ان لوگوں کے لیے جن کی ایڑیاں ادھوری وضو میں خشک رہ جاتی ہیں۔ جسم کا سب سے چھوٹا، سب سے نظرانداز حصہ صراحتِ خاص سے نوازا گیا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Ablution, Hadith 163 (feet technique); Hadith 165 (woe to heels) — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 16 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="time-chip">🌊 Completion</span><span class="card-num">ACT 16</span></div>
+  <h3>Dua After Completing Wudu</h3>
+  <div class="arabic-block medium">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ</div>
+  <div class="translit">Ash-hadu an la ilaha illallahu wahdahu la sharika lah, wa ash-hadu anna Muhammadan 'abduhu wa rasuluh. Allahumma j'alni minat-tawwabin waj'alni minal-mutatahhirin.</div>
+  <div class="translation">I testify there is no god but Allah alone with no partner, and I testify that Muhammad is His servant and messenger. O Allah, make me of those who repent and make me of those who purify themselves.</div>
+  <p class="narrative">Wudu sealed with the shahada and a request for ongoing membership among the repentant and the purified. He taught: "Whoever makes wudu as I make wudu then prays two rakats with full focus — all his past sins will be forgiven." The dua closes the physical act with a spiritual aspiration: not only purified in body for this prayer, but asking to belong permanently to the people of tawbah and taharah.</p>
+  <p class="narrative-ur">وضو شہادت اور دو درخواستوں پر ختم ہوا: توبہ کرنے والوں اور پاک ہونے والوں میں شامل ہونا۔ آپ نے فرمایا: "جو میری طرح وضو کرے پھر دو رکعت خشوع سے پڑھے — اس کے سابقہ گناہ بخش دیے جائیں گے۔" دعا جسمانی عمل کو روحانی آرزو پر بند کرتی ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Purification, Hadith 234 — <strong style="color:#5DC88A">Sahih</strong> | Forgiveness after wudu: Sahih Muslim 226 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+  <div class="try-box"><span class="try-label">🌿 Try Today</span>Say this dua immediately after your next wudu — while your hands are still wet. Make it the closing word of the ritual, not an afterthought.</div>
+</div>
+
+<!-- ══════════════════ SECTION 3: CLOTHING ══════════════════ -->
+<div class="period-header"><span class="ph-icon">👘</span><h2>Section 3 — Clothing</h2><span class="ph-ar">سنة اللباس</span></div>
+<p class="section-intro">He dressed deliberately. Right before left, simple over elaborate, no images, nothing dragging. Every act of dressing was an act of remembrance — a garment was not just covering; it was a gift from Allah acknowledged at the moment of wearing.</p>
+
+<!-- ACT 17 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">👘 Dressing</span><span class="card-num">ACT 17</span></div>
+  <h3>Right Side First When Dressing</h3>
+  <p class="narrative">He put the right arm into the garment first, the right foot into the shoe first — always. Aisha RA's comprehensive narration of his right-left principle covers dressing explicitly: it was one of three areas she specifically named (purification, combing, shoes). The garment received the right arm at its opening; the body oriented toward the right before the left. This was not incidental — it was the consistent, documented practice observed and transmitted by those who dressed with him and saw him dress.</p>
+  <p class="narrative-ur">آپ ﷺ کپڑے میں پہلے دایاں بازو ڈالتے، جوتے میں پہلے دایاں پاؤں — ہمیشہ۔ حضرت عائشہ رضی اللہ عنہا کی دائیں بائیں کے اصول کی جامع روایت میں لباس کا صراحت سے ذکر ہے: یہ تین میں سے ایک تھا جو انہوں نے نام لے کر بتایا۔ یہ اتفاقی نہیں تھا — یہ مستقل، دستاویزی عمل تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Dress (Kitab al-Libas), Hadith 5854 — <strong style="color:#5DC88A">Sahih</strong> (Aisha RA)</span></div>
+</div>
+
+<!-- ACT 18 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">👘 Undressing</span><span class="card-num">ACT 18</span></div>
+  <h3>Left Side Off First When Undressing</h3>
+  <p class="narrative">The reverse of dressing: when removing a garment or shoe, he ﷺ removed the left side first. Right goes on first; left comes off first. The right is the last to be clothed and the last to be unclothed — it is the side of honour and privilege, preserved longest. The left begins the undressing, the left finishes the dressing. This simple inversion is an elegant symmetry that his companions memorised and passed on.</p>
+  <p class="narrative-ur">لباس اتارنے کا الٹا: کپڑا یا جوتا اتارتے وقت آپ ﷺ نے پہلے بائیں جانب اتاری۔ دایاں پہلے پہنا جاتا ہے؛ بایاں پہلے اتارا جاتا ہے۔ دایاں لباس میں سب سے آخر تک رہتا ہے — یہ عزت اور اعزاز کی جانب ہے، سب سے آخر تک محفوظ۔ یہ سادہ الٹ ایک خوبصورت تناسب ہے جسے صحابہ نے یاد کیا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Dress, Hadith 5854 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 19 -->
+<div class="card tier3">
+  <div class="card-meta"><span class="badge badge-hasan">◇ Hasan — Abu Dawud / Tirmidhi</span><span class="time-chip">👘 Every Garment</span><span class="card-num">ACT 19</span></div>
+  <h3>Dua When Wearing Any Garment</h3>
+  <div class="arabic-block medium">الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ</div>
+  <div class="translit">Alhamdulillahil-ladhi kasani hadha wa razaqanihi min ghayri hawlin minni wa la quwwah</div>
+  <div class="translation">All praise to Allah who clothed me with this and provided it without any power or strength from me.</div>
+  <p class="narrative">He ﷺ said this dua every time he put on a garment. And then he said: "Whoever says this when wearing a garment — his past sins are forgiven." The dua contains a theological acknowledgment woven into the fabric of daily life: the garment did not come from your strength or your planning — it came from Allah, through provision you did not control. The "min ghayri hawlin minni wa la quwwah" (without any power or strength from me) is a complete surrender of credit. Every piece of clothing became an occasion for gratitude and forgiveness.</p>
+  <p class="narrative-ur">آپ ﷺ نے یہ دعا ہر کپڑا پہنتے وقت پڑھی۔ پھر فرمایا: "جو کوئی کپڑا پہنتے وقت یہ کہے — اس کے سابقہ گناہ بخش دیے جائیں گے۔" یہ دعا روزمرہ کی زندگی میں ایک عقیدی اقرار ہے: کپڑا تمہاری طاقت یا منصوبہ بندی سے نہیں آیا — یہ اللہ کی طرف سے آیا۔ ہر کپڑا شکر اور معافی کا موقع بن گیا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Abu Dawud, Book of Dress (Kitab al-Libas), Hadith 4023; Sunan al-Tirmidhi, Hadith 3458 — <strong style="color:#E0A030">Hasan</strong></span></div>
+</div>
+
+<!-- ACT 20 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-hasan-s">◈ Hasan Sahih — Abu Dawud / Tirmidhi</span><span class="time-chip">👘 New Garment</span><span class="card-num">ACT 20</span></div>
+  <h3>Dua for a New Garment — and What to Say to Others</h3>
+  <div class="arabic-block medium">اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ كَسَوْتَنِيهِ أَسْأَلُكَ مِنْ خَيْرِهِ وَخَيْرِ مَا صُنِعَ لَهُ وَأَعُوذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا صُنِعَ لَهُ</div>
+  <div class="translit">Allahumma lakal-hamdu anta kasawtaneehi, as'aluka min khayrihi wa khayri ma suni'a lahu, wa a'udhu bika min sharrihi wa sharri ma suni'a lah</div>
+  <div class="translation">O Allah, to You belongs all praise — You clothed me with it. I ask for its good and the good it was made for. I seek refuge from its evil and the evil it was made for.</div>
+  <p class="narrative">A new garment received a more expansive dua — acknowledging not just the cloth but its purpose and potential. The "good it was made for" invites reflection: what is this garment for? Prayer? Work? Meeting people? The dua orients the new clothing toward its highest use. He also taught what to say to someone else wearing something new: "Tubla wa yukhlif Allahu ta'ala" — "May you wear it out and may Allah replace it." A prayer for durability and continued provision — generous, specific, and rooted in sunnah.</p>
+  <p class="narrative-ur">نئے کپڑے کے لیے ایک زیادہ جامع دعا — صرف کپڑے کو نہیں بلکہ اس کے مقصد اور امکان کو تسلیم کرتے ہوئے۔ آپ نے یہ بھی سکھایا کہ کسی اور کو نیا کپڑا پہنے دیکھ کر کیا کہیں: "تبلیٰ ویخلف اللہ تعالیٰ" — "اللہ کرے تم اسے پرانا کر دو اور اللہ نیا عطا فرمائے۔"</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>New garment dua: Sunan Abu Dawud, Hadith 4020; Sunan al-Tirmidhi, Hadith 1767 — <strong style="color:#7AABF0">Hasan Sahih</strong> | Saying to others: Sunan Abu Dawud 4020 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ACT 21 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">👘 Shoes</span><span class="card-num">ACT 21</span></div>
+  <h3>Right Shoe On First — Left Shoe Off First</h3>
+  <p class="narrative">He ﷺ taught this explicitly: "When you put on your shoes — start with the right. When you take them off — start with the left. Let the right be first to be shod and last to be unshod." The right shoe is the first on and the last off. The shoe was not a trivial matter in his teaching — it was another domain in which the right-left principle was applied with the same precision as prayer and eating. Aisha RA named shoes specifically in her narration of his right-left practice.</p>
+  <p class="narrative-ur">آپ ﷺ نے صراحت سے فرمایا: "جوتا پہنو تو دائیں سے شروع کرو۔ اتارو تو بائیں سے شروع کرو۔ دایاں جوتا پہننے میں پہلے اور اتارنے میں آخر ہو۔" دایاں جوتا سب سے پہلے پہنا جاتا ہے اور سب سے آخر میں اتارا جاتا ہے۔ حضرت عائشہ رضی اللہ عنہا نے جوتوں کا نام ان کے دائیں بائیں اصول کی روایت میں لیا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Dress, Hadith 5856; Sahih Muslim, Book of Dress, Hadith 2097 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 22 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="time-chip">👘 Length</span><span class="card-num">ACT 22</span></div>
+  <h3>Garment Above the Ankles — His Own Practice</h3>
+  <p class="narrative">His own garment reached to mid-shin — deliberately, visibly above the ankle. He taught: "What is below the ankles is in the Fire." Scholars carefully note the context: this refers to wearing below the ankles out of arrogance (kibr) — the forbidden element is the pride, not the length alone. His personal garment sat at mid-shin. He never wore anything that dragged. This was not cultural; it was a deliberate choice documented by companions who noted exactly where his garments fell on his body.</p>
+  <p class="narrative-ur">آپ ﷺ کا اپنا کپڑا پنڈلی کے درمیان تک — جان بوجھ کر، ظاہری طور پر ٹخنوں سے اوپر۔ آپ نے فرمایا: "جو ٹخنوں سے نیچے ہو وہ آگ میں ہے۔" علما احتیاط سے نوٹ کرتے ہیں: یہ تکبر کی وجہ سے ٹخنوں سے نیچے پہننے سے متعلق ہے — ممنوع چیز غرور ہے، صرف لمبائی نہیں۔ آپ نے کبھی گھسیٹنے والا کچھ نہیں پہنا۔</p>
+  <div class="note-box"><span class="note-label">📋 Scholarly Note</span>The explicit prohibition "in the Fire" is linked by the majority of scholars to wearing below the ankles out of arrogance (kibr), based on other hadith that specify this condition. His personal practice of mid-shin garments is documented independently of the prohibition.</div>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Dress, Hadith 5784 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ══════════════════ SECTION 4: EATING ══════════════════ -->
+<div class="period-header"><span class="ph-icon">🍽️</span><h2>Section 4 — Eating</h2><span class="ph-ar">آداب الطعام الدقيقة</span></div>
+<p class="section-intro">He turned every meal into an act of gratitude, every bite into remembrance. The etiquette of his eating was so precise that companions memorised which fingers he used, which part of the dish he ate from, what posture he sat in.</p>
+
+<!-- ACT 23 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🍽️ Begin</span><span class="card-num">ACT 23</span></div>
+  <h3>Bismillah — and What to Do When Forgotten</h3>
+  <div class="arabic-block small">بِسْمِ اللَّهِ</div>
+  <div class="arabic-block small" style="margin-top:0.4rem;">بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ</div>
+  <div class="translation">In the name of Allah. | In the name of Allah at its beginning and at its end.</div>
+  <p class="narrative">Bismillah before eating — his constant practice. And if someone forgot: he taught "Bismillahi awwalahu wa akhirah" — "In the name of Allah at its beginning and at its end" — to be said when you remember, mid-meal. This retroactively sanctifies the meal from its start. He left no meal without Allah's name — not because he was legalistic but because every meal was genuinely an occasion of gratitude. The food came from Allah; the least appropriate response was to begin without acknowledging that.</p>
+  <p class="narrative-ur">کھانے سے پہلے بسم اللہ — آپ کا مستقل عمل۔ اگر کوئی بھول جائے: آپ نے سکھایا کھانے کے دوران یاد آنے پر "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ" کہے — یہ ابتداء سے کھانے کو مقدس کر دیتا ہے۔ آپ نے کوئی کھانا اللہ کے نام کے بغیر نہیں چھوڑا — قانون پرستی کی وجہ سے نہیں بلکہ اس لیے کہ ہر کھانا واقعی شکر کا موقع تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Bismillah: Sahih Bukhari 5376; Sahih Muslim 2022 — <strong style="color:#5DC88A">Sahih</strong> | Forgetting: Sunan Abu Dawud, Hadith 3767; Sunan al-Tirmidhi, Hadith 1858 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ACT 24 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🍽️ Throughout</span><span class="card-num">ACT 24</span></div>
+  <h3>Right Hand Only — Always</h3>
+  <div class="arabic-block medium">لِيَأْكُلْ أَحَدُكُمْ بِيَمِينِهِ وَلْيَشْرَبْ بِيَمِينِهِ فَإِنَّ الشَّيْطَانَ يَأْكُلُ بِشِمَالِهِ وَيَشْرَبُ بِشِمَالِهِ</div>
+  <div class="translit">Liya'kul ahadukum biyaminihi wa lyashrab biyaminihi fa-inna-sh-shaytana ya'kul bishimalihi wa yashrab bishimalih</div>
+  <div class="translation">"Let one of you eat with his right hand and drink with his right hand — for Shaytan eats with his left hand and drinks with his left hand."</div>
+  <p class="narrative">The explicit basis for eating right-handed — he gave a reason, not merely a rule. Shaytan takes the left; the believer takes the right. The right hand at the table is a statement of identity as much as a sunnah. He ate with his right hand always. The left hand was used for cleaning, for things of lower dignity — never for putting food in the mouth. This boundary between the hands was one of the most consistently observed of all his physical sunnahs.</p>
+  <p class="narrative-ur">کھانے کے لیے دائیں ہاتھ کی صریح وجہ — آپ نے محض حکم نہیں بلکہ وجہ بتائی۔ شیطان بائیں سے لیتا ہے؛ مؤمن دائیں سے لیتا ہے۔ دسترخوان پر دایاں ہاتھ سنت کی طرح شناخت کا بیان بھی ہے۔ آپ ﷺ نے ہمیشہ دائیں ہاتھ سے کھایا۔ بایاں ہاتھ صفائی اور کم عزت والے کاموں کے لیے تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Drinks (Kitab al-Ashriba), Hadith 2020 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 25 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🍽️ From the Dish</span><span class="card-num">ACT 25</span></div>
+  <h3>Eat From In Front of You</h3>
+  <p class="narrative">He said to young Umar ibn Abi Salamah RA — who was reaching across the dish: "Say Bismillah, eat with your right hand, and eat from what is in front of you." Do not reach to the other side of the dish. The blessing of food is in the part in front of you; the other side belongs to whoever is sitting there. This was a teaching of courtesy, of communal eating, and of the believer's restraint. He did not take more than what was in his immediate portion. He ate with presence, not ambition.</p>
+  <p class="narrative-ur">آپ نے نوجوان عمر بن ابی سلمہ رضی اللہ عنہ سے فرمایا — جو برتن میں دوسری طرف ہاتھ بڑھا رہے تھے: "بسم اللہ کہو، دائیں ہاتھ سے کھاؤ، اور اپنے سامنے سے کھاؤ۔" برکت تمہارے سامنے کے حصے میں ہے؛ دوسری طرف وہاں بیٹھے شخص کی ہے۔ مشترکہ کھانے میں ادب، اجتماع، اور مؤمن کا ضبط۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Food (Kitab al-At'imah), Hadith 5376; Sahih Muslim, Book of Drinks, Hadith 2022 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 26 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="time-chip">🍽️ Posture</span><span class="card-num">ACT 26</span></div>
+  <h3>Never Eat Reclining or Leaning</h3>
+  <p class="narrative">He said ﷺ: "I do not eat while reclining." He ate sitting — either cross-legged or on his knees, like a servant. The posture of eating was a posture of humility. Reclining is the posture of the one who has been served, who is at ease, who claims comfort as a right. Sitting on the floor, eating what is in front of you — this was his choice every meal, despite being the leader of the Muslim community and having the right to every comfort he declined. Even at table, he sat like someone who knew he was a guest in the world.</p>
+  <p class="narrative-ur">آپ نے فرمایا ﷺ: "میں ٹیک لگا کر نہیں کھاتا۔" آپ بیٹھ کر کھاتے — چوکڑی مار کر یا گھٹنوں پر، ایک خادم کی طرح۔ کھانے کا انداز عاجزی کا انداز تھا۔ ٹیک لگانا اس شخص کا انداز ہے جسے خدمت کی جا رہی ہو، جو آرام میں ہو، جو سہولت کو اپنا حق سمجھے۔ زمین پر بیٹھ کر کھانا — یہ آپ کی ہر کھانے کا انتخاب تھا، دنیا کے مہمان کی طرح۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Food, Hadith 5398 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 27 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="time-chip">🍽️ After Eating</span><span class="card-num">ACT 27</span></div>
+  <h3>Lick Three Fingers — and the Bowl</h3>
+  <p class="narrative">He ﷺ licked his thumb, index finger, and middle finger after eating — the three fingers he ate with. And he taught the reason: "You do not know in which part of the food the blessing is." He also licked the bowl before washing it — taking every last trace of food. This was not crude; it was gratitude expressed physically. No food was wasted. The blessing might be in the last morsel on the finger, in the residue on the bowl. He did not assume blessing was elsewhere. He sought it where he was.</p>
+  <p class="narrative-ur">آپ ﷺ نے کھانے کے بعد انگوٹھا، شہادت کی انگلی اور درمیانی انگلی چاٹی — تینوں انگلیاں جن سے کھاتے تھے۔ وجہ بتائی: "تمہیں نہیں معلوم کھانے کے کس حصے میں برکت ہے۔" آپ نے برتن بھی دھونے سے پہلے چاٹا۔ یہ فطری نہیں تھا؛ یہ جسمانی طور پر شکر تھا۔ ایک لقمہ بھی ضائع نہیں ہوا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Drinks, Hadith 2031 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 28 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="time-chip">🍽️ Fallen Food</span><span class="card-num">ACT 28</span></div>
+  <h3>Pick Up Fallen Food — Remove Dirt, Eat It</h3>
+  <p class="narrative">He ﷺ said: "When a morsel falls — pick it up, remove any dirt, and eat it. Do not leave it for Shaytan." He would not waste a single morsel. If food fell from his hand to the ground, he picked it up, brushed off whatever had attached to it, and ate it. The lesson was not about cleanliness alone but about the sanctity of provision: food is rizq from Allah, and leaving it on the ground for the devil is an insult to the gift. Every grain counted. Every morsel had a claim on gratitude.</p>
+  <p class="narrative-ur">آپ ﷺ نے فرمایا: "جب لقمہ گر جائے — اٹھاؤ، گندگی صاف کرو، کھا لو۔ شیطان کے لیے مت چھوڑو۔" آپ ﷺ ایک لقمہ بھی ضائع نہیں کرتے تھے۔ کھانا اللہ کا رزق ہے اور اسے زمین پر شیطان کے لیے چھوڑنا اس نعمت کی توہین ہے۔ ہر دانہ اہم تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Drinks, Hadith 2033 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 29 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-hasan-s">◈ Hasan Sahih — Tirmidhi / Ibn Majah</span><span class="time-chip">🍽️ Quantity</span><span class="card-num">ACT 29</span></div>
+  <h3>The One-Third Rule</h3>
+  <div class="arabic-block medium">مَا مَلَأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ بِحَسْبِ ابْنِ آدَمَ أُكُلَاتٌ يُقِمْنَ صُلْبَهُ فَإِنْ كَانَ لَا مَحَالَةَ فَثُلُثٌ لِطَعَامِهِ وَثُلُثٌ لِشَرَابِهِ وَثُلُثٌ لِنَفَسِهِ</div>
+  <div class="translit">Ma mala'a adamiyyun wi'a'an sharran min batn. Bi-hasbi ibni adama ukulatun yuqimna sulbahu. Fa-in kana la mahalata fa-thuluthun lita'amihi wa thuluthun lisharabihi wa thuluthun linafsih.</div>
+  <div class="translation">"The son of Adam does not fill any vessel worse than his stomach. It is sufficient for the son of Adam to eat morsels that keep his back straight. But if he must eat more — then a third for food, a third for drink, and a third for breathing."</div>
+  <p class="narrative">This is the most comprehensive nutritional hadith in the entire Sunnah. The stomach is the worst vessel to overfill — not the worst in value but the worst in consequence when overfilled. The minimum needed is what keeps you upright. If you eat more — a third for food, a third for drink, a third for air. He himself ate lightly. Aisha RA narrated that the family of Muhammad ﷺ never ate to full satisfaction from wheat bread two consecutive days — not from poverty alone, but from deliberate restraint.</p>
+  <p class="narrative-ur">یہ پوری سنت کی سب سے جامع غذائی حدیث ہے۔ پیٹ سب سے بدترین برتن ہے بھرنے کے لیے — کم قیمت میں نہیں بلکہ بھرنے کے نتائج میں۔ کم از کم وہ ہے جو سیدھا رکھے۔ اگر زیادہ کھانا ہو — ایک تہائی کھانے کے لیے، ایک تہائی پانی کے لیے، ایک تہائی سانس کے لیے۔ آپ ﷺ خود ہلکا کھاتے تھے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan al-Tirmidhi, Book of Asceticism (Kitab al-Zuhd), Hadith 2380; Sunan Ibn Majah, Book of Food, Hadith 3349 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ACT 30 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-hasan-s">◈ Hasan Sahih — Abu Dawud / Tirmidhi</span><span class="time-chip">🍽️ Completion</span><span class="card-num">ACT 30</span></div>
+  <h3>Dua After Eating — Two Versions</h3>
+  <div class="arabic-block medium">الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ</div>
+  <div class="translit">Alhamdulillahil-ladhi at'amana wa saqana wa ja'alana muslimin</div>
+  <div class="translation">All praise to Allah who fed us, gave us drink, and made us Muslims.</div>
+  <div class="arabic-block medium" style="margin-top:0.6rem;">الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ</div>
+  <div class="translit">Alhamdulillahil-ladhi at'amani hadha wa razaqanihi min ghayri hawlin minni wa la quwwah</div>
+  <div class="translation">All praise to Allah who fed me this and provided it without any power or strength from me.</div>
+  <p class="narrative">Two post-meal duas — one communal ("who fed us") and one personal ("who fed me this"). The second includes the same phrase from the dressing dua: "min ghayri hawlin minni wa la quwwah" — without any power or strength from me. And attached to this second dua is a specific promise: past sins forgiven for whoever says it after eating. The meal framed by Bismillah at the beginning and alhamdulillah at the end becomes a complete act of worship — beginning and ending with Allah.</p>
+  <p class="narrative-ur">دو دعائیں کھانے کے بعد — ایک اجتماعی ("جس نے ہمیں کھلایا") اور ایک ذاتی ("جس نے مجھے یہ کھلایا")۔ دوسری میں وہی جملہ: "بغیر کسی طاقت اور قوت کے میری طرف سے۔" اور اس دوسری دعا سے ایک خاص وعدہ جڑا ہے: جو اسے کھانے کے بعد کہے اس کے سابقہ گناہ بخشے جائیں۔ بسم اللہ سے شروع اور الحمدللہ پر ختم ہوا کھانا عبادت کا مکمل عمل بن جاتا ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Communal dua: Sunan Abu Dawud, Hadith 3850; Sunan al-Tirmidhi, Hadith 3457 — <strong style="color:#7AABF0">Hasan Sahih</strong> | Personal dua + forgiveness: Sunan Abu Dawud, Hadith 4023 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ══════════════════ SECTION 5: DRINKING ══════════════════ -->
+<div class="period-header"><span class="ph-icon">🥤</span><h2>Section 5 — Drinking</h2><span class="ph-ar">آداب الشرب</span></div>
+
+<!-- ACT 31 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="time-chip">🥤 Always</span><span class="card-num">ACT 31</span></div>
+  <h3>Always Sit to Drink</h3>
+  <p class="narrative">He ﷺ prohibited drinking while standing. "Let none of you drink standing." His own practice was always seated. The exception that is sometimes raised — drinking Zamzam standing — is understood by scholars as an exceptional act due to the pressing crowd at the well, not a general permission. Al-Nawawi and others classify the Zamzam narration as a specific circumstance. His consistent practice and his explicit prohibition both point to the same: sit to drink. The sitting posture slows, focuses, and acknowledges — it turns drinking from a mechanical act into a conscious one.</p>
+  <p class="narrative-ur">آپ ﷺ نے کھڑے پانی پینے سے منع فرمایا۔ "تم میں سے کوئی کھڑا ہو کر نہ پیئے۔" آپ کا اپنا عمل ہمیشہ بیٹھ کر تھا۔ زمزم کھڑے ہو کر پینے کی استثناء — علما اسے کنویں پر ہجوم کی غیر معمولی صورتحال قرار دیتے ہیں، عام اجازت نہیں۔ امام نووی اور دیگر نے زمزم کی روایت کو مخصوص حالات تک محدود کیا ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Drinks (Kitab al-Ashriba), Hadith 2024 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 32 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🥤 The Method</span><span class="card-num">ACT 32</span></div>
+  <h3>Three Sips — Breathe Outside the Vessel</h3>
+  <p class="narrative">He drank in three separate pauses — three sips, each followed by a breath taken away from the cup. He explicitly prohibited breathing into the vessel. He removed the cup from his mouth, breathed, then returned it for the next sip. Three times. Not one continuous pour. Not two. Three deliberate, conscious sips with conscious breaths between them. This is documented precisely — the companions noted the number of sips and the breathing practice separately. Modern understanding of why this is beneficial (CO2 exchange, bacteria, temperature regulation) came millennia later.</p>
+  <p class="narrative-ur">آپ ﷺ نے تین الگ وقفوں میں پیا — تین گھونٹ، ہر گھونٹ کے بعد پیالے سے ہٹ کر سانس لیا۔ آپ نے صراحت کے ساتھ پیالے میں سانس لینے سے منع فرمایا۔ پیالہ منہ سے ہٹا کر سانس لیتے پھر واپس لاتے — تین بار۔ ایک مسلسل پینا نہیں۔ تین ارادی، باشعور گھونٹ۔ یہ صحابہ نے الگ سے گھونٹوں کی تعداد اور سانس کا طریقہ بتایا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Drinks, Hadith 5631; Sahih Muslim, Book of Drinks, Hadith 2028 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 33 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari / Abu Dawud</span><span class="time-chip">🥤 Never</span><span class="card-num">ACT 33</span></div>
+  <h3>Never Blow Into a Vessel</h3>
+  <p class="narrative">He ﷺ explicitly prohibited blowing into the drinking vessel. If the drink was too hot — wait. Let it cool. Do not blow into it. Ibn Abbas RA narrated that he prohibited both breathing into the vessel and blowing into it. Two separate prohibitions for two separate acts — breathing passively into the cup, and actively blowing into it. Both were forbidden. The liquid in the vessel is not to receive the breath of a person. If patience was required, patience was the answer. His table practice had a dignity that even impatience could not override.</p>
+  <p class="narrative-ur">آپ ﷺ نے صراحت کے ساتھ پیالے میں پھونکنے سے منع فرمایا۔ اگر مشروب بہت گرم ہو — انتظار کریں۔ ٹھنڈا ہونے دیں۔ پھونکیں نہیں۔ ابن عباس رضی اللہ عنہ نے بتایا کہ آپ نے برتن میں سانس لینے اور پھونکنے دونوں سے منع فرمایا۔ دو الگ منع دو الگ اعمال کے لیے۔ اگر صبر کی ضرورت ہو تو صبر جواب تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Drinks, Hadith 153; Sunan Abu Dawud, Book of Drinks, Hadith 3722 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 34 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🥤 Passing</span><span class="card-num">ACT 34</span></div>
+  <h3>Pass to the Right First — Always</h3>
+  <p class="narrative">He always passed drinks to the right. The well-known story: he was given a drink and an older companion sat to his left, younger companions to his right. He asked: "Do you permit me to give to these first?" — meaning the younger ones on his right. They assented. He gave to the right first. The remarkable detail is that he asked permission — he was the Prophet ﷺ, he could have simply passed right. But he honoured the elder by seeking consent rather than overriding him silently. He maintained the sunnah of the right while maintaining the dignity of the left.</p>
+  <p class="narrative-ur">آپ ﷺ نے ہمیشہ پینے کی چیز دائیں طرف سے آگے بڑھائی۔ معروف قصہ: آپ کو مشروب دیا گیا، ایک بڑا صحابی بائیں تھا، چھوٹے دائیں۔ آپ نے پوچھا: "کیا تم مجھے اجازت دیتے ہو کہ ان کو پہلے دوں؟" — دائیں طرف والوں کی طرف اشارہ کرتے ہوئے۔ قابل ذکر بات یہ ہے کہ آپ نے اجازت مانگی — آپ ﷺ بغیر پوچھے دے سکتے تھے۔ لیکن آپ نے بزرگ کی عزت کو خاموشی سے نظرانداز کرنے کی بجائے رضامندی سے اس کا احترام کیا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Drinks, Hadith 2352; Sahih Muslim, Book of Drinks, Hadith 2029 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ══════════════════ SECTION 6: SLEEPING ══════════════════ -->
+<div class="period-header"><span class="ph-icon">🌙</span><h2>Section 6 — Sleeping</h2><span class="ph-ar">آداب النوم</span></div>
+
+<!-- ACT 35 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🌙 Before Lying Down</span><span class="card-num">ACT 35</span></div>
+  <h3>Dust the Bed Three Times</h3>
+  <div class="arabic-block small">بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي وَبِكَ أَرْفَعُهُ</div>
+  <div class="translit">Bismika rabbi wada'tu janbi wa bika arfa'uh</div>
+  <div class="translation">In Your name my Lord I lay my side, and by You I raise it.</div>
+  <p class="narrative">Before lying down he ﷺ would take the edge of his garment and dust his bed three times. His explanation: "You do not know what has appeared on the bed after you left it." Something may have settled on the surface since he last used it — an insect, something unseen. The three dustings were precautionary, physical, and practical. Then the sleep dua: "In Your name my Lord I lay my side" — he placed his body under Allah's name before sleep. If he woke in the night, he said an additional dua. If he died in the night, he died in a state of dhikr.</p>
+  <p class="narrative-ur">لیٹنے سے پہلے آپ ﷺ اپنے کپڑے کا کنارہ لے کر بستر تین بار جھاڑتے۔ وجہ: "تمہیں نہیں معلوم تمہارے جانے کے بعد بستر پر کیا آیا۔" کوئی چیز سطح پر آ سکتی ہے۔ تین بار جھاڑنا احتیاطی، جسمانی اور عملی تھا۔ پھر سونے کی دعا: "تیرے نام پر میں نے پہلو رکھا" — آپ نے سونے سے پہلے اپنا جسم اللہ کے نام کے نیچے رکھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Invocations, Hadith 6320; Sahih Muslim, Book of Dhikr, Hadith 2714 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 36 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🌙 Position</span><span class="card-num">ACT 36</span></div>
+  <h3>Right Side — Right Hand Under Right Cheek</h3>
+  <p class="narrative">Al-Bara ibn Azib RA narrated the comprehensive bedtime routine the Prophet ﷺ taught him, which included: lie on your right side, place your right hand under your right cheek. Right side, right hand — the right-left principle extended into unconsciousness. His sleep was not the absence of intention; it began with intention, with a deliberate physical orientation. The right hand under the cheek — a specific, documented position noted by the companion with the precision of one who watched it happen.</p>
+  <p class="narrative-ur">حضرت براء بن عازب رضی اللہ عنہ نے وہ جامع سونے کا معمول بیان کیا جو نبی ﷺ نے انہیں سکھایا، جس میں شامل تھا: دائیں کروٹ لیٹو، دایاں ہاتھ دائیں گال کے نیچے رکھو۔ دائیں جانب، دایاں ہاتھ — دائیں بائیں کا اصول بے ہوشی میں بھی جاری ہے۔ ان کی نیند ارادے کی غیر موجودگی نہیں تھی؛ یہ ارادے کے ساتھ شروع ہوئی۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Ablution, Hadith 247 — <strong style="color:#5DC88A">Sahih</strong> (al-Bara ibn Azib RA)</span></div>
+</div>
+
+<!-- ACT 37 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-hasan-s">◈ Hasan Sahih — Abu Dawud / Ibn Majah</span><span class="time-chip">🌙 Never</span><span class="card-num">ACT 37</span></div>
+  <h3>Never Sleep Face Down (on Stomach)</h3>
+  <p class="narrative">He ﷺ walked past a man sleeping face down and said: "This is a manner of lying down that Allah dislikes." He corrected sleeping positions — not just his own but those around him. The face-down position was specifically addressed and specifically disliked. His correction was gentle: he pointed it out, he named it as disliked by Allah, and moved on. This was his method of correction throughout — identify the specific act, name the Islamic principle, not shame the person.</p>
+  <p class="narrative-ur">آپ ﷺ ایک آدمی کے پاس سے گزرے جو منہ کے بل سو رہا تھا اور فرمایا: "یہ لیٹنے کا طریقہ ہے جو اللہ کو ناپسند ہے۔" آپ ﷺ سونے کی پوزیشنیں درست کرتے — صرف اپنی نہیں بلکہ اپنے ارد گرد والوں کی بھی۔ منہ کے بل لیٹنا خاص طور پر مخاطب کیا گیا اور خاص طور پر ناپسند۔ ان کی اصلاح نرم تھی۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Abu Dawud, Book of Sleep (Kitab al-Adab), Hadith 5040; Sunan Ibn Majah, Hadith 3723 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ACT 38 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="time-chip">🌙 Preparation</span><span class="card-num">ACT 38</span></div>
+  <h3>Wudu Before Sleep</h3>
+  <p class="narrative">Part of the comprehensive bedtime routine from al-Bara ibn Azib RA: before sleeping, perform wudu as you perform it for prayer. The night begins in purity. Sleep is a form of death in Islamic understanding — the soul is taken and returned. Meeting that moment of soul-taking in a state of wudu is a preparation that he ﷺ chose every night. He also said the angels of mercy remain with the person who sleeps in wudu, making dua for them through the night.</p>
+  <p class="narrative-ur">حضرت براء بن عازب کے جامع سونے کے معمول کا حصہ: سونے سے پہلے وضو کرو جیسے نماز کے لیے کرتے ہو۔ رات پاکیزگی میں شروع ہوتی ہے۔ نیند اسلامی نقطہ نظر میں موت کی ایک صورت ہے — روح قبض ہوتی اور واپس ملتی ہے۔ اس لمحے کو وضو کی حالت میں ملنا آپ کا ہر رات کا انتخاب تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Ablution, Hadith 247 — <strong style="color:#5DC88A">Sahih</strong> (al-Bara ibn Azib RA)</span></div>
+</div>
+
+<!-- ACT 39 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="time-chip">🌙 In Bed</span><span class="card-num">ACT 39</span></div>
+  <h3>Three Quls — Recite, Blow into Hands, Wipe on Body</h3>
+  <div class="arabic-block medium">قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</div>
+  <div class="translit">Qul huwa Allahu ahad. Allahu-s-samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</div>
+  <div class="translation">Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent. [112]</div>
+  <div class="arabic-block medium" style="margin-top:0.5rem;">قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ</div>
+  <div class="translation">Say: I seek refuge in the Lord of the daybreak, from the evil of what He created, from the evil of darkness when it settles, from the evil of the blowers in knots, from the evil of an envier when he envies. [113]</div>
+  <div class="arabic-block medium" style="margin-top:0.5rem;">قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ</div>
+  <div class="translation">Say: I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating whisperer who whispers in the breasts of mankind, from among jinn and mankind. [114]</div>
+  <p class="narrative">His personal bedtime ruqyah: recite the three surahs, cup the hands, blow gently into cupped palms, wipe over the face and as much of the body as could be reached — done three times. Aisha RA described this with precise physical detail, including the hands cupped together, the gentle blow, and the wiping motion. During his final illness, when he was too weak to perform it himself, she would take his hands and do it for him — using his own blessed hands to perform the ruqyah he had always done for himself.</p>
+  <p class="narrative-ur">ان کی ذاتی سونے کی رقیہ: تینوں سورتیں پڑھیں، ہتھیلیاں جوڑیں، ہلکی پھونک ماریں، چہرے اور جتنے جسم تک ممکن ہو پھیریں — تین بار۔ حضرت عائشہ رضی اللہ عنہا نے یہ جسمانی تفصیل کے ساتھ بیان کیا، آخری بیماری میں جب آپ خود کمزور تھے، انہوں نے آپ کے ہاتھ لے کر یہ عمل کیا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Medicine (Kitab al-Tibb), Hadith 5017 — <strong style="color:#5DC88A">Sahih</strong> (Aisha RA)</span></div>
+</div>
+
+<!-- ACT 40 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari</span><span class="time-chip">🌙 In Bed</span><span class="card-num">ACT 40</span></div>
+  <h3>Ayat al-Kursi Before Sleep — The Story of the Thief</h3>
+  <div class="arabic-block quran">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</div>
+  <p class="narrative">Abu Hurairah RA narrated: the Prophet ﷺ placed him in charge of guarding the charity of Ramadan. A man came three nights and took from it. On the third night Abu Hurairah RA caught him and threatened to bring him to the Prophet ﷺ. The man said: "Let me go and I will teach you something that will benefit you." He taught him Ayat al-Kursi — and said: "Whoever recites it when lying down, a guardian from Allah stays with him until morning and Shaytan cannot approach him." Abu Hurairah RA told the Prophet ﷺ, who confirmed: "He told you the truth, although he is a liar — that was Shaytan." A thief three nights running — a devil teaching the truth because he could not escape it. The most guarding verse in the Quran, confirmed by the one who fears it most.</p>
+  <p class="narrative-ur">حضرت ابوہریرہ رضی اللہ عنہ نے بیان کیا: ایک آدمی تین رات آیا اور رمضان کے صدقے سے چرایا۔ تیسری رات پکڑے گئے۔ اس نے کہا: "چھوڑ دو میں تمہیں کچھ سکھاتا ہوں۔" اس نے آیت الکرسی سکھائی اور کہا: "جو اسے لیٹتے وقت پڑھے، اللہ کا محافظ صبح تک اس کے ساتھ رہتا ہے اور شیطان اس کے قریب نہیں آ سکتا۔" آپ ﷺ نے فرمایا: "اس نے سچ کہا، حالانکہ وہ جھوٹا ہے — وہ شیطان تھا۔"</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Virtues of the Quran (Kitab Fada'il al-Quran), Hadith 5010 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 41 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span><span class="time-chip">🌙 Last Before Sleep</span><span class="card-num">ACT 41</span></div>
+  <h3>Last Two Verses of Surah Baqarah</h3>
+  <div class="arabic-block quran medium">آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ</div>
+  <div class="translation">The Messenger has believed in what was revealed to him from his Lord, and so have the believers. All believed in Allah and His angels and His books and His messengers, saying: "We make no distinction between any of His messengers." And they say: "We hear and we obey. Your forgiveness, our Lord, and to You is the final destination." [2:285]</div>
+  <div class="arabic-block quran medium" style="margin-top:0.6rem;">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ</div>
+  <div class="translation">Allah does not burden a soul beyond that it can bear. It will have the reward of what it earned, and it will bear the consequence of what it did. Our Lord, do not impose blame upon us if we forget or make an error. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people. [2:286]</div>
+  <p class="narrative">He said: "Whoever recites the last two ayahs of Surah Baqarah at night, they will suffice him." Scholars say: suffice him from harm, from Shaytan, as protection through the night. The first ayah is a complete creed — faith in Allah, angels, books, prophets, with no distinctions: "We hear and we obey." The second ayah is the most comprehensive dua in the Quran — beginning with the most comforting truth (no soul is burdened beyond its capacity) and containing seven requests, each of which, the Prophet ﷺ said, was answered by Allah with "I have done it." The sleep that follows these two ayahs begins with every one of those requests answered.</p>
+  <p class="narrative-ur">آپ ﷺ نے فرمایا: "جو رات کو سورۃ البقرہ کی آخری دو آیات پڑھے، وہ اسے کافی ہوں گی۔" پہلی آیت مکمل عقیدہ ہے — اللہ، فرشتوں، کتابوں، رسولوں پر ایمان، بغیر کسی تفریق کے: "ہم نے سنا اور مانا۔" دوسری آیت قرآن کی جامع ترین دعا ہے — سب سے تسلی بخش سچائی سے شروع ہوتی ہے اور سات درخواستوں پر ختم جن میں سے ہر ایک کے جواب میں اللہ نے فرمایا: "میں نے کر دیا۔"</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Bukhari, Book of Virtues of the Quran, Hadith 5009; Sahih Muslim, Book of Prayer of Travellers, Hadith 807 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ══════════════════ SECTION 7: MIRROR ══════════════════ -->
+<div class="period-header"><span class="ph-icon">🪞</span><h2>Section 7 — Looking in the Mirror</h2><span class="ph-ar">النظر في المرآة</span></div>
+
+<!-- ACT 42 -->
+<div class="card tier3">
+  <div class="card-meta"><span class="badge badge-hasan">◇ Hasan — Musnad Ahmad / Ibn Hibban</span><span class="time-chip">🪞 Mirror</span><span class="card-num">ACT 42</span></div>
+  <h3>Dua When Looking in the Mirror</h3>
+  <div class="arabic-block">اللَّهُمَّ كَمَا حَسَّنْتَ خَلْقِي فَحَسِّنْ خُلُقِي</div>
+  <div class="translit">Allahumma kama hassanta khalqi fa-hassin khuluqi</div>
+  <div class="translation">O Allah, just as You have made my outward form beautiful, make my character beautiful.</div>
+  <p class="narrative">When he looked at his reflection he said this dua. The Arabic pairs two words: khalq (outward creation — body, face, form) and khuluq (inner character, manners, moral nature). The khalq is Allah's gift — accepted with gratitude, not pride. The khuluq must be asked for — because while the outward was given, the inner requires effort, supplication, and divine assistance. He looked in the mirror and saw what Allah had given him; he then immediately asked for what still needed work. The mirror was not vanity — it was an occasion for self-assessment and supplication.</p>
+  <p class="narrative-ur">جب آپ ﷺ آئینے میں دیکھتے تو یہ دعا پڑھتے۔ عربی میں دو الفاظ جوڑے گئے ہیں: خَلق (ظاہری تخلیق — جسم، چہرہ، شکل) اور خُلق (باطنی کردار، آداب، اخلاقی فطرت)۔ خَلق اللہ کا عطیہ ہے — شکرگزاری سے قبول کیا گیا، غرور سے نہیں۔ خُلق مانگنا پڑتا ہے — کیونکہ جبکہ ظاہر دیا گیا، باطن کو محنت اور دعا کی ضرورت ہے۔ آئینہ تکبر نہیں تھا — یہ خود احتسابی اور دعا کا موقع تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Musnad Ahmad, Hadith 3823; Ibn Hibban — <strong style="color:#E0A030">Hasan</strong> (amber badge — Hasan chain)</span></div>
+</div>
+
+<!-- ACT 43 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-hasan-s">◈ Hasan Sahih — Abu Dawud</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🪞 Grooming</span><span class="card-num">ACT 43</span></div>
+  <h3>Combing — From the Right Side, With Oil</h3>
+  <p class="narrative">He ﷺ combed his hair and beard. He said: "Whoever has hair, let him honour it." He began combing from the right side — consistent with the right-left principle. He oiled his hair regularly. His appearance was deliberate and maintained — not from vanity but from the understanding that the body is a trust from Allah, that presentation is a form of respect, and that those he met deserved to encounter him well-presented. He honoured his hair; he taught the same.</p>
+  <p class="narrative-ur">آپ ﷺ اپنے بال اور داڑھی کنگھا کرتے۔ آپ نے فرمایا: "جس کے بال ہوں وہ انہیں عزت دے۔" آپ دائیں جانب سے کنگھا شروع کرتے — دائیں بائیں کے اصول کے مطابق۔ آپ باقاعدگی سے بالوں میں تیل لگاتے۔ آپ کی ظاہری شخصیت ارادی اور سنوری ہوئی تھی — غرور سے نہیں بلکہ اس سمجھ سے کہ جسم اللہ کی امانت ہے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sunan Abu Dawud, Book of Dress (Kitab al-Libas), Hadith 4159 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- ACT 44 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="time-chip">🪞 Appearance</span><span class="card-num">ACT 44</span></div>
+  <h3>He Looked Presentable — Beauty Is From Allah</h3>
+  <div class="arabic-block small">إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ</div>
+  <div class="translit">Inna Allaha jamilun yuhibbu-l-jamal</div>
+  <div class="translation">"Indeed Allah is beautiful and loves beauty."</div>
+  <p class="narrative">Umar RA narrated seeing him adjust his appearance in the reflection of water before meeting people. He cared about how he looked — not from vanity but from respect for those he was about to meet. Looking presentable was itself an act of courtesy toward others. He then said "Allah is beautiful and loves beauty" — connecting his care for appearance to a theological root. Beauty that acknowledges Allah as its source and that is used to honour the people you encounter is not vanity; it is worship.</p>
+  <p class="narrative-ur">حضرت عمر رضی اللہ عنہ نے انہیں لوگوں سے ملنے سے پہلے پانی میں اپنی شکل دیکھتے اور درست کرتے دیکھا۔ آپ اپنی ظاہری شکل کا خیال رکھتے — غرور سے نہیں بلکہ ان لوگوں کے احترام میں جن سے ملنے والے تھے۔ پھر فرمایا: "بے شک اللہ خوبصورت ہے اور خوبصورتی کو پسند کرتا ہے" — اپنی فکر کو عقیدے کی جڑ سے جوڑتے ہوئے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>"Allah is beautiful": Sahih Muslim, Book of Faith, Hadith 91 — <strong style="color:#5DC88A">Sahih</strong> | Adjusting in water: Muwatta Malik, authenticated chain</span></div>
+</div>
+
+<!-- ══════════════════ SECTION 8: WALKING ══════════════════ -->
+<div class="period-header"><span class="ph-icon">🚶</span><h2>Section 8 — Walking and Movement</h2><span class="ph-ar">المشي والحركة</span></div>
+
+<!-- ACT 45 -->
+<div class="card shamaa">
+  <div class="card-meta"><span class="badge badge-shamaa">🔵 Shamaa'il al-Muhammadiyyah — Tirmidhi</span><span class="time-chip">🚶 His Walk</span><span class="card-num">ACT 45</span></div>
+  <h3>His Walk — As If Descending from a High Place</h3>
+  <p class="narrative">Ali RA described him ﷺ: "When he walked — he walked with purpose, as if descending from a high place. I never saw anyone before him or after him like him in his walk." Abu Hurairah RA added: "I never saw anything more beautiful than him ﷺ — it was as if the sun ran in his face." His walk was distinctive enough that those who knew him could describe it in specific terms decades later. It was purposeful, forward-leaning, dignified — not the walk of someone wandering or uncertain. He moved as one who knew where he was going, who he was, and Whose servant he was.</p>
+  <p class="narrative-ur">حضرت علی رضی اللہ عنہ نے بیان کیا: "جب آپ ﷺ چلتے تو مقصد کے ساتھ چلتے، جیسے اونچی جگہ سے نیچے اتر رہے ہوں۔ میں نے ان سے پہلے یا بعد میں چال میں کوئی ان جیسا نہیں دیکھا۔" حضرت ابوہریرہ رضی اللہ عنہ نے مزید کہا: "میں نے کوئی ان ﷺ سے زیادہ خوبصورت نہیں دیکھا — گویا سورج ان کے چہرے میں دوڑ رہا ہو۔" ان کی چال بامقصد، آگے کی طرف، باوقار تھی۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Shamaa'il al-Muhammadiyyah (Imam al-Tirmidhi) — authenticated chain of description from Ali RA and Abu Hurairah RA</span></div>
+</div>
+
+<!-- ACT 46 -->
+<div class="card tier3 shamaa">
+  <div class="card-meta"><span class="badge badge-shamaa">🔵 Shamaa'il — Hasan</span><span class="time-chip">🚶 In Conversation</span><span class="card-num">ACT 46</span></div>
+  <h3>Full Body Turn — Not Just the Head</h3>
+  <p class="narrative">He turned his entire body toward whoever spoke to him — not just his face, not just his eyes. Complete physical presence, complete attention, complete respect. Those who sat with him described the experience of his full attention as something distinct — he was entirely present. This full-body turn is the physical expression of the same quality described in the listening hadith (Practice 20, Part 2) — he was not just looking at you; he was facing you with everything he had. His body language was the grammar of his compassion.</p>
+  <p class="narrative-ur">آپ ﷺ بات کرنے والے کی طرف اپنا پورا جسم موڑتے — صرف چہرہ نہیں، صرف آنکھیں نہیں۔ مکمل جسمانی موجودگی، مکمل توجہ، مکمل احترام۔ جو ان کے ساتھ بیٹھتے انہوں نے ان کی پوری توجہ کے تجربے کو کچھ خاص قرار دیا — آپ مکمل طور پر حاضر ہوتے۔ یہ پورے جسم کا موڑنا ان کی ہمدردی کی زبان تھا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Shamaa'il al-Muhammadiyyah (al-Tirmidhi) — <strong style="color:#E0A030">Hasan</strong></span></div>
+</div>
+
+<!-- ACT 47 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🚶 Entering Masjid</span><span class="card-num">ACT 47</span></div>
+  <h3>Right Foot Into Masjid — Dua of Mercy</h3>
+  <div class="arabic-block medium">اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</div>
+  <div class="translit">Allahumma iftah li abwaba rahmatik</div>
+  <div class="translation">O Allah, open for me the gates of Your mercy.</div>
+  <p class="narrative">Right foot first into the masjid, with this dua. He was entering the house of Allah — a place of mercy, of prayer, of closeness. His first act was to ask for the gates of that mercy to be opened for him. Not assumed, not taken for granted — asked for. Even the Prophet ﷺ, whose sins were forgiven, asked for the opening of mercy as he crossed the threshold. The right foot honours the honourable space; the dua acknowledges what he was seeking inside it.</p>
+  <p class="narrative-ur">مسجد میں دائیں پیر سے داخل ہوتے، اس دعا کے ساتھ۔ آپ اللہ کے گھر میں داخل ہو رہے تھے — رحمت، نماز، قربت کی جگہ۔ پہلا عمل تھا اس رحمت کے دروازوں کے کھلنے کی التجا۔ فرض نہیں، مسلم نہیں — مانگنا۔ حتی کہ آپ ﷺ، جن کے گناہ معاف تھے، دہلیز پار کرتے ہوئے رحمت کی طلب کرتے۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Mosques (Kitab al-Masajid), Hadith 713 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ACT 48 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Sahih — Muslim</span><span class="rl-chip">↩ Right/Left Principle</span><span class="time-chip">🚶 Leaving Masjid</span><span class="card-num">ACT 48</span></div>
+  <h3>Left Foot Out of Masjid — Dua of Provision</h3>
+  <div class="arabic-block medium">اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ</div>
+  <div class="translit">Allahumma inni as'aluka min fadlik</div>
+  <div class="translation">O Allah, I ask You of Your bounty.</div>
+  <p class="narrative">Left foot out of the masjid, with this dua. The symmetry is intentional and beautiful: entering the house of Allah — ask for mercy. Leaving the house of Allah — ask for provision in the world outside. Two different thresholds, two different needs, two different duas. The person returning to the world after prayer carries the ask for rizq — acknowledging that the provision of the world comes from the same Allah who grants the mercy of the masjid. One threshold into refuge, one threshold back into the world — both marked, both spoken, both surrendered.</p>
+  <p class="narrative-ur">مسجد سے بائیں پیر سے نکلتے، اس دعا کے ساتھ۔ توازن ارادی اور خوبصورت ہے: اللہ کے گھر میں داخل ہوتے — رحمت مانگیں۔ اللہ کے گھر سے نکلتے — باہر دنیا میں رزق مانگیں۔ دو مختلف دہلیزیں، دو مختلف ضروریات، دو مختلف دعائیں۔ ایک دہلیز پناہ کی طرف، ایک واپس دنیا کی طرف — دونوں نشان زد، دونوں کہی گئی، دونوں سپرد کی گئی۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Sahih Muslim, Book of Mosques (Kitab al-Masajid), Hadith 713 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- ══════════════════ SECTION 9: QURANIC DUAS ══════════════════ -->
+<div class="period-header"><span class="ph-icon">📖</span><h2>Section 9 — Quranic Duas</h2><span class="ph-ar">الأدعية القرآنية</span></div>
+<p class="section-intro">Duas from the Quran that the Prophet ﷺ specifically taught or recommended — the supplications of the prophets preserved in the Book, brought into daily life by the one who lived closest to it.</p>
+
+<!-- DUA 1 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic</span><span class="quran-tag">Quran 20:25–28</span><span class="time-chip">📖 Before Difficulty</span></div>
+  <h3>Musa AS — For Difficulty and Communication</h3>
+  <div class="arabic-block quran">رَبِّ اشْرَحْ لِي صَدْرِي ۝ وَيَسِّرْ لِي أَمْرِي ۝ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ۝ يَفْقَهُوا قَوْلِي</div>
+  <div class="translit">Rabbi-shrah li sadri, wa yassir li amri, wa-hlul 'uqdatan min lisani, yafqahu qawli</div>
+  <div class="translation">My Lord, expand for me my chest, ease for me my task, and untie the knot from my tongue that they may understand my speech. [Quran 20:25–28]</div>
+  <p class="narrative">Musa AS made this dua standing before Pharaoh — the most powerful man of his age — about to deliver a message that would challenge everything about that empire. He asked for three things: an open chest (space for what was to come), ease in his affair (the task itself), and clarity of speech (so his words would land). Allah answered: "You have been granted your request, O Musa." (20:36). Used when: before a difficult task, a difficult conversation, a speech, an exam, a confrontation — any moment where clarity, ease, and courage are needed together.</p>
+  <p class="narrative-ur">موسیٰ علیہ السلام نے یہ دعا فرعون کے سامنے کھڑے ہو کر مانگی — اپنے دور کا سب سے طاقتور انسان۔ انہوں نے تین چیزیں مانگیں: کھلا سینہ، آسان کام، اور واضح گفتگو۔ اللہ نے جواب دیا: "اے موسیٰ، تمہاری درخواست منظور ہو گئی۔" (20:36)۔ کب پڑھیں: کسی مشکل کام، مشکل گفتگو، تقریر، امتحان، یا ٹکراؤ سے پہلے۔</p>
+</div>
+
+<!-- DUA 2 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic</span><span class="quran-tag">Quran 21:83</span><span class="time-chip">📖 In Illness</span></div>
+  <h3>Ayyub AS — For Illness and Prolonged Suffering</h3>
+  <div class="arabic-block quran">رَبِّ إِنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ</div>
+  <div class="translit">Rabbi inni massani-d-durru wa anta arhamu-r-rahimin</div>
+  <div class="translation">My Lord, indeed adversity has touched me, and You are the Most Merciful of the merciful. [Quran 21:83]</div>
+  <p class="narrative">Ayyub AS suffered for eighteen years according to the classical scholars — years of illness and loss. This was his entire dua. Not a detailed list of requests. Not bargaining. Not conditions. Just: "harm has touched me" — and then the most powerful truth available: "and You are the Most Merciful of the merciful." That is the entire petition. Allah answered immediately. The dua works because it acknowledges reality (harm is real) and relies on attribute (Your mercy is real) without prescribing to Allah what form the answer should take. Used when: during illness, pain, chronic difficulty, prolonged suffering.</p>
+  <p class="narrative-ur">ایوب علیہ السلام کلاسیکی علما کے مطابق اٹھارہ سال بیمار رہے۔ یہ ان کی پوری دعا تھی۔ تفصیلی فہرست نہیں، سودا نہیں، شرطیں نہیں۔ صرف: "مجھے تکلیف نے چھو لیا" — پھر سب سے طاقتور سچائی: "اور تو سب سے زیادہ رحم کرنے والا ہے۔" اللہ نے فوری جواب دیا۔ کب پڑھیں: بیماری، درد، دائمی مشکل، طویل تکلیف میں۔</p>
+</div>
+
+<!-- DUA 3 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic</span><span class="badge badge-hasan-s" style="margin-left:0.25rem;">◈ Hadith: Tirmidhi 3505</span><span class="quran-tag">Quran 21:87</span><span class="time-chip">📖 Any Distress</span></div>
+  <h3>Yunus AS — From Every Darkness</h3>
+  <div class="arabic-block quran">لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ</div>
+  <div class="translit">La ilaha illa anta subhanaka inni kuntu mina-dh-dhalimin</div>
+  <div class="translation">There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers. [Quran 21:87]</div>
+  <p class="narrative">The Prophet ﷺ said: "No Muslim makes this dua in any matter except Allah relieves him of it." Three layers in fifteen words: Tawhid (no god but You), Tasbeeh (You are pure and beyond all fault), and Tawbah (I was among the wrongdoers — I acknowledge my fault). It is the complete submission. Yunus AS was inside a whale, in the darkness of the sea, in the darkness of the whale, in the darkness of his own mistake. Three darknesses. This dua brought him out of all three. Used when: any distress, darkness, feeling of being trapped, mistake, regret, sin.</p>
+  <p class="narrative-ur">نبی ﷺ نے فرمایا: "کوئی مسلمان کسی بھی معاملے میں یہ دعا نہیں مانگتا مگر اللہ اسے اس سے نجات دیتا ہے۔" پندرہ الفاظ میں تین تہیں: توحید، تسبیح، اور توبہ۔ یونس علیہ السلام تین اندھیروں میں تھے: سمندر کا اندھیرا، مچھلی کا اندھیرا، اپنی غلطی کا اندھیرا۔ اس دعا نے تینوں سے نکالا۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Quran 21:87; Prophetic endorsement: Sunan al-Tirmidhi, Hadith 3505 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- DUA 4 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic</span><span class="quran-tag">Quran 14:40</span><span class="time-chip">📖 Prayer Consistency</span></div>
+  <h3>Ibrahim AS — For Steadfastness in Prayer</h3>
+  <div class="arabic-block quran">رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ</div>
+  <div class="translit">Rabbi ij'alni muqimas-salati wa min dhurriyyati, rabbana wa taqabbal du'a'</div>
+  <div class="translation">My Lord, make me an establisher of prayer, and from my descendants. Our Lord, and accept my supplication. [Quran 14:40]</div>
+  <p class="narrative">Ibrahim AS — the father of prophets, the builder of the Kaaba, the one Allah called "Khalil Allah" (the intimate friend of Allah) — asked not for wealth, not for power, not for victory over his enemies. He asked to be kept steadfast in prayer, and for his children to be the same. Used when: for parents asking for righteous children who pray. For anyone struggling with consistency in prayer — the prayer of Ibrahim AS, the most beloved of all prophets after Muhammad ﷺ, was for the same thing you are asking for. You are in good company.</p>
+  <p class="narrative-ur">ابراہیم علیہ السلام — انبیاء کے باپ، کعبے کے بانی، جنہیں اللہ نے "خلیل اللہ" کہا — انہوں نے دولت نہیں، اقتدار نہیں، دشمنوں پر فتح نہیں مانگی۔ انہوں نے نماز پر قائم رہنے کی اور اپنی اولاد کے لیے یہی مانگی۔ کب پڑھیں: والدین کے لیے جو نمازی بچے مانگتے ہیں۔ نماز میں مستقل نہ رہنے والوں کے لیے — ابراہیم علیہ السلام کی یہی دعا تھی۔</p>
+</div>
+
+<!-- DUA 5 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic</span><span class="quran-tag">Quran 21:89</span><span class="time-chip">📖 Loneliness</span></div>
+  <h3>Zakariyya AS — Against Loneliness and Childlessness</h3>
+  <div class="arabic-block quran">رَبِّ لَا تَذَرْنِي فَرْدًا وَأَنتَ خَيْرُ الْوَارِثِينَ</div>
+  <div class="translit">Rabbi la tadharni fardan wa anta khayru-l-waritheen</div>
+  <div class="translation">My Lord, do not leave me alone, and You are the best of inheritors. [Quran 21:89]</div>
+  <p class="narrative">Zakariyya AS was elderly, his wife barren — he had no heir, no child to continue his mission. He said this dua. Allah gave him Yahya AS — Yahya ibn Zakariyya, called John the Baptist, a prophet sent to announce the coming of Isa AS. Used when: loneliness, no children, feeling without continuation or legacy, childlessness after years of trying. The "best of inheritors" at the end is profound — if Allah takes everything from you, He himself remains. He is the best of what you could leave behind. The dua contains its own answer.</p>
+  <p class="narrative-ur">زکریا علیہ السلام بزرگ تھے، ان کی بیوی بانجھ — کوئی وارث نہیں تھا۔ انہوں نے یہ دعا مانگی۔ اللہ نے انہیں یحییٰ علیہ السلام دیے — ایک نبی۔ کب پڑھیں: تنہائی، اولاد نہ ہونا، جاری رہنے کا احساس نہ ہونا، سالوں کی کوشش کے بعد بھی اولاد نہ ہونا۔ آخر میں "خیر الوارثین" گہرا ہے — اگر اللہ سب کچھ لے لے، خود وہ باقی رہتا ہے۔</p>
+</div>
+
+<!-- DUA 6 -->
+<div class="card tier2">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic</span><span class="badge badge-hasan-s" style="margin-left:0.25rem;">◈ Hadith: Tirmidhi 2140</span><span class="quran-tag">Quran 3:8</span><span class="time-chip">📖 Fear of Losing Faith</span></div>
+  <h3>The Believers' Dua — Steadfastness of the Heart</h3>
+  <div class="arabic-block quran">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً إِنَّكَ أَنتَ الْوَهَّابُ</div>
+  <div class="translit">Rabbana la tuzigh qulubana ba'da idh hadaytana wa hab lana min ladunka rahmatan innaka anta-l-wahhab</div>
+  <div class="translation">Our Lord, do not let our hearts deviate after You have guided us, and grant us from Yourself mercy. Indeed, You are the Bestower. [Quran 3:8]</div>
+  <p class="narrative">The Prophet ﷺ said frequently: "O Turner of hearts — keep my heart firm on Your religion." He who was guided, who received revelation, who was the Seal of the Prophets — he still asked for the heart to be kept firm. He taught that the heart turns, that guidance is not a single moment but an ongoing gift that must be asked for. Used when: fear of losing faith, doubt, after a sin, whenever the heart feels uncertain or distant. The acknowledgment in the dua that Allah is the Turner of hearts means: only He can keep them stable. Ask the Turner to keep it still.</p>
+  <p class="narrative-ur">نبی ﷺ اکثر کہتے: "اے دلوں کے پھیرنے والے — میرے دل کو اپنے دین پر ثابت رکھ۔" وہ جنہیں ہدایت ملی تھی، جن پر وحی آئی، جو خاتم النبیین تھے — وہ بھی دل کی ثابت قدمی مانگتے۔ کب پڑھیں: ایمان کھو جانے کا خوف، شک، گناہ کے بعد، دل کے بے یقین یا دور محسوس ہونے پر۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Quran 3:8; "O Turner of hearts": Sunan al-Tirmidhi, Hadith 2140 — <strong style="color:#7AABF0">Hasan Sahih</strong></span></div>
+</div>
+
+<!-- DUA 7 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic + Sahih Muslim</span><span class="quran-tag">Quran 2:286</span><span class="time-chip">📖 Every Night</span></div>
+  <h3>The Last Ayah of Baqarah — Allah's Accepted Response</h3>
+  <div class="arabic-block quran">لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ</div>
+  <div class="translation">Allah does not burden a soul beyond that it can bear. It has what it has earned, and against it what it has incurred. Our Lord, do not impose blame upon us if we forget or make an error. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people. [Quran 2:286]</div>
+  <p class="narrative">For each of the requests in this ayah, the Prophet ﷺ said Allah responded: "I have done it." No blame for forgetfulness — granted. No burden like those before — granted. No unbearable burden — granted. Pardon — granted. Forgiveness — granted. Mercy — granted. Victory — granted. Every night, reciting this ayah before sleep, these seven grants become the foundation on which you rest. The most comforting truth opens it: "Allah does not burden a soul beyond that it can bear." Everything after that is a request to a Lord who has already said yes. Used: every night before sleep — the master daily dua.</p>
+  <p class="narrative-ur">اس آیت کی ہر درخواست کے جواب میں آپ ﷺ نے فرمایا کہ اللہ نے کہا: "میں نے کر دیا۔" بھول پر کوئی مؤاخذہ نہیں — منظور۔ پہلوں جیسا بوجھ نہیں — منظور۔ ناقابل برداشت بوجھ نہیں — منظور۔ معافی — منظور۔ مغفرت — منظور۔ رحمت — منظور۔ نصرت — منظور۔ ہر رات، سونے سے پہلے اس آیت کو پڑھنے پر، یہ سات منظوریاں وہ بنیاد بن جاتی ہیں جس پر آرام کرتے ہیں۔</p>
+  <div class="source-line"><span class="src-icon">📚</span><span>Quran 2:286; Allah's answers to each request: Sahih Muslim, Book of Faith, Hadith 126 — <strong style="color:#5DC88A">Sahih</strong></span></div>
+</div>
+
+<!-- DUA 8 -->
+<div class="card tier1">
+  <div class="card-meta"><span class="badge badge-sahih">✦ Quranic</span><span class="quran-tag">Quran 25:74</span><span class="time-chip">📖 For Family</span></div>
+  <h3>Surah Al-Furqan — The Dua for Spouses and Children</h3>
+  <div class="arabic-block quran">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div>
+  <div class="translit">Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yunin waj'alna lil-muttaqina imama</div>
+  <div class="translation">Our Lord, grant us from among our wives and offspring comfort to our eyes, and make us an example for the righteous. [Quran 25:74]</div>
+  <p class="narrative">Qurrata a'yun — "coolness of the eyes." In Arabic, this expression means deep joy that brings tears of happiness, a comfort so profound it refreshes the sight itself. This is not asking for obedient children — it is asking for children who are a joy to look at in the deepest sense: spiritually, morally, in their relationship with Allah. The second request compounds it: make us leaders for the righteous — not just good families but families whose goodness sets an example. Used when: for spouses, for children, for family. The master family dua of the Quran.</p>
+  <p class="narrative-ur">قرۃ اعین — "آنکھوں کی ٹھنڈک۔" عربی میں یہ تعبیر گہری خوشی کو ظاہر کرتی ہے جو آنسو لاتی ہے، ایک آرام جو بصارت کو تازہ کرتا ہے۔ یہ فرماں بردار بچوں کی دعا نہیں — یہ ایسے بچوں کی دعا ہے جو گہرے معنوں میں دیکھنے کی خوشی ہوں: روحانی طور پر، اخلاقی طور پر، اللہ کے ساتھ تعلق میں۔ کب پڑھیں: شوہر/بیوی کے لیے، بچوں کے لیے، خاندان کے لیے — قرآن کی مرکزی خاندانی دعا۔</p>
+</div>
+
+</div><!-- .wrapper -->
+<footer>
+  <span>Al-Maktaba</span> · Daily Sunnah Series · Physical Sunnah · 48 Authenticated Acts<br/>
+  All acts sourced from primary hadith collections with explicit numbers and grades. Every Arabic text is complete and unabbreviated.
+</footer>
+<script>
+function setLang(lang){
+  if(lang==='ur'){document.body.classList.add('ur-mode');document.getElementById('btn-en').classList.remove('active');document.getElementById('btn-ur').classList.add('active');document.documentElement.setAttribute('lang','ur');}
+  else{document.body.classList.remove('ur-mode');document.getElementById('btn-en').classList.add('active');document.getElementById('btn-ur').classList.remove('active');document.documentElement.setAttribute('lang','en');}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daily Sunnah — Dawn &amp; Morning | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:        #04070D;
+  --card:      #080E1C;
+  --gold:      #C9A84C;
+  --gold-dim:  rgba(201,168,76,0.15);
+  --gold-mid:  rgba(201,168,76,0.35);
+  --teal:      #2FB89A;
+  --teal-dim:  rgba(47,184,154,0.12);
+  --text:      #D4CBB8;
+  --text-dim:  #8A8275;
+  --border:    rgba(201,168,76,0.15);
+  --green:     #2A7A4B;
+  --green-bg:  rgba(42,122,75,0.15);
+  --blue:      #2A5FA8;
+  --blue-bg:   rgba(42,95,168,0.15);
+  --amber:     #B8760A;
+  --amber-bg:  rgba(184,118,10,0.15);
+  --font-head: 'Cinzel', serif;
+  --font-body: 'Lora', serif;
+  --font-arab: 'Noto Naskh Arabic', serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── STARFIELD BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(47,184,154,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(4,7,13,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  min-height: 60px;
+}
+.nav-left { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.nav-left a {
+  font-family: var(--font-head);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.nav-left a:hover { color: var(--gold); border-color: var(--gold-mid); }
+.nav-left span { color: var(--text-dim); font-size: 0.65rem; }
+.nav-centre { text-align: center; }
+.nav-centre .ar-title {
+  display: block;
+  font-family: var(--font-arab);
+  font-size: 1rem;
+  color: var(--gold);
+  line-height: 1.3;
+}
+.nav-centre .en-title {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; }
+.lang-toggle {
+  display: flex;
+  background: rgba(201,168,76,0.07);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.lang-btn {
+  padding: 0.3rem 0.65rem;
+  font-family: var(--font-head);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all 0.2s;
+}
+.lang-btn.active { background: var(--gold); color: #04070D; font-weight: 600; }
+.nav-badge {
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--gold-mid);
+  border-radius: 3px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+/* ── WRAPPER ── */
+.wrapper { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+
+/* ── PAGE HEADER ── */
+.page-header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+.page-header .period-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+.page-header h1 {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+.page-header .subtitle {
+  font-family: var(--font-arab);
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  direction: rtl;
+}
+.page-header .desc {
+  max-width: 580px;
+  margin: 1rem auto 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ── TODAY'S PRACTICE BOX ── */
+.today-box {
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(201,168,76,0.02) 100%);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.today-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.today-label {
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.today-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-dim);
+}
+.today-name {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.today-arabic {
+  font-family: var(--font-arab);
+  font-size: 1.5rem;
+  direction: rtl;
+  text-align: right;
+  color: var(--gold);
+  line-height: 2;
+  margin-bottom: 0.5rem;
+}
+.today-translit {
+  font-style: italic;
+  color: var(--teal);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+.today-trans {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+.today-how {
+  background: rgba(47,184,154,0.07);
+  border-left: 2px solid var(--teal);
+  padding: 0.75rem 1rem;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.88rem;
+}
+.today-how strong { color: var(--teal); font-family: var(--font-head); font-size: 0.72rem; letter-spacing: 0.1em; display: block; margin-bottom: 0.25rem; }
+.today-source {
+  margin-top: 0.75rem;
+  font-family: var(--font-head);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+/* ── PERIOD DIVIDERS ── */
+.period-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem 0 1.5rem;
+}
+.period-header .ph-icon { font-size: 1.4rem; }
+.period-header h2 {
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.period-header .ph-ar {
+  font-family: var(--font-arab);
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  direction: rtl;
+  margin-left: auto;
+}
+.period-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  order: 3;
+}
+
+/* ── PRACTICE CARD ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.card:hover { border-color: var(--gold-mid); }
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+  opacity: 0.4;
+}
+.card.tier1::before { background: #2A7A4B; opacity: 0.7; }
+.card.tier2::before { background: #2A5FA8; opacity: 0.7; }
+.card.tier3::before { background: #B8760A; opacity: 0.7; }
+
+.card-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+.badge {
+  font-family: var(--font-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.badge-sahih   { background: var(--green-bg); color: #5DC88A; border: 1px solid rgba(93,200,138,0.25); }
+.badge-hasan-s { background: var(--blue-bg);  color: #7AABF0; border: 1px solid rgba(122,171,240,0.25); }
+.badge-hasan   { background: var(--amber-bg); color: #E0A030; border: 1px solid rgba(224,160,48,0.25); }
+
+.time-chip {
+  font-family: var(--font-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  border: 1px solid rgba(212,203,184,0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+}
+
+.card-num {
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+.card h3 {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.arabic-block {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-arab);
+  font-size: 1.4rem;
+  line-height: 2.1;
+  color: var(--gold);
+  background: rgba(201,168,76,0.04);
+  border: 1px solid var(--gold-dim);
+  border-radius: 6px;
+  padding: 0.75rem 1.1rem;
+  margin-bottom: 0.75rem;
+}
+.arabic-block.small { font-size: 1.1rem; }
+.arabic-block.medium { font-size: 1.25rem; }
+
+.translit {
+  font-style: italic;
+  color: var(--teal);
+  font-size: 0.88rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
+}
+.translation {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+  font-style: normal;
+}
+
+.narrative { margin-bottom: 1rem; font-size: 0.93rem; line-height: 1.8; }
+.narrative-ur {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-arab);
+  font-size: 1rem;
+  line-height: 2;
+  display: none;
+  margin-bottom: 1rem;
+}
+
+.source-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: var(--font-head);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+.source-line .src-icon { color: var(--gold); flex-shrink: 0; }
+
+.why-box {
+  background: rgba(47,184,154,0.06);
+  border-left: 2px solid var(--teal);
+  padding: 0.65rem 0.9rem;
+  border-radius: 0 4px 4px 0;
+  margin: 0.75rem 0;
+  font-size: 0.87rem;
+}
+.why-box .why-label {
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.try-box {
+  background: rgba(201,168,76,0.05);
+  border: 1px dashed rgba(201,168,76,0.25);
+  border-radius: 5px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.87rem;
+  margin-top: 0.75rem;
+}
+.try-box .try-label {
+  font-family: var(--font-head);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ── ADHKAR CARD (expanded) ── */
+.adhkar-container { display: flex; flex-direction: column; gap: 1.1rem; }
+.adhkar-item {
+  background: rgba(201,168,76,0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+.adhkar-item-label {
+  font-family: var(--font-head);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.adhkar-item-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-dim); }
+.adhkar-arabic {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-arab);
+  font-size: 1.2rem;
+  line-height: 2;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.adhkar-translit { font-style: italic; color: var(--teal); font-size: 0.82rem; margin-bottom: 0.2rem; }
+.adhkar-trans { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 0.5rem; }
+.adhkar-urdu {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-arab);
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  display: none;
+  margin-bottom: 0.5rem;
+  line-height: 1.9;
+}
+.adhkar-meaning {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-style: italic;
+  border-left: 1px solid var(--gold-dim);
+  padding-left: 0.6rem;
+  margin-top: 0.4rem;
+}
+.adhkar-source {
+  font-family: var(--font-head);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-top: 0.4rem;
+}
+
+/* ── URDU MODE ── */
+body.ur-mode .narrative { display: none; }
+body.ur-mode .narrative-ur { display: block; }
+body.ur-mode .adhkar-urdu { display: block; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  font-family: var(--font-head);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+footer span { color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { grid-template-columns: 1fr; grid-template-rows: auto auto auto; padding: 0.75rem 1rem; gap: 0.5rem; min-height: auto; }
+  .nav-right { justify-content: center; }
+  .nav-centre { order: -1; }
+  .wrapper { padding: 1.5rem 1rem 4rem; }
+  .today-box { padding: 1.1rem 1.15rem; }
+  .card { padding: 1.1rem 1.15rem; }
+  .arabic-block { font-size: 1.15rem; }
+  .adhkar-arabic { font-size: 1rem; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.card, .today-box, .period-header {
+  animation: fadeInUp 0.5s ease both;
+}
+.card:nth-child(2) { animation-delay: 0.05s; }
+.card:nth-child(3) { animation-delay: 0.1s; }
+.card:nth-child(4) { animation-delay: 0.15s; }
+.card:nth-child(5) { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span>|</span>
+    <a href="sunnah_index.html">← Daily Sunnah</a>
+  </div>
+  <div class="nav-centre">
+    <span class="ar-title">السنة اليومية</span>
+    <span class="en-title">Daily Sunnah — Dawn &amp; Morning</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+    </div>
+    <div class="nav-badge">Dawn · Morning</div>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <span class="period-icon">🌙</span>
+    <h1>From Waking to Mid-Morning</h1>
+    <div class="subtitle">من الاستيقاظ حتى الضحى</div>
+    <p class="desc">The authenticated daily practices of the Prophet Muhammad ﷺ — from the first breath of waking until the forenoon. Every practice graded and sourced.</p>
+  </header>
+
+  <!-- TODAY'S PRACTICE — rotating by date -->
+  <div class="today-box" id="today-box">
+    <div class="today-label">✦ Today's Practice</div>
+    <div class="today-name" id="today-name"></div>
+    <div class="today-arabic" id="today-arabic"></div>
+    <div class="today-translit" id="today-translit"></div>
+    <div class="today-trans" id="today-trans"></div>
+    <div class="today-how">
+      <strong>📿 How to Begin</strong>
+      <span id="today-how"></span>
+    </div>
+    <div class="today-source" id="today-source"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ PERIOD 1: WAKING UP -->
+  <div class="period-header">
+    <span class="ph-icon">🌙</span>
+    <h2>Period 1 — Waking Up</h2>
+    <span class="ph-ar">الاستيقاظ من النوم</span>
+  </div>
+
+  <!-- CARD 1: First Words -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Bukhari</span>
+      <span class="time-chip">🌙 The First Moment of Waking</span>
+      <span class="card-num">PRACTICE 01</span>
+    </div>
+    <h3>The First Words — Dua on Waking</h3>
+
+    <div class="arabic-block">
+      اَلْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ
+    </div>
+    <div class="translit">Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur</div>
+    <div class="translation">All praise is for Allah who gave us life after having taken it from us, and unto Him is the resurrection.</div>
+
+    <p class="narrative">Before sitting up, before wiping his face, before any other act — this was his ﷺ first utterance every single morning. The dua was not said after he had risen and prepared himself; it was the first breath of consciousness, the first framing of the day. Sleep in Islam is described as a minor death — Allah takes the souls during sleep and returns them at waking (Quran 39:42). Every morning was therefore a small resurrection, and he responded to it with gratitude. He taught this to his companions as a universal morning beginning, and they carried it through the generations.</p>
+    <p class="narrative-ur">بیدار ہونے سے پہلے، اٹھنے سے پہلے، چہرہ صاف کرنے سے پہلے — یہ نبی ﷺ کا ہر صبح کا پہلا کلام تھا۔ نیند اسلام میں ایک چھوٹی موت ہے — اللہ نیند میں روحیں قبض کرتا ہے اور صبح واپس کرتا ہے (قرآن 39:42)۔ ہر صبح ایک چھوٹا قیامت تھا، اور آپ ﷺ اس کا جواب شکرگزاری سے دیتے تھے۔ آپ نے یہ دعا اپنے صحابہ کو سکھائی اور وہ نسل در نسل منتقل ہوتی رہی۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sahih Bukhari, Book of Invocations (Kitab al-Da'awat), Hadith 6312 — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      Your first conscious thought of the day shapes everything that follows. He chose gratitude — not for circumstances, but for the gift of existence itself. The day begins as a gift before it begins as a task.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      Say this dua before you check your phone, before you sit up — literally as your first words upon waking. Let gratitude precede every other thought.
+    </div>
+  </div>
+
+  <!-- CARD 2: Miswak -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+      <span class="time-chip">🌙 Upon Waking</span>
+      <span class="card-num">PRACTICE 02</span>
+    </div>
+    <h3>Miswak — The Purification of the Mouth</h3>
+
+    <div class="arabic-block medium">
+      لَوْلَا أَنْ أَشُقَّ عَلَى أُمَّتِي لَأَمَرْتُهُمْ بِالسِّوَاكِ عِنْدَ كُلِّ صَلَاةٍ
+    </div>
+    <div class="translit">Lawla an ashiqqa 'ala ummati la-amartuhum bis-siwaki 'inda kulli salah</div>
+    <div class="translation">"Were it not that I might overburden my ummah, I would have ordered them to use the miswak before every prayer."</div>
+
+    <p class="narrative">He ﷺ used the miswak — a natural tooth-cleaning twig from the Arak tree — every time he made wudu, every time he entered his home, and upon waking each morning. Aisha RA narrated this practice consistently across multiple narrations. The miswak was not merely oral hygiene; it was an act of ibadah — the Prophet explicitly linked it to pleasing Allah, saying prayer with miswak is seventy times more excellent than prayer without it. He kept one ready beside him so that the moment he woke, before anything else, he could perform this purification. The mouth — the faculty of dhikr, of Quran, of speech — deserved to be prepared before it was turned toward Allah.</p>
+    <p class="narrative-ur">نبی ﷺ مسواک استعمال کرتے تھے — اراک کے درخت کی ایک قدرتی شاخ — ہر وضو کے وقت، گھر میں داخل ہونے پر، اور ہر صبح بیدار ہونے پر۔ حضرت عائشہ رضی اللہ عنہا نے یہ عمل بار بار بیان کیا ہے۔ مسواک محض صفائی نہیں تھی؛ یہ عبادت تھی — آپ ﷺ نے فرمایا: مسواک کے ساتھ نماز ستر گنا بہتر ہے۔ منہ — ذکر، قرآن اور گفتگو کا ذریعہ — کو اللہ کی طرف متوجہ ہونے سے پہلے پاک کرنا ضروری تھا۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sahih Bukhari, Book of Friday (Kitab al-Jumu'ah), Hadith 887; Sahih Muslim, Book of Purification (Kitab al-Taharah), Hadith 252 — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      He prioritised oral purity as a form of worship — not separate from spirituality, but integral to it. The body's cleanliness and the soul's readiness are not two different things.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      If you don't have a miswak, brush specifically before Fajr. Consider obtaining a miswak and keeping it beside your bed — as he ﷺ did.
+    </div>
+  </div>
+
+  <!-- CARD 3: Wiping the Face -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+      <span class="time-chip">🌙 Upon Waking</span>
+      <span class="card-num">PRACTICE 03</span>
+    </div>
+    <h3>Wiping the Face — The Deliberate Awakening</h3>
+
+    <p class="narrative">Upon waking, he ﷺ would wipe his face with both hands — clearing the traces of sleep, marking the transition from the unconscious to the conscious. This was not a casual gesture but a deliberate ritual act: the body declaring its return. It preceded wudu, preceded the miswak, and was the first physical act of the day. Narrations from Aisha RA and Ibn Abbas RA describe this as consistent morning practice. Scholars note that even this small act — a wiping of the face — was intentional for him ﷺ. Nothing was accidental in his morning. Every moment had weight.</p>
+    <p class="narrative-ur">بیدار ہونے پر آپ ﷺ دونوں ہاتھوں سے اپنا چہرہ صاف کرتے تھے — نیند کے آثار دور کرتے، لاشعور سے شعور کی طرف منتقلی کو نشان زد کرتے۔ یہ ایک سطحی عمل نہیں بلکہ ایک ارادی رسم تھی۔ یہ وضو اور مسواک سے پہلے کا پہلا جسمانی عمل تھا۔ علما نے نوٹ کیا ہے کہ آپ ﷺ کی صبح کا ہر لمحہ بامقصد تھا — کچھ بھی اتفاقی نہیں تھا۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sahih Bukhari, Book of Ablution (Kitab al-Wudu), Hadith 183; Sahih Muslim, Book of Purification — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      Even the smallest physical acts of preparation were deliberate for him ﷺ. The morning was not something that happened to him — it was something he entered intentionally.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      Make this conscious — don't just stumble toward wudu. Wake deliberately. Let the wiping of your face be an act of intention, not habit.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ PERIOD 2: FAJR -->
+  <div class="period-header">
+    <span class="ph-icon">☀️</span>
+    <h2>Period 2 — Fajr Prayer</h2>
+    <span class="ph-ar">صلاة الفجر</span>
+  </div>
+
+  <!-- CARD 4: Two Rakats Before Fajr -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Muslim</span>
+      <span class="time-chip">☀️ Before Fajr Adhan</span>
+      <span class="card-num">PRACTICE 04</span>
+    </div>
+    <h3>The Two Rakats Before Fajr — Never Missed</h3>
+
+    <div class="arabic-block">
+      رَكْعَتَا الْفَجْرِ خَيْرٌ مِنَ الدُّنْيَا وَمَا فِيهَا
+    </div>
+    <div class="translit">Rak'ata-l-fajri khayrun mina-d-dunya wa ma fiha</div>
+    <div class="translation">"The two rakats of Fajr are better than the world and all it contains."</div>
+
+    <p class="narrative">Of all his voluntary prayers, these two were the most protected, the most consistent, the most fiercely maintained. Aisha RA said she never saw him more committed to any sunnah prayer than these two — he would pray them whether at home or travelling, in health or difficulty. They were prayed lightly and quickly: Surah Al-Kafirun (109) in the first rakat and Surah Al-Ikhlas (112) in the second — two surahs that represent the total declaration of monotheism. He did not pray them long. He prayed them without fail. The weight of these two rakats, in his own words, exceeds the world and everything in it — every treasure, every mountain, every ocean, every moment of history — all of it worth less than these two brief rakats before dawn.</p>
+    <p class="narrative-ur">اپنی تمام نفل نمازوں میں سے، یہ دو رکعتیں سب سے زیادہ محفوظ، مستقل اور مضبوطی سے ادا کی جاتی تھیں۔ حضرت عائشہ رضی اللہ عنہا نے فرمایا: میں نے آپ ﷺ کو کسی نفل نماز کا اتنا پابند نہیں دیکھا جتنا فجر کی ان دو رکعتوں کا۔ آپ انہیں ہلکی پڑھتے — پہلی رکعت میں سورۃ الکافرون اور دوسری میں سورۃ الاخلاص۔ آپ ﷺ کے اپنے الفاظ میں ان دو رکعتوں کا وزن دنیا اور اس کی ہر شے سے بڑھ کر ہے۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sahih Muslim, Book of the Prayer of Travellers (Kitab Salat al-Musafirin), Hadith 725; Recitation: Sahih Muslim, Hadith 726 — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      If the most valuable thing in existence — the entire world and all it contains — is worth less than these two rakats, what does that say about how we should treat them? He didn't just say this — he demonstrated it every single morning.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      Pray these two before Fajr. Recite Al-Kafirun in the first rakat, Al-Ikhlas in the second. If you have been skipping them — today is the day to begin again.
+    </div>
+  </div>
+
+  <!-- CARD 5: Lying on Right Side -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Bukhari</span>
+      <span class="time-chip">☀️ Between Sunnah and Fajr</span>
+      <span class="card-num">PRACTICE 05</span>
+    </div>
+    <h3>Lying on the Right Side — The Transitional Rest</h3>
+
+    <p class="narrative">After completing the two sunnah rakats and before the iqama of Fajr, he ﷺ would lie briefly on his right side. Aisha RA described this practice with care — it was brief, intentional, and consistent. Scholars have reflected on its meaning: the night's tahajjud has ended, the body has moved through the sunnah prayer, and now there is a small pause — a breath between the private worship of the night and the congregational declaration of dawn. It is a deliberate stillness. The right side itself carries significance in the Sunnah — sleep, rest, and the preparation for death are all associated with the right side in Islamic practice.</p>
+    <p class="narrative-ur">دو سنت رکعتیں ادا کرنے کے بعد اور فجر کی اقامت سے پہلے، آپ ﷺ مختصر دیر کے لیے اپنی دائیں کروٹ لیٹتے تھے۔ حضرت عائشہ رضی اللہ عنہا نے یہ عمل بڑی احتیاط سے بیان کیا — یہ مختصر، ارادی اور مستقل تھا۔ علما نے اس میں گہرا معنی دیکھا ہے: رات کی تہجد ختم ہو چکی ہے، جسم سنت نماز سے گزر چکا ہے، اور اب ایک چھوٹا وقفہ ہے — رات کی خاموش عبادت اور فجر کے اعلان کے درمیان ایک سانس۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sahih Bukhari, Book of Tahajjud (Kitab al-Tahajjud), Hadith 1160 — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      He was deliberate in every transition of the day — including this quiet moment between sunnah and fard. The pause was not laziness; it was intentional preparation.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      After your Fajr sunnah, lie on your right side for even a brief moment before the iqama begins. Make the transition between night worship and dawn prayer a conscious act.
+    </div>
+  </div>
+
+  <!-- CARD 6: Fajr Prayer -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+      <span class="time-chip">☀️ At the Time of Dawn</span>
+      <span class="card-num">PRACTICE 06</span>
+    </div>
+    <h3>Fajr Prayer — The Witnessed Prayer</h3>
+
+    <div class="arabic-block medium">
+      إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا
+    </div>
+    <div class="translit">Inna qur'ana-l-fajri kana mashhuda</div>
+    <div class="translation">"Indeed, the recitation of dawn is ever witnessed." — Quran 17:78</div>
+
+    <div class="arabic-block medium" style="margin-top:0.75rem;">
+      مَنْ صَلَّى الصُّبْحَ فَهُوَ فِي ذِمَّةِ اللَّهِ
+    </div>
+    <div class="translit">Man salla-s-subha fa-huwa fi dhimmati-llah</div>
+    <div class="translation">"Whoever prays Fajr is under the protection of Allah."</div>
+
+    <p class="narrative">Fajr holds a status unlike any other prayer: it is the one witnessed simultaneously by the angels of night departing and the angels of day arriving — both hosts present at the moment of dawn (Sahih Bukhari 137). He ﷺ prayed it in congregation in Madinah throughout his life and never abandoned it. He described it as one of the two heaviest prayers on the hypocrites — saying: "If they knew what was in Isha and Fajr, they would come to them even crawling." (Sahih Bukhari 657). This prayer is not merely the first of five daily obligations — it is the declaration that the day belongs to Allah, made at the most vulnerable, most beautiful, most sacred moment: the edge of night and day.</p>
+    <p class="narrative-ur">فجر کی نماز کا مقام کسی اور نماز سے مختلف ہے: یہ واحد نماز ہے جو بیک وقت رات کے فرشتوں اور دن کے فرشتوں کے حاضر ہونے کے وقت ادا کی جاتی ہے۔ آپ ﷺ نے اپنی پوری زندگی مدینہ میں فجر باجماعت ادا کی۔ آپ نے فرمایا: "اگر انہیں معلوم ہو عشاء اور فجر میں کیا ہے تو وہ گھسٹتے ہوئے بھی آتے۔" یہ نماز محض پانچ فرضوں میں سے پہلی نہیں — یہ اس اعلان کا نام ہے کہ یہ دن اللہ کا ہے۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Quran 17:78; Sahih Bukhari, Book of the Times of Prayer (Kitab Mawaqit al-Salah), Hadith 548; Sahih Muslim, Book of Mosques, Hadith 657; Sahih Bukhari, Hadith 137 — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      Fajr is the defining practice of a believer's day. Every morning you pray it, you place yourself under the protection of Allah and begin the day as a servant, not a sovereign.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      If you pray Fajr — pray it on time, not after the sun has risen. If you have been missing it — set one alarm for tomorrow and begin again. One Fajr is enough to restart.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ PERIOD 3: MORNING ADHKAR -->
+  <div class="period-header">
+    <span class="ph-icon">🌅</span>
+    <h2>Period 3 — Morning Adhkar</h2>
+    <span class="ph-ar">أذكار الصباح</span>
+  </div>
+
+  <!-- CARD 7: Morning Adhkar -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih / Hasan Sahih</span>
+      <span class="time-chip">🌅 After Fajr Prayer</span>
+      <span class="card-num">PRACTICE 07</span>
+    </div>
+    <h3>The Morning Adhkar — The Daily Shield</h3>
+
+    <p class="narrative">After Fajr, the Prophet ﷺ would sit in his place of prayer until the sun had fully risen — and during this time he would recite the morning adhkar. These are not mere formalities; each one is a specific, sourced practice with a specific narrated effect. They were his armour for the day — spiritual, psychological, and — by divine permission — even physical protection. The adhkar below are each documented with their original source and hadith number. Together they form the morning wird (daily litany) he taught his companions and that the ummah has preserved.</p>
+    <p class="narrative-ur">فجر کے بعد آپ ﷺ اپنی جگہ پر بیٹھے رہتے جب تک سورج پوری طرح طلوع نہ ہو جائے — اور اس وقت صبح کے اذکار پڑھتے۔ یہ محض رسمی الفاظ نہیں ہیں؛ ہر ذکر ایک مخصوص، مستند عمل ہے جس کا ایک مخصوص مذکور اثر ہے۔ یہ آپ کا دن کا کوچ تھا — روحانی، نفسیاتی اور اللہ کے اذن سے جسمانی حفاظت بھی۔</p>
+
+    <div class="adhkar-container">
+
+      <!-- 7a: Ayat al-Kursi -->
+      <div class="adhkar-item">
+        <div class="adhkar-item-label">7a — Ayat al-Kursi · آية الكرسي</div>
+        <div class="adhkar-arabic">
+          اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ
+        </div>
+        <div class="adhkar-translit">Allahu la ilaha illa huwal-hayyul-qayyum, la ta'khudhuhu sinatun wa la nawm, lahu ma fis-samawati wa ma fil-ard, man dhalladhi yashfa'u 'indahu illa bi-idhnih, ya'lamu ma bayna aydihim wa ma khalfahum, wa la yuhituna bi-shay'in min 'ilmihi illa bima sha', wasi'a kursiyyuhu-s-samawati wal-ard, wa la ya'uduhu hifdhuhuma, wa huwal-'aliyyul-'adhim</div>
+        <div class="adhkar-trans">Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great. [Quran 2:255]</div>
+        <div class="adhkar-urdu">اللہ — اس کے سوا کوئی معبود نہیں، ہمیشہ زندہ، ہمیشہ قائم۔ نہ اسے اونگھ آتی ہے نہ نیند۔ آسمانوں اور زمین میں جو کچھ ہے اسی کا ہے۔ کون ہے جو اس کے پاس اس کی اجازت کے بغیر سفارش کرے؟ وہ جانتا ہے جو ان کے سامنے ہے اور جو ان کے پیچھے ہے۔ اس کی کرسی آسمانوں اور زمین پر محیط ہے اور ان کی حفاظت اسے تھکاتی نہیں۔ وہی بلند و برتر ہے۔</div>
+        <div class="adhkar-meaning">Recited once every morning — provides divine protection for the entire day until evening. The greatest verse in the Quran, declaring total sovereignty of Allah.</div>
+        <div class="adhkar-source">📚 Sunan al-Nasai al-Kubra, Hadith 9928 — authenticated by Imam al-Albani: Sahih</div>
+      </div>
+
+      <!-- 7b: Three Quls -->
+      <div class="adhkar-item">
+        <div class="adhkar-item-label">7b — Al-Ikhlas · Al-Falaq · An-Nas · Three times each</div>
+        <div class="adhkar-arabic">
+          قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
+        </div>
+        <div class="adhkar-trans">Say: He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent. [Quran 112]</div>
+        <div class="adhkar-arabic" style="margin-top:0.5rem;">
+          قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
+        </div>
+        <div class="adhkar-trans">Say: I seek refuge in the Lord of the daybreak, from the evil of what He has created, from the evil of darkness when it settles, from the evil of the blowers in knots, from the evil of an envier when he envies. [Quran 113]</div>
+        <div class="adhkar-arabic" style="margin-top:0.5rem;">
+          قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ
+        </div>
+        <div class="adhkar-trans">Say: I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating whisperer — who whispers in the breasts of mankind — from among jinn and mankind. [Quran 114]</div>
+        <div class="adhkar-urdu">یہ تینوں سورتیں ہر صبح تین تین بار پڑھنا ہر چیز سے کافی ہے۔ سورۃ الاخلاص، سورۃ الفلق اور سورۃ الناس — یہ آپ ﷺ کا صبح و شام کا معمول تھا۔</div>
+        <div class="adhkar-meaning">Recited three times each — the Prophet ﷺ said: "They are sufficient for you against everything." — complete protection from all harm, envy, and whispers.</div>
+        <div class="adhkar-source">📚 Sunan Abu Dawud, Hadith 5082; Sunan al-Tirmidhi, Hadith 3575 — Sahih</div>
+      </div>
+
+      <!-- 7c: Morning Dua -->
+      <div class="adhkar-item">
+        <div class="adhkar-item-label">7c — Morning Dua · دعاء الصباح</div>
+        <div class="adhkar-arabic">
+          اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ
+        </div>
+        <div class="adhkar-translit">Allahumma bika asbahna wa bika amsayna wa bika nahya wa bika namutu wa ilayka-n-nushur</div>
+        <div class="adhkar-trans">O Allah, by You we have reached the morning, and by You we reach the evening, by You we live and by You we die, and unto You is the resurrection.</div>
+        <div class="adhkar-urdu">اے اللہ، تیرے ہی ذریعے ہم نے صبح کی اور تیرے ہی ذریعے ہم شام کریں گے، تیرے ہی ذریعے ہم جیتے ہیں اور تیرے ہی ذریعے ہم مریں گے، اور تیری ہی طرف لوٹنا ہے۔</div>
+        <div class="adhkar-meaning">A complete surrender of the entire day — morning, evening, life, death — all placed in Allah's hands before the day begins. One of the most comprehensive morning duas.</div>
+        <div class="adhkar-source">📚 Sunan Abu Dawud, Hadith 5068; Sunan al-Tirmidhi, Hadith 3391 — Hasan Sahih</div>
+      </div>
+
+      <!-- 7d: Sayyid al-Istighfar -->
+      <div class="adhkar-item">
+        <div class="adhkar-item-label">7d — Sayyid al-Istighfar · سيد الاستغفار</div>
+        <div class="adhkar-arabic">
+          اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ
+        </div>
+        <div class="adhkar-translit">Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana 'abduka, wa ana 'ala 'ahdika wa wa'dika mastata'tu, a'udhu bika min sharri ma sana'tu, abu'u laka bini'matika 'alayya, wa abu'u laka bidhanbi, faghfir li fa-innahu la yaghfiru-dh-dhunuba illa ant</div>
+        <div class="adhkar-trans">O Allah, You are my Lord, there is no god but You. You created me and I am Your servant, and I am upon Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favour upon me and I acknowledge my sin, so forgive me, for none forgives sins but You.</div>
+        <div class="adhkar-urdu">اے اللہ، تو میرا رب ہے، تیرے سوا کوئی معبود نہیں۔ تو نے مجھے پیدا کیا اور میں تیرا بندہ ہوں، اور میں اپنی طاقت کے مطابق تیرے عہد اور وعدے پر ہوں۔ میں تجھ سے اپنے اعمال کے شر سے پناہ مانگتا ہوں۔ میں تیری نعمت کا اقرار کرتا ہوں اور اپنے گناہ کا اقرار کرتا ہوں، پس مجھے معاف کر دے کیونکہ تیرے سوا گناہ کوئی نہیں بخشتا۔</div>
+        <div class="adhkar-meaning">The Master of Forgiveness — the most comprehensive istighfar in the Sunnah. The Prophet ﷺ said: "Whoever says it with conviction in the morning and dies before evening enters Paradise." Recited once every morning.</div>
+        <div class="adhkar-source">📚 Sahih Bukhari, Book of Invocations (Kitab al-Da'awat), Hadith 6306 — Sahih</div>
+      </div>
+
+      <!-- 7e: Protection Dua -->
+      <div class="adhkar-item">
+        <div class="adhkar-item-label">7e — Protection Dua · دعاء الحفظ · Three times</div>
+        <div class="adhkar-arabic">
+          بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ
+        </div>
+        <div class="adhkar-translit">Bismillahil-ladhi la yadurru ma'asmihi shay'un fil-ardi wa la fis-sama'i wa huwas-sami'ul-'alim</div>
+        <div class="adhkar-trans">In the name of Allah, with Whose name nothing on earth or in the heavens can cause harm, and He is the All-Hearing, the All-Knowing.</div>
+        <div class="adhkar-urdu">اللہ کے نام سے، جس کے نام کے ساتھ زمین اور آسمان میں کوئی چیز نقصان نہیں دے سکتی، اور وہ سننے والا، جاننے والا ہے۔</div>
+        <div class="adhkar-meaning">Recited three times in the morning — the Prophet ﷺ said: "Whoever says this three times in the morning, nothing will harm him until evening." Three times in the evening: nothing will harm him until morning. A complete daily shield.</div>
+        <div class="adhkar-source">📚 Sunan Abu Dawud, Hadith 5088; Sunan al-Tirmidhi, Hadith 3388 — authenticated by Imam al-Albani: Sahih</div>
+      </div>
+
+    </div><!-- end adhkar-container -->
+
+    <div class="source-line" style="margin-top:1.25rem;">
+      <span class="src-icon">📚</span>
+      <span>All five adhkar above sourced individually — see each item. Combined they form the authenticated morning wird of the Prophet ﷺ</span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      These adhkar were not designed as rituals to rush through — each one addresses a real spiritual need: gratitude, protection, surrender, forgiveness, reliance. Together they prepare the entire person for the day ahead.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      Begin with just Sayyid al-Istighfar (7d) and Ayat al-Kursi (7a). Read their meanings before reciting. Build toward the full sequence over a week.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ PERIOD 4: FOOD -->
+  <div class="period-header">
+    <span class="ph-icon">🍽️</span>
+    <h2>Period 4 — Breakfast &amp; Morning Food</h2>
+    <span class="ph-ar">طعام الصباح</span>
+  </div>
+
+  <!-- CARD 8: Dates -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+      <span class="time-chip">🍽️ Morning Food</span>
+      <span class="card-num">PRACTICE 08</span>
+    </div>
+    <h3>Breaking Fast with Dates — An Odd Number</h3>
+
+    <div class="arabic-block medium">
+      مَنْ تَصَبَّحَ بِسَبْعِ تَمَرَاتٍ عَجْوَةً لَمْ يَضُرَّهُ ذَلِكَ الْيَوْمَ سُمٌّ وَلَا سِحْرٌ
+    </div>
+    <div class="translit">Man tasabbaha bi-sab'i tamaratin 'ajwatan lam yadurrahu dhalika-l-yawma summun wa la sihr</div>
+    <div class="translation">"Whoever eats seven Ajwa dates in the morning will not be harmed that day by poison or magic."</div>
+
+    <p class="narrative">He ﷺ would break his morning fast with an odd number of dates — three, five, or seven — particularly the Ajwa variety from Madinah, which he held in special regard. Aisha RA and other narrators confirm this was consistent morning practice. He ate simply — dates, sometimes with a little water or milk, occasionally olive oil with bread. He never overate; he ate to live, and he made the act of eating itself an act of worship: with bismillah, with the right hand, sitting, without waste. The dates he ate were not merely food — they were nourishment that came with intention, gratitude, and full consciousness of the One who had provided them.</p>
+    <p class="narrative-ur">آپ ﷺ صبح کا ناشتہ طاق تعداد میں کھجوروں سے کرتے — تین، پانچ یا سات — خاص طور پر مدینہ کی عجوہ کھجور جسے آپ بہت اہمیت دیتے تھے۔ حضرت عائشہ رضی اللہ عنہا سمیت کئی راویوں نے اسے مستقل صبح کا معمول بتایا ہے۔ آپ ﷺ سادہ کھاتے — بسم اللہ کے ساتھ، دائیں ہاتھ سے، بیٹھ کر، بغیر اسراف کے۔ کھجوریں محض غذا نہیں تھیں — یہ اس رزق کا شکر تھا جو اللہ نے عطا کیا۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sahih Bukhari, Book of Food (Kitab al-At'imah), Hadith 5445; Sahih Muslim, Book of Drinks (Kitab al-Ashriba), Hadith 2047 — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      Even in eating he was deliberate and grateful — every bite with bismillah, with the right hand, sitting. His relationship with food was one of the most consistently practiced aspects of his daily sunnah.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      Begin your morning with an odd number of dates — three if seven feels like too many. Make the first bite of the day a conscious act of gratitude, not a rushed routine.
+    </div>
+  </div>
+
+  <!-- CARD 9: Right Hand + Bismillah -->
+  <div class="card tier1">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Muslim</span>
+      <span class="time-chip">🍽️ At Every Meal</span>
+      <span class="card-num">PRACTICE 09</span>
+    </div>
+    <h3>Eating with the Right Hand and Bismillah</h3>
+
+    <div class="arabic-block small">
+      بِسْمِ اللَّهِ
+    </div>
+    <div class="translit">Bismillah</div>
+    <div class="translation">In the name of Allah</div>
+
+    <div class="arabic-block small" style="margin-top:0.6rem; font-size:1rem;">
+      بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ
+    </div>
+    <div class="translit">Bismillahi awwalahu wa akhirah</div>
+    <div class="translation">"In the name of Allah at its beginning and at its end." — said when you forget to say Bismillah at the start</div>
+
+    <p class="narrative">He ﷺ always ate with his right hand and always said Bismillah before eating. He taught: "Let one of you eat with his right hand and drink with his right hand, for Shaytan eats with his left hand and drinks with his left hand." This was not cultural preference — it was a boundary drawn between the believer's table and the adversary's presence. If someone forgot the Bismillah at the beginning, he taught them to say "Bismillahi awwalahu wa akhirah" — "In the name of Allah at its beginning and at its end" — and this would retroactively sanctify the meal. No meal was left without Allah's name. No bite was taken in forgetfulness if he could help it.</p>
+    <p class="narrative-ur">آپ ﷺ ہمیشہ دائیں ہاتھ سے کھاتے اور کھانے سے پہلے بسم اللہ کہتے۔ آپ نے فرمایا: "تم میں سے ہر ایک اپنے دائیں ہاتھ سے کھائے اور پیئے، کیونکہ شیطان اپنے بائیں ہاتھ سے کھاتا اور پیتا ہے۔" اگر کوئی شروع میں بسم اللہ بھول جائے تو یاد آنے پر "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ" کہے — کوئی کھانا اللہ کے نام کے بغیر نہیں چھوڑا جائے گا۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sahih Muslim, Book of Drinks (Kitab al-Ashriba), Hadith 2020; Forgotten Bismillah: Sunan Abu Dawud, Hadith 3767; Sunan al-Tirmidhi, Hadith 1858 — <strong style="color:#5DC88A">Sahih</strong> / <strong style="color:#7AABF0">Hasan Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      Saying Bismillah before eating is not a ritual addition to the meal — it is the transformation of eating into an act of worship. Every meal becomes a moment of consciousness in the presence of Allah.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      Make Bismillah conscious — not automatic. Say it deliberately, with meaning, before every meal today. Right hand. Sitting down. Pause before the first bite.
+    </div>
+  </div>
+
+  <!-- CARD 10: Dua on Leaving Home -->
+  <div class="card tier2">
+    <div class="card-meta">
+      <span class="badge badge-sahih">✦ Sahih — Tirmidhi / Abu Dawud</span>
+      <span class="time-chip">🌅 Leaving the Home</span>
+      <span class="card-num">PRACTICE 10</span>
+    </div>
+    <h3>Leaving Home — The Dua of Departure</h3>
+
+    <div class="arabic-block">
+      بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ
+    </div>
+    <div class="translit">Bismillah, tawakkaltu 'ala Allah, wa la hawla wa la quwwata illa billah</div>
+    <div class="translation">In the name of Allah, I place my trust in Allah, and there is no power or might except with Allah.</div>
+
+    <p class="narrative">When the Prophet ﷺ left his home each morning, he would say this dua. What follows in the narration is remarkable: when a person says it, an angel responds — "You have been guided, defended, and protected" — and Shaytan turns away from him, unable to find a path to misguide him for that journey. The dua does three things simultaneously: it names Allah at the threshold (Bismillah); it declares total reliance upon Him (tawakkul); and it surrenders all personal power (la hawla wa la quwwata illa billah). In a single breath, before he stepped from the safety of his home into the uncertainty of the world, he placed himself entirely in Allah's care. Every departure was an act of trust.</p>
+    <p class="narrative-ur">جب نبی ﷺ ہر صبح اپنے گھر سے نکلتے تو یہ دعا پڑھتے۔ روایت میں جو بات آتی ہے وہ قابل توجہ ہے: جب کوئی یہ کہتا ہے تو فرشتہ جواب دیتا ہے — "تمہیں ہدایت، حفاظت اور دفاع دے دیا گیا" — اور شیطان اس سے دور ہو جاتا ہے۔ یہ دعا بیک وقت تین کام کرتی ہے: دہلیز پر اللہ کا نام لینا، مکمل توکل کا اعلان، اور اپنی تمام طاقت سے دستبرداری۔ ایک ہی سانس میں، گھر کی سلامتی سے دنیا کی غیریقینی صورتحال میں قدم رکھنے سے پہلے، آپ ﷺ نے خود کو اللہ کی حفاظت میں دے دیا۔</p>
+
+    <div class="source-line">
+      <span class="src-icon">📚</span>
+      <span>Sunan al-Tirmidhi, Hadith 3426 — authenticated by Imam al-Albani: Sahih; Sunan Abu Dawud, Hadith 5095 — <strong style="color:#5DC88A">Sahih</strong></span>
+    </div>
+
+    <div class="why-box">
+      <span class="why-label">◈ Why This Matters</span>
+      Every departure from the safety of home into the world is an act of trust. This dua makes that trust explicit — placing your guidance, your defence, and your protection with Allah before you take a single step outside.
+    </div>
+    <div class="try-box">
+      <span class="try-label">🌿 Try Today</span>
+      Say this dua at the threshold of your door — before you step out, while your hand is still on the handle. Make the moment of departure a conscious surrender to Allah's care.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ CLOSE WRAPPER -->
+</div><!-- .wrapper -->
+
+<footer>
+  <span>Al-Maktaba</span> · Daily Sunnah Series · Part 1 of 3 · Dawn &amp; Morning<br/>
+  All practices sourced from authenticated hadith collections with explicit hadith numbers and grades.<br/>
+  No practice has been included without a primary source citation.
+</footer>
+
+<script>
+// ── LANGUAGE TOGGLE ──────────────────────────────────
+function setLang(lang) {
+  if (lang === 'ur') {
+    document.body.classList.add('ur-mode');
+    document.getElementById('btn-en').classList.remove('active');
+    document.getElementById('btn-ur').classList.add('active');
+    document.documentElement.setAttribute('lang','ur');
+  } else {
+    document.body.classList.remove('ur-mode');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ur').classList.remove('active');
+    document.documentElement.setAttribute('lang','en');
+  }
+}
+
+// ── TODAY'S PRACTICE — rotates by day of year ────────
+const practices = [
+  {
+    name: "The First Words — Dua on Waking",
+    arabic: "اَلْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+    translit: "Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur",
+    trans: "All praise is for Allah who gave us life after having taken it from us, and unto Him is the resurrection.",
+    how: "Say this before you check your phone, before you sit up — as your very first words upon waking each morning.",
+    source: "📚 Sahih Bukhari, Kitab al-Da'awat, Hadith 6312 — Sahih"
+  },
+  {
+    name: "Miswak — Purification of the Mouth",
+    arabic: "لَوْلَا أَنْ أَشُقَّ عَلَى أُمَّتِي لَأَمَرْتُهُمْ بِالسِّوَاكِ عِنْدَ كُلِّ صَلَاةٍ",
+    translit: "Lawla an ashiqqa 'ala ummati la-amartuhum bis-siwaki 'inda kulli salah",
+    trans: "Were it not that I might overburden my ummah, I would have ordered them to use the miswak before every prayer.",
+    how: "Use a miswak upon waking before anything else. If unavailable, brush your teeth specifically before Fajr today.",
+    source: "📚 Sahih Bukhari, Kitab al-Jumu'ah, Hadith 887 — Sahih"
+  },
+  {
+    name: "Sayyid al-Istighfar — Morning Forgiveness",
+    arabic: "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+    translit: "Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana 'abduka...",
+    trans: "O Allah, You are my Lord, there is no god but You. You created me and I am Your servant...",
+    how: "Read this once after Fajr with full understanding of its meaning. The Prophet ﷺ said whoever says it with conviction in the morning and dies before evening enters Paradise.",
+    source: "📚 Sahih Bukhari, Kitab al-Da'awat, Hadith 6306 — Sahih"
+  },
+  {
+    name: "Two Rakats Before Fajr",
+    arabic: "رَكْعَتَا الْفَجْرِ خَيْرٌ مِنَ الدُّنْيَا وَمَا فِيهَا",
+    translit: "Rak'ata-l-fajri khayrun mina-d-dunya wa ma fiha",
+    trans: "The two rakats of Fajr are better than the world and all it contains.",
+    how: "Before the Fajr iqama: pray two light rakats — Al-Kafirun (109) in the first, Al-Ikhlas (112) in the second. Make this the most protected prayer of your day.",
+    source: "📚 Sahih Muslim, Kitab Salat al-Musafirin, Hadith 725 — Sahih"
+  },
+  {
+    name: "Dua on Leaving Home",
+    arabic: "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+    translit: "Bismillah, tawakkaltu 'ala Allah, wa la hawla wa la quwwata illa billah",
+    trans: "In the name of Allah, I place my trust in Allah, and there is no power or might except with Allah.",
+    how: "Say this at your door before stepping out — hand on the handle, before you cross the threshold. Make every departure a conscious surrender.",
+    source: "📚 Sunan al-Tirmidhi, Hadith 3426 — Sahih (al-Albani)"
+  },
+  {
+    name: "Ayat al-Kursi — Morning Protection",
+    arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",
+    translit: "Allahu la ilaha illa huwal-hayyul-qayyum...",
+    trans: "Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence... [Quran 2:255]",
+    how: "Recite the complete Ayat al-Kursi once after Fajr. Understand that the protection it brings lasts until the evening.",
+    source: "📚 Sunan al-Nasai al-Kubra, Hadith 9928 — Sahih (al-Albani)"
+  },
+  {
+    name: "Protection Dua — Three Times",
+    arabic: "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+    translit: "Bismillahil-ladhi la yadurru ma'asmihi shay'un fil-ardi wa la fis-sama'i wa huwas-sami'ul-'alim",
+    trans: "In the name of Allah, with Whose name nothing on earth or in the heavens can cause harm, and He is the All-Hearing, the All-Knowing.",
+    how: "Say this three times after Fajr. Pause between each repetition. Let the meaning settle — nothing can harm you while you are under this name.",
+    source: "📚 Sunan Abu Dawud, Hadith 5088; Tirmidhi, Hadith 3388 — Sahih"
+  }
+];
+
+function loadToday() {
+  const d = new Date();
+  const dayOfYear = Math.floor((d - new Date(d.getFullYear(),0,0)) / 86400000);
+  const idx = dayOfYear % practices.length;
+  const p = practices[idx];
+  document.getElementById('today-name').textContent = p.name;
+  document.getElementById('today-arabic').textContent = p.arabic;
+  document.getElementById('today-translit').textContent = p.translit;
+  document.getElementById('today-trans').textContent = p.trans;
+  document.getElementById('today-how').textContent = p.how;
+  document.getElementById('today-source').textContent = p.source;
+}
+loadToday();
+</script>
+</body>
+</html>

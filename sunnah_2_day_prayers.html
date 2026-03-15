@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daily Sunnah — Daytime &amp; Prayers | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:        #04070D;
+  --card:      #080E1C;
+  --gold:      #C9A84C;
+  --gold-dim:  rgba(201,168,76,0.15);
+  --gold-mid:  rgba(201,168,76,0.35);
+  --teal:      #2FB89A;
+  --teal-dim:  rgba(47,184,154,0.12);
+  --text:      #D4CBB8;
+  --text-dim:  #8A8275;
+  --border:    rgba(201,168,76,0.15);
+  --green:     #2A7A4B;
+  --green-bg:  rgba(42,122,75,0.15);
+  --blue:      #2A5FA8;
+  --blue-bg:   rgba(42,95,168,0.15);
+  --amber:     #B8760A;
+  --amber-bg:  rgba(184,118,10,0.15);
+  --font-head: 'Cinzel', serif;
+  --font-body: 'Lora', serif;
+  --font-arab: 'Noto Naskh Arabic', serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(47,184,154,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(4,7,13,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  min-height: 60px;
+}
+.nav-left { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.nav-left a {
+  font-family: var(--font-head); font-size: 0.68rem; color: var(--text-dim);
+  text-decoration: none; letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(201,168,76,0.1); border-radius: 3px;
+  transition: all 0.2s;
+}
+.nav-left a:hover { color: var(--gold); border-color: var(--gold-mid); }
+.nav-left span { color: var(--text-dim); font-size: 0.65rem; }
+.nav-centre { text-align: center; }
+.nav-centre .ar-title { display: block; font-family: var(--font-arab); font-size: 1rem; color: var(--gold); line-height: 1.3; }
+.nav-centre .en-title { display: block; font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; margin-top: 2px; }
+.nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; }
+.lang-toggle { display: flex; background: rgba(201,168,76,0.07); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.lang-btn { padding: 0.3rem 0.65rem; font-family: var(--font-head); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--text-dim); cursor: pointer; border: none; background: transparent; transition: all 0.2s; }
+.lang-btn.active { background: var(--gold); color: #04070D; font-weight: 600; }
+.nav-badge { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.25rem 0.65rem; border: 1px solid var(--gold-mid); border-radius: 3px; color: var(--gold); white-space: nowrap; }
+.wrapper { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
+.page-header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+.page-header .period-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+.page-header h1 { font-family: var(--font-head); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 600; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+.page-header .subtitle { font-family: var(--font-arab); font-size: 1.2rem; color: var(--text-dim); direction: rtl; }
+.page-header .desc { max-width: 580px; margin: 1rem auto 0; color: var(--text-dim); font-size: 0.9rem; font-style: italic; }
+.today-box {
+  border: 1px solid var(--gold); border-radius: 8px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(201,168,76,0.02) 100%);
+  padding: 1.5rem 1.75rem; margin-bottom: 3rem; position: relative; overflow: hidden;
+}
+.today-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.today-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+.today-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-dim); }
+.today-name { font-family: var(--font-head); font-size: 1.1rem; color: var(--text); margin-bottom: 1rem; font-weight: 600; }
+.today-arabic { font-family: var(--font-arab); font-size: 1.5rem; direction: rtl; text-align: right; color: var(--gold); line-height: 2; margin-bottom: 0.5rem; }
+.today-translit { font-style: italic; color: var(--teal); font-size: 0.9rem; margin-bottom: 0.25rem; }
+.today-trans { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 1rem; }
+.today-how { background: rgba(47,184,154,0.07); border-left: 2px solid var(--teal); padding: 0.75rem 1rem; border-radius: 0 4px 4px 0; font-size: 0.88rem; }
+.today-how strong { color: var(--teal); font-family: var(--font-head); font-size: 0.72rem; letter-spacing: 0.1em; display: block; margin-bottom: 0.25rem; }
+.today-source { margin-top: 0.75rem; font-family: var(--font-head); font-size: 0.62rem; letter-spacing: 0.06em; color: var(--text-dim); }
+.period-header { display: flex; align-items: center; gap: 1rem; margin: 2.5rem 0 1.5rem; }
+.period-header .ph-icon { font-size: 1.4rem; }
+.period-header h2 { font-family: var(--font-head); font-size: 0.78rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; font-weight: 600; }
+.period-header .ph-ar { font-family: var(--font-arab); font-size: 0.95rem; color: var(--text-dim); direction: rtl; margin-left: auto; }
+.period-header::after { content: ''; flex: 1; height: 1px; background: var(--border); order: 3; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; transition: border-color 0.3s; }
+.card:hover { border-color: var(--gold-mid); }
+.card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--gold); opacity: 0.4; }
+.card.tier1::before { background: #2A7A4B; opacity: 0.7; }
+.card.tier2::before { background: #2A5FA8; opacity: 0.7; }
+.card.tier3::before { background: #B8760A; opacity: 0.7; }
+.card-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.badge { font-family: var(--font-head); font-size: 0.58rem; letter-spacing: 0.1em; padding: 0.25rem 0.6rem; border-radius: 3px; font-weight: 600; }
+.badge-sahih   { background: var(--green-bg); color: #5DC88A; border: 1px solid rgba(93,200,138,0.25); }
+.badge-hasan-s { background: var(--blue-bg);  color: #7AABF0; border: 1px solid rgba(122,171,240,0.25); }
+.badge-hasan   { background: var(--amber-bg); color: #E0A030; border: 1px solid rgba(224,160,48,0.25); }
+.time-chip { font-family: var(--font-head); font-size: 0.58rem; letter-spacing: 0.08em; color: var(--text-dim); border: 1px solid rgba(212,203,184,0.1); padding: 0.25rem 0.6rem; border-radius: 3px; }
+.card-num { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--gold); margin-left: auto; opacity: 0.6; }
+.card h3 { font-family: var(--font-head); font-size: 1rem; color: var(--text); font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.02em; }
+.arabic-block { direction: rtl; text-align: right; font-family: var(--font-arab); font-size: 1.4rem; line-height: 2.1; color: var(--gold); background: rgba(201,168,76,0.04); border: 1px solid var(--gold-dim); border-radius: 6px; padding: 0.75rem 1.1rem; margin-bottom: 0.75rem; }
+.arabic-block.small  { font-size: 1.1rem; }
+.arabic-block.medium { font-size: 1.25rem; }
+.translit { font-style: italic; color: var(--teal); font-size: 0.88rem; margin-bottom: 0.3rem; line-height: 1.6; }
+.translation { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 1rem; }
+.narrative    { margin-bottom: 1rem; font-size: 0.93rem; line-height: 1.8; }
+.narrative-ur { direction: rtl; text-align: right; font-family: var(--font-arab); font-size: 1rem; line-height: 2; display: none; margin-bottom: 1rem; }
+.source-line { display: flex; align-items: flex-start; gap: 0.5rem; font-family: var(--font-head); font-size: 0.62rem; letter-spacing: 0.05em; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.75rem; line-height: 1.6; }
+.source-line .src-icon { color: var(--gold); flex-shrink: 0; }
+.why-box { background: rgba(47,184,154,0.06); border-left: 2px solid var(--teal); padding: 0.65rem 0.9rem; border-radius: 0 4px 4px 0; margin: 0.75rem 0; font-size: 0.87rem; }
+.why-box .why-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--teal); display: block; margin-bottom: 0.25rem; }
+.try-box { background: rgba(201,168,76,0.05); border: 1px dashed rgba(201,168,76,0.25); border-radius: 5px; padding: 0.65rem 0.9rem; font-size: 0.87rem; margin-top: 0.75rem; }
+.try-box .try-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--gold); display: block; margin-bottom: 0.25rem; }
+.note-box { background: rgba(184,118,10,0.07); border: 1px solid rgba(184,118,10,0.2); border-radius: 5px; padding: 0.65rem 0.9rem; font-size: 0.84rem; margin: 0.75rem 0; color: #E0A030; }
+.note-box .note-label { font-family: var(--font-head); font-size: 0.58rem; letter-spacing: 0.12em; color: #E0A030; display: block; margin-bottom: 0.25rem; }
+.rakats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.65rem; margin: 1rem 0; }
+.rakat-item { background: rgba(201,168,76,0.04); border: 1px solid var(--gold-dim); border-radius: 5px; padding: 0.6rem 0.85rem; }
+.rakat-prayer { font-family: var(--font-head); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.2rem; }
+.rakat-count  { font-size: 0.82rem; color: var(--text); }
+.rakat-source { font-family: var(--font-head); font-size: 0.55rem; color: var(--text-dim); margin-top: 0.2rem; }
+.sub-hadith { background: rgba(47,184,154,0.04); border: 1px solid rgba(47,184,154,0.12); border-radius: 5px; padding: 0.75rem 1rem; margin: 0.65rem 0; }
+.sub-hadith-label { font-family: var(--font-head); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 0.5rem; display: block; }
+body.ur-mode .narrative    { display: none; }
+body.ur-mode .narrative-ur { display: block; }
+footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); margin-top: 3rem; font-family: var(--font-head); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--text-dim); }
+footer span { color: var(--gold); }
+@media (max-width: 640px) {
+  nav { grid-template-columns: 1fr; grid-template-rows: auto auto auto; padding: 0.75rem 1rem; gap: 0.5rem; min-height: auto; }
+  .nav-right { justify-content: center; }
+  .nav-centre { order: -1; }
+  .wrapper { padding: 1.5rem 1rem 4rem; }
+  .today-box, .card { padding: 1.1rem 1.15rem; }
+  .arabic-block { font-size: 1.15rem; }
+  .rakats-grid { grid-template-columns: 1fr 1fr; }
+}
+@keyframes fadeInUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.card, .today-box, .period-header { animation: fadeInUp 0.5s ease both; }
+.card:nth-child(2) { animation-delay: 0.05s; }
+.card:nth-child(3) { animation-delay: 0.1s; }
+.card:nth-child(4) { animation-delay: 0.15s; }
+.card:nth-child(5) { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span>|</span>
+    <a href="sunnah_index.html">← Daily Sunnah</a>
+  </div>
+  <div class="nav-centre">
+    <span class="ar-title">السنة اليومية</span>
+    <span class="en-title">Daily Sunnah — Daytime &amp; Prayers</span>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+    </div>
+    <div class="nav-badge">Day · Prayers</div>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+<header class="page-header">
+  <span class="period-icon">☀️</span>
+  <h1>From Midmorning to Night</h1>
+  <div class="subtitle">من الضحى حتى العشاء</div>
+  <p class="desc">The authenticated daily practices of the Prophet Muhammad ﷺ throughout the waking day — his greetings, prayers, social conduct, and continuous remembrance.</p>
+</header>
+
+<!-- TODAY'S PRACTICE -->
+<div class="today-box" id="today-box">
+  <div class="today-label">✦ Today's Practice</div>
+  <div class="today-name" id="today-name"></div>
+  <div class="today-arabic" id="today-arabic"></div>
+  <div class="today-translit" id="today-translit"></div>
+  <div class="today-trans" id="today-trans"></div>
+  <div class="today-how">
+    <strong>📿 How to Begin</strong>
+    <span id="today-how"></span>
+  </div>
+  <div class="today-source" id="today-source"></div>
+</div>
+
+<!-- ══════════════════════════════════ PERIOD 5: DURING THE DAY -->
+<div class="period-header">
+  <span class="ph-icon">☀️</span>
+  <h2>Period 5 — During the Day</h2>
+  <span class="ph-ar">خلال النهار</span>
+</div>
+
+<!-- CARD 11: Salam -->
+<div class="card tier2">
+  <div class="card-meta">
+    <span class="badge badge-hasan-s">◈ Hasan Sahih — Tirmidhi / Muslim</span>
+    <span class="time-chip">☀️ Every Encounter</span>
+    <span class="card-num">PRACTICE 11</span>
+  </div>
+  <h3>The Salam — How He Greeted</h3>
+
+  <div class="arabic-block">
+    السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
+  </div>
+  <div class="translit">Assalamu alaykum wa rahmatullahi wa barakatuh</div>
+  <div class="translation">Peace be upon you, and the mercy of Allah, and His blessings.</div>
+
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">The Reward of the Full Salam</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">
+      وَعَلَيْكُمُ السَّلَامُ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ — ثَلَاثُونَ
+    </div>
+    <div style="font-size:0.84rem;color:var(--text-dim);">A man passed by the Prophet ﷺ and said "Assalamu alaykum" — he was given ten. Another said "wa rahmatullah" — twenty. Another said the full greeting — he was given thirty. <em>(Sunan Abu Dawud 5195; Sunan Tirmidhi 2689 — Hasan Sahih)</em></div>
+  </div>
+
+  <p class="narrative">He ﷺ initiated salam — he never waited for others to greet him first. He greeted everyone: adults and children, the known and the unknown, the important and the ordinary. He would seek out children specifically and greet them, teaching his companions humility through the act of saluting those the world often overlooked. Salam was not a social formality for him — it was a complete prayer: a supplication for the other person's peace, mercy, and blessing compressed into a single utterance. He said: "You will not enter Jannah until you believe, and you will not believe until you love one another. Shall I tell you something that, if you do it, you will love one another? Spread salam among yourselves." (Sahih Muslim 54)</p>
+  <p class="narrative-ur">آپ ﷺ خود سلام کی ابتداء کرتے — کبھی انتظار نہیں کرتے کہ دوسرے پہلے کہیں۔ آپ ہر کسی کو سلام کرتے: بڑوں کو، بچوں کو، جانے پہچانے کو اور انجان کو۔ آپ خاص طور پر بچوں کو سلام کرتے، اپنے صحابہ کو عاجزی سکھانے کے لیے۔ آپ نے فرمایا: "تم جنت میں داخل نہیں ہوگے جب تک ایمان نہ لاؤ، اور ایمان نہ لاؤ گے جب تک آپس میں محبت نہ کرو۔ کیا میں تمہیں وہ چیز نہ بتاؤں جس سے تم آپس میں محبت کرنے لگو گے؟ سلام کو عام کرو۔" (صحیح مسلم 54)</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sunan Tirmidhi, Book of Seeking Permission (Kitab al-Isti'dhan), Hadith 2721 — <strong style="color:#7AABF0">Hasan Sahih</strong>; Sahih Muslim, Book of Faith (Kitab al-Iman), Hadith 54 — <strong style="color:#5DC88A">Sahih</strong>; Greeted children: Sahih Bukhari, Book of Good Manners, Hadith 6247 — <strong style="color:#5DC88A">Sahih</strong>; Reward of full salam: Tirmidhi 2689, Abu Dawud 5195 — <strong style="color:#7AABF0">Hasan Sahih</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Salam costs nothing and changes everything about how an interaction begins. He ﷺ made the first moment of every encounter a prayer — a blessing offered before any request, task, or business was discussed.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Initiate salam today — don't wait to be greeted first. Use the full greeting: Assalamu alaykum wa rahmatullahi wa barakatuh. Give all thirty.
+  </div>
+</div>
+
+<!-- CARD 12: The Smile -->
+<div class="card tier2">
+  <div class="card-meta">
+    <span class="badge badge-hasan">◇ Hasan — Tirmidhi</span>
+    <span class="time-chip">☀️ Every Interaction</span>
+    <span class="card-num">PRACTICE 12</span>
+  </div>
+  <h3>His Smile — The Charity He Gave Everyone</h3>
+
+  <div class="arabic-block medium">
+    تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ صَدَقَةٌ
+  </div>
+  <div class="translit">Tabassmuka fi wajhi akhika sadaqah</div>
+  <div class="translation">"Your smile in the face of your brother is charity."</div>
+
+  <p class="narrative">Abdullah ibn al-Harith RA said: "I never saw anyone who smiled more than the Prophet ﷺ." His smile was constant — not a performance, not a mask, but his natural state in the presence of people. He rarely laughed out loud, and when he did, those present said they could see his blessed teeth. But the smile — warm, present, unhurried — was always there. He would turn his full body toward whoever he was speaking with, give them his complete attention, and they would leave feeling they were the most important person he had met that day. His smile was the beginning of that gift. It was not charm; it was sincerity.</p>
+  <p class="narrative-ur">عبداللہ بن حارث رضی اللہ عنہ نے فرمایا: "میں نے نبی ﷺ سے زیادہ مسکرانے والا کوئی نہیں دیکھا۔" آپ کی مسکراہٹ مستقل تھی — کوئی دکھاوا نہیں، کوئی نقاب نہیں، بلکہ آپ کی فطری حالت۔ آپ بلند آواز سے کم ہنستے، اور جب ہنستے تو لوگ آپ کے دانت دیکھتے۔ آپ جس سے بھی گفتگو کرتے، پوری توجہ دیتے، پورا جسم اس کی طرف موڑتے۔ لوگ آپ سے ملنے کے بعد یہ محسوس کرتے کہ وہ سب سے اہم انسان تھے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>"Smile is charity": Sunan Tirmidhi, Book of Virtuous Conduct (Kitab al-Birr), Hadith 1956 — <strong style="color:#E0A030">Hasan</strong>; His character of smiling: Sunan Tirmidhi, Hadith 3641 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    He made everyone he spoke with feel they were the most important person. The smile was the beginning of that — a simple, costless act that declared: you matter, I see you, I am glad you exist.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Smile consciously at the first three people you interact with today. Not a polite gesture — a genuine, deliberate smile that says: I see you.
+  </div>
+</div>
+
+<!-- CARD 13: Never Criticised Food -->
+<div class="card tier1">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">🍽️ At Every Meal</span>
+    <span class="card-num">PRACTICE 13</span>
+  </div>
+  <h3>He Never Criticised Food</h3>
+
+  <div class="arabic-block medium">
+    مَا عَابَ النَّبِيُّ ﷺ طَعَامًا قَطُّ إِنِ اشْتَهَاهُ أَكَلَهُ وَإِنْ كَرِهَهُ تَرَكَهُ
+  </div>
+  <div class="translit">Ma 'aba-n-nabiyyu ﷺ ta'aman qattu — in ishtahahu akalahu wa in karihahu tarakahu</div>
+  <div class="translation">"The Prophet ﷺ never criticised food. If he desired it, he ate it. If he disliked it, he left it." — Narrated by Aisha RA</div>
+
+  <p class="narrative">This was one of Aisha's RA most consistent descriptions of his character at the table. If he liked what was presented, he ate — with gratitude, with bismillah, without complaint. If he disliked a particular food, he simply left it on the plate without comment, without a look of displeasure, without a word that might make the host feel bad. He never complained about how food tasted, how it was prepared, whether it was too salty or too bland, too hot or too cold. The host's effort was always honoured. Gratitude was the reflex, not criticism. This was both humility and consideration — the table was never the site of his displeasure.</p>
+  <p class="narrative-ur">یہ حضرت عائشہ رضی اللہ عنہا کی آپ ﷺ کے دسترخوان پر کردار کی سب سے مستقل تعریفوں میں سے ایک ہے۔ اگر کھانا پسند آیا تو کھایا — شکرگزاری کے ساتھ، بسم اللہ کے ساتھ۔ اگر ناپسند ہوا تو بس چھوڑ دیا — بغیر کسی تبصرے کے، بغیر ناگواری کے اظہار کے۔ آپ نے کبھی کھانے کے ذائقے، پکانے کے طریقے یا نمک مرچ کی شکایت نہیں کی۔ میزبان کی محنت ہمیشہ عزت کی نگاہ سے دیکھی جاتی تھی۔ شکر ان کا پہلا ردعمل تھا۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of Food (Kitab al-At'imah), Hadith 5409; Sahih Muslim, Book of Drinks (Kitab al-Ashriba), Hadith 2064 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Criticising food is a form of ingratitude — to the host who prepared it and to Allah who provided it. He ﷺ never used food as a domain of complaint, even in private.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    No complaints about food today — not aloud, not in your expression. Whatever you eat: eat it with gratitude. If you dislike something, simply leave it without comment.
+  </div>
+</div>
+
+<!-- CARD 14: Qailulah -->
+<div class="card tier2">
+  <div class="card-meta">
+    <span class="badge badge-hasan-s">◈ Hasan Sahih — Ibn Hibban / Ibn Majah</span>
+    <span class="time-chip">🌤️ After Dhuhr</span>
+    <span class="card-num">PRACTICE 14</span>
+  </div>
+  <h3>Qailulah — The Midday Rest</h3>
+
+  <p class="narrative">The Prophet ﷺ would rest briefly in the early afternoon — a short, intentional pause between the morning's work and the afternoon ahead. The Arabic term qailulah refers specifically to this midday rest, distinguished in Islamic tradition from the longer night sleep. He did not treat ceaseless activity as a virtue. He understood that the body has a natural rhythm, that tiredness is real, and that rest — when taken deliberately — is part of productive worship, not opposed to it. By resting, he could return to his afternoon and evening duties with renewed clarity and energy. Modern sleep science calls this a power nap; he simply called it sunnah.</p>
+  <p class="narrative-ur">نبی ﷺ دوپہر میں مختصر آرام کرتے — صبح کے کاموں اور سہ پہر کے درمیان ایک مختصر، ارادی وقفہ۔ قیلولہ — یہ عربی اصطلاح اسی دوپہر کے آرام کے لیے مخصوص ہے۔ آپ مسلسل مصروفیت کو تقویٰ نہیں سمجھتے تھے۔ آپ جانتے تھے کہ جسم کی ایک فطری لے ہے اور آرام اگر ارادے کے ساتھ لیا جائے تو عبادت کا حصہ ہے۔ آرام کے بعد آپ اپنی سہ پہر اور شام کی ذمہ داریوں میں تازگی کے ساتھ واپس آتے۔</p>
+
+  <div class="note-box">
+    <span class="note-label">📋 Scholarly Note</span>
+    This practice is documented in Ibn Hibban (Hadith 2737) and Sunan Ibn Majah (Hadith 1693), authenticated by Imam al-Albani as Sahih and Hasan respectively. It is a recommended (mustahabb) practice, not obligatory. The narration "Take qailulah, for the shayateen do not take naps" is reported with this grading and should not be attributed to a stronger classification.
+  </div>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Ibn Hibban, Hadith 2737 — authenticated by Imam al-Albani: <strong style="color:#5DC88A">Sahih</strong>; Sunan Ibn Majah, Book of Establishing Prayer (Kitab Iqamat al-Salah), Hadith 1693 — <strong style="color:#7AABF0">Hasan</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    He did not equate busyness with piety. His daily structure included rest as a deliberate element — not laziness, not wasted time, but intentional recovery that served every act of worship that followed.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Even 10–15 minutes of rest after Dhuhr — eyes closed, phone face-down, nothing playing. Let the afternoon begin from a place of rest, not exhaustion.
+  </div>
+</div>
+
+<!-- CARD 15: Entering the Home -->
+<div class="card tier2">
+  <div class="card-meta">
+    <span class="badge badge-hasan-s">◈ Hasan — Abu Dawud</span>
+    <span class="time-chip">🏠 Arriving Home</span>
+    <span class="card-num">PRACTICE 15</span>
+  </div>
+  <h3>Entering the Home — The Dua of Return</h3>
+
+  <div class="arabic-block">
+    بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا
+  </div>
+  <div class="translit">Bismillahi walajna, wa bismillahi kharajna, wa 'ala Allahi rabbina tawakkalna</div>
+  <div class="translation">In the name of Allah we enter, in the name of Allah we leave, and upon Allah our Lord we rely.</div>
+
+  <p class="narrative">When the Prophet ﷺ returned home, he entered with bismillah and greeted whoever was inside with salam. The home, for him, was not merely a building — it was a sanctuary, and entering it was a sacred act. He taught that when a person enters their home with bismillah and salam, the shaytaan says "there is no place for me here tonight." The home was spiritually set when entered correctly. He greeted his family warmly upon arrival — not absorbed in tasks, not distant — present. Aisha RA described how he would enter and immediately engage with his household. The threshold was not crossed unconsciously.</p>
+  <p class="narrative-ur">جب نبی ﷺ گھر واپس آتے تو بسم اللہ کے ساتھ داخل ہوتے اور گھر میں موجود سب کو سلام کرتے۔ گھر ان کے لیے محض ایک عمارت نہیں تھی — یہ ایک پناہ گاہ تھی اور اس میں داخل ہونا ایک مقدس عمل۔ آپ نے سکھایا کہ جب کوئی بسم اللہ اور سلام کے ساتھ گھر میں داخل ہو تو شیطان کہتا ہے: "آج رات میرے لیے یہاں جگہ نہیں۔" حضرت عائشہ رضی اللہ عنہا نے بتایا کہ آپ ﷺ گھر میں آتے ہی فوری طور پر اہل خانہ سے مل کر بیٹھتے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sunan Abu Dawud, Book of Good Manners (Kitab al-Adab), Hadith 5096 — <strong style="color:#7AABF0">Hasan</strong> (graded by scholars of hadith); Greeting family on entry: Quran 24:61; Shaytaan leaves: Sunan Ibn Majah, Hadith 3887 — <strong style="color:#7AABF0">Hasan</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    How you enter your home sets the spiritual atmosphere of the entire space. The dua is short, the salam is easy — but together they transform an ordinary act of returning into an act of tawakkul and blessing.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Say this dua at your front door as you step inside. Then greet your family with salam — don't walk past them. Make the return home a conscious act of presence.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ PERIOD 6: THE FIVE PRAYERS -->
+<div class="period-header">
+  <span class="ph-icon">🕌</span>
+  <h2>Period 6 — The Five Prayers</h2>
+  <span class="ph-ar">الصلوات الخمس</span>
+</div>
+
+<!-- CARD 16: Rawatib Sunnah — 12 Rakats -->
+<div class="card tier1">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Muslim</span>
+    <span class="time-chip">🕌 Around Each Prayer</span>
+    <span class="card-num">PRACTICE 16</span>
+  </div>
+  <h3>The Rawatib Sunnah — The Twelve Rakats</h3>
+
+  <div class="arabic-block">
+    مَنْ صَلَّى اثْنَتَيْ عَشْرَةَ رَكْعَةً فِي يَوْمٍ وَلَيْلَةٍ بَنَى اللَّهُ لَهُ بَيْتًا فِي الْجَنَّةِ
+  </div>
+  <div class="translit">Man salla ithnatay 'ashrata rak'atan fi yawmin wa laylatin bana Allahu lahu baytan fi-l-jannah</div>
+  <div class="translation">"Whoever prays twelve rakats in the day and night, Allah will build for him a house in Paradise."</div>
+
+  <div class="rakats-grid">
+    <div class="rakat-item">
+      <div class="rakat-prayer">Before Fajr</div>
+      <div class="rakat-count">2 rakats</div>
+      <div class="rakat-source">Muslim 728 — Sahih</div>
+    </div>
+    <div class="rakat-item">
+      <div class="rakat-prayer">Before Dhuhr</div>
+      <div class="rakat-count">4 rakats</div>
+      <div class="rakat-source">Muslim 728; Tirmidhi 428 — Sahih</div>
+    </div>
+    <div class="rakat-item">
+      <div class="rakat-prayer">After Dhuhr</div>
+      <div class="rakat-count">2 rakats</div>
+      <div class="rakat-source">Muslim 728 — Sahih</div>
+    </div>
+    <div class="rakat-item">
+      <div class="rakat-prayer">Before Asr</div>
+      <div class="rakat-count">— Not established</div>
+      <div class="rakat-source">See note below</div>
+    </div>
+    <div class="rakat-item">
+      <div class="rakat-prayer">After Maghrib</div>
+      <div class="rakat-count">2 rakats</div>
+      <div class="rakat-source">Muslim 728 — Sahih</div>
+    </div>
+    <div class="rakat-item">
+      <div class="rakat-prayer">After Isha</div>
+      <div class="rakat-count">2 rakats</div>
+      <div class="rakat-source">Muslim 728 — Sahih</div>
+    </div>
+  </div>
+
+  <div class="note-box" style="margin-top:0.75rem;">
+    <span class="note-label">📋 Honest Scholarly Note — Asr Rawatib</span>
+    There is no specifically confirmed rawatib sunnah before Asr in the hadith of the twelve rakats. Some scholars recommend voluntary prayers before Asr based on the general hadith "Allah have mercy on the one who prays four before Asr" (Abu Dawud 1271 — Hasan), but this is not the same as the established rawatib. The twelve-rakat hadith does not include Asr. This distinction matters and should be preserved.
+  </div>
+
+  <p class="narrative">These twelve rakats were the architecture of his ﷺ day — voluntary prayers that bracketed each obligatory prayer, creating a rhythm of return to Allah throughout the day's activities. They were not random extra prayers but a specific, named pattern he taught and consistently maintained. Aisha RA and Umm Habiba RA were among the primary narrators of this practice. He described the reward in the most concrete terms available: a house in Jannah. Not a vague reward, not a general merit — a house, built by Allah, for anyone who maintains this practice every day of their life.</p>
+  <p class="narrative-ur">یہ بارہ رکعتیں آپ ﷺ کے دن کا ڈھانچہ تھیں — نفل نمازیں جو ہر فرض نماز کے گرد لپٹی ہوئی تھیں، پورے دن میں اللہ کی طرف واپسی کی لے پیدا کرتی تھیں۔ یہ بے ترتیب نمازیں نہیں بلکہ ایک مخصوص، نامزد طریقہ تھا جو آپ نے سکھایا اور مستقل برقرار رکھا۔ آپ نے اس کا اجر سب سے ٹھوس الفاظ میں بیان فرمایا: جنت میں ایک گھر — کوئی مبہم ثواب نہیں، بلکہ ایک گھر جو اللہ خود بناتا ہے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Muslim, Book of the Prayer of Travellers (Kitab Salat al-Musafirin), Hadith 728; Sunan Tirmidhi, Book of Prayer (Kitab al-Salah), Hadith 428 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    A house in Jannah for twelve daily rakats — this is the most specific reward mentioned for any daily sunnah practice. He ﷺ told us the price. He also showed us the product every single day.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Start with two before Fajr (already in Part 1) and two after Dhuhr. That is four. Build from there — one prayer at a time, until the twelve become your daily architecture too.
+  </div>
+</div>
+
+<!-- CARD 17: Duha Prayer -->
+<div class="card tier1">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Muslim</span>
+    <span class="time-chip">☀️ After Sunrise — Before Dhuhr</span>
+    <span class="card-num">PRACTICE 17</span>
+  </div>
+  <h3>Duha Prayer — The Prayer of the Forenoon</h3>
+
+  <div class="arabic-block medium">
+    يُصْبِحُ عَلَى كُلِّ سُلَامَى مِنَ أَحَدِكُمْ صَدَقَةٌ وَيُجْزِئُ مِنْ ذَلِكَ رَكْعَتَانِ يَرْكَعُهُمَا مِنَ الضُّحَى
+  </div>
+  <div class="translit">Yusbahu 'ala kulli sulamy min ahadikum sadaqatun, wa yujzi'u min dhalika rak'atani yarka'uhuma mina-d-duha</div>
+  <div class="translation">"Every morning a charity is due on every joint of your body. And two rakats of Duha will suffice for all of that."</div>
+
+  <p class="narrative">Abu Hurairah RA narrated that his close friend the Prophet ﷺ advised him three things he never abandoned: fasting three days of every month, praying two rakats of Duha, and praying Witr before sleeping. The Duha prayer — prayed after the sun has fully risen until just before midday — is the prayer of the morning light, offered when the world is already in motion. Every morning, 360 good deeds are due from a person — one for each joint in the human body — as a form of gratitude for the body that serves them. Two rakats of Duha clear this entire account. He ﷺ was sometimes seen praying eight rakats of Duha (Sahih Muslim 719). The minimum is two. The maximum has no upper limit set, though he generally prayed more.</p>
+  <p class="narrative-ur">حضرت ابوہریرہ رضی اللہ عنہ نے بتایا کہ ان کے خلیل نبی ﷺ نے انہیں تین باتوں کی وصیت فرمائی جو انہوں نے کبھی نہیں چھوڑی: ہر مہینے تین دن روزہ، دو رکعت چاشت، اور سونے سے پہلے وتر۔ چاشت کی نماز — سورج اچھی طرح طلوع ہونے کے بعد سے ظہر سے پہلے تک — صبح کے نور میں ادا کی جاتی ہے جب دنیا پہلے سے حرکت میں آ چکی ہوتی ہے۔ ہر صبح انسان کے جسم کے ہر جوڑ پر صدقہ واجب ہے — 360 جوڑ، 360 نیکیاں۔ چاشت کی دو رکعت یہ سارا حساب ادا کر دیتی ہیں۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Muslim, Book of the Prayer of Travellers (Kitab Salat al-Musafirin), Hadith 716 (Abu Hurairah's three acts); 360 joints hadith: Sahih Muslim, Hadith 720; Eight rakats: Sahih Muslim, Hadith 719 — <strong style="color:#5DC88A">Sahih</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    While the world transacts, the believer pauses to acknowledge the Giver of the morning. Two rakats of Duha settle the entire morning's account of gratitude — and take less than five minutes.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Pray two rakats of Duha today — after the sun has fully risen, before Dhuhr. Find a quiet space, even briefly. It does not require a mosque. Let this be your morning's gratitude offering.
+  </div>
+</div>
+
+<!-- CARD 18: His Focus in Prayer -->
+<div class="card tier1">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">🕌 In Every Prayer</span>
+    <span class="card-num">PRACTICE 18</span>
+  </div>
+  <h3>His Focus in Prayer — The Way He Prayed</h3>
+
+  <p class="narrative">His prayer was not a physical routine to be completed — it was an audience with Allah, entered with full consciousness and left without haste. Four dimensions of his prayer practice are authenticated across the hadith collections:</p>
+  <p class="narrative-ur">آپ ﷺ کی نماز محض ادا کرنے کا معمول نہیں تھی — یہ اللہ کے ساتھ ملاقات تھی، پوری شعوری حاضری کے ساتھ داخل ہونا اور بغیر جلدی کے نکلنا۔ آپ کی نماز کے چار پہلو حدیث کی کتابوں میں مستند ہیں:</p>
+
+  <!-- 18a Khushu -->
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">18a — Khushu: Presence and Focus · الخشوع</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">
+      أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ
+    </div>
+    <div class="translit" style="font-size:0.82rem;">An ta'buda Allaha ka-annaka tarahu, fa-in lam takun tarahu fa-innahu yaraka</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);margin-bottom:0.3rem;">"Worship Allah as though you see Him, and if you cannot see Him, know that He sees you." — Definition of Ihsan (excellence in worship)</div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim);">📚 Sahih Bukhari, Book of Faith (Kitab al-Iman), Hadith 50 — Sahih | Quran 23:1–2</div>
+  </div>
+
+  <!-- 18b Slow Prayer -->
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">18b — He Prayed Slowly · الطمأنينة</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">
+      ارْجِعْ فَصَلِّ فَإِنَّكَ لَمْ تُصَلِّ
+    </div>
+    <div class="translit" style="font-size:0.82rem;">Irji' fa-salli, fa-innaka lam tusalli</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);margin-bottom:0.3rem;">"Go back and pray, for you have not prayed." — Said to a man who prayed quickly without settling in each position</div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim);">📚 Sahih Bukhari, Book of Prayer (Kitab al-Salah), Hadith 779 — Sahih</div>
+  </div>
+
+  <!-- 18c Dua in Sujood -->
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">18c — Dua in Sujood · الدعاء في السجود</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">
+      أَقْرَبُ مَا يَكُونُ الْعَبْدُ مِنْ رَبِّهِ وَهُوَ سَاجِدٌ فَأَكْثِرُوا الدُّعَاءَ
+    </div>
+    <div class="translit" style="font-size:0.82rem;">Aqrabu ma yakunu-l-'abdu min rabbihi wa huwa sajidun — fa-akthiru-d-du'a'</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);margin-bottom:0.3rem;">"The closest a servant is to his Lord is when he is in prostration — so make much dua."</div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim);">📚 Sahih Muslim, Book of Prayer (Kitab al-Salah), Hadith 482 — Sahih</div>
+  </div>
+
+  <!-- 18d Asr -->
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">18d — He Prayed Asr Consistently · المحافظة على العصر</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">
+      مَنْ فَاتَتْهُ صَلَاةُ الْعَصْرِ فَكَأَنَّمَا وُتِرَ أَهْلَهُ وَمَالَهُ
+    </div>
+    <div class="translit" style="font-size:0.82rem;">Man fatat-hu salatu-l-'asri fa-ka-annama wutira ahlahu wa malah</div>
+    <div style="font-size:0.83rem;color:var(--text-dim);margin-bottom:0.3rem;">"Whoever misses Asr, it is as if he has lost his family and his wealth." — The gravity of this prayer specifically</div>
+    <div style="font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim);">📚 Sahih Bukhari, Book of the Times of Prayer (Kitab Mawaqit al-Salah), Hadith 552 — Sahih</div>
+  </div>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>All four practices above sourced individually with hadith numbers. Combined they represent his authenticated prayer character from Bukhari and Muslim.</span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    He ﷺ rebuked a man who prayed quickly and told him he had not actually prayed. The physical motions without presence are not the prayer he taught. Sujood is the closest point to Allah available in this life — he said to use it.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    In your next prayer: slow down in sujood. Make one sincere dua in your own words — in any language. Stay a moment longer than usual. Let the closest point to Allah not be rushed.
+  </div>
+</div>
+
+<!-- CARD 19: Continuous Dhikr -->
+<div class="card tier1">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">☀️ Throughout the Day</span>
+    <span class="card-num">PRACTICE 19</span>
+  </div>
+  <h3>Remembrance Between Prayers — Continuous Dhikr</h3>
+
+  <div class="arabic-block">
+    سُبْحَانَ اللَّهِ وَبِحَمْدِهِ — سُبْحَانَ اللَّهِ الْعَظِيمِ
+  </div>
+  <div class="translit">SubhanAllahi wa bihamdihi — SubhanAllahil 'Azeem</div>
+  <div class="translation">Glory be to Allah and praise Him — Glory be to Allah the Most Great.</div>
+
+  <div class="sub-hadith">
+    <span class="sub-hadith-label">The Lightest Words, the Heaviest Scales</span>
+    <div style="font-size:0.84rem;color:var(--text-dim);">"Two phrases are light on the tongue, heavy on the scales, beloved to the Most Merciful: SubhanAllahi wa bihamdihi, SubhanAllahil Azeem." <em>(Sahih Bukhari, Book of Invocations, Hadith 6682 — Sahih)</em></div>
+  </div>
+
+  <div class="sub-hadith" style="margin-top:0.5rem;">
+    <span class="sub-hadith-label">One Thousand Good Deeds in Minutes</span>
+    <div class="arabic-block small" style="margin-bottom:0.4rem;">
+      أَيَعْجِزُ أَحَدُكُمْ أَنْ يَكْسِبَ كُلَّ يَوْمٍ أَلْفَ حَسَنَةٍ
+    </div>
+    <div style="font-size:0.84rem;color:var(--text-dim);">"Is any of you unable to earn a thousand good deeds each day? By saying SubhanAllah one hundred times, a thousand good deeds are written for him and a thousand sins are erased." <em>(Sahih Muslim, Book of Dhikr, Hadith 2698 — Sahih)</em></div>
+  </div>
+
+  <p class="narrative">He ﷺ was described by those closest to him as being in a constant state of dhikr — not as a performed ritual but as a living condition. His lips moved between conversations. He remembered Allah in the pauses, in the transitions, in the waiting. Aisha RA said his dhikr was at all times, not restricted to special moments. He would say SubhanAllah, Alhamdulillah, Allahu Akbar — spontaneously, without an occasion, because the presence of Allah was not something he accessed at scheduled times. It was his continuous state. The tongue, he taught, should always be moist with the remembrance of Allah — and the easiest of all is SubhanAllahi wa bihamdihi.</p>
+  <p class="narrative-ur">آپ ﷺ کے قریبی لوگوں نے بیان کیا کہ آپ ہمیشہ ذکر کی حالت میں رہتے — کوئی رسمی ادائیگی نہیں بلکہ ایک زندہ کیفیت۔ گفتگو کے درمیان آپ کے ہونٹ حرکت میں رہتے۔ آپ وقفوں میں، منتقلی کے لمحوں میں، انتظار میں اللہ کو یاد کرتے۔ حضرت عائشہ رضی اللہ عنہا نے فرمایا آپ کا ذکر ہر وقت ہوتا تھا۔ آپ نے سکھایا کہ زبان ہمیشہ اللہ کے ذکر سے تر رہنی چاہیے۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of Invocations (Kitab al-Da'awat), Hadith 6682; Sahih Muslim, Book of Dhikr and Dua (Kitab al-Dhikr), Hadith 2698; His continuous dhikr: Sunan Abu Dawud, Book of Prayer, Hadith 1316 — <strong style="color:#5DC88A">Sahih</strong> / <strong style="color:#7AABF0">Hasan</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Dhikr is available at every moment — standing, sitting, walking, waiting in traffic. There is no time or place too ordinary for it. The scales of deeds do not know the difference between a moment of prayer and a moment of dhikr in traffic.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Say SubhanAllahil Azeem 100 times today — in traffic, while waiting, during a walk. It takes three to four minutes and earns a thousand good deeds. Your tongue can do this while your hands do something else.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ PERIOD 7: WITH PEOPLE -->
+<div class="period-header">
+  <span class="ph-icon">🤝</span>
+  <h2>Period 7 — With People</h2>
+  <span class="ph-ar">مع الناس</span>
+</div>
+
+<!-- CARD 20: How He Listened -->
+<div class="card tier2">
+  <div class="card-meta">
+    <span class="badge badge-hasan-s">◈ Hasan Sahih — Tirmidhi / Shamaa'il</span>
+    <span class="time-chip">🤝 In Every Conversation</span>
+    <span class="card-num">PRACTICE 20</span>
+  </div>
+  <h3>How He Listened — Total Presence</h3>
+
+  <p class="narrative">He ﷺ gave every person he spoke with an experience that was difficult to forget: the feeling of being completely seen. When he met someone and shook their hand, he would not pull his hand away until the other person let go first. He would not turn his face away from someone until they turned first. He turned his entire body toward the person speaking to him — not just his face, but his full physical presence. He never interrupted. He waited until the person had fully expressed themselves. Anas RA narrated that if someone were to pull his hand away from the Prophet's grip, they could not — he held on until the other person was ready to release. These were not techniques. They were the natural overflow of how he felt about people.</p>
+  <p class="narrative-ur">آپ ﷺ نے ہر اس شخص کو جس سے بات کرتے، ایک ناقابل فراموش تجربہ دیا: مکمل طور پر دیکھے جانے کا احساس۔ جب آپ کسی سے مصافحہ کرتے تو اپنا ہاتھ اس وقت تک نہ کھینچتے جب تک دوسرا نہ کھینچے۔ آپ اپنا چہرہ اس وقت تک نہیں موڑتے جب تک دوسرا نہ موڑے۔ آپ اپنا پورا جسم بات کرنے والے کی طرف موڑتے — صرف چہرہ نہیں، پوری جسمانی حاضری۔ حضرت انس رضی اللہ عنہ نے بتایا کہ اگر کوئی آپ کے ہاتھ سے اپنا ہاتھ چھڑانا چاہتا تو نہیں چھڑا سکتا تھا۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sunan Tirmidhi, Book of Virtuous Conduct (Kitab al-Birr), Hadith 2490 — <strong style="color:#7AABF0">Hasan Sahih</strong>; Shamaa'il Muhammadiyyah (al-Tirmidhi) — <strong style="color:#7AABF0">Hasan Sahih</strong> — descriptions of his physical presence in conversation</span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    In an age of constant distraction, his total presence was his greatest gift to every person. He had no phone to look at — but even so, he chose presence deliberately. We have to choose it against everything pulling us away.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    In your next conversation — face the person fully. Put your phone face-down or in your pocket. Do not interrupt. Wait until they are genuinely finished before you speak. Give them the experience he gave everyone.
+  </div>
+</div>
+
+<!-- CARD 21: Never Mocked Anyone -->
+<div class="card tier1">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari</span>
+    <span class="time-chip">🤝 In All Conduct</span>
+    <span class="card-num">PRACTICE 21</span>
+  </div>
+  <h3>He Never Made Fun of Anyone</h3>
+
+  <div class="arabic-block medium">
+    لَا تُسَخِّرْ مِنْ أَخِيكَ فِي بَلِيَّتِهِ فَيَرْحَمَهُ اللَّهُ وَيَبْتَلِيَكَ
+  </div>
+  <div class="translit">La tusakhkhir min akhika fi baliyyatihi fa-yarhamahu Allahu wa yabtalik</div>
+  <div class="translation">"Do not mock your brother in his affliction, lest Allah have mercy on him and afflict you with it."</div>
+
+  <p class="narrative">He ﷺ never mocked anyone — not their appearance, not their mistakes, not their circumstances. He never ridiculed, never humiliated, never exposed anyone's weakness for the benefit of others in the room. When someone in his community made a mistake, he would address it without naming names: "What is wrong with some people who do..." — correcting the behaviour while protecting the person's dignity. Aisha RA narrated that he never took personal revenge for himself. He only responded when the sanctities of Allah were violated — and even then, his correction was proportionate, purposeful, never cruel. He understood the difference between correction and humiliation, and he would only ever do the former.</p>
+  <p class="narrative-ur">آپ ﷺ نے کبھی کسی کا مذاق نہیں اڑایا — نہ ان کی شکل کا، نہ ان کی غلطیوں کا، نہ ان کے حالات کا۔ آپ نے کبھی کسی کو ذلیل نہیں کیا اور نہ کسی کی کمزوری دوسروں کے سامنے ظاہر کی۔ جب کسی نے غلطی کی تو آپ نام لیے بغیر کہتے: "لوگوں کو کیا ہو گیا ہے جو ایسا کرتے ہیں..." — کردار کو درست کرتے ہوئے فرد کی عزت محفوظ رکھتے۔ حضرت عائشہ رضی اللہ عنہا نے فرمایا کہ آپ نے کبھی اپنی ذات کے لیے بدلہ نہیں لیا۔ آپ اصلاح اور تذلیل کا فرق جانتے تھے، اور آپ نے ہمیشہ صرف اصلاح کی۔</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>Sahih Bukhari, Book of Good Manners (Kitab al-Adab), Hadith 6786 — <strong style="color:#5DC88A">Sahih</strong>; Hadith on not mocking in affliction: Sunan Tirmidhi, Book of Asceticism (Kitab al-Zuhd), Hadith 2506 — <strong style="color:#7AABF0">Hasan</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    His correction was always aimed at the behaviour, never an attack on the person's dignity. This distinction — between correction and humiliation — is the difference between the sunnah and the opposite of it.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Notice how you correct people today — in speech, in tone, in expression. Ask: is this correction or humiliation? Is this sunnah or its opposite?
+  </div>
+</div>
+
+<!-- CARD 22: Visiting the Sick -->
+<div class="card tier1">
+  <div class="card-meta">
+    <span class="badge badge-sahih">✦ Sahih — Bukhari &amp; Muslim</span>
+    <span class="time-chip">🤝 Community Practice</span>
+    <span class="card-num">PRACTICE 22</span>
+  </div>
+  <h3>Visiting the Sick — Two Duas of Healing</h3>
+
+  <div class="arabic-block small">
+    لَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ
+  </div>
+  <div class="translit">La ba's, tahurun in sha Allah</div>
+  <div class="translation">No harm — a purification, if Allah wills.</div>
+
+  <div class="arabic-block medium" style="margin-top:0.75rem;">
+    اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِهِ وَأَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاؤُكَ شِفَاءً لَا يُغَادِرُ سَقَمًا
+  </div>
+  <div class="translit">Allahumma rabbannasi, adh-hibi-l-ba's, ishfihi wa anta-sh-shafi, la shifa'a illa shifa'uka, shifa'an la yughadiru saqama</div>
+  <div class="translation">O Allah, Lord of mankind — remove the harm, cure him/her. You are the Curer, there is no cure except Your cure — a cure that leaves no illness behind.</div>
+
+  <p class="narrative">Visiting the sick was not an occasional charitable act for him ﷺ — it was a consistent, woven-in practice of community care. He would go personally. He would sit with the person, not just pass by. He visited companions, neighbours, and he famously visited the Jewish boy who had served him when he became ill — and offered him Islam as he sat with him at his deathbed. He said: "Whoever visits a sick Muslim in the morning, seventy thousand angels pray for him until evening. Whoever visits in the evening, seventy thousand angels pray for him until morning." (Sunan Tirmidhi 969 — Hasan). He also said the visitor remains in a garden of paradise until they return home. (Sahih Muslim 2568)</p>
+  <p class="narrative-ur">بیماروں کی عیادت آپ ﷺ کے لیے کوئی کبھی کبھار کا کام نہیں تھا — یہ برادری کی دیکھ بھال کا ایک مستقل، باقاعدہ حصہ تھا۔ آپ خود تشریف لے جاتے۔ آپ بیٹھتے — صرف گزر نہیں جاتے۔ آپ نے اس یہودی لڑکے کی بھی عیادت کی جو آپ کی خدمت کرتا تھا جب وہ بیمار ہوا۔ آپ نے فرمایا: "جو مسلمان صبح کسی بیمار کی عیادت کرے، ستر ہزار فرشتے شام تک اس کے لیے دعا کرتے ہیں۔"</p>
+
+  <div class="source-line">
+    <span class="src-icon">📚</span>
+    <span>"La ba's tahurun": Sahih Bukhari, Book of Patients (Kitab al-Marda), Hadith 5656 — <strong style="color:#5DC88A">Sahih</strong>; Full shifa dua: Sahih Bukhari, Hadith 5675; Sahih Muslim, Book of Greetings, Hadith 2191 — <strong style="color:#5DC88A">Sahih</strong>; Garden of paradise: Sahih Muslim, Book of Greetings, Hadith 2568 — <strong style="color:#5DC88A">Sahih</strong>; Angels praying: Sunan Tirmidhi, Book of Funerals, Hadith 969 — <strong style="color:#7AABF0">Hasan</strong></span>
+  </div>
+
+  <div class="why-box">
+    <span class="why-label">◈ Why This Matters</span>
+    Community care was woven into his daily life — not separated from his "religious" practices. Visiting the sick, for him, was as much an act of worship as any prayer. The person lying in hospital did not become less important because the world kept moving.
+  </div>
+  <div class="try-box">
+    <span class="try-label">🌿 Try Today</span>
+    Think of one person who is sick, in hospital, or struggling. Send them a message today — or visit if possible. Say the dua for them — even in their absence. This is his practice.
+  </div>
+</div>
+
+</div><!-- .wrapper -->
+
+<footer>
+  <span>Al-Maktaba</span> · Daily Sunnah Series · Part 2 of 3 · Daytime &amp; Prayers<br/>
+  All practices sourced from authenticated hadith collections with explicit hadith numbers and grades.<br/>
+  No practice included without a primary source citation.
+</footer>
+
+<script>
+function setLang(lang) {
+  if (lang === 'ur') {
+    document.body.classList.add('ur-mode');
+    document.getElementById('btn-en').classList.remove('active');
+    document.getElementById('btn-ur').classList.add('active');
+    document.documentElement.setAttribute('lang','ur');
+  } else {
+    document.body.classList.remove('ur-mode');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ur').classList.remove('active');
+    document.documentElement.setAttribute('lang','en');
+  }
+}
+
+const practices = [
+  {
+    name: "The Full Salam — Initiate It",
+    arabic: "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ",
+    translit: "Assalamu alaykum wa rahmatullahi wa barakatuh",
+    trans: "Peace be upon you, and the mercy of Allah, and His blessings.",
+    how: "Initiate salam today — don't wait to be greeted. Use the full greeting for thirty reward points. He ﷺ initiated with children, strangers, everyone.",
+    source: "📚 Sahih Muslim, Kitab al-Iman, Hadith 54 — Sahih"
+  },
+  {
+    name: "Twelve Rawatib Rakats — The House in Jannah",
+    arabic: "مَنْ صَلَّى اثْنَتَيْ عَشْرَةَ رَكْعَةً فِي يَوْمٍ وَلَيْلَةٍ بَنَى اللَّهُ لَهُ بَيْتًا فِي الْجَنَّةِ",
+    translit: "Man salla ithnatay 'ashrata rak'atan fi yawmin wa laylatin bana Allahu lahu baytan fil-jannah",
+    trans: "Whoever prays twelve rakats in the day and night, Allah will build for him a house in Paradise.",
+    how: "Start with two rakats before Fajr and two after Dhuhr. That's four. Add two after Maghrib tomorrow. Build the architecture one prayer at a time.",
+    source: "📚 Sahih Muslim, Kitab Salat al-Musafirin, Hadith 728 — Sahih"
+  },
+  {
+    name: "SubhanAllahil Azeem — The Lightest, the Heaviest",
+    arabic: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ — سُبْحَانَ اللَّهِ الْعَظِيمِ",
+    translit: "SubhanAllahi wa bihamdihi — SubhanAllahil Azeem",
+    trans: "Glory be to Allah and praise Him — Glory be to Allah the Most Great.",
+    how: "Say this 100 times today — in traffic, while waiting, on a walk. Light on the tongue. Heavy on the scales. Beloved to the Most Merciful.",
+    source: "📚 Sahih Bukhari, Kitab al-Da'awat, Hadith 6682 — Sahih"
+  },
+  {
+    name: "Dua in Sujood — The Closest Point",
+    arabic: "أَقْرَبُ مَا يَكُونُ الْعَبْدُ مِنْ رَبِّهِ وَهُوَ سَاجِدٌ فَأَكْثِرُوا الدُّعَاءَ",
+    translit: "Aqrabu ma yakunu-l-'abdu min rabbihi wa huwa sajidun — fa-akthiru-d-du'a'",
+    trans: "The closest a servant is to his Lord is when he is in prostration — so make much dua.",
+    how: "In your next prayer: stay a moment longer in sujood. Make one sincere dua in your own words. The closest you will be to Allah today is in that position.",
+    source: "📚 Sahih Muslim, Kitab al-Salah, Hadith 482 — Sahih"
+  },
+  {
+    name: "Dua on Entering the Home",
+    arabic: "بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا",
+    translit: "Bismillahi walajna, wa bismillahi kharajna, wa 'ala Allahi rabbina tawakkalna",
+    trans: "In the name of Allah we enter, in the name of Allah we leave, and upon Allah our Lord we rely.",
+    how: "Say this at your front door as you step inside today. Then greet your family with salam. Set the spiritual atmosphere of your home at the threshold.",
+    source: "📚 Sunan Abu Dawud, Kitab al-Adab, Hadith 5096 — Hasan"
+  },
+  {
+    name: "Dua for the Sick — Two Versions",
+    arabic: "اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِهِ وَأَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاؤُكَ",
+    translit: "Allahumma rabbannasi, adh-hibi-l-ba's, ishfihi wa anta-sh-shafi, la shifa'a illa shifa'uka",
+    trans: "O Allah, Lord of mankind — remove the harm, cure him. You are the Curer, there is no cure except Your cure.",
+    how: "Think of one person who is ill. Say this dua for them right now — even if they are far away. Then message or visit them today.",
+    source: "📚 Sahih Bukhari, Kitab al-Marda, Hadith 5675 — Sahih"
+  }
+];
+
+function loadToday() {
+  const d = new Date();
+  const dayOfYear = Math.floor((d - new Date(d.getFullYear(),0,0)) / 86400000);
+  const idx = (dayOfYear + 7) % practices.length;
+  const p = practices[idx];
+  document.getElementById('today-name').textContent = p.name;
+  document.getElementById('today-arabic').textContent = p.arabic;
+  document.getElementById('today-translit').textContent = p.translit;
+  document.getElementById('today-trans').textContent = p.trans;
+  document.getElementById('today-how').textContent = p.how;
+  document.getElementById('today-source').textContent = p.source;
+}
+loadToday();
+</script>
+</body>
+</html>
