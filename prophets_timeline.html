@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>25 Prophets — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --teal:#2FB89A;--text:#D4CBB8;--text2:#8A9BB0;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);--golddim:rgba(201,168,76,.10);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:"Lora",serif;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 900px 600px at 20% 0%,rgba(201,168,76,.05),transparent 65%);}
+
+/* NAV */
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.96);border-bottom:1px solid var(--border2);
+  backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 24px;height:54px;gap:14px;flex-shrink:0}
+.back-btn{font-family:"Cinzel",serif;font-size:10px;letter-spacing:1px;color:var(--text2);
+  padding:6px 12px;border:1px solid var(--border2);border-radius:6px;text-decoration:none;transition:all .15s}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:"Noto Naskh Arabic",serif;font-size:20px;color:var(--gold)}
+.nav-en{font-family:"Cinzel",serif;font-size:12px;font-weight:700;color:var(--gold2);letter-spacing:2px}
+.nav-r{margin-left:auto;font-family:"Cinzel",serif;font-size:9px;color:var(--text2);letter-spacing:1px}
+
+/* HERO */
+.hero{position:relative;z-index:1;padding:64px 24px 48px;text-align:center;
+  border-bottom:1px solid var(--border2);background:linear-gradient(160deg,rgba(17,30,53,.7),rgba(4,7,13,.9))}
+.h-bsm{font-family:"Noto Naskh Arabic",serif;font-size:clamp(20px,3.5vw,28px);color:var(--gold);margin-bottom:14px;animation:fD .8s both}
+.h-ar{font-family:"Noto Naskh Arabic",serif;font-size:clamp(32px,6vw,56px);color:var(--gold2);margin-bottom:6px;line-height:1.2;text-shadow:0 0 30px rgba(201,168,76,.25);animation:fD .8s .1s both}
+.h-en{font-family:"Cinzel",serif;font-size:clamp(16px,3vw,26px);font-weight:700;color:#fff;margin-bottom:8px;animation:fD .8s .18s both}
+.h-sub{font-size:13px;color:var(--text2);font-style:italic;max-width:580px;margin:0 auto 20px;line-height:1.7;animation:fD .8s .25s both}
+.h-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto}
+@keyframes fD{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* TABS */
+.tabs{position:sticky;top:54px;z-index:80;background:rgba(8,14,28,.97);border-bottom:1px solid var(--border2);
+  display:flex;overflow-x:auto;padding:0 24px;gap:0;backdrop-filter:blur(16px)}
+.tab{font-family:"Cinzel",serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  padding:14px 18px;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;
+  transition:all .2s;white-space:nowrap;flex-shrink:0}
+.tab:hover{color:var(--gold2)}
+.tab.on{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* CONTENT */
+.content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:32px 24px 80px}
+.tab-panel{display:none}
+.tab-panel.on{display:block}
+
+/* MASTER TABLE */
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border2);margin-bottom:32px}
+table.master{width:100%;border-collapse:collapse;min-width:700px}
+table.master th{font-family:"Cinzel",serif;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);padding:12px 14px;background:rgba(201,168,76,.08);border-bottom:1px solid var(--border);text-align:left}
+table.master td{padding:11px 14px;font-size:12.5px;border-bottom:1px solid var(--border2);vertical-align:middle}
+table.master tr:last-child td{border-bottom:none}
+table.master tr:hover td{background:rgba(255,255,255,.02)}
+.tc-num{font-family:"Cinzel",serif;font-size:11px;font-weight:700;color:var(--gold);width:36px}
+.tc-name{font-family:"Cinzel",serif;font-size:12px;font-weight:600;color:#fff}
+.tc-ar{font-family:"Noto Naskh Arabic",serif;font-size:16px;color:var(--gold2)}
+.tc-era{font-size:11px;color:var(--text2)}
+.tc-cnt{font-family:"Cinzel",serif;font-size:11px;color:var(--teal);text-align:center}
+
+/* PROPHET GRID */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.pcard{border-radius:12px;border:1px solid var(--border2);
+  background:linear-gradient(145deg,rgba(17,30,53,.9),rgba(8,14,28,.95));
+  overflow:hidden;cursor:pointer;transition:transform .25s,border-color .2s,box-shadow .2s;
+  animation:fU .4s both}
+.pcard:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.35);
+  box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.pc-accent{height:3px}
+.pc-top{display:flex;align-items:center;gap:14px;padding:16px 16px 12px}
+.pc-num{font-family:"Cinzel",serif;font-size:28px;font-weight:700;opacity:.15;line-height:1;flex-shrink:0;width:40px;text-align:center}
+.pc-names{flex:1}
+.pc-en{font-family:"Cinzel",serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:3px}
+.pc-ar{font-family:"Noto Naskh Arabic",serif;font-size:20px;color:var(--gold2);line-height:1.3}
+.pc-badges{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 12px}
+.pb{font-family:"Cinzel",serif;font-size:8px;letter-spacing:.5px;padding:3px 9px;border-radius:10px}
+.pb-era{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--gold)}
+.pb-ulul{background:rgba(47,184,154,.12);border:1px solid rgba(47,184,154,.3);color:var(--teal)}
+.pb-men{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--text2)}
+.pc-title{padding:0 16px 14px;font-size:12px;color:var(--text2);font-style:italic;line-height:1.5}
+
+/* EXPANDED CARD */
+.pcard.open .pc-expand{display:block}
+.pc-expand{display:none;border-top:1px solid var(--border2);padding:16px}
+.pct{font-family:"Cinzel",serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.fact-box{background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:7px;padding:8px 11px}
+.fb-lbl{font-family:"Cinzel",serif;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.fb-val{font-size:11.5px;color:var(--text2);line-height:1.5}
+.verse-block{margin-top:12px}
+.vb-ar{font-family:"Noto Naskh Arabic",serif;font-size:clamp(18px,3vw,24px);color:var(--gold2);
+  direction:rtl;text-align:right;line-height:2;padding:12px 14px;
+  border-right:3px solid var(--gold);background:rgba(201,168,76,.05);border-radius:0 8px 8px 0;margin-bottom:6px}
+.vb-tr{font-size:12.5px;font-style:italic;color:var(--gold3);padding:7px 14px 7px 16px;
+  border-left:2px solid var(--gold);background:rgba(201,168,76,.04);border-radius:0 6px 6px 0;margin-bottom:4px;line-height:1.7}
+.vb-ref{font-family:"Cinzel",serif;font-size:9.5px;letter-spacing:.8px;color:var(--gold);margin-bottom:10px}
+.pc-arr{font-size:18px;color:var(--text2);transition:transform .25s;flex-shrink:0}
+.pcard.open .pc-arr{transform:rotate(90deg);color:var(--gold)}
+
+/* ERA TIMELINE */
+.era-section{margin-bottom:40px}
+.era-hdr{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border2)}
+.era-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.era-name{font-family:"Cinzel",serif;font-size:14px;font-weight:700;color:#fff}
+.era-dates{font-family:"Cinzel",serif;font-size:10px;color:var(--text2);margin-left:auto}
+.era-count{font-family:"Cinzel",serif;font-size:9px;padding:3px 10px;border-radius:10px;background:var(--golddim);color:var(--gold)}
+
+/* SEARCH */
+.search-wrap{margin-bottom:20px;position:relative}
+.search-inp{width:100%;padding:10px 16px 10px 40px;background:rgba(255,255,255,.05);border:1px solid var(--border2);
+  border-radius:9px;color:var(--text);font-family:"Lora",serif;font-size:13px;outline:none;transition:border-color .2s}
+.search-inp:focus{border-color:var(--gold)}
+.search-inp::placeholder{color:var(--text2)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:14px;pointer-events:none}
+
+/* BACK TO TOP */
+.btt{position:fixed;bottom:28px;right:24px;z-index:80;width:40px;height:40px;border-radius:50%;
+  background:var(--golddim);border:1px solid var(--border);display:flex;align-items:center;
+  justify-content:center;color:var(--gold2);font-size:16px;cursor:pointer;transition:all .2s;opacity:0;pointer-events:none}
+.btt.show{opacity:1;pointer-events:all}
+
+@media(max-width:700px){
+  .top-nav{padding:0 14px}
+  .content{padding:24px 14px 60px}
+  .pgrid{grid-template-columns:1fr}
+  .facts-grid{grid-template-columns:1fr}
+  .tabs{padding:0 14px}
+}
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <a class="back-btn" href="index.html">&#8592; Al-Maktaba</a>
+  <div class="nav-ar">&#1575;&#1604;&#1571;&#1606;&#1576;&#1610;&#1575;&#1569;</div>
+  <div class="nav-en">25 Quranic Prophets</div>
+  <div class="nav-r">Al-Maktaba</div>
+</div>
+<div class="hero">
+  <div class="h-bsm">&#1576;&#1616;&#1587;&#1618;&#1605;&#1616; &#1575;&#1604;&#1604;&#1617;&#1614;&#1607;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1618;&#1605;&#1614;&#1606;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1616;&#1610;&#1605;&#1616;</div>
+  <div class="h-ar">&#1575;&#1604;&#1571;&#1606;&#1576;&#1610;&#1575;&#1569; &#1608;&#1575;&#1604;&#1605;&#1585;&#1587;&#1604;&#1608;&#1606;</div>
+  <div class="h-en">The 25 Quranic Prophets &amp; Messengers</div>
+  <div class="h-sub">All 25 prophets named in the Holy Quran &mdash; complete profiles with Quranic verses, authentic hadith, historical facts and prophetic lineage. From Adam (AS) to Muhammad &#65018;.</div>
+  <div class="h-rule"></div>
+</div>
+<div class="tabs">
+  <div class="tab on" onclick="showTab('overview',this)">Overview Table</div>
+  <div class="tab" onclick="showTab('profiles',this)">Prophet Profiles</div>
+  <div class="tab" onclick="showTab('timeline',this)">By Era</div>
+</div>
+<div class="content">
+
+  <!-- TAB: OVERVIEW TABLE -->
+  <div class="tab-panel on" id="tab-overview">
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px;font-style:italic">
+      &#11088; = Ulul Azm &mdash; The 5 Prophets of Firm Resolve who brought new Shari'ah to humanity.
+      Figures show number of times the prophet's name appears in the Quran.
+    </p>
+    <div class="tbl-wrap">
+      <table class="master">
+        <thead><tr>
+          <th>#</th><th>Name</th><th>Arabic</th><th>People Sent To</th><th>Era</th><th>Mentions</th><th>Scripture</th>
+        </tr></thead>
+        <tbody><tr>
+              <td class="tc-num">1</td>
+              <td class="tc-name">Adam </td>
+              <td class="tc-ar" dir="rtl">آدم</td>
+              <td>All Humanity</td>
+              <td class="tc-era">Primordial</td>
+              <td class="tc-cnt">25</td>
+              <td>Suhuf (Scrolls)</td>
+            </tr><tr>
+              <td class="tc-num">2</td>
+              <td class="tc-name">Idris (Enoch) </td>
+              <td class="tc-ar" dir="rtl">إدريس</td>
+              <td>Pre-Flood People</td>
+              <td class="tc-era">Pre-Flood</td>
+              <td class="tc-cnt">2</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">3</td>
+              <td class="tc-name">Nuh (Noah) ⭐</td>
+              <td class="tc-ar" dir="rtl">نوح</td>
+              <td>His Corrupt Nation</td>
+              <td class="tc-era">~3000 BCE</td>
+              <td class="tc-cnt">43</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">4</td>
+              <td class="tc-name">Hud </td>
+              <td class="tc-ar" dir="rtl">هود</td>
+              <td>Tribe of 'Aad</td>
+              <td class="tc-era">~2400 BCE</td>
+              <td class="tc-cnt">7</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">5</td>
+              <td class="tc-name">Saleh </td>
+              <td class="tc-ar" dir="rtl">صالح</td>
+              <td>Tribe of Thamud</td>
+              <td class="tc-era">~2000 BCE</td>
+              <td class="tc-cnt">9</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">6</td>
+              <td class="tc-name">Ibrahim (Abraham) ⭐</td>
+              <td class="tc-ar" dir="rtl">إبراهيم</td>
+              <td>Babylon & Arabs</td>
+              <td class="tc-era">~2000 BCE</td>
+              <td class="tc-cnt">69</td>
+              <td>Suhuf Ibrahim</td>
+            </tr><tr>
+              <td class="tc-num">7</td>
+              <td class="tc-name">Lut (Lot) </td>
+              <td class="tc-ar" dir="rtl">لوط</td>
+              <td>Sodom & Gomorrah</td>
+              <td class="tc-era">~1900 BCE</td>
+              <td class="tc-cnt">27</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">8</td>
+              <td class="tc-name">Ismail (Ishmael) </td>
+              <td class="tc-ar" dir="rtl">إسماعيل</td>
+              <td>Arab Tribes (Hijaz)</td>
+              <td class="tc-era">~1900 BCE</td>
+              <td class="tc-cnt">12</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">9</td>
+              <td class="tc-name">Ishaq (Isaac) </td>
+              <td class="tc-ar" dir="rtl">إسحاق</td>
+              <td>Canaan</td>
+              <td class="tc-era">~1900 BCE</td>
+              <td class="tc-cnt">17</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">10</td>
+              <td class="tc-name">Ya'qub (Jacob) </td>
+              <td class="tc-ar" dir="rtl">يعقوب</td>
+              <td>Canaan / Egypt</td>
+              <td class="tc-era">~1800 BCE</td>
+              <td class="tc-cnt">16</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">11</td>
+              <td class="tc-name">Yusuf (Joseph) </td>
+              <td class="tc-ar" dir="rtl">يوسف</td>
+              <td>Egypt</td>
+              <td class="tc-era">~1700 BCE</td>
+              <td class="tc-cnt">27</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">12</td>
+              <td class="tc-name">Shu'ayb (Jethro) </td>
+              <td class="tc-ar" dir="rtl">شعيب</td>
+              <td>People of Madyan</td>
+              <td class="tc-era">~1600 BCE</td>
+              <td class="tc-cnt">11</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">13</td>
+              <td class="tc-name">Ayyub (Job) </td>
+              <td class="tc-ar" dir="rtl">أيوب</td>
+              <td>His People</td>
+              <td class="tc-era">~1600 BCE</td>
+              <td class="tc-cnt">4</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">14</td>
+              <td class="tc-name">Musa (Moses) ⭐</td>
+              <td class="tc-ar" dir="rtl">موسى</td>
+              <td>Egypt & Bani Israel</td>
+              <td class="tc-era">~1300 BCE</td>
+              <td class="tc-cnt">136</td>
+              <td>Tawrat (Torah)</td>
+            </tr><tr>
+              <td class="tc-num">15</td>
+              <td class="tc-name">Harun (Aaron) </td>
+              <td class="tc-ar" dir="rtl">هارون</td>
+              <td>Egypt & Bani Israel</td>
+              <td class="tc-era">~1300 BCE</td>
+              <td class="tc-cnt">20</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">16</td>
+              <td class="tc-name">Dhul-Kifl (Ezekiel?) </td>
+              <td class="tc-ar" dir="rtl">ذو الكفل</td>
+              <td>Iraq</td>
+              <td class="tc-era">~1200 BCE</td>
+              <td class="tc-cnt">2</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">17</td>
+              <td class="tc-name">Dawud (David) </td>
+              <td class="tc-ar" dir="rtl">داود</td>
+              <td>Bani Israel</td>
+              <td class="tc-era">~1000 BCE</td>
+              <td class="tc-cnt">16</td>
+              <td>Zabur (Psalms)</td>
+            </tr><tr>
+              <td class="tc-num">18</td>
+              <td class="tc-name">Sulaiman (Solomon) </td>
+              <td class="tc-ar" dir="rtl">سليمان</td>
+              <td>Bani Israel</td>
+              <td class="tc-era">~970 BCE</td>
+              <td class="tc-cnt">17</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">19</td>
+              <td class="tc-name">Ilyas (Elijah) </td>
+              <td class="tc-ar" dir="rtl">إلياس</td>
+              <td>Northern Israel</td>
+              <td class="tc-era">~850 BCE</td>
+              <td class="tc-cnt">4</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">20</td>
+              <td class="tc-name">Al-Yasa (Elisha) </td>
+              <td class="tc-ar" dir="rtl">اليسع</td>
+              <td>Israel</td>
+              <td class="tc-era">~830 BCE</td>
+              <td class="tc-cnt">2</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">21</td>
+              <td class="tc-name">Yunus (Jonah) </td>
+              <td class="tc-ar" dir="rtl">يونس</td>
+              <td>Nineveh, Iraq</td>
+              <td class="tc-era">~800 BCE</td>
+              <td class="tc-cnt">4</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">22</td>
+              <td class="tc-name">Zakariyya (Zechariah) </td>
+              <td class="tc-ar" dir="rtl">زكريا</td>
+              <td>Jerusalem</td>
+              <td class="tc-era">~1st BCE</td>
+              <td class="tc-cnt">7</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">23</td>
+              <td class="tc-name">Yahya (John Baptist) </td>
+              <td class="tc-ar" dir="rtl">يحيى</td>
+              <td>Jerusalem</td>
+              <td class="tc-era">~4 BCE</td>
+              <td class="tc-cnt">5</td>
+              <td>—</td>
+            </tr><tr>
+              <td class="tc-num">24</td>
+              <td class="tc-name">Isa (Jesus) ⭐</td>
+              <td class="tc-ar" dir="rtl">عيسى</td>
+              <td>Bani Israel</td>
+              <td class="tc-era">~4 BCE–30 CE</td>
+              <td class="tc-cnt">25+</td>
+              <td>Injil (Gospel)</td>
+            </tr><tr>
+              <td class="tc-num">25</td>
+              <td class="tc-name">Muhammad ⭐</td>
+              <td class="tc-ar" dir="rtl">محمد</td>
+              <td>All of Humanity</td>
+              <td class="tc-era">570–632 CE</td>
+              <td class="tc-cnt">4 by name</td>
+              <td>Al-Quran al-Kareem</td>
+            </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB: PROFILES -->
+  <div class="tab-panel" id="tab-profiles">
+    <div class="search-wrap">
+      <span class="search-icon">&#128269;</span>
+      <input class="search-inp" id="search-inp" type="text" placeholder="Search prophets by name, era, people, miracles..." oninput="filterProphets()">
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+
+  <!-- TAB: BY ERA -->
+  <div class="tab-panel" id="tab-timeline">
+    <div id="era-content"></div>
+  </div>
+
+</div>
+<div class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+<script>
+const PROPHETS = [
+  {
+    num:1, en:"Adam", ar:"آدم", as:"(AS)",
+    title:"Abu'l-Bashar — Father of Mankind", era:"Primordial",
+    mentions:25, ulul:false,
+    color:"#7A9BE8",
+    facts:{"Title":"Abu'l-Bashar — Father of Mankind","People Sent To":"All of Humanity (as the first human)","Scripture":"Divine guidance; Allah spoke directly to him","Buried":"Makkah (according to narrations in Ibn Kathir)","Key Miracle":"Created from clay; first human being; given knowledge of all names"},
+    verses:[{ar:`وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً`,tr:`And [mention] when your Lord said to the angels: Indeed, I will make upon the earth a successive authority.`,ref:`Quran 2:30`},{ar:`وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا`,tr:`And He taught Adam the names of all things.`,ref:`Quran 2:31`}]
+  },
+  {
+    num:2, en:"Idris", ar:"إدريس", as:"(AS)",
+    title:"Sidiq — The Truthful", era:"Pre-Flood",
+    mentions:2, ulul:false,
+    color:"#7A9BE8",
+    facts:{"Title":"Sidiq (Truthful) — as called in Quran 19:56","People Sent To":"Pre-flood civilizations","Era":"Between Adam (AS) and Nuh (AS)","Special Status":"Raised to a 'high station' by Allah (Quran 19:57)"},
+    verses:[{ar:`وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ صِدِّيقًا نَّبِيًّا وَرَفَعْنَاهُ مَكَانًا عَلِيًّا`,tr:`And mention in the Book, Idris. Indeed, he was a man of truth and a prophet. And We raised him to a high station.`,ref:`Quran 19:56-57`}]
+  },
+  {
+    num:3, en:"Nuh", ar:"نوح", as:"(AS)",
+    title:"Shakur — Most Grateful Servant", era:"~3000 BCE",
+    mentions:43, ulul:true,
+    color:"#E8A060",
+    facts:{"Title":"Shakur — Most Grateful Servant of Allah","People Sent To":"His corrupt nation (descendants of Adam's era)","Duration of Mission":"950 years of preaching (Quran 29:14)","Ulul Azm":"Yes — one of the 5 Prophets of Firm Resolve","Miracle":"Construction of the Ark; survived the Great Flood","Family":"Had sons: Sam (Shem), Ham, Yafith (Japheth), and Kan'an (who drowned)"},
+    verses:[{ar:`وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِ فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا`,tr:`And We certainly sent Nuh to his people, and he remained among them for a thousand years minus fifty years.`,ref:`Quran 29:14`}]
+  },
+  {
+    num:4, en:"Hud", ar:"هود", as:"(AS)",
+    title:"Prophet to Tribe of Aad", era:"~2400 BCE",
+    mentions:7, ulul:false,
+    color:"#E8A060",
+    facts:{"People Sent To":"Tribe of 'Aad — ancient Arab tribe of Yemen/Southern Arabia","Era":"After Nuh (AS), likely 2400–1900 BCE","Destruction":"Tribe of 'Aad destroyed by a devastating howling wind for 7 nights and 8 days","Buried":"Hadramawt, Yemen (a site known as 'Qabr Nabi Hud')"},
+    verses:[{ar:`وَإِلَىٰ عَادٍ أَخَاهُمْ هُودًا قَالَ يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ`,tr:`And to the Aad [We sent] their brother Hud. He said: O my people, worship Allah; you have no deity other than Him.`,ref:`Quran 7:65`}]
+  },
+  {
+    num:5, en:"Salih", ar:"صالح", as:"(AS)",
+    title:"Prophet to Tribe of Thamud", era:"~2000 BCE",
+    mentions:9, ulul:false,
+    color:"#E8A060",
+    facts:{"People Sent To":"Tribe of Thamud — ancient Arab tribe of northwestern Arabia (near Hijr/Madain Salih)","Miracle":"The She-Camel (al-Naaqah) — a miraculous camel as a sign from Allah","Destruction":"Thamud were destroyed by a thunderous blast (al-sayhah) after 3 days warning","Site":"Madain Salih (Al-Hijr) in Saudi Arabia — an actual archaeological site"},
+    verses:[{ar:`وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَالِحًا قَالَ يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ`,tr:`And to Thamud [We sent] their brother Salih. He said: O my people, worship Allah; you have no deity other than Him.`,ref:`Quran 7:73`}]
+  },
+  {
+    num:6, en:"Ibrahim", ar:"إبراهيم", as:"(AS)",
+    title:"Khalilullah — Friend of Allah", era:"~2000 BCE",
+    mentions:69, ulul:true,
+    color:"#E8A060",
+    facts:{"Title":"Khalilullah — Intimate Friend of Allah; Abu'l-Anbiya — Father of Prophets","Born":"Ur, Babylon (modern Iraq)","People Sent To":"His people in Babylon; then the wider Arab and Semitic world","Ulul Azm":"Yes — one of the 5 Prophets of Firm Resolve","Scripture":"Suhuf Ibrahim — Scrolls of Ibrahim","Key Miracles":"Thrown into fire and emerged unharmed; miraculous birth of Ismail and Ishaq in old age","Built":"The Ka'bah — House of Allah in Makkah (with Ismail AS)","Buried":"Al-Khalil (Hebron), occupied Palestine — the Cave of Machpelah"},
+    verses:[{ar:`وَاتَّخَذَ اللَّهُ إِبْرَاهِيمَ خَلِيلًا`,tr:`And Allah took Ibrahim as an intimate friend (Khalil).`,ref:`Quran 4:125`},{ar:`قَالَ يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ`,tr:`Allah said: O fire, be coolness and safety upon Ibrahim.`,ref:`Quran 21:69`}]
+  },
+  {
+    num:7, en:"Lut", ar:"لوط", as:"(AS)",
+    title:"Prophet to Sodom & Gomorrah", era:"~1900 BCE",
+    mentions:27, ulul:false,
+    color:"#E8A060",
+    facts:{"People Sent To":"Cities of Sodom and Gomorrah (near the Dead Sea)","Relationship to Ibrahim":"Nephew of Ibrahim (AS)","Destruction":"Cities overturned; raining stones of baked clay (sijjil)"},
+    verses:[{ar:`وَلُوطًا إِذْ قَالَ لِقَوْمِهِ أَتَأْتُونَ الْفَاحِشَةَ مَا سَبَقَكُم بِهَا مِنْ أَحَدٍ مِّنَ الْعَالَمِينَ`,tr:`And [We had sent] Lut, when he said to his people: Do you commit such immorality as no one has preceded you in among the worlds?`,ref:`Quran 7:80`}]
+  },
+  {
+    num:8, en:"Ismail", ar:"إسماعيل", as:"(AS)",
+    title:"Sadiq al-Wa'd — True to His Promise", era:"~1900 BCE",
+    mentions:12, ulul:false,
+    color:"#E8A060",
+    facts:{"Title":"Sadiq al-Wa'd — True to his Promise (Quran 19:54)","Parents":"Ibrahim (AS) and Hajar (RA)","People Sent To":"Arab tribes of the Hijaz region (Makkah)","Lineage":"Direct ancestor of Prophet Muhammad ﷺ through the line of Adnan","Built":"The Ka'bah with his father Ibrahim (AS)","Language":"First Arab prophet — taught Arabic by the Jurhum tribe in Makkah"},
+    verses:[{ar:`وَاذْكُرْ فِي الْكِتَابِ إِسْمَاعِيلَ إِنَّهُ كَانَ صَادِقَ الْوَعْدِ وَكَانَ رَسُولًا نَّبِيًّا`,tr:`And mention in the Book, Ismail. Indeed, he was true to his promise, and was a messenger and a prophet.`,ref:`Quran 19:54`}]
+  },
+  {
+    num:9, en:"Ishaq", ar:"إسحاق", as:"(AS)",
+    title:"Prophet to Canaan", era:"~1900 BCE",
+    mentions:17, ulul:false,
+    color:"#E8A060",
+    facts:{"Parents":"Ibrahim (AS) and Sarah (RA)","People Sent To":"Canaan (Palestine)","Progeny":"Father of Ya'qub (Jacob/Israel) — ancestor of all Israelite prophets","Miracle of Birth":"Born to Sarah when she was very old and previously barren"},
+    verses:[{ar:`وَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِّنَ الصَّالِحِينَ`,tr:`And We gave him good tidings of Ishaq, a prophet from among the righteous.`,ref:`Quran 37:112`}]
+  },
+  {
+    num:10, en:"Ya'qub", ar:"يعقوب", as:"(AS)",
+    title:"Also Called Israel — Servant of Allah", era:"~1800 BCE",
+    mentions:16, ulul:false,
+    color:"#E8A060",
+    facts:{"Also Called":"Israel (Isra'il) — meaning 'Servant of Allah' or 'One who strives with God'","Father":"Ishaq (AS)","People Sent To":"Canaan; later settled in Egypt","Progeny":"12 sons = 12 tribes of Bani Israel (Children of Israel)","Notable Sons":"Yusuf, Binyamin, Lawi (Levi, ancestor of Musa), Yahuda (Judah, ancestor of Dawud)"},
+    verses:[{ar:`أَمْ كُنتُمْ شُهَدَاءَ إِذْ حَضَرَ يَعْقُوبَ الْمَوْتُ`,tr:`Or were you witnesses when death approached Ya'qub, when he said to his sons: What will you worship after me?`,ref:`Quran 2:133`}]
+  },
+  {
+    num:11, en:"Yusuf", ar:"يوسف", as:"(AS)",
+    title:"The Best of Stories", era:"~1700 BCE",
+    mentions:27, ulul:false,
+    color:"#2FB89A",
+    facts:{"Title":"'The Best of Stories' — entire Surah 12 (Yusuf) dedicated to his story","Father":"Ya'qub (AS) — Israel","People Sent To":"Egypt","Special Gift":"Interpretation of dreams (ta'bir al-ru'ya)","Position":"Finance Minister (Aziz) of Egypt","Miracle":"Wolf could not eat him; survived the well; resisted Zulaikha; interpreted Pharaoh's dream"},
+    verses:[{ar:`نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ`,tr:`We relate to you, [O Muhammad], the best of stories.`,ref:`Quran 12:3`}]
+  },
+  {
+    num:12, en:"Shu'ayb", ar:"شعيب", as:"(AS)",
+    title:"Khatib al-Anbiya — Most Eloquent", era:"~1600 BCE",
+    mentions:11, ulul:false,
+    color:"#2FB89A",
+    facts:{"Title":"Khatib al-Anbiya — Most Eloquent Among the Prophets","People Sent To":"People of Madyan (northwestern Arabia / Jordan region); also Ashab al-Aykah","Destruction":"Earthquake and fire destroyed his people","Connection to Musa":"Musa (AS) worked for Shu'ayb (AS) for 8–10 years and married his daughter"},
+    verses:[{ar:`وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًا قَالَ يَا قَوْمِ اعْبُدُوا اللَّهَ`,tr:`And to Madyan [We sent] their brother Shu'ayb. He said: O my people, worship Allah.`,ref:`Quran 29:36`}]
+  },
+  {
+    num:13, en:"Ayyub", ar:"أيوب", as:"(AS)",
+    title:"Symbol of Sabr — Patience", era:"~1600 BCE",
+    mentions:4, ulul:false,
+    color:"#2FB89A",
+    facts:{"Title":"The Definitive Symbol of Sabr (Patience) in the Quran","People Sent To":"His people (scholars differ on exact location — Iraq or Hauran/Syria area)","Test Duration":"18 years of severe illness and loss (some narrations say 7 or 14 years)","Miracle":"Struck the ground with his foot; a cool, healing spring emerged"},
+    verses:[{ar:`وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ`,tr:`And [mention] Ayyub, when he called to his Lord: Indeed, adversity has touched me, and You are the Most Merciful of the merciful.`,ref:`Quran 21:83`}]
+  },
+  {
+    num:14, en:"Musa", ar:"موسى", as:"(AS)",
+    title:"Kalimullah — Who Spoke to Allah", era:"~1300 BCE",
+    mentions:136, ulul:true,
+    color:"#2FB89A",
+    facts:{"Title":"Kalimullah — The One Who Spoke Directly to Allah","Born":"Egypt, in the era of Pharaoh Ramesses II (most probable)","People Sent To":"Pharaoh and the Children of Israel","Ulul Azm":"Yes — one of the 5 Prophets of Firm Resolve","Scripture":"Tawrat (Torah) — received on Mount Sinai (Tur Sina)","9 Miracles":"Staff (snake/parting sea) • White hand • Locusts • Lice • Frogs • Blood • Years of drought • Shortages of fruits • Drowning of Pharaoh","Brother":"Harun (AS) — assisted him as a prophet"},
+    verses:[{ar:`وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا`,tr:`And Allah spoke to Musa with direct speech.`,ref:`Quran 4:164`},{ar:`إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا فَاعْبُدْنِي`,tr:`Indeed, I am Allah. There is no deity except Me, so worship Me.`,ref:`Quran 20:14`}]
+  },
+  {
+    num:15, en:"Harun", ar:"هارون", as:"(AS)",
+    title:"Brother & Support of Musa", era:"~1300 BCE",
+    mentions:20, ulul:false,
+    color:"#2FB89A",
+    facts:{"People Sent To":"Egypt and the Children of Israel (alongside Musa AS)","Relationship":"Elder brother of Musa (AS)","Role":"Support, eloquence, and assistance to Musa in his mission"},
+    verses:[{ar:`وَأَخِي هَارُونُ هُوَ أَفْصَحُ مِنِّي لِسَانًا فَأَرْسِلْهُ مَعِيَ رِدْءًا`,tr:`And my brother Harun is more fluent than me in tongue, so send him with me as support.`,ref:`Quran 28:34`}]
+  },
+  {
+    num:16, en:"Dhul-Kifl", ar:"ذو الكفل", as:"(AS)",
+    title:"Possibly Ezekiel — Patient Prophet", era:"~1200 BCE",
+    mentions:2, ulul:false,
+    color:"#C9A84C",
+    facts:{"People Sent To":"Possibly Iraq or Syria region","Identity":"Scholars debate: possibly Ezekiel (Hizqil), Elisha, or a righteous Israelite king","Scholarly Note":"Ibn Taymiyyah said he was a prophet; some scholars classified him as a righteous man only"},
+    verses:[{ar:`وَإِسْمَاعِيلَ وَإِدْرِيسَ وَذَا الْكِفْلِ كُلٌّ مِّنَ الصَّابِرِينَ`,tr:`And [mention] Ismail and Idris and Dhul-Kifl — all were of the patient.`,ref:`Quran 21:85`}]
+  },
+  {
+    num:17, en:"Dawud", ar:"داود", as:"(AS)",
+    title:"King-Prophet; Given the Zabur", era:"~1000 BCE",
+    mentions:16, ulul:false,
+    color:"#A060E8",
+    facts:{"People Sent To":"Bani Israel (Kingdom of Israel)","Scripture":"Zabur (Psalms)","Special Gift":"Beautiful voice — mountains and birds glorified Allah with him; gifted with wisdom and sound judgment","Miracle":"Iron softened in his hands — he made armor","Title":"Khalifah on Earth (Quran 38:26)"},
+    verses:[{ar:`وَلَقَدْ آتَيْنَا دَاوُودَ مِنَّا فَضْلًا يَا جِبَالُ أَوِّبِي مَعَهُ وَالطَّيْرَ`,tr:`And We certainly gave Dawud from Us bounty. [We said]: O mountains, repeat [Our] praises with him, and the birds [as well].`,ref:`Quran 34:10`}]
+  },
+  {
+    num:18, en:"Sulaiman", ar:"سليمان", as:"(AS)",
+    title:"King of Mankind, Jinn & Animals", era:"~970 BCE",
+    mentions:17, ulul:false,
+    color:"#A060E8",
+    facts:{"People Sent To":"Bani Israel; and all nations through his vast empire","Special Powers":"Understood speech of birds and animals; commanded the Jinn; controlled the wind","Built":"Masjid al-Aqsa (Bayt al-Maqdis) — completed by Jinn workers","Famous Story":"The Queen of Sheba, Bilqis — brought to Islam through Sulaiman (AS)"},
+    verses:[{ar:`وَوَرِثَ سُلَيْمَانُ دَاوُودَ وَقَالَ يَا أَيُّهَا النَّاسُ عُلِّمْنَا مَنطِقَ الطَّيْرِ`,tr:`And Sulaiman inherited Dawud. He said: O people, we have been taught the language of birds.`,ref:`Quran 27:16`}]
+  },
+  {
+    num:19, en:"Ilyas", ar:"إلياس", as:"(AS)",
+    title:"Elijah — Prophet to Northern Israel", era:"~850 BCE",
+    mentions:4, ulul:false,
+    color:"#A060E8",
+    facts:{"People Sent To":"Northern Kingdom of Israel — people worshipping Ba'l (Baal)","Era":"During the reigns of the kings of the Divided Kingdom of Israel (~9th century BCE)","Status":"Mentioned alongside the righteous in both Surah 6 and Surah 37"},
+    verses:[{ar:`وَإِنَّ إِلْيَاسَ لَمِنَ الْمُرْسَلِينَ`,tr:`And indeed, Ilyas was among the messengers.`,ref:`Quran 37:123`}]
+  },
+  {
+    num:20, en:"Al-Yasa", ar:"اليسع", as:"(AS)",
+    title:"Elisha — Successor to Ilyas", era:"~830 BCE",
+    mentions:2, ulul:false,
+    color:"#A060E8",
+    facts:{"People Sent To":"Children of Israel","Relationship":"Disciple and successor to Ilyas (AS)","Status":"Allah praises him in the Quran alongside the best of mankind"},
+    verses:[{ar:`وَإِسْمَاعِيلَ وَالْيَسَعَ وَيُونُسَ وَلُوطًا وَكُلًّا فَضَّلْنَا عَلَى الْعَالَمِينَ`,tr:`And Ismail and Al-Yasa and Yunus and Lut — and all [of them] We preferred over the worlds.`,ref:`Quran 6:86`}]
+  },
+  {
+    num:21, en:"Yunus", ar:"يونس", as:"(AS)",
+    title:"Dhul-Nun — Companion of the Whale", era:"~800 BCE",
+    mentions:4, ulul:false,
+    color:"#A060E8",
+    facts:{"Title":"Dhul-Nun — Companion of the Whale; Sahib al-Hut","People Sent To":"City of Nineveh, northern Iraq (Assyrian Empire)","Population of Nineveh":"100,000+ people — all of whom eventually believed","Key Miracle":"Swallowed by a whale; alive inside; rescued after making du'a"},
+    verses:[{ar:`وَذَا النُّونِ إِذ ذَّهَبَ مُغَاضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ`,tr:`And [mention] Dhul-Nun, when he left in anger and thought that We would not decree [anything] upon him.`,ref:`Quran 21:87`}]
+  },
+  {
+    num:22, en:"Zakariyya", ar:"زكريا", as:"(AS)",
+    title:"Priest & Guardian of Maryam", era:"~1st BCE",
+    mentions:7, ulul:false,
+    color:"#E86060",
+    facts:{"People Sent To":"Children of Israel in Jerusalem","Role":"Priest and guardian of Maryam (RA) in Bayt al-Maqdis","Miracle":"Given a son (Yahya) in extreme old age; he and his wife were both very old and barren","Sign":"Three days of speechlessness (unable to speak except through gestures)"},
+    verses:[{ar:`قَالَ رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا`,tr:`He said: My Lord, indeed my bones have weakened, and my head has filled with white, and never have I been in my supplication to You, my Lord, unhappy.`,ref:`Quran 19:4`}]
+  },
+  {
+    num:23, en:"Yahya", ar:"يحيى", as:"(AS)",
+    title:"John the Baptist — Unique Name", era:"~4 BCE",
+    mentions:5, ulul:false,
+    color:"#E86060",
+    facts:{"Parents":"Zakariyya (AS) and his wife — both very old","People Sent To":"Children of Israel in Jerusalem","Unique Status":"First to bear this name (Quran 19:7); confirmed the coming of Isa (AS)","Character":"Exceptional in chastity, piety, and compassion from childhood"},
+    verses:[{ar:`يَا يَحْيَىٰ خُذِ الْكِتَابَ بِقُوَّةٍ وَآتَيْنَاهُ الْحُكْمَ صَبِيًّا`,tr:`O Yahya, take the Scripture with determination. And We gave him judgement [while yet] a boy.`,ref:`Quran 19:12-13`}]
+  },
+  {
+    num:24, en:"Isa", ar:"عيسى", as:"(AS)",
+    title:"Ruhullah — Spirit of Allah", era:"~4 BCE–30 CE",
+    mentions:25, ulul:true,
+    color:"#E86060",
+    facts:{"Title":"Ruhullah — Spirit of Allah; Kalimatullah — Word of Allah; Al-Masih — The Messiah","Born":"Bethlehem; born of the Virgin Maryam (RA) with no father — by Allah's direct command","People Sent To":"Children of Israel","Ulul Azm":"Yes — one of the 5 Prophets of Firm Resolve","Scripture":"Injil (Gospel) — revealed directly to him","Miracles":"Spoke from the cradle as a newborn • Healed the blind • Healed lepers • Raised the dead • Created birds from clay (all by Allah's permission)","Islamic belief":"Was NOT crucified — Allah raised him to the heavens alive; he will return before the Day of Judgment"},
+    verses:[{ar:`إِنَّ مَثَلَ عِيسَىٰ عِندَ اللَّهِ كَمَثَلِ آدَمَ خَلَقَهُ مِن تُرَابٍ`,tr:`Indeed, the example of Isa to Allah is like that of Adam. He created him from dust.`,ref:`Quran 3:59`},{ar:`وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَٰكِن شُبِّهَ لَهُمْ`,tr:`And they did not kill him, nor did they crucify him; but [another] was made to resemble him to them.`,ref:`Quran 4:157`}]
+  },
+  {
+    num:25, en:"Muhammad", ar:"محمد", as:"ﷺ",
+    title:"Khatam al-Nabiyyin — Seal of Prophets", era:"570–632 CE",
+    mentions:4, ulul:true,
+    color:"#C9A84C",
+    facts:{"Full Name":"Muhammad ibn Abdullah ibn Abd al-Muttalib ibn Hashim (Qurayshi Arab)","Born":"12 Rabi' al-Awwal, ~570 CE — Makkah al-Mukarramah","Died":"12 Rabi' al-Awwal, 11 AH / 632 CE — Madinah al-Munawwarah","Age":"63 years","Title":"Khatam al-Nabiyyin — Seal of All Prophets (Quran 33:40); Rahmatan lil-Alamin — Mercy to All the Worlds (Quran 21:107)","People Sent To":"All of Humanity and the Jinn — until the Day of Judgment","Ulul Azm":"Yes — the greatest of the 5 Prophets of Firm Resolve","Scripture":"Al-Quran al-Kareem — the living, preserved miracle of Allah","Miracle":"The Quran itself — preserved unchanged for 1400+ years; plus over 1,000 documented miracles","Night Journey":"Al-Isra wal-Mi'raj — journeyed from Makkah to Jerusalem to the heavens in one night","Buried":"Masjid an-Nabawi, Madinah — beneath the Green Dome","Lineage":"From Ismail (AS) → Adnan → Ma'ad → Nizar → Mudar → Ilyas → Kinanah → Quraysh → Banu Hashim → Abdullah → Muhammad ﷺ"},
+    verses:[{ar:`مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ`,tr:`Muhammad is not the father of [any] one of your men, but [he is] the Messenger of Allah and the Seal of the Prophets.`,ref:`Quran 33:40`},{ar:`وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ`,tr:`And We have not sent you, [O Muhammad], except as a mercy to the worlds.`,ref:`Quran 21:107`}]
+  },
+];
+
+
+const ERA_GROUPS = [
+  {name:"Primordial Era",dates:"Before 3000 BCE",color:"#7A9BE8",filter:p=>p.num<=2},
+  {name:"Patriarch Era",dates:"~3000 BCE – 1700 BCE",color:"#E8A060",filter:p=>p.num>=3&&p.num<=11},
+  {name:"Exodus & Judges Era",dates:"~1600 BCE – 1200 BCE",color:"#2FB89A",filter:p=>p.num>=12&&p.num<=16},
+  {name:"Kingdom Era",dates:"~1000 BCE – 800 BCE",color:"#A060E8",filter:p=>p.num>=17&&p.num<=21},
+  {name:"Final Prophets before Isa",dates:"~1st Century BCE",color:"#E86060",filter:p=>p.num>=22&&p.num<=24},
+  {name:"Seal of Prophets",dates:"570 – 632 CE",color:"#C9A84C",filter:p=>p.num===25},
+];
+
+function buildCard(p, delay=0){
+  const ululBadge = p.ulul ? `<span class="pb pb-ulul">&#11088; Ulul Azm</span>` : '';
+  const versesHTML = p.verses.map(v=>`
+    <div class="vb-ar">${v.ar}</div>
+    <div class="vb-tr">${v.tr}</div>
+    <div class="vb-ref">${v.ref}</div>`).join('');
+  const factsHTML = Object.entries(p.facts).map(([k,v])=>`
+    <div class="fact-box"><div class="fb-lbl">${k}</div><div class="fb-val">${v}</div></div>`).join('');
+  return `<div class="pcard" id="pc-${p.num}" style="animation-delay:${delay}ms" onclick="toggleCard(${p.num})">
+  <div class="pc-accent" style="background:linear-gradient(90deg,${p.color}88,${p.color})"></div>
+  <div class="pc-top">
+    <div class="pc-num" style="color:${p.color}">${p.num}</div>
+    <div class="pc-names">
+      <div class="pc-en">${p.en} ${p.as}</div>
+      <div class="pc-ar">${p.ar}</div>
+    </div>
+    <div class="pc-arr">&#8250;</div>
+  </div>
+  <div class="pc-badges">
+    <span class="pb pb-era">${p.era}</span>
+    ${ululBadge}
+    <span class="pb pb-men">${p.mentions} Quranic mentions</span>
+  </div>
+  <div class="pc-title">${p.title}</div>
+  <div class="pc-expand">
+    ${factsHTML ? `<div class="pct">Key Facts</div><div class="facts-grid">${factsHTML}</div>` : ''}
+    ${versesHTML ? `<div class="pct" style="margin-top:4px">Quranic Verses</div><div class="verse-block">${versesHTML}</div>` : ''}
+  </div>
+</div>`;
+}
+
+function renderProfiles(list){
+  document.getElementById('pgrid').innerHTML = list.map((p,i)=>buildCard(p,i*40)).join('');
+}
+
+function filterProphets(){
+  const q = document.getElementById('search-inp').value.toLowerCase();
+  const list = q ? PROPHETS.filter(p=>
+    p.en.toLowerCase().includes(q)||p.ar.includes(q)||p.era.toLowerCase().includes(q)||
+    p.title.toLowerCase().includes(q)||JSON.stringify(p.facts).toLowerCase().includes(q)
+  ) : PROPHETS;
+  renderProfiles(list);
+}
+
+function buildEras(){
+  const cont = document.getElementById('era-content');
+  cont.innerHTML = ERA_GROUPS.map(era=>{
+    const prophets_in_era = PROPHETS.filter(era.filter);
+    return `<div class="era-section">
+      <div class="era-hdr">
+        <div class="era-dot" style="background:${era.color}"></div>
+        <div class="era-name">${era.name}</div>
+        <div class="era-dates">${era.dates}</div>
+        <div class="era-count">${prophets_in_era.length} prophet${prophets_in_era.length!==1?'s':''}</div>
+      </div>
+      <div class="pgrid">${prophets_in_era.map((p,i)=>buildCard(p,i*40)).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCard(num){
+  const el = document.getElementById('pc-'+num);
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.pcard.open').forEach(c=>c.classList.remove('open'));
+  if(!wasOpen){el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+}
+
+let activeTab = 'overview';
+function showTab(id, el){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  el.classList.add('on');
+  activeTab = id;
+  if(id==='profiles' && !document.getElementById('pgrid').innerHTML) renderProfiles(PROPHETS);
+  if(id==='timeline' && !document.getElementById('era-content').innerHTML) buildEras();
+}
+
+window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>400));
+// Pre-render profiles
+renderProfiles(PROPHETS);
+</script>
+</body></html>

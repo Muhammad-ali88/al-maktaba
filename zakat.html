@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zakat — الزَّكَاة | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#04070D;--card:#080E1C;--card2:#0C1528;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,0.15);--gold-mid:rgba(201,168,76,0.35);
+  --teal:#2FB89A;--rose:#C97A7A;
+  --text:#D4CBB8;--text-dim:#8A8275;--border:rgba(201,168,76,0.15);
+  --green-bg:rgba(42,122,75,0.15);--blue-bg:rgba(42,95,168,0.15);--amber-bg:rgba(184,118,10,0.15);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+  --calc-bg:#060C18;--input-bg:#0A1220;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.8;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,168,76,0.05) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 90% 80%,rgba(47,184,154,0.03) 0%,transparent 60%);pointer-events:none;z-index:0}
+body.ur-mode .en-t{display:none!important}
+body.ur-mode .ur-t{display:block!important}
+.ur-t{display:none;font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+body.simple-mode .full-text{display:none!important}
+body.simple-mode .simple-text{display:block!important}
+.simple-text{display:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(4,7,13,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 1.5rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:58px;gap:1rem}
+.nav-left{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap}
+.nav-left a{font-family:var(--font-head);font-size:0.66rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.06em;padding:0.22rem 0.55rem;border:1px solid rgba(201,168,76,0.1);border-radius:3px;transition:all .2s}
+.nav-left a:hover{color:var(--gold);border-color:var(--gold-mid)}
+.nav-left span{color:var(--text-dim);font-size:0.6rem}
+.nav-centre{text-align:center}
+.nav-centre .ar{display:block;font-family:var(--font-arab);font-size:1.1rem;color:var(--gold)}
+.nav-centre .en{display:block;font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.14em;color:var(--text-dim);text-transform:uppercase;margin-top:1px}
+.nav-right{display:flex;justify-content:flex-end;align-items:center;gap:0.5rem;flex-wrap:wrap}
+.lang-toggle{display:flex;background:rgba(201,168,76,0.07);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.lang-btn{padding:0.28rem 0.6rem;font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.08em;color:var(--text-dim);cursor:pointer;border:none;background:transparent;transition:all .2s}
+.lang-btn.active{background:var(--gold);color:#04070D;font-weight:600}
+.simple-btn{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.08em;padding:0.28rem 0.7rem;border:1px solid rgba(47,184,154,0.3);background:transparent;color:var(--teal);cursor:pointer;border-radius:4px;transition:all .2s}
+.simple-btn:hover{background:rgba(47,184,154,0.1)}
+.simple-btn.on{background:rgba(47,184,154,0.15);border-color:var(--teal)}
+
+/* HERO */
+.hero{position:relative;z-index:1;text-align:center;padding:3.5rem 1.5rem 2rem;max-width:820px;margin:0 auto}
+.hero-ar{font-family:var(--font-arab);font-size:clamp(2.5rem,7vw,4rem);color:var(--gold);direction:rtl;line-height:1.3;margin-bottom:0.3rem;text-shadow:0 0 40px rgba(201,168,76,0.2)}
+.hero-en{font-family:var(--font-head);font-size:clamp(0.7rem,2vw,0.85rem);letter-spacing:0.22em;color:var(--text-dim);text-transform:uppercase;margin-bottom:1.5rem}
+.hero-meaning{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.hm-item{text-align:center;padding:0.65rem 1.1rem;background:rgba(201,168,76,0.05);border:1px solid var(--gold-dim);border-radius:6px}
+.hm-ar{font-family:var(--font-arab);font-size:1rem;color:var(--gold);direction:rtl;margin-bottom:0.2rem}
+.hm-en{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.1em;color:var(--text-dim);text-transform:uppercase}
+.hero-ayah{background:rgba(201,168,76,0.04);border:1px solid var(--gold-mid);border-radius:8px;padding:1.35rem 1.75rem;max-width:640px;margin:0 auto;position:relative;overflow:hidden}
+.hero-ayah::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ha-ar{font-family:var(--font-arab);font-size:1.3rem;color:var(--gold);direction:rtl;text-align:right;line-height:2;margin-bottom:0.45rem}
+.ha-en{font-style:italic;font-size:0.88rem;color:var(--text);margin-bottom:0.3rem}
+.ha-ref{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.08em;color:var(--teal)}
+
+/* ══════ TAB SYSTEM ══════ */
+.tab-bar{position:sticky;top:58px;z-index:150;background:rgba(4,7,13,0.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);display:flex;max-width:900px;margin:0 auto}
+.tab-btn{flex:1;padding:1rem 1.5rem;font-family:var(--font-head);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);background:transparent;border:none;cursor:pointer;transition:all .25s;position:relative;display:flex;align-items:center;justify-content:center;gap:0.5rem}
+.tab-btn::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
+.tab-btn:hover{color:var(--text);background:rgba(201,168,76,0.04)}
+.tab-btn.active{color:var(--gold)}
+.tab-btn.active::after{transform:scaleX(1)}
+.tab-icon{font-size:1rem}
+.tab-label-ar{font-family:var(--font-arab);font-size:0.85rem;color:inherit}
+
+/* TAB PANELS */
+.tab-panel{display:none;position:relative;z-index:1}
+.tab-panel.active{display:block}
+
+/* ══════ LEARN TAB CONTENT ══════ */
+.learn-wrapper{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 6rem}
+.sec-div{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.75rem}
+.sec-icon{font-size:1.5rem;flex-shrink:0}
+.sec-title{font-family:var(--font-head);font-size:0.78rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;font-weight:600}
+.sec-ar{font-family:var(--font-arab);font-size:0.92rem;color:var(--text-dim);direction:rtl}
+.sec-line{flex:1;height:1px;background:var(--border)}
+.content-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;position:relative;overflow:hidden}
+.content-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);opacity:0.4}
+.cc-title{font-family:var(--font-head);font-size:0.82rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.85rem;font-weight:600}
+.ayah-block{background:rgba(47,184,154,0.04);border:1px solid rgba(47,184,154,0.2);border-radius:7px;padding:1rem 1.25rem;margin:0.85rem 0}
+.ab-ref{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.5rem;display:block}
+.ab-ar{font-family:var(--font-arab);font-size:1.2rem;color:#a0d8c8;direction:rtl;text-align:right;line-height:2;margin-bottom:0.5rem}
+.ab-en{font-style:italic;font-size:0.87rem;color:var(--text);margin-bottom:0.35rem;line-height:1.7}
+.ab-commentary{font-size:0.84rem;color:var(--text-dim);border-top:1px solid rgba(47,184,154,0.15);padding-top:0.5rem;margin-top:0.5rem;line-height:1.8}
+.ab-commentary-ur{font-family:var(--font-arab);font-size:0.88rem;direction:rtl;text-align:right;line-height:2;color:var(--text-dim);display:none;border-top:1px solid rgba(47,184,154,0.15);padding-top:0.5rem;margin-top:0.5rem}
+.h-block{background:rgba(201,168,76,0.04);border:1px solid var(--gold-dim);border-radius:7px;padding:1rem 1.25rem;margin:0.85rem 0}
+.h-ar{font-family:var(--font-arab);font-size:1.2rem;color:var(--gold);direction:rtl;text-align:right;line-height:2;margin-bottom:0.45rem}
+.h-tr{font-style:italic;color:var(--teal);font-size:0.85rem;margin-bottom:0.2rem;line-height:1.6}
+.h-en{font-size:0.86rem;color:var(--text-dim);margin-bottom:0.4rem}
+.h-src{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.05em;color:var(--text-dim)}
+.badge-s{background:var(--green-bg);color:#5DC88A;border:1px solid rgba(93,200,138,0.25);font-family:var(--font-head);font-size:0.54rem;padding:0.15rem 0.45rem;border-radius:3px;font-weight:600}
+.badge-hs{background:var(--blue-bg);color:#7AABF0;border:1px solid rgba(122,171,240,0.25);font-family:var(--font-head);font-size:0.54rem;padding:0.15rem 0.45rem;border-radius:3px;font-weight:600}
+.narrative{font-size:0.94rem;line-height:1.95;margin-bottom:0.85rem}
+.narrative-ur{font-family:var(--font-arab);font-size:0.98rem;direction:rtl;text-align:right;line-height:2.1;display:none;margin-bottom:0.85rem}
+.warning-box{background:rgba(201,122,122,0.07);border:1px solid rgba(201,122,122,0.25);border-radius:7px;padding:1rem 1.25rem;margin:1rem 0}
+.wb-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.12em;color:var(--rose);display:block;margin-bottom:0.4rem;text-transform:uppercase}
+.insight-box{background:rgba(47,184,154,0.06);border-left:3px solid var(--teal);padding:0.85rem 1.1rem;border-radius:0 6px 6px 0;margin:0.85rem 0;font-size:0.87rem}
+.insight-label{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.12em;color:var(--teal);display:block;margin-bottom:0.25rem;text-transform:uppercase}
+.scholar-acc{margin:0.85rem 0;border:1px solid rgba(184,118,10,0.25);border-radius:6px;overflow:hidden}
+.acc-btn{width:100%;padding:0.75rem 1rem;background:rgba(184,118,10,0.07);border:none;cursor:pointer;display:flex;align-items:center;gap:0.6rem;text-align:left;transition:background .2s}
+.acc-btn:hover{background:rgba(184,118,10,0.12)}
+.acc-label{font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.1em;color:#E0A030;text-transform:uppercase;flex:1}
+.acc-arrow{font-family:var(--font-head);font-size:0.65rem;color:#E0A030;transition:transform .25s}
+.acc-btn.open .acc-arrow{transform:rotate(90deg)}
+.acc-body{display:none;padding:1rem;border-top:1px solid rgba(184,118,10,0.15);background:rgba(4,7,13,0.4)}
+.acc-body.open{display:block}
+.scholar-pos{margin-bottom:0.85rem;padding:0.6rem 0.85rem;border-radius:4px;border:1px solid var(--border);font-size:0.85rem}
+.sp-name{font-family:var(--font-head);font-size:0.62rem;color:var(--gold);letter-spacing:0.06em;display:block;margin-bottom:0.2rem}
+.recipients-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1rem 0}
+.recipient-card{background:var(--card2);border:1px solid var(--border);border-radius:6px;padding:0.85rem 1rem}
+.rc-num{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;color:var(--gold);display:block;margin-bottom:0.2rem}
+.rc-ar{font-family:var(--font-arab);font-size:1rem;color:var(--gold);direction:rtl;text-align:right;margin-bottom:0.2rem}
+.rc-en{font-family:var(--font-head);font-size:0.65rem;color:var(--text-dim);letter-spacing:0.04em;margin-bottom:0.3rem;display:block}
+.rc-desc{font-size:0.82rem;color:var(--text);line-height:1.7}
+.rc-desc-ur{font-family:var(--font-arab);font-size:0.86rem;direction:rtl;text-align:right;line-height:1.9;display:none;color:var(--text)}
+.compare-table{width:100%;border-collapse:collapse;font-size:0.84rem;margin:1rem 0}
+.compare-table th{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;color:var(--text-dim);text-align:left;padding:0.5rem 0.75rem;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04);text-transform:uppercase}
+.compare-table td{padding:0.55rem 0.75rem;border-bottom:1px solid rgba(201,168,76,0.06);vertical-align:top}
+.ledger{display:grid;grid-template-columns:1fr auto 1fr;gap:0.75rem;align-items:center;margin:1rem 0;padding:1.25rem;background:var(--card2);border:1px solid var(--border);border-radius:8px}
+.ledger-col{text-align:center}
+.ledger-arrow{font-size:1.5rem;color:var(--gold);text-align:center}
+.ledger-num{font-family:var(--font-head);font-size:1.6rem;color:var(--gold);font-weight:700;line-height:1}
+.ledger-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.08em;color:var(--text-dim);margin-top:0.2rem;text-transform:uppercase}
+.ledger-note{font-size:0.78rem;color:var(--teal);margin-top:0.25rem}
+
+/* GOTO CALC BUTTON inside learn tab */
+.goto-calc-btn{display:flex;align-items:center;justify-content:center;gap:0.75rem;width:100%;padding:1.1rem;background:linear-gradient(135deg,rgba(201,168,76,0.15) 0%,rgba(201,168,76,0.06) 100%);border:1px solid var(--gold-mid);border-radius:8px;font-family:var(--font-head);font-size:0.75rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;cursor:pointer;transition:all .25s;margin:2rem 0}
+.goto-calc-btn:hover{background:linear-gradient(135deg,rgba(201,168,76,0.22) 0%,rgba(201,168,76,0.1) 100%);transform:translateY(-1px)}
+.gcb-icon{font-size:1.3rem}
+
+/* ══════ CALCULATOR TAB CONTENT ══════ */
+.calc-wrapper-tab{max-width:900px;margin:0 auto;padding:2rem 1.5rem 6rem}
+.calc-header-main{text-align:center;padding:2rem 0 1.75rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
+.chm-ar{font-family:var(--font-arab);font-size:1.6rem;color:var(--gold);direction:rtl;margin-bottom:0.3rem}
+.chm-en{font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.16em;color:var(--text-dim);text-transform:uppercase;margin-bottom:0.75rem}
+.chm-note{font-size:0.86rem;color:var(--text-dim);font-style:italic;max-width:500px;margin:0 auto}
+
+/* STEPS */
+.calc-steps{display:flex;gap:0;margin-bottom:2rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.calc-step{flex:1;padding:0.85rem 0.5rem;text-align:center;border-right:1px solid var(--border)}
+.calc-step:last-child{border-right:none}
+.cs-num{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;color:var(--text-dim);display:block;margin-bottom:0.2rem}
+.cs-label{font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.06em;color:var(--gold)}
+
+/* SETUP PANEL */
+.setup-panel{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem}
+.sp-title{font-family:var(--font-head);font-size:0.68rem;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.sp-title::after{content:'';flex:1;height:1px;background:var(--gold-dim)}
+.setup-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.setup-group{display:flex;flex-direction:column;gap:0.35rem}
+.setup-label{font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.1em;color:var(--text-dim);text-transform:uppercase}
+.setup-select,.setup-input{background:var(--input-bg);border:1px solid rgba(201,168,76,0.2);color:var(--text);font-family:var(--font-body);font-size:0.88rem;padding:0.6rem 0.85rem;border-radius:5px;outline:none;transition:border-color .2s;width:100%}
+.setup-select:focus,.setup-input:focus{border-color:var(--gold-mid)}
+.setup-hint{font-size:0.74rem;color:var(--text-dim);font-style:italic}
+.setup-hint a{color:var(--teal);text-decoration:none}
+.nisab-display{background:rgba(201,168,76,0.06);border:1px solid var(--gold-dim);border-radius:5px;padding:0.65rem 1rem;font-family:var(--font-head);font-size:0.7rem;letter-spacing:0.06em;color:var(--gold);text-align:center;margin-top:0.75rem}
+.nisab-toggle-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.75rem}
+.nisab-opt{padding:0.75rem;text-align:center;background:var(--input-bg);border:1px solid rgba(201,168,76,0.2);border-radius:5px;cursor:pointer;transition:all .2s}
+.nisab-opt.selected{border-color:var(--gold);background:rgba(201,168,76,0.08)}
+.no-label{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.08em;color:var(--text-dim);display:block;margin-bottom:0.15rem;text-transform:uppercase}
+.no-val{font-family:var(--font-head);font-size:0.75rem;color:var(--gold);display:block}
+.no-note{font-size:0.7rem;color:var(--text-dim);margin-top:0.1rem}
+
+/* ASSET SECTIONS */
+.asset-section{background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:1rem;overflow:hidden}
+.as-header{padding:0.85rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.6rem;cursor:pointer;transition:background .2s;user-select:none}
+.as-header:hover{background:rgba(201,168,76,0.03)}
+.as-icon{font-size:1rem}
+.as-title{font-family:var(--font-head);font-size:0.68rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;flex:1}
+.as-total{font-family:var(--font-head);font-size:0.68rem;color:var(--teal);margin-right:0.5rem}
+.as-toggle{font-family:var(--font-head);font-size:0.65rem;color:var(--text-dim);transition:transform .25s}
+.as-header.open .as-toggle{transform:rotate(90deg)}
+.as-body{display:none;padding:1.25rem}
+.as-body.open{display:block}
+
+/* FIELD */
+.field-row{margin-bottom:1.1rem}
+.field-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.25rem}
+.field-label{font-family:var(--font-head);font-size:0.63rem;letter-spacing:0.05em;color:var(--text)}
+.field-badge{font-family:var(--font-head);font-size:0.54rem;letter-spacing:0.06em;padding:0.15rem 0.4rem;border-radius:3px;background:var(--green-bg);color:#5DC88A;border:1px solid rgba(93,200,138,0.2)}
+.field-badge.deduct{background:rgba(201,122,122,0.12);color:var(--rose);border-color:rgba(201,122,122,0.25)}
+.field-input{width:100%;background:var(--input-bg);border:1px solid rgba(201,168,76,0.18);color:var(--text);font-family:var(--font-body);font-size:0.9rem;padding:0.55rem 0.75rem;border-radius:5px;outline:none;transition:border-color .2s}
+.field-input:focus{border-color:var(--gold-mid)}
+.field-remark{font-size:0.77rem;color:var(--text-dim);font-style:italic;margin-top:0.3rem;padding:0.4rem 0.65rem;background:rgba(201,168,76,0.03);border-left:2px solid var(--gold-dim);border-radius:0 3px 3px 0;line-height:1.6}
+.field-remark-ur{font-family:var(--font-arab);font-size:0.8rem;direction:rtl;text-align:right;line-height:1.9;color:var(--text-dim);margin-top:0.3rem;padding:0.4rem 0.65rem;background:rgba(201,168,76,0.03);border-right:2px solid var(--gold-dim);border-left:none;border-radius:3px 0 0 3px;display:none}
+
+/* DEDUCTIONS */
+.deduct-panel{background:rgba(201,122,122,0.04);border:1px solid rgba(201,122,122,0.2);border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.dp-title{font-family:var(--font-head);font-size:0.68rem;letter-spacing:0.12em;color:var(--rose);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.dp-title::after{content:'';flex:1;height:1px;background:rgba(201,122,122,0.2)}
+
+/* CALCULATE BUTTON */
+.calc-main-btn{width:100%;padding:1rem;background:var(--gold);color:#04070D;font-family:var(--font-head);font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;margin:1.25rem 0 0.5rem;transition:all .25s;font-weight:700;display:flex;align-items:center;justify-content:center;gap:0.6rem}
+.calc-main-btn:hover{background:#E2C97A;transform:translateY(-1px)}
+.reset-btn{width:100%;padding:0.6rem;background:transparent;color:var(--text-dim);font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.1em;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all .2s}
+.reset-btn:hover{color:var(--gold);border-color:var(--gold-mid)}
+
+/* OUTPUT */
+.calc-output{display:none;background:linear-gradient(135deg,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.04) 100%);border:2px solid var(--gold-mid);border-radius:10px;padding:1.5rem;margin-top:1rem;animation:fadeInUp .4s ease}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.co-header{text-align:center;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--gold-dim)}
+.co-header-ar{font-family:var(--font-arab);font-size:1.2rem;color:var(--gold);direction:rtl;margin-bottom:0.2rem}
+.co-header-en{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.14em;color:var(--text-dim);text-transform:uppercase}
+.co-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid rgba(201,168,76,0.08)}
+.co-label{font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.05em;color:var(--text-dim)}
+.co-val{font-family:var(--font-head);font-size:0.78rem;color:var(--text)}
+.co-zakat-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0 0;margin-top:0.5rem}
+.co-zakat-label{font-family:var(--font-head);font-size:0.75rem;letter-spacing:0.1em;color:var(--gold)}
+.co-zakat-val{font-family:var(--font-head);font-size:2rem;color:var(--gold);font-weight:700}
+.nisab-badge{display:inline-block;font-family:var(--font-head);font-size:0.58rem;padding:0.2rem 0.55rem;border-radius:3px;margin-left:0.5rem}
+.nb-met{background:var(--green-bg);color:#5DC88A;border:1px solid rgba(93,200,138,0.3)}
+.nb-not{background:var(--amber-bg);color:#E0A030;border:1px solid rgba(224,160,48,0.3)}
+.co-breakdown{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--gold-dim)}
+.cb-title{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;margin-bottom:0.6rem}
+.cb-row{display:flex;justify-content:space-between;font-size:0.78rem;padding:0.25rem 0}
+.cb-label{color:var(--text-dim)}
+.cb-val{color:var(--teal);font-family:var(--font-head);font-size:0.72rem}
+
+/* ZAKAT AL-FITR */
+.fitr-panel{background:var(--card);border:1px solid rgba(47,184,154,0.2);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.fp-title{font-family:var(--font-head);font-size:0.68rem;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:0.3rem}
+.fp-sub{font-size:0.82rem;color:var(--text-dim);margin-bottom:1rem}
+.fitr-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.85rem;align-items:end}
+.fitr-output{margin-top:0.85rem;padding:0.85rem;background:rgba(47,184,154,0.07);border:1px solid rgba(47,184,154,0.2);border-radius:5px;text-align:center;font-family:var(--font-head);font-size:0.72rem;color:var(--teal)}
+
+/* DUAS SECTION */
+.duas-panel{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.dua-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0.75rem 0}
+.dua-card{background:var(--card2);border:1px solid var(--border);border-radius:7px;padding:1rem}
+.dc-role{font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.1em;color:var(--text-dim);text-transform:uppercase;margin-bottom:0.4rem;display:block}
+.dc-ar{font-family:var(--font-arab);font-size:1rem;color:var(--gold);direction:rtl;text-align:right;line-height:1.9;margin-bottom:0.3rem}
+.dc-en{font-style:italic;font-size:0.8rem;color:var(--text-dim);margin-bottom:0.2rem}
+.dc-src{font-family:var(--font-head);font-size:0.56rem;color:var(--text-dim)}
+
+/* CROSS LINKS */
+.cross-links{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
+.cl-chip{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.05em;padding:0.3rem 0.7rem;border-radius:4px;border:1px solid;text-decoration:none;transition:all .2s}
+.cl-duas{border-color:rgba(122,171,240,0.3);color:#7AABF0}.cl-duas:hover{background:rgba(42,95,168,0.1)}
+.cl-names{border-color:rgba(160,96,232,0.3);color:#A060E8}.cl-names:hover{background:rgba(160,96,232,0.08)}
+.cl-sunnah{border-color:rgba(93,200,138,0.3);color:#5DC88A}.cl-sunnah:hover{background:rgba(42,122,75,0.1)}
+.cl-hajj{border-color:rgba(232,96,96,0.3);color:#E86060}.cl-hajj:hover{background:rgba(232,96,96,0.08)}
+
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.1em;color:var(--text-dim);position:relative;z-index:1}
+footer span{color:var(--gold)}
+@media(max-width:700px){
+  nav{grid-template-columns:1fr;grid-template-rows:auto auto auto;padding:.7rem 1rem;gap:.4rem;min-height:auto}
+  .nav-right{justify-content:center}.nav-centre{order:-1}
+  .setup-row,.nisab-toggle-row,.recipients-grid,.dua-pair,.fitr-row{grid-template-columns:1fr}
+  .learn-wrapper,.calc-wrapper-tab{padding:1.5rem 1rem 5rem}
+  .ledger{grid-template-columns:1fr}.ledger-arrow{transform:rotate(90deg)}
+  .tab-btn .tab-icon{display:none}
+  .calc-steps{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span>|</span>
+    <a href="duas.html">Duas</a>
+    <span>|</span>
+    <a href="asma_ul_husna.html">Names</a>
+  </div>
+  <div class="nav-centre">
+    <span class="ar">الزَّكَاة</span>
+    <span class="en">Zakat — The Third Pillar</span>
+  </div>
+  <div class="nav-right">
+    <button class="simple-btn" id="simple-btn" onclick="toggleSimple()">🌱 Explain Simply</button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-ar">الزَّكَاة</div>
+  <div class="hero-en">Purification · Growth · The Third Pillar of Islam</div>
+  <div class="hero-meaning">
+    <div class="hm-item"><div class="hm-ar">تَطْهِير</div><div class="hm-en">Purification</div></div>
+    <div class="hm-item"><div class="hm-ar">نَمَاء</div><div class="hm-en">Growth</div></div>
+    <div class="hm-item"><div class="hm-ar">بَرَكَة</div><div class="hm-en">Blessing</div></div>
+  </div>
+  <div class="hero-ayah">
+    <div class="ha-ar">خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا</div>
+    <div class="ha-en">"Take from their wealth a charity by which you purify them and cause them growth."</div>
+    <div class="ha-ref">Quran 9:103</div>
+  </div>
+</section>
+
+<!-- TAB BAR -->
+<div class="tab-bar" id="tab-bar">
+  <button class="tab-btn active" id="tab-learn" onclick="switchTab('learn')">
+    <span class="tab-icon">📖</span>
+    <span class="en-t">Learn About Zakat</span>
+    <span class="ur-t tab-label-ar">زکاة کے بارے میں جانیں</span>
+  </button>
+  <button class="tab-btn" id="tab-calc" onclick="switchTab('calc')">
+    <span class="tab-icon">🧮</span>
+    <span class="en-t">Calculate My Zakat</span>
+    <span class="ur-t tab-label-ar">اپنی زکاة حساب کریں</span>
+  </button>
+</div>
+
+<!-- ══════════════ LEARN TAB ══════════════ -->
+<div class="tab-panel active" id="panel-learn">
+<div class="learn-wrapper">
+
+<div class="sec-div"><span class="sec-icon">✨</span><div><div class="sec-title">What Is Zakat?</div><div class="sec-ar">ما هي الزكاة؟</div></div><div class="sec-line"></div></div>
+
+<div class="content-card">
+  <div class="cc-title">The Word Itself — Two Meanings, One Act</div>
+  <p class="narrative full-text en-t">The Arabic word زكاة carries two simultaneous meanings: <strong style="color:var(--gold)">purification</strong> and <strong style="color:var(--gold)">growth</strong>. When you give Zakat, two things happen at once: the wealth you give purifies the wealth that remains, and the act of giving causes your wealth — and your soul — to grow. This is not a tax. It is not charity in the ordinary sense. It is an act of worship through wealth, commanded 32 times in the Quran, almost always alongside prayer.</p>
+  <p class="narrative simple-text en-t">Zakat means <strong style="color:var(--gold)">cleaning</strong> and <strong style="color:var(--gold)">growing</strong>. Like washing a fruit — after washing, it is better. When you give 2.5 out of every 100, the remaining 97.5 becomes cleaner and more blessed.</p>
+  <p class="narrative-ur ur-t">زکاة کے دو معنی ہیں: <strong style="color:var(--gold)">پاکیزگی</strong> اور <strong style="color:var(--gold)">نشوونما</strong>۔ جب آپ زکاة دیتے ہیں، دو کام بیک وقت ہوتے ہیں: دیا گیا مال باقی مال کو پاک کرتا ہے اور دینے کا عمل آپ کے مال اور روح دونوں کو بڑھاتا ہے۔ قرآن میں 32 بار حکم دیا گیا، تقریباً ہمیشہ نماز کے ساتھ۔</p>
+  <div class="ledger">
+    <div class="ledger-col"><div class="ledger-num">100%</div><div class="ledger-label">Your Wealth</div><div class="ledger-note">Before Zakat</div></div>
+    <div class="ledger-arrow">→</div>
+    <div class="ledger-col"><div class="ledger-num" style="color:var(--teal)">97.5%</div><div class="ledger-label">Remains</div><div class="ledger-note" style="color:var(--teal)">+ Purified + Blessed</div></div>
+  </div>
+  <div class="h-block">
+    <div class="h-ar">مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ</div>
+    <div class="h-tr">Ma naqasat sadaqatun min mal</div>
+    <div class="h-en">"Charity does not decrease wealth." <span class="badge-s">Sahih</span></div>
+    <div class="h-src">📚 Sahih Muslim 2588</div>
+  </div>
+  <div class="h-block">
+    <div class="h-ar">احْفَظُوا أَمْوَالَكُمْ بِالزَّكَاةِ</div>
+    <div class="h-tr">Ihfazu amwalakum bi-z-zakat</div>
+    <div class="h-en">"Protect your wealth with Zakat." <span class="badge-hs">Hasan Sahih</span></div>
+    <div class="h-src">📚 Sunan Abu Dawud 1563</div>
+  </div>
+</div>
+
+<div class="sec-div"><span class="sec-icon">📖</span><div><div class="sec-title">The Quranic Foundation</div><div class="sec-ar">الأساس القرآني</div></div><div class="sec-line"></div></div>
+
+<div class="content-card">
+  <div class="ayah-block">
+    <span class="ab-ref">Quran 9:103 — The Command and Its Purpose</span>
+    <div class="ab-ar">خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ إِنَّ صَلَاتَكَ سَكَنٌ لَّهُمْ</div>
+    <div class="ab-en">"Take from their wealth a charity by which you purify them and cause them growth, and invoke blessings upon them."</div>
+    <div class="ab-commentary en-t">Two explicit purposes: purification (tuthahirahum) and growth (wa tuzakkihim). Then: pray for those who give. Zakat is bidirectional — the giver gives wealth, the recipient gives dua.</div>
+    <div class="ab-commentary-ur ur-t">دو صریح مقاصد: پاکیزگی اور نشوونما۔ پھر: ان کے لیے دعا کرو۔ زکاة دو طرفہ ہے — دینے والا مال دیتا ہے، لینے والا دعا دیتا ہے۔</div>
+  </div>
+  <div class="ayah-block">
+    <span class="ab-ref">Quran 2:43 — Always with Prayer</span>
+    <div class="ab-ar">وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ</div>
+    <div class="ab-en">"Establish prayer and give Zakat and bow with those who bow."</div>
+    <div class="ab-commentary en-t">One of 32 places where Salah and Zakat are commanded together. Prayer = your relationship with Allah. Zakat = your relationship with His creation. Neither substitutes the other.</div>
+    <div class="ab-commentary-ur ur-t">ان 32 مقامات میں سے ایک جہاں نماز اور زکاة کا حکم ساتھ دیا گیا۔ نماز = اللہ سے تعلق۔ زکاة = اللہ کی مخلوق سے تعلق۔</div>
+  </div>
+  <div class="warning-box">
+    <span class="wb-label">⚠ The Warning — Quran 3:180</span>
+    <div class="ab-ar" style="font-size:1rem;margin:0.5rem 0;font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2">وَلَا يَحْسَبَنَّ الَّذِينَ يَبْخَلُونَ بِمَا آتَاهُمُ اللَّهُ مِن فَضْلِهِ هُوَ خَيْرًا لَّهُمْ بَلْ هُوَ شَرٌّ لَّهُمْ سَيُطَوَّقُونَ مَا بَخِلُوا بِهِ يَوْمَ الْقِيَامَةِ</div>
+    <p style="font-size:0.87rem;font-style:italic;color:var(--text);margin:0.4rem 0">"Let not those who withhold what Allah has given them think it is good for them. Rather it is evil. They will be encircled by what they withheld on the Day of Resurrection."</p>
+    <div class="h-block" style="background:rgba(201,122,122,0.04);border-color:rgba(201,122,122,0.2);margin-top:0.6rem">
+      <div class="h-en" style="color:var(--text)">The Prophet ﷺ explained: whoever does not give Zakat — on the Day of Resurrection his wealth will become a serpent with two black spots that encircles his neck and bites him, saying: "I am your wealth, I am your treasure." <span class="badge-s">Sahih</span></div>
+      <div class="h-src">📚 Sahih Bukhari, Hadith 1403</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-div"><span class="sec-icon">🤲</span><div><div class="sec-title">The Eight Recipients</div><div class="sec-ar">مَصَارِف الزَّكَاة</div></div><div class="sec-line"></div></div>
+
+<div class="content-card">
+  <div class="ayah-block">
+    <span class="ab-ref">Quran 9:60 — Allah Defined the Recipients Himself</span>
+    <div class="ab-ar">إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَابِ وَالْغَارِمِينَ وَفِي سَبِيلِ اللَّهِ وَابْنِ السَّبِيلِ فَرِيضَةً مِّنَ اللَّهِ</div>
+    <div class="ab-en">"Zakah is only for the poor, the needy, Zakat workers, those whose hearts are to be reconciled, freeing captives, those in debt, in the cause of Allah, and the stranded traveller — a duty from Allah."</div>
+  </div>
+  <div class="recipients-grid">
+    <div class="recipient-card"><span class="rc-num">01</span><div class="rc-ar">الفُقَرَاء</div><span class="rc-en">Al-Fuqara — The Poor</span><p class="rc-desc en-t">Have some income but below nisab threshold</p><p class="rc-desc-ur ur-t">کچھ آمدنی ہے لیکن نصاب سے کم</p></div>
+    <div class="recipient-card"><span class="rc-num">02</span><div class="rc-ar">المَسَاكِين</div><span class="rc-en">Al-Masakin — The Destitute</span><p class="rc-desc en-t">Nothing at all — more deprived than al-fuqara</p><p class="rc-desc-ur ur-t">بالکل کچھ نہیں — فقراء سے بھی زیادہ محروم</p></div>
+    <div class="recipient-card"><span class="rc-num">03</span><div class="rc-ar">العَامِلِين</div><span class="rc-en">Zakat Workers</span><p class="rc-desc en-t">Those who administer and distribute Zakat</p><p class="rc-desc-ur ur-t">زکاة جمع اور تقسیم کرنے والے</p></div>
+    <div class="recipient-card"><span class="rc-num">04</span><div class="rc-ar">المُؤَلَّفَة</div><span class="rc-en">Hearts Being Reconciled</span><p class="rc-desc en-t">New Muslims or those being drawn to Islam</p><p class="rc-desc-ur ur-t">نو مسلم یا اسلام کی طرف مائل لوگ</p></div>
+    <div class="recipient-card"><span class="rc-num">05</span><div class="rc-ar">الرِّقَاب</div><span class="rc-en">Freeing from Bondage</span><p class="rc-desc en-t">Historically: freeing enslaved people. Contemporary scholars discuss modern equivalents.</p><p class="rc-desc-ur ur-t">تاریخی: غلاموں کو آزاد کرنا۔ معاصر علماء جدید متبادل پر بحث کرتے ہیں۔</p></div>
+    <div class="recipient-card"><span class="rc-num">06</span><div class="rc-ar">الغَارِمِين</div><span class="rc-en">Those in Debt</span><p class="rc-desc en-t">Crushed by legitimate debt they cannot repay</p><p class="rc-desc-ur ur-t">جائز قرض میں ڈوبے جو ادا نہیں کر سکتے</p></div>
+    <div class="recipient-card"><span class="rc-num">07</span><div class="rc-ar">فِي سَبِيلِ اللَّه</div><span class="rc-en">In the Cause of Allah</span><p class="rc-desc en-t">Defending faith, Islamic education, community welfare</p><p class="rc-desc-ur ur-t">دین کا دفاع، اسلامی تعلیم، کمیونٹی فلاح</p></div>
+    <div class="recipient-card"><span class="rc-num">08</span><div class="rc-ar">ابْنُ السَّبِيل</div><span class="rc-en">The Stranded Traveller</span><p class="rc-desc en-t">Traveller who has run out of resources away from home</p><p class="rc-desc-ur ur-t">مسافر جو گھر سے دور وسائل سے محروم ہو گیا</p></div>
+  </div>
+</div>
+
+<div class="sec-div"><span class="sec-icon">📿</span><div><div class="sec-title">The Prophetic Rules</div><div class="sec-ar">التَّفصِيل النَّبَوِي</div></div><div class="sec-line"></div></div>
+
+<div class="content-card">
+  <div class="cc-title">Three Conditions — All Three Required</div>
+  <table class="compare-table">
+    <thead><tr><th>Condition</th><th>Meaning</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:var(--gold)">Nisab</strong></td><td>Wealth must reach the minimum threshold — 85g gold or 595g silver</td><td>Bukhari 1405</td></tr>
+      <tr><td><strong style="color:var(--gold)">Hawl</strong></td><td>Wealth must have been above nisab for a full lunar year (~354 days)</td><td>Abu Dawud 1573</td></tr>
+      <tr><td><strong style="color:var(--gold)">Rate</strong></td><td>2.5% of total zakatable wealth after deductions</td><td>Bukhari 1386</td></tr>
+    </tbody>
+  </table>
+  <div class="scholar-acc">
+    <button class="acc-btn" onclick="toggleAcc(this)"><span>📚</span><span class="acc-label">Scholarly Difference — Gold or Silver Nisab?</span><span class="acc-arrow">›</span></button>
+    <div class="acc-body">
+      <div class="scholar-pos"><span class="sp-name">Silver Nisab (595g) — Default, Majority Contemporary View</span>Worth significantly less than gold nisab, meaning more people are included in the obligation. Position of Sheikh Ibn Baz, Sheikh al-Qaradawi, most contemporary Zakat institutions.</div>
+      <div class="scholar-pos"><span class="sp-name">Gold Nisab (85g) — Classical Scholarly Position</span>Higher threshold. Proponents argue it prevents Zakat becoming burdensome on modest savings. Classical fiqh preference.</div>
+    </div>
+  </div>
+  <div class="scholar-acc">
+    <button class="acc-btn" onclick="toggleAcc(this)"><span>📚</span><span class="acc-label">Scholarly Difference — Gold Jewellery</span><span class="acc-arrow">›</span></button>
+    <div class="acc-body">
+      <div class="scholar-pos"><span class="sp-name">Majority (Hanafi, Hanbali) — Zakat Due on All Gold</span>No exemption for jewellery in personal use. This is the calculator's default.</div>
+      <div class="scholar-pos"><span class="sp-name">Minority (Shafi'i, Maliki) — Worn Jewellery May Be Exempt</span>Jewellery in regular personal use (not for investment) may be excluded. If you follow this position, exclude worn jewellery from your gold entry.</div>
+    </div>
+  </div>
+</div>
+
+<div class="content-card">
+  <div class="cc-title">Zakat vs Sadaqah — Different Obligations</div>
+  <table class="compare-table">
+    <thead><tr><th>Term</th><th>Status</th><th>Amount</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:var(--gold)">Zakat</strong> — The Third Pillar</td><td>Obligatory (Fard)</td><td>2.5% on eligible wealth annually</td></tr>
+      <tr><td><strong style="color:var(--teal)">Sadaqah</strong> — Voluntary Charity</td><td>Recommended (Sunnah)</td><td>Any amount, any time</td></tr>
+    </tbody>
+  </table>
+  <div class="insight-box"><span class="insight-label">Important</span>Sadaqah does not substitute for Zakat. Generous charitable giving throughout the year does not exempt you from calculating and paying Zakat. Zakat is a right the poor have over wealthy Muslims' wealth — not a gift.</div>
+</div>
+
+<!-- GO TO CALCULATOR BUTTON -->
+<button class="goto-calc-btn" onclick="switchTab('calc')">
+  <span class="gcb-icon">🧮</span>
+  <span class="en-t">Ready to Calculate? → Open the Zakat Calculator</span>
+  <span class="ur-t" style="display:none">حساب کرنے کے لیے تیار؟ ← زکاة حاسبہ کھولیں</span>
+</button>
+
+</div><!-- .learn-wrapper -->
+</div><!-- #panel-learn -->
+
+<!-- ══════════════ CALCULATOR TAB ══════════════ -->
+<div class="tab-panel" id="panel-calc">
+<div class="calc-wrapper-tab">
+
+  <div class="calc-header-main">
+    <div class="chm-ar">حاسبة الزكاة</div>
+    <div class="chm-en">Zakat Calculator — Step by Step</div>
+    <p class="chm-note en-t">Enter your gold price first, then fill in your assets. Every field has a brief explanation. Click Calculate at the bottom.</p>
+    <p class="chm-note ur-t" style="display:none;font-family:var(--font-arab);direction:rtl;font-size:0.88rem">پہلے سونے کی قیمت درج کریں، پھر اثاثے بھریں۔ ہر خانے میں مختصر وضاحت ہے۔ نیچے حساب کریں پر کلک کریں۔</p>
+  </div>
+
+  <!-- PROGRESS STEPS -->
+  <div class="calc-steps">
+    <div class="calc-step"><span class="cs-num">Step 1</span><span class="cs-label">Setup Currency</span></div>
+    <div class="calc-step"><span class="cs-num">Step 2</span><span class="cs-label">Add Assets</span></div>
+    <div class="calc-step"><span class="cs-num">Step 3</span><span class="cs-label">Deductions</span></div>
+    <div class="calc-step"><span class="cs-num">Step 4</span><span class="cs-label">Calculate</span></div>
+  </div>
+
+  <!-- STEP 1: SETUP -->
+  <div class="setup-panel">
+    <div class="sp-title">Step 1 — Currency &amp; Gold Price</div>
+    <div class="setup-row">
+      <div class="setup-group">
+        <label class="setup-label en-t">Your Currency</label>
+        <label class="setup-label ur-t" style="display:none">آپ کی کرنسی</label>
+        <select class="setup-select" id="currency" onchange="updateNisab()">
+          <option value="USD">USD — US Dollar ($)</option>
+          <option value="GBP">GBP — British Pound (£)</option>
+          <option value="EUR">EUR — Euro (€)</option>
+          <option value="PKR">PKR — Pakistani Rupee (₨)</option>
+        </select>
+      </div>
+      <div class="setup-group">
+        <label class="setup-label en-t">Gold Price — per gram in your currency</label>
+        <label class="setup-label ur-t" style="display:none">سونے کی قیمت — فی گرام آپ کی کرنسی میں</label>
+        <input class="setup-input" type="number" id="gold-price" placeholder="e.g. 85 (USD per gram)" oninput="updateNisab()" min="0" step="0.01"/>
+        <div class="setup-hint en-t">Find today's price: <a href="https://goldprice.org" target="_blank">goldprice.org</a> or <a href="https://xe.com" target="_blank">xe.com</a> → search "gold price per gram [USD/GBP/EUR/PKR]"</div>
+        <div class="setup-hint ur-t" style="display:none">آج کی قیمت: <a href="https://goldprice.org" target="_blank">goldprice.org</a> پر جائیں → "gold price per gram PKR" تلاش کریں</div>
+      </div>
+    </div>
+
+    <div class="sp-title" style="margin-top:1.25rem">Nisab Standard</div>
+    <div class="nisab-toggle-row">
+      <div class="nisab-opt selected" id="nisab-silver" onclick="setNisab('silver')">
+        <span class="no-label en-t">Silver Nisab — Default</span>
+        <span class="no-label ur-t" style="display:none">چاندی نصاب — پہلا انتخاب</span>
+        <span class="no-val" id="silver-display">595g silver</span>
+        <div class="no-note en-t">Majority contemporary scholars</div>
+        <div class="no-note ur-t" style="display:none">اکثر معاصر علماء</div>
+      </div>
+      <div class="nisab-opt" id="nisab-gold" onclick="setNisab('gold')">
+        <span class="no-label en-t">Gold Nisab</span>
+        <span class="no-label ur-t" style="display:none">سونا نصاب</span>
+        <span class="no-val" id="gold-display">85g gold</span>
+        <div class="no-note en-t">Classical position</div>
+        <div class="no-note ur-t" style="display:none">کلاسیکی موقف</div>
+      </div>
+    </div>
+    <div class="nisab-display" id="nisab-val">Enter gold price above to see nisab value</div>
+  </div>
+
+  <!-- STEP 2: ASSETS -->
+  <!-- CASH -->
+  <div class="asset-section">
+    <div class="as-header open" onclick="toggleSection(this)">
+      <span class="as-icon">💰</span>
+      <span class="as-title en-t">Cash &amp; Bank Savings</span>
+      <span class="as-title ur-t" style="display:none">نقدی اور بینک بچت</span>
+      <span class="as-total" id="total-cash">0</span>
+      <span class="as-toggle">›</span>
+    </div>
+    <div class="as-body open">
+      <div class="field-row">
+        <div class="field-top">
+          <span class="field-label en-t">Cash at home + all bank accounts</span>
+          <span class="field-label ur-t" style="display:none">گھر کی نقدی + تمام بینک اکاؤنٹ</span>
+          <span class="field-badge">2.5%</span>
+        </div>
+        <input class="field-input" type="number" id="cash" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Include: current accounts, savings accounts, cash at home, foreign currency. Exclude: money you owe (that goes in deductions below).</div>
+        <div class="field-remark-ur ur-t">شامل کریں: تمام اکاؤنٹ، گھر کی نقدی، غیر ملکی کرنسی۔ خارج کریں: جو آپ کو دینا ہے (نیچے کٹوتیوں میں جائے گا)۔</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOLD & SILVER -->
+  <div class="asset-section">
+    <div class="as-header" onclick="toggleSection(this)">
+      <span class="as-icon">🥇</span>
+      <span class="as-title en-t">Gold &amp; Silver</span>
+      <span class="as-title ur-t" style="display:none">سونا اور چاندی</span>
+      <span class="as-total" id="total-goldsilver">0</span>
+      <span class="as-toggle">›</span>
+    </div>
+    <div class="as-body">
+      <div class="field-row">
+        <div class="field-top">
+          <span class="field-label en-t">Gold — weight in grams</span>
+          <span class="field-label ur-t" style="display:none">سونا — گرام میں وزن</span>
+          <span class="field-badge">2.5%</span>
+        </div>
+        <input class="field-input" type="number" id="gold-grams" placeholder="0 grams" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Enter weight of all gold you own. Calculator multiplies by the gold price you entered in Step 1 to get the value. Include bars, coins, and jewellery (majority position includes all gold jewellery).</div>
+        <div class="field-remark-ur ur-t">تمام سونے کا وزن درج کریں۔ حاسبہ اسے قدم 1 کی قیمت سے ضرب دے گا۔ سلاخیں، سکے، اور زیورات شامل کریں (اکثریتی موقف)۔</div>
+      </div>
+      <div class="field-row">
+        <div class="field-top">
+          <span class="field-label en-t">Gold — direct value (alternative to grams)</span>
+          <span class="field-label ur-t" style="display:none">سونا — براہ راست قدر (وزن کا متبادل)</span>
+          <span class="field-badge">2.5%</span>
+        </div>
+        <input class="field-input" type="number" id="gold-value" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">If you know the current market value of your gold, enter it directly here instead of using grams above. Use one or the other, not both.</div>
+        <div class="field-remark-ur ur-t">اگر سونے کی موجودہ بازاری قدر معلوم ہو تو یہاں براہ راست درج کریں۔ اوپر گرام یا یہاں قدر — دونوں نہیں۔</div>
+      </div>
+      <div class="field-row">
+        <div class="field-top">
+          <span class="field-label en-t">Silver — total value</span>
+          <span class="field-label ur-t" style="display:none">چاندی — کل قدر</span>
+          <span class="field-badge">2.5%</span>
+        </div>
+        <input class="field-input" type="number" id="silver-value" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Include all physical silver at current market value. All scholars agree Zakat applies to silver jewellery — no disagreement here, unlike gold jewellery.</div>
+        <div class="field-remark-ur ur-t">تمام چاندی کی موجودہ بازاری قدر شامل کریں۔ چاندی کے زیورات پر تمام علماء کا اتفاق ہے — سونے کے برعکس۔</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVESTMENTS -->
+  <div class="asset-section">
+    <div class="as-header" onclick="toggleSection(this)">
+      <span class="as-icon">📈</span>
+      <span class="as-title en-t">Investments &amp; Funds</span>
+      <span class="as-title ur-t" style="display:none">سرمایہ کاری اور فنڈز</span>
+      <span class="as-total" id="total-invest">0</span>
+      <span class="as-toggle">›</span>
+    </div>
+    <div class="as-body">
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Stocks, shares, mutual funds — current market value</span><span class="field-label ur-t" style="display:none">حصص، میوچل فنڈز — موجودہ بازاری قدر</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="stocks" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Use today's market value of all holdings. Scholars' mainstream position: Zakat is on the full current market value of shares, not just dividends. Ensure investments are in halal sectors.</div>
+        <div class="field-remark-ur ur-t">آج کی کل بازاری قدر استعمال کریں۔ علماء کا اکثریتی موقف: زکاة حصص کی مکمل موجودہ قدر پر، نہ صرف منافع پر۔</div>
+      </div>
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Pension / Retirement funds — accessible amount</span><span class="field-label ur-t" style="display:none">پنشن فنڈ — قابل رسائی رقم</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="pension" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">If you can access your pension now (or are of retirement age), include the full value. If locked, include only the vested/accessible portion. Contemporary scholars generally say Zakat is due when funds are accessible.</div>
+        <div class="field-remark-ur ur-t">اگر ابھی رسائی ہے تو پوری قدر شامل کریں۔ اگر مقفل ہے تو صرف قابل رسائی حصہ۔ معاصر علماء عموماً کہتے ہیں زکاة رسائی پر واجب ہوتی ہے۔</div>
+      </div>
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Cryptocurrency — current total value</span><span class="field-label ur-t" style="display:none">کریپٹو کرنسی — موجودہ کل قدر</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="crypto" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Contemporary scholarly position: treat crypto held as an asset like investment wealth — 2.5% on current value after one lunar year above nisab. This is scholarly ijtihad on new matters — consult your scholar if unsure about specific coins.</div>
+        <div class="field-remark-ur ur-t">معاصر علمی موقف: کریپٹو کو سرمایہ کاری جیسا سمجھیں — ایک قمری سال بعد موجودہ قدر پر 2.5%۔ یہ جدید معاملات پر اجتہاد ہے۔</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUSINESS -->
+  <div class="asset-section">
+    <div class="as-header" onclick="toggleSection(this)">
+      <span class="as-icon">🏪</span>
+      <span class="as-title en-t">Business &amp; Property</span>
+      <span class="as-title ur-t" style="display:none">کاروبار اور جائیداد</span>
+      <span class="as-total" id="total-business">0</span>
+      <span class="as-toggle">›</span>
+    </div>
+    <div class="as-body">
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Business inventory — goods held for sale</span><span class="field-label ur-t" style="display:none">تجارتی سامان — فروخت کے لیے</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="inventory" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Current market value of all goods you hold for sale. Exclude: equipment and tools used in the business (not for sale), your business premises.</div>
+        <div class="field-remark-ur ur-t">فروخت کے لیے سامان کی موجودہ بازاری قدر۔ خارج کریں: کاروبار کا سازوسامان، احاطہ۔</div>
+      </div>
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Rental income received (net amount held)</span><span class="field-label ur-t" style="display:none">موصول کرایہ (موجود خالص رقم)</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="rental" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">The rental income you have received and still hold. Zakat is on income collected, not the property value itself (unless the property is held for sale). Include only what remains after your expenses from that income.</div>
+        <div class="field-remark-ur ur-t">موصول کردہ اور موجود کرایہ۔ زکاة آمدنی پر ہے، جائیداد کی قدر پر نہیں (جب تک فروخت کے لیے نہ ہو)۔</div>
+      </div>
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Property held for sale — current market value</span><span class="field-label ur-t" style="display:none">فروخت کے لیے جائیداد — موجودہ بازاری قدر</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="property-sale" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Property you purchased specifically to sell. Your personal home, car, and personal items are NOT zakatable regardless of their value. Complex property situations: consult your scholar.</div>
+        <div class="field-remark-ur ur-t">فروخت کے لیے خریدی جائیداد۔ آپ کا ذاتی گھر، گاڑی، ذاتی سامان — زکاة کے قابل نہیں۔ پیچیدہ حالات: عالم سے رجوع کریں۔</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MONEY OWED TO YOU -->
+  <div class="asset-section">
+    <div class="as-header" onclick="toggleSection(this)">
+      <span class="as-icon">🤝</span>
+      <span class="as-title en-t">Money Others Owe You</span>
+      <span class="as-title ur-t" style="display:none">آپ کا دوسروں پر قرض</span>
+      <span class="as-total" id="total-owed">0</span>
+      <span class="as-toggle">›</span>
+    </div>
+    <div class="as-body">
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Loans you have given to others</span><span class="field-label ur-t" style="display:none">دوسروں کو دیے قرضے</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="loans-out" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">⭐ Commonly missed. Money you lent is still your wealth — you are entitled to it. Include the amount you expect to receive back. If the borrower genuinely cannot repay, you may reduce this amount accordingly.</div>
+        <div class="field-remark-ur ur-t">⭐ عام طور پر نظرانداز۔ دیا گیا قرض پھر بھی آپ کا مال ہے۔ واپسی متوقع رقم شامل کریں۔ اگر قرض دار واقعی ادا نہیں کر سکتا تو اس حساب سے کم کریں۔</div>
+      </div>
+      <div class="field-row">
+        <div class="field-top"><span class="field-label en-t">Unpaid salary, invoices, or deposits owed to you</span><span class="field-label ur-t" style="display:none">ادا نہ کی گئی تنخواہ، بل، یا ضمانتیں</span><span class="field-badge">2.5%</span></div>
+        <input class="field-input" type="number" id="receivables" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+        <div class="field-remark en-t">Salary earned but not yet paid, outstanding invoices for work done, security deposits held by others that belong to you. Include only amounts you are confident of receiving.</div>
+        <div class="field-remark-ur ur-t">کمائی گئی لیکن ابھی نہ ملی تنخواہ، کیے کام کے بقایا بل، دوسروں کے پاس آپ کی ضمانتیں۔ صرف وہ رقم جس کے ملنے کا یقین ہو۔</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: DEDUCTIONS -->
+  <div class="deduct-panel">
+    <div class="dp-title">Step 3 — Deductions</div>
+    <div class="field-row">
+      <div class="field-top"><span class="field-label en-t">Debts you owe others</span><span class="field-label ur-t" style="display:none">دوسروں کے آپ پر قرضے</span><span class="field-badge deduct">Reduces Zakat</span></div>
+      <input class="field-input" type="number" id="debts" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+      <div class="field-remark en-t">Include: loans others have given you, credit card balances, immediate mortgage instalments due. Most scholars deduct only the immediately due portion of long-term loans, not the total outstanding mortgage balance.</div>
+      <div class="field-remark-ur ur-t">شامل کریں: دوسروں کے دیے قرضے، کریڈٹ کارڈ بیلنس، فوری واجب قسطیں۔ اکثر علماء صرف فوری واجب حصہ کاٹتے ہیں، پوری بقایا رہن رقم نہیں۔</div>
+    </div>
+    <div class="field-row">
+      <div class="field-top"><span class="field-label en-t">Bills immediately due (rent, tax, utilities)</span><span class="field-label ur-t" style="display:none">فوری واجب بل</span><span class="field-badge deduct">Reduces Zakat</span></div>
+      <input class="field-input" type="number" id="bills" placeholder="0.00" min="0" step="0.01" oninput="calc()"/>
+      <div class="field-remark en-t">Bills due within the next few days or weeks only. Do not include future expenses not yet due — only what is immediately payable right now.</div>
+      <div class="field-remark-ur ur-t">صرف چند دنوں میں واجب بل۔ مستقبل کے ابھی تک غیر واجب اخراجات شامل نہ کریں۔</div>
+    </div>
+  </div>
+
+  <!-- CALCULATE BUTTON -->
+  <button class="calc-main-btn" onclick="calculateZakat()">
+    <span>🧮</span>
+    <span class="en-t">Calculate My Zakat</span>
+    <span class="ur-t" style="display:none">میری زکاة حساب کریں</span>
+  </button>
+  <button class="reset-btn" onclick="resetCalc()">
+    <span class="en-t">Reset All Fields</span>
+    <span class="ur-t" style="display:none">تمام خانے صاف کریں</span>
+  </button>
+
+  <!-- OUTPUT -->
+  <div class="calc-output" id="calc-output">
+    <div class="co-header">
+      <div class="co-header-ar">نتيجة حساب الزكاة</div>
+      <div class="co-header-en">Your Zakat Calculation Result</div>
+    </div>
+    <div class="co-row"><span class="co-label en-t">Total Assets</span><span class="co-label ur-t" style="display:none">کل اثاثے</span><span class="co-val" id="out-assets">0</span></div>
+    <div class="co-row"><span class="co-label en-t">Total Deductions</span><span class="co-label ur-t" style="display:none">کل کٹوتیاں</span><span class="co-val" id="out-deduct">0</span></div>
+    <div class="co-row"><span class="co-label en-t">Net Zakatable Wealth</span><span class="co-label ur-t" style="display:none">خالص قابل زکاة مال</span><span class="co-val" id="out-net">0</span></div>
+    <div class="co-row">
+      <span class="co-label en-t">Nisab Threshold <span id="out-status"></span></span>
+      <span class="co-label ur-t" style="display:none">نصاب کی حد</span>
+      <span class="co-val" id="out-nisab">0</span>
+    </div>
+    <div class="co-zakat-row">
+      <div>
+        <div class="co-zakat-label en-t">ZAKAT DUE</div>
+        <div class="co-zakat-label ur-t" style="display:none;font-family:var(--font-arab);font-size:1rem">واجب الادا زکاة</div>
+      </div>
+      <div class="co-zakat-val" id="out-zakat">0</div>
+    </div>
+    <div class="co-breakdown" id="out-breakdown"></div>
+  </div>
+
+  <!-- ZAKAT AL-FITR -->
+  <div class="fitr-panel" style="margin-top:2rem">
+    <div class="fp-title en-t">🌙 Zakat al-Fitr Calculator</div>
+    <div class="fp-title ur-t" style="display:none">🌙 زکاة الفطر حاسبہ</div>
+    <p class="fp-sub en-t">Separate from the above — due before Eid prayer. One Sa' (≈2.5–3kg staple food) per household member.</p>
+    <p class="fp-sub ur-t" style="display:none;font-family:var(--font-arab);direction:rtl">اوپر سے الگ — نماز عید سے پہلے واجب۔ ہر فرد کے لیے ایک صاع (تقریباً 2.5–3 کلو)۔</p>
+    <div class="fitr-row">
+      <div class="setup-group">
+        <label class="setup-label en-t">Household Members</label>
+        <label class="setup-label ur-t" style="display:none">گھر کے افراد</label>
+        <input class="setup-input" type="number" id="fitr-members" placeholder="e.g. 4" min="1" oninput="calcFitr()"/>
+        <div class="setup-hint en-t">Include yourself, spouse, children, dependants</div>
+        <div class="setup-hint ur-t" style="display:none">خود، بیوی/شوہر، بچے، زیر کفالت</div>
+      </div>
+      <div class="setup-group">
+        <label class="setup-label en-t">Value of 1 Sa' in your currency</label>
+        <label class="setup-label ur-t" style="display:none">1 صاع کی قیمت</label>
+        <input class="setup-input" type="number" id="fitr-sa" placeholder="Price of 2.5kg rice/wheat" min="0" step="0.01" oninput="calcFitr()"/>
+        <div class="setup-hint en-t">Check your local market price for 2.5–3kg of rice or wheat</div>
+        <div class="setup-hint ur-t" style="display:none">مقامی بازار میں 2.5–3 کلو چاول یا گندم کی قیمت</div>
+      </div>
+      <div class="setup-group">
+        <label class="setup-label en-t">Total Fitr Due</label>
+        <label class="setup-label ur-t" style="display:none">کل فطرانہ</label>
+        <div class="fitr-output" id="fitr-output">Enter members and Sa' value</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DUAS -->
+  <div class="duas-panel">
+    <div class="sp-title">Duas When Giving Zakat</div>
+    <div class="dua-pair">
+      <div class="dua-card">
+        <span class="dc-role en-t">Giver says</span>
+        <span class="dc-role ur-t" style="display:none">دینے والا کہے</span>
+        <div class="dc-ar">اللَّهُمَّ اجْعَلْهَا مَغْنَمًا وَلَا تَجْعَلْهَا مَغْرَمًا</div>
+        <div class="dc-en">"O Allah, make it a gain and not a loss."</div>
+        <div class="dc-src">📚 Abu Dawud 1590 — Hasan Sahih</div>
+      </div>
+      <div class="dua-card">
+        <span class="dc-role en-t">Recipient says</span>
+        <span class="dc-role ur-t" style="display:none">لینے والا کہے</span>
+        <div class="dc-ar">آجَرَكَ اللَّهُ فِيمَا أَعْطَيْتَ وَبَارَكَ لَكَ فِيمَا أَبْقَيْتَ</div>
+        <div class="dc-en">"May Allah reward you for what you gave and bless what you kept."</div>
+        <div class="dc-src">📚 Authenticated narration — Hasan</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CROSS LINKS -->
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.4rem">
+    <div style="font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;margin-bottom:0.65rem">Connected</div>
+    <div class="cross-links">
+      <a href="duas.html" class="cl-chip cl-duas">→ Duas Collection</a>
+      <a href="asma_ul_husna.html" class="cl-chip cl-names">→ Asma ul-Husna</a>
+      <a href="sunnah_index.html" class="cl-chip cl-sunnah">→ Daily Sunnah</a>
+      <a href="umrah_hajj.html" class="cl-chip cl-hajj">→ Hajj Guide</a>
+    </div>
+  </div>
+
+</div><!-- .calc-wrapper-tab -->
+</div><!-- #panel-calc -->
+
+<footer>
+  <span>Al-Maktaba</span> · Zakat — الزَّكَاة · The Third Pillar<br/>
+  All rulings sourced from the Quran and authenticated hadith. Consult a qualified scholar for personal rulings.
+</footer>
+
+<script>
+// ═══════════════════════════════════════
+// TAB SWITCHING
+// ═══════════════════════════════════════
+function switchTab(tab) {
+  ['learn','calc'].forEach(t => {
+    document.getElementById('tab-' + t).classList.toggle('active', t === tab);
+    document.getElementById('panel-' + t).classList.toggle('active', t === tab);
+  });
+  window.scrollTo({top: document.getElementById('tab-bar').offsetTop - 58, behavior:'smooth'});
+}
+
+// ═══════════════════════════════════════
+// LANG & SIMPLE
+// ═══════════════════════════════════════
+function setLang(l) {
+  document.body.classList.toggle('ur-mode', l === 'ur');
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-ur').classList.toggle('active', l === 'ur');
+}
+
+function toggleSimple() {
+  const on = document.body.classList.toggle('simple-mode');
+  const btn = document.getElementById('simple-btn');
+  btn.classList.toggle('on', on);
+  btn.textContent = on ? '📖 Full Text' : '🌱 Explain Simply';
+}
+
+// ═══════════════════════════════════════
+// ACCORDIONS
+// ═══════════════════════════════════════
+function toggleAcc(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+function toggleSection(hdr) {
+  hdr.classList.toggle('open');
+  hdr.nextElementSibling.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════
+// NISAB & CURRENCY
+// ═══════════════════════════════════════
+const SYM = {USD:'$',GBP:'£',EUR:'€',PKR:'₨'};
+let nisabMode = 'silver';
+let goldPrice = 0;
+
+function getCur() { return document.getElementById('currency').value; }
+function getSym() { return SYM[getCur()] || '$'; }
+
+function fmt(n) {
+  const cur = getCur();
+  if (!n || isNaN(n)) return getSym() + ' 0';
+  if (cur === 'PKR') return getSym() + ' ' + Math.round(n).toLocaleString();
+  return getSym() + ' ' + Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+
+function updateNisab() {
+  goldPrice = parseFloat(document.getElementById('gold-price').value) || 0;
+  const silverPerGram = goldPrice / 80;
+  const goldNisab = goldPrice * 85;
+  const silverNisab = silverPerGram * 595;
+
+  document.getElementById('gold-display').textContent =
+    goldPrice > 0 ? '85g gold — ' + fmt(goldNisab) : '85g gold';
+  document.getElementById('silver-display').textContent =
+    goldPrice > 0 ? '595g silver — ' + fmt(silverNisab) : '595g silver';
+
+  const activeNisab = nisabMode === 'silver' ? silverNisab : goldNisab;
+  document.getElementById('nisab-val').textContent = goldPrice > 0
+    ? (nisabMode === 'silver' ? 'Silver Nisab: ' : 'Gold Nisab: ') + fmt(activeNisab)
+    : 'Enter gold price above to see nisab value';
+  calc();
+}
+
+function setNisab(mode) {
+  nisabMode = mode;
+  document.getElementById('nisab-silver').classList.toggle('selected', mode === 'silver');
+  document.getElementById('nisab-gold').classList.toggle('selected', mode === 'gold');
+  updateNisab();
+}
+
+function getNisabValue() {
+  const sp = goldPrice / 80;
+  return nisabMode === 'silver' ? sp * 595 : goldPrice * 85;
+}
+
+// ═══════════════════════════════════════
+// LIVE SECTION TOTALS
+// ═══════════════════════════════════════
+function v(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+function stot(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val > 0 ? fmt(val) : '0';
+}
+
+function calc() {
+  const goldFromGrams = v('gold-grams') * goldPrice;
+  stot('total-cash', v('cash'));
+  stot('total-goldsilver', goldFromGrams + v('gold-value') + v('silver-value'));
+  stot('total-invest', v('stocks') + v('pension') + v('crypto'));
+  stot('total-business', v('inventory') + v('rental') + v('property-sale'));
+  stot('total-owed', v('loans-out') + v('receivables'));
+}
+
+// ═══════════════════════════════════════
+// CALCULATE ZAKAT
+// ═══════════════════════════════════════
+function calculateZakat() {
+  if (!goldPrice) {
+    alert('Please enter today's gold price per gram in Step 1 first.');
+    document.getElementById('gold-price').focus();
+    if (document.getElementById('panel-calc').classList.contains('active')) {
+      document.getElementById('gold-price').scrollIntoView({behavior:'smooth',block:'center'});
+    }
+    return;
+  }
+
+  const goldFromGrams = v('gold-grams') * goldPrice;
+  const assets = {
+    'Cash & Savings': v('cash'),
+    'Gold': goldFromGrams + v('gold-value'),
+    'Silver': v('silver-value'),
+    'Investments': v('stocks') + v('pension') + v('crypto'),
+    'Business': v('inventory') + v('rental') + v('property-sale'),
+    'Owed to You': v('loans-out') + v('receivables'),
+  };
+
+  const totalAssets = Object.values(assets).reduce((a,b) => a+b, 0);
+  const totalDeductions = v('debts') + v('bills');
+  const netWealth = Math.max(0, totalAssets - totalDeductions);
+  const nisabVal = getNisabValue();
+  const nisabMet = nisabVal > 0 && netWealth >= nisabVal;
+  const zakatDue = nisabMet ? netWealth * 0.025 : 0;
+
+  const out = document.getElementById('calc-output');
+  out.style.display = 'block';
+
+  document.getElementById('out-assets').textContent = fmt(totalAssets);
+  document.getElementById('out-deduct').textContent = '− ' + fmt(totalDeductions);
+  document.getElementById('out-net').textContent = fmt(netWealth);
+  document.getElementById('out-nisab').textContent = fmt(nisabVal);
+  document.getElementById('out-zakat').textContent = fmt(zakatDue);
+
+  const statusEl = document.getElementById('out-status');
+  if (!goldPrice) {
+    statusEl.className = ''; statusEl.textContent = '';
+  } else if (nisabMet) {
+    statusEl.className = 'nisab-badge nb-met'; statusEl.textContent = '✓ Nisab Met';
+  } else {
+    statusEl.className = 'nisab-badge nb-not'; statusEl.textContent = '✗ Below Nisab';
+  }
+
+  // Breakdown
+  const bk = document.getElementById('out-breakdown');
+  const lines = Object.entries(assets).filter(([k,v]) => v > 0);
+  if (lines.length > 0) {
+    bk.innerHTML = '<div class="cb-title">Breakdown by Category</div>' +
+      lines.map(([k,v]) =>
+        `<div class="cb-row"><span class="cb-label">${k}</span><span class="cb-val">${fmt(v)} → ${fmt(v*0.025)}</span></div>`
+      ).join('');
+  } else {
+    bk.innerHTML = '';
+  }
+
+  out.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function resetCalc() {
+  ['cash','gold-grams','gold-value','silver-value','stocks','pension','crypto',
+   'inventory','rental','property-sale','loans-out','receivables','debts','bills']
+    .forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
+  ['total-cash','total-goldsilver','total-invest','total-business','total-owed']
+    .forEach(id => stot(id, 0));
+  document.getElementById('calc-output').style.display = 'none';
+}
+
+// ═══════════════════════════════════════
+// ZAKAT AL-FITR
+// ═══════════════════════════════════════
+function calcFitr() {
+  const m = parseFloat(document.getElementById('fitr-members').value) || 0;
+  const s = parseFloat(document.getElementById('fitr-sa').value) || 0;
+  const out = document.getElementById('fitr-output');
+  if (m > 0 && s > 0) {
+    const total = m * s;
+    out.textContent = m + ' members × ' + getSym() + s.toFixed(2) + ' = ' + getSym() + total.toFixed(2);
+    out.style.color = 'var(--teal)';
+  } else {
+    out.textContent = 'Enter members and Sa' value';
+    out.style.color = 'var(--text-dim)';
+  }
+}
+</script>
+</body>
+</html>

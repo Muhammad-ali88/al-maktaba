@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seerah — Early Life | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #04070D;
+  --gold:      #C9A84C;
+  --gold-dim:  rgba(201,168,76,0.18);
+  --gold-glow: rgba(201,168,76,0.08);
+  --teal:      #2FB89A;
+  --teal-dim:  rgba(47,184,154,0.15);
+  --text:      #D4CBB8;
+  --text-dim:  #8A8070;
+  --card:      #080E1C;
+  --border:    rgba(201,168,76,0.15);
+  --border-hi: rgba(201,168,76,0.35);
+  --green:     #3DAA6E;
+  --blue:      #4A90C4;
+  --amber:     #D4843A;
+  --red:       #C44A4A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  height: 58px;
+  background: rgba(4,7,13,0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+}
+.nav-left { display: flex; align-items: center; gap: 8px; flex: 1; }
+.nav-left a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-left a:hover { color: var(--gold); }
+.nav-sep { color: var(--border-hi); font-size: 14px; }
+.nav-centre {
+  flex: 0 0 auto;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  line-height: 1.2;
+}
+.nav-ar {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 13px; color: var(--gold); font-weight: 600;
+}
+.nav-en {
+  font-family: 'Cinzel', serif;
+  font-size: 9px; color: var(--text-dim); letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
+.lang-btn {
+  background: none;
+  border: 1px solid var(--border-hi);
+  color: var(--text-dim);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.lang-btn.active {
+  background: var(--gold-dim);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.lang-btn:hover { color: var(--gold); border-color: var(--gold); }
+.badge-ce {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  color: var(--teal);
+  border: 1px solid rgba(47,184,154,0.3);
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 64px 24px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 30% 100%, rgba(47,184,154,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-ar {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: clamp(28px, 6vw, 52px);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.hero-en {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(16px, 3vw, 26px);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.hero-sub {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--text-dim);
+  font-size: 14px;
+  margin-top: 8px;
+}
+.hero-divider {
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 20px auto;
+}
+
+/* ── TIMELINE BAR ── */
+.timeline-bar {
+  max-width: 700px;
+  margin: 0 auto 52px;
+  padding: 0 24px;
+}
+.timeline-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.timeline-track {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  position: relative;
+}
+.timeline-fill {
+  position: absolute; left: 0; top: 0;
+  height: 100%;
+  width: 18%;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+  border-radius: 2px;
+}
+.timeline-dot {
+  position: absolute; right: -1px; top: 50%;
+  transform: translateY(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px rgba(47,184,154,0.5);
+}
+.timeline-epochs {
+  display: flex; justify-content: space-between;
+  margin-top: 8px;
+}
+.timeline-epoch {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+.timeline-epoch.active { color: var(--gold); }
+
+/* ── MAIN LAYOUT ── */
+.main { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+
+/* ── SECTION HEADING ── */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 52px 0 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.section-title::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--border);
+}
+.section-num {
+  background: var(--gold-dim);
+  border: 1px solid var(--border-hi);
+  color: var(--gold);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+/* ── EVENT CARD ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  transition: border-color 0.3s;
+}
+.card:hover { border-color: var(--border-hi); }
+
+.card-meta {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(201,168,76,0.04);
+}
+.meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+.meta-item span { color: var(--text); }
+
+.card-body { padding: 22px 22px 0; }
+
+.card-ar-title {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: right;
+  direction: rtl;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.narrative {
+  font-family: 'Lora', serif;
+  font-size: 15.5px;
+  line-height: 1.82;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.narrative + .narrative { margin-top: -4px; }
+
+.narrative-ur {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--text);
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 14px;
+  display: none;
+}
+
+/* ── AYAH BLOCK ── */
+.ayah-block {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid var(--gold-dim);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin: 20px 0;
+}
+.ayah-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.ayah-ar {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #E8D89A;
+  text-align: right;
+  direction: rtl;
+  line-height: 2;
+  margin-bottom: 12px;
+}
+.ayah-en {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.ayah-ur {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 15px;
+  color: var(--text-dim);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.9;
+  display: none;
+}
+
+/* ── SOURCE BADGES ── */
+.sources {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 18px 0 14px;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid;
+  line-height: 1.3;
+}
+.badge-sahih {
+  color: #5DD68A; border-color: rgba(61,170,110,0.4);
+  background: rgba(61,170,110,0.1);
+}
+.badge-classical {
+  color: #78B4E0; border-color: rgba(74,144,196,0.4);
+  background: rgba(74,144,196,0.1);
+}
+.badge-disputed {
+  color: #E4A55A; border-color: rgba(212,132,58,0.4);
+  background: rgba(212,132,58,0.1);
+}
+.badge-scholars-differ {
+  color: #D4B86A; border-color: rgba(212,184,106,0.3);
+  background: rgba(212,184,106,0.07);
+  font-style: italic;
+}
+
+/* ── DISPUTE NOTE ── */
+.dispute-note {
+  background: rgba(212,132,58,0.08);
+  border: 1px solid rgba(212,132,58,0.25);
+  border-left: 3px solid var(--amber);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 13.5px;
+  color: #C4A870;
+  margin: 12px 0;
+  line-height: 1.65;
+}
+.dispute-note strong {
+  font-style: normal; font-weight: 600;
+  color: var(--amber);
+}
+
+/* ── HADITH BLOCK ── */
+.hadith-block {
+  background: rgba(47,184,154,0.06);
+  border: 1px solid rgba(47,184,154,0.2);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.hadith-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.hadith-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* ── REFLECTION BOX ── */
+.reflection {
+  background: rgba(201,168,76,0.04);
+  border-top: 1px solid var(--border);
+  padding: 16px 22px 20px;
+  margin-top: 18px;
+}
+.reflection-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.reflection-text {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.reflection-ur {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14.5px;
+  color: var(--text-dim);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.9;
+  margin-top: 8px;
+  display: none;
+}
+
+/* ── HIGHLIGHT ── */
+.highlight {
+  color: var(--gold);
+  font-weight: 600;
+}
+.teal { color: var(--teal); }
+
+/* ── FIRST REVELATION SPECIAL ── */
+.card.revelation {
+  border-color: rgba(201,168,76,0.4);
+  box-shadow: 0 0 40px rgba(201,168,76,0.07), 0 0 0 1px rgba(201,168,76,0.1);
+}
+.revelation-header {
+  background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(47,184,154,0.05) 100%);
+  padding: 28px 22px 20px;
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+  text-align: center;
+}
+.revelation-ar-title {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  direction: rtl;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.revelation-en-title {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+/* ── KHADIJAH WORDS ── */
+.khadijah-list {
+  list-style: none;
+  margin: 14px 0;
+}
+.khadijah-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-family: 'Lora', serif;
+  font-size: 14.5px;
+  color: var(--text);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.65;
+}
+.khadijah-list li:last-child { border-bottom: none; }
+.khadijah-list li::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 10px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  nav { padding: 0 12px; gap: 6px; }
+  .nav-left a { font-size: 9.5px; }
+  .nav-ar { font-size: 11px; }
+  .badge-ce { display: none; }
+  .card-body { padding: 16px 16px 0; }
+  .card-meta { padding: 12px 16px; gap: 10px; }
+  .reflection { padding: 14px 16px 16px; }
+  .ayah-ar { font-size: 18px; }
+  .revelation-ar-title { font-size: 24px; }
+}
+
+/* ── URDU MODE ── */
+body.ur-mode .en-text { display: none !important; }
+body.ur-mode .narrative-ur { display: block; }
+body.ur-mode .ayah-ur { display: block; }
+body.ur-mode .reflection-ur { display: block; }
+body.ur-mode .reflection-text { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_index.html">Seerah</a>
+  </div>
+  <div class="nav-centre">
+    <div class="nav-ar">السيرة النبوية</div>
+    <div class="nav-en">Seerah · Early Life</div>
+  </div>
+  <div class="nav-right">
+    <span class="badge-ce">570–610 CE</span>
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<div class="hero">
+  <div class="hero-ar">السيرة النبوية</div>
+  <div class="hero-en">The Prophetic Biography — Early Life</div>
+  <div class="hero-sub">From Birth to the First Revelation &nbsp;·&nbsp; 570–610 CE</div>
+  <div class="hero-divider"></div>
+</div>
+
+<!-- ── TIMELINE BAR ── -->
+<div class="timeline-bar">
+  <div class="timeline-label">Life of the Prophet ﷺ — 63 Years</div>
+  <div class="timeline-track">
+    <div class="timeline-fill"></div>
+    <div class="timeline-dot"></div>
+  </div>
+  <div class="timeline-epochs">
+    <span class="timeline-epoch active">Birth · 570</span>
+    <span class="timeline-epoch active">First Revelation · 610</span>
+    <span class="timeline-epoch">Hijra · 622</span>
+    <span class="timeline-epoch">Conquest · 630</span>
+    <span class="timeline-epoch">Passing · 632</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ MAIN ═══════════════════════════════ -->
+<div class="main">
+
+<!-- ─────────────────── SECTION 1: YEAR OF ELEPHANT ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">01</span>
+  The Year of the Elephant &nbsp;·&nbsp; عام الفيل
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~570 CE · Before the Birth</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">عام الفيل</div>
+    <div class="card-title">Abraha's March — and the Miracle of the Birds</div>
+
+    <p class="narrative en-text">
+      In the year that would come to be known as <span class="highlight">ʿĀm al-Fīl — the Year of the Elephant</span>, the Abyssinian viceroy of Yemen, Abraha al-Ashram, marched a fearsome army northward toward Makkah. His purpose was singular and sacrilegious: to demolish the Kaʿbah, the ancient House of God, and redirect Arab pilgrimage to a cathedral he had built in Sanaa. At the head of his procession walked a towering war elephant named Mahmud.
+    </p>
+    <p class="narrative en-text">
+      As the army reached the outskirts of Makkah, the elephant knelt and refused to advance toward the Sacred Sanctuary. The Quraysh, powerless before such an army, had already withdrawn to the surrounding hills. Then the miracle came — from the direction of the sea, flocks of birds appeared, each carrying three stones: one in the beak and one in each talon. They released these hardened clay stones upon the army of Abraha, and Allah destroyed them utterly. The Quran bears witness to this event, and it is the primary source by which we know it.
+    </p>
+    <p class="narrative-ur">
+      یہ وہ سال تھا جسے تاریخ نے "عام الفیل" کے نام سے یاد رکھا۔ یمن کا حبشی گورنر ابرہہ الاشرم اپنے ہاتھیوں کی فوج لے کر مکہ مکرمہ کی طرف بڑھا — اس کا مقصد خانہ کعبہ کو مسمار کرنا تھا۔ مگر اللہ تعالیٰ کا قہر اس پر نازل ہوا۔ چھوٹے چھوٹے ابابیل پرندوں نے سنگریزے برسائے اور ابرہہ کا لشکر چبائے ہوئے بھس کی مانند بکھر گیا۔ یہ واقعہ کعبہ کی قداست اور اللہ کی حفاظت کا اعلان تھا۔
+    </p>
+
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Sūrat al-Fīl (105:1–5) — Primary Source</div>
+      <div class="ayah-ar">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>
+        أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ ﴿١﴾ أَلَمْ يَجْعَلْ كَيْدَهُمْ فِي تَضْلِيلٍ ﴿٢﴾ وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ ﴿٣﴾ تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ ﴿٤﴾ فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍ ﴿٥﴾
+      </div>
+      <div class="ayah-en">
+        "Have you not considered how your Lord dealt with the companions of the elephant? Did He not make their plan go astray? And He sent against them birds in flocks, striking them with stones of hard clay, and He made them like eaten straw."
+        <br><em>(Saheeh International Translation)</em>
+      </div>
+      <div class="ayah-ur">
+        "کیا آپ نے نہیں دیکھا کہ آپ کے رب نے ہاتھی والوں کے ساتھ کیا کیا؟ کیا اس نے ان کی تدبیر کو ناکام نہ کر دیا؟ اور اس نے ان پر پرندوں کے جھنڈ بھیجے جو ان پر پکی مٹی کے کنکر پھینک رہے تھے — پس اس نے انہیں کھائے ہوئے بھس کی مانند بنا دیا۔"
+      </div>
+    </div>
+
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Quran · Sūrat al-Fīl (105:1–5)</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:44–52</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      The Year of the Elephant was not merely a historical event — it was a divine declaration. The House of Allah needed no army to defend it; its protection came from above. The Prophet ﷺ was born into a world where the power of Allah over worldly might had just been demonstrated. This is the context in which we should understand everything that followed.
+    </div>
+    <div class="reflection-ur">
+      عام الفیل محض ایک تاریخی واقعہ نہیں — یہ اللہ کا اعلانِ حفاظت تھا۔ خانہ کعبہ کو کسی فوج کی ضرورت نہ تھی؛ اس کی حفاظت آسمان سے ہوتی ہے۔ نبیِ کریم ﷺ ایسے دور میں تشریف لائے جب دنیاوی طاقت پر اللہ کی قدرت کا مظاہرہ ابھی ابھی ہوا تھا۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 2: BIRTH ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">02</span>
+  His Noble Birth &nbsp;·&nbsp; مولد النبي ﷺ
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~570 CE (Scholars differ — see note)</span></div>
+    <div class="meta-item">📍 <span>Makkah · Banu Hashim Quarter</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">مولد النبي الكريم ﷺ</div>
+    <div class="card-title">Born in the Year of the Elephant — Into the Clan of Quraysh</div>
+
+    <p class="narrative en-text">
+      In the year of the Elephant, in the city of Makkah, <span class="highlight">Muhammad ibn ʿAbdullāh</span> was born into the noble tribe of Quraysh, specifically the clan of Banu Hashim — the custodians of the Kaʿbah and among the most honoured of Arab lineages. His mother was <span class="highlight">Āminah bint Wahb</span>, a woman of virtue and standing among her people.
+    </p>
+    <p class="narrative en-text">
+      His father, <span class="highlight">ʿAbdullāh ibn ʿAbd al-Muṭṭalib</span>, had already passed away before the Prophet's birth — some scholars record this as having occurred during a trading journey to Madinah (then called Yathrib), and others suggest it was shortly after. Ibn Hishām records this detail in his Sīra. The child would never know his father's face. His grandfather, the great chieftain <span class="highlight">ʿAbd al-Muṭṭalib</span>, named him Muhammad — a name that, at the time, was rare among the Arabs — meaning "the Praised One."
+    </p>
+    <p class="narrative-ur">
+      مکہ مکرمہ کی سرزمین پر قریش کے خاندانِ بنو ہاشم میں ایک نور طلوع ہوا — محمد بن عبداللہ ﷺ۔ آپ ﷺ کی والدہ آمنہ بنت وہب ایک باعزت خاتون تھیں۔ آپ ﷺ کے والد عبداللہ آپ کی پیدائش سے قبل ہی وفات پا چکے تھے۔ دادا عبد المطلب نے آپ کا نام "محمد" رکھا — ایک ایسا نام جو عربوں میں اس وقت نادر تھا — جس کا معنی ہے "بہت تعریف کیا گیا۔"
+    </p>
+
+    <div class="dispute-note">
+      <strong>⚠ Scholars Differ:</strong> The precise date of birth is a matter of scholarly disagreement. The traditional date of <em>12 Rabīʿ al-Awwal</em> is widely cited but disputed. Ibn Saʿd records the birth year without fixing an exact day (Al-Ṭabaqāt al-Kubrā 1:100). The year 570 CE itself is approximate — some historians place it as late as 571 CE. The scholarly tradition acknowledges this uncertainty honestly.
+    </div>
+
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:156 — death of Abdullah</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:159 — naming of Muhammad</span>
+      <span class="badge badge-classical">🔵 Ibn Saʿd, Al-Ṭabaqāt 1:100 — birth account</span>
+      <span class="badge badge-scholars-differ">⚪ Exact birth date — scholars differ</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      He was born an orphan of his father, yet would become the father of a civilization. From the very beginning, his life was shaped by loss — and by the profound trust placed in him by those around him. The name "Muhammad" — the Praised One — would eventually be on the lips of every believer, in every prayer, until the Last Day.
+    </div>
+    <div class="reflection-ur">
+      وہ باپ کی چھاؤں کے بغیر پیدا ہوئے، مگر ایک پوری امت کے باپ بنے۔ ان کی زندگی کا آغاز ہی محرومی سے ہوا — مگر یہی محرومی انہیں دنیا کا سب سے بڑا انسان بنانے کا حصہ تھی۔ "محمد" کا نام آج ہر اذان، ہر درود اور ہر دعا میں گونجتا ہے۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 3: EARLY CHILDHOOD ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">03</span>
+  Early Childhood &nbsp;·&nbsp; طفولته الشريفة
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~570–576 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah · The Desert of Banu Saʿd</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Nursing with Ḥalīmah al-Saʿdiyyah — and the Opening of the Chest</div>
+
+    <p class="narrative en-text">
+      Following the noble Arab custom of entrusting infants to desert women for nursing — to ensure a healthy upbringing and pure Arabic speech — the child Muhammad ﷺ was placed in the care of <span class="highlight">Ḥalīmah bint Abī Dhuʾayb of the Banu Saʿd</span>, known to history as Ḥalīmah al-Saʿdiyyah. She would later describe, in her own words, the extraordinary blessings that entered her household the moment she received him.
+    </p>
+    <p class="narrative en-text">
+      Ibn Hishām records Ḥalīmah's own account: her she-camel which had previously yielded no milk suddenly gave abundantly; her drought-year turned to prosperity; her other animals flourished. She was reluctant to return the child and kept him for longer than the customary two years (Ibn Hishām, Sīrat 1:164).
+    </p>
+    <p class="narrative en-text">
+      During this period in the desert, a momentous and authenticated event occurred: the <span class="highlight">Sharḥ al-Ṣadr — the opening of his chest</span>. Two men in white — the angels — came to the young child, opened his chest, removed his heart, cleansed it of a dark clot, washed it with the water of Zamzam, filled it with faith and wisdom, and restored it. This event is recorded in Sahīh Muslim with a sound chain and is among the most well-attested miracles of his early life.
+    </p>
+    <p class="narrative-ur">
+      عربوں کے رواج کے مطابق شیرخوار بچوں کو صحرا کی خواتین کے پاس رکھوایا جاتا تھا تاکہ وہ خالص عربی زبان اور صحت مند ماحول میں پلیں۔ حلیمہ سعدیہ نے آپ ﷺ کو اپنی کفالت میں لیا۔ انہوں نے خود بیان کیا کہ جس لمحے سے آپ ﷺ ان کے گھر آئے، برکت چھا گئی — اونٹنی نے دودھ دینا شروع کیا، کھیتیاں لہلہا اٹھیں۔ اسی دوران "شرح صدر" کا واقعہ پیش آیا جو صحیح مسلم میں مستند حدیث سے ثابت ہے۔
+    </p>
+
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahīh Muslim · Hadith 162 — Authenticated (Ṣaḥīḥ)</div>
+      <div class="hadith-text">
+        Anas ibn Mālik reported: Jibril came to the Messenger of Allah ﷺ while he was playing with the other boys. He took hold of him, threw him to the ground, opened up his chest, took out his heart and removed a clot of blood from it, saying: "This was the portion of Shaytan in you." Then he washed it in a golden bowl with the water of Zamzam, put it back together and restored it to its place. The boys ran to his wet-nurse [Ḥalīmah] saying: "Muhammad has been killed!" They came to him and found him standing with a changed complexion...
+        <br><br>
+        <em>Note: The Sharḥ al-Ṣadr occurred twice — once in childhood (recorded here) and once before the Isrāʾ wal-Miʿrāj (Sahīh Bukhārī 3207). Both are authenticated.</em>
+      </div>
+    </div>
+
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahīh Muslim 162 — Sharḥ al-Ṣadr</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:162–168 — Ḥalīmah's account</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:164 — blessings in household</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      The chest-opening is not merely a miracle — it is a statement of purpose. Before he could speak, before he could lead, before he could recite, his heart was prepared by the hands of angels. The greatest work in human history began with the purification of a single heart in the desert.
+    </div>
+    <div class="reflection-ur">
+      شرح صدر کا واقعہ محض ایک معجزہ نہیں — یہ ایک مقصد کا اعلان ہے۔ اس سے پہلے کہ وہ بول سکتے، پہلے کہ وہ رہنمائی فرما سکتے، ان کا قلب فرشتوں کے ہاتھوں پاک کر دیا گیا۔ تاریخِ انسانی کا سب سے عظیم کام ایک دل کی تطہیر سے شروع ہوا۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 4: DEATH OF MOTHER ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">04</span>
+  The Death of His Mother &nbsp;·&nbsp; وفاة آمنة
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~576 CE · Age approx. 6</span></div>
+    <div class="meta-item">📍 <span>Al-Abwāʾ · Between Makkah and Madinah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Āminah Passes Away — and the Orphan is Left Twice</div>
+
+    <p class="narrative en-text">
+      After being returned from Ḥalīmah's care, the young Muhammad ﷺ lived with his mother Āminah in Makkah. When he was approximately six years old, Āminah took him on a journey to Madinah (then Yathrib) to visit the grave of his father ʿAbdullāh and to meet his father's relatives among the Banu ʿAdī ibn al-Najjār. The journey went, but the return did not complete. On the way back, at a place called <span class="highlight">Al-Abwāʾ</span>, his mother fell gravely ill and passed away. Ibn Hishām records this in the Sīra (1:168).
+    </p>
+    <p class="narrative en-text">
+      The child who had never known his father now did not know his mother. He was taken back to Makkah by a servant woman named Umm Ayman — who would remain a devoted servant and figure of care throughout his life. His grandfather ʿAbd al-Muṭṭalib received him and took him into his household with great love and attention.
+    </p>
+    <p class="narrative en-text">
+      Years later — after the Prophet ﷺ had received his mission — he passed by Al-Abwāʾ and visited the grave of his mother. What happened then is recorded in Sahīh Muslim: he wept, and those around him wept with him. He said he had asked Allah's permission to seek forgiveness for her, but it was not granted — for she had died before Islam — but he was permitted to visit her grave. He said: <em>"Visit the graves, for they remind you of death."</em>
+    </p>
+    <p class="narrative-ur">
+      ماں حلیمہ کے گھر سے واپس آئے تو آمنہ ان کی دنیا تھیں۔ مگر جب آپ ﷺ کی عمر تقریباً چھ سال تھی، ماں نے مدینہ کا سفر کیا اور واپسی پر مقامِ ابواء میں وفات پا گئیں۔ وہ بچہ جسے باپ نے دیکھا نہ تھا، اب ماں سے بھی محروم ہو گیا۔ برسوں بعد جب آپ ﷺ نبوت کے بعد اس جگہ سے گزرے تو ماں کی قبر دیکھ کر رو پڑے — اور صحابہ بھی رو پڑے۔
+    </p>
+
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahīh Muslim · Hadith 976 — Authenticated (Ṣaḥīḥ)</div>
+      <div class="hadith-text">
+        Abū Hurayrah reported: The Prophet ﷺ visited the grave of his mother and wept, and caused those around him to weep also. He said: "I sought permission from my Lord to seek forgiveness for her, but it was not granted to me. I sought permission to visit her grave and it was granted to me. So visit the graves, for they remind you of death."
+      </div>
+    </div>
+
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahīh Muslim 976 — grave visit</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:168 — death of Āminah</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      The Prophet ﷺ wept at his mother's grave even as the Messenger of God. His grief was not suppressed by prophethood — it was honoured by it. He teaches us that loving those we have lost is not weakness; it is the sign of a living heart. And he teaches us to visit the graves, not in despair, but in remembrance.
+    </div>
+    <div class="reflection-ur">
+      آپ ﷺ نبوت کے باوجود ماں کی قبر پر روئے۔ اس گریہ نے سکھایا کہ عزیزوں کے لیے محبت کمزوری نہیں — زندہ دل کی نشانی ہے۔ اور قبروں کی زیارت کی ترغیب دی — موت کی یاد دہانی کے لیے، مایوسی کے لیے نہیں۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 5: DEATH OF GRANDFATHER ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">05</span>
+  Under His Grandfather's Care &nbsp;·&nbsp; كفالة عبد المطلب
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~576–578 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">ʿAbd al-Muṭṭalib — and the Passing of His Grandfather</div>
+
+    <p class="narrative en-text">
+      After his mother's death, the child passed into the care of his paternal grandfather <span class="highlight">ʿAbd al-Muṭṭalib ibn Hāshim</span> — the chieftain of Makkah, custodian of the Kaʿbah, and the most honoured elder of Quraysh. By all accounts, the grandfather's love for this child was extraordinary and visible — he would seat the boy beside him on his special mat, a privilege denied even to his own sons, and would say of him, "This child will have a great station."
+    </p>
+    <p class="narrative en-text">
+      ʿAbd al-Muṭṭalib passed away when the Prophet ﷺ was approximately <span class="highlight">eight years old</span> — Ibn Hishām records his death in the Sīra (1:179). With his grandfather's passing, guardianship transferred to his paternal uncle <span class="highlight">Abū Ṭālib ibn ʿAbd al-Muṭṭalib</span>, the older brother of his father ʿAbdullāh. Abū Ṭālib, though a man of modest means, would prove to be one of the most steadfast protectors of the Prophet ﷺ — defending him against the hostility of Quraysh for decades, even though he himself did not accept Islam.
+    </p>
+    <p class="narrative-ur">
+      ماں کی وفات کے بعد آپ ﷺ کے دادا عبد المطلب نے آپ کو اپنی آغوش میں لے لیا۔ وہ آپ ﷺ سے ایسی محبت کرتے تھے جو انہوں نے اپنی اولاد سے بھی نہ کی تھی۔ جب آپ ﷺ کی عمر تقریباً آٹھ سال تھی، دادا بھی اس دنیا سے رخصت ہو گئے۔ پھر چچا ابو طالب نے کفالت کا بیڑا اٹھایا — اور زندگی بھر آپ ﷺ کی ڈھال بنے رہے۔
+    </p>
+
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:179 — death of ʿAbd al-Muṭṭalib</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      By the age of eight, he had lost his father before birth, his mother at six, and now his grandfather. Yet each loss was followed by protection — as if Providence itself arranged a guardian for every stage. Allah says: "Did He not find you an orphan and shelter you?" (Quran 93:6). This verse is not metaphor — it is biography.
+    </div>
+    <div class="reflection-ur">
+      آٹھ سال کی عمر تک آپ ﷺ باپ، ماں اور دادا — تینوں سے محروم ہو چکے تھے۔ مگر ہر محرومی کے بعد ایک سہارا آ گیا۔ اللہ نے فرمایا: "کیا اس نے تمہیں یتیم نہیں پایا اور پناہ دی؟" (الضحی: ۶)۔ یہ آیت استعارہ نہیں — یہ سوانح حیات ہے۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 6: JOURNEY TO SYRIA / BAHIRA ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">06</span>
+  The Journey to Syria &nbsp;·&nbsp; الرحلة إلى الشام
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~582 CE · Age approx. 12</span></div>
+    <div class="meta-item">📍 <span>Makkah → Buṣrā, Syria</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">Trading Journey with Abū Ṭālib — and the Encounter at Buṣrā</div>
+
+    <p class="narrative en-text">
+      Abū Ṭālib was a merchant, and when he prepared a trading caravan to journey to Bilād al-Shām (Greater Syria), the young Muhammad ﷺ — approximately twelve years of age — clung to his uncle with such longing that Abū Ṭālib took him along. The caravan traveled north through the Arabian Peninsula until it reached the town of <span class="highlight">Buṣrā</span> in present-day Syria.
+    </p>
+
+    <div class="dispute-note">
+      <strong>ℹ Chain Note — Read Carefully:</strong> At Buṣrā, the caravan is said to have encountered a Christian monk named <strong>Baḥīrā</strong> who recognised signs of prophethood in the young Muhammad ﷺ and advised Abū Ṭālib to guard him from the Jews of the region. <em>This account is recorded by Ibn Hishām (Sīrat 1:180–184) and Ibn Saʿd (Al-Ṭabaqāt 1:120). The chain of narration contains some weakness — scholars of hadith note this — but they consider the core account to be historically transmitted through multiple routes. It is presented here as a reported historical account, not as fully authenticated hadith.</em>
+    </div>
+
+    <p class="narrative en-text">
+      Regardless of the Baḥīrā account, what is historically established is that this early journey exposed the young Muhammad ﷺ to the wider world — to the peoples, trade, and religions of the Levant. The Arabs of Makkah were trading partners with both the Byzantine and Persian empires, and these journeys formed part of the Quranic backdrop referenced in <em>Sūrat Quraysh</em> (106:1–4).
+    </p>
+    <p class="narrative-ur">
+      چچا ابو طالب ایک تجارتی قافلہ لے کر شام کی طرف روانہ ہوئے۔ بارہ سالہ محمد ﷺ نے ضد کی کہ ساتھ چلیں گے — اور ابو طالب نے مان لیا۔ بصری کے مقام پر بحیرا راہب سے ملاقات کا قصہ ابن ہشام اور ابن سعد نے روایت کیا ہے، مگر اس کی سند میں کچھ ضعف ہے — اسے تاریخی روایت سمجھ کر پڑھنا چاہیے، نہ کہ صحیح حدیث کے درجے پر۔
+    </p>
+
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:180–184 — Baḥīrā account</span>
+      <span class="badge badge-classical">🔵 Ibn Saʿd, Al-Ṭabaqāt 1:120</span>
+      <span class="badge badge-disputed">🟡 Chain has weakness — historically transmitted</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      Even before revelation, the young Muhammad ﷺ was being prepared — his character shaped by travel, by commerce, by encounter with the world's peoples. Allah's preparation of His prophets is comprehensive: it encompasses experience and exposure, not only spiritual events.
+    </div>
+    <div class="reflection-ur">
+      وحی سے پہلے بھی آپ ﷺ کی تربیت جاری تھی — سفر کے ذریعے، تجارت کے ذریعے، دنیا کے لوگوں سے ملاقات کے ذریعے۔ اللہ تعالیٰ اپنے انبیاء کو روحانی واقعات کے ساتھ ساتھ دنیاوی تجربے سے بھی تیار کرتے ہیں۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 7: AL-AMIN ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">07</span>
+  Al-Amīn — The Trustworthy &nbsp;·&nbsp; الأمين والصادق
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~580s–595 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">الأمين الصادق</div>
+    <div class="card-title">Known Among His People as the Trustworthy and the Truthful</div>
+
+    <p class="narrative en-text">
+      Before a single verse of revelation descended, Makkah already knew <span class="highlight">Muhammad ﷺ by two titles: al-Amīn (the Trustworthy) and al-Ṣādiq (the Truthful)</span>. These were not titles given in ceremony — they were the organic recognition of an entire city. His neighbours, his companions, his trading partners, his rivals — all testified to his honesty. Ibn Hishām records this consensus in the Sīra (1:190).
+    </p>
+    <p class="narrative en-text">
+      Among the notable events of this period was his participation in <span class="highlight">Ḥilf al-Fuḍūl — the Pact of the Virtuous</span>. This was a covenant formed by several clans of Quraysh after a serious injustice: a man from outside Makkah had been cheated by a local merchant, and no one came to his aid. A group of men, including the young Muhammad ﷺ, gathered in the house of ʿAbdullāh ibn Judʿān and pledged: they would stand together against injustice, defend the wronged, and restore rights regardless of the wrongdoer's tribe. Years later — after prophethood — the Prophet ﷺ said: "I witnessed a pact in the house of Ibn Judʿān that was more beloved to me than a herd of red camels; and if I were called to it in Islam, I would respond." This statement is recorded in the Sīra (Ibn Hishām, 1:133–135).
+    </p>
+    <p class="narrative-ur">
+      وحی سے پہلے مکہ مکرمہ پوری شہادت دے رہا تھا — محمد ﷺ "الامین" اور "الصادق" ہیں۔ یہ صرف لقب نہ تھے — یہ ایک پوری قوم کا اعتراف تھا۔ اسی دور میں آپ ﷺ نے "حلف الفضول" میں حصہ لیا — مظلوموں کی مدد کا معاہدہ۔ نبوت کے بعد آپ ﷺ نے فرمایا: اگر اسلام میں بھی مجھے اس طرح کے معاہدے کی طرف بلایا جائے تو میں لبیک کہوں گا۔
+    </p>
+
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:190 — al-Amīn reputation</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:133–135 — Ḥilf al-Fuḍūl</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      Prophethood confirmed what character had already established. His people called him al-Amīn before Gabriel spoke. This is a reminder that revelation does not override character — it crowns it. The foundation of truth must be laid before the call to truth can be answered.
+    </div>
+    <div class="reflection-ur">
+      نبوت نے اس چیز کی تصدیق کی جو کردار نے پہلے ثابت کر دی تھی۔ جبریل علیہ السلام کے آنے سے پہلے مکہ آپ ﷺ کو "الامین" کہہ رہا تھا۔ یہ یاد دہانی ہے: وحی کردار کی جگہ نہیں لیتی — وہ اسے تاج پہناتی ہے۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 8: KHADIJAH ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">08</span>
+  Marriage to Khadījah RA &nbsp;·&nbsp; زواج خديجة الكبرى
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~595 CE · Age approx. 25</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">أم المؤمنين خديجة الكبرى رضي الله عنها</div>
+    <div class="card-title">Khadījah bint Khuwaylid — the First and Greatest</div>
+
+    <p class="narrative en-text">
+      <span class="highlight">Khadījah bint Khuwaylid RA</span> was among the most prominent women of Quraysh — a successful merchant of considerable means, twice widowed, and known for her sharp judgment of character. Hearing of the extraordinary reputation of Muhammad ﷺ for honesty and competence, she hired him to lead her trading caravan to Syria. He returned with greater profit than she expected, and her servant Maysarah reported witnessing signs of blessing around him throughout the journey. Ibn Hishām records this in the Sīra (1:197–200).
+    </p>
+    <p class="narrative en-text">
+      Khadījah RA initiated the proposal of marriage — through her companion Nafīsa bint Munya — after her own careful deliberation (Ibn Hishām, Sīrat 1:200). The Prophet ﷺ accepted, and the marriage took place. It was, in every sense, the most consequential marriage in human history. She was his first confidant, his first supporter, the first to believe in him without hesitation.
+    </p>
+
+    <div class="dispute-note">
+      <strong>⚠ Scholars Differ on Ages:</strong> The traditional account holds that he was <em>25</em> and she was <em>40</em> at the time of marriage. Some scholars — including Ibn Kathīr — place her age at 28. The traditional age of 40 appears in Ibn Hishām. Both positions have scholarly support; the uncertainty should be acknowledged.
+    </div>
+
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahīh Bukhārī · Hadith 3818 — Authenticated (Ṣaḥīḥ)</div>
+      <div class="hadith-text">
+        ʿĀʾishah RA reported: I did not feel jealous of any of the wives of the Prophet ﷺ as much as I felt jealous of Khadījah, though she had died before he married me, because of the frequency with which he mentioned her. Whenever he slaughtered a sheep he would send portions to Khadījah's friends. Sometimes I would say to him: "It is as if there had been no woman in the world except Khadījah." He would reply: "She was such-and-such, and from her I had children."
+      </div>
+    </div>
+
+    <p class="narrative en-text">
+      The Prophet ﷺ was deeply and enduringly devoted to Khadījah RA. He never took another wife while she lived. She bore him his surviving children — including Fāṭimah RA. And when the most frightening moment of his life came — the first revelation — it was to her arms he returned, trembling.
+    </p>
+    <p class="narrative-ur">
+      خدیجہ بنت خویلد رضی اللہ عنہا قریش کی ممتاز خاتون تھیں — صاحبِ ثروت، صاحبِ تجربہ، صاحبِ بصیرت۔ آپ ﷺ کی امانت اور ذہانت دیکھ کر انہوں نے خود نکاح کا پیغام بھیجا۔ یہ نکاح تاریخِ انسانی کا سب سے بابرکت رشتہ تھا۔ وہ پہلی مسلمان تھیں، پہلی سہارا تھیں، پہلی شاہد تھیں۔ آپ ﷺ نے ان کی زندگی میں کوئی دوسرا نکاح نہ کیا۔
+    </p>
+
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Ṣaḥīḥ Bukhārī 3818 — Khadījah's virtue</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:197–200 — caravan account</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:200 — proposal through Nafīsa</span>
+      <span class="badge badge-scholars-differ">⚪ Her age at marriage — scholars differ (28 or 40)</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      In Khadījah RA, Allah gave the Prophet ﷺ more than a spouse — He gave him a fortress. When the world had not yet accepted him, she had. When he was uncertain, she was certain. When the weight of revelation almost crushed him, her words held him upright. Every believer owes a debt of gratitude to Khadījah RA.
+    </div>
+    <div class="reflection-ur">
+      خدیجہ رضی اللہ عنہا میں اللہ نے آپ ﷺ کو صرف زوجہ نہیں دی — ایک قلعہ دیا۔ جب دنیا نے ابھی آپ کو نہ مانا تھا، انہوں نے مانا۔ جب وحی کا بوجھ آپ ﷺ کو ہلانے لگا، ان کے الفاظ نے آپ کو تھامے رکھا۔ ہر مسلمان کا خدیجہ رضی اللہ عنہا پر احسان ہے۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 9: REBUILDING OF KAABAH ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">09</span>
+  Rebuilding of the Kaʿbah &nbsp;·&nbsp; بناء الكعبة
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~605 CE · Age approx. 35</span></div>
+    <div class="meta-item">📍 <span>Makkah · Al-Masjid al-Ḥarām</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-title">The Dispute Over the Black Stone — Resolved by Al-Amīn</div>
+
+    <p class="narrative en-text">
+      When the Prophet ﷺ was approximately <span class="highlight">thirty-five years old</span>, a major flood damaged the Kaʿbah and the Quraysh undertook its reconstruction. Every clan participated, each taking responsibility for a section of the sacred structure. The work proceeded well — until they reached the critical moment of placing the <span class="highlight">Ḥajar al-Aswad (the Black Stone)</span> back into its corner.
+    </p>
+    <p class="narrative en-text">
+      Immediately, the clans fell into bitter dispute over which of them would have the honour of placing the Stone. The argument grew so heated that bloodshed seemed imminent. An elder among them proposed: "Let the first man to enter this sanctuary tomorrow morning be our judge — and we will accept his decision." The next morning, Muhammad ﷺ entered. When they saw him, they cried with one voice: <span class="highlight">"al-Amīn! al-Amīn! We accept him!"</span>
+    </p>
+    <p class="narrative en-text">
+      His solution was remarkable in its simplicity and wisdom. He called for a cloth to be brought. He placed the Black Stone upon it himself. He then invited a representative of each clan to hold an edge of the cloth. Together they lifted it to the height of its corner — and he ﷺ placed the Stone into its position with his own hands. Every clan had shared in the honour. The crisis dissolved. Ibn Hishām and al-Bayhaqi both record this event.
+    </p>
+    <p class="narrative-ur">
+      آپ ﷺ کی عمر تقریباً پینتیس سال تھی جب ایک سیلاب نے خانہ کعبہ کو نقصان پہنچایا اور قریش نے اس کی از سر نو تعمیر کی۔ حجر اسود رکھنے کے شرف پر قبائل میں خونریز جھگڑا ہونے والا تھا — مگر اگلی صبح جو پہلا شخص داخل ہوا وہ محمد ﷺ تھے۔ سب نے یک زبان کہا: "الامین! ہم انہیں مانتے ہیں۔" آپ ﷺ نے ایک چادر پر پتھر رکھا، سب قبائل کو چادر کا کنارہ تھامنے دیا، اور پھر خود اپنے ہاتھوں سے پتھر اپنی جگہ رکھا۔ یہ حکمت تھی، نہ کہ محض منصفی۔
+    </p>
+
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:209–212</span>
+      <span class="badge badge-classical">🔵 Al-Bayhaqi, Dalāʾil al-Nubuwwah 2:54</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      Where others saw a contest for glory, he saw an opportunity for inclusion. Where others would have assigned victory to one and defeat to others, he made everyone a winner. This was not merely problem-solving — it was prophetic wisdom expressing itself five years before the first revelation.
+    </div>
+    <div class="reflection-ur">
+      جہاں دوسرے ایک فریق کو جتانا چاہتے تھے، آپ ﷺ نے سب کو شریک کر لیا۔ یہ صرف مسئلہ حل کرنا نہ تھا — یہ نبوی حکمت تھی جو وحی سے پانچ سال پہلے ظاہر ہو رہی تھی۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 10: CAVE HIRA ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">10</span>
+  The Years of Taḥannuth &nbsp;·&nbsp; التحنث في غار حراء
+</div>
+
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~605–610 CE</span></div>
+    <div class="meta-item">📍 <span>Jabal al-Nūr · Cave Ḥirāʾ</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">غار حراء</div>
+    <div class="card-title">Withdrawal, Reflection, and Spiritual Preparation</div>
+
+    <p class="narrative en-text">
+      In the years preceding the first revelation, a powerful restlessness grew within Muhammad ﷺ. He had long felt an instinctive revulsion toward the idolatry of his people — the worship of carved stone idols, the degradation of women, the oppression of the weak and poor. The world's religious traditions — the Christianity and Judaism he had encountered in Syria — seemed to him corrupted from whatever truth they had once held.
+    </p>
+    <p class="narrative en-text">
+      He began withdrawing to <span class="highlight">Cave Ḥirāʾ</span> on the mountain now known as <span class="teal">Jabal al-Nūr</span> — "the Mountain of Light" — a narrow cave that could barely fit a person lying down, about three miles from Makkah. He would remain there for days, taking provisions with him, in a practice the Arabs called <span class="highlight">taḥannuth</span> — a kind of devotional retreat. Sahīh Bukhārī (Hadith 3) records that he would spend his time there in worship before the divine reality. Ibn Hishām notes his growing discomfort with Makkan idolatry (Sīrat 1:233). Khadījah RA would resupply him when his provisions ran low.
+    </p>
+    <p class="narrative en-text">
+      This was the preparation — the gathering storm before the lightning. A man at the edge of forty, alone in a cave on a mountain, asking questions no one around him could answer, waiting for something he could not name.
+    </p>
+    <p class="narrative-ur">
+      وحی سے پہلے کے برسوں میں آپ ﷺ کے اندر ایک بے چینی بڑھتی جا رہی تھی۔ مکہ کا بت پرستی کا ماحول آپ ﷺ کو کبھی قبول نہ ہوا تھا۔ آپ ﷺ غار حراء جانے لگے — جبل النور پر ایک تنگ غار — اور وہاں "تحنث" کرتے، یعنی عبادت اور تفکر میں وقت گزارتے۔ کھانا پانی ساتھ لے جاتے، خدیجہ رضی اللہ عنہا مزید بھجوا دیتیں۔ یہ طوفان سے پہلے کی خاموشی تھی۔
+    </p>
+
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Ṣaḥīḥ Bukhārī 3 — taḥannuth in Ḥirāʾ</span>
+      <span class="badge badge-classical">🔵 Ibn Hishām, Sīrat 1:233 — discomfort with idolatry</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">
+      Before Allah speaks to a heart, that heart must be ready to listen. The years in Cave Ḥirāʾ were not wasted time — they were the most productive years of all. Solitude, silence, and sincere searching are how the soul is made ready for the weight of truth.
+    </div>
+    <div class="reflection-ur">
+      اللہ کسی دل سے کلام کرنے سے پہلے اسے تیار کرتا ہے۔ غار حراء کے سال ضائع نہیں ہوئے — یہ سب سے قیمتی سال تھے۔ تنہائی، خاموشی اور سچی تلاش — یہی وہ راستہ ہے جس سے روح حقیقت کا بوجھ اٹھانے کے قابل ہوتی ہے۔
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── SECTION 11: FIRST REVELATION ─────────────────── -->
+<div class="section-title">
+  <span class="section-num">11</span>
+  The First Revelation &nbsp;·&nbsp; بدء الوحي
+</div>
+
+<div class="card revelation">
+  <div class="revelation-header">
+    <div class="revelation-ar-title">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ — اقْرَأْ</div>
+    <div class="revelation-en-title">The Night That Changed the World — 610 CE, Cave Ḥirāʾ</div>
+  </div>
+
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>610 CE · Ramaḍān · The Night of Power</span></div>
+    <div class="meta-item">📍 <span>Cave Ḥirāʾ · Jabal al-Nūr · Makkah</span></div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-title">Jibrīl AS Appears — "IQRAʾ" — Read in the Name of Your Lord</div>
+
+    <p class="narrative en-text">
+      It was the month of <span class="highlight">Ramaḍān, 610 CE</span>. Muhammad ﷺ was alone in Cave Ḥirāʾ, as he had been many nights before. He was forty years of age. Then — without warning, without preceding signs — the angel <span class="highlight">Jibrīl ʿalayhis-salām</span> appeared to him. What followed is recorded in full in Sahīh Bukhārī (Hadith 3) — the most rigorously authenticated of all hadith collections — narrated by ʿĀʾishah RA, who had it from the Prophet ﷺ himself.
+    </p>
+
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahīh Bukhārī · Hadith 3 — Authenticated (Ṣaḥīḥ) — The First Revelation</div>
+      <div class="hadith-text">
+        ʿĀʾishah RA narrated: The commencement of the divine revelation to the Messenger of Allah ﷺ was in the form of true dreams which came like the light of dawn. Then solitude was made beloved to him, and he used to go to Cave Ḥirāʾ and engage in taḥannuth there for a number of nights before returning to his family.<br><br>
+        Then the truth came to him suddenly while he was in the cave. The angel came and said: <strong>"IQRAʾ! — Read!"</strong> The Prophet ﷺ replied: "I do not read." The angel then pressed him so hard that he thought he would die, then released him and said: "Read!" He replied again: "I do not read." The angel pressed him a second time, until he thought he would die, then released him and said: "Read!" He replied: "I do not read." The angel pressed him a third time, then released him and said:
+      </div>
+    </div>
+
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Sūrat al-ʿAlaq (96:1–5) — The First Revelation</div>
+      <div class="ayah-ar">
+        اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ﴿١﴾ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ ﴿٢﴾ اقْرَأْ وَرَبُّكَ الْأَكْرَمُ ﴿٣﴾ الَّذِي عَلَّمَ بِالْقَلَمِ ﴿٤﴾ عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ ﴿٥﴾
+      </div>
+      <div class="ayah-en">
+        "Read in the name of your Lord who created — Created man from a clinging substance. Read, and your Lord is the most Generous — Who taught by the pen — Taught man that which he knew not."
+        <br><em>(Saheeh International Translation · Sūrat al-ʿAlaq 96:1–5)</em>
+      </div>
+      <div class="ayah-ur">
+        "پڑھو اپنے رب کے نام سے جس نے پیدا کیا — انسان کو جمے ہوئے خون سے پیدا کیا۔ پڑھو، اور تمہارا رب بڑا کریم ہے — جس نے قلم سے علم دیا — انسان کو وہ سکھایا جو وہ نہ جانتا تھا۔"<br>
+        <em>(سورۃ العلق، آیات ۱–۵)</em>
+      </div>
+    </div>
+
+    <p class="narrative en-text">
+      The Messenger of Allah ﷺ returned with these verses, his heart trembling, his limbs shaking. He went directly to Khadījah RA and said:
+      <span class="highlight">"زمّلوني زمّلوني — Cover me! Cover me!"</span>
+      She wrapped him in a cloak until his fear subsided. Then he told her everything that had happened, and said: "I feared for myself." (Sahīh Bukhārī 3)
+    </p>
+
+    <p class="narrative en-text">
+      And then — in one of the most beautiful passages of human speech preserved in all of recorded history — <span class="highlight">Khadījah RA spoke</span>. Her words were not questions. They were not doubt. They were a declaration — drawn from twenty years of knowing this man:
+    </p>
+
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahīh Bukhārī · Hadith 3 — Khadījah's Words (Ṣaḥīḥ)</div>
+      <div class="hadith-text">
+        "By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, you help the poor and the destitute, you serve your guests generously, and you assist those who have been afflicted by calamity."
+      </div>
+    </div>
+
+    <ul class="khadijah-list">
+      <li>You maintain the ties of kinship <span class="text-dim" style="color:var(--text-dim);font-style:italic;margin-left:6px;">— إِنَّكَ لَتَصِلُ الرَّحِمَ</span></li>
+      <li>You speak only the truth <span class="text-dim" style="color:var(--text-dim);font-style:italic;margin-left:6px;">— you bear the burdens of others</span></li>
+      <li>You help the poor and the destitute <span class="text-dim" style="color:var(--text-dim);font-style:italic;margin-left:6px;">— وَتَكْسِبُ الْمَعْدُومَ</span></li>
+      <li>You honour your guests generously <span class="text-dim" style="color:var(--text-dim);font-style:italic;margin-left:6px;">— وَتَقْرِي الضَّيْفَ</span></li>
+      <li>You support those struck by calamity <span class="text-dim" style="color:var(--text-dim);font-style:italic;margin-left:6px;">— وَتُعِينُ عَلَى نَوَائِبِ الْحَقِّ</span></li>
+    </ul>
+
+    <p class="narrative en-text">
+      Khadījah RA then took him to her cousin <span class="highlight">Waraqah ibn Nawfal</span> — an elderly scholar who had studied the Christian and Jewish scriptures and was among the learned men of his time. When the Prophet ﷺ told him what had happened, Waraqah said: <em>"This is the Nāmūs — the angel of revelation — that Allah sent to Mūsā. Would that I were young! Would that I could live to see when your people drive you out!"</em> The Prophet ﷺ asked: "Will they drive me out?" Waraqah replied: "Yes — for no man has brought what you have brought without being opposed." (Sahīh Bukhārī 3)
+    </p>
+    <p class="narrative en-text">
+      Waraqah ibn Nawfal died shortly after — aged and nearly blind. Scholars have noted this as, in some sense, a mercy: he did not live to witness the years of persecution that followed. But his recognition — the testimony of an honest scholar from another faith — stands as one of the earliest confirmations of the prophetic mission.
+    </p>
+    <p class="narrative-ur">
+      یہ رمضان کی ایک رات تھی، ۶۱۰ عیسوی۔ آپ ﷺ کی عمر چالیس سال تھی۔ غار حراء میں جبریل علیہ السلام نازل ہوئے اور کہا: "اقراء!" آپ ﷺ نے فرمایا: "میں پڑھا ہوا نہیں۔" تین بار زور سے بھینچنے کے بعد پہلی وحی نازل ہوئی: "اقرأ باسم ربك الذي خلق۔" آپ ﷺ کانپتے ہوئے خدیجہ رضی اللہ عنہا کے پاس آئے — "مجھے ڈھانپو! مجھے ڈھانپو!" خدیجہ رضی اللہ عنہا نے کہا: "اللہ کی قسم! اللہ آپ کو کبھی رسوا نہیں کرے گا۔" اور پھر انہوں نے آپ کی وہ پانچ خوبیاں گنوائیں جو صحیح بخاری میں محفوظ ہیں۔ پھر ورقہ بن نوفل نے کہا: "یہ وہی ناموس ہے جو موسیٰ علیہ السلام پر نازل ہوا۔"
+    </p>
+
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Ṣaḥīḥ Bukhārī 3 — First Revelation (complete account)</span>
+      <span class="badge badge-sahih">🟢 Ṣaḥīḥ Bukhārī 3 — Khadījah's words (exact)</span>
+      <span class="badge badge-sahih">🟢 Ṣaḥīḥ Bukhārī 3 — Waraqah's recognition</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection — The Night That Changed History</div>
+    <div class="reflection-text en-text">
+      The first word of revelation was not "Pray." It was not "Believe." It was not "Submit." It was: <strong>IQRAʾ — Read.</strong> The first divine command to humanity's final messenger was a command to engage the mind, to learn, to know. And the first one to believe in him was not a king, not a scholar, not a powerful man — it was a woman who knew him better than anyone. These are not accidents. They are the signature of the message.
+    </div>
+    <div class="reflection-ur">
+      وحی کا پہلا لفظ "نماز پڑھو" نہ تھا، نہ "ایمان لاؤ"، نہ "جھک جاؤ" — پہلا لفظ تھا: <strong>اقراء — پڑھو۔</strong> علم کا حکم، ذہن کی بیداری کا اعلان۔ اور پہلی ایمان لانے والی کوئی بادشاہ نہ تھی، کوئی عالم نہ تھا — ایک عورت تھی جو آپ ﷺ کو سب سے اچھی طرح جانتی تھی۔ یہ اتفاق نہیں — یہ پیغام کی پہچان ہے۔
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTINUATION NOTE ── -->
+<div style="text-align:center; margin:56px 0 24px; padding:24px; border:1px solid var(--border); border-radius:8px; background:var(--gold-glow);">
+  <div style="font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.12em; color:var(--text-dim); text-transform:uppercase; margin-bottom:10px;">Part 1 of 6 · Seerah Series</div>
+  <div style="font-family:'Lora',serif; font-style:italic; color:var(--text-dim); font-size:14px; margin-bottom:16px;">
+    This file covers 570–610 CE. The story continues in Part 2 — the Makkan Period.
+  </div>
+  <a href="seerah_2_makkah.html" style="display:inline-block; background:var(--gold-dim); border:1px solid var(--border-hi); color:var(--gold); font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.08em; padding:10px 22px; border-radius:4px; text-decoration:none; transition:background 0.2s;">
+    Continue → Part 2: The Makkan Period
+  </a>
+</div>
+
+</div><!-- /main -->
+
+<script>
+function setLang(lang) {
+  const body = document.body;
+  const btnEn = document.getElementById('btn-en');
+  const btnUr = document.getElementById('btn-ur');
+  if (lang === 'ur') {
+    body.classList.add('ur-mode');
+    btnUr.classList.add('active');
+    btnEn.classList.remove('active');
+    document.documentElement.setAttribute('lang', 'ur');
+  } else {
+    body.classList.remove('ur-mode');
+    btnEn.classList.add('active');
+    btnUr.classList.remove('active');
+    document.documentElement.setAttribute('lang', 'en');
+  }
+}
+</script>
+
+
+
+<style>
+.seerah-footer-nav{display:flex;justify-content:space-between;align-items:center;padding:40px 24px 60px;max-width:900px;margin:0 auto;gap:16px}
+.seerah-footer-nav a{display:flex;flex-direction:column;padding:16px 20px;background:#080E1C;border:1px solid rgba(201,168,76,.15);border-radius:10px;text-decoration:none;transition:all .2s;max-width:260px;flex:1}
+.seerah-footer-nav a:hover{border-color:rgba(201,168,76,.4);background:#0C1528}
+.sfn-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;color:#8A9BB0;text-transform:uppercase;margin-bottom:6px}
+.sfn-title{font-family:'Cinzel',serif;font-size:12px;color:#C9A84C;margin-bottom:3px}
+.sfn-period{font-family:'Lora',serif;font-size:11px;color:#5A6B80;font-style:italic}
+.sfn-arrow{font-size:18px;color:#C9A84C;margin-bottom:4px}
+.sfn-next{text-align:right}
+.sfn-center{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:#5A6B80;text-transform:uppercase;text-align:center;padding:16px 20px}
+.sfn-center a{color:#C9A84C;text-decoration:none}
+.sfn-center a:hover{color:#E2C97A}
+</style>
+
+<div class="seerah-footer-nav">
+  <div></div>
+  <div class="sfn-center">
+    <a href="seerah_index.html">⟨ Seerah Overview ⟩</a>
+  </div>
+  <a href="seerah_2_makkah.html" class="sfn-next">
+        <span class="sfn-label">Next →</span>
+        <span class="sfn-title">The Makkah Period</span>
+        <span class="sfn-period">610–622 CE</span>
+      </a>
+</div>
+
+</body>
+</html>

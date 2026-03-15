@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seerah — Battles and Treaties | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04070D;--gold:#C9A84C;--gold-dim:rgba(201,168,76,0.18);--gold-glow:rgba(201,168,76,0.08);--teal:#2FB89A;--text:#D4CBB8;--text-dim:#8A8070;--card:#080E1C;--border:rgba(201,168,76,0.15);--border-hi:rgba(201,168,76,0.35);--amber:#D4843A}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Lora',serif;font-size:16px;line-height:1.75;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;height:58px;background:rgba(4,7,13,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);display:flex;align-items:center;padding:0 20px;gap:12px}
+.nav-left{display:flex;align-items:center;gap:8px;flex:1}
+.nav-left a{color:var(--text-dim);text-decoration:none;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.06em;transition:color 0.2s;white-space:nowrap}
+.nav-left a:hover{color:var(--gold)}
+.nav-sep{color:var(--border-hi);font-size:14px}
+.nav-centre{flex:0 0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--gold);font-weight:600}
+.nav-en{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:10px;flex:1;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border-hi);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.08em;padding:4px 9px;cursor:pointer;border-radius:3px;transition:all 0.2s}
+.lang-btn.active{background:var(--gold-dim);color:var(--gold);border-color:var(--gold)}
+.lang-btn:hover{color:var(--gold);border-color:var(--gold)}
+.badge-ce{font-family:'Cinzel',serif;font-size:10px;color:var(--teal);border:1px solid rgba(47,184,154,0.3);padding:3px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap}
+.hero{text-align:center;padding:64px 24px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 70% 100%,rgba(47,184,154,0.04) 0%,transparent 60%);pointer-events:none}
+.hero-ar{font-family:'Noto Naskh Arabic',serif;font-size:clamp(28px,6vw,52px);font-weight:700;color:var(--gold);line-height:1.3;margin-bottom:8px}
+.hero-en{font-family:'Cinzel',serif;font-size:clamp(16px,3vw,26px);font-weight:600;color:var(--text);letter-spacing:0.05em}
+.hero-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-top:8px}
+.hero-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
+.timeline-bar{max-width:700px;margin:0 auto 52px;padding:0 24px}
+.timeline-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--text-dim);text-align:center;margin-bottom:10px;text-transform:uppercase}
+.timeline-track{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;position:relative}
+.timeline-fill{position:absolute;left:51%;top:0;height:100%;width:18%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px}
+.timeline-dot{position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(47,184,154,0.5)}
+.timeline-epochs{display:flex;justify-content:space-between;margin-top:8px}
+.timeline-epoch{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.06em}
+.timeline-epoch.active{color:var(--gold)}
+.main{max-width:860px;margin:0 auto;padding:0 20px 80px}
+.section-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:52px 0 20px;display:flex;align-items:center;gap:14px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-num{background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-size:10px;padding:2px 7px;border-radius:2px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:28px;transition:border-color 0.3s}
+.card:hover{border-color:var(--border-hi)}
+.card-meta{display:flex;flex-wrap:wrap;gap:16px;padding:14px 22px;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04)}
+.meta-item{display:flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.06em;color:var(--text-dim)}
+.meta-item span{color:var(--text)}
+.card-body{padding:22px 22px 0}
+.card-ar-title{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700;color:var(--gold);text-align:right;direction:rtl;margin-bottom:10px;line-height:1.5}
+.card-title{font-family:'Cinzel',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:0.02em}
+.narrative{font-family:'Lora',serif;font-size:15.5px;line-height:1.82;color:var(--text);margin-bottom:14px}
+.narrative-ur{font-family:'Noto Naskh Arabic',serif;font-size:16px;line-height:2;color:var(--text);direction:rtl;text-align:right;margin-bottom:14px;display:none}
+.ayah-block{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-left:3px solid var(--gold);border-radius:6px;padding:18px 20px;margin:20px 0}
+.ayah-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.ayah-ar{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:500;color:#E8D89A;text-align:right;direction:rtl;line-height:2;margin-bottom:12px}
+.ayah-en{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text-dim);line-height:1.7;margin-bottom:8px}
+.ayah-ur{font-family:'Noto Naskh Arabic',serif;font-size:15px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;display:none}
+.sources{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.05em;padding:4px 10px;border-radius:3px;border:1px solid;line-height:1.3}
+.badge-sahih{color:#5DD68A;border-color:rgba(61,170,110,0.4);background:rgba(61,170,110,0.1)}
+.badge-classical{color:#78B4E0;border-color:rgba(74,144,196,0.4);background:rgba(74,144,196,0.1)}
+.badge-disputed{color:#E4A55A;border-color:rgba(212,132,58,0.4);background:rgba(212,132,58,0.1)}
+.badge-scholars-differ{color:#D4B86A;border-color:rgba(212,184,106,0.3);background:rgba(212,184,106,0.07);font-style:italic}
+.dispute-note{background:rgba(212,132,58,0.08);border:1px solid rgba(212,132,58,0.25);border-left:3px solid var(--amber);border-radius:4px;padding:12px 16px;font-family:'Lora',serif;font-style:italic;font-size:13.5px;color:#C4A870;margin:12px 0;line-height:1.65}
+.dispute-note strong{font-style:normal;font-weight:600;color:var(--amber)}
+.hadith-block{background:rgba(47,184,154,0.06);border:1px solid rgba(47,184,154,0.2);border-left:3px solid var(--teal);border-radius:6px;padding:16px 20px;margin:16px 0}
+.hadith-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.hadith-text{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text);line-height:1.75}
+.reflection{background:rgba(201,168,76,0.04);border-top:1px solid var(--border);padding:16px 22px 20px;margin-top:18px}
+.reflection-label{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.reflection-text{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--text-dim);line-height:1.7}
+.reflection-ur{font-family:'Noto Naskh Arabic',serif;font-size:14.5px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;margin-top:8px;display:none}
+.highlight{color:var(--gold);font-weight:600}
+.nav-link-box{text-align:center;margin:56px 0 24px;padding:24px;border:1px solid var(--border);border-radius:8px;background:var(--gold-glow)}
+.nav-link-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;margin-bottom:10px}
+.nav-link-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-bottom:16px}
+.nav-link-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-prev{display:inline-block;background:rgba(201,168,76,0.08);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+.btn-next{display:inline-block;background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+@media(max-width:600px){nav{padding:0 12px;gap:6px}.nav-left a{font-size:9.5px}.nav-ar{font-size:11px}.badge-ce{display:none}.card-body{padding:16px 16px 0}.card-meta{padding:12px 16px;gap:10px}.reflection{padding:14px 16px 16px}.ayah-ar{font-size:18px}}
+body.ur-mode .en-text{display:none!important}
+body.ur-mode .narrative-ur{display:block}
+body.ur-mode .ayah-ur{display:block}
+body.ur-mode .reflection-ur{display:block}
+body.ur-mode .reflection-text{display:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_index.html">Seerah</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_3_hijra.html">Part 3</a>
+  </div>
+  <div class="nav-centre">
+    <div class="nav-ar">السيرة النبوية</div>
+    <div class="nav-en">Seerah · Battles and Treaties</div>
+  </div>
+  <div class="nav-right">
+    <span class="badge-ce">624–630 CE</span>
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-ar">الغزوات والمعاهدات</div>
+  <div class="hero-en">Battles and Treaties</div>
+  <div class="hero-sub">Badr · Uhud · Khandaq · Hudaybiyyah · Letters to Kings · Khaybar · Conquest of Makkah &nbsp;·&nbsp; 624–630 CE</div>
+  <div class="hero-divider"></div>
+</div>
+
+<div class="timeline-bar">
+  <div class="timeline-label">Life of the Prophet ﷺ — 63 Years</div>
+  <div class="timeline-track">
+    <div class="timeline-fill"></div>
+    <div class="timeline-dot"></div>
+  </div>
+  <div class="timeline-epochs">
+    <span class="timeline-epoch">Birth · 570</span>
+    <span class="timeline-epoch">Hijra · 622</span>
+    <span class="timeline-epoch active">Badr · 624</span>
+    <span class="timeline-epoch active">Conquest · 630</span>
+    <span class="timeline-epoch">Passing · 632</span>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- S1: BADR -->
+<div class="section-title"><span class="section-num">01</span>Battle of Badr — 17 Ramadan, 2 AH · غزوة بدر الكبرى</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>17 Ramadan, 2 AH · March 624 CE</span></div>
+    <div class="meta-item">📍 <span>Badr · 80 miles SW of Madinah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">يَوْمُ الْفُرْقَانِ — يَوْمُ الْتَقَى الْجَمْعَانِ</div>
+    <div class="card-title">313 Against 1,000 — The Day of Distinction</div>
+    <p class="narrative en-text">The Muslim force numbered <span class="highlight">313 men</span> — poorly equipped, with seventy camels shared among them. They had set out expecting to intercept Abu Sufyan's returning trade caravan, not a battle. But Abu Sufyan rerouted his caravan and sent word to Makkah. A full Qurayshi army of approximately <span class="highlight">1,000 men</span> — with horses, armour, and drums — marched from Makkah. The two forces met at the wells of Badr. Source: Sahih Bukhari 3957.</p>
+    <p class="narrative en-text">The night before battle, the Prophet ﷺ stood in prayer for an extended period, then supplicated with urgency: <span class="highlight">"O Allah, if this group perishes today, You will not be worshipped on earth."</span> Abu Bakr RA took his hand and said: "Enough, O Messenger of Allah — Allah will fulfil what He has promised you." Source: Sahih Muslim 1763. The Quran had already promised angels: Surat al-Anfal 8:9 — "I will reinforce you with a thousand angels, following one another." The Muslims entered battle with that certainty.</p>
+    <p class="narrative en-text">The battle began with single combat — as was Arab tradition. Three Qurayshi chiefs stepped forward: ʿUtba ibn Rabia, his brother Shayba, and his son al-Walid. Three Muslims stepped forward to meet them: <span class="highlight">Hamza RA, Ali RA</span>, and <span class="highlight">Ubaydah ibn al-Harith RA</span>. All three Qurayshis were killed, though Ubaydah RA sustained a wound from which he died shortly after. Source: Sahih Bukhari 3965.</p>
+    <p class="narrative en-text"><span class="highlight">Abu Jahl</span> — the man who had led the persecution of the early Muslims, who had murdered Sumayyah RA — was killed at Badr. He was identified by <span class="highlight">Abdullah ibn Masud RA</span>, who found him dying among the fallen and severed his head at his command. Source: Sahih Bukhari 3962. The prisoners taken after the battle were treated with notable humanity — those who could teach ten Muslim children to read were released in exchange for their literacy. Source: Ibn Hisham, Sirat, 2:215–220; Abu Dawud 2690. The Quran legislated the distribution of war spoils in Surat al-Anfal 8:41 — one fifth (khums) to Allah and His Messenger, the remainder to the fighters.</p>
+    <p class="narrative-ur">مسلمان ۳۱۳ تھے — ستر اونٹ آپس میں بانٹتے۔ قریش کی فوج تقریباً ایک ہزار تھی — گھوڑے، زرہ بکتر، طبل۔ لڑائی سے پہلے آپ ﷺ نے دعا کی: "اے اللہ! اگر یہ جماعت آج ختم ہو گئی تو زمین پر تیری عبادت نہ ہو گی۔" (صحیح مسلم ۱۷۶۳) پھر جنگ شروع ہوئی۔ ابو جہل — جو سمیہ رضی اللہ عنہا کا قاتل تھا — بدر میں مارا گیا۔ عبداللہ بن مسعود رضی اللہ عنہ نے اسے شناخت کیا۔ (صحیح بخاری ۳۹۶۲) قیدیوں کو قرآن پڑھانے کے بدلے رہا کیا گیا۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Anfal (8:9) — The Angels at Badr</div>
+      <div class="ayah-ar">إِذْ تَسْتَغِيثُونَ رَبَّكُمْ فَاسْتَجَابَ لَكُمْ أَنِّي مُمِدُّكُم بِأَلْفٍ مِّنَ الْمَلَائِكَةِ مُرْدِفِينَ</div>
+      <div class="ayah-en">"When you called upon your Lord for help, and He responded to you: Indeed I will reinforce you with a thousand angels, following one another." <em>(Saheeh International · Surat al-Anfal 8:9)</em></div>
+      <div class="ayah-ur">"جب تم اپنے رب سے فریاد کر رہے تھے تو اس نے تمہاری سنی: بے شک میں تمہاری مدد ایک ہزار فرشتوں سے کروں گا جو یکے بعد دیگرے آئیں گے۔" (الانفال: ۹)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3957 — numbers at Badr</span>
+      <span class="badge badge-sahih">🟢 Sahih Muslim 1763 — Prophet's du'a before battle; angels promised</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3965 — single combat: Hamza, Ali, Ubaydah RA</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3962 — Abu Jahl killed; identified by Ibn Masud RA</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:215–220 — prisoners' treatment</span>
+      <span class="badge badge-classical">🔵 Sunan Abu Dawud 2690 — literacy exchange for release</span>
+      <span class="badge badge-sahih">🟢 Quran 8:41 — khums (one-fifth) legislation</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">He prayed before the battle as if everything depended on Allah — then he fought as if everything depended on his men. This is the balance of tawakkul: not passivity, but full effort combined with full reliance. And the treatment of prisoners — literacy for freedom — is one of history's earliest examples of education as ransom.</div>
+    <div class="reflection-ur">آپ ﷺ نے لڑائی سے پہلے ایسے دعا کی جیسے سب اللہ پر موقوف ہو — پھر ایسے لڑے جیسے سب اپنے ساتھیوں پر موقوف ہو۔ یہی توکل کا توازن ہے: بے عملی نہیں، مکمل کوشش کے ساتھ مکمل بھروسہ۔ قیدیوں کو پڑھانے کے بدلے رہا کرنا — تاریخ کی ابتدائی مثالوں میں سے ایک ہے جہاں علم کو تاوان بنایا گیا۔</div>
+  </div>
+</div>
+
+<!-- S2: UHUD -->
+<div class="section-title"><span class="section-num">02</span>Battle of Uhud — 3 AH · غزوة أحد</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>7 Shawwal, 3 AH · March 625 CE</span></div>
+    <div class="meta-item">📍 <span>Mount Uhud · North of Madinah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">غزوة أُحد — درس الطاعة والثبات</div>
+    <div class="card-title">700 Against 3,000 — The Cost of Disobedience</div>
+    <p class="narrative en-text">Quraysh returned a year after Badr with <span class="highlight">3,000 men</span>, seeking revenge. The Muslims numbered <span class="highlight">700</span>. The Prophet ﷺ stationed fifty archers on a hillock — commanding them in clear terms: <span class="highlight">"Do not leave your position whether we are winning or losing — unless you receive my direct order."</span> The Muslims initially routed Quraysh. Then the archers saw the Muslims collecting war spoils below and — believing the battle won — most descended from their positions. Source: Sahih Bukhari 4043; Quran 3:152.</p>
+    <p class="narrative en-text">Khalid ibn al-Walid — not yet Muslim — saw the gap in the Muslim flank and led a cavalry charge through it. The battle reversed. The Prophet ﷺ was wounded in the face, a tooth was broken, and for a time the rumour spread among the fighters that he had been killed. Sahih Bukhari (4067) records his wound. The Quran addressed those who fled: "And Muhammad is not but a messenger. Other messengers have passed before him..." (Quran 3:144). <span class="highlight">Hamza ibn Abd al-Muttalib RA</span> — the Prophet's uncle and the "Lion of Allah" — was martyred at Uhud. His body was mutilated by Hind bint Utba. When the Prophet ﷺ saw him, he wept. Source: Sahih Bukhari 4072.</p>
+    <p class="narrative en-text">A woman of the Ansar lost her father, husband, and brother at Uhud. When she was told of each loss, she kept asking: <span class="highlight">"How is the Prophet ﷺ?"</span> When she saw him, she said: "Every calamity is easy as long as you are safe." Source: Ibn Hisham, Sirat, 2:275. The Quran comforted the believers after the defeat in Surat Al Imran (3:139–140) and explained that the trial was a test to distinguish the sincere from the wavering (3:165–166).</p>
+    <p class="narrative-ur">قریش ۳۰۰۰ کی فوج لے کر آیا — مسلمان ۷۰۰ تھے۔ آپ ﷺ نے پچاس تیرانداز ایک ٹیلے پر بٹھائے اور سخت حکم دیا: "جیتیں یا ہاریں — میرا حکم آنے تک یہاں سے نہ ہلنا۔" ابتدا میں مسلمانوں نے قریش کو بھگایا — مگر اکثر تیراندازوں نے مالِ غنیمت کے لیے مورچہ چھوڑا۔ خالد بن ولید نے موقع دیکھا اور فلانک پر حملہ کیا۔ حمزہ رضی اللہ عنہ شہید ہوئے۔ آپ ﷺ زخمی ہوئے — دانت ٹوٹا۔ ایک انصاری خاتون کے باپ، شوہر، بھائی سب شہید ہوئے — وہ پوچھتی رہیں: "نبی ﷺ کیسے ہیں؟"</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4043 — 700 vs 3000; archers' command</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4043 — archers descend; reversal of battle</span>
+      <span class="badge badge-sahih">🟢 Quran 3:152 — "Allah fulfilled His promise to you..."</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4067 — Prophet ﷺ wounded</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4072 — Prophet's grief over Hamza RA</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:275 — Ansari woman's question</span>
+      <span class="badge badge-sahih">🟢 Quran 3:139–140, 3:165–166 — lessons after Uhud</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Uhud is the Quran's most detailed lesson on the consequences of disobedience. The command was clear. The reason to break it seemed reasonable. The result was catastrophic. Every generation of Muslims reads Uhud as a reminder: obedience to the Prophet ﷺ is not conditional on our personal assessment of the wisdom of his command.</div>
+    <div class="reflection-ur">احد قرآن کا نافرمانی کے نتائج پر سب سے تفصیلی سبق ہے۔ حکم واضح تھا۔ توڑنے کی وجہ معقول لگی۔ نتیجہ تباہ کن ہوا۔ ہر نسل کے مسلمان احد کو یاد رکھتے ہیں: نبی ﷺ کی اطاعت اس بات پر موقوف نہیں کہ ہم ان کے حکم کی حکمت خود سمجھیں یا نہ سمجھیں۔</div>
+  </div>
+</div>
+
+<!-- S3: KHANDAQ -->
+<div class="section-title"><span class="section-num">03</span>Battle of the Trench — 5 AH · غزوة الخندق</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>5 AH · ~627 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah al-Munawwarah — The Northern Approach</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">غزوة الخندق — والنصر الإلهي في أشد اللحظات</div>
+    <div class="card-title">The Trench — 20 Days of Siege — and the Wind That Ended It</div>
+    <p class="narrative en-text">A coalition of Quraysh, the Ghatafan tribes, and other allied forces — estimated at ten thousand men — marched on Madinah with the intention of destroying the Muslim community once and for all. <span class="highlight">Salman al-Farisi RA</span> — the Persian companion — suggested a stratagem unprecedented in Arabian warfare: digging a <span class="highlight">trench (khandaq)</span> along the exposed northern approach to Madinah. The Prophet ﷺ approved and led the digging himself. Source: Ibn Hisham, Sirat, 2:214.</p>
+    <p class="narrative en-text">During the digging, a moment of prophetic miracle is recorded in Sahih Bukhari (4101) — narrated by Jabir RA. The workers struck a rock so hard it could not be broken. Jabir RA reported that when the Prophet ﷺ struck it himself — three times — three flashes of lightning came with each blow. The Prophet ﷺ said at each flash he had been shown: the palaces of Persia (first), the lands of Byzantium (second), and Yemen (third). Each came to pass within decades. The siege lasted over twenty cold days. The Quran describes the psychological state of the believers in Surat al-Ahzab (33:10–11): "when eyes froze with fear and hearts reached throats."</p>
+    <p class="narrative en-text">The coalition ultimately broke apart — a divine wind disrupted their camp and supplies, and their internal disagreements fractured the alliance. Quran 33:25: "And Allah repelled those who disbelieved in their rage. They did not obtain any good. And sufficient was Allah for the believers in battle." The Banu Qurayza — a Jewish tribe of Madinah bound by the Charter of Madinah — opened negotiations with the coalition during the siege, constituting a breach of their covenant. Their case was adjudicated after the battle by <span class="highlight">Sa'd ibn Muadh RA</span> — whom both the Muslims and the Banu Qurayza had agreed to accept as arbiter. Source: Ibn Hisham, Sirat, 2:234–247.</p>
+    <div class="dispute-note"><strong>⚠ Scholars Differ:</strong> The details surrounding the Banu Qurayza affair and the number killed are subjects of scholarly discussion. Mainstream Islamic scholarship accepts the classical account (Ibn Hisham, Sirat, 2:234–247) that Sa'd ibn Muadh RA judged by the law of the Torah as requested; some modern scholars debate the exact numbers. The core event — tribal betrayal during siege and subsequent punishment — is historically established. State clearly: details differ among scholars.</div>
+    <p class="narrative en-text">The Prophet ﷺ said to the companions after the coalition withdrew: <span class="highlight">"He has not truly prayed Asr who held back from reaching Banu Qurayza."</span> Some companions understood this literally and prayed Asr upon arrival; others prayed it on the way, understanding it as an expression of urgency. The Prophet ﷺ did not fault either group. Source: Sahih Bukhari 4119.</p>
+    <p class="narrative-ur">دس ہزار کی فوج مدینے پر چڑھ آئی۔ سلمان فارسی رضی اللہ عنہ نے خندق کھودنے کا مشورہ دیا — عربوں کے لیے نیا تجربہ۔ آپ ﷺ خود کھودنے میں شریک ہوئے۔ ایک سخت پتھر پر آپ ﷺ کی تین ضربوں سے تین چمکیں نکلیں — ہر چمک میں ایک بشارت: فارس، روم، یمن۔ (صحیح بخاری ۴۱۰۱) بیس دن کا محاصرہ — آنکھیں جم گئیں، دل گلوں تک آ گئے۔ پھر اللہ نے ایسی ہوا بھیجی کہ اتحادی لشکر بکھر گیا۔ بنو قریظہ کے معاملے کا فیصلہ سعد بن معاذ رضی اللہ عنہ نے کیا — جن پر دونوں فریق رضامند تھے۔ (ابن ہشام ۲:۲۳۴–۲۴۷) — تفصیلات میں علماء کا اختلاف ہے۔</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4101 — rock and three flashes; Jabir RA</span>
+      <span class="badge badge-sahih">🟢 Quran 33:10–11 — description of the siege</span>
+      <span class="badge badge-sahih">🟢 Quran 33:25 — coalition repelled</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4119 — "He has not truly prayed Asr..."</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:214 — Salman's suggestion; Seerah narrations</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:234–247 — Banu Qurayza</span>
+      <span class="badge badge-scholars-differ">⚪ Banu Qurayza details — scholars differ on some particulars</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Three flashes of light over a trench in the cold — and a man tells the diggers: "I have been shown the palaces of Persia and Byzantium." They were hungry. They were freezing. They had bound stones to their stomachs against hunger. And they were being told they would inherit the world's greatest empires. They believed him. And they were right.</div>
+    <div class="reflection-ur">سرد موسم میں خندق کے اوپر تین چمکیں — اور آپ ﷺ نے کھودنے والوں سے کہا: "مجھے فارس اور روم کے محلات دکھائے گئے۔" وہ بھوکے تھے، ٹھٹھرتے تھے، پیٹ پر پتھر باندھے تھے۔ انہیں بتایا جا رہا تھا کہ وہ دنیا کی سب سے بڑی سلطنتوں کے وارث ہوں گے۔ انہوں نے یقین کیا۔ اور وہ درست تھے۔</div>
+  </div>
+</div>
+
+<!-- S4: HUDAYBIYYAH -->
+<div class="section-title"><span class="section-num">04</span>Treaty of Hudaybiyyah — 6 AH · صلح الحديبية</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>Dhu al-Qi'dah, 6 AH · ~628 CE</span></div>
+    <div class="meta-item">📍 <span>Hudaybiyyah · Outskirts of Makkah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">صلح الحديبية — الفتح المبين</div>
+    <div class="card-title">The "Defeat" That Was the Greatest Victory</div>
+    <p class="narrative en-text">In the sixth year after the Hijra, the Prophet ﷺ set out with approximately 1,400 companions for Umrah — not war. They were stopped at <span class="highlight">Hudaybiyyah</span>, on the outskirts of Makkah. His she-camel <span class="highlight">al-Qaswa</span> knelt and would not rise — the companions tried to make her stand; he said: "She has not stopped from stubbornness — she was stopped by the One who stopped the elephant." Source: Sahih Bukhari 2731.</p>
+    <p class="narrative en-text">Negotiations followed. Quraysh sent Urwah ibn Masud al-Thaqafi as their envoy. He observed the companions closely and returned to Quraysh with a remarkable report: <span class="highlight">"I have visited the courts of Caesar and Chosroes and the Negus — but I have never seen a people who love their leader as the companions love Muhammad. When he performs ablution, they compete for the water he uses. When he speaks, they lower their voices. They would never surrender him for anything."</span> Source: Sahih Bukhari 2731–2732.</p>
+    <p class="narrative en-text">The treaty terms appeared deeply unfavourable to the Muslims: no Umrah this year; return next year; any fugitive from Quraysh who came to Madinah would be returned; any Muslim who fled Madinah to Makkah would not be returned. <span class="highlight">Umar RA</span> said: "O Messenger of Allah, are you not truly the Prophet? Is our cause not just?" He said: "Yes." Umar RA said: "Then why do we accept this humiliation?" The Prophet ﷺ replied: "I am Allah's Messenger. I will not disobey Him." Source: Sahih Bukhari 2731. The Muslims were distressed, but the Quran revealed immediately: <span class="highlight">"Indeed We have given you a clear victory (fath mubin)"</span> — Surat al-Fath (48:1).</p>
+    <p class="narrative en-text">The wisdom became clear within two years: the two-year peace allowed Islam to spread to ten times more people than had accepted it in all previous years combined. The <span class="highlight">Bay'at al-Ridwan</span> — the pledge of satisfaction — was taken under a tree at Hudaybiyyah when the companions pledged to fight to the last. The Quran honoured them: "Allah was pleased with the believers when they pledged allegiance to you under the tree" (Quran 48:18). Source: Sahih Bukhari 4169.</p>
+    <p class="narrative-ur">چھ ہجری میں آپ ﷺ عمرے کے لیے تقریباً چودہ سو صحابہ کے ساتھ نکلے — جنگ کی نیت نہیں تھی۔ حدیبیہ میں روکے گئے۔ معاہدے کی شرائط بظاہر سخت تھیں — عمر ابھی نہیں، اگلے سال؛ قریش کا فراری مدینے سے واپس کیا جائے۔ عمر رضی اللہ عنہ نے اعتراض کیا۔ آپ ﷺ نے فرمایا: "میں اللہ کا رسول ہوں — اس کی نافرمانی نہیں کروں گا۔" پھر سورۃ الفتح نازل ہوئی: "ہم نے تمہیں فتحِ مبین دی۔" عروہ بن مسعود نے قریش کو بتایا: "میں نے کیسر و کسری کے دربار دیکھے — مگر کوئی اپنے رہنما سے ایسی محبت نہیں کرتا جیسے محمد ﷺ کے ساتھی کرتے ہیں۔"</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Fath (48:1) — "Indeed We have given you a clear victory"</div>
+      <div class="ayah-ar">إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا</div>
+      <div class="ayah-en">"Indeed, We have given you a clear conquest." <em>(Saheeh International · Surat al-Fath 48:1)</em></div>
+      <div class="ayah-ur">"بے شک ہم نے تمہیں کھلی فتح عطا کی۔" (الفتح: ۱)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 2731 — Hudaybiyyah full account; al-Qaswa kneels</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 2731–2732 — Urwah ibn Masud's report</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 2731 — Umar RA's objection; Prophet's reply</span>
+      <span class="badge badge-sahih">🟢 Quran 48:1 — Surat al-Fath — the clear victory</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4169 — Bay'at al-Ridwan; Quran 48:18</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">What the Muslims called a humiliation, Allah called a "clear victory." The lesson of Hudaybiyyah is the hardest lesson of faith: sometimes what looks like defeat from the inside is victory from above. Trust — even when every apparent sign contradicts it — is the most demanding form of iman.</div>
+    <div class="reflection-ur">جسے مسلمانوں نے ذلت کہا، اللہ نے "فتح مبین" کہا۔ حدیبیہ کا سبق ایمان کا سب سے مشکل سبق ہے: کبھی اندر سے جو شکست نظر آتی ہے وہ اوپر سے فتح ہوتی ہے۔ بھروسہ — جب سارے ظاہری نشانات اس کے خلاف ہوں — ایمان کی سب سے مشکل صورت ہے۔</div>
+  </div>
+</div>
+
+<!-- S5: LETTERS TO KINGS -->
+<div class="section-title"><span class="section-num">05</span>Letters to the Kings of the World — 7 AH · رسائل النبي إلى الملوك</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>7 AH · ~628–629 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah → Byzantium, Persia, Egypt, Abyssinia</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">رسائل النبي ﷺ إلى ملوك الأرض</div>
+    <div class="card-title">Letters to Heraclius, Khosrow, the Negus, and Muqawqis</div>
+    <p class="narrative en-text">After Hudaybiyyah, with the two-year peace secured, the Prophet ﷺ turned outward. He sent letters to the major rulers of the known world — each sealed with his seal reading: <span class="highlight">"Muhammad, Messenger of Allah"</span> — calling them to Islam. Among those who received letters: <span class="highlight">Heraclius</span>, Emperor of Byzantium; <span class="highlight">Khosrow II</span>, Emperor of Persia; <span class="highlight">the Negus</span> of Abyssinia; and <span class="highlight">Muqawqis</span>, the Christian ruler of Egypt.</p>
+    <p class="narrative en-text">The most detailed account concerns Heraclius. After receiving the letter, Heraclius summoned Abu Sufyan — then a merchant in Syria and not yet Muslim — and conducted a methodical interrogation about the Prophet ﷺ. Sahih Bukhari (Hadith 7) preserves this interrogation in extraordinary detail. Heraclius asked: Is his lineage noble? Has anyone made the same claim before him? Do his followers increase or decrease? Have any of them apostatised? Has he ever broken his word? Does he fight or does he call before fighting? Abu Sufyan — who at that time was the Prophet's ﷺ enemy — answered honestly to each question, because there were witnesses present and he feared contradicting himself. Every answer supported the Prophet's ﷺ truthfulness.</p>
+    <p class="narrative en-text">Heraclius concluded: <span class="highlight">"If what you say is true, then he will take what is under my feet."</span> He reportedly told his bishops: "I know this man is a prophet — but I fear I will lose my kingdom." He chose his throne. Khosrow of Persia tore the letter in contempt. The Prophet ﷺ is reported to have said: "Allah will tear his kingdom as he tore the letter." This prediction was fulfilled — Persia was conquered within twenty years. Source: Sahih Bukhari 2940.</p>
+    <p class="narrative-ur">حدیبیہ کے بعد آپ ﷺ نے دنیا کے بڑے بادشاہوں کو خطوط بھیجے: قیصر روم، کسری فارس، نجاشی حبشہ، مقوقس مصر۔ ہرقل نے ابو سفیان کو — جو اس وقت اسلام کا دشمن تھا — بلا کر مفصل پوچھ گچھ کی۔ (صحیح بخاری ۷) ہر سوال کا جواب آپ ﷺ کی سچائی کی گواہی تھا۔ ہرقل نے کہا: "اگر تم نے جو کہا سچ ہے تو وہ میرے قدموں کے نیچے جو ہے وہ لے لے گا۔" کسری نے خط پھاڑا — آپ ﷺ نے فرمایا: "اللہ اس کی سلطنت بھی پھاڑ دے گا۔" بیس سال میں پیشگوئی پوری ہوئی۔</p>
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahih Bukhari, Hadith 7 — Heraclius Interrogates Abu Sufyan (Sahih)</div>
+      <div class="hadith-text">Heraclius asked: "What does he command you?" Abu Sufyan said: "He says: Worship Allah alone and do not associate anything with Him; and abandon what your forefathers said. He commands us to pray, to give charity, to be chaste, and to keep our ties of kinship." Heraclius said to his interpreter: "Tell him — I asked you about his lineage and you said he was of noble lineage. Such is the way of messengers — they are sent from the noble lineage of their people. I asked if anyone had made this claim before him and you said no — if someone had come before him I would have thought he was following a predecessor. I asked if the kings drove him out... truly — the prophets are always expelled. I asked if he had ever broken his word and you said no — that is how messengers are..."</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari, Hadith 7 — Heraclius's full interrogation of Abu Sufyan</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 2940 — letters to rulers; Khosrow tears the letter</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Heraclius — one of history's greatest emperors — recognised the signs of prophethood and privately acknowledged them. Then he chose his throne. His knowledge was not enough. This is the distinction between recognising truth and submitting to it. Recognition without submission is the oldest failure in religious history.</div>
+    <div class="reflection-ur">ہرقل — تاریخ کے عظیم ترین بادشاہوں میں سے ایک — نے نبوت کی نشانیاں پہچانیں اور دل میں مانا۔ پھر تخت کو چنا۔ اس کا علم کافی نہ تھا۔ یہ حق کو پہچاننے اور اس کے سامنے جھکنے کا فرق ہے۔ پہچان بغیر تسلیم کے — مذہبی تاریخ کی سب سے پرانی ناکامی ہے۔</div>
+  </div>
+</div>
+
+<!-- S6: KHAYBAR -->
+<div class="section-title"><span class="section-num">06</span>Conquest of Khaybar — 7 AH · غزوة خيبر</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>Muharram–Safar, 7 AH · ~628 CE</span></div>
+    <div class="meta-item">📍 <span>Khaybar · 95 miles north of Madinah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">غزوة خيبر — ولأعطين الراية غداً رجلاً</div>
+    <div class="card-title">"I Will Give the Banner to One Who Loves Allah and His Messenger"</div>
+    <p class="narrative en-text">Khaybar was a network of Jewish fortresses north of Madinah whose leadership had been instrumental in inciting the coalition that besieged Madinah at the Trench. The Prophet ﷺ marched on it in 7 AH. On the eve of the campaign's decisive moment, he announced: <span class="highlight">"Tomorrow I will give the banner to a man who loves Allah and His Messenger — and whom Allah and His Messenger love — and by whose hands Allah will grant victory."</span> The companions spent the night wondering and hoping. In the morning, he called for <span class="highlight">Ali ibn Abi Talib RA</span>. Source: Sahih Bukhari 2942.</p>
+    <p class="narrative en-text">Ali RA at the time was suffering from severe eye pain — the Prophet ﷺ applied his saliva to his eyes, and Ali RA said the pain was gone as if he had never had it. He was given the banner and the fortress fell. Source: Sahih Bukhari 2942.</p>
+    <p class="narrative en-text">After the victory, a woman named <span class="highlight">Zaynab bint al-Harith</span> — whose father and husband had been killed in the battle — presented the Prophet ﷺ with a gift of a roasted sheep, lacing it with poison. The Prophet ﷺ took a bite, then spat it out — saying: <span class="highlight">"This bone tells me it is poisoned."</span> Sahih Bukhari (2617) records this: the meat, or the arm of the sheep, spoke and warned him. A companion named Bishr ibn al-Bara RA who had also eaten from it died from the poison. The woman admitted the act. This is among the authenticated miracles of the Prophet ﷺ — the speaking of an inanimate object in warning.</p>
+    <p class="narrative-ur">خیبر — شمالی عرب کا یہودی قلعہ — احزاب کی فوج کو اکٹھا کرنے کا مرکز تھا۔ فتح کی رات آپ ﷺ نے فرمایا: "کل میں وہ جھنڈا دوں گا جو اللہ اور اس کے رسول سے محبت کرتا ہو۔" صبح علی رضی اللہ عنہ کو بلایا — جن کی آنکھیں دکھ رہی تھیں۔ آپ ﷺ نے لعاب لگایا — درد ختم ہو گیا۔ قلعہ فتح ہوا۔ (صحیح بخاری ۲۹۴۲) پھر ایک یہودی خاتون نے زہر آلود بھنی بکری پیش کی۔ آپ ﷺ نے ایک لقمہ لیا اور اگل دیا — فرمایا: "یہ ہڈی بتاتی ہے کہ یہ زہر آلود ہے۔" (صحیح بخاری ۲۶۱۷) بشر بن براء رضی اللہ عنہ جنہوں نے کھایا تھا، وفات پا گئے۔</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 2942 — banner given to Ali RA; eye healed; Khaybar falls</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 2617 — poisoned meat warns the Prophet ﷺ; authenticated miracle</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">"A man who loves Allah and His Messenger — and whom Allah and His Messenger love." Every companion that night hoped to be that man. This is the aspiration Islam plants in every believer: not to be powerful, not to be the greatest warrior — but to be loved by Allah and His Messenger. That is the highest rank.</div>
+    <div class="reflection-ur">"جو اللہ اور اس کے رسول سے محبت کرتا ہو — اور جس سے اللہ اور اس کے رسول محبت کرتے ہوں۔" اس رات ہر صحابی نے امید کی کہ وہی وہ شخص ہو۔ یہی اسلام کی سب سے بڑی خواہش ہے: طاقتور ہونا نہیں، سب سے بڑا جنگجو ہونا نہیں — بلکہ اللہ اور اس کے رسول ﷺ کی محبت کا مستحق ہونا۔ یہی سب سے اونچا درجہ ہے۔</div>
+  </div>
+</div>
+
+<!-- S7: CONQUEST OF MAKKAH -->
+<div class="section-title"><span class="section-num">07</span>Conquest of Makkah — 20 Ramadan, 8 AH · فتح مكة المكرمة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>20 Ramadan, 8 AH · January 630 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">فَتَحْنَا مَكَّةَ — يَوْمُ الرَّحْمَةِ</div>
+    <div class="card-title">10,000 March — and the Day of Mercy</div>
+    <p class="narrative en-text">Eight years after being driven from his home with a price on his head, the Prophet ﷺ returned to Makkah — at the head of <span class="highlight">10,000 companions</span>, the largest Muslim army until then. Quraysh had violated the Hudaybiyyah treaty by aiding allies who attacked Muslim-aligned tribes. The Muslim army moved so swiftly and secretly that Quraysh had almost no time to prepare. Source: Ibn Hisham, Sirat, 2:399.</p>
+    <p class="narrative en-text"><span class="highlight">Abu Sufyan ibn Harb</span> — the long-time leader of Quraysh's opposition to Islam — came to the Muslim camp the night before and accepted Islam at the hands of Abbas ibn Abd al-Muttalib RA. His conversion is recorded in Ibn Hisham (Sirat, 2:399–403). The Prophet ﷺ declared: "Whoever enters the house of Abu Sufyan is safe. Whoever enters his own house and locks the door is safe. Whoever enters the mosque is safe." This removed the grounds for resistance without bloodshed.</p>
+    <p class="narrative en-text">The Prophet ﷺ entered Makkah on his camel with his head bowed — not in triumph but in humility — reciting Surat al-Fath. Sahih Bukhari (4281) records this. He went directly to the Kaʿbah. Around it stood <span class="highlight">360 idols</span>. He pointed at each with his staff and recited: <span class="highlight">"Truth has come and falsehood has departed — indeed falsehood is ever departing"</span> (Quran 17:81). Each idol fell on its face. Source: Sahih Bukhari 4287.</p>
+    <p class="narrative en-text">Then the Prophet ﷺ addressed the people of Makkah — the same people who had driven him out, tortured his companions, murdered Sumayyah RA, mutilated Hamza RA — and said: <span class="highlight">"Today is a day of mercy. Go — you are free."</span> Source: Ibn Hisham, Sirat, 2:409. He declared a general amnesty. <span class="highlight">Bilal ibn Rabah RA</span> — the man who had been tortured on that very city's outskirts for saying "Ahad! Ahad!" — climbed to the roof of the Kaʿbah and made the adhan. Source: Ibn Hisham, Sirat, 2:411.</p>
+    <p class="narrative-ur">آٹھ سال بعد — جب آپ ﷺ کے سر پر قیمت لگی تھی — آپ ﷺ دس ہزار صحابہ کے ساتھ مکہ واپس آئے۔ ابو سفیان نے رات کو اسلام قبول کیا۔ آپ ﷺ نے اعلان کیا: "ابو سفیان کے گھر میں جائے — محفوظ۔ اپنے گھر میں رہے — محفوظ۔ مسجد میں داخل ہو — محفوظ۔" آپ ﷺ سر جھکائے اونٹ پر سوار ہو کر داخل ہوئے، سورۃ الفتح پڑھتے ہوئے۔ کعبے کے گرد ۳۶۰ بت تھے — آپ ﷺ نے ہر بت پر اشارہ کیا اور کہا: "حق آ گیا اور باطل ختم ہو گیا۔" ہر بت منہ کے بل گرا۔ پھر اعلان ہوا: "آج کا دن رحمت کا دن ہے — جاؤ، تم آزاد ہو۔" بلال رضی اللہ عنہ نے کعبے کی چھت پر اذان دی۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Isra (17:81) — Recited as the Idols Fell</div>
+      <div class="ayah-ar">وَقُلْ جَاءَ الْحَقُّ وَزَهَقَ الْبَاطِلُ ۚ إِنَّ الْبَاطِلَ كَانَ زَهُوقًا</div>
+      <div class="ayah-en">"And say: Truth has come and falsehood has departed. Indeed falsehood is ever departing." <em>(Saheeh International · Surat al-Isra 17:81)</em></div>
+      <div class="ayah-ur">"اور کہو: حق آ گیا اور باطل مٹ گیا — بے شک باطل مٹنے والا ہی ہے۔" (الاسراء: ۸۱)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4281 — Prophet ﷺ enters Makkah, head bowed</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4287 — 360 idols fall; Quran 17:81</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:399 — army of 10,000</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:399–403 — Abu Sufyan accepts Islam</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:409 — "Today is a day of mercy"</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:411 — Bilal RA calls adhan from the Kaʿbah roof</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">"Today is a day of mercy." He said this to the people who had done everything to destroy him. He had the power to do whatever he wished — and he chose amnesty. This is the conquest that matters most: not the conquest of a city, but the conquest of the desire for revenge by a greater desire — mercy. Bilal on the roof of the Kaʿbah is the image the whole story had been building toward.</div>
+    <div class="reflection-ur">"آج رحمت کا دن ہے۔" یہ انہوں نے ان لوگوں سے کہا جنہوں نے ہر ممکن کوشش کی کہ انہیں مٹا دیں۔ ان کے پاس طاقت تھی — انہوں نے معافی چنی۔ یہی وہ فتح ہے جو سب سے زیادہ اہم ہے: شہر کی فتح نہیں — انتقام کی خواہش پر رحمت کی خواہش کی فتح۔ کعبے کی چھت پر بلال رضی اللہ عنہ — یہ وہ تصویر ہے جس کی طرف پوری کہانی بڑھ رہی تھی۔</div>
+  </div>
+</div>
+
+<div class="nav-link-box">
+  <div class="nav-link-label">Part 4 of 5 · Seerah Series</div>
+  <div class="nav-link-sub">The battles end with mercy. The final years follow. Part 5 covers the Farewell Hajj, the passing, and the legacy.</div>
+  <div class="nav-link-btns">
+    <a href="seerah_3_hijra.html" class="btn-prev">← Part 3: The Hijra</a>
+    <a href="seerah_5_final.html" class="btn-next">Continue → Part 5: Final Years and Legacy</a>
+  </div>
+</div>
+
+</div>
+<script>
+function setLang(l){const b=document.body,e=document.getElementById('btn-en'),u=document.getElementById('btn-ur');if(l==='ur'){b.classList.add('ur-mode');u.classList.add('active');e.classList.remove('active');document.documentElement.setAttribute('lang','ur');}else{b.classList.remove('ur-mode');e.classList.add('active');u.classList.remove('active');document.documentElement.setAttribute('lang','en');}}
+</script>
+
+
+<style>
+.seerah-footer-nav{display:flex;justify-content:space-between;align-items:center;padding:40px 24px 60px;max-width:900px;margin:0 auto;gap:16px}
+.seerah-footer-nav a{display:flex;flex-direction:column;padding:16px 20px;background:#080E1C;border:1px solid rgba(201,168,76,.15);border-radius:10px;text-decoration:none;transition:all .2s;max-width:260px;flex:1}
+.seerah-footer-nav a:hover{border-color:rgba(201,168,76,.4);background:#0C1528}
+.sfn-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;color:#8A9BB0;text-transform:uppercase;margin-bottom:6px}
+.sfn-title{font-family:'Cinzel',serif;font-size:12px;color:#C9A84C;margin-bottom:3px}
+.sfn-period{font-family:'Lora',serif;font-size:11px;color:#5A6B80;font-style:italic}
+.sfn-arrow{font-size:18px;color:#C9A84C;margin-bottom:4px}
+.sfn-next{text-align:right}
+.sfn-center{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:#5A6B80;text-transform:uppercase;text-align:center;padding:16px 20px}
+.sfn-center a{color:#C9A84C;text-decoration:none}
+.sfn-center a:hover{color:#E2C97A}
+</style>
+
+<div class="seerah-footer-nav">
+  <a href="seerah_3_hijra.html">
+        <span class="sfn-label">← Previous</span>
+        <span class="sfn-title">The Hijra & Madinah</span>
+        <span class="sfn-period">622–624 CE</span>
+      </a>
+  <div class="sfn-center">
+    <a href="seerah_index.html">⟨ Seerah Overview ⟩</a>
+  </div>
+  <a href="seerah_5_final.html" class="sfn-next">
+        <span class="sfn-label">Next →</span>
+        <span class="sfn-title">Final Years & Legacy</span>
+        <span class="sfn-period">630–632 CE</span>
+      </a>
+</div>
+
+</body>
+</html>

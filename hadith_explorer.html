@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hadith Explorer — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;--golddim:rgba(201,168,76,.10);
+  --teal:#2FB89A;--blue:#7A9BE8;--orange:#E8A060;--red:#E86060;
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#5A6B80;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);
+  --acc:#C9A84C;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:'Lora',serif;overflow-x:hidden;height:100vh;display:flex;flex-direction:column}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 800px 600px at 20% 10%,rgba(201,168,76,.04) 0%,transparent 65%)}
+
+/* NAV */
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.95);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 20px;height:56px;gap:14px;flex-shrink:0}
+.back-btn{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--text2);padding:6px 12px;border:1px solid var(--border2);border-radius:6px;cursor:pointer;transition:all .15s;text-decoration:none;flex-shrink:0}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;font-size:20px;color:var(--gold);text-shadow:0 0 16px rgba(201,168,76,.35)}
+.nav-en{font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:var(--gold2);letter-spacing:2px}
+.nav-stats{margin-left:auto;display:flex;gap:8px}
+.nstat{font-family:'Cinzel',serif;font-size:9px;color:var(--text2);padding:3px 10px;border:1px solid var(--border2);border-radius:14px;white-space:nowrap}
+.nstat strong{color:var(--gold)}
+.mob-menu{display:none;align-items:center;justify-content:center;width:34px;height:34px;border-radius:7px;background:var(--golddim);border:1px solid var(--border);font-size:16px;cursor:pointer;flex-shrink:0}
+
+/* LAYOUT */
+.layout{display:flex;flex:1;overflow:hidden;position:relative;z-index:1}
+
+/* SIDEBAR */
+.sidebar{width:262px;flex-shrink:0;background:rgba(8,14,28,.85);border-right:1px solid var(--border2);display:flex;flex-direction:column;overflow:hidden}
+.col-section{padding:12px;border-bottom:1px solid var(--border2);flex-shrink:0}
+.col-lbl{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:9px}
+.col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.cbtn{padding:7px 3px;border-radius:7px;text-align:center;cursor:pointer;font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:.2px;border:1px solid var(--border2);color:var(--text2);transition:all .18s;background:transparent;line-height:1.45;user-select:none}
+.cbtn:hover:not(.on){border-color:var(--border);color:var(--gold2)}
+.cbtn.on{font-weight:700;color:#000}
+.book-list{overflow-y:auto;flex:1;padding:4px 0}
+.bitem{padding:9px 14px;cursor:pointer;border-left:3px solid transparent;transition:all .12s}
+.bitem:hover{background:rgba(201,168,76,.04)}
+.bitem.on{background:rgba(201,168,76,.09);border-left-color:var(--acc)}
+.b-num{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:1px;color:var(--text3);margin-bottom:2px}
+.b-name{font-size:11.5px;color:var(--text);line-height:1.35;font-weight:600}
+.b-ar{font-family:'Noto Naskh Arabic',serif;font-size:11px;color:var(--gold);direction:rtl;text-align:right;margin-top:2px;opacity:.8}
+.b-cnt{font-family:'Cinzel',serif;font-size:9px;color:var(--text3);margin-top:2px}
+
+/* MAIN WRAP */
+.main-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+
+/* Collection strip */
+.cstrip{padding:7px 18px;background:rgba(201,168,76,.02);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.cs-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cs-name{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.8px;color:var(--text);font-weight:600}
+.cs-ar{font-family:'Noto Naskh Arabic',serif;font-size:12px;color:var(--gold)}
+.cs-total{font-family:'Cinzel',serif;font-size:8px;color:var(--text2)}
+.cs-right{margin-left:auto;display:flex;gap:6px}
+.cs-urd{font-family:'Cinzel',serif;font-size:8px;color:var(--teal);padding:2px 7px;border-radius:8px;background:rgba(47,184,154,.09);border:1px solid rgba(47,184,154,.2)}
+.cs-src-local{font-family:'Cinzel',serif;font-size:8px;color:var(--teal);padding:2px 7px;border-radius:8px;background:rgba(47,184,154,.08);border:1px solid rgba(47,184,154,.18)}
+.cs-src-api{font-family:'Cinzel',serif;font-size:8px;color:var(--orange);padding:2px 7px;border-radius:8px;background:rgba(232,160,96,.08);border:1px solid rgba(232,160,96,.18)}
+
+/* Toolbar */
+.toolbar{padding:9px 18px;border-bottom:1px solid var(--border2);background:rgba(8,14,28,.7);display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap}
+.srch-wrap{flex:1;min-width:160px;position:relative}
+.srch-wrap input{width:100%;padding:7px 32px 7px 13px;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:7px;color:var(--text);font-family:'Lora',serif;font-size:13px;outline:none;transition:border-color .2s}
+.srch-wrap input::placeholder{color:var(--text3);font-size:11.5px}
+.srch-wrap input:focus{border-color:var(--gold)}
+.srch-ico{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
+.vtog{display:flex;gap:2px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:16px;padding:2px;flex-shrink:0}
+.vt{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.7px;padding:5px 12px;border-radius:12px;cursor:pointer;transition:all .18s;color:var(--text2);user-select:none;white-space:nowrap}
+.vt.on{background:var(--gold);color:#000;font-weight:700}
+.vt:hover:not(.on){color:var(--gold2)}
+.grade-filters{display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap}
+.gf{padding:4px 11px;border-radius:20px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:.3px;cursor:pointer;transition:all .15s;border:1px solid rgba(255,255,255,.08);color:var(--text2);background:transparent}
+.gf:hover{border-color:var(--border)}
+.gf.on{color:#fff}
+.gf-all.on{background:rgba(201,168,76,.18);border-color:var(--gold);color:var(--gold)}
+.gf-sahih.on{background:rgba(47,184,154,.15);border-color:rgba(47,184,154,.4);color:#2FB89A}
+.gf-hasan.on{background:rgba(232,200,96,.12);border-color:rgba(232,200,96,.35);color:#E8C860}
+.tb-cnt{font-family:'Cinzel',serif;font-size:9px;color:var(--text2);margin-left:auto;white-space:nowrap}
+
+/* Progress bar */
+.prog-wrap{padding:10px 18px;background:rgba(201,168,76,.03);border-bottom:1px solid var(--border2)}
+.prog-lbl{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:1px;color:var(--gold);margin-bottom:6px}
+.prog-track{background:rgba(255,255,255,.06);border-radius:3px;height:3px;margin-bottom:7px}
+.prog-fill{background:var(--gold);height:3px;border-radius:3px;transition:width .3s}
+.prog-note{font-size:11px;color:var(--text3);font-style:italic}
+
+/* Feed */
+.main{flex:1;overflow-y:auto;padding:16px 20px 36px}
+.hadith-grid{display:flex;flex-direction:column;gap:12px;max-width:880px;margin:0 auto}
+
+/* HADITH CARD - exact duas.html pattern */
+.hcard{border-radius:11px;border:1px solid var(--border2);background:linear-gradient(145deg,rgba(17,30,53,.9),rgba(8,14,28,.95));overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s;animation:fadeU .35s both}
+.hcard:hover{border-color:rgba(201,168,76,.28);box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.hcard.open{border-color:var(--gold)}
+@keyframes fadeU{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.hcard-top{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.hcard-num{font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:3px 9px;border-radius:6px;flex-shrink:0;letter-spacing:.5px;white-space:nowrap}
+.hcard-info{flex:1;min-width:0}
+.hcard-title{font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:#fff;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.hcard-ref{font-family:'Cinzel',serif;font-size:9px;color:var(--text2);margin-top:3px;letter-spacing:.3px}
+.hcard-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+.hbadge{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.3px;padding:2px 8px;border-radius:10px}
+.hcard-arr{font-size:14px;color:var(--text2);transition:transform .25s;flex-shrink:0}
+.hcard.open .hcard-arr{transform:rotate(90deg);color:var(--gold)}
+
+/* Badge colours */
+.bg-sah{background:rgba(47,184,154,.12);border:1px solid rgba(47,184,154,.28);color:#2FB89A}
+.bg-has{background:rgba(232,200,96,.10);border:1px solid rgba(232,200,96,.30);color:#E8C860}
+.bg-dai{background:rgba(232,96,96,.09); border:1px solid rgba(232,96,96,.22); color:#E86060}
+.bg-mix{background:rgba(232,160,96,.08);border:1px solid rgba(232,160,96,.20);color:#E8A060}
+
+/* Expanded body - same as dcard-body */
+.hcard-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border2)}
+.hcard.open .hcard-body{display:block}
+
+/* Arabic - same as dcard-arabic */
+.hcard-arabic{font-family:'Noto Naskh Arabic',serif;font-size:clamp(20px,3.5vw,28px);color:var(--gold2);direction:rtl;text-align:right;line-height:2.15;padding:16px 0 12px;text-shadow:0 0 20px rgba(201,168,76,.15);word-break:break-word}
+.hcard-arabic.empty{font-family:'Lora',serif;font-size:12px;color:var(--text3);text-align:center;direction:ltr;font-style:italic;padding:14px 0}
+
+/* English - same as dcard-english */
+.hcard-english{font-size:13px;color:var(--text);line-height:1.85;margin-bottom:12px;border-left:3px solid var(--gold);padding:8px 14px;border-radius:0 7px 7px 0;background:rgba(201,168,76,.04);word-break:break-word}
+
+/* Urdu - same as dcard-urdu */
+.hcard-urdu{font-family:'Noto Naskh Arabic',serif;font-size:16px;color:#a8c8b8;direction:rtl;text-align:right;line-height:2.05;margin-bottom:14px;border-right:3px solid var(--teal);padding:8px 14px;border-radius:7px 0 0 7px;background:rgba(47,184,154,.04);word-break:break-word}
+.hcard-urdu.empty{font-family:'Lora',serif;font-size:11.5px;color:var(--text3);text-align:center;direction:ltr;font-style:italic}
+
+/* Meta grid - same as dcard-meta */
+.hcard-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.hmeta-box{background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:8px;padding:9px 12px}
+.hmeta-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.hmeta-val{font-size:11.5px;color:var(--text2);line-height:1.65}
+
+/* Compact */
+.hcard.compact .hcard-arabic{font-size:17px;line-height:1.95;padding:10px 0 8px}
+.hcard.compact .hcard-english{font-size:12px;line-height:1.7;margin-bottom:8px}
+.hcard.compact .hcard-urdu{font-size:13.5px;line-height:1.9;margin-bottom:8px}
+.hcard.compact .hcard-meta{display:none}
+
+/* States */
+.state-box{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:60px 30px;text-align:center;min-height:320px;max-width:500px;margin:0 auto}
+.state-ico{font-size:50px;opacity:.2;line-height:1}
+.state-ttl{font-family:'Cinzel',serif;font-size:14px;color:var(--text2);letter-spacing:1.5px}
+.state-sub{font-size:13px;color:var(--text3);line-height:1.9}
+
+/* Skeleton */
+.skel{background:linear-gradient(90deg,var(--bg2) 25%,rgba(201,168,76,.04) 50%,var(--bg2) 75%);background-size:200% 100%;animation:shimmer 1.6s infinite;border-radius:4px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* Pagination */
+.pager{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px;border-top:1px solid var(--border2);flex-shrink:0;background:rgba(8,14,28,.7)}
+.pg-btn{padding:6px 20px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--text2);font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:1px;cursor:pointer;transition:all .18s}
+.pg-btn:hover:not([disabled]){background:rgba(201,168,76,.1);color:var(--gold2)}
+.pg-btn[disabled]{opacity:.2;cursor:default}
+.pg-info{font-family:'Cinzel',serif;font-size:9px;color:var(--text3);text-align:center;line-height:1.8;min-width:80px}
+
+/* Mobile */
+@media(max-width:700px){
+  .sidebar{position:fixed;left:0;top:56px;bottom:0;z-index:80;transform:translateX(-100%);transition:transform .3s;width:80vw;max-width:272px}
+  .sidebar.open{transform:translateX(0)}
+  .mob-menu{display:flex}
+  .nav-stats,.cs-ar,.grade-filters{display:none}
+  .hcard-meta{grid-template-columns:1fr}
+  .hcard-arabic{font-size:19px}
+}
+@media(max-width:480px){
+  .hcard-body{padding:0 12px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="mob-menu" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776;</div>
+  <a class="back-btn" href="index.html">&#8592; Al-Maktaba</a>
+  <div class="nav-ar">&#x645;&#x643;&#x62A;&#x628;&#x629; &#x627;&#x644;&#x62D;&#x62F;&#x64A;&#x62B;</div>
+  <div class="nav-en">Hadith Explorer</div>
+  <div class="nav-stats">
+    <div class="nstat" id="nav-col">Select a collection</div>
+    <div class="nstat" id="nav-cnt" style="display:none"><strong id="nav-n">0</strong> hadiths</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="col-section">
+      <div class="col-lbl">Collection</div>
+      <div class="col-grid">
+        <div class="cbtn on" data-col="bukhari"   onclick="switchCol('bukhari',this)">Sahih<br>Bukhari</div>
+        <div class="cbtn"    data-col="muslim"    onclick="switchCol('muslim',this)">Sahih<br>Muslim</div>
+        <div class="cbtn"    data-col="abudawud"  onclick="switchCol('abudawud',this)">Abu<br>Dawud</div>
+        <div class="cbtn"    data-col="tirmidhi"  onclick="switchCol('tirmidhi',this)">Jami'<br>Tirmidhi</div>
+        <div class="cbtn"    data-col="nasai"     onclick="switchCol('nasai',this)">Sunan<br>Nasa'i</div>
+        <div class="cbtn"    data-col="ibnmajah"  onclick="switchCol('ibnmajah',this)">Ibn<br>Majah</div>
+        <div class="cbtn"    data-col="malik"     onclick="switchCol('malik',this)">Muwatta<br>Malik</div>
+        <div class="cbtn"    data-col="nawawi40"  onclick="switchCol('nawawi40',this)">Arba'een<br>Nawawi</div>
+        <div class="cbtn"    data-col="riyad"     onclick="switchCol('riyad',this)">Riyad<br>Salihin</div>
+      </div>
+    </div>
+    <div class="book-list" id="book-list">
+      <div class="state-box" style="padding:24px 14px;min-height:auto">
+        <div class="state-ico" style="font-size:30px">&#128214;</div>
+        <div class="state-ttl" style="font-size:10px">Select a Collection</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-wrap">
+    <div class="cstrip">
+      <div class="cs-dot" id="cs-dot" style="background:var(--gold)"></div>
+      <span class="cs-name" id="cs-name">Al-Maktaba</span>
+      <span class="cs-ar"   id="cs-ar"></span>
+      <span class="cs-total" id="cs-total"></span>
+      <div class="cs-right">
+        <span id="cs-urd"  class="cs-urd"      style="display:none">&#x627;&#x631;&#x62F;&#x648; &#x2713;</span>
+        <span id="cs-src"                       style="display:none"></span>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <div class="srch-wrap">
+        <input id="srch" type="text" placeholder="Search hadiths by keyword or narrator..." oninput="doSearch(this.value)">
+        <span class="srch-ico">&#128269;</span>
+      </div>
+      <div class="vtog">
+        <div class="vt on" id="vt-full"    onclick="setView('full')">Full</div>
+        <div class="vt"    id="vt-compact" onclick="setView('compact')">Compact</div>
+      </div>
+      <div class="grade-filters">
+        <div class="gf gf-all on" onclick="setGrade('all',this)">All</div>
+        <div class="gf gf-sahih"  onclick="setGrade('sahih',this)">&#10003; Sahih</div>
+        <div class="gf gf-hasan"  onclick="setGrade('hasan',this)">&#9672; Hasan</div>
+      </div>
+      <div class="tb-cnt" id="tb-cnt"></div>
+    </div>
+
+    <div class="prog-wrap" id="prog-wrap" style="display:none">
+      <div class="prog-lbl" id="prog-lbl">DOWNLOADING...</div>
+      <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+      <div class="prog-note">This only happens once. Your browser caches the data after first load.</div>
+    </div>
+
+    <div class="main" id="main">
+      <div class="hadith-grid">
+        <div class="state-box">
+          <div class="state-ico">&#128218;</div>
+          <div class="state-ttl">Hadith Explorer</div>
+          <div class="state-sub">9 authentic collections — Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasa'i, Ibn Majah, Muwatta Malik, Arba'een Nawawi and Riyad al-Salihin.<br><br>Select any collection, then choose a book to begin reading.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pager" id="pager" style="display:none">
+      <button class="pg-btn" id="pg-p" onclick="goPage(-1)">&#8592; Prev</button>
+      <div class="pg-info" id="pg-info"></div>
+      <button class="pg-btn" id="pg-n" onclick="goPage(1)">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// COLLECTION CONFIG
+// ══════════════════════════════════════════════════════════════════
+const COLS = {
+  bukhari:  {name:'Sahih Bukhari',      ar:'صحيح البخاري',    total:7563,grade:'Sahih',       hasUrdu:true, color:'#C9A84C',fawEng:'eng-bukhari',        fawAra:'ara-bukhari',        fawUrd:'urd-bukhari'},
+  muslim:   {name:'Sahih Muslim',       ar:'صحيح مسلم',       total:7470,grade:'Sahih',       hasUrdu:true, color:'#E2C97A',fawEng:'eng-muslim',         fawAra:'ara-muslim',         fawUrd:'urd-muslim'},
+  abudawud: {name:'Sunan Abu Dawud',    ar:'سنن أبي داود',    total:5274,grade:'Mixed',       hasUrdu:true, color:'#2FB89A',fawEng:'eng-abudawud',       fawAra:'ara-abudawud',       fawUrd:'urd-abudawud'},
+  tirmidhi: {name:"Jami' at-Tirmidhi", ar:'جامع الترمذي',    total:3956,grade:'Mixed/Graded',hasUrdu:false,color:'#7A9BE8',fawEng:'eng-tirmidhi',       fawAra:'ara-tirmidhi',       fawUrd:null},
+  nasai:    {name:"Sunan an-Nasa'i",    ar:'سنن النسائي',     total:5758,grade:'Mixed/Graded',hasUrdu:false,color:'#A060E8',fawEng:'eng-nasai',          fawAra:'ara-nasai',          fawUrd:null},
+  ibnmajah: {name:'Sunan Ibn Majah',    ar:'سنن ابن ماجه',    total:4341,grade:'Mixed/Graded',hasUrdu:true, color:'#E86060',fawEng:'eng-ibnmajah',       fawAra:'ara-ibnmajah',       fawUrd:'urd-ibnmajah'},
+  malik:    {name:'Muwatta Imam Malik', ar:'موطأ الإمام مالك',total:1594,grade:'Sahih/Hasan', hasUrdu:false,color:'#E8A060',fawEng:'eng-malik',          fawAra:'ara-malik',          fawUrd:null},
+  nawawi40: {name:"Arba'een al-Nawawi", ar:'الأربعون النووية',total:42,  grade:'Sahih',       hasUrdu:true, color:'#60B8E8',fawEng:'eng-nawawi40',       fawAra:'ara-nawawi40',       fawUrd:'urd-nawawi40'},
+  riyad:    {name:'Riyad al-Salihin',   ar:'رياض الصالحين',   total:1903,grade:'Sahih/Hasan', hasUrdu:true, color:'#F5D060',fawEng:'eng-riyadussaliheen',fawAra:'ara-riyadussaliheen',fawUrd:'urd-riyadussaliheen'},
+};
+
+const BOOKS = {
+  bukhari:[
+    [1,'Revelation','بدء الوحي'],[2,'Belief','الإيمان'],[3,'Knowledge','العلم'],
+    [4,'Ablutions (Wudu)','الوضوء'],[5,'Bathing (Ghusl)','الغسل'],[6,'Menstrual Periods','الحيض'],
+    [7,'Dry Ablution','التيمم'],[8,'Prayer (Salat)','الصلاة'],[9,'Prayer Times','مواقيت الصلاة'],
+    [10,'Adhan','الأذان'],[11,'Friday Prayer','الجمعة'],[12,'Fear Prayer','صلاة الخوف'],
+    [13,'Two Eids','العيدين'],[14,'Witr Prayer','الوتر'],[15,'Prayer for Rain','الاستسقاء'],
+    [16,'Eclipses','الكسوف'],[17,'Prostrations in Quran','سجود القرآن'],[18,'Shortening Prayers','التقصير'],
+    [19,'Night Prayer','التهجد'],[20,'Prayer in Mecca & Medina','فضل الصلاة في المسجدين'],
+    [21,'Actions while Praying','العمل في الصلاة'],[22,'Forgetfulness in Prayer','السهو'],
+    [23,'Funerals (Janazah)','الجنائز'],[24,'Zakat','الزكاة'],[25,'Zakat al-Fitr','صدقة الفطر'],
+    [26,'Hajj','الحج'],[27,'Umrah','العمرة'],[28,'Restrictions in Ihram','المحصر'],
+    [29,'Penalty of Hunting','جزاء الصيد'],[30,'Virtues of Madinah','فضائل المدينة'],
+    [31,'Fasting (Sawm)','الصوم'],[32,'Tarawih Prayer','التراويح'],[33,'Laylat al-Qadr','ليلة القدر'],
+    [34,"I'tikaf",'الاعتكاف'],[35,'Sales and Trade','البيوع'],[36,'Prepaid Sales','السلم'],
+    [37,"Pre-emption",'الشفعة'],[38,'Renting','الإجارة'],[39,'Debt Transfer','الحوالة'],
+    [40,'Representation','الوكالة'],[41,'Agriculture','الحرث والمزارعة'],[42,'Irrigation','المساقاة'],
+    [43,'Loans & Bankruptcy','الاستقراض'],[44,'Litigations','الخصومات'],[45,'Lost Property','اللقطة'],
+    [46,'Oppression','المظالم'],[47,'Partnership','الشركة'],[48,'Mortgaging','الرهن'],
+    [49,'Manumission of Slaves','العتق'],[50,'Gifts','الهبة'],[51,'Witnesses','الشهادات'],
+    [52,'Peacemaking','الصلح'],[53,'Conditions','الشروط'],[54,'Wills & Testaments','الوصايا'],
+    [55,'Jihad','الجهاد'],[56,'One-fifth of Booty','الخمس'],[57,'Jizyah','الجزية'],
+    [58,'Beginning of Creation','بدء الخلق'],[59,'Stories of the Prophets','الأنبياء'],
+    [60,'Virtues of Prophet ﷺ','المناقب'],[61,'Virtues of Companions','فضائل الصحابة'],
+    [62,'Merits of the Ansar','مناقب الأنصار'],[63,'Military Expeditions','المغازي'],
+    [64,'Tafsir of Quran','التفسير'],[65,'Virtues of the Quran','فضائل القرآن'],
+    [66,'Marriage (Nikah)','النكاح'],[67,'Divorce','الطلاق'],[68,'Supporting the Family','النفقات'],
+    [69,'Food','الأطعمة'],[70,'Aqiqa','العقيقة'],[71,'Slaughtering & Hunting','الذبائح'],
+    [72,'Al-Adha Sacrifice','الأضاحي'],[73,'Drinks','الأشربة'],[74,'Patients','المرضى'],
+    [75,'Medicine','الطب'],[76,'Dress','اللباس'],[77,'Good Manners','الأدب'],
+    [78,'Asking Permission','الاستئذان'],[79,"Invocations",'الدعوات'],
+    [80,'Softening the Heart','الرقاق'],[81,'Divine Will','القدر'],
+    [82,'Oaths & Vows','الأيمان'],[83,'Expiation for Oaths','كفارات الأيمان'],
+    [84,'Inheritance','الفرائض'],[85,'Penalties','الحدود'],
+    [86,'Blood Money','الديات'],[87,'Apostates','استتابة المرتدين'],
+    [88,'Coercion','الإكراه'],[89,'Tricks','الحيل'],[90,'Dream Interpretations','التعبير'],
+    [91,'Afflictions & End Times','الفتن'],[92,'Judgments','الأحكام'],
+    [93,'Wishes','التمني'],[94,'Accepting Trustworthy News','أخبار الآحاد'],
+    [95,'Holding Firm to Quran & Sunnah','الاعتصام'],[96,'Tawheed','التوحيد'],
+  ],
+  muslim:[
+    [1,'Faith (Iman)','الإيمان'],[2,'Purification','الطهارة'],[3,'Menstruation','الحيض'],
+    [4,'Prayer','الصلاة'],[5,'Mosques','المساجد'],[6,'Prayer of Travellers','صلاة المسافرين'],
+    [7,'Friday Prayer','الجمعة'],[8,'Prayer in Congregation','الجماعة'],[9,'Prayer for Rain','الاستسقاء'],
+    [10,'Eclipses','الكسوف'],[11,'Funerals','الجنائز'],[12,'Zakat','الزكاة'],
+    [13,'Fasting','الصيام'],[14,"I'tikaf",'الاعتكاف'],[15,'Hajj','الحج'],
+    [16,'Marriage','النكاح'],[17,'Divorce','الطلاق'],[18,'Freeing Slaves','العتق'],
+    [19,'Business','البيوع'],[20,'Inheritance','المواريث'],[21,'Wills','الوصية'],
+    [22,'Oaths','الأيمان'],[23,'Qasamah','القسامة'],[24,'Divine Decree','القدر'],
+    [25,'Knowledge','العلم'],[26,"Dhikr & Du'a",'الذكر والدعاء'],[27,'Repentance','التوبة'],
+    [28,'Hypocrites','المنافقين'],[29,'Day of Judgment','القيامة'],[30,'Virtues','الفضائل'],
+    [31,'Virtues of Companions','فضائل الصحابة'],[32,'Good Manners','البر والصلة'],
+    [33,'Qadar','القدر'],[34,'Drinks','الأشربة'],[35,'Clothing','اللباس'],
+    [36,'Etiquette','الآداب'],[37,'Poetry','الشعر'],[38,'Dreams','الرؤيا'],
+    [39,'Virtues of Quran','فضائل القرآن'],[40,'Charity','الصدقة'],[41,'Jihad','الجهاد'],
+    [42,'Government','الإمارة'],[43,'Hunting & Slaughter','الصيد'],[44,'Sacrifices','الأضاحي'],
+    [45,'Drinks Extended','الأشربة'],[46,'Clothing & Adornment','اللباس'],[47,'Manners','الآداب'],
+    [48,'Greetings','السلام'],[49,'Found Property','اللقطة'],[50,'Zuhd','الزهد'],
+    [51,'Tafsir','التفسير'],[52,'Fitna & End Times','الفتن'],
+  ],
+  abudawud:[
+    [1,'Purification','الطهارة'],[2,'Prayer','الصلاة'],[3,'Prayer Commencing','تفريع'],
+    [4,'Witr Prayer','الوتر'],[5,'Friday Prayer','الجمعة'],[6,'Two Eid Prayers','العيدين'],
+    [7,'Prayer During Fear','صلاة الخوف'],[8,'Prayer During Travel','المسافر'],
+    [9,'Eclipses','الكسوف'],[10,'Prostration During Quran','سجود القرآن'],
+    [11,'Night Prayer','قيام الليل'],[12,'Funerals','الجنائز'],[13,'Zakat','الزكاة'],
+    [14,'Fasting','الصيام'],[15,'Hajj','المناسك'],[16,'Marriage','النكاح'],
+    [17,'Divorce','الطلاق'],[18,'Freeing Slaves','العتق'],[19,'Commercial Transactions','البيوع'],
+    [20,'Wages & Rents','الإجارة'],[21,'Grants & Gifts','الهبة'],[22,'Wills','الوصايا'],
+    [23,'Inheritance','الفرائض'],[24,'Penalties','الحدود'],[25,'Jihad','الجهاد'],
+    [26,'Sacrifice','الضحايا'],[27,'Game','الصيد'],[28,'Oaths & Vows','الأيمان'],
+    [29,'Transactions','البيوع'],[30,'Judiciary','الأقضية'],[31,'Knowledge','العلم'],
+    [32,'Drinks','الأشربة'],[33,'Foods','الأطعمة'],[34,'Medicine','الطب'],
+    [35,'Divination','الكهانة'],[36,'Baths','الحمام'],[37,'Clothing','اللباس'],
+    [38,'Combing Hair','الترجل'],[39,'Signet Rings','الخاتم'],[40,'Trials','الفتن'],
+    [41,'Sunnah','السنة'],[42,'General Behaviour','الأدب'],[43,'Sleep','النوم'],
+    [44,"Du'a",'الدعاء'],
+  ],
+  tirmidhi:[
+    [1,'Purification','الطهارة'],[2,'Prayer','الصلاة'],[3,'Friday Prayer','الجمعة'],
+    [4,'Witr','الوتر'],[5,'Eid Prayers','العيدين'],[6,'Prayer for Rain','الاستسقاء'],
+    [7,'Funerals','الجنائز'],[8,'Zakat','الزكاة'],[9,'Hajj','الحج'],
+    [10,'Fasting','الصوم'],[11,'Marriage','النكاح'],[12,'Divorce','الطلاق'],
+    [13,'Business','البيوع'],[14,'Judiciary','الأحكام'],[15,'Blood Money','الديات'],
+    [16,'Penalties','الحدود'],[17,'Hunting','الصيد'],[18,'Sacrifices','الضحايا'],
+    [19,'Jihad','الجهاد'],[20,'Clothing','اللباس'],[21,'Foods','الأطعمة'],
+    [22,'Drinks','الأشربة'],[23,'Virtues of Quran','فضائل القرآن'],
+    [24,'Good Manners','البر والصلة'],[25,'Medicine','الطب'],[26,'Inheritance','الفرائض'],
+    [27,'Dreams','الرؤيا'],[28,'Witnesses','الشهادات'],[29,'Asceticism','الزهد'],
+    [30,'Virtues of Prophet ﷺ','المناقب'],[31,'Faith','الإيمان'],[32,'Knowledge','العلم'],
+    [33,'Seeking Permission','الاستئذان'],[34,'Hellfire','صفة جهنم'],
+    [35,'Paradise','صفة الجنة'],[36,'Divine Decree','القدر'],[37,'Trials','الفتن'],
+    [38,'Tafsir','التفسير'],[39,"Du'a",'الدعوات'],[40,'Virtues Extended','المناقب'],
+    [41,"Companions Merits",'مناقب الصحابة'],[42,'Recitation','القراءات'],
+  ],
+  nasai:[
+    [1,'Purification','الطهارة'],[2,'Water','المياه'],[3,'Menstruation','الحيض'],
+    [4,'Ghusl & Tayammum','الغسل'],[5,'Prayer','الصلاة'],[6,'Adhan','الأذان'],
+    [7,'Masajid','المساجد'],[8,'Qibla','القبلة'],[9,'Prayer Timings','مواقيت الصلاة'],
+    [10,'Forgetfulness in Prayer','السهو'],[11,"Jumu'ah",'الجمعة'],[12,'Shortening Prayer','القصر'],
+    [13,'Eclipses','الكسوف'],[14,'Rain Prayer','الاستسقاء'],[15,'Fear Prayer','صلاة الخوف'],
+    [16,'Eid Prayers','العيدين'],[17,'Night Vigil','قيام الليل'],[18,'Funerals','الجنائز'],
+    [19,'Fasting','الصيام'],[20,'Zakat','الزكاة'],[21,'Hajj','الحج'],[22,'Jihad','الجهاد'],
+    [23,'Marriage','النكاح'],[24,'Divorce','الطلاق'],[25,'Horses','الخيل'],
+    [26,'Inheritance','الفرائض'],[27,'Wills','الوصايا'],[28,'Gifts','النحل'],
+    [29,'Endowments','الأحباس'],[30,'Hunting','الصيد'],[31,'Sacrifices','الضحايا'],
+    [32,'Drinks','الأشربة'],[33,'Penalties','الحدود'],[34,'Faith','الإيمان'],
+    [35,'Adornment','الزينة'],[36,'Greetings','السلام'],[37,'Seeking Permission','الاستئذان'],
+    [38,'Judiciary','القضاء'],[39,'Refuge','الاستعاذة'],[40,'Transactions','البيوع'],
+    [41,'Oaths','الأيمان'],[42,'Charitable Giving','الزكاة'],
+    [43,'Reports','الأحاديث'],[44,'Miscellaneous','المزارعة'],
+  ],
+  ibnmajah:[
+    [1,'Introduction','المقدمة'],[2,'Purification','الطهارة'],[3,'Prayer','الصلاة'],
+    [4,'Adhan','الأذان'],[5,'Mosques','المساجد'],[6,'Prayer Times','الصلاة'],
+    [7,'Funeral Rites','الجنائز'],[8,'Fasting','الصيام'],[9,'Zakat','الزكاة'],
+    [10,'Marriage','النكاح'],[11,'Divorce','الطلاق'],[12,'Expiation','الكفارات'],
+    [13,'Business','التجارات'],[14,'Judgments','الأحكام'],[15,'Gifts','الهبات'],
+    [16,'Charity','الصدقات'],[17,'Pawning','الرهون'],[18,'Pre-emption','الشفعة'],
+    [19,'Found Property','اللقطة'],[20,'Manumission','العتق'],[21,'Penalties','الحدود'],
+    [22,'Blood Money','الديات'],[23,'Wills','الوصايا'],[24,'Inheritance','الفرائض'],
+    [25,'Jihad','الجهاد'],[26,'Hajj Rituals','المناسك'],[27,'Sacrifices','الذبائح'],
+    [28,'Hunting','الصيد'],[29,'Foods','الأطعمة'],[30,'Drinks','الأشربة'],
+    [31,'Medicine','الطب'],[32,'Dress','اللباس'],[33,'Good Manners','الأدب'],
+    [34,"Du'a",'الدعاء'],[35,'Dream Interpretation','التعبير'],[36,'Trials','الفتن'],
+    [37,'End of Days','الملاحم'],
+  ],
+  malik:[
+    [1,'Prayer Times','أوقات الصلاة'],[2,'Purification','الطهارة'],[3,'Prayer','الصلاة'],
+    [4,'Friday Prayer','الجمعة'],[5,'Prayer in Congregation','الجماعة'],[6,'Shortening Prayer','القصر'],
+    [7,'Night Prayer Ramadan','التراويح'],[8,'Prayer for Rain','الاستسقاء'],
+    [9,'Eclipse Prayer','الكسوف'],[10,'Fear Prayer','الخوف'],[11,'Two Eids','العيدين'],
+    [12,'Funeral Prayer','الجنائز'],[13,'Zakat','الزكاة'],[14,'Fasting','الصيام'],
+    [15,"I'tikaf",'الاعتكاف'],[16,'Hajj','الحج'],[17,'Jihad','الجهاد'],
+    [18,'Vows & Oaths','النذور'],[19,'Sacrificial Animals','الضحايا'],[20,'Slaughter','الذبائح'],
+    [21,'Game & Hunting','الصيد'],[22,'Aqiqa','العقيقة'],[23,'Inheritance','الفرائض'],
+    [24,'Marriage','النكاح'],[25,'Divorce','الطلاق'],[26,'Suckling','الرضاع'],
+    [27,'Business','البيوع'],[28,'Renting Land','الإجارة'],[29,'Pre-emption','الشفعة'],
+    [30,'Judgements','الأقضية'],[31,'Wills','الوصايا'],[32,'Manumission','العتق'],
+    [33,'Mukatab','المكاتب'],[34,'Mudabbar','المدبر'],[35,'Umm al-Walad','أم الولد'],
+    [36,'Hudood','الحدود'],[37,'Drinks','الأشربة'],[38,'Descriptions of Prophet ﷺ','صفة النبي'],
+    [39,'The Evil Eye','العين'],[40,'Hair','الشعر'],[41,'Visions','الرؤيا'],
+    [42,'Greetings','السلام'],[43,'Seeking Permission','الاستئذان'],[44,'Good Character','حسن الخلق'],
+    [45,'Dress','اللباس'],[46,'Description of Isa','صفة عيسى'],[47,'Description of Dajjal','صفة الدجال'],
+    [48,'Qadar','القدر'],[49,'Good Character Extended','حسن الخلق'],[50,'Names of Allah','أسماء الله'],
+    [51,'The Quran','القرآن'],[52,'General Subjects','مقدمة'],[53,'Forgetfulness in Prayer','السهو'],
+    [54,'Duha Prayer','الضحى'],[55,'Seeking Forgiveness','الاستغفار'],[56,'Witr Prayer','الوتر'],
+    [57,'Prayer while Sick','المريض'],[58,'Dhikr','ذكر الله'],[59,"Du'a",'الدعاء'],
+    [60,"Traveler's Prayer",'المسافر'],[61,'Tahajjud Prayer','التهجد'],
+  ],
+  nawawi40:[[1,"All 42 Hadiths — Arba'een al-Nawawi",'الأربعون النووية']],
+  riyad:[
+    [1,'Sincerity & Intentions','الإخلاص'],[2,'Repentance','التوبة'],[3,'Patience','الصبر'],
+    [4,'Truthfulness','الصدق'],[5,'Watchfulness','المراقبة'],[6,'Hope & Fear','الرجاء والخوف'],
+    [7,'Certainty & Reliance','اليقين'],[8,'Uprightness','الاستقامة'],[9,'Contemplation','التفكر'],
+    [10,'Haste to do Good','المسارعة'],[11,'Striving','المجاهدة'],[12,'Optional Prayers','النوافل'],
+    [13,'Remembrance of Death','ذكر الموت'],[14,'Rights of Allah','حقوق الله'],
+    [15,'Protection of Orphans','اليتيم'],[16,'Guardianship of Women','النساء'],
+    [17,'Duties to Parents','بر الوالدين'],[18,'Good Treatment','حسن المعاملة'],
+    [19,'Forgiving & Overlooking','العفو والحلم'],
+  ],
+};
+
+// ══════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════
+const FAW = 'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions';
+window.HD = window.HD || {};
+let CUR='bukhari', CUR_SEC=null, CUR_LIST=[], DISP=[], PAGE=1;
+const PER=30;
+let VIEW='full', GRADE='all', SRCH='', srchT=null, loading=false;
+
+// ══════════════════════════════════════════════════════════════════
+window.addEventListener('load', () => { applyCol(); updateStrip(); loadColData('bukhari'); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') document.querySelector('.sidebar').classList.remove('open'); });
+
+// ══════════════════════════════════════════════════════════════════
+// COLLECTION SWITCH
+// ══════════════════════════════════════════════════════════════════
+function switchCol(col, el) {
+  CUR=col; CUR_SEC=null; CUR_LIST=[]; DISP=[];
+  applyCol(); updateStrip(); renderBookList(); showWelcome();
+  loadColData(col);
+}
+
+function applyCol() {
+  const c=COLS[CUR];
+  document.querySelectorAll('.cbtn').forEach(b=>{
+    const on=b.dataset.col===CUR;
+    b.classList.toggle('on',on);
+    b.style.background=on?c.color:'';
+    b.style.borderColor=on?c.color:'';
+    b.style.color=on?'#000':'';
+  });
+  document.querySelector('.sidebar').style.setProperty('--acc',c.color);
+}
+
+function updateStrip() {
+  const c=COLS[CUR];
+  document.getElementById('cs-dot').style.background=c.color;
+  document.getElementById('cs-name').textContent=c.name;
+  document.getElementById('cs-ar').textContent=c.ar;
+  document.getElementById('cs-total').textContent=c.total.toLocaleString()+' hadiths';
+  document.getElementById('cs-urd').style.display=c.hasUrdu?'inline':'none';
+  document.getElementById('nav-col').textContent=c.name;
+}
+
+function setSrc(t) {
+  const el=document.getElementById('cs-src');
+  el.style.display=t?'inline':'none';
+  el.className=t==='local'?'cs-src-local':'cs-src-api';
+  el.textContent=t==='local'?'⚡ Local':'🌐 Live API';
+}
+
+// ══════════════════════════════════════════════════════════════════
+// DATA LOADING
+// ══════════════════════════════════════════════════════════════════
+async function loadColData(col) {
+  if(window.HD[col]&&window.HD[col].length){ renderBookList(); return; }
+  // Try local file
+  try {
+    await loadScript('data/hadith/'+col+'.js');
+    if(window.HD[col]&&window.HD[col].length){ setSrc('local'); renderBookList(); return; }
+  } catch(e) { console.log('[HE] No local file for '+col+', using API'); }
+  // API fallback
+  setSrc('api');
+  await loadAPI(col);
+  renderBookList();
+}
+
+function loadScript(src) {
+  return new Promise((res,rej)=>{
+    if(document.querySelector('script[src*="'+src+'"]')){ res(); return; }
+    const s=document.createElement('script');
+    s.src=src+'?v=1'; s.onload=res; s.onerror=rej;
+    document.head.appendChild(s);
+  });
+}
+
+async function loadAPI(col) {
+  const cfg=COLS[col], books=BOOKS[col]||[], secs=books.map(b=>b[0]);
+  const allH={};
+  let done=0;
+  function prog(pct,msg){ document.getElementById('prog-wrap').style.display='block'; document.getElementById('prog-lbl').textContent='DOWNLOADING '+col.toUpperCase()+' — '+msg; document.getElementById('prog-fill').style.width=pct+'%'; }
+  // English
+  for(const sid of secs){
+    const hs=await apiFetch(cfg.fawEng,sid);
+    for(const h of hs){
+      const num=h.hadithnumber; if(!num) continue;
+      const en=(h.text||'').trim();
+      const {narrator,body}=splitNar(en);
+      allH[num]={num,book:sid,en,narrator,body,ar:'',ur:'',grade:pickGrade(h.grades,cfg.grade),ref:h.reference||{}};
+    }
+    done++; prog(Math.round(30*done/secs.length),'English '+done+'/'+secs.length);
+    await sleep(65);
+  }
+  // Arabic batches
+  const arQ=[...secs]; done=0;
+  while(arQ.length){
+    const b=arQ.splice(0,4);
+    await Promise.all(b.map(async sid=>{ const hs=await apiFetch(cfg.fawAra,sid); hs.forEach(h=>{ if(allH[h.hadithnumber]) allH[h.hadithnumber].ar=(h.text||'').trim(); }); }));
+    done+=b.length; prog(30+Math.round(35*done/secs.length),'Arabic '+done+'/'+secs.length); await sleep(75);
+  }
+  // Urdu batches
+  if(cfg.fawUrd){
+    const uQ=[...secs]; done=0;
+    while(uQ.length){
+      const b=uQ.splice(0,4);
+      await Promise.all(b.map(async sid=>{ const hs=await apiFetch(cfg.fawUrd,sid); hs.forEach(h=>{ if(allH[h.hadithnumber]) allH[h.hadithnumber].ur=(h.text||'').trim(); }); }));
+      done+=b.length; prog(65+Math.round(30*done/secs.length),'Urdu '+done+'/'+secs.length); await sleep(75);
+    }
+  }
+  window.HD[col]=Object.values(allH).sort((a,b)=>a.num-b.num);
+  document.getElementById('prog-wrap').style.display='none';
+}
+
+async function apiFetch(ed,sid){ try{ const r=await fetch(FAW+'/'+ed+'/sections/'+sid+'.json'); if(!r.ok) return []; return (await r.json()).hadiths||[]; }catch(e){ return []; } }
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+// ══════════════════════════════════════════════════════════════════
+// BOOK LIST
+// ══════════════════════════════════════════════════════════════════
+function renderBookList(){
+  const books=BOOKS[CUR]||[], data=window.HD[CUR]||[];
+  const counts={};
+  data.forEach(h=>{ counts[h.book]=(counts[h.book]||0)+1; });
+  document.getElementById('book-list').innerHTML=books.map(([id,name,ar],i)=>`
+    <div class="bitem" id="bi-${id}" onclick="openBook(${id},'${esc(name)}')" style="animation:fadeU .16s ease ${i*8}ms both">
+      <div class="b-num">Book ${id}</div>
+      <div class="b-name">${name}</div>
+      <div class="b-ar">${ar}</div>
+      ${counts[id]?`<div class="b-cnt">${counts[id].toLocaleString()} hadiths</div>`:''}
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// OPEN BOOK
+// ══════════════════════════════════════════════════════════════════
+async function openBook(secId, secName) {
+  if(loading) return;
+  document.querySelectorAll('.bitem').forEach(e=>e.classList.remove('on'));
+  const el=document.getElementById('bi-'+secId);
+  if(el){ el.classList.add('on'); el.scrollIntoView({block:'nearest',behavior:'smooth'}); }
+  CUR_SEC=secId; SRCH=''; PAGE=1;
+  document.getElementById('srch').value='';
+  if(!window.HD[CUR]||!window.HD[CUR].length){ loading=true; showSkel(); await loadColData(CUR); loading=false; }
+  CUR_LIST=(window.HD[CUR]||[]).filter(h=>h.book===secId);
+  if(!CUR_LIST.length){ loading=true; showSkel(); await fetchSingle(secId); loading=false; CUR_LIST=(window.HD[CUR]||[]).filter(h=>h.book===secId); }
+  DISP=doFilter(); renderH(); updateCnt();
+  if(window.innerWidth<=700) document.querySelector('.sidebar').classList.remove('open');
+}
+
+async function fetchSingle(sid){
+  const cfg=COLS[CUR]; if(!window.HD[CUR]) window.HD[CUR]=[];
+  const [enH,arH,urH]=await Promise.all([apiFetch(cfg.fawEng,sid),apiFetch(cfg.fawAra,sid),cfg.fawUrd?apiFetch(cfg.fawUrd,sid):Promise.resolve([])]);
+  const arM={},urM={};
+  arH.forEach(h=>{ if(h.hadithnumber) arM[h.hadithnumber]=(h.text||'').trim(); });
+  urH.forEach(h=>{ if(h.hadithnumber) urM[h.hadithnumber]=(h.text||'').trim(); });
+  enH.forEach(h=>{ const num=h.hadithnumber; if(!num) return; const en=(h.text||'').trim(); const {narrator,body}=splitNar(en); window.HD[CUR].push({num,book:sid,en,narrator,body,ar:arM[num]||'',ur:urM[num]||'',grade:pickGrade(h.grades,cfg.grade),ref:h.reference||{}}); });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FILTER & RENDER
+// ══════════════════════════════════════════════════════════════════
+function doFilter(){
+  let r=[...CUR_LIST];
+  if(GRADE==='sahih') r=r.filter(h=>(h.grade||COLS[CUR].grade).toLowerCase().includes('sahih'));
+  else if(GRADE==='hasan') r=r.filter(h=>{ const g=(h.grade||COLS[CUR].grade).toLowerCase(); return g.includes('hasan')||g.includes('sahih'); });
+  if(SRCH.length>=2) r=r.filter(h=>(h.en+' '+(h.narrator||'')).toLowerCase().includes(SRCH));
+  return r;
+}
+function setGrade(g,el){ GRADE=g; document.querySelectorAll('.gf').forEach(e=>e.classList.remove('on')); el.classList.add('on'); if(CUR_LIST.length){DISP=doFilter();PAGE=1;renderH();updateCnt();} }
+function doSearch(v){ SRCH=v.trim().toLowerCase(); clearTimeout(srchT); srchT=setTimeout(()=>{ if(CUR_LIST.length){DISP=doFilter();PAGE=1;renderH();updateCnt();} },260); }
+function setView(v){ VIEW=v; document.getElementById('vt-full').classList.toggle('on',v==='full'); document.getElementById('vt-compact').classList.toggle('on',v==='compact'); if(CUR_LIST.length) renderH(); }
+
+function renderH(){
+  const main=document.getElementById('main'), pager=document.getElementById('pager');
+  if(!DISP.length){
+    main.innerHTML=`<div class="hadith-grid"><div class="state-box"><div class="state-ico">🔍</div><div class="state-ttl">No Results</div><div class="state-sub">Try clearing your search or switching grade filter to "All".</div></div></div>`;
+    pager.style.display='none'; return;
+  }
+  const totPg=Math.ceil(DISP.length/PER), slice=DISP.slice((PAGE-1)*PER,PAGE*PER);
+  const col=COLS[CUR], book=(BOOKS[CUR]||[]).find(b=>b[0]===CUR_SEC), bname=book?book[1]:'';
+  main.innerHTML='<div class="hadith-grid">'+slice.map((h,i)=>buildCard(h,i,col,bname)).join('')+'</div>';
+  main.scrollTo(0,0);
+  if(totPg>1){
+    pager.style.display='flex';
+    document.getElementById('pg-info').innerHTML='Page '+PAGE+' of '+totPg+'<br><small style="color:var(--text3)">'+DISP.length.toLocaleString()+' hadiths</small>';
+    document.getElementById('pg-p').disabled=PAGE<=1;
+    document.getElementById('pg-n').disabled=PAGE>=totPg;
+  } else pager.style.display='none';
+}
+
+// ══════════════════════════════════════════════════════════════════
+// BUILD CARD — exact duas.html structure
+// ══════════════════════════════════════════════════════════════════
+function buildCard(h,i,col,bname){
+  const {num,en,ar,ur,narrator,grade,ref}=h;
+  const body=h.body||en;
+  const g=(grade||col.grade).toLowerCase();
+  const gc=g.includes('sahih')?'bg-sah':g.includes('hasan')?'bg-has':(g.includes("da'if")||g.includes('weak')||g.includes('daif'))?'bg-dai':'bg-mix';
+  const glbl=g.includes('sahih')?'✓ Sahih':g.includes('hasan')?'◈ Hasan':(g.includes("da'if")||g.includes('weak'))?"⚠ Da'if":'◉ '+col.grade;
+  const cs=`background:${col.color}18;border:1px solid ${col.color}44;color:${col.color}`;
+  const preview=x(body.slice(0,90).replace(/\s\S*$/,'')+'…');
+  const compact=VIEW==='compact'?' compact':'';
+  // Arabic
+  const arBlk=ar?`<div class="hcard-arabic">${x(ar)}</div>`:`<div class="hcard-arabic empty">Arabic text will be available after running extract_hadiths.py and uploading data files.</div>`;
+  // English — same as dcard-english
+  const enBlk=`<div class="hcard-english">${x(en)}</div>`;
+  // Urdu — same as dcard-urdu
+  const urBlk=col.hasUrdu?(ur?`<div class="hcard-urdu">${x(ur)}</div>`:`<div class="hcard-urdu empty">Urdu translation loading…</div>`):'';
+  // Meta — same as dcard-meta
+  const refStr=ref&&ref.hadith?`${x(col.name)} — Book ${ref.book||'—'}, Hadith ${ref.hadith}`:`${x(col.name)} — Hadith #${num}`;
+  const meta=[
+    narrator?`<div class="hmeta-box"><div class="hmeta-lbl">Narrator</div><div class="hmeta-val">${x(narrator)}</div></div>`:'',
+    `<div class="hmeta-box"><div class="hmeta-lbl">Reference</div><div class="hmeta-val">${refStr}</div></div>`,
+    bname?`<div class="hmeta-box" style="grid-column:1/-1"><div class="hmeta-lbl">Book</div><div class="hmeta-val">${x(bname)} — ${x(col.name)}</div></div>`:'',
+  ].filter(Boolean).join('');
+
+  return `<div class="hcard${compact}" id="hc-${i}" style="animation-delay:${Math.min(i*25,400)}ms" onclick="toggleCard('hc-${i}')">
+  <div class="hcard-top">
+    <div class="hcard-num" style="${cs}">#${num}</div>
+    <div class="hcard-info">
+      <div class="hcard-title">${preview}</div>
+      <div class="hcard-ref">${x(col.name)} · ${x(bname)}</div>
+      <div class="hcard-badges">
+        <span class="hbadge ${gc}">${glbl}</span>
+        <span class="hbadge" style="${cs}">${x(col.name)}</span>
+      </div>
+    </div>
+    <div class="hcard-arr">›</div>
+  </div>
+  <div class="hcard-body">
+    ${arBlk}
+    ${enBlk}
+    ${urBlk}
+    <div class="hcard-meta">${meta}</div>
+  </div>
+</div>`;
+}
+
+// Close all, open clicked — same as duas.html toggleDua
+function toggleCard(id){
+  const card=document.getElementById(id);
+  const wasOpen=card.classList.contains('open');
+  document.querySelectorAll('.hcard.open').forEach(c=>c.classList.remove('open'));
+  if(!wasOpen){ card.classList.add('open'); card.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+}
+
+// ══════════════════════════════════════════════════════════════════
+function showWelcome(){
+  document.getElementById('main').innerHTML='<div class="hadith-grid"><div class="state-box"><div class="state-ico">📖</div><div class="state-ttl">Select a Book</div><div class="state-sub">Choose any book from the sidebar to begin reading in Arabic, English and Urdu.</div></div></div>';
+  document.getElementById('pager').style.display='none';
+  document.getElementById('tb-cnt').textContent='';
+  document.getElementById('nav-cnt').style.display='none';
+}
+
+function showSkel(){
+  document.getElementById('main').innerHTML='<div class="hadith-grid">'+Array.from({length:5},(_,i)=>`<div class="hcard" style="animation-delay:${i*55}ms"><div class="hcard-top"><div class="skel" style="width:42px;height:26px;border-radius:6px;flex-shrink:0"></div><div style="flex:1;padding-left:12px"><div class="skel" style="height:13px;width:82%;margin-bottom:9px;border-radius:4px"></div><div class="skel" style="height:9px;width:48%;margin-bottom:7px;border-radius:4px"></div><div class="skel" style="height:9px;width:62%;border-radius:4px"></div></div></div></div>`).join('')+'</div>';
+  document.getElementById('pager').style.display='none';
+}
+
+function updateCnt(){
+  const tc=document.getElementById('tb-cnt'), nc=document.getElementById('nav-cnt');
+  if(!CUR_LIST.length){ tc.textContent=''; nc.style.display='none'; return; }
+  tc.textContent=DISP.length===CUR_LIST.length?CUR_LIST.length.toLocaleString()+' hadiths':DISP.length.toLocaleString()+' / '+CUR_LIST.length.toLocaleString();
+  document.getElementById('nav-n').textContent=CUR_LIST.length.toLocaleString();
+  nc.style.display='inline';
+}
+
+function goPage(dir){ PAGE=Math.max(1,Math.min(PAGE+dir,Math.ceil(DISP.length/PER))); renderH(); }
+
+function splitNar(text){
+  if(!text) return {narrator:'',body:''};
+  const pats=[/^Narrated (?:by )?([A-Z][^:]{2,70}):\s*/,/^([A-Z][a-zA-Z'\s\.\-]{3,60}) (?:reported|narrated|said):\s*/,/^It was narrated (?:from|that) ([A-Z][a-zA-Z'\s\.]{3,50}) (?:that|said):\s*/];
+  for(const p of pats){ const m=text.match(p); if(m) return {narrator:m[1].trim().replace(/[.,]+$/,''),body:text.slice(m[0].length)}; }
+  return {narrator:'',body:text};
+}
+function pickGrade(grades,def){ for(const g of (grades||[])){ const v=(g.grade||g.name||'').trim(); if(v) return v; } return def; }
+function x(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function esc(s){ return String(s||'').replace(/'/g,"\\'"); }
+</script>
+</body>
+</html>

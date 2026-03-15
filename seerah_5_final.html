@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seerah — Final Years and Legacy | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04070D;--gold:#C9A84C;--gold-dim:rgba(201,168,76,0.18);--gold-glow:rgba(201,168,76,0.08);--teal:#2FB89A;--text:#D4CBB8;--text-dim:#8A8070;--card:#080E1C;--border:rgba(201,168,76,0.15);--border-hi:rgba(201,168,76,0.35);--amber:#D4843A}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Lora',serif;font-size:16px;line-height:1.75;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;height:58px;background:rgba(4,7,13,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);display:flex;align-items:center;padding:0 20px;gap:12px}
+.nav-left{display:flex;align-items:center;gap:8px;flex:1}
+.nav-left a{color:var(--text-dim);text-decoration:none;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.06em;transition:color 0.2s;white-space:nowrap}
+.nav-left a:hover{color:var(--gold)}
+.nav-sep{color:var(--border-hi);font-size:14px}
+.nav-centre{flex:0 0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--gold);font-weight:600}
+.nav-en{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:10px;flex:1;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border-hi);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.08em;padding:4px 9px;cursor:pointer;border-radius:3px;transition:all 0.2s}
+.lang-btn.active{background:var(--gold-dim);color:var(--gold);border-color:var(--gold)}
+.lang-btn:hover{color:var(--gold);border-color:var(--gold)}
+.badge-ce{font-family:'Cinzel',serif;font-size:10px;color:var(--teal);border:1px solid rgba(47,184,154,0.3);padding:3px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap}
+.hero{text-align:center;padding:64px 24px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 70% 100%,rgba(47,184,154,0.04) 0%,transparent 60%);pointer-events:none}
+.hero-ar{font-family:'Noto Naskh Arabic',serif;font-size:clamp(28px,6vw,52px);font-weight:700;color:var(--gold);line-height:1.3;margin-bottom:8px}
+.hero-en{font-family:'Cinzel',serif;font-size:clamp(16px,3vw,26px);font-weight:600;color:var(--text);letter-spacing:0.05em}
+.hero-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-top:8px}
+.hero-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
+.timeline-bar{max-width:700px;margin:0 auto 52px;padding:0 24px}
+.timeline-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--text-dim);text-align:center;margin-bottom:10px;text-transform:uppercase}
+.timeline-track{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;position:relative}
+.timeline-fill{position:absolute;left:69%;top:0;height:100%;width:28%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px}
+.timeline-dot{position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(47,184,154,0.5)}
+.timeline-epochs{display:flex;justify-content:space-between;margin-top:8px}
+.timeline-epoch{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.06em}
+.timeline-epoch.active{color:var(--gold)}
+.main{max-width:860px;margin:0 auto;padding:0 20px 80px}
+.section-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:52px 0 20px;display:flex;align-items:center;gap:14px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-num{background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-size:10px;padding:2px 7px;border-radius:2px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:28px;transition:border-color 0.3s}
+.card:hover{border-color:var(--border-hi)}
+.card-meta{display:flex;flex-wrap:wrap;gap:16px;padding:14px 22px;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04)}
+.meta-item{display:flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.06em;color:var(--text-dim)}
+.meta-item span{color:var(--text)}
+.card-body{padding:22px 22px 0}
+.card-ar-title{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700;color:var(--gold);text-align:right;direction:rtl;margin-bottom:10px;line-height:1.5}
+.card-title{font-family:'Cinzel',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:0.02em}
+.narrative{font-family:'Lora',serif;font-size:15.5px;line-height:1.82;color:var(--text);margin-bottom:14px}
+.narrative-ur{font-family:'Noto Naskh Arabic',serif;font-size:16px;line-height:2;color:var(--text);direction:rtl;text-align:right;margin-bottom:14px;display:none}
+.ayah-block{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-left:3px solid var(--gold);border-radius:6px;padding:18px 20px;margin:20px 0}
+.ayah-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.ayah-ar{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:500;color:#E8D89A;text-align:right;direction:rtl;line-height:2;margin-bottom:12px}
+.ayah-en{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text-dim);line-height:1.7;margin-bottom:8px}
+.ayah-ur{font-family:'Noto Naskh Arabic',serif;font-size:15px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;display:none}
+.sources{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.05em;padding:4px 10px;border-radius:3px;border:1px solid;line-height:1.3}
+.badge-sahih{color:#5DD68A;border-color:rgba(61,170,110,0.4);background:rgba(61,170,110,0.1)}
+.badge-classical{color:#78B4E0;border-color:rgba(74,144,196,0.4);background:rgba(74,144,196,0.1)}
+.badge-disputed{color:#E4A55A;border-color:rgba(212,132,58,0.4);background:rgba(212,132,58,0.1)}
+.badge-scholars-differ{color:#D4B86A;border-color:rgba(212,184,106,0.3);background:rgba(212,184,106,0.07);font-style:italic}
+.dispute-note{background:rgba(212,132,58,0.08);border:1px solid rgba(212,132,58,0.25);border-left:3px solid var(--amber);border-radius:4px;padding:12px 16px;font-family:'Lora',serif;font-style:italic;font-size:13.5px;color:#C4A870;margin:12px 0;line-height:1.65}
+.dispute-note strong{font-style:normal;font-weight:600;color:var(--amber)}
+.hadith-block{background:rgba(47,184,154,0.06);border:1px solid rgba(47,184,154,0.2);border-left:3px solid var(--teal);border-radius:6px;padding:16px 20px;margin:16px 0}
+.hadith-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.hadith-text{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text);line-height:1.75}
+.reflection{background:rgba(201,168,76,0.04);border-top:1px solid var(--border);padding:16px 22px 20px;margin-top:18px}
+.reflection-label{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.reflection-text{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--text-dim);line-height:1.7}
+.reflection-ur{font-family:'Noto Naskh Arabic',serif;font-size:14.5px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;margin-top:8px;display:none}
+.highlight{color:var(--gold);font-weight:600}
+/* Salawat closing box */
+.salawat-box{text-align:center;padding:40px 24px;margin:52px 0 24px;border:1px solid var(--border-hi);border-radius:8px;background:rgba(201,168,76,0.06)}
+.salawat-ar{font-family:'Noto Naskh Arabic',serif;font-size:28px;font-weight:700;color:var(--gold);direction:rtl;line-height:1.8;margin-bottom:16px}
+.salawat-en{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:15px}
+.nav-link-box{text-align:center;margin:32px 0 24px;padding:24px;border:1px solid var(--border);border-radius:8px;background:var(--gold-glow)}
+.nav-link-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;margin-bottom:10px}
+.nav-link-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-bottom:16px}
+.nav-link-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-prev{display:inline-block;background:rgba(201,168,76,0.08);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+.btn-home{display:inline-block;background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+@media(max-width:600px){nav{padding:0 12px;gap:6px}.nav-left a{font-size:9.5px}.nav-ar{font-size:11px}.badge-ce{display:none}.card-body{padding:16px 16px 0}.card-meta{padding:12px 16px;gap:10px}.reflection{padding:14px 16px 16px}.ayah-ar{font-size:18px}.salawat-ar{font-size:22px}}
+body.ur-mode .en-text{display:none!important}
+body.ur-mode .narrative-ur{display:block}
+body.ur-mode .ayah-ur{display:block}
+body.ur-mode .reflection-ur{display:block}
+body.ur-mode .reflection-text{display:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_index.html">Seerah</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_4_battles.html">Part 4</a>
+  </div>
+  <div class="nav-centre">
+    <div class="nav-ar">السيرة النبوية</div>
+    <div class="nav-en">Seerah · Final Years and Legacy</div>
+  </div>
+  <div class="nav-right">
+    <span class="badge-ce">630–632 CE</span>
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-ar">السنوات الأخيرة — الوداع والإرث الخالد</div>
+  <div class="hero-en">Final Years and Eternal Legacy</div>
+  <div class="hero-sub">Hunayn · Year of Delegations · Farewell Hajj · The Passing · Legacy &nbsp;·&nbsp; 630–632 CE</div>
+  <div class="hero-divider"></div>
+</div>
+
+<div class="timeline-bar">
+  <div class="timeline-label">Life of the Prophet ﷺ — 63 Years</div>
+  <div class="timeline-track">
+    <div class="timeline-fill"></div>
+    <div class="timeline-dot"></div>
+  </div>
+  <div class="timeline-epochs">
+    <span class="timeline-epoch">Birth · 570</span>
+    <span class="timeline-epoch">Hijra · 622</span>
+    <span class="timeline-epoch">Conquest · 630</span>
+    <span class="timeline-epoch active">Farewell Hajj · 632</span>
+    <span class="timeline-epoch active">Passing · 632</span>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- S1: HUNAYN -->
+<div class="section-title"><span class="section-num">01</span>Battle of Hunayn — 8 AH · غزوة حنين</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>Shawwal, 8 AH · ~January–February 630 CE</span></div>
+    <div class="meta-item">📍 <span>Valley of Hunayn · Between Makkah and Taif</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">أَنَا النَّبِيُّ لَا كَذِبْ — أَنَا ابْنُ عَبْدِ الْمُطَّلِبْ</div>
+    <div class="card-title">Overconfidence, Ambush — and the Steadfast Prophet ﷺ</div>
+    <p class="narrative en-text">Immediately after the conquest of Makkah, the powerful tribes of <span class="highlight">Hawazin and Thaqif</span> — who had not yet submitted — mobilised a large army against the Muslims. The Muslim force, now swelled by thousands of newly-converted Makkans, marched out numbering around 12,000. Some of the companions said: "We will not be defeated today due to our numbers." The Quran recorded this very thought and its consequences in Surat al-Tawbah (9:25): <span class="highlight">"Allah has already given you victory in many regions — and on the day of Hunayn, when your great number pleased you — but it did not avail you at all."</span></p>
+    <p class="narrative en-text">The enemy had hidden in the narrow passes of the valley and unleashed a devastating ambush at dawn. The Muslim army initially broke and fled in panic — even many of the newer Muslims. But the Prophet ﷺ did not flee. He stood his ground on his mule, calling out: <span class="highlight">"Ana al-Nabiyy la kadhib — Ana ibn Abd al-Muttalib! I am the Prophet — no lie — I am the son of Abd al-Muttalib!"</span> Source: Sahih Bukhari 4315. His uncle al-Abbas RA — whose voice was extraordinarily loud — called out to the companions to return. They rallied. The battle reversed, and the Hawazin were defeated. Source: Sahih Bukhari 4317; Quran 9:25–26.</p>
+    <p class="narrative-ur">مکہ کی فتح کے فوراً بعد ہوازن اور ثقیف کے قبائل میدان میں آ گئے۔ مسلمان تقریباً بارہ ہزار تھے — کچھ نے کہا: "آج تعداد کی وجہ سے شکست نہیں ہو گی۔" اللہ نے یہ غرور قرآن میں ریکارڈ کیا (التوبۃ: ۲۵)۔ صبح سویرے تنگ گھاٹی میں گھات لگائی — مسلمان بھاگے۔ مگر آپ ﷺ ڈٹے رہے — اپنے خچر پر، آگے بڑھتے ہوئے: "میں نبی ہوں، جھوٹ نہیں — میں عبد المطلب کا بیٹا ہوں!" (صحیح بخاری ۴۳۱۵) عباس رضی اللہ عنہ نے آواز لگائی — صحابہ واپس آئے — فتح ہوئی۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Tawbah (9:25–26) — Hunayn</div>
+      <div class="ayah-ar">وَيَوْمَ حُنَيْنٍ ۙ إِذْ أَعْجَبَتْكُمْ كَثْرَتُكُمْ فَلَمْ تُغْنِ عَنكُمْ شَيْئًا وَضَاقَتْ عَلَيْكُمُ الْأَرْضُ بِمَا رَحُبَتْ ثُمَّ وَلَّيْتُم مُّدْبِرِينَ ﴿٢٥﴾ ثُمَّ أَنزَلَ اللَّهُ سَكِينَتَهُ عَلَىٰ رَسُولِهِ وَعَلَى الْمُؤْمِنِينَ ﴿٢٦﴾</div>
+      <div class="ayah-en">"And on the day of Hunayn, when your great number pleased you but it did not avail you at all, and the earth was confining for you despite its vastness; then you turned back, fleeing. Then Allah sent down His tranquility upon His Messenger and upon the believers." <em>(Saheeh International · Surat al-Tawbah 9:25–26)</em></div>
+      <div class="ayah-ur">"اور حنین کے دن — جب تمہاری کثرت نے تمہیں خوش کیا مگر وہ تمہارے کسی کام نہ آئی — زمین اپنی فراخی کے باوجود تنگ ہو گئی — پھر تم پیٹھ پھیر کر بھاگے۔ پھر اللہ نے اپنے رسول پر اور مومنوں پر اپنی سکینت نازل کی۔" (التوبۃ: ۲۵–۲۶)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4315 — Prophet ﷺ stands firm; "I am the Prophet, no lie"</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4317 — Hunayn account</span>
+      <span class="badge badge-sahih">🟢 Quran 9:25–26 — Hunayn; divine tranquility</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Hunayn is the Quran's direct warning against trusting numbers over Allah. Twelve thousand — and they still needed Him. He recorded their overconfidence in the Quran not to shame them, but to preserve the lesson for every generation: victory does not come from magnitude. It comes from the one who grants it.</div>
+    <div class="reflection-ur">حنین قرآن کی براہ راست تنبیہ ہے تعداد پر اللہ سے زیادہ بھروسے کے خلاف۔ بارہ ہزار — اور پھر بھی اسی کے محتاج۔ اللہ نے یہ غرور قرآن میں اس لیے نہیں محفوظ کیا کہ انہیں شرمندہ کرے — بلکہ ہر نسل کے لیے سبق بچائے: فتح تعداد سے نہیں آتی، اس سے آتی ہے جو عطا کرتا ہے۔</div>
+  </div>
+</div>
+
+<!-- S2: YEAR OF DELEGATIONS -->
+<div class="section-title"><span class="section-num">02</span>Am al-Wufud — The Year of Delegations · عام الوفود</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>9 AH · ~630–631 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah al-Munawwarah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ</div>
+    <div class="card-title">Arabia Comes to Madinah — and Surah al-Nasr Tells the Prophet His Time is Near</div>
+    <p class="narrative en-text">In the ninth year after the Hijra, delegations from tribes across the Arabian Peninsula began arriving in Madinah — declaring their acceptance of Islam and their entry into the Muslim community. This year became known as <span class="highlight">Am al-Wufud — the Year of Delegations</span>. The tide had turned entirely. A message that began with one man in a cave was now transforming an entire continent.</p>
+    <p class="narrative en-text">It was in this year — or shortly after — that <span class="highlight">Surat al-Nasr (110)</span> was revealed. It spoke of the coming of Allah's victory and the entering of people into Islam in multitudes — and it ended with a command: glorify and seek forgiveness. <span class="highlight">Ibn Abbas RA</span> — later known as the great Quranic scholar — narrated in Sahih Bukhari (4970) that when this surah was revealed, the Prophet ﷺ understood it as a signal: his mission was complete, and his time in this world was drawing near. Umar RA wept when he heard this interpretation. The surah that sounded like triumph carried within it the announcement of departure.</p>
+    <p class="narrative-ur">نویں ہجری میں پورے جزیرۃ العرب سے قبائل کے وفود مدینے آنے لگے — اسلام قبول کرتے ہوئے۔ یہ "عام الوفود" کہلایا۔ اسی دوران یا اس کے قریب سورۃ النصر نازل ہوئی: "جب اللہ کی مدد اور فتح آئے، لوگوں کو دیکھو اللہ کے دین میں جوق در جوق داخل ہوتے..." ابن عباس رضی اللہ عنہ نے بیان کیا (صحیح بخاری ۴۹۷۰): جب یہ سورت نازل ہوئی، آپ ﷺ سمجھ گئے — مشن مکمل ہوا، وقت قریب ہے۔ عمر رضی اللہ عنہ رو پڑے جب یہ تفسیر سنی۔ فتح کا اعلان رخصت کی خبر لے کر آیا۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Nasr (110:1–3) — The Signal of Completion</div>
+      <div class="ayah-ar">إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ ﴿١﴾ وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا ﴿٢﴾ فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ ۚ إِنَّهُ كَانَ تَوَّابًا ﴿٣﴾</div>
+      <div class="ayah-en">"When the victory of Allah has come and the conquest, and you see the people entering into the religion of Allah in multitudes — then exalt with praise of your Lord and ask forgiveness of Him. Indeed, He is ever Accepting of repentance." <em>(Saheeh International · Surat al-Nasr 110:1–3)</em></div>
+      <div class="ayah-ur">"جب اللہ کی مدد اور فتح آ جائے — اور تم دیکھو لوگوں کو اللہ کے دین میں جوق در جوق داخل ہوتے — تو اپنے رب کی حمد کے ساتھ تسبیح کرو اور اس سے معافی مانگو۔ بے شک وہ بہت توبہ قبول کرنے والا ہے۔" (النصر: ۱–۳)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Quran 110:1–3 — Surat al-Nasr</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4970 — Ibn Abbas: this surah announced the Prophet's approaching death</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Surat al-Nasr came at the height of apparent triumph — and it said: now seek forgiveness. The greatest human being who ever lived, at the peak of his mission's success, was commanded to ask for forgiveness. Not because he had sinned — but because this is what closeness to Allah looks like: the nearer you are to Him, the more you see your own smallness before His greatness.</div>
+    <div class="reflection-ur">سورۃ النصر بظاہر فتح کی چوٹی پر آئی — اور کہا: اب استغفار کرو۔ تمام انسانوں میں سب سے عظیم، اپنے مشن کی کامیابی کے بام پر، حکم ملا: معافی مانگو۔ اس لیے نہیں کہ گناہ تھا — بلکہ اس لیے کہ اللہ کی قربت ایسی ہی ہوتی ہے: جتنے قریب ہوتے ہو، اتنا ہی اپنی حقیر ی اس کی عظمت کے سامنے دیکھتے ہو۔</div>
+  </div>
+</div>
+
+<!-- S3: FAREWELL HAJJ -->
+<div class="section-title"><span class="section-num">03</span>The Farewell Hajj — 10 AH · حجة الوداع</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>Dhu al-Hijjah, 10 AH · March 632 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah · Mount Arafat · Mina</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">حجة الوداع — أعظم خطبة في تاريخ البشرية</div>
+    <div class="card-title">100,000 Companions — and the Most Important Speech in Human History</div>
+    <p class="narrative en-text">In the tenth year after the Hijra, the Prophet ﷺ performed his one and only Hajj — and his last. More than <span class="highlight">100,000 companions</span> accompanied him. Jabir ibn Abdullah RA narrates the complete account of this Hajj in Sahih Muslim (1218) — one of the longest and most detailed hadiths in the entire corpus of Islamic scholarship, covering every act from the ihram to the farewell.</p>
+    <p class="narrative en-text">On the plain of <span class="highlight">Arafat</span> — the central day of Hajj — the Prophet ﷺ delivered a sermon that has no equal in human history for the breadth of its audience, the weight of its content, and its permanence. He asked the assembly to listen carefully, for he did not know whether he would meet them here again. The sermon preserved in Sahih Muslim (1218) and Ibn Hisham (Sirat, 2:604–612) included:</p>
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahih Muslim 1218 + Ibn Hisham, Sirat, 2:604–612 — Key Passages from the Farewell Sermon</div>
+      <div class="hadith-text">"O People — your blood and your property are sacred to one another, as sacred as this day of yours, in this month of yours, in this city of yours — until you meet your Lord."<br><br>"Truly, the usury of the Age of Ignorance is abolished... and the first usury I abolish is that of al-Abbas ibn Abd al-Muttalib."<br><br>"Indeed I have left among you that which, if you hold fast to it, you will never go astray: the Book of Allah — and my Sunnah."<br><br>"O People — you will be asked about me. What will you say?" They said: "We testify that you have conveyed, fulfilled, and advised." He raised his finger toward the sky and pointed it toward the people three times, saying: "O Allah — bear witness. O Allah — bear witness. O Allah — bear witness."</div>
+    </div>
+    <p class="narrative en-text">On that same day of Arafat — on that same afternoon — the last Quranic verse of legislation was revealed. The gathering of 100,000 heard it descend. <span class="highlight">Umar ibn al-Khattab RA</span> wept when he heard it. It was Surat al-Maidah (5:3):</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Maidah (5:3) — Revealed on Arafat · The Final Verse of Legislation</div>
+      <div class="ayah-ar">الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْإِسْلَامَ دِينًا</div>
+      <div class="ayah-en">"This day I have perfected for you your religion and completed My favour upon you and have approved for you Islam as your religion." <em>(Saheeh International · Surat al-Maidah 5:3)</em></div>
+      <div class="ayah-ur">"آج میں نے تمہارے لیے تمہارا دین مکمل کر دیا، اور اپنی نعمت تم پر پوری کر دی، اور تمہارے لیے اسلام کو بطور دین پسند فرمایا۔" (المائدۃ: ۳)</div>
+    </div>
+    <p class="narrative en-text">When Umar RA wept at this verse, someone asked why. He said: "After perfection comes only deficiency." He understood that completion meant the mission was over — and the Prophet ﷺ would not be with them much longer. He was right. Source: Sahih Bukhari 45.</p>
+    <p class="narrative-ur">دسویں ہجری میں آپ ﷺ نے اپنا پہلا اور آخری حج کیا — ایک لاکھ سے زیادہ صحابہ کے ساتھ۔ میدانِ عرفات میں تاریخ کا سب سے عظیم خطبہ دیا: "تمہارا خون اور مال ایک دوسرے پر حرام ہے..." "میں تم میں دو چیزیں چھوڑتا ہوں — اللہ کی کتاب اور میری سنت..." "اے اللہ! کیا میں نے پہنچا دیا؟" — آسمان کی طرف انگلی اٹھائی: "اے اللہ! گواہ رہ۔" اسی دن سورۃ المائدہ کی آیت نازل ہوئی: "آج میں نے تمہارا دین مکمل کر دیا۔" عمر رضی اللہ عنہ رو پڑے۔ پوچھا گیا: کیوں؟ بولے: "کمال کے بعد کمی آتی ہے۔"</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Muslim 1218 — Jabir's full account of Farewell Hajj and sermon</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:604–612 — full sermon text</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 45 — Umar RA weeps at Surat al-Maidah 5:3</span>
+      <span class="badge badge-sahih">🟢 Quran 5:3 — religion perfected on Arafat</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">"O Allah — bear witness." He said it three times with his finger pointed to the sky, before 100,000 people. He wanted it on the record — for all time, for all people — that he had delivered what he was sent with. He had. Every Muslim who reads the Quran, who prays, who fasts, who gives zakat — is carrying what he delivered on that day.</div>
+    <div class="reflection-ur">"اے اللہ! گواہ رہ۔" تین بار — ایک لاکھ کے سامنے، آسمان کی طرف انگلی اٹھا کر۔ وہ چاہتے تھے کہ یہ ریکارڈ میں رہے — ہمیشہ کے لیے، سب کے لیے — کہ میں نے وہ پہنچا دیا جو لے کر آیا تھا۔ پہنچا دیا۔ ہر مسلمان جو قرآن پڑھتا ہے، نماز پڑھتا ہے، روزہ رکھتا ہے — وہی اٹھائے ہوئے ہے جو اس دن سونپا گیا۔</div>
+  </div>
+</div>
+
+<!-- S4: THE ILLNESS BEGINS -->
+<div class="section-title"><span class="section-num">04</span>The Illness — Safar, 11 AH · بداية المرض</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>Safar–Rabi al-Awwal, 11 AH · February–June 632 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah — The Apartment of Aisha RA</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">بداية المرض — مُرُوا أبا بكر فَلْيُصَلِّ بالناس</div>
+    <div class="card-title">The Illness Begins — "Tell Abu Bakr to Lead the People in Prayer"</div>
+    <p class="narrative en-text">After returning from the Farewell Hajj, the Prophet ﷺ began to fall ill — a headache, then fever, then increasing weakness. Aisha RA narrates in Sahih Bukhari (4428) the beginning of his illness. He continued leading the prayers as long as he was able. When the fever grew severe and he could no longer stand for prayer, he made his critical instruction: <span class="highlight">"Tell Abu Bakr to lead the people in prayer."</span> Source: Sahih Bukhari 4445.</p>
+    <p class="narrative en-text">Aisha RA initially suggested Umar RA instead, worried that the congregation would find it too painful to see Abu Bakr RA in the Prophet's ﷺ place — Abu Bakr's heart was too tender and he wept much. The Prophet ﷺ repeated the instruction firmly, three times. Abu Bakr RA led the prayers for the Prophet's remaining days. Source: Sahih Bukhari 4445.</p>
+    <p class="narrative en-text">In one of his final public appearances, the Prophet ﷺ — supported by two companions — entered the mosque while Abu Bakr RA was leading prayer. Abu Bakr RA moved to step back. The Prophet ﷺ gestured to him to remain in his place, sat beside him, and prayed while seated. Source: Sahih Bukhari 4448. From the pulpit in his last days, he gave his final advice to the people — including his warning about the graves of the prophets: <span class="highlight">"Do not take my grave as a place of worship."</span> Source: Sahih Bukhari 4462.</p>
+    <p class="narrative-ur">حجۃ الوداع کے بعد آپ ﷺ بیمار پڑ گئے — سر درد، بخار، کمزوری۔ عائشہ رضی اللہ عنہا صحیح بخاری ۴۴۲۸ میں آغازِ مرض بیان کرتی ہیں۔ جب چلنے کی طاقت نہ رہی تو فرمایا: "ابو بکر کو حکم دو کہ لوگوں کو نماز پڑھائیں۔" (صحیح بخاری ۴۴۴۵) عائشہ رضی اللہ عنہا نے عمر رضی اللہ عنہ کا نام لیا — آپ ﷺ نے تین بار دہرایا: "ابو بکر۔" آخری دنوں میں کبھی مسجد تشریف لائے — ابو بکر رضی اللہ عنہ پیچھے ہٹے — آپ ﷺ نے منع کیا اور بیٹھ کر نماز ادا کی۔</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4428 — Aisha RA narrates onset of illness</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4445 — "Tell Abu Bakr to lead prayer" — three times</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4448 — final appearance in mosque; prays seated beside Abu Bakr</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4462 — final advice from pulpit; "do not take my grave as a place of worship"</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">He said "Abu Bakr" three times. In Islamic tradition, this is understood as a clear indicator of succession in prayer leadership — and was subsequently understood as a signal of who should lead the community. When he could not stand, he sat and prayed beside Abu Bakr RA rather than miss the prayer. To the end, the prayer was not abandoned.</div>
+    <div class="reflection-ur">آپ ﷺ نے تین بار "ابو بکر" کہا۔ اسلامی روایت میں یہ واضح اشارہ سمجھا گیا۔ جب کھڑے نہ ہو سکے تو بیٹھ کر نماز ادا کی — نماز نہ چھوڑی۔ آخر تک نماز نہیں گئی۔</div>
+  </div>
+</div>
+
+<!-- S5: FINAL DAYS -->
+<div class="section-title"><span class="section-num">05</span>The Final Days · الأيام الأخيرة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>Early Rabi al-Awwal, 11 AH · June 632 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah — The Apartment of Aisha RA</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">الأيام الأخيرة — الاهتمام بالأمة حتى آخر لحظة</div>
+    <div class="card-title">Visiting the Graves, Giving Away His Last Dirhams, and the Ummah on His Mind</div>
+    <p class="narrative en-text">In his final nights, despite his weakness, the Prophet ﷺ rose in the late night and went to the <span class="highlight">Baqi cemetery</span> — where many of his companions were buried — and stood among the graves, supplicating for them. Aisha RA had followed him discreetly. When he returned and she asked where he had been, he told her. He asked Allah to forgive them and to grant them ease. Source: Sahih Muslim 974.</p>
+    <p class="narrative en-text">In his final days, he asked Aisha RA whether there was anything in the house. She brought what was left: a few dirhams. He said: <span class="highlight">"Give them away. What would Muhammad think if he met Allah while these remain?"</span> They were given away. He owned nothing when he passed. Source: Sahih Bukhari 4458.</p>
+    <p class="narrative en-text">His concern for the ummah never left him, even at the end. He said: <span class="highlight">"My ummah, my ummah."</span> Source: Sahih Bukhari 4463. He worried about those who would come after — that they would fall into tribulation, that they would take his grave as a place of worship, that they would follow the ways of those before them. Every warning he gave in his final days was for us — who would come centuries later. He had not met us, but he was thinking of us.</p>
+    <p class="narrative-ur">آخری راتوں میں — کمزوری کے باوجود — آپ ﷺ اٹھے اور جنت البقیع گئے، قبروں کے درمیان کھڑے دعا کی۔ عائشہ رضی اللہ عنہا نے پیچھے پیچھے دیکھا۔ (صحیح مسلم ۹۷۴) آخری دنوں میں انہوں نے پوچھا: "گھر میں کچھ ہے؟" چند درہم لائے گئے۔ فرمایا: "تقسیم کر دو — محمد ﷺ اللہ سے کیا کہے گا اگر یہ موجود ہوں؟" سب بانٹ دیے۔ (صحیح بخاری ۴۴۵۸) اور فرماتے رہے: "میری امت... میری امت۔" (صحیح بخاری ۴۴۶۳) وہ ہمارے لیے فکرمند تھے — صدیوں بعد آنے والوں کے لیے — جنہیں انہوں نے دیکھا نہیں تھا۔</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Muslim 974 — visits Baqi cemetery at night</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4458 — gives away his last dirhams</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4463 — "My ummah, my ummah"</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">He gave away his last dirhams. He had nothing. The man who had ruled an entire peninsula died with nothing — and chose it. He owned what he gave away. He left what could not be taken. And in his final words: "My ummah." He was thinking of us. Of every believer yet unborn. That is a love that should never be taken lightly.</div>
+    <div class="reflection-ur">آخری درہم بھی دے دیے۔ کچھ نہ رکھا۔ جس شخص نے پورے جزیرۃ العرب پر حکومت کی وہ خالی ہاتھ گیا — اور یہی چنا۔ جو دے دیا وہ اپنا تھا۔ جو چھوڑا وہ چھینا نہیں جا سکتا۔ اور آخری الفاظ: "میری امت۔" وہ ہمارے بارے میں سوچ رہے تھے — ابھی تک پیدا نہ ہونے والے ہر مومن کے بارے میں۔ یہ محبت ہلکی نہیں لی جانی چاہیے۔</div>
+  </div>
+</div>
+
+<!-- S6: THE PASSING -->
+<div class="section-title"><span class="section-num">06</span>The Passing — 12 Rabi al-Awwal, 11 AH · وفاته ﷺ</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>12 Rabi al-Awwal, 11 AH · 8 June 632 CE · Monday</span></div>
+    <div class="meta-item">📍 <span>Madinah — The Apartment of Aisha RA</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">وَفَاتُهُ ﷺ — الرَّفِيقُ الأَعْلَى</div>
+    <div class="card-title">Monday Morning — and the Words No One Was Ready to Hear</div>
+    <p class="narrative en-text">On Monday morning — the <span class="highlight">12th of Rabi al-Awwal, 11 AH</span> — the Prophet ﷺ passed away in the apartment of <span class="highlight">Aisha bint Abi Bakr RA</span>, his head resting against her. Aisha RA described in Sahih Bukhari (4462): <span class="highlight">"He died between my chest and my chin."</span> His last words, preserved in Sahih Bukhari (4463), were directed toward the highest station: <span class="highlight">"Al-Rafiq al-A'la — the Highest Companion."</span> She described: his hand relaxed, his eyes fixed upward, and she closed his eyes.</p>
+    <p class="narrative en-text">The news spread through Madinah. <span class="highlight">Umar ibn al-Khattab RA</span> — whose love for the Prophet ﷺ was fierce and boundless — stood in the mosque with his sword and declared that the Prophet ﷺ had not died and would return. He was not in denial from weakness — he was in shock from a love that could not process the loss. Then <span class="highlight">Abu Bakr al-Siddiq RA</span> arrived. He went into the apartment, uncovered the Prophet's ﷺ face, kissed his forehead, and said: <span class="highlight">"You are more beautiful in death than in life."</span> He returned to the mosque and said — in the most important speech ever delivered by a caliph:</p>
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahih Bukhari 1241 — Abu Bakr RA's Speech After the Passing (Sahih)</div>
+      <div class="hadith-text">"O people — whoever worshipped Muhammad, then Muhammad has died. And whoever worships Allah — then Allah is alive and never dies." Then he recited: "Muhammad is not but a messenger. Other messengers have passed before him. If he were to die or be killed, would you turn back on your heels? And whoever turns back — he will never harm Allah at all. And Allah will reward the grateful." (Quran 3:144)</div>
+    </div>
+    <p class="narrative en-text">Abdullah ibn Abbas RA narrated: "When Abu Bakr recited this verse, it was as if the people had not heard this verse before — and every person in the mosque was reciting it." Source: Sahih Bukhari 1241. Umar RA said: "When I heard Abu Bakr recite it, my legs gave way beneath me and I fell to the ground — because I knew that the Messenger of Allah ﷺ had indeed died."</p>
+    <p class="narrative-ur">پیر کی صبح — ۱۲ ربیع الاول ۱۱ ہجری — عائشہ رضی اللہ عنہا کی آغوش میں آپ ﷺ نے وفات پائی۔ آخری الفاظ: "الرفیق الاعلیٰ۔" (صحیح بخاری ۴۴۶۳) عمر رضی اللہ عنہ تلوار لے کر کہنے لگے: "نبی ﷺ نے وفات نہیں پائی۔" عشق میں حواس بکھرے تھے۔ پھر ابو بکر رضی اللہ عنہ آئے — چہرہ کھولا، پیشانی چومی — مسجد میں آئے اور کہا: "جس نے محمد ﷺ کی عبادت کی — محمد ﷺ فوت ہو گئے۔ جس نے اللہ کی عبادت کی — اللہ زندہ ہے، کبھی نہیں مرتا۔" (صحیح بخاری ۱۲۴۱) عمر رضی اللہ عنہ نے کہا: "جب ابو بکر نے یہ آیت تلاوت کی، میرے پاؤں لڑکھڑائے اور میں گر پڑا — اس لیے کہ میں نے جانا: آپ ﷺ واقعی تشریف لے گئے۔"</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat Al Imran (3:144) — Recited by Abu Bakr RA</div>
+      <div class="ayah-ar">وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ ۚ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ ۚ أَفَإِن مَّاتَ أَوْ قُتِلَ انقَلَبْتُمْ عَلَىٰ أَعْقَابِكُمْ</div>
+      <div class="ayah-en">"Muhammad is not but a messenger. Other messengers have passed before him. If he were to die or be killed, would you turn back on your heels?" <em>(Saheeh International · Surat Al Imran 3:144)</em></div>
+      <div class="ayah-ur">"محمد ﷺ صرف ایک رسول ہیں۔ ان سے پہلے بھی رسول گزر چکے ہیں۔ اگر وہ وفات پا جائیں یا شہید ہو جائیں تو کیا تم الٹے پاؤں پھر جاؤ گے؟" (آل عمران: ۱۴۴)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4462 — Aisha RA: "He died between my chest and my chin"</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4463 — "Al-Rafiq al-A'la" — his last words</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 1241 — Abu Bakr's speech; Quran 3:144; Umar RA's legs give way</span>
+      <span class="badge badge-scholars-differ">⚪ Exact date of passing — 12 Rabi al-Awwal is the traditional account; scholars differ on the day of month</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">"Whoever worshipped Muhammad — Muhammad has died. Whoever worships Allah — Allah is alive and never dies." In one sentence, Abu Bakr RA prevented the greatest possible corruption of the faith, right at the moment of its most acute vulnerability. This is why he was al-Siddiq — the Affirmer of Truth. He affirmed it when everyone else had forgotten it.</div>
+    <div class="reflection-ur">"جس نے محمد ﷺ کی عبادت کی — محمد ﷺ فوت ہو گئے۔ جس نے اللہ کی عبادت کی — وہ زندہ ہے، کبھی نہیں مرتا۔" ایک جملے میں ابو بکر رضی اللہ عنہ نے دین کی سب سے بڑی ممکنہ خرابی روک دی — اس کی سب سے نازک گھڑی میں۔ اسی لیے وہ "الصدیق" تھے — سچ کی تصدیق کرنے والے۔ انہوں نے اس وقت تصدیق کی جب باقی سب بھول گئے تھے۔</div>
+  </div>
+</div>
+
+<!-- S7: LEGACY -->
+<div class="section-title"><span class="section-num">07</span>His Legacy — Why He Matters · إرثه الخالد</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>632 CE → Until the Last Day</span></div>
+    <div class="meta-item">📍 <span>Every Corner of the Earth</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ</div>
+    <div class="card-title">A Mercy to All the Worlds — The Unbroken Chain</div>
+    <p class="narrative en-text">He was born an orphan in a desert city. He could not read or write. He had no army, no treasury, no institution behind him. He lived simply, owned almost nothing, and mended his own sandals. He died at sixty-three — and within a century of his death, his message had reached from the shores of Spain to the borders of China. No human life has had a more consequential impact on the subsequent history of the world.</p>
+    <p class="narrative en-text">The scholarship generated to preserve his words and actions is unparalleled in human history. Scholars estimated that over <span class="highlight">one million hadiths</span> — including chains of transmission — were collected, scrutinised, and graded by the generations of hadith scholars who dedicated their lives to this task. The chains of narration run unbroken: every authenticated hadith traces back through named narrators to the Prophet ﷺ himself — a tradition of verified oral transmission without parallel anywhere in the ancient world.</p>
+    <p class="narrative en-text">Today, <span class="highlight">1.8 billion people</span> — more than a fifth of humanity — follow his Sunnah. They wake to pray before dawn because he prayed before dawn. They fast the month of Ramadan because he fasted it. They face Jerusalem in prayer and then toward Makkah. They say "Assalamu Alaykum" because he said it. They name their children Muhammad because his name is the most beloved. And when any of them says: <em>Allahumma salli ala Muhammad</em> — his name is raised before Allah. Five times a day, in every adhān, across every time zone on earth.</p>
+    <p class="narrative en-text">When Aisha RA was asked to describe his character, she said — in what is among the most profound answers ever given: <span class="highlight">"His character was the Quran."</span> Source: Sahih Muslim 746. He did not merely recite it. He embodied it. He was what the Quran looks like when lived completely. Allah said of him:</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Anbiya (21:107) — His Purpose</div>
+      <div class="ayah-ar">وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ</div>
+      <div class="ayah-en">"And We have not sent you except as a mercy to the worlds." <em>(Saheeh International · Surat al-Anbiya 21:107)</em></div>
+      <div class="ayah-ur">"اور ہم نے آپ کو تمام جہانوں کے لیے رحمت بنا کر بھیجا۔" (الانبیاء: ۱۰۷)</div>
+    </div>
+    <p class="narrative en-text">The unbroken chain: from him ﷺ to his companions; from the companions to the tabi'un; from them to the tabi' al-tabi'in; through the imams of hadith; through the scholars of every century; through the teachers of our teachers — to us. Every time a Muslim learns their deen from a teacher who learned it from a teacher, they are part of a chain that goes all the way back to that man in a cave in 610 CE who trembled and said: <em>Zammiluni — cover me.</em> And from that trembling came the light that is still burning.</p>
+    <p class="narrative-ur">وہ ایک یتیم کے طور پر پیدا ہوئے، صحرا کے ایک شہر میں، بغیر لکھنا پڑھنا جانے۔ کوئی فوج نہ تھی، خزانہ نہ تھا، ادارہ نہ تھا۔ سادہ زندگی، تقریباً کچھ نہ تھا، اپنی جوتیاں خود گانٹھتے تھے۔ تریسٹھ سال کی عمر میں وفات پائی — اور ایک صدی کے اندر ان کا پیغام اسپین سے چین کی سرحدوں تک پہنچ گیا۔ آج ایک ارب اسی کروڑ انسان ان کی سنت پر چلتے ہیں۔ عائشہ رضی اللہ عنہا سے پوچھا گیا: "آپ کا کردار کیسا تھا؟" کہا: "ان کا کردار قرآن تھا۔" (صحیح مسلم ۷۴۶) اور اللہ نے فرمایا: "ہم نے آپ کو تمام جہانوں کے لیے رحمت بنا کر بھیجا۔"</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Muslim 746 — Aisha RA: "His character was the Quran"</span>
+      <span class="badge badge-sahih">🟢 Quran 21:107 — "a mercy to all the worlds"</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">His character was the Quran. If you want to know what the Quran looks like when lived — read his biography. If you want to understand the Quran — study his life. The Seerah is not separate from the scripture. It is the scripture, embodied. He ﷺ is the living proof that what the Quran calls for is not an ideal — it is achievable, because one human being achieved it, completely, in sixty-three years, in the full light of history.</div>
+    <div class="reflection-ur">ان کا کردار قرآن تھا۔ اگر جاننا ہو کہ قرآن زندگی میں کیسا دکھتا ہے — ان کی سیرت پڑھو۔ اگر قرآن سمجھنا ہو — ان کی زندگی کا مطالعہ کرو۔ سیرت کتاب الہی سے الگ نہیں — وہ کتاب الہی ہے، مجسم۔ آپ ﷺ زندہ ثبوت ہیں کہ قرآن جس کا مطالبہ کرتا ہے وہ محض آدرش نہیں — قابل حصول ہے، کیونکہ ایک انسان نے اسے مکمل طور پر حاصل کیا، تریسٹھ سال میں، تاریخ کی مکمل روشنی میں۔</div>
+  </div>
+</div>
+
+<!-- SALAWAT -->
+<div class="salawat-box">
+  <div class="salawat-ar">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ<br>كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ<br>إِنَّكَ حَمِيدٌ مَّجِيدٌ</div>
+  <div class="salawat-en">O Allah, send blessings upon Muhammad and upon the family of Muhammad, as You sent blessings upon Ibrahim and the family of Ibrahim. Indeed You are Praiseworthy and Glorious.</div>
+</div>
+
+<div class="nav-link-box">
+  <div class="nav-link-label">Part 5 of 5 · Seerah Series — Complete</div>
+  <div class="nav-link-sub">The Seerah of the Prophet ﷺ — from Cave Hira to the Farewell — is complete. May Allah accept it from us and grant us his companionship in the Hereafter.</div>
+  <div class="nav-link-btns">
+    <a href="seerah_4_battles.html" class="btn-prev">← Part 4: Battles and Treaties</a>
+    <a href="seerah_index.html" class="btn-home">↑ Seerah Index</a>
+  </div>
+</div>
+
+</div>
+<script>
+function setLang(l){const b=document.body,e=document.getElementById('btn-en'),u=document.getElementById('btn-ur');if(l==='ur'){b.classList.add('ur-mode');u.classList.add('active');e.classList.remove('active');document.documentElement.setAttribute('lang','ur');}else{b.classList.remove('ur-mode');e.classList.add('active');u.classList.remove('active');document.documentElement.setAttribute('lang','en');}}
+</script>
+
+
+<style>
+.seerah-footer-nav{display:flex;justify-content:space-between;align-items:center;padding:40px 24px 60px;max-width:900px;margin:0 auto;gap:16px}
+.seerah-footer-nav a{display:flex;flex-direction:column;padding:16px 20px;background:#080E1C;border:1px solid rgba(201,168,76,.15);border-radius:10px;text-decoration:none;transition:all .2s;max-width:260px;flex:1}
+.seerah-footer-nav a:hover{border-color:rgba(201,168,76,.4);background:#0C1528}
+.sfn-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;color:#8A9BB0;text-transform:uppercase;margin-bottom:6px}
+.sfn-title{font-family:'Cinzel',serif;font-size:12px;color:#C9A84C;margin-bottom:3px}
+.sfn-period{font-family:'Lora',serif;font-size:11px;color:#5A6B80;font-style:italic}
+.sfn-arrow{font-size:18px;color:#C9A84C;margin-bottom:4px}
+.sfn-next{text-align:right}
+.sfn-center{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:#5A6B80;text-transform:uppercase;text-align:center;padding:16px 20px}
+.sfn-center a{color:#C9A84C;text-decoration:none}
+.sfn-center a:hover{color:#E2C97A}
+</style>
+
+<div class="seerah-footer-nav">
+  <a href="seerah_4_battles.html">
+        <span class="sfn-label">← Previous</span>
+        <span class="sfn-title">Battles & Treaties</span>
+        <span class="sfn-period">624–630 CE</span>
+      </a>
+  <div class="sfn-center">
+    <a href="seerah_index.html">⟨ Seerah Overview ⟩</a>
+  </div>
+  <div></div>
+</div>
+
+</body>
+</html>

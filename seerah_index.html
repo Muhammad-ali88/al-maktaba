@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seerah — Life of Muhammad ﷺ | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg0:#04070D; --bg1:#080E1C; --bg2:#0C1528; --bg3:#111E35;
+  --gold:#C9A84C; --gold2:#E2C97A; --gold3:#F5E9C0;
+  --goldborder:rgba(201,168,76,.15); --goldborder2:rgba(201,168,76,.08);
+  --golddim:rgba(201,168,76,.08);
+  --teal:#2FB89A; --text:#D4CBB8; --text2:#8A9BB0; --text3:#5A6B80;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:'Lora',serif;min-height:100vh}
+body.ur-mode .en-text{display:none}
+body.ur-mode .ur-text{display:block!important}
+.ur-text{display:none}
+.ar-text{font-family:'Noto Naskh Arabic',serif;direction:rtl;text-align:right}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;height:58px;background:rgba(4,7,13,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--goldborder);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:12px}
+.nav-left{display:flex;align-items:center;gap:8px;flex:1}
+.nav-left a{color:var(--text2);text-decoration:none;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.5px;transition:color .2s}
+.nav-left a:hover{color:var(--gold)}
+.nav-sep{color:var(--text3);font-size:10px;margin:0 2px}
+.nav-centre{text-align:center;flex:1}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;color:var(--gold);font-size:18px;direction:rtl;display:block;line-height:1.2}
+.nav-en{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--text3);text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.lang-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;padding:4px 10px;border:1px solid var(--goldborder);background:transparent;color:var(--text2);cursor:pointer;border-radius:3px;transition:all .2s;text-transform:uppercase}
+.lang-btn.active{background:var(--golddim);color:var(--gold);border-color:var(--gold)}
+
+/* HERO */
+.hero{max-width:860px;margin:0 auto;padding:64px 24px 40px;text-align:center}
+.hero-bismillah{font-family:'Noto Naskh Arabic',serif;font-size:28px;color:var(--gold);opacity:.8;margin-bottom:32px;direction:rtl}
+.hero-title-ar{font-family:'Noto Naskh Arabic',serif;font-size:48px;color:var(--gold);direction:rtl;line-height:1.3;margin-bottom:12px;text-shadow:0 0 60px rgba(201,168,76,.25)}
+.hero-title-en{font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin-bottom:32px}
+.hero-quote{background:var(--bg1);border:1px solid var(--goldborder);border-radius:12px;padding:28px 32px;position:relative;overflow:hidden;max-width:660px;margin:0 auto}
+.hero-quote::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-quote-ar{font-family:'Noto Naskh Arabic',serif;font-size:20px;color:var(--gold2);direction:rtl;line-height:2;margin-bottom:14px}
+.hero-quote-en{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--text);line-height:1.8;margin-bottom:10px}
+.hero-quote-ur{font-family:'Noto Naskh Arabic',serif;font-size:14px;color:var(--text);direction:rtl;line-height:2;margin-bottom:10px;display:none}
+.hero-quote-src{font-family:'Cinzel',serif;font-size:9px;color:var(--teal);letter-spacing:1px}
+
+/* TIMELINE BAR */
+.timeline-section{max-width:960px;margin:48px auto 0;padding:0 24px}
+.section-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;text-align:center}
+.timeline-bar{display:flex;align-items:stretch;border-radius:8px;overflow:hidden;border:1px solid var(--goldborder);height:56px}
+.tb-segment{display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;transition:filter .2s;text-decoration:none;position:relative;flex:1}
+.tb-segment:hover{filter:brightness(1.3)}
+.tb-label{font-family:'Cinzel',serif;font-size:7px;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.8);text-align:center;line-height:1.4}
+.tb-period{font-family:'Lora',serif;font-size:9px;color:rgba(255,255,255,.5);font-style:italic}
+.tb-seg1{background:linear-gradient(135deg,#1a2a4a,#243660)}
+.tb-seg2{background:linear-gradient(135deg,#2a1a1a,#5a1a1a)}
+.tb-seg3{background:linear-gradient(135deg,#1a2a1a,#1a4a2a)}
+.tb-seg4{background:linear-gradient(135deg,#2a2a1a,#4a3a1a)}
+.tb-seg5{background:linear-gradient(135deg,#1a1a3a,#2a1a4a)}
+
+/* PART CARDS */
+.parts-grid{max-width:960px;margin:48px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.part-card{background:var(--bg1);border:1px solid var(--goldborder2);border-radius:12px;padding:28px 24px;text-decoration:none;transition:all .25s;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.part-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.part-card:nth-child(1)::before{background:linear-gradient(90deg,#7A9BE8,#2FB89A)}
+.part-card:nth-child(2)::before{background:linear-gradient(90deg,#E86060,#C9A84C)}
+.part-card:nth-child(3)::before{background:linear-gradient(90deg,#2FB89A,#60B8E8)}
+.part-card:nth-child(4)::before{background:linear-gradient(90deg,#C9A84C,#E8A060)}
+.part-card:nth-child(5)::before{background:linear-gradient(90deg,#A060E8,#7A9BE8)}
+.part-card:hover{border-color:var(--goldborder);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.pc-num{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:12px}
+.pc-title{font-family:'Cinzel',serif;font-size:14px;color:var(--gold);margin-bottom:6px;letter-spacing:.5px}
+.pc-period{font-family:'Lora',serif;font-style:italic;font-size:12px;color:var(--text3);margin-bottom:16px}
+.pc-ar{font-family:'Noto Naskh Arabic',serif;font-size:20px;color:var(--gold2);direction:rtl;text-align:right;margin-bottom:16px;opacity:.8}
+.pc-desc{font-family:'Lora',serif;font-size:13px;color:var(--text2);line-height:1.7;flex:1;margin-bottom:16px}
+.pc-desc-ur{font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--text2);direction:rtl;line-height:2;flex:1;margin-bottom:16px;display:none}
+.pc-events{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
+.pc-event-tag{font-family:'Cinzel',serif;font-size:7px;letter-spacing:.5px;padding:3px 7px;border-radius:3px;background:var(--golddim);color:var(--text3);text-transform:uppercase;border:1px solid var(--goldborder2)}
+.pc-read{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-top:auto;display:flex;align-items:center;gap:6px}
+.pc-read::after{content:'→';transition:transform .2s}
+.part-card:hover .pc-read::after{transform:translateX(4px)}
+
+/* STATS ROW */
+.stats-row{max-width:960px;margin:48px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat-card{background:var(--bg1);border:1px solid var(--goldborder2);border-radius:8px;padding:16px;text-align:center}
+.stat-num{font-family:'Cinzel',serif;font-size:22px;color:var(--gold);display:block;margin-bottom:4px}
+.stat-label{font-family:'Cinzel',serif;font-size:7px;letter-spacing:1px;color:var(--text3);text-transform:uppercase}
+
+/* KEY EVENTS TIMELINE */
+.key-events{max-width:960px;margin:48px auto 0;padding:0 24px 80px}
+.events-line{position:relative;padding-left:28px}
+.events-line::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--gold),rgba(201,168,76,.1))}
+.event-dot{position:relative;margin-bottom:20px;display:flex;align-items:flex-start;gap:16px}
+.event-dot::before{content:'';position:absolute;left:-24px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--bg0);flex-shrink:0;box-shadow:0 0 8px rgba(201,168,76,.4)}
+.ed-year{font-family:'Cinzel',serif;font-size:9px;color:var(--gold);letter-spacing:.5px;min-width:60px;padding-top:3px;flex-shrink:0}
+.ed-event{font-family:'Lora',serif;font-size:13px;color:var(--text2);line-height:1.6}
+.ed-event strong{color:var(--text);font-weight:600}
+.ed-link{font-family:'Cinzel',serif;font-size:8px;color:var(--teal);text-decoration:none;letter-spacing:.5px;margin-left:8px}
+.ed-link:hover{color:var(--gold)}
+
+@media(max-width:768px){
+  .parts-grid{grid-template-columns:1fr 1fr}
+  .stats-row{grid-template-columns:repeat(3,1fr)}
+  .timeline-bar{flex-direction:column;height:auto}
+  .tb-segment{padding:10px;min-height:44px}
+}
+@media(max-width:480px){
+  .parts-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+  </div>
+  <div class="nav-centre">
+    <span class="nav-ar">السيرة النبوية</span>
+    <span class="nav-en">Seerah — Life of the Prophet ﷺ</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bismillah ar-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+  <div class="hero-title-ar">السيرة النبوية</div>
+  <div class="hero-title-en">The Life of Muhammad ﷺ</div>
+  <div class="hero-quote">
+    <div class="hero-quote-ar ar-text">وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ</div>
+    <p class="hero-quote-en en-text">"And We have not sent you except as a mercy to all the worlds."</p>
+    <p class="hero-quote-ur ur-text ar-text">اور ہم نے آپ کو تمام جہانوں کے لیے صرف رحمت بنا کر بھیجا ہے۔</p>
+    <div class="hero-quote-src">Quran 21:107 · Surah Al-Anbiya</div>
+  </div>
+</div>
+
+<!-- TIMELINE BAR -->
+<div class="timeline-section">
+  <div class="section-label">Navigate by Period</div>
+  <div class="timeline-bar">
+    <a href="seerah_1_early_life.html" class="tb-segment tb-seg1">
+      <span class="tb-label">Early Life</span>
+      <span class="tb-period">570–610 CE</span>
+    </a>
+    <a href="seerah_2_makkah.html" class="tb-segment tb-seg2">
+      <span class="tb-label">Makkah Period</span>
+      <span class="tb-period">610–622 CE</span>
+    </a>
+    <a href="seerah_3_hijra.html" class="tb-segment tb-seg3">
+      <span class="tb-label">Hijra & Madinah</span>
+      <span class="tb-period">622–624 CE</span>
+    </a>
+    <a href="seerah_4_battles.html" class="tb-segment tb-seg4">
+      <span class="tb-label">Battles & Treaties</span>
+      <span class="tb-period">624–630 CE</span>
+    </a>
+    <a href="seerah_5_final.html" class="tb-segment tb-seg5">
+      <span class="tb-label">Final Years</span>
+      <span class="tb-period">630–632 CE</span>
+    </a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-card">
+    <span class="stat-num">63</span>
+    <span class="stat-label">Years of Life</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num">23</span>
+    <span class="stat-label">Years of Prophethood</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num">5</span>
+    <span class="stat-label">Parts · This Series</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num">100K+</span>
+    <span class="stat-label">Farewell Hajj</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num">1.8B</span>
+    <span class="stat-label">Follow His Way</span>
+  </div>
+</div>
+
+<!-- PART CARDS -->
+<div class="parts-grid">
+
+  <a href="seerah_1_early_life.html" class="part-card">
+    <div class="pc-num">Part 1 of 5</div>
+    <div class="pc-title">Early Life</div>
+    <div class="pc-period">570 – 610 CE</div>
+    <div class="pc-ar ar-text">الولادة إلى الوحي</div>
+    <p class="pc-desc en-text">From the Year of the Elephant to the first revelation in Cave Hira. Forty years of preparation — the birth of Al-Amin, the trustworthy.</p>
+    <p class="pc-desc-ur ur-text ar-text">سالِ فیل سے غارِ حرا کی پہلی وحی تک۔ چالیس سال کی تیاری — امین کی پیدائش، قابلِ اعتماد۔</p>
+    <div class="pc-events">
+      <span class="pc-event-tag">Year of Elephant</span>
+      <span class="pc-event-tag">Birth</span>
+      <span class="pc-event-tag">Al-Amin</span>
+      <span class="pc-event-tag">Khadijah RA</span>
+      <span class="pc-event-tag">First Revelation</span>
+    </div>
+    <div class="pc-read">Read Part 1</div>
+  </a>
+
+  <a href="seerah_2_makkah.html" class="part-card">
+    <div class="pc-num">Part 2 of 5</div>
+    <div class="pc-title">The Makkah Period</div>
+    <div class="pc-period">610 – 622 CE</div>
+    <div class="pc-ar ar-text">الدعوة والمحنة في مكة</div>
+    <p class="pc-desc en-text">Twelve years of da'wah and persecution. The first believers, the torture of Bilal RA, the Hijra to Abyssinia, the Year of Sorrow.</p>
+    <p class="pc-desc-ur ur-text ar-text">بارہ سال کی دعوت اور ستم۔ پہلے مومنین، بلال رضی اللہ عنہ کی اذیت، حبشہ کی ہجرت، عامِ حزن۔</p>
+    <div class="pc-events">
+      <span class="pc-event-tag">Bilal RA</span>
+      <span class="pc-event-tag">Abyssinia</span>
+      <span class="pc-event-tag">Year of Sorrow</span>
+      <span class="pc-event-tag">Taif</span>
+      <span class="pc-event-tag">Aqabah</span>
+    </div>
+    <div class="pc-read">Read Part 2</div>
+  </a>
+
+  <a href="seerah_3_hijra.html" class="part-card">
+    <div class="pc-num">Part 3 of 5</div>
+    <div class="pc-title">Hijra & Early Madinah</div>
+    <div class="pc-period">622 – 624 CE</div>
+    <div class="pc-ar ar-text">الهجرة وبناء المدينة</div>
+    <p class="pc-desc en-text">The migration that changed history. Cave Thawr, Suraqah's pursuit, the arrival in Madinah, the brotherhood, the first adhan.</p>
+    <p class="pc-desc-ur ur-text ar-text">وہ ہجرت جس نے تاریخ بدل دی۔ غارِ ثور، سراقہ کا تعاقب، مدینہ آمد، مواخات، پہلی اذان۔</p>
+    <div class="pc-events">
+      <span class="pc-event-tag">Cave Thawr</span>
+      <span class="pc-event-tag">Suraqah</span>
+      <span class="pc-event-tag">Quba Mosque</span>
+      <span class="pc-event-tag">Brotherhood</span>
+      <span class="pc-event-tag">Adhan</span>
+    </div>
+    <div class="pc-read">Read Part 3</div>
+  </a>
+
+  <a href="seerah_4_battles.html" class="part-card">
+    <div class="pc-num">Part 4 of 5</div>
+    <div class="pc-title">Battles & Treaties</div>
+    <div class="pc-period">624 – 630 CE</div>
+    <div class="pc-ar ar-text">الغزوات والمعاهدات</div>
+    <p class="pc-desc en-text">Badr, Uhud, Khandaq, Hudaybiyyah, letters to kings, Khaybar, and the greatest conquest — Makkah opened without bloodshed.</p>
+    <p class="pc-desc-ur ur-text ar-text">بدر، احد، خندق، حدیبیہ، بادشاہوں کو خطوط، خیبر، اور سب سے بڑی فتح — مکہ بغیر خون کے فتح۔</p>
+    <div class="pc-events">
+      <span class="pc-event-tag">Badr</span>
+      <span class="pc-event-tag">Uhud</span>
+      <span class="pc-event-tag">Khandaq</span>
+      <span class="pc-event-tag">Hudaybiyyah</span>
+      <span class="pc-event-tag">Makkah</span>
+    </div>
+    <div class="pc-read">Read Part 4</div>
+  </a>
+
+  <a href="seerah_5_final.html" class="part-card">
+    <div class="pc-num">Part 5 of 5</div>
+    <div class="pc-title">Final Years & Legacy</div>
+    <div class="pc-period">630 – 632 CE</div>
+    <div class="pc-ar ar-text">الوداع والميراث الخالد</div>
+    <p class="pc-desc en-text">Hunayn, the Year of Delegations, the Farewell Hajj and its eternal sermon, the passing — and the legacy that lives in 1.8 billion hearts.</p>
+    <p class="pc-desc-ur ur-text ar-text">حنین، عامِ وفود، حجۃ الوداع اور خطبہ، وفات — اور وہ میراث جو ڈیڑھ ارب دلوں میں زندہ ہے۔</p>
+    <div class="pc-events">
+      <span class="pc-event-tag">Hunayn</span>
+      <span class="pc-event-tag">Farewell Hajj</span>
+      <span class="pc-event-tag">Final Sermon</span>
+      <span class="pc-event-tag">The Passing</span>
+      <span class="pc-event-tag">Legacy</span>
+    </div>
+    <div class="pc-read">Read Part 5</div>
+  </a>
+
+</div>
+
+<!-- KEY EVENTS TIMELINE -->
+<div class="key-events">
+  <div class="section-label" style="margin-top:48px;margin-bottom:28px">Key Events at a Glance</div>
+  <div class="events-line">
+    <div class="event-dot">
+      <div class="ed-year">570 CE</div>
+      <div class="ed-event"><strong>Birth of Muhammad ﷺ</strong> — Year of the Elephant. Makkah. <a href="seerah_1_early_life.html" class="ed-link">Part 1 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">595 CE</div>
+      <div class="ed-event"><strong>Marriage to Khadijah RA</strong> — His greatest supporter. Age 25. <a href="seerah_1_early_life.html" class="ed-link">Part 1 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">610 CE</div>
+      <div class="ed-event"><strong>First Revelation</strong> — Cave Hira. Ramadan. Iqra. Age 40. <a href="seerah_1_early_life.html" class="ed-link">Part 1 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">615 CE</div>
+      <div class="ed-event"><strong>First Hijra to Abyssinia</strong> — Ja'far RA recites Surah Maryam. <a href="seerah_2_makkah.html" class="ed-link">Part 2 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">619 CE</div>
+      <div class="ed-event"><strong>Year of Sorrow</strong> — Deaths of Khadijah RA and Abu Talib. Journey to Taif. <a href="seerah_2_makkah.html" class="ed-link">Part 2 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">620 CE</div>
+      <div class="ed-event"><strong>Al-Isra wal-Miraj</strong> — Night Journey to Jerusalem and the heavens. <a href="seerah_2_makkah.html" class="ed-link">Part 2 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">622 CE</div>
+      <div class="ed-event"><strong>The Hijra</strong> — Cave Thawr, Suraqah, arrival in Madinah. Year 1 AH. <a href="seerah_3_hijra.html" class="ed-link">Part 3 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">624 CE</div>
+      <div class="ed-event"><strong>Battle of Badr</strong> — 313 vs 1,000. First major victory. 2 AH. <a href="seerah_4_battles.html" class="ed-link">Part 4 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">625 CE</div>
+      <div class="ed-event"><strong>Battle of Uhud</strong> — Trial and lesson. Hamza RA martyred. <a href="seerah_4_battles.html" class="ed-link">Part 4 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">628 CE</div>
+      <div class="ed-event"><strong>Treaty of Hudaybiyyah</strong> — The victory disguised as defeat. <a href="seerah_4_battles.html" class="ed-link">Part 4 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">630 CE</div>
+      <div class="ed-event"><strong>Conquest of Makkah</strong> — 10,000 march. General amnesty. Bilal RA atop the Ka'bah. <a href="seerah_4_battles.html" class="ed-link">Part 4 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">632 CE</div>
+      <div class="ed-event"><strong>Farewell Hajj</strong> — 100,000+ companions. The final sermon on Arafat. Quran 5:3 revealed. <a href="seerah_5_final.html" class="ed-link">Part 5 →</a></div>
+    </div>
+    <div class="event-dot">
+      <div class="ed-year">632 CE</div>
+      <div class="ed-event"><strong>The Passing</strong> — 12 Rabi al-Awwal, 11 AH. Al-Rafiq al-A'la. <a href="seerah_5_final.html" class="ed-link">Part 5 →</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function setLang(l) {
+  const ur = l === 'ur';
+  document.body.classList.toggle('ur-mode', ur);
+  document.getElementById('btn-en').classList.toggle('active', !ur);
+  document.getElementById('btn-ur').classList.toggle('active', ur);
+  document.querySelectorAll('.pc-desc').forEach(e => e.style.display = ur ? 'none' : '');
+  document.querySelectorAll('.pc-desc-ur').forEach(e => e.style.display = ur ? 'block' : 'none');
+  document.querySelectorAll('.hero-quote-ur').forEach(e => e.style.display = ur ? 'block' : 'none');
+  document.querySelectorAll('.hero-quote-en').forEach(e => e.style.display = ur ? 'none' : '');
+}
+</script>
+</body>
+</html>

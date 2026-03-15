@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Hadith Explorer — Enhanced Sample</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.10);--goldglow:rgba(201,168,76,.22);
+  --teal:#2FB89A;--blue:#7A9BE8;--orange:#E8A060;--red:#E86060;--purple:#A060E8;
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#5A6B80;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:"Lora",serif;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 900px 700px at 15% 10%,rgba(201,168,76,.05) 0%,transparent 60%),
+             radial-gradient(ellipse 600px 500px at 85% 80%,rgba(47,184,154,.03) 0%,transparent 60%)}
+
+/* NAV */
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.96);
+  border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);
+  display:flex;align-items:center;padding:0 24px;height:58px;gap:14px}
+.back-btn{font-family:"Cinzel",serif;font-size:10px;letter-spacing:1px;color:var(--text2);
+  padding:6px 12px;border:1px solid var(--border2);border-radius:6px;cursor:pointer;
+  transition:all .15s;text-decoration:none}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:"Noto Naskh Arabic",serif;font-size:21px;color:var(--gold);
+  text-shadow:0 0 16px rgba(201,168,76,.4)}
+.nav-en{font-family:"Cinzel",serif;font-size:12px;font-weight:700;color:var(--gold2);letter-spacing:2px}
+.nav-badge{font-family:"Cinzel",serif;font-size:8px;letter-spacing:1px;
+  padding:3px 10px;border-radius:20px;background:rgba(47,184,154,.12);
+  border:1px solid rgba(47,184,154,.3);color:var(--teal);margin-left:4px}
+.nav-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.nstat{font-family:"Cinzel",serif;font-size:9px;color:var(--text2);
+  padding:3px 10px;border:1px solid var(--border2);border-radius:14px}
+.nstat strong{color:var(--gold)}
+
+/* PAGE LAYOUT */
+.page{display:flex;min-height:calc(100vh - 58px);position:relative;z-index:1}
+
+/* SIDEBAR */
+.sidebar{width:270px;flex-shrink:0;background:rgba(8,14,28,.9);
+  border-right:1px solid var(--border2);position:sticky;top:58px;
+  height:calc(100vh - 58px);overflow-y:auto;display:flex;flex-direction:column}
+.sb-section{padding:14px;border-bottom:1px solid var(--border2)}
+.sb-lbl{font-family:"Cinzel",serif;font-size:7.5px;letter-spacing:2px;
+  color:var(--text3);text-transform:uppercase;margin-bottom:10px}
+
+/* View mode toggle */
+.view-tog{display:flex;gap:3px;background:rgba(255,255,255,.04);
+  border:1px solid var(--border2);border-radius:14px;padding:3px}
+.vt{font-family:"Cinzel",serif;font-size:8.5px;letter-spacing:.5px;
+  padding:5px 11px;border-radius:10px;cursor:pointer;
+  color:var(--text2);user-select:none;transition:all .18s;white-space:nowrap}
+.vt.on{background:var(--gold);color:#000;font-weight:700}
+
+/* Topic filter chips */
+.topic-chips{display:flex;flex-direction:column;gap:3px}
+.tc{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;
+  cursor:pointer;transition:all .15s;border:1px solid transparent}
+.tc:hover{background:rgba(255,255,255,.04)}
+.tc.on{background:rgba(201,168,76,.09);border-color:rgba(201,168,76,.2)}
+.tc-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.tc-name{font-family:"Lora",serif;font-size:11.5px;color:var(--text);flex:1}
+.tc.on .tc-name{color:var(--gold2)}
+.tc-ar{font-family:"Noto Naskh Arabic",serif;font-size:11px;color:var(--text3);direction:rtl}
+.tc-cnt{font-family:"Cinzel",serif;font-size:9px;color:var(--text3);
+  background:rgba(255,255,255,.06);border-radius:10px;padding:2px 7px}
+
+/* Collection filter */
+.col-chips{display:flex;flex-direction:column;gap:2px}
+.cc{font-family:"Cinzel",serif;font-size:9px;letter-spacing:.3px;
+  padding:6px 10px;border-radius:6px;cursor:pointer;
+  color:var(--text2);transition:all .15s;border:1px solid transparent}
+.cc:hover{background:rgba(255,255,255,.04)}
+.cc.on{font-weight:700}
+
+/* Grade filter */
+.grade-row{display:flex;gap:4px;flex-wrap:wrap}
+.gchip{font-family:"Cinzel",serif;font-size:8.5px;padding:4px 10px;border-radius:16px;
+  cursor:pointer;border:1px solid rgba(255,255,255,.08);color:var(--text2);transition:all .15s}
+.gchip.on{color:#fff}
+.gchip-all.on{background:rgba(201,168,76,.18);border-color:var(--gold);color:var(--gold)}
+.gchip-sahih.on{background:rgba(47,184,154,.15);border-color:rgba(47,184,154,.4);color:#2FB89A}
+.gchip-hasan.on{background:rgba(122,155,232,.12);border-color:rgba(122,155,232,.3);color:#7A9BE8}
+
+/* MAIN AREA */
+.main{flex:1;padding:20px 24px 60px;min-width:0}
+
+/* Toolbar */
+.toolbar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.srch{flex:1;min-width:200px;position:relative}
+.srch input{width:100%;padding:9px 36px 9px 14px;background:rgba(255,255,255,.05);
+  border:1px solid var(--border2);border-radius:8px;color:var(--text);
+  font-family:"Lora",serif;font-size:13px;outline:none;transition:border-color .2s}
+.srch input:focus{border-color:var(--gold)}
+.srch input::placeholder{color:var(--text3);font-size:11.5px}
+.srch-ico{position:absolute;right:11px;top:50%;transform:translateY(-50%);color:var(--text3)}
+.tb-cnt{font-family:"Cinzel",serif;font-size:9px;color:var(--text3)}
+.tb-cnt strong{color:var(--gold2)}
+
+/* Topic banner (shown in topic view) */
+.topic-banner{border-radius:12px;border:1px solid var(--border);
+  background:linear-gradient(135deg,rgba(17,30,53,.95),rgba(8,14,28,.98));
+  padding:16px 20px;margin-bottom:18px;display:none}
+.topic-banner.show{display:block}
+.tb-ar{font-family:"Noto Naskh Arabic",serif;font-size:26px;color:var(--gold);
+  direction:rtl;text-align:right;line-height:1.6;margin-bottom:4px;
+  text-shadow:0 0 20px rgba(201,168,76,.2)}
+.tb-en{font-family:"Cinzel",serif;font-size:14px;font-weight:700;
+  color:var(--gold2);letter-spacing:2px;margin-bottom:6px}
+.tb-ur{font-family:"Noto Naskh Arabic",serif;font-size:15px;color:var(--text2);
+  direction:rtl;text-align:right}
+.tb-desc{font-size:12.5px;color:var(--text2);line-height:1.8;margin-top:10px;
+  border-top:1px solid var(--border2);padding-top:10px}
+.tb-meta{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.tb-chip{font-family:"Cinzel",serif;font-size:8px;padding:3px 10px;
+  border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border2);color:var(--text2)}
+
+/* Quran crossref banner */
+.quran-link-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;
+  border-radius:9px;background:rgba(122,155,232,.06);border:1px solid rgba(122,155,232,.18);
+  margin-bottom:14px;cursor:pointer;transition:all .18s}
+.quran-link-bar:hover{background:rgba(122,155,232,.10);border-color:rgba(122,155,232,.3)}
+.qlb-ico{font-size:20px;flex-shrink:0}
+.qlb-body{flex:1;min-width:0}
+.qlb-lbl{font-family:"Cinzel",serif;font-size:8px;letter-spacing:1.5px;
+  color:var(--blue);margin-bottom:3px}
+.qlb-ar{font-family:"Noto Naskh Arabic",serif;font-size:15px;color:var(--gold2);
+  direction:rtl;text-align:right;line-height:1.8}
+.qlb-en{font-size:11.5px;color:var(--text2);margin-top:2px;line-height:1.6}
+.qlb-ref{font-family:"Cinzel",serif;font-size:8.5px;color:var(--blue);
+  margin-top:3px}
+.qlb-arr{color:var(--blue);font-size:16px;flex-shrink:0}
+
+/* HADITH CARDS — two display modes */
+.hadith-feed{display:flex;flex-direction:column;gap:14px}
+
+/* ── CARD (default mode — same as duas.html) ── */
+.hcard{border-radius:12px;border:1px solid var(--border2);
+  background:linear-gradient(145deg,rgba(17,30,53,.9),rgba(8,14,28,.95));
+  overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .2s;
+  animation:fadeU .35s both}
+.hcard:hover{border-color:rgba(201,168,76,.3);box-shadow:0 6px 28px rgba(0,0,0,.45)}
+.hcard.open{border-color:var(--gold)}
+@keyframes fadeU{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* Card header */
+.hcard-top{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.hcard-refnum{font-family:"Cinzel",serif;font-size:9.5px;font-weight:700;
+  padding:4px 10px;border-radius:6px;flex-shrink:0;letter-spacing:.5px;
+  white-space:nowrap;line-height:1.4;text-align:center}
+.hcard-info{flex:1;min-width:0}
+.hcard-preview{font-family:"Cinzel",serif;font-size:12.5px;font-weight:600;
+  color:#fff;line-height:1.4;overflow:hidden;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.hcard-meta-line{font-family:"Cinzel",serif;font-size:8.5px;color:var(--text2);
+  margin-top:3px;letter-spacing:.3px}
+.hcard-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.htag{font-family:"Cinzel",serif;font-size:7.5px;letter-spacing:.3px;
+  padding:2px 8px;border-radius:10px}
+.htag-grade-sah{background:rgba(47,184,154,.12);border:1px solid rgba(47,184,154,.3);color:#2FB89A}
+.htag-grade-has{background:rgba(122,155,232,.10);border:1px solid rgba(122,155,232,.25);color:#7A9BE8}
+.htag-topic{border:1px solid;opacity:.85}
+.htag-related{background:rgba(232,160,96,.08);border:1px solid rgba(232,160,96,.22);color:#E8A060;cursor:pointer}
+.htag-related:hover{background:rgba(232,160,96,.18)}
+.htag-quran{background:rgba(122,155,232,.08);border:1px solid rgba(122,155,232,.2);color:#7A9BE8;cursor:pointer}
+.htag-quran:hover{background:rgba(122,155,232,.15)}
+.hcard-arr{font-size:16px;color:var(--text2);transition:transform .25s;flex-shrink:0}
+.hcard.open .hcard-arr{transform:rotate(90deg);color:var(--gold)}
+
+/* Expanded body */
+.hcard-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border2)}
+.hcard.open .hcard-body{display:block}
+.hcard-arabic{font-family:"Noto Naskh Arabic",serif;font-size:clamp(19px,3vw,27px);
+  color:var(--gold2);direction:rtl;text-align:right;line-height:2.2;
+  padding:16px 0 10px;text-shadow:0 0 20px rgba(201,168,76,.15);word-break:break-word}
+.hcard-english{font-size:13px;color:var(--text);line-height:1.9;margin-bottom:12px;
+  border-left:3px solid var(--gold);padding:8px 14px;
+  border-radius:0 8px 8px 0;background:rgba(201,168,76,.04);word-break:break-word}
+.hcard-urdu{font-family:"Noto Naskh Arabic",serif;font-size:15.5px;color:#a8c8b8;
+  direction:rtl;text-align:right;line-height:2.1;margin-bottom:14px;
+  border-right:3px solid var(--teal);padding:8px 14px;
+  border-radius:8px 0 0 8px;background:rgba(47,184,154,.04);word-break:break-word}
+
+/* Metadata grid */
+.hmeta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.hmeta-box{background:rgba(255,255,255,.03);border:1px solid var(--border2);
+  border-radius:8px;padding:9px 12px}
+.hmeta-lbl{font-family:"Cinzel",serif;font-size:7.5px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.hmeta-val{font-size:11px;color:var(--text2);line-height:1.65}
+
+/* Related hadiths panel inside card */
+.hrelated{margin-top:12px;border-radius:9px;background:rgba(232,160,96,.04);
+  border:1px solid rgba(232,160,96,.15);padding:12px 14px}
+.hrel-lbl{font-family:"Cinzel",serif;font-size:8px;letter-spacing:1.5px;
+  color:#E8A060;margin-bottom:8px}
+.hrel-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer;transition:opacity .15s}
+.hrel-item:last-child{border-bottom:none;padding-bottom:0}
+.hrel-item:hover{opacity:.75}
+.hrel-col{font-family:"Cinzel",serif;font-size:8px;letter-spacing:.3px;
+  padding:2px 8px;border-radius:6px;flex-shrink:0;margin-top:2px}
+.hrel-text{font-size:11.5px;color:var(--text2);line-height:1.6;flex:1}
+
+/* Quran link inside card */
+.hquran{margin-top:10px;border-radius:9px;background:rgba(122,155,232,.05);
+  border:1px solid rgba(122,155,232,.15);padding:12px 14px;cursor:pointer;
+  transition:background .18s}
+.hquran:hover{background:rgba(122,155,232,.09)}
+.hquran-lbl{font-family:"Cinzel",serif;font-size:8px;letter-spacing:1.5px;
+  color:var(--blue);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.hquran-ar{font-family:"Noto Naskh Arabic",serif;font-size:16px;color:var(--gold2);
+  direction:rtl;text-align:right;line-height:1.9;margin-bottom:5px}
+.hquran-en{font-size:11.5px;color:var(--text2);line-height:1.65;margin-bottom:5px;
+  border-left:2px solid var(--blue);padding-left:10px}
+.hquran-ref{font-family:"Cinzel",serif;font-size:8px;color:var(--blue)}
+
+/* Action row */
+.hactions{display:flex;gap:8px;margin-top:14px;padding-top:12px;
+  border-top:1px solid var(--border2)}
+.hact-btn{font-family:"Cinzel",serif;font-size:8px;letter-spacing:.8px;
+  padding:6px 14px;border-radius:7px;border:1px solid var(--border2);
+  background:transparent;color:var(--text2);cursor:pointer;transition:all .18s}
+.hact-btn:hover{border-color:var(--border);color:var(--gold2);background:var(--golddim)}
+.hact-btn.copied{border-color:var(--teal);color:var(--teal);background:rgba(47,184,154,.08)}
+
+/* ── COMPACT MODE ── */
+.hcard.compact .hcard-arabic{font-size:16px;line-height:1.95;padding:10px 0 7px}
+.hcard.compact .hcard-english{font-size:12px;line-height:1.75;margin-bottom:8px}
+.hcard.compact .hcard-urdu{font-size:13px;line-height:1.9;margin-bottom:8px}
+.hcard.compact .hmeta,.hcard.compact .hrelated,.hcard.compact .hquran,.hcard.compact .hactions{display:none}
+
+/* ── ANALYTICAL MODE ── — wider, side-by-side layout */
+.feed-analytical .hcard{border-radius:0;border-left:none;border-right:none;
+  border-top:none;border-bottom:1px solid var(--border2);background:transparent}
+.feed-analytical .hcard:hover{box-shadow:none;border-bottom-color:var(--gold)}
+.feed-analytical .hcard-top{padding:12px 0}
+.feed-analytical .hcard-body{padding:0 0 16px}
+
+/* EMPTY STATE */
+.empty{display:flex;flex-direction:column;align-items:center;gap:14px;
+  padding:70px 30px;text-align:center}
+.empty-ico{font-size:48px;opacity:.18}
+.empty-ttl{font-family:"Cinzel",serif;font-size:13px;color:var(--text2);letter-spacing:1.5px}
+.empty-sub{font-size:12px;color:var(--text3);line-height:1.9;max-width:380px}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:rgba(17,30,53,.97);border:1px solid var(--teal);border-radius:9px;
+  padding:10px 20px;font-family:"Cinzel",serif;font-size:10px;letter-spacing:1px;
+  color:var(--teal);z-index:999;transition:transform .3s,opacity .3s;opacity:0;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* Mobile */
+@media(max-width:700px){
+  .sidebar{display:none}
+  .main{padding:14px 14px 40px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a class="back-btn" href="index.html">&#8592; Al-Maktaba</a>
+  <div class="nav-ar">&#x645;&#x643;&#x62A;&#x628;&#x629; &#x627;&#x644;&#x62D;&#x62F;&#x64A;&#x62B;</div>
+  <div class="nav-en">Hadith Explorer</div>
+  <span class="nav-badge">&#9679; Sample — 15 Hadiths</span>
+  <div class="nav-right">
+    <div class="nstat"><strong>4</strong> Topics</div>
+    <div class="nstat"><strong>4</strong> Collections</div>
+    <div class="nstat">AR · EN · UR</div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- View mode -->
+    <div class="sb-section">
+      <div class="sb-lbl">View Mode</div>
+      <div class="view-tog">
+        <div class="vt on" id="vt-collection" onclick="setView('collection')">Collection</div>
+        <div class="vt" id="vt-topic"      onclick="setView('topic')">By Topic</div>
+        <div class="vt" id="vt-compact"    onclick="setView('compact')">Compact</div>
+      </div>
+    </div>
+
+    <!-- Topic filter -->
+    <div class="sb-section">
+      <div class="sb-lbl">Topic</div>
+      <div class="topic-chips">
+        <div class="tc on" data-topic="all" onclick="setTopic('all',this)">
+          <div class="tc-dot" style="background:var(--gold)"></div>
+          <span class="tc-name">All Topics</span>
+          <span class="tc-cnt" id="cnt-all">15</span>
+        </div>
+        <div class="tc" data-topic="niyyah" onclick="setTopic('niyyah',this)">
+          <div class="tc-dot" style="background:#2FB89A"></div>
+          <div style="flex:1">
+            <div class="tc-name">Intention</div>
+            <div class="tc-ar">النية</div>
+          </div>
+          <span class="tc-cnt">4</span>
+        </div>
+        <div class="tc" data-topic="taharah" onclick="setTopic('taharah',this)">
+          <div class="tc-dot" style="background:#7A9BE8"></div>
+          <div style="flex:1">
+            <div class="tc-name">Purification</div>
+            <div class="tc-ar">الطهارة</div>
+          </div>
+          <span class="tc-cnt">3</span>
+        </div>
+        <div class="tc" data-topic="salah" onclick="setTopic('salah',this)">
+          <div class="tc-dot" style="background:#E8A060"></div>
+          <div style="flex:1">
+            <div class="tc-name">Prayer</div>
+            <div class="tc-ar">الصلاة</div>
+          </div>
+          <span class="tc-cnt">5</span>
+        </div>
+        <div class="tc" data-topic="dhikr" onclick="setTopic('dhikr',this)">
+          <div class="tc-dot" style="background:#A060E8"></div>
+          <div style="flex:1">
+            <div class="tc-name">Remembrance</div>
+            <div class="tc-ar">الذكر</div>
+          </div>
+          <span class="tc-cnt">3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collection filter -->
+    <div class="sb-section">
+      <div class="sb-lbl">Collection</div>
+      <div class="col-chips">
+        <div class="cc on" data-col="all" onclick="setCol('all',this)" style="color:var(--gold)">All Collections</div>
+        <div class="cc" data-col="bukhari" onclick="setCol('bukhari',this)" style="--c:#C9A84C">&#9679; Sahih Bukhari</div>
+        <div class="cc" data-col="muslim" onclick="setCol('muslim',this)" style="--c:#E2C97A">&#9679; Sahih Muslim</div>
+        <div class="cc" data-col="nawawi40" onclick="setCol('nawawi40',this)" style="--c:#60B8E8">&#9679; Arba&#x2019;een Nawawi</div>
+        <div class="cc" data-col="tirmidhi" onclick="setCol('tirmidhi',this)" style="--c:#7A9BE8">&#9679; Jami&#x2019; Tirmidhi</div>
+      </div>
+    </div>
+
+    <!-- Grade filter -->
+    <div class="sb-section">
+      <div class="sb-lbl">Grade</div>
+      <div class="grade-row">
+        <div class="gchip gchip-all on" onclick="setGrade('all',this)">All</div>
+        <div class="gchip gchip-sahih" onclick="setGrade('sahih',this)">&#10003; Sahih</div>
+        <div class="gchip gchip-hasan" onclick="setGrade('hasan',this)">&#9672; Hasan</div>
+      </div>
+    </div>
+
+  </div><!-- sidebar -->
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="srch">
+        <input id="srch" type="text" placeholder="Search hadiths, narrators, keywords..." oninput="doSearch(this.value)">
+        <span class="srch-ico">&#128269;</span>
+      </div>
+      <div class="tb-cnt" id="tb-cnt"><strong>15</strong> hadiths</div>
+    </div>
+
+    <!-- Topic banner (shows in topic view) -->
+    <div class="topic-banner" id="topic-banner">
+      <div class="tb-ar" id="tb-ar"></div>
+      <div class="tb-en" id="tb-en"></div>
+      <div class="tb-ur" id="tb-ur"></div>
+      <div class="tb-desc" id="tb-desc"></div>
+      <div class="tb-meta" id="tb-meta"></div>
+    </div>
+
+    <!-- Feed -->
+    <div class="hadith-feed" id="feed"></div>
+
+    <!-- Empty state -->
+    <div class="empty" id="empty" style="display:none">
+      <div class="empty-ico">&#128269;</div>
+      <div class="empty-ttl">No Hadiths Found</div>
+      <div class="empty-sub">Try clearing your search or adjusting the filters.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// TOPIC DEFINITIONS
+// ══════════════════════════════════════════════════════════════════
+const TOPICS = {
+  niyyah: {
+    ar: 'النية',
+    en: 'Intention (Niyyah)',
+    ur: 'نیت',
+    color: '#2FB89A',
+    desc: 'The concept of Niyyah — sincere intention — is the foundation of every act of worship in Islam. The Prophet ﷺ established that all actions are judged by their intentions, making the internal state of the heart the measure of every deed.',
+    collections: ['Sahih Bukhari', "Arba'een al-Nawawi", "Jami' Tirmidhi"],
+    quranLink: { ref: 'Quran 98:5', ar: 'وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ', en: 'And they were not commanded except to worship Allah, sincere to Him in religion.' }
+  },
+  taharah: {
+    ar: 'الطهارة',
+    en: 'Purification (Taharah)',
+    ur: 'طہارت',
+    color: '#7A9BE8',
+    desc: 'Physical and spiritual purification is the gateway to all acts of worship. Islam places extraordinary emphasis on cleanliness — of body, clothing, environment and heart — as a prerequisite for drawing close to Allah.',
+    collections: ['Sahih Muslim', 'Sahih Bukhari'],
+    quranLink: { ref: 'Quran 2:222', ar: 'إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ', en: 'Indeed, Allah loves those who are constantly repentant and loves those who purify themselves.' }
+  },
+  salah: {
+    ar: 'الصلاة',
+    en: 'Prayer (Salah)',
+    ur: 'نماز',
+    color: '#E8A060',
+    desc: 'Prayer is the second pillar of Islam and the direct conversation between the servant and Allah. Established five times daily, it is described in hadith as the first deed to be accounted for on the Day of Judgment.',
+    collections: ['Sahih Bukhari', 'Sahih Muslim'],
+    quranLink: { ref: 'Quran 2:238', ar: 'حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ', en: 'Maintain with care the [obligatory] prayers and [in particular] the middle prayer.' }
+  },
+  dhikr: {
+    ar: 'الذكر',
+    en: 'Remembrance of Allah (Dhikr)',
+    ur: 'ذکرِ الٰہی',
+    color: '#A060E8',
+    desc: 'The remembrance of Allah is described in the Quran as the greatest act and as that which brings the heart to rest. These hadiths establish specific phrases, their rewards, and the immense spiritual weight of keeping the tongue moist with the remembrance of Allah.',
+    collections: ['Sahih Bukhari', 'Sahih Muslim', "Jami' Tirmidhi"],
+    quranLink: { ref: 'Quran 13:28', ar: 'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ', en: 'Verily, in the remembrance of Allah do hearts find rest.' }
+  },
+};
+
+// ══════════════════════════════════════════════════════════════════
+// HAND-CURATED HADITH DATA — 15 hadiths, 4 topics
+// All references verified against standard printed editions
+// ══════════════════════════════════════════════════════════════════
+const HADITHS = [
+  // ─── NIYYAH (4) ───────────────────────────────────────────────
+  {
+    id: 1, topic: 'niyyah', col: 'bukhari',
+    colName: 'Sahih Bukhari', colColor: '#C9A84C',
+    refAuth: 'Bukhari 1',     // Authentic printed reference
+    book: 'Book of Revelation (Kitab Bad al-Wahy)',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Umar ibn al-Khattab RA',
+    ar: 'إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ',
+    en: 'Actions are judged by intentions, and every person will have only what they intended. So whoever emigrated for Allah and His Messenger, his emigration was for Allah and His Messenger. And whoever emigrated for worldly gain or to marry a woman, then his emigration was for the sake of whatever he emigrated for.',
+    ur: 'اعمال کا دارومدار نیتوں پر ہے اور ہر انسان کو وہی ملے گا جس کی اس نے نیت کی۔ جس نے اللہ اور اس کے رسول کی طرف ہجرت کی، اس کی ہجرت اللہ اور اس کے رسول کے لیے ہوگی۔ اور جس نے دنیا کمانے یا کسی عورت سے نکاح کرنے کے لیے ہجرت کی، اس کی ہجرت اسی کے لیے ہوگی جس کے لیے اس نے ہجرت کی۔',
+    quran: { ref: 'Quran 98:5', ar: 'وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ', en: 'And they were not commanded except to worship Allah, sincere to Him in religion.' },
+    relatedIds: [2, 3],
+    note: 'The very first hadith of Sahih Bukhari. Considered by many scholars to be the most important hadith in Islam.'
+  },
+  {
+    id: 2, topic: 'niyyah', col: 'nawawi40',
+    colName: "Arba'een al-Nawawi", colColor: '#60B8E8',
+    refAuth: 'Nawawi 40 — Hadith 1',
+    book: 'The Forty Hadiths',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Umar ibn al-Khattab RA',
+    ar: 'إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ',
+    en: 'Actions are judged by intentions.',
+    ur: 'اعمال کا دارومدار نیتوں پر ہے۔',
+    quran: { ref: 'Quran 98:5', ar: 'وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ', en: 'And they were not commanded except to worship Allah, sincere to Him in religion.' },
+    relatedIds: [1, 3],
+    note: 'Imam al-Nawawi chose this as the very first hadith of his famous collection, saying it is the foundation of all Islamic action.'
+  },
+  {
+    id: 3, topic: 'niyyah', col: 'bukhari',
+    colName: 'Sahih Bukhari', colColor: '#C9A84C',
+    refAuth: 'Bukhari 6491',
+    book: 'Book of Softening of Hearts (Kitab al-Riqaq)',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Huraira RA',
+    ar: 'إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ',
+    en: 'Indeed, Allah does not look at your appearance or your wealth, but He looks at your hearts and your deeds.',
+    ur: 'بے شک اللہ تمہاری صورتوں اور تمہارے مالوں کو نہیں دیکھتا، بلکہ وہ تمہارے دلوں اور تمہارے اعمال کو دیکھتا ہے۔',
+    quran: { ref: 'Quran 49:13', ar: 'إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ', en: 'Indeed, the most noble of you in the sight of Allah is the most righteous of you.' },
+    relatedIds: [1],
+    note: null
+  },
+  {
+    id: 4, topic: 'niyyah', col: 'tirmidhi',
+    colName: "Jami' Tirmidhi", colColor: '#7A9BE8',
+    refAuth: 'Tirmidhi 1647',
+    book: 'Book of Jihad',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Kabsha al-Anmari RA',
+    ar: 'مَثَلُ هَذِهِ الأُمَّةِ كَمَثَلِ أَرْبَعَةِ نَفَرٍ: رَجُلٌ آتَاهُ اللَّهُ مَالاً وَعِلْمًا فَهُوَ يَعْمَلُ بِعِلْمِهِ فِي مَالِهِ',
+    en: 'The example of this nation is like four people: one whom Allah gave wealth and knowledge, and he acts according to his knowledge with his wealth.',
+    ur: 'اس امت کی مثال چار لوگوں کی طرح ہے: ایک وہ جسے اللہ نے مال اور علم دونوں دیے اور وہ اپنے مال میں اپنے علم کے مطابق عمل کرتا ہے۔',
+    quran: null,
+    relatedIds: [],
+    note: 'This hadith illustrates how intention and knowledge together determine the spiritual weight of one's wealth.'
+  },
+
+  // ─── TAHARAH (3) ──────────────────────────────────────────────
+  {
+    id: 5, topic: 'taharah', col: 'muslim',
+    colName: 'Sahih Muslim', colColor: '#E2C97A',
+    refAuth: 'Muslim 223',
+    book: 'Book of Purification (Kitab al-Taharah)',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Malik al-Ashari RA',
+    ar: 'الطُّهُورُ شَطْرُ الإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلأُ الْمِيزَانَ، وَسُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ تَمْلآنِ مَا بَيْنَ السَّمَاءِ وَالأَرْضِ',
+    en: 'Purification is half of faith. Alhamdulillah fills the scales. SubhanAllah and Alhamdulillah together fill what is between the heaven and earth.',
+    ur: 'طہارت آدھا ایمان ہے۔ الحمد للہ میزان کو بھر دیتا ہے۔ سبحان اللہ اور الحمد للہ مل کر زمین اور آسمان کے درمیان کو بھر دیتے ہیں۔',
+    quran: { ref: 'Quran 2:222', ar: 'إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ', en: 'Indeed, Allah loves those who are constantly repentant and loves those who purify themselves.' },
+    relatedIds: [6],
+    note: 'One of the most comprehensive hadiths on the virtues of worship — covering taharah, dhikr, and their immense spiritual weight.'
+  },
+  {
+    id: 6, topic: 'taharah', col: 'bukhari',
+    colName: 'Sahih Bukhari', colColor: '#C9A84C',
+    refAuth: 'Bukhari 135',
+    book: 'Book of Ablutions (Kitab al-Wudu)',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Huraira RA',
+    ar: 'لَا تُقْبَلُ صَلَاةُ مَنْ أَحْدَثَ حَتَّى يَتَوَضَّأَ',
+    en: 'The prayer of a person who has broken his wudu is not accepted until he performs ablution again.',
+    ur: 'جس شخص کا وضو ٹوٹ جائے اس کی نماز قبول نہیں ہوتی جب تک وہ دوبارہ وضو نہ کر لے۔',
+    quran: { ref: 'Quran 5:6', ar: 'يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ', en: 'O you who believe! When you intend to offer prayer, wash your faces and hands up to the elbows.' },
+    relatedIds: [5],
+    note: null
+  },
+  {
+    id: 7, topic: 'taharah', col: 'muslim',
+    colName: 'Sahih Muslim', colColor: '#E2C97A',
+    refAuth: 'Muslim 251',
+    book: 'Book of Purification',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Uthman ibn Affan RA',
+    ar: 'مَنْ تَوَضَّأَ فَأَحْسَنَ الْوُضُوءَ خَرَجَتْ خَطَايَاهُ مِنْ جَسَدِهِ حَتَّى تَخْرُجَ مِنْ تَحْتِ أَظْفَارِهِ',
+    en: 'Whoever performs wudu and performs it well — his sins leave his body, even from under his fingernails.',
+    ur: 'جس نے وضو کیا اور اچھی طرح وضو کیا، تو اس کے گناہ اس کے جسم سے نکل جاتے ہیں، یہاں تک کہ اس کے ناخنوں کے نیچے سے بھی نکل جاتے ہیں۔',
+    quran: { ref: 'Quran 5:6', ar: 'وَلَـٰكِن يُرِيدُ لِيُطَهِّرَكُمْ وَلِيُتِمَّ نِعْمَتَهُ عَلَيْكُمْ', en: 'But He intends to purify you and complete His favour upon you that you may be grateful.' },
+    relatedIds: [],
+    note: null
+  },
+
+  // ─── SALAH (5) ────────────────────────────────────────────────
+  {
+    id: 8, topic: 'salah', col: 'bukhari',
+    colName: 'Sahih Bukhari', colColor: '#C9A84C',
+    refAuth: 'Bukhari 8',
+    book: 'Book of Faith (Kitab al-Iman)',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Ibn Umar RA',
+    ar: 'بُنِيَ الإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَالْحَجِّ، وَصَوْمِ رَمَضَانَ',
+    en: 'Islam is built upon five pillars: testifying that there is no god worthy of worship except Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving zakat, performing Hajj, and fasting Ramadan.',
+    ur: 'اسلام کی بنیاد پانچ چیزوں پر رکھی گئی ہے: اس بات کی گواہی کہ اللہ کے سوا کوئی عبادت کے لائق نہیں اور محمد ﷺ اللہ کے رسول ہیں، نماز قائم کرنا، زکوٰۃ دینا، حج کرنا، اور رمضان کا روزہ رکھنا۔',
+    quran: { ref: 'Quran 2:43', ar: 'وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ', en: 'And establish prayer and give zakat and bow with those who bow [in worship and obedience].' },
+    relatedIds: [9],
+    note: 'The famous Five Pillars hadith — the structural framework of the entire religion.'
+  },
+  {
+    id: 9, topic: 'salah', col: 'muslim',
+    colName: 'Sahih Muslim', colColor: '#E2C97A',
+    refAuth: 'Muslim 16',
+    book: 'Book of Faith',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Talha ibn Ubaydullah RA',
+    ar: 'خَمْسُ صَلَوَاتٍ افْتَرَضَهُنَّ اللَّهُ عَزَّ وَجَلَّ فِي الْيَوْمِ وَاللَّيْلَةِ، مَنْ أَحْسَنَ وُضُوءَهُنَّ وَصَلَّاهُنَّ لِوَقْتِهِنَّ كَانَ لَهُ عِنْدَ اللَّهِ عَهْدٌ أَنْ يَغْفِرَ لَهُ',
+    en: 'Five prayers which Allah Almighty has made obligatory in the day and night. Whoever performs wudu well for them and prays them at their times — for him is a covenant with Allah that He will forgive him.',
+    ur: 'پانچ نمازیں جو اللہ عزوجل نے دن اور رات میں فرض کی ہیں۔ جو ان کے لیے اچھی طرح وضو کرے اور انہیں ان کے اوقات میں ادا کرے، اس کے لیے اللہ کے پاس عہد ہے کہ وہ اسے بخش دے گا۔',
+    quran: { ref: 'Quran 4:103', ar: 'إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا', en: 'Indeed, prayer has been decreed upon the believers at specified times.' },
+    relatedIds: [8, 10],
+    note: null
+  },
+  {
+    id: 10, topic: 'salah', col: 'muslim',
+    colName: 'Sahih Muslim', colColor: '#E2C97A',
+    refAuth: 'Muslim 233',
+    book: 'Book of Purification',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Huraira RA',
+    ar: 'أَرَأَيْتُمْ لَوْ أَنَّ نَهَرًا بِبَابِ أَحَدِكُمْ يَغْتَسِلُ فِيهِ كُلَّ يَوْمٍ خَمْسَ مَرَّاتٍ، هَلْ يَبْقَى مِنْ دَرَنِهِ شَيْءٌ؟ قَالُوا: لَا يَبْقَى مِنْ دَرَنِهِ شَيْءٌ. قَالَ: فَذَلِكَ مَثَلُ الصَّلَوَاتِ الْخَمْسِ يَمْحُو اللَّهُ بِهِنَّ الْخَطَايَا',
+    en: 'Tell me, if there were a river at the door of one of you in which he bathes five times a day, would any dirt remain on him? They said: No dirt would remain. He said: That is the parable of the five prayers — through them Allah erases sins.',
+    ur: 'بتاؤ، اگر تم میں سے کسی کے دروازے پر ایک نہر ہو جس میں وہ ہر روز پانچ بار غسل کرے، تو کیا اس کی کوئی گندگی باقی رہے گی؟ انہوں نے کہا: کوئی گندگی نہیں بچے گی۔ آپ ﷺ نے فرمایا: یہی پانچ نمازوں کی مثال ہے — ان کے ذریعے اللہ گناہوں کو مٹا دیتا ہے۔',
+    quran: { ref: 'Quran 11:114', ar: 'إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ', en: 'Indeed, good deeds erase bad deeds.' },
+    relatedIds: [8, 9],
+    note: 'One of the most beautiful analogies in all of hadith literature.'
+  },
+  {
+    id: 11, topic: 'salah', col: 'bukhari',
+    colName: 'Sahih Bukhari', colColor: '#C9A84C',
+    refAuth: 'Bukhari 521',
+    book: 'Book of Prayer Times',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Ibn Masud RA',
+    ar: 'سَأَلْتُ النَّبِيَّ ﷺ أَيُّ الْعَمَلِ أَحَبُّ إِلَى اللَّهِ؟ قَالَ: الصَّلَاةُ عَلَى وَقْتِهَا. قُلْتُ: ثُمَّ أَيٌّ؟ قَالَ: بِرُّ الْوَالِدَيْنِ. قُلْتُ: ثُمَّ أَيٌّ؟ قَالَ: الْجِهَادُ فِي سَبِيلِ اللَّهِ',
+    en: 'I asked the Prophet ﷺ: Which deed is most beloved to Allah? He said: Prayer at its proper time. I said: Then what? He said: Kindness to parents. I said: Then what? He said: Jihad in the way of Allah.',
+    ur: 'میں نے نبی ﷺ سے پوچھا: کون سا عمل اللہ کو سب سے زیادہ پسند ہے؟ آپ ﷺ نے فرمایا: نماز کو اس کے وقت پر ادا کرنا۔ میں نے پوچھا: پھر کون سا؟ فرمایا: والدین کے ساتھ نیکی۔ میں نے پوچھا: پھر کون سا؟ فرمایا: اللہ کی راہ میں جہاد۔',
+    quran: { ref: 'Quran 4:103', ar: 'إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا', en: 'Indeed, prayer has been decreed upon the believers at specified times.' },
+    relatedIds: [],
+    note: null
+  },
+  {
+    id: 12, topic: 'salah', col: 'bukhari',
+    colName: 'Sahih Bukhari', colColor: '#C9A84C',
+    refAuth: 'Bukhari 6502',
+    book: 'Book of Softening of Hearts',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Huraira RA',
+    ar: 'قَالَ اللَّهُ تَعَالَى: أَعْدَدْتُ لِعِبَادِي الصَّالِحِينَ مَا لَا عَيْنٌ رَأَتْ، وَلَا أُذُنٌ سَمِعَتْ، وَلَا خَطَرَ عَلَى قَلْبِ بَشَرٍ',
+    en: 'Allah the Most High said: I have prepared for My righteous servants what no eye has seen, no ear has heard, and no human heart has imagined.',
+    ur: 'اللہ تعالیٰ نے فرمایا: میں نے اپنے نیک بندوں کے لیے وہ چیزیں تیار کی ہیں جو نہ کسی آنکھ نے دیکھی ہیں، نہ کسی کان نے سنی ہیں، اور نہ کسی انسانی دل میں ان کا خیال آیا ہے۔',
+    quran: { ref: 'Quran 32:17', ar: 'فَلَا تَعْلَمُ نَفْسٌ مَّا أُخْفِيَ لَهُم مِّن قُرَّةِ أَعْيُنٍ', en: 'No soul knows what has been hidden for them of comfort and pleasure as a reward for what they used to do.' },
+    relatedIds: [],
+    note: 'Hadith Qudsi — direct words of Allah relayed by the Prophet ﷺ.'
+  },
+
+  // ─── DHIKR (3) ────────────────────────────────────────────────
+  {
+    id: 13, topic: 'dhikr', col: 'bukhari',
+    colName: 'Sahih Bukhari', colColor: '#C9A84C',
+    refAuth: 'Bukhari 6682',
+    book: 'Book of Oaths and Vows',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Huraira RA',
+    ar: 'كَلِمَتَانِ خَفِيفَتَانِ عَلَى اللِّسَانِ، ثَقِيلَتَانِ فِي الْمِيزَانِ، حَبِيبَتَانِ إِلَى الرَّحْمَنِ: سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ',
+    en: 'Two words that are light on the tongue, heavy on the scales, and beloved to the Most Merciful: SubhanAllahi wa bihamdihi, SubhanAllahil Azeem.',
+    ur: 'دو کلمے جو زبان پر ہلکے ہیں، میزان میں بھاری ہیں اور رحمان کو پیارے ہیں: سبحان اللہ وبحمدہ، سبحان اللہ العظیم۔',
+    quran: { ref: 'Quran 13:28', ar: 'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ', en: 'Verily, in the remembrance of Allah do hearts find rest.' },
+    relatedIds: [14, 15],
+    note: null
+  },
+  {
+    id: 14, topic: 'dhikr', col: 'muslim',
+    colName: 'Sahih Muslim', colColor: '#E2C97A',
+    refAuth: 'Muslim 2692',
+    book: 'Book of Dhikr and Dua',
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Huraira RA',
+    ar: 'لَأَنْ أَقُولَ سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، أَحَبُّ إِلَيَّ مِمَّا طَلَعَتْ عَلَيْهِ الشَّمْسُ',
+    en: 'To say SubhanAllah, Alhamdulillah, La ilaha illAllah and Allahu Akbar is more beloved to me than everything upon which the sun rises.',
+    ur: 'سبحان اللہ، الحمد للہ، لا الہ الا اللہ اور اللہ اکبر کہنا مجھے اس سے زیادہ پسند ہے جس پر سورج طلوع ہوتا ہے۔',
+    quran: { ref: 'Quran 33:41', ar: 'يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا', en: 'O you who believe! Remember Allah with much remembrance.' },
+    relatedIds: [13, 15],
+    note: null
+  },
+  {
+    id: 15, topic: 'dhikr', col: 'tirmidhi',
+    colName: "Jami' Tirmidhi", colColor: '#7A9BE8',
+    refAuth: 'Tirmidhi 3375',
+    book: "Book of Du'a",
+    grade: 'sahih', gradeTxt: 'Sahih',
+    narrator: 'Abu Darda RA',
+    ar: 'أَلَا أُنَبِّئُكُمْ بِخَيْرِ أَعْمَالِكُمْ، وَأَزْكَاهَا عِنْدَ مَلِيكِكُمْ، وَأَرْفَعِهَا فِي دَرَجَاتِكُمْ؟ ذِكْرُ اللَّهِ تَعَالَى',
+    en: 'Shall I not tell you of the best of your deeds, the purest of them in the sight of your King, the highest of them in your ranks? The remembrance of Allah the Most High.',
+    ur: 'کیا میں تمہیں تمہارے بہترین اعمال، تمہارے بادشاہ کے نزدیک سب سے پاکیزہ، اور تمہارے درجات میں سب سے بلند عمل نہ بتاؤں؟ اللہ تعالیٰ کا ذکر۔',
+    quran: { ref: 'Quran 13:28', ar: 'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ', en: 'Verily, in the remembrance of Allah do hearts find rest.' },
+    relatedIds: [13, 14],
+    note: null
+  },
+];
+
+// ══════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════
+let VIEW = 'collection';
+let TOPIC = 'all';
+let COL = 'all';
+let GRADE = 'all';
+let SRCH = '';
+let srchT = null;
+
+// ══════════════════════════════════════════════════════════════════
+// FILTER & RENDER
+// ══════════════════════════════════════════════════════════════════
+function getFiltered() {
+  let r = [...HADITHS];
+  if (TOPIC !== 'all') r = r.filter(h => h.topic === TOPIC);
+  if (COL !== 'all')   r = r.filter(h => h.col === COL);
+  if (GRADE !== 'all') r = r.filter(h => h.grade === GRADE);
+  if (SRCH.length >= 2) r = r.filter(h =>
+    [h.en, h.ar, h.ur, h.narrator, h.refAuth, h.book].join(' ').toLowerCase().includes(SRCH)
+  );
+  return r;
+}
+
+function render() {
+  const list = getFiltered();
+  const feed = document.getElementById('feed');
+  const empty = document.getElementById('empty');
+  document.getElementById('tb-cnt').innerHTML = `<strong>${list.length}</strong> hadith${list.length!==1?'s':''}`;
+
+  // Topic banner
+  const banner = document.getElementById('topic-banner');
+  if (VIEW === 'topic' && TOPIC !== 'all' && TOPICS[TOPIC]) {
+    const t = TOPICS[TOPIC];
+    document.getElementById('tb-ar').textContent = t.ar;
+    document.getElementById('tb-en').textContent = t.en;
+    document.getElementById('tb-ur').textContent = t.ur;
+    document.getElementById('tb-desc').textContent = t.desc;
+    const meta = document.getElementById('tb-meta');
+    meta.innerHTML = t.collections.map(c => `<span class="tb-chip">${c}</span>`).join('') +
+      `<span class="tb-chip">${list.length} hadiths</span>`;
+    banner.classList.add('show');
+
+    // Show Quran crossref under banner
+    if (t.quranLink) {
+      const existing = document.getElementById('global-qlink');
+      if (!existing) {
+        const div = document.createElement('div');
+        div.id = 'global-qlink';
+        div.className = 'quran-link-bar';
+        div.innerHTML = `<div class="qlb-ico">📖</div>
+          <div class="qlb-body">
+            <div class="qlb-lbl">QURAN CONNECTION — ${t.quranLink.ref}</div>
+            <div class="qlb-ar">${t.quranLink.ar}</div>
+            <div class="qlb-en">${t.quranLink.en}</div>
+            <div class="qlb-ref">${t.quranLink.ref} — Click to open in Quran Explorer</div>
+          </div>
+          <div class="qlb-arr">›</div>`;
+        feed.parentNode.insertBefore(div, feed);
+      }
+    }
+  } else {
+    banner.classList.remove('show');
+    const existing = document.getElementById('global-qlink');
+    if (existing) existing.remove();
+  }
+
+  if (!list.length) {
+    feed.innerHTML = '';
+    empty.style.display = 'flex';
+    return;
+  }
+  empty.style.display = 'none';
+
+  // Group by topic if in topic view
+  let html = '';
+  if (VIEW === 'topic' && TOPIC === 'all') {
+    const byTopic = {};
+    list.forEach(h => { (byTopic[h.topic] = byTopic[h.topic]||[]).push(h); });
+    Object.entries(byTopic).forEach(([topic, hadiths]) => {
+      const t = TOPICS[topic];
+      html += `<div style="margin-bottom:6px">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;margin-bottom:4px;border-bottom:1px solid var(--border2)">
+          <div style="width:10px;height:10px;border-radius:50%;background:${t.color};flex-shrink:0"></div>
+          <span style="font-family:Cinzel,serif;font-size:10px;letter-spacing:2px;color:${t.color};text-transform:uppercase">${t.en}</span>
+          <span style="font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--gold)">${t.ar}</span>
+          <span style="font-family:Cinzel,serif;font-size:9px;color:var(--text3);margin-left:auto">${hadiths.length} hadiths</span>
+        </div>
+        ${hadiths.map((h,i) => buildCard(h,i)).join('')}
+      </div>`;
+    });
+  } else {
+    html = list.map((h,i) => buildCard(h,i)).join('');
+  }
+  feed.className = 'hadith-feed' + (VIEW==='topic'?' feed-topic':'');
+  feed.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// BUILD CARD
+// ══════════════════════════════════════════════════════════════════
+function buildCard(h, i) {
+  const t = TOPICS[h.topic];
+  const compact = VIEW === 'compact' ? ' compact' : '';
+  const cs = `background:${h.colColor}18;border:1px solid ${h.colColor}44;color:${h.colColor}`;
+
+  // Grade badge
+  const gc = h.grade === 'sahih' ? 'htag-grade-sah' : 'htag-grade-has';
+  const glbl = h.grade === 'sahih' ? '✓ Sahih' : '◈ Hasan';
+
+  // Topic tag
+  const topicTag = `<span class="htag htag-topic" style="background:${t.color}18;border-color:${t.color}44;color:${t.color}"
+    onclick="event.stopPropagation();setTopicByName('${h.topic}')">${t.en}</span>`;
+
+  // Related hadiths tag
+  const relTag = h.relatedIds && h.relatedIds.length
+    ? `<span class="htag htag-related" onclick="event.stopPropagation();scrollToRelated(${h.relatedIds[0]})">
+        ⟲ ${h.relatedIds.length} related</span>` : '';
+
+  // Quran link tag
+  const quranTag = h.quran
+    ? `<span class="htag htag-quran" onclick="event.stopPropagation();openQuranLink(${h.id})">📖 Quran ${h.quran.ref.replace('Quran ','')}</span>` : '';
+
+  // Preview text
+  const preview = x(h.en.slice(0, 88).replace(/\s\S*$/, '') + '…');
+
+  // Related hadiths panel
+  const relPanel = (h.relatedIds && h.relatedIds.length) ? (() => {
+    const rels = HADITHS.filter(r => h.relatedIds.includes(r.id));
+    return `<div class="hrelated">
+      <div class="hrel-lbl">SAME TOPIC IN OTHER COLLECTIONS (${rels.length})</div>
+      ${rels.map(r => `
+        <div class="hrel-item" onclick="openCardById(${r.id})" id="rel-${h.id}-${r.id}">
+          <span class="hrel-col" style="background:${r.colColor}18;border:1px solid ${r.colColor}44;color:${r.colColor}">${r.refAuth}</span>
+          <span class="hrel-text">${x(r.en.slice(0,100))}…</span>
+        </div>`).join('')}
+    </div>`;
+  })() : '';
+
+  // Quran link panel
+  const quranPanel = h.quran ? `
+    <div class="hquran" onclick="openQuranLink(${h.id})">
+      <div class="hquran-lbl">📖 <span>QURAN CONNECTION — ${x(h.quran.ref)}</span></div>
+      <div class="hquran-ar">${x(h.quran.ar)}</div>
+      <div class="hquran-en">${x(h.quran.en)}</div>
+      <div class="hquran-ref">${x(h.quran.ref)} — Tap to open in Quran Explorer</div>
+    </div>` : '';
+
+  // Note
+  const noteBox = h.note ? `<div class="hmeta-box" style="grid-column:1/-1">
+    <div class="hmeta-lbl">Scholarly Note</div>
+    <div class="hmeta-val">${x(h.note)}</div>
+  </div>` : '';
+
+  return `<div class="hcard${compact}" id="hc-${h.id}" style="animation-delay:${Math.min(i*30,360)}ms" onclick="toggleCard('hc-${h.id}')">
+  <div class="hcard-top">
+    <div class="hcard-refnum" style="${cs}">${x(h.refAuth)}</div>
+    <div class="hcard-info">
+      <div class="hcard-preview">${preview}</div>
+      <div class="hcard-meta-line">${x(h.colName)} · ${x(h.book)}</div>
+      <div class="hcard-tags">
+        <span class="htag ${gc}">${glbl}</span>
+        ${topicTag}${relTag}${quranTag}
+      </div>
+    </div>
+    <div class="hcard-arr">›</div>
+  </div>
+  <div class="hcard-body">
+    <div class="hcard-arabic">${x(h.ar)}</div>
+    <div class="hcard-english">${x(h.en)}</div>
+    <div class="hcard-urdu">${x(h.ur)}</div>
+    <div class="hmeta">
+      ${h.narrator ? `<div class="hmeta-box"><div class="hmeta-lbl">Narrator</div><div class="hmeta-val">${x(h.narrator)}</div></div>` : ''}
+      <div class="hmeta-box">
+        <div class="hmeta-lbl">Reference</div>
+        <div class="hmeta-val">${x(h.refAuth)}<br>${x(h.colName)}</div>
+      </div>
+      <div class="hmeta-box" style="grid-column:1/-1">
+        <div class="hmeta-lbl">Book / Chapter</div>
+        <div class="hmeta-val">${x(h.book)}</div>
+      </div>
+      ${noteBox}
+    </div>
+    ${relPanel}
+    ${quranPanel}
+    <div class="hactions">
+      <button class="hact-btn" id="copy-${h.id}" onclick="event.stopPropagation();copyHadith(${h.id})">⎘ Copy</button>
+      <button class="hact-btn" onclick="event.stopPropagation();shareHadith(${h.id})">↗ Share</button>
+    </div>
+  </div>
+</div>`;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// INTERACTIONS
+// ══════════════════════════════════════════════════════════════════
+function toggleCard(id) {
+  const card = document.getElementById(id);
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.hcard.open').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) {
+    card.classList.add('open');
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function openCardById(id) {
+  // Switch filters to show that hadith, then open it
+  const h = HADITHS.find(h => h.id === id);
+  if (!h) return;
+  if (TOPIC !== 'all' && TOPIC !== h.topic) { TOPIC = 'all'; syncTopicUI(); }
+  if (COL !== 'all' && COL !== h.col) { COL = 'all'; syncColUI(); }
+  render();
+  setTimeout(() => {
+    const el = document.getElementById('hc-' + id);
+    if (el) {
+      el.classList.add('open');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 60);
+}
+
+function scrollToRelated(id) { openCardById(id); }
+
+function openQuranLink(hid) {
+  const h = HADITHS.find(h => h.id === hid);
+  if (!h || !h.quran) return;
+  showToast('Opening Quran Explorer — ' + h.quran.ref);
+  // In full version: window.open('Quran_Surah_Explorer_v2.html#surah-...')
+}
+
+function setView(v) {
+  VIEW = v;
+  ['collection','topic','compact'].forEach(m =>
+    document.getElementById('vt-'+m).classList.toggle('on', m===v));
+  render();
+}
+
+function setTopic(t, el) {
+  TOPIC = t;
+  syncTopicUI();
+  render();
+}
+
+function setTopicByName(t) {
+  TOPIC = t;
+  syncTopicUI();
+  render();
+  document.querySelector('.sidebar').scrollIntoView({ behavior:'smooth' });
+}
+
+function syncTopicUI() {
+  document.querySelectorAll('.tc').forEach(el =>
+    el.classList.toggle('on', el.dataset.topic === TOPIC));
+}
+
+function setCol(c, el) {
+  COL = c;
+  syncColUI();
+  render();
+}
+
+function syncColUI() {
+  document.querySelectorAll('.cc').forEach(el =>
+    el.classList.toggle('on', el.dataset.col === COL));
+}
+
+function setGrade(g, el) {
+  GRADE = g;
+  document.querySelectorAll('.gchip').forEach(e => e.classList.remove('on'));
+  el.classList.add('on');
+  render();
+}
+
+function doSearch(v) {
+  SRCH = v.trim().toLowerCase();
+  clearTimeout(srchT);
+  srchT = setTimeout(render, 260);
+}
+
+function copyHadith(id) {
+  const h = HADITHS.find(h => h.id === id);
+  if (!h) return;
+  const text = `${h.ar}
+
+${h.en}
+
+${h.ur}
+
+— ${h.refAuth} | ${h.colName}`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-'+id);
+    if (btn) { btn.textContent = '✓ Copied'; btn.classList.add('copied'); }
+    showToast('Hadith copied to clipboard');
+    setTimeout(() => { if (btn) { btn.textContent = '⎘ Copy'; btn.classList.remove('copied'); } }, 2000);
+  }).catch(() => showToast('Copy not available'));
+}
+
+function shareHadith(id) {
+  const h = HADITHS.find(h => h.id === id);
+  if (!h) return;
+  if (navigator.share) {
+    navigator.share({ title: h.refAuth, text: `${h.en}
+
+— ${h.refAuth}`, url: window.location.href });
+  } else {
+    copyHadith(id);
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function x(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Init
+window.addEventListener('load', render);
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seerah — Hijra and Early Madinah | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04070D;--gold:#C9A84C;--gold-dim:rgba(201,168,76,0.18);--gold-glow:rgba(201,168,76,0.08);--teal:#2FB89A;--teal-dim:rgba(47,184,154,0.15);--text:#D4CBB8;--text-dim:#8A8070;--card:#080E1C;--border:rgba(201,168,76,0.15);--border-hi:rgba(201,168,76,0.35);--amber:#D4843A}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Lora',serif;font-size:16px;line-height:1.75;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;height:58px;background:rgba(4,7,13,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);display:flex;align-items:center;padding:0 20px;gap:12px}
+.nav-left{display:flex;align-items:center;gap:8px;flex:1}
+.nav-left a{color:var(--text-dim);text-decoration:none;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.06em;transition:color 0.2s;white-space:nowrap}
+.nav-left a:hover{color:var(--gold)}
+.nav-sep{color:var(--border-hi);font-size:14px}
+.nav-centre{flex:0 0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--gold);font-weight:600}
+.nav-en{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:10px;flex:1;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border-hi);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.08em;padding:4px 9px;cursor:pointer;border-radius:3px;transition:all 0.2s}
+.lang-btn.active{background:var(--gold-dim);color:var(--gold);border-color:var(--gold)}
+.lang-btn:hover{color:var(--gold);border-color:var(--gold)}
+.badge-ce{font-family:'Cinzel',serif;font-size:10px;color:var(--teal);border:1px solid rgba(47,184,154,0.3);padding:3px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap}
+.hero{text-align:center;padding:64px 24px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 70% 100%,rgba(47,184,154,0.04) 0%,transparent 60%);pointer-events:none}
+.hero-ar{font-family:'Noto Naskh Arabic',serif;font-size:clamp(28px,6vw,52px);font-weight:700;color:var(--gold);line-height:1.3;margin-bottom:8px}
+.hero-en{font-family:'Cinzel',serif;font-size:clamp(16px,3vw,26px);font-weight:600;color:var(--text);letter-spacing:0.05em}
+.hero-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-top:8px}
+.hero-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
+.timeline-bar{max-width:700px;margin:0 auto 52px;padding:0 24px}
+.timeline-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--text-dim);text-align:center;margin-bottom:10px;text-transform:uppercase}
+.timeline-track{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;position:relative}
+.timeline-fill{position:absolute;left:37%;top:0;height:100%;width:14%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px}
+.timeline-dot{position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(47,184,154,0.5)}
+.timeline-epochs{display:flex;justify-content:space-between;margin-top:8px}
+.timeline-epoch{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.06em}
+.timeline-epoch.active{color:var(--gold)}
+.main{max-width:860px;margin:0 auto;padding:0 20px 80px}
+.section-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:52px 0 20px;display:flex;align-items:center;gap:14px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-num{background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-size:10px;padding:2px 7px;border-radius:2px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:28px;transition:border-color 0.3s}
+.card:hover{border-color:var(--border-hi)}
+.card-meta{display:flex;flex-wrap:wrap;gap:16px;padding:14px 22px;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04)}
+.meta-item{display:flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.06em;color:var(--text-dim)}
+.meta-item span{color:var(--text)}
+.card-body{padding:22px 22px 0}
+.card-ar-title{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700;color:var(--gold);text-align:right;direction:rtl;margin-bottom:10px;line-height:1.5}
+.card-title{font-family:'Cinzel',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:0.02em}
+.narrative{font-family:'Lora',serif;font-size:15.5px;line-height:1.82;color:var(--text);margin-bottom:14px}
+.narrative-ur{font-family:'Noto Naskh Arabic',serif;font-size:16px;line-height:2;color:var(--text);direction:rtl;text-align:right;margin-bottom:14px;display:none}
+.ayah-block{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-left:3px solid var(--gold);border-radius:6px;padding:18px 20px;margin:20px 0}
+.ayah-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.ayah-ar{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:500;color:#E8D89A;text-align:right;direction:rtl;line-height:2;margin-bottom:12px}
+.ayah-en{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text-dim);line-height:1.7;margin-bottom:8px}
+.ayah-ur{font-family:'Noto Naskh Arabic',serif;font-size:15px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;display:none}
+.sources{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.05em;padding:4px 10px;border-radius:3px;border:1px solid;line-height:1.3}
+.badge-sahih{color:#5DD68A;border-color:rgba(61,170,110,0.4);background:rgba(61,170,110,0.1)}
+.badge-classical{color:#78B4E0;border-color:rgba(74,144,196,0.4);background:rgba(74,144,196,0.1)}
+.badge-disputed{color:#E4A55A;border-color:rgba(212,132,58,0.4);background:rgba(212,132,58,0.1)}
+.badge-scholars-differ{color:#D4B86A;border-color:rgba(212,184,106,0.3);background:rgba(212,184,106,0.07);font-style:italic}
+.dispute-note{background:rgba(212,132,58,0.08);border:1px solid rgba(212,132,58,0.25);border-left:3px solid var(--amber);border-radius:4px;padding:12px 16px;font-family:'Lora',serif;font-style:italic;font-size:13.5px;color:#C4A870;margin:12px 0;line-height:1.65}
+.dispute-note strong{font-style:normal;font-weight:600;color:var(--amber)}
+.hadith-block{background:rgba(47,184,154,0.06);border:1px solid rgba(47,184,154,0.2);border-left:3px solid var(--teal);border-radius:6px;padding:16px 20px;margin:16px 0}
+.hadith-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.hadith-text{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text);line-height:1.75}
+.reflection{background:rgba(201,168,76,0.04);border-top:1px solid var(--border);padding:16px 22px 20px;margin-top:18px}
+.reflection-label{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.reflection-text{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--text-dim);line-height:1.7}
+.reflection-ur{font-family:'Noto Naskh Arabic',serif;font-size:14.5px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;margin-top:8px;display:none}
+.highlight{color:var(--gold);font-weight:600}
+.nav-link-box{text-align:center;margin:56px 0 24px;padding:24px;border:1px solid var(--border);border-radius:8px;background:var(--gold-glow)}
+.nav-link-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;margin-bottom:10px}
+.nav-link-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-bottom:16px}
+.nav-link-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-prev{display:inline-block;background:rgba(201,168,76,0.08);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+.btn-next{display:inline-block;background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+@media(max-width:600px){nav{padding:0 12px;gap:6px}.nav-left a{font-size:9.5px}.nav-ar{font-size:11px}.badge-ce{display:none}.card-body{padding:16px 16px 0}.card-meta{padding:12px 16px;gap:10px}.reflection{padding:14px 16px 16px}.ayah-ar{font-size:18px}}
+body.ur-mode .en-text{display:none!important}
+body.ur-mode .narrative-ur{display:block}
+body.ur-mode .ayah-ur{display:block}
+body.ur-mode .reflection-ur{display:block}
+body.ur-mode .reflection-text{display:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_index.html">Seerah</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_2_makkah.html">Part 2</a>
+  </div>
+  <div class="nav-centre">
+    <div class="nav-ar">السيرة النبوية</div>
+    <div class="nav-en">Seerah · Hijra and Early Madinah</div>
+  </div>
+  <div class="nav-right">
+    <span class="badge-ce">622–624 CE</span>
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-ar">الهجرة والمدينة المنورة</div>
+  <div class="hero-en">Hijra and Early Madinah</div>
+  <div class="hero-sub">The Migration · Building a Community · Events Before Badr &nbsp;·&nbsp; 622–624 CE</div>
+  <div class="hero-divider"></div>
+</div>
+<div class="timeline-bar">
+  <div class="timeline-label">Life of the Prophet ﷺ — 63 Years</div>
+  <div class="timeline-track">
+    <div class="timeline-fill"></div>
+    <div class="timeline-dot"></div>
+  </div>
+  <div class="timeline-epochs">
+    <span class="timeline-epoch">Birth · 570</span>
+    <span class="timeline-epoch">Revelation · 610</span>
+    <span class="timeline-epoch active">Hijra · 622</span>
+    <span class="timeline-epoch active">Badr · 624</span>
+    <span class="timeline-epoch">Passing · 632</span>
+  </div>
+</div>
+<div class="main">
+
+<div class="section-title"><span class="section-num">01</span>The Night of Migration — The Plot and the Departure · ليلة الهجرة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>1 AH · ~622 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah — Dar al-Nadwah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا</div>
+    <div class="card-title">The Council of Dar al-Nadwah — and the Prophet ﷺ Departs Unseen</div>
+    <p class="narrative en-text">When the Quraysh learned that the Prophet ﷺ had secured a base in Yathrib and that migration had begun, they convened an emergency council at <span class="highlight">Dar al-Nadwah</span> — the traditional gathering house of Makkah's leaders. Their decision: one man from each clan would strike the Prophet ﷺ simultaneously, so that no single clan could be held responsible. Allah revealed their plan in the Quran (8:30): "And remember when the disbelievers plotted against you to restrain you, kill you, or expel you..." Source: Ibn Hisham, Sirat al-Nabawiyyah, 2:83–87.</p>
+    <p class="narrative en-text">That night, <span class="highlight">Ali ibn Abi Talib RA</span> slept in the Prophet's bed — wrapped in the Prophet's green cloak — in a deliberate act of sacrifice and misdirection, so the watching assassins would believe the Prophet ﷺ was still inside. The Prophet ﷺ emerged, took a handful of dust, and scattered it over the heads of those gathered outside while reciting verses from Surat Ya-Sin. Not one of them could see him. He walked past them — unseen. This account is transmitted through multiple chains in classical Seerah literature.</p>
+    <div class="dispute-note"><strong>Source Note:</strong> Ali RA sleeping in the Prophet's bed is recorded by Ibn Hisham (Sirat, 2:87–89) and al-Bayhaqi (Dala'il al-Nubuwwah, 2:476) with widely transmitted chains. The detail of Quran 36:9 being recited is in Ibn Hisham (Sirat, 2:89). This account is not found with this specific detail in Sahih Bukhari or Muslim — it is presented as a classical Seerah source.</div>
+    <p class="narrative-ur">جب قریش کو علم ہوا کہ آپ ﷺ یثرب منتقل ہو رہے ہیں، انہوں نے دارالندوہ میں مشورہ کیا: ہر قبیلے کا ایک شخص بیک وقت وار کرے۔ اللہ نے یہ سازش قرآن میں بیان کی (الانفال: ۳۰)۔ اس رات علی رضی اللہ عنہ آپ ﷺ کی چادر اوڑھ کر آپ کے بستر پر سو گئے۔ آپ ﷺ باہر نکلے — مٹھی بھر مٹی ان کے سروں پر پھینکی — اور گزر گئے، کوئی دیکھ نہ سکا۔ یہ روایت ابن ہشام ۲:۸۷–۸۹ میں ہے — صحیح بخاری یا مسلم میں اس تفصیل کے ساتھ نہیں۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Anfal (8:30) — Their Plot Revealed</div>
+      <div class="ayah-ar">وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ أَوْ يُخْرِجُوكَ ۚ وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ ۖ وَاللَّهُ خَيْرُ الْمَاكِرِينَ</div>
+      <div class="ayah-en">"And remember when those who disbelieved plotted against you to restrain you, kill you, or expel you — they plot, and Allah plots. And Allah is the best of plotters." <em>(Saheeh International · Surat al-Anfal 8:30)</em></div>
+      <div class="ayah-ur">"اور یاد کرو جب کافروں نے تمہارے خلاف سازش کی — کہ تمہیں قید کریں، یا قتل کریں، یا نکال دیں — وہ تدبیر کرتے ہیں اور اللہ تدبیر کرتا ہے — اور اللہ سب سے بہتر تدبیر کرنے والا ہے۔" (الانفال: ۳۰)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Quran 8:30 — Dar al-Nadwah plot</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:83–87 — the council's plan</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:87–89 — Ali RA in the bed; classical transmission</span>
+      <span class="badge badge-disputed">🟡 Ali RA in bed, Quran 36:9 recited — classical Seerah; not in Bukhari/Muslim with this detail</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">They plotted — and Allah plotted. The most powerful men in Arabia surrounded the house. And the man they were hunting walked past them in the dark and they could not see him. This is not a story of human cleverness. It is a story of divine protection. "Allah is the best of plotters."</div>
+    <div class="reflection-ur">انہوں نے تدبیر کی — اور اللہ نے تدبیر کی۔ عرب کے طاقتور ترین مردوں نے گھر گھیرا — اور جس کی تلاش تھی وہ ان کے سامنے سے گزر گئے، کوئی دیکھ نہ سکا۔ یہ انسانی چالاکی کی نہیں — الہی حفاظت کی کہانی ہے۔ "اللہ سب سے بہتر تدبیر کرنے والا ہے۔"</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">02</span>Cave Thawr — Three Nights · غار ثور</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>1 AH · ~622 CE</span></div>
+    <div class="meta-item">📍 <span>Jabal Thawr · South of Makkah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا</div>
+    <div class="card-title">"Do Not Grieve — Allah is With Us"</div>
+    <p class="narrative en-text">The Prophet ﷺ and Abu Bakr RA took shelter in <span class="highlight">Cave Thawr</span> — a cave on the mountain south of Makkah — for three nights. Quraysh dispatched trackers and placed a reward for their capture. Abu Bakr RA's son Abdullah brought them news of Makkah each night, his daughter Asma bint Abi Bakr RA brought food, and their freed slave Amir ibn Fuhayrah RA drove sheep over their tracks to cover the path. The full authenticated account is in Sahih Bukhari (3922).</p>
+    <p class="narrative en-text">When the trackers came so close that their feet were visible at the cave's mouth, Abu Bakr RA whispered to the Prophet ﷺ: <span class="highlight">"If one of them looks down, he will see us."</span> The Prophet ﷺ replied — in what are among the most famous words of the Seerah: <span class="highlight">"Ya Aba Bakr — what do you think of two, when Allah is their third?"</span> The Quran preserved this moment in 9:40: "Do not grieve — Allah is with us." Source: Sahih Bukhari 3922; Quran 9:40.</p>
+    <div class="dispute-note"><strong>⚠ The Spider Web Story:</strong> A popular account describes a spider spinning a web across the cave's entrance, and a dove nesting there, making it appear undisturbed. This is recorded in classical Seerah literature (Ibn Hisham, Sirat, 2:90–91), but scholars of hadith discuss the chain's weakness. It is presented here as a reported account — historically transmitted — not as fully authenticated hadith.</div>
+    <p class="narrative-ur">آپ ﷺ اور ابو بکر رضی اللہ عنہ غار ثور میں تین راتیں رہے۔ قریش کے سراغ رساں اتنے قریب آ گئے کہ ان کے پاؤں دکھ رہے تھے۔ ابو بکر رضی اللہ عنہ نے آہستہ کہا: "اگر کوئی نیچے دیکھے تو ہمیں دیکھ لے گا۔" آپ ﷺ نے فرمایا: <span class="highlight">"یا ابا بکر! ان دو کا کیا خیال ہے جن کا تیسرا اللہ ہے؟"</span> قرآن نے یہ لمحہ محفوظ کیا: "غم مت کرو — اللہ ہمارے ساتھ ہے۔" (صحیح بخاری ۳۹۲۲، الحج: ۴۰)</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Tawbah (9:40) — The Cave of Thawr</div>
+      <div class="ayah-ar">إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا ۚ فَأَنزَلَ اللَّهُ سَكِينَتَهُ عَلَيْهِ وَأَيَّدَهُ بِجُنُودٍ لَّمْ تَرَوْهَا</div>
+      <div class="ayah-en">"When he said to his companion: Do not grieve — indeed Allah is with us. And Allah sent down His tranquility upon him and supported him with soldiers you did not see." <em>(Saheeh International · Surat al-Tawbah 9:40)</em></div>
+      <div class="ayah-ur">"جب اس نے اپنے ساتھی سے کہا: غم مت کرو — بے شک اللہ ہمارے ساتھ ہے۔ تو اللہ نے اس پر اپنی سکینت نازل کی اور ایسے لشکروں سے مدد کی جنہیں تم نہیں دیکھتے۔" (التوبۃ: ۴۰)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3922 — three nights in Cave Thawr; full account</span>
+      <span class="badge badge-sahih">🟢 Quran 9:40 — "Allah is with us"</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:90–91 — spider web account</span>
+      <span class="badge badge-disputed">🟡 Spider web and dove — chain discussed by scholars; classical Seerah transmission</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">"What do you think of two, when Allah is their third?" — said in a whisper in a cave, with enemies at the entrance. These words have steadied Muslim hearts in every century since. When the arithmetic of the visible world says you are outnumbered, faith adds a third. And the third changes everything.</div>
+    <div class="reflection-ur">"ان دو کا کیا خیال ہے جن کا تیسرا اللہ ہے؟" — غار میں، دشمن دروازے پر، سرگوشی میں کہے گئے۔ یہ الفاظ ہر صدی میں مسلمانوں کے دلوں کو تھامتے آئے ہیں۔ جب ظاہری دنیا کا حساب کہے کہ تم کم ہو — ایمان ایک تیسرا جوڑتا ہے۔ اور وہ تیسرا سب بدل دیتا ہے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">03</span>The Journey to Madinah — Suraqah and Quba · الرحلة إلى المدينة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>1 AH · ~622 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah → Quba (Outskirts of Madinah)</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">رحلة الهجرة — وبشارة سراقة بسواري كسرى</div>
+    <div class="card-title">The Pursuer — The Prophecy — and the First Mosque</div>
+    <p class="narrative en-text">After three nights in Cave Thawr, the Prophet ﷺ and Abu Bakr RA set out on the journey to Yathrib, guided by a man named Abdullah ibn Urayqit who knew the desert routes. A bounty had been placed on the Prophet's ﷺ head by Quraysh. Among those who rode out seeking the reward was <span class="highlight">Suraqah ibn Malik</span>. He spotted them and galloped in pursuit — but each time he came close, his horse's legs sank into the ground. Three times this happened. He understood this was divine protection and turned back.</p>
+    <p class="narrative en-text">Before he left, the Prophet ﷺ made him a remarkable promise: <span class="highlight">"How will you feel, O Suraqah, when you wear the bracelets of Kisra — the Emperor of Persia?"</span> Suraqah was astonished. The prediction came true under Umar RA — when Persia was conquered and the imperial treasure reached Madinah, Umar RA called Suraqah and placed the bracelets of Kisra on his wrists. Source: Sahih Bukhari 3906.</p>
+    <p class="narrative en-text">The journey ended at <span class="highlight">Quba</span> — a settlement on the outskirts of Yathrib — where the Prophet ﷺ stayed for approximately fourteen days and laid the foundations of the <span class="highlight">first mosque in Islam</span>. Sahih Bukhari (1194) records this, and Quran 9:108 speaks of it as "a mosque founded on righteousness from the first day."</p>
+    <p class="narrative-ur">غار ثور سے نکلنے کے بعد راستے میں سراقہ بن مالک تعاقب میں آیا — انعام کی لالچ میں۔ مگر اس کا گھوڑا بار بار دھنستا رہا۔ اس نے سمجھا یہ الہی حفاظت ہے۔ آپ ﷺ نے فرمایا: "سراقہ! کیسا لگے گا جب تم کسری کے کنگن پہنو گے؟" سراقہ حیران رہ گیا — مگر عمر رضی اللہ عنہ کے دور میں یہ پیشگوئی سچ ہو گئی۔ (صحیح بخاری ۳۹۰۶) پھر قبا پہنچے — یثرب کی مضافات — اور اسلام کی پہلی مسجد کی بنیاد رکھی۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Tawbah (9:108) — The Mosque of Quba</div>
+      <div class="ayah-ar">لَمَسْجِدٌ أُسِّسَ عَلَى التَّقْوَىٰ مِنْ أَوَّلِ يَوْمٍ أَحَقُّ أَن تَقُومَ فِيهِ ۚ فِيهِ رِجَالٌ يُحِبُّونَ أَن يَتَطَهَّرُوا ۚ وَاللَّهُ يُحِبُّ الْمُطَّهِّرِينَ</div>
+      <div class="ayah-en">"A mosque founded on righteousness from the first day is more worthy for you to stand in. Within it are men who love to purify themselves, and Allah loves those who purify themselves." <em>(Saheeh International · Surat al-Tawbah 9:108)</em></div>
+      <div class="ayah-ur">"جو مسجد پہلے دن سے تقویٰ کی بنیاد پر قائم کی گئی ہے وہ زیادہ حقدار ہے کہ تم اس میں کھڑے ہو — اس میں ایسے لوگ ہیں جو پاک رہنا پسند کرتے ہیں، اور اللہ پاک رہنے والوں کو پسند کرتا ہے۔" (التوبۃ: ۱۰۸)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3906 — Suraqah's pursuit and prophecy of Kisra's bracelets</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 1194 — mosque at Quba</span>
+      <span class="badge badge-sahih">🟢 Quran 9:108 — mosque founded on taqwa</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">To a fugitive on a camel in the desert — fleeing with a price on his head — the promise: "You will wear the bracelets of Persia's emperor." What the eye could see was a man running for his life. What faith saw was the messenger of the one who controls the empires of the earth. Suraqah went home. Twenty years later, he wore Kisra's bracelets.</div>
+    <div class="reflection-ur">صحرا میں اونٹ پر — سر پر انعام — ایک فراری کو وعدہ: "تم کسری کے کنگن پہنو گے۔" آنکھ ایک شخص دیکھ رہی تھی جو بھاگ رہا ہے۔ ایمان دیکھ رہا تھا اس کا قاصد جو زمین کی سلطنتوں کا مالک ہے۔ سراقہ گھر چلا گیا۔ بیس سال بعد اس نے کسری کے کنگن پہنے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">04</span>Arrival in Madinah — The Camel Decides · الوصول إلى المدينة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>1 AH · ~622 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah al-Munawwarah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">دخول المدينة — خلوا سبيلها فإنها مأمورة</div>
+    <div class="card-title">Every Family Wanted the Camel to Stop at Their Door</div>
+    <p class="narrative en-text">When the Prophet ﷺ entered Madinah, the welcome was unlike anything the city had seen. Men, women, and children came out to greet him — some climbed rooftops, others lined the streets. They called out: "The Messenger of Allah has come! The Messenger of Allah has come!" The Prophet ﷺ rode on his camel, <span class="highlight">al-Qaswa</span>, and every clan invited him to stop at their door and be their guest. He said: <span class="highlight">"Leave her — she is commanded."</span> Source: Ibn Hisham, Sirat, 2:112–115.</p>
+    <p class="narrative en-text">The camel walked and stopped, then walked again, and finally knelt at a piece of open land belonging to two young orphans of the Banu Najjar clan. The Prophet ﷺ chose to build on that spot. He asked about the land's ownership, insisted on paying for it, and the mosque was built there. <span class="highlight">Abu Ayyub al-Ansari RA</span> — whose house was nearest the camel's stopping place — had the honour of hosting the Prophet ﷺ for approximately seven months until the mosque and his adjacent rooms were complete. Sources: Ibn Hisham, Sirat, 2:115; Sahih Bukhari 3932.</p>
+    <p class="narrative-ur">آپ ﷺ کی مدینہ میں آمد پر ایسا استقبال ہوا جو شہر نے پہلے نہ دیکھا تھا۔ ہر گھرانہ چاہتا تھا کہ اونٹنی ان کے دروازے پر رکے۔ آپ ﷺ نے فرمایا: "چھوڑ دو اسے — وہ ماموربہ ہے۔" اونٹنی بنو نجار کے یتیم بچوں کی زمین پر بیٹھ گئی۔ آپ ﷺ نے اس جگہ کی قیمت ادا کی۔ ابو ایوب انصاری رضی اللہ عنہ نے سات ماہ تک میزبانی کی۔ (ابن ہشام ۲:۱۱۵؛ صحیح بخاری ۳۹۳۲)</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:112–115 — the camel stops; welcome to Madinah</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3932 — Abu Ayyub al-Ansari RA hosts the Prophet ﷺ</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">The man who was driven from Makkah with a price on his head entered Madinah to a reception that no emperor could have arranged. And he — who could have chosen the most powerful clan's home — let a camel decide. Then he paid for the land. The Prophet ﷺ never treated the generosity of others as something owed to him.</div>
+    <div class="reflection-ur">جس شخص کے سر پر مکہ سے بھاگتے وقت قیمت لگی تھی، مدینے میں ایسا استقبال ملا جو کوئی بادشاہ نہ کر سکتا۔ اور انہوں نے — جو چاہتے تو طاقتور گھرانہ چن سکتے تھے — اونٹنی کے فیصلے پر چھوڑ دیا۔ پھر زمین کی قیمت ادا کی۔ آپ ﷺ نے کبھی دوسروں کی فیاضی کو اپنا حق نہیں سمجھا۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">05</span>Building the Mosque — The Prophet Works with His Hands · بناء المسجد النبوي</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>1 AH · ~622 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah al-Munawwarah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">بناء المسجد النبوي الشريف</div>
+    <div class="card-title">The Prophet ﷺ Carries Bricks — Alongside His Companions</div>
+    <p class="narrative en-text">The Prophet ﷺ himself participated in building the mosque — carrying bricks, mixing mortar, working alongside his companions without exception or distinction. Ibn Hisham records this (Sirat, 2:116). As they worked, the companions chanted verses — and the Prophet ﷺ chanted with them, recorded in Sahih Bukhari (2834):</p>
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahih Bukhari 2834 — The Chant While Building the Mosque (Sahih)</div>
+      <div class="hadith-text">The companions chanted while carrying bricks: "Allahumma la khayra illa khayrul akhira — fasalih al-Ansar wal-Muhajira." (O Allah, there is no goodness except the goodness of the Hereafter — so bless the Ansar and the Muhajirun.) And the Prophet ﷺ joined them in the chant.</div>
+    </div>
+    <p class="narrative en-text">The mosque that emerged was not merely a prayer hall — it was simultaneously a community centre, a court of justice, a school, a hospital for the wounded, and the headquarters of governance. It had no ornament, no minarets. Its walls were of sun-dried brick, its roof of palm branches. Its simplicity was intentional. What mattered was who came, and why.</p>
+    <p class="narrative-ur">آپ ﷺ نے خود اپنے ہاتھوں سے اینٹیں اٹھا کر مسجد بنائی — بغیر کسی امتیاز کے صحابہ کے ساتھ۔ کام کرتے ہوئے سب گاتے: "اللہم لا خیر الا خیر الآخرۃ — فاصلح الانصار والمہاجرۃ" — اور آپ ﷺ بھی ساتھ میں گاتے۔ (صحیح بخاری ۲۸۳۴) جو مسجد بنی وہ نماز گاہ بھی تھی، درس گاہ بھی، عدالت بھی، فوجی ہیڈ کوارٹر بھی — کچی اینٹوں اور کھجور کی شاخوں سے بنی۔ سادگی عمدگی تھی۔</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 2834 — chant while building; Prophet ﷺ joins</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:116 — Prophet ﷺ works with his hands</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">The leader worked. He did not supervise from a distance while others built his mosque — he carried bricks with his own hands, worked in the dust, and chanted alongside the labourers. This is leadership in Islam: the one who leads is the one who serves first, hardest, and longest.</div>
+    <div class="reflection-ur">رہنما نے کام کیا۔ دور سے نگرانی نہیں کی — خود اینٹیں اٹھائیں، دھول میں کام کیا، مزدوروں کے ساتھ گایا۔ اسلام میں قیادت یہی ہے: جو رہنمائی کرے وہ پہلے، سب سے زیادہ اور سب سے لمبے وقت تک خدمت کرے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">06</span>Muakhat — The Brotherhood · المؤاخاة بين المهاجرين والأنصار</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>1 AH · ~622–623 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah al-Munawwarah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">المؤاخاة — رابطة الإيمان فوق رابطة الدم</div>
+    <div class="card-title">The Bond of Faith — Stronger than Blood</div>
+    <p class="narrative en-text">The Muhajirun — the emigrants from Makkah — arrived in Madinah with nothing: they had left their homes, their wealth, and often their families behind. The Prophet ﷺ instituted a formal <span class="highlight">brotherhood (muakhat)</span> — pairing each Muhajir with an Ansari, creating a bond that was not merely social but legally recognized. It was the bond of faith over the bond of blood. Source: Ibn Hisham, Sirat, 2:121–130; Sahih Bukhari 3937.</p>
+    <p class="narrative en-text">The most famous example is preserved in Sahih Bukhari (3781): <span class="highlight">Abd al-Rahman ibn Awf RA</span> was paired with <span class="highlight">Sa'd ibn al-Rabi al-Ansari RA</span>. Sa'd offered to divide his wealth in two and give Abd al-Rahman half, and even offered one of his wives in marriage. Abd al-Rahman RA replied — with dignity and grace: <span class="highlight">"May Allah bless you in your family and your wealth. Just show me the market."</span> He went to the market with nothing, began trading, and within a short time had established himself through his own work. The Quran praised the Ansar in Surat al-Hashr (59:9): "They prefer others above themselves, even if they themselves are in need."</p>
+    <p class="narrative-ur">مہاجرین مدینے آئے — گھر چھوڑ کر، مال چھوڑ کر، پیاروں کو چھوڑ کر۔ آپ ﷺ نے "مواخات" قائم کی — ہر مہاجر کا ایک انصاری بھائی بنایا۔ سعد بن ربیع رضی اللہ عنہ نے عبد الرحمٰن بن عوف رضی اللہ عنہ کو آدھا مال اور ایک بیوی پیش کی۔ عبد الرحمٰن رضی اللہ عنہ نے کہا: "اللہ تمہارے گھر اور مال میں برکت دے — بس بازار دکھا دو۔" وہ بازار گئے، تجارت کی، اور جلد ہی خود مستقل ہو گئے۔ قرآن نے انصار کو سورۃ الحشر ۵۹:۹ میں سراہا۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Hashr (59:9) — In Praise of the Ansar</div>
+      <div class="ayah-ar">وَيُؤْثِرُونَ عَلَىٰ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ ۚ وَمَن يُوقَ شُحَّ نَفْسِهِ فَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ</div>
+      <div class="ayah-en">"And they prefer others above themselves, even though they are in need. And whoever is protected from the stinginess of his own soul — it is those who are the successful." <em>(Saheeh International · Surat al-Hashr 59:9)</em></div>
+      <div class="ayah-ur">"اور وہ دوسروں کو اپنے اوپر ترجیح دیتے ہیں — چاہے انہیں خود ضرورت ہو۔ اور جو اپنے نفس کی بخیلی سے بچا لیا جائے — وہی کامیاب ہیں۔" (الحشر: ۹)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:121–130 — muakhat pairing</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3937 — brotherhood established</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3781 — Abd al-Rahman ibn Awf and Sa'd ibn al-Rabi</span>
+      <span class="badge badge-sahih">🟢 Quran 59:9 — praise of the Ansar</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Sa'd offered everything. Abd al-Rahman asked only for directions to the market. There is dignity in both acts — the generosity that gives freely, and the character that accepts gracefully while refusing dependence. The muakhat created a society that was neither purely charitable nor purely transactional. It was human at its deepest level.</div>
+    <div class="reflection-ur">سعد نے سب پیش کیا۔ عبد الرحمٰن نے صرف بازار کا راستہ مانگا۔ دونوں عملوں میں وقار ہے — وہ سخاوت جو آزادانہ دیتی ہے، اور وہ کردار جو محبت سے قبول کرتا ہے مگر انحصار سے انکار کرتا ہے۔ مواخات نے ایک ایسا معاشرہ بنایا جو نہ محض خیراتی تھا نہ محض کاروباری — وہ اپنی گہرائی میں انسانی تھا۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">07</span>The Charter of Madinah · وثيقة المدينة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~1–2 AH · ~622–623 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah al-Munawwarah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">وثيقة المدينة — أول دستور مدوَّن في التاريخ</div>
+    <div class="card-title">A Covenant with All — Among the Earliest Constitutional Documents in History</div>
+    <p class="narrative en-text">Shortly after arriving in Madinah, the Prophet ﷺ drew up a formal written covenant — known today as the <span class="highlight">Charter of Madinah (Wathiqat al-Madinah)</span> — encompassing the Muslim Muhajirun and Ansar, and the Jewish tribes of Madinah (Banu Qaynuqa, Banu al-Nadir, Banu Qurayza, and others), as well as allied Arab clans. Ibn Hisham preserves the text of this document (Sirat, 2:119–121). It is a classical Seerah source; its authenticity is accepted by mainstream Islamic scholarship and by modern historians of early Islam.</p>
+    <p class="narrative en-text">Key principles of the Charter included: all parties formed one community (ummah) for purposes of mutual defence against external attack; each group retained its own religious practices and internal affairs; disputes would be brought to the Prophet ﷺ for arbitration; the sanctuary of Madinah was inviolable for all parties; no one would conclude a separate peace with Quraysh without mutual consent. Scholars of constitutional history note this as one of the earliest documented political compacts guaranteeing religious freedom and multi-group governance.</p>
+    <p class="narrative-ur">مدینے آنے کے بعد آپ ﷺ نے ایک تحریری معاہدہ مرتب کیا — "وثیقۃ المدینہ" — جس میں مہاجرین، انصار اور مدینے کے یہودی قبائل سب شامل تھے۔ ابن ہشام نے اس دستاویز کا متن محفوظ کیا (سیرت ۲:۱۱۹–۱۲۱)۔ اس کے اہم اصول: سب ایک امت — مشترکہ دفاع؛ ہر گروہ اپنے مذہبی معاملات میں آزاد؛ تنازعات آپ ﷺ کے پاس؛ مدینہ کی حرمت سب کے لیے۔ مورخین اسے تاریخ کی ابتدائی آئینی دستاویزوں میں شمار کرتے ہیں۔</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:119–121 — full text of Charter of Madinah</span>
+      <span class="badge badge-disputed">🟡 Charter text — accepted by mainstream scholarship; classical Seerah transmission</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Fourteen hundred years before the language of pluralism and constitutional governance became fashionable, a man in a desert city wrote a covenant guaranteeing religious freedom, mutual defence, and collective justice for people of different faiths and tribes. The Charter of Madinah is not a footnote to Islamic history — it is one of its defining moments.</div>
+    <div class="reflection-ur">چودہ سو سال پہلے — جب کثرتیت اور آئینی حکومت کا تصور عام نہ تھا — ایک صحرائی شہر میں ایک شخص نے ایسا معاہدہ لکھا جو مختلف مذاہب اور قبائل کے لیے مذہبی آزادی اور اجتماعی انصاف کی ضمانت دیتا تھا۔ وثیقۃ المدینہ اسلامی تاریخ کا حاشیہ نہیں — اس کے بنیادی لمحوں میں سے ایک ہے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">08</span>The Adhan — The First Call to Prayer · الأذان</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~1 AH · ~622–623 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah al-Munawwarah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">الأذان — شعار الإسلام إلى يوم القيامة</div>
+    <div class="card-title">A Dream — and a Voice That Would Echo Until the Last Day</div>
+    <p class="narrative en-text">The Muslim community now needed a way to call people to the five daily prayers. Various suggestions were discussed — a bell (as Christians used), a horn (as Jews used), a fire. None satisfied the Prophet ﷺ. Then <span class="highlight">Abdullah ibn Zayd ibn Abd Rabbih RA</span> saw a dream in which a man in green garments walked around with a bell, and Abdullah asked to buy it for the call to prayer. The man in green said: <span class="highlight">"Shall I not tell you something better?"</span> — and then demonstrated the words of the adhan. Abdullah came to the Prophet ﷺ with the dream. The Prophet ﷺ confirmed it was true, and directed that <span class="highlight">Bilal ibn Rabah RA</span> — whose voice was the finest among them — should make the call. Source: Sunan Abu Dawud 498, graded Hasan; Ibn Hisham, Sirat, 2:131–134.</p>
+    <p class="narrative en-text">Bilal RA — who had been tortured in Makkah for crying "Ahad! Ahad!" — now stood in Madinah and called: <span class="highlight">Allahu Akbar. Allahu Akbar. Allahu Akbar. Allahu Akbar.</span> The man who had refused to deny the One now proclaimed Him to an entire city, from the height of the mosque. The adhan united the community five times a day, calling all — rich and poor, free and former slave — to the same line, facing the same direction.</p>
+    <p class="narrative-ur">پانچ نمازوں کے لیے اجتماع کی ضرورت تھی۔ گھنٹی؟ بگل؟ آگ؟ کوئی پسند نہ آیا۔ پھر عبداللہ بن زید رضی اللہ عنہ نے خواب دیکھا — ایک شخص نے اذان کے الفاظ دکھائے۔ آپ ﷺ نے خواب کی تصدیق کی — اور بلال رضی اللہ عنہ کو اذان دینے کا حکم دیا۔ (سنن ابو داؤد ۴۹۸، حسن) وہی بلال جو مکہ میں "احد!" کہتے کہتے اذیت سہتے رہے — اب مدینے کی فضا میں "اللہ اکبر" کا نعرہ لگا رہے تھے۔ اذان نے امت کو روزانہ پانچ بار متحد کیا — امیر اور غریب، آزاد اور سابق غلام — ایک صف میں۔</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Sunan Abu Dawud 498 — Abdullah ibn Zayd's dream; graded Hasan</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:131–134 — adhan established</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">The adhan was revealed through a dream — reminding us that Allah communicates in more ways than one. And its first voice was that of a man who had been tortured for his belief. The call that now echoes from a billion mosques began with the voice of someone who had refused to be silenced. Every muezzin since is Bilal's inheritor.</div>
+    <div class="reflection-ur">اذان ایک خواب کے ذریعے آئی — یاد دہانی کہ اللہ ایک سے زیادہ طریقوں سے مخاطب ہوتا ہے۔ اور اس کی پہلی آواز اس شخص کی تھی جسے اپنے یقین کے لیے اذیت دی گئی تھی۔ وہ ندا جو اب ایک ارب مساجد سے گونجتی ہے — ایک ایسے شخص کی آواز سے شروع ہوئی جسے خاموش نہ کیا جا سکا۔ ہر مؤذن بلال رضی اللہ عنہ کا وارث ہے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">09</span>Events Leading to Badr · الأحداث السابقة لبدر</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~2 AH · ~623–624 CE</span></div>
+    <div class="meta-item">📍 <span>Madinah · The Trade Routes</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">السرايا والغزوات الأولى — والإذن بالقتال</div>
+    <div class="card-title">The Context for Badr — Permission for Warfare</div>
+    <p class="narrative en-text">Quraysh had not simply let the Muslims emigrate in peace. They had confiscated the property left behind in Makkah, continued to persecute those who remained, and used the trade routes to assert economic dominance. The young Muslim state in Madinah began to challenge Quraysh's trade caravans — asserting its presence on the Arabian Peninsula and redirecting economic leverage. Several small expeditions (saraya) were sent out, though most involved no fighting.</p>
+    <p class="narrative en-text">A significant incident occurred when the Prophet ﷺ sent a small expedition led by <span class="highlight">Abdullah ibn Jahsh RA</span> — instructed to gather intelligence near Makkah. The group encountered a small Qurayshi caravan and killed one man, captured two others, and seized goods — this happened in the sacred month of Rajab, when fighting was traditionally prohibited. This caused controversy and the Quran addressed it directly in Surat al-Baqarah (2:217): fighting in the sacred month is grave, but persecution and driving people from their homes is graver still in Allah's sight. Source: Ibn Hisham, Sirat, 2:155–162.</p>
+    <p class="narrative en-text">The Quranic permission for warfare had already come (22:39–40, and 2:190: "Fight in the way of Allah those who fight you"). Quraysh's major caravan — under <span class="highlight">Abu Sufyan</span>, carrying enormous wealth from Syria — was now heading toward Makkah. The Prophet ﷺ set out to intercept it. This would set the stage for the <span class="highlight">Battle of Badr</span> — covered in Part 4.</p>
+    <p class="narrative-ur">قریش نے مدینے میں مسلمانوں کو امن سے نہ رہنے دیا — مکہ کا مال ضبط کیا، باقی ماندہ مسلمانوں پر ظلم جاری رکھا۔ چھوٹے چھوٹے دستے بھیجے گئے۔ عبداللہ بن جحش رضی اللہ عنہ کے دستے نے ماہ رجب میں ایک شخص کو قتل کیا — جس پر سوال اٹھا۔ قرآن نے جواب دیا (البقرۃ: ۲۱۷): حرمت والے مہینے میں لڑنا بڑا گناہ ہے، مگر لوگوں کو ان کے گھروں سے نکالنا اس سے بڑا ہے۔ اب ابو سفیان کا بڑا تجارتی قافلہ شام سے واپس آ رہا تھا — یہ بدر کا دیباچہ تھا۔</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:155–162 — Abdullah ibn Jahsh expedition</span>
+      <span class="badge badge-sahih">🟢 Quran 2:217 — fighting in sacred months addressed</span>
+      <span class="badge badge-sahih">🟢 Quran 2:190 — "Fight those who fight you"</span>
+      <span class="badge badge-sahih">🟢 Quran 22:39–40 — permission for warfare</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">The Quran did not pretend that the early Muslims' actions were without moral complexity. It addressed the difficult case directly — acknowledging the wrong of fighting in a sacred month, but placing it within the larger context of injustice. This is the Quran's moral honesty: it does not sanitize history, it contextualizes it.</div>
+    <div class="reflection-ur">قرآن نے ابتدائی مسلمانوں کے اعمال کو اخلاقی پیچیدگیوں سے پاک نہیں دکھایا۔ اس نے مشکل معاملے کا سیدھا سامنا کیا — حرمت والے مہینے میں لڑنے کی غلطی مانی، مگر اسے وسیع تر ظلم کے سیاق میں رکھا۔ قرآن کی اخلاقی سچائی یہی ہے: وہ تاریخ کو صاف نہیں کرتا — اسے سیاق دیتا ہے۔</div>
+  </div>
+</div>
+
+<div class="nav-link-box">
+  <div class="nav-link-label">Part 3 of 5 · Seerah Series</div>
+  <div class="nav-link-sub">The foundation of Madinah is complete. The battles begin. Part 4 covers Badr to the Conquest of Makkah.</div>
+  <div class="nav-link-btns">
+    <a href="seerah_2_makkah.html" class="btn-prev">← Part 2: The Makkan Period</a>
+    <a href="seerah_4_battles.html" class="btn-next">Continue → Part 4: The Battles</a>
+  </div>
+</div>
+
+</div>
+<script>
+function setLang(l){const b=document.body,e=document.getElementById('btn-en'),u=document.getElementById('btn-ur');if(l==='ur'){b.classList.add('ur-mode');u.classList.add('active');e.classList.remove('active');document.documentElement.setAttribute('lang','ur');}else{b.classList.remove('ur-mode');e.classList.add('active');u.classList.remove('active');document.documentElement.setAttribute('lang','en');}}
+</script>
+
+
+<style>
+.seerah-footer-nav{display:flex;justify-content:space-between;align-items:center;padding:40px 24px 60px;max-width:900px;margin:0 auto;gap:16px}
+.seerah-footer-nav a{display:flex;flex-direction:column;padding:16px 20px;background:#080E1C;border:1px solid rgba(201,168,76,.15);border-radius:10px;text-decoration:none;transition:all .2s;max-width:260px;flex:1}
+.seerah-footer-nav a:hover{border-color:rgba(201,168,76,.4);background:#0C1528}
+.sfn-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;color:#8A9BB0;text-transform:uppercase;margin-bottom:6px}
+.sfn-title{font-family:'Cinzel',serif;font-size:12px;color:#C9A84C;margin-bottom:3px}
+.sfn-period{font-family:'Lora',serif;font-size:11px;color:#5A6B80;font-style:italic}
+.sfn-arrow{font-size:18px;color:#C9A84C;margin-bottom:4px}
+.sfn-next{text-align:right}
+.sfn-center{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:#5A6B80;text-transform:uppercase;text-align:center;padding:16px 20px}
+.sfn-center a{color:#C9A84C;text-decoration:none}
+.sfn-center a:hover{color:#E2C97A}
+</style>
+
+<div class="seerah-footer-nav">
+  <a href="seerah_2_makkah.html">
+        <span class="sfn-label">← Previous</span>
+        <span class="sfn-title">The Makkah Period</span>
+        <span class="sfn-period">610–622 CE</span>
+      </a>
+  <div class="sfn-center">
+    <a href="seerah_index.html">⟨ Seerah Overview ⟩</a>
+  </div>
+  <a href="seerah_4_battles.html" class="sfn-next">
+        <span class="sfn-label">Next →</span>
+        <span class="sfn-title">Battles & Treaties</span>
+        <span class="sfn-period">624–630 CE</span>
+      </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seerah — The Makkan Period | Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04070D;--gold:#C9A84C;--gold-dim:rgba(201,168,76,0.18);--gold-glow:rgba(201,168,76,0.08);--teal:#2FB89A;--teal-dim:rgba(47,184,154,0.15);--text:#D4CBB8;--text-dim:#8A8070;--card:#080E1C;--border:rgba(201,168,76,0.15);--border-hi:rgba(201,168,76,0.35);--amber:#D4843A}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Lora',serif;font-size:16px;line-height:1.75;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;height:58px;background:rgba(4,7,13,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);display:flex;align-items:center;padding:0 20px;gap:12px}
+.nav-left{display:flex;align-items:center;gap:8px;flex:1}
+.nav-left a{color:var(--text-dim);text-decoration:none;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.06em;transition:color 0.2s;white-space:nowrap}
+.nav-left a:hover{color:var(--gold)}
+.nav-sep{color:var(--border-hi);font-size:14px}
+.nav-centre{flex:0 0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;line-height:1.2}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;font-size:13px;color:var(--gold);font-weight:600}
+.nav-en{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:10px;flex:1;justify-content:flex-end}
+.lang-btn{background:none;border:1px solid var(--border-hi);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.08em;padding:4px 9px;cursor:pointer;border-radius:3px;transition:all 0.2s}
+.lang-btn.active{background:var(--gold-dim);color:var(--gold);border-color:var(--gold)}
+.lang-btn:hover{color:var(--gold);border-color:var(--gold)}
+.badge-ce{font-family:'Cinzel',serif;font-size:10px;color:var(--teal);border:1px solid rgba(47,184,154,0.3);padding:3px 8px;border-radius:3px;letter-spacing:0.06em;white-space:nowrap}
+.hero{text-align:center;padding:64px 24px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 30% 100%,rgba(47,184,154,0.04) 0%,transparent 60%);pointer-events:none}
+.hero-ar{font-family:'Noto Naskh Arabic',serif;font-size:clamp(28px,6vw,52px);font-weight:700;color:var(--gold);line-height:1.3;margin-bottom:8px}
+.hero-en{font-family:'Cinzel',serif;font-size:clamp(16px,3vw,26px);font-weight:600;color:var(--text);letter-spacing:0.05em}
+.hero-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-top:8px}
+.hero-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
+.timeline-bar{max-width:700px;margin:0 auto 52px;padding:0 24px}
+.timeline-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--text-dim);text-align:center;margin-bottom:10px;text-transform:uppercase}
+.timeline-track{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;position:relative}
+.timeline-fill{position:absolute;left:0;top:0;height:100%;width:37%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:2px}
+.timeline-dot{position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(47,184,154,0.5)}
+.timeline-epochs{display:flex;justify-content:space-between;margin-top:8px}
+.timeline-epoch{font-family:'Cinzel',serif;font-size:9px;color:var(--text-dim);letter-spacing:0.06em}
+.timeline-epoch.active{color:var(--gold)}
+.main{max-width:860px;margin:0 auto;padding:0 20px 80px}
+.section-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:52px 0 20px;display:flex;align-items:center;gap:14px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-num{background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-size:10px;padding:2px 7px;border-radius:2px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:28px;transition:border-color 0.3s}
+.card:hover{border-color:var(--border-hi)}
+.card-meta{display:flex;flex-wrap:wrap;gap:16px;padding:14px 22px;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04)}
+.meta-item{display:flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.06em;color:var(--text-dim)}
+.meta-item span{color:var(--text)}
+.card-body{padding:22px 22px 0}
+.card-ar-title{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:700;color:var(--gold);text-align:right;direction:rtl;margin-bottom:10px;line-height:1.5}
+.card-title{font-family:'Cinzel',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:0.02em}
+.narrative{font-family:'Lora',serif;font-size:15.5px;line-height:1.82;color:var(--text);margin-bottom:14px}
+.narrative-ur{font-family:'Noto Naskh Arabic',serif;font-size:16px;line-height:2;color:var(--text);direction:rtl;text-align:right;margin-bottom:14px;display:none}
+.ayah-block{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-left:3px solid var(--gold);border-radius:6px;padding:18px 20px;margin:20px 0}
+.ayah-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.ayah-ar{font-family:'Noto Naskh Arabic',serif;font-size:22px;font-weight:500;color:#E8D89A;text-align:right;direction:rtl;line-height:2;margin-bottom:12px}
+.ayah-en{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text-dim);line-height:1.7;margin-bottom:8px}
+.ayah-ur{font-family:'Noto Naskh Arabic',serif;font-size:15px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;display:none}
+.sources{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.05em;padding:4px 10px;border-radius:3px;border:1px solid;line-height:1.3}
+.badge-sahih{color:#5DD68A;border-color:rgba(61,170,110,0.4);background:rgba(61,170,110,0.1)}
+.badge-classical{color:#78B4E0;border-color:rgba(74,144,196,0.4);background:rgba(74,144,196,0.1)}
+.badge-disputed{color:#E4A55A;border-color:rgba(212,132,58,0.4);background:rgba(212,132,58,0.1)}
+.badge-scholars-differ{color:#D4B86A;border-color:rgba(212,184,106,0.3);background:rgba(212,184,106,0.07);font-style:italic}
+.dispute-note{background:rgba(212,132,58,0.08);border:1px solid rgba(212,132,58,0.25);border-left:3px solid var(--amber);border-radius:4px;padding:12px 16px;font-family:'Lora',serif;font-style:italic;font-size:13.5px;color:#C4A870;margin:12px 0;line-height:1.65}
+.dispute-note strong{font-style:normal;font-weight:600;color:var(--amber)}
+.hadith-block{background:rgba(47,184,154,0.06);border:1px solid rgba(47,184,154,0.2);border-left:3px solid var(--teal);border-radius:6px;padding:16px 20px;margin:16px 0}
+.hadith-ref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--teal);text-transform:uppercase;margin-bottom:8px}
+.hadith-text{font-family:'Lora',serif;font-style:italic;font-size:14.5px;color:var(--text);line-height:1.75}
+.reflection{background:rgba(201,168,76,0.04);border-top:1px solid var(--border);padding:16px 22px 20px;margin-top:18px}
+.reflection-label{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.reflection-text{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--text-dim);line-height:1.7}
+.reflection-ur{font-family:'Noto Naskh Arabic',serif;font-size:14.5px;color:var(--text-dim);direction:rtl;text-align:right;line-height:1.9;margin-top:8px;display:none}
+.highlight{color:var(--gold);font-weight:600}
+.nav-link-box{text-align:center;margin:56px 0 24px;padding:24px;border:1px solid var(--border);border-radius:8px;background:var(--gold-glow)}
+.nav-link-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.12em;color:var(--text-dim);text-transform:uppercase;margin-bottom:10px}
+.nav-link-sub{font-family:'Lora',serif;font-style:italic;color:var(--text-dim);font-size:14px;margin-bottom:16px}
+.nav-link-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-prev{display:inline-block;background:rgba(201,168,76,0.08);border:1px solid var(--border);color:var(--text-dim);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+.btn-next{display:inline-block;background:var(--gold-dim);border:1px solid var(--border-hi);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;padding:10px 22px;border-radius:4px;text-decoration:none}
+@media(max-width:600px){nav{padding:0 12px;gap:6px}.nav-left a{font-size:9.5px}.nav-ar{font-size:11px}.badge-ce{display:none}.card-body{padding:16px 16px 0}.card-meta{padding:12px 16px;gap:10px}.reflection{padding:14px 16px 16px}.ayah-ar{font-size:18px}}
+body.ur-mode .en-text{display:none!important}
+body.ur-mode .narrative-ur{display:block}
+body.ur-mode .ayah-ur{display:block}
+body.ur-mode .reflection-ur{display:block}
+body.ur-mode .reflection-text{display:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="index.html">← Al-Maktaba</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_index.html">Seerah</a>
+    <span class="nav-sep">›</span>
+    <a href="seerah_1_early_life.html">Part 1</a>
+  </div>
+  <div class="nav-centre">
+    <div class="nav-ar">السيرة النبوية</div>
+    <div class="nav-en">Seerah · The Makkan Period</div>
+  </div>
+  <div class="nav-right">
+    <span class="badge-ce">610–622 CE</span>
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-ar">العهد المكي</div>
+  <div class="hero-en">The Makkan Period</div>
+  <div class="hero-sub">From First Revelation to the Hijra &nbsp;·&nbsp; 610–622 CE</div>
+  <div class="hero-divider"></div>
+</div>
+<div class="timeline-bar">
+  <div class="timeline-label">Life of the Prophet ﷺ — 63 Years</div>
+  <div class="timeline-track">
+    <div class="timeline-fill"></div>
+    <div class="timeline-dot"></div>
+  </div>
+  <div class="timeline-epochs">
+    <span class="timeline-epoch">Birth · 570</span>
+    <span class="timeline-epoch active">Revelation · 610</span>
+    <span class="timeline-epoch active">Hijra · 622</span>
+    <span class="timeline-epoch">Conquest · 630</span>
+    <span class="timeline-epoch">Passing · 632</span>
+  </div>
+</div>
+<div class="main">
+
+<div class="section-title"><span class="section-num">01</span>Fatrat al-Wahy — The Pause in Revelation · فترة الوحي</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~610 CE · Shortly After First Revelation</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">فترة الوحي — ثم نزول سورة المدثر</div>
+    <div class="card-title">The Silence — Then the Command to Arise</div>
+    <p class="narrative en-text">After the first revelation in Cave Hira, Jibril AS did not return immediately. A period of silence — <span class="highlight">Fatrat al-Wahy</span> — ensued. Jabir ibn Abdullah RA narrates in Sahih Bukhari (4953) that the Prophet ﷺ said: "While I was walking I heard a voice from the sky and raised my eyes. Behold — the angel who had come to me in Hira was sitting on a throne between the sky and the earth. I was frightened of him and went home and said: 'Cover me! Cover me!' Then Allah revealed Surat al-Muddaththir." The Prophet ﷺ had been deeply distressed during the pause, and Khadijah RA had consoled him through it.</p>
+    <p class="narrative en-text">With Surat al-Muddaththir (74:1–5), the passive, frightened man covered in his blanket was called to become the active warner of all humanity. This was the transition from private experience to public mission. Revelation would continue now without interruption for the next twenty-two years.</p>
+    <p class="narrative-ur">پہلی وحی کے بعد وحی کا سلسلہ رک گیا — "فترۃ الوحی۔" صحیح بخاری ۴۹۵۳ میں جابر بن عبداللہ رضی اللہ عنہ روایت کرتے ہیں کہ آپ ﷺ نے فرمایا: "میں چل رہا تھا کہ آسمان سے آواز سنی — نظر اٹھائی تو وہی فرشتہ جو حرا میں آیا تھا آسمان اور زمین کے درمیان کرسی پر بیٹھا ہے۔ میں ڈر گیا، گھر آیا، کہا: مجھے ڈھانپو!" خدیجہ رضی اللہ عنہا نے اس دوران تسلی دی۔ پھر سورۃ المدثر نازل ہوئی — چادر میں لپٹے ہوئے کو حکم ملا: اٹھو اور ڈراؤ۔</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Muddaththir (74:1–5) — Resumed After the Pause</div>
+      <div class="ayah-ar">يَا أَيُّهَا الْمُدَّثِّرُ ﴿١﴾ قُمْ فَأَنذِرْ ﴿٢﴾ وَرَبَّكَ فَكَبِّرْ ﴿٣﴾ وَثِيَابَكَ فَطَهِّرْ ﴿٤﴾ وَالرُّجْزَ فَاهْجُرْ ﴿٥﴾</div>
+      <div class="ayah-en">"O you who covers himself — arise and warn. And your Lord glorify. And your clothing purify. And uncleanliness avoid." <em>(Saheeh International · Surat al-Muddaththir 74:1–5)</em></div>
+      <div class="ayah-ur">"اے چادر اوڑھنے والے! اٹھو اور ڈراؤ۔ اور اپنے رب کی بڑائی بیان کرو۔ اور اپنے کپڑے پاک رکھو۔ اور گندگی سے دور رہو۔" (المدثر: ۱–۵)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4953 — Jabir ibn Abdullah on fatrat al-wahy</span>
+      <span class="badge badge-sahih">🟢 Quran 74:1–5 — Surat al-Muddaththir</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">He was frightened, covered, alone — and the command came: arise. The pauses in our lives do not disqualify us. They precede the call. The moment of our greatest vulnerability can be the moment of our greatest commissioning.</div>
+    <div class="reflection-ur">وہ ڈرے ہوئے، چادر میں لپٹے، اکیلے تھے — اور حکم آیا: اٹھو۔ زندگی کے وقفے ہمیں نا اہل نہیں بناتے — وہ دعوت سے پہلے آتے ہیں۔ سب سے بڑی کمزوری کا لمحہ سب سے بڑے مشن کا لمحہ بن سکتا ہے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">02</span>The Beginning of Da'wah — Secret and Open · بداية الدعوة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~610–613 CE · Years 1–4 of Prophethood</span></div>
+    <div class="meta-item">📍 <span>Makkah · Dar al-Arqam</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">السابقون الأولون إلى الإسلام</div>
+    <div class="card-title">The First Believers — One by One</div>
+    <p class="narrative en-text">The call began in the closest circles. The first to believe was <span class="highlight">Khadijah RA</span> — without hesitation. The first youth was <span class="highlight">Ali ibn Abi Talib RA</span>, approximately ten years old. The first freed man was <span class="highlight">Zayd ibn Harithah RA</span>. The first free adult man from outside the family was <span class="highlight">Abu Bakr al-Siddiq RA</span>. This sequence is preserved by Ibn Hisham from multiple chains (Sirat al-Nabawiyyah, 1:245–252). The Prophet ﷺ's own household believed first — those who knew him most intimately were the first convinced.</p>
+    <p class="narrative en-text">Abu Bakr RA then became the first to bring others into Islam through personal outreach. Through his standing among Quraysh, the following accepted Islam in the early secret period: <span class="highlight">Uthman ibn Affan, al-Zubayr ibn al-Awwam, Abd al-Rahman ibn Awf, Sa'd ibn Abi Waqqas</span>, and <span class="highlight">Talha ibn Ubaydillah</span> — all among the ten given the glad tidings of Paradise. Ibn Hisham records this in detail (Sirat, 1:252–262). Their meeting place was the home of <span class="highlight">al-Arqam ibn Abi al-Arqam</span> on the slope of Mount Safa — the first school of Islam.</p>
+    <p class="narrative-ur">دعوت قریبی حلقوں میں شروع ہوئی۔ پہلی ایمان لانے والی خدیجہ رضی اللہ عنہا — بغیر ایک لمحے کے تذبذب کے۔ پہلے نوجوان علی رضی اللہ عنہ، تقریباً دس سال کی عمر میں۔ پہلے آزاد بالغ مرد ابو بکر رضی اللہ عنہ۔ پھر ابو بکر رضی اللہ عنہ کی کوشش سے عثمان، زبیر، عبد الرحمٰن بن عوف، سعد بن ابی وقاص اور طلحہ رضی اللہ عنہم ایمان لائے — سب جنت کی بشارت پانے والوں میں سے۔ ارقم بن ابی الارقم کا گھر — صفا کی ڈھلان پر — اسلام کی پہلی درس گاہ بنا۔</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat al-Nabawiyyah, 1:245–252 — order of first believers</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat al-Nabawiyyah, 1:252–262 — Abu Bakr brings companions</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">The first Muslims came through personal trust — not compulsion, not spectacle. Those who knew him best believed first. Da'wah has never changed in its most essential form: one human being, truthfully, to another.</div>
+    <div class="reflection-ur">پہلے مسلمان ذاتی اعتماد کے ذریعے آئے — جبر سے نہیں۔ جو آپ ﷺ کو سب سے زیادہ جانتے تھے، پہلے ایمان لائے۔ دعوت اپنی اصل صورت میں کبھی نہیں بدلی: ایک انسان، سچائی کے ساتھ، دوسرے سے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">03</span>Public Da'wah — Mount Safa · الدعوة العلنية من جبل الصفا</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~Year 4 of Prophethood · ~613 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah · Mount Safa</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">وَأَنذِرْ عَشِيرَتَكَ الْأَقْرَبِينَ</div>
+    <div class="card-title">"Warn Your Nearest Kindred" — and Abu Lahab's Response</div>
+    <p class="narrative en-text">When the command came — "And warn your nearest kindred" (Quran 26:214) — the Prophet ﷺ climbed Mount Safa and called out in the Arab manner for urgent warning: <span class="highlight">"Ya sabahah!"</span> The clans of Quraysh gathered — Banu Fihr, Banu Adi, all of them. He asked: "If I told you a cavalry was advancing from behind this mountain — would you believe me?" They said: "Yes — we have never known you to lie." He said: "Then I am a warner to you of a severe punishment ahead."</p>
+    <p class="narrative en-text">His uncle <span class="highlight">Abu Lahab — Abd al-Uzza ibn Abd al-Muttalib</span> — leapt up and said: <span class="highlight">"Tabbanlak! May you perish for the rest of this day! Is this why you gathered us?"</span> The gathering dissolved. Surat al-Masad (111) was then revealed — naming Abu Lahab and his wife by their deeds. Narrated by Ibn Abbas RA in Sahih Bukhari (4770).</p>
+    <p class="narrative-ur">جب آیت نازل ہوئی "اپنے قریبی رشتہ داروں کو ڈراؤ" — آپ ﷺ صفا پر چڑھے اور "یا صباحاہ!" کا نعرہ لگایا۔ قریش جمع ہوئے۔ آپ ﷺ نے فرمایا: "کیا مانو گے اگر کہوں فوج آ رہی ہے؟" سب نے کہا: ہاں — تم نے کبھی جھوٹ نہیں بولا۔ پھر تنبیہ دی۔ ابو لہب بھڑکا: "تبّاً لک! کیا اسی لیے جمع کیا؟" سورۃ المسد نازل ہوئی۔ (صحیح بخاری ۴۷۷۰)</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Masad (111:1–5)</div>
+      <div class="ayah-ar">تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ ﴿١﴾ مَا أَغْنَىٰ عَنْهُ مَالُهُ وَمَا كَسَبَ ﴿٢﴾ سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ ﴿٣﴾ وَامْرَأَتُهُ حَمَّالَةَ الْحَطَبِ ﴿٤﴾ فِي جِيدِهَا حَبْلٌ مِّن مَّسَدٍ ﴿٥﴾</div>
+      <div class="ayah-en">"May the hands of Abu Lahab be ruined, and ruined is he. His wealth will not avail him or that which he gained. He will enter a Fire of blazing flame — and his wife [as well], the carrier of firewood. Around her neck is a rope of twisted fiber." <em>(Saheeh International · Surat al-Masad 111:1–5)</em></div>
+      <div class="ayah-ur">"ابو لہب کے ہاتھ ٹوٹ جائیں۔ اس کا مال کام نہ آیا۔ وہ بھڑکتی آگ میں داخل ہوگا — اور اس کی بیوی بھی، لکڑیاں اٹھانے والی۔ گردن میں کھجور کی رسی۔" (المسد: ۱–۵)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 4770 — Ibn Abbas, Mount Safa public sermon</span>
+      <span class="badge badge-sahih">🟢 Quran 111:1–5 — Surat al-Masad</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">He built his first public call on his existing credibility — "you have never known me to lie." Character preceded the call. His first serious opponent was his own family. Prophethood does not exempt a person from rejection by those closest to them.</div>
+    <div class="reflection-ur">پہلا عوامی خطاب اپنی ساکھ پر کھڑا کیا — "تم نے مجھے کبھی جھوٹا نہیں پایا۔" کردار دعوت سے پہلے آتا ہے۔ اور پہلا سنگین مخالف اپنا چچا تھا — نبوت قریبیوں کے رد سے محفوظ نہیں رکھتی۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">04</span>The Persecution — Bilal, Sumayyah, Ammar · تعذيب المسلمين</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~613–615 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah — The Desert Outside</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">صَبْراً يَا آلَ يَاسِرٍ — فَإِنَّ مَوْعِدَكُمُ الْجَنَّةُ</div>
+    <div class="card-title">Those Who Bore the Weight First</div>
+    <p class="narrative en-text"><span class="highlight">Bilal ibn Rabah RA</span> — an Abyssinian slave owned by Umayya ibn Khalaf — was dragged to the scorching ground, laid on burning sand, and had a heavy boulder placed on his chest. The demand was: renounce Islam. His answer, every time: <span class="highlight">"Ahad! Ahad! — One! One!"</span> — declaring the oneness of Allah. Ibn Hisham records this in the Sira (1:317–320) with strong classical transmission.</p>
+    <p class="narrative en-text">The family of <span class="highlight">Yasir ibn Amir</span> suffered the deepest. His wife <span class="highlight">Sumayyah bint Khayyat RA</span> was killed by Abu Jahl — the <span class="highlight">first martyr in the history of Islam</span>. Her husband Yasir RA also died under torture. Their son Ammar RA survived. The Prophet ﷺ would pass by them in the desert and say: <span class="highlight">"Sabran ya ala Yasir — Patience, O family of Yasir! Your appointment is Paradise."</span> Ibn Hisham records this (Sirat, 1:320), and al-Hakim graded the account Sahih.</p>
+    <p class="narrative en-text"><span class="highlight">Abu Bakr al-Siddiq RA</span> used his own wealth to purchase and free enslaved believers — including Bilal RA. He also freed Khabbab ibn al-Aratt, Amir ibn Fuhayrah, and others. Ibn Hisham records this (Sirat, 1:318); Sahih Bukhari (3754) records the Prophet's ﷺ praise of Abu Bakr's spending for the sake of Allah.</p>
+    <p class="narrative-ur">بلال بن رباح رضی اللہ عنہ کو جلتی ریت پر لٹا کر سینے پر پتھر رکھا جاتا — وہ کہتے: "احد! احد!" سمیہ رضی اللہ عنہا — اسلام کی پہلی شہیدہ — ابو جہل کے ہاتھوں شہید ہوئیں۔ یاسر رضی اللہ عنہ بھی وفات پا گئے۔ آپ ﷺ فرماتے: "صبرًا یا آلَ یاسر — تمہارا وعدہ جنت ہے۔" ابو بکر رضی اللہ عنہ نے اپنے مال سے بلال رضی اللہ عنہ اور دیگر کو خرید کر آزاد کیا۔</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 1:317–320 — Bilal's torture; strong transmission</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 1:320 — Sumayyah RA first martyr; Prophet's words</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 1:318 — Abu Bakr frees enslaved believers</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3754 — Abu Bakr's spending praised</span>
+      <span class="badge badge-disputed">🟡 Sumayyah's martyrdom — strong classical chains; al-Hakim grades Sahih</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">"Ahad! Ahad!" — on a man's lips as the boulder crushes him. Faith is not only what you profess in safety — it is what you hold when every incentive says let go. Abu Bakr RA shows the other side: when you see injustice and you have resources, using them is also an act of faith.</div>
+    <div class="reflection-ur">"احد! احد!" — پتھر کے نیچے، جلتی ریت پر۔ ایمان صرف وہ نہیں جو سکون میں کہتے ہو — وہ بھی ہے جو اس وقت تھامتے ہو جب ہر چیز چھوڑنے کو کہے۔ ابو بکر رضی اللہ عنہ نے دوسرا سبق دیا: ظلم دیکھو اور جو ہے لگا دو — یہ بھی ایمان کا عمل ہے۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">05</span>First Hijra — Migration to Abyssinia · الهجرة إلى الحبشة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~Year 5 of Prophethood · ~615 CE</span></div>
+    <div class="meta-item">📍 <span>Makkah → Abyssinia (al-Habashah)</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">الهجرة إلى أرض الحبشة — أرض العدل</div>
+    <div class="card-title">A Just King — and the Speech That Made Him Weep</div>
+    <p class="narrative en-text">As persecution intensified, the Prophet ﷺ said: <span class="highlight">"There is a king in Abyssinia who wrongs no one — go to him until Allah provides you relief."</span> The first group was small. A larger group eventually numbered around eighty-three men and women. Quraysh sent two envoys — Amr ibn al-As and Abdullah ibn Abi Rabia — with gifts to the court of <span class="highlight">Ashamah al-Najashi (the Negus)</span> to have the Muslims returned. Source: Ibn Hisham, Sirat, 1:321–344.</p>
+    <p class="narrative en-text">The Negus called both sides before his full court. The Muslim spokesman was <span class="highlight">Jafar ibn Abi Talib RA</span>. He described their prior state of ignorance, then Islam's call to truth, then recited from <span class="highlight">Surat Maryam (19)</span>. The Negus wept until his beard was wet. His bishops wept. He said: <span class="highlight">"By God, the difference between what you say and what we say is no greater than this"</span> — drawing a line on the ground. He refused to hand over the Muslims, returned Quraysh's gifts, and guaranteed them his protection. Source: Ibn Hisham, Sirat, 1:334–338.</p>
+    <p class="narrative-ur">جب مکہ میں ظلم ناقابل برداشت ہو گیا، آپ ﷺ نے فرمایا: "وہاں ایک بادشاہ ہے جو ظلم نہیں کرتا — اس کے پاس جاؤ۔" قریش کے ایلچی آئے — مگر جعفر بن ابی طالب رضی اللہ عنہ نے دربار میں سورۃ مریم تلاوت کی۔ نجاشی رو پڑا، اسقف رو پڑے۔ بادشاہ نے کہا: "ہمارے اور تمہارے کلام میں فرق بس اتنا ہے" — لکیر کھینچی۔ مسلمانوں کو پناہ دی، تحائف واپس کیے۔</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 1:321–344 — full Abyssinia account</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 1:334–338 — Jafar's speech; Negus's response</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">The first Muslim refuge was given by a Christian king — moved to tears by the Quran's account of Mary and Jesus. Truth resonates across divides, when presented honestly. The Negus — Ashamah, meaning "gift" — was exactly that.</div>
+    <div class="reflection-ur">پہلی مسلم پناہ گاہ ایک عیسائی بادشاہ نے دی — جو مریم اور عیسیٰ کے ذکر پر رو پڑا۔ سچائی مذہبی سرحدیں پار کرتی ہے۔ نجاشی — "اصحمہ" یعنی تحفہ — واقعی تحفہ تھا۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">06</span>Aam al-Huzn — The Year of Sorrow · عام الحزن</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~619 CE · Scholars differ on exact year</span></div>
+    <div class="meta-item">📍 <span>Makkah · Taif</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">وفاة خديجة وأبي طالب — ورحلة الطائف</div>
+    <div class="card-title">Khadijah RA — Abu Talib — Then the Stones of Taif</div>
+    <p class="narrative en-text">Within weeks of each other, the Prophet ﷺ lost his two greatest supporters. <span class="highlight">Khadijah bint Khuwaylid RA</span> — his wife of twenty-five years, first believer, first comforter — passed away approximately 619 CE. Scholars differ on the precise date. Sahih Bukhari (3818) preserves the Prophet's ﷺ words about her virtue — he spoke of her with undimming love until the end of his life.</p>
+    <p class="narrative en-text">Shortly before or after — scholars differ on the order — his uncle <span class="highlight">Abu Talib</span> also died. The Prophet ﷺ was at his bedside urging him until his final breath to say the shahada. Abu Talib died on the religion of his fathers. Sahih Bukhari (3884) records this painful moment. With his passing, the tribal shield that had protected the Prophet ﷺ from Quraysh for a decade was gone.</p>
+    <p class="narrative en-text">Now exposed, the Prophet ﷺ traveled to <span class="highlight">Taif</span> — alone but for Zayd ibn Harithah RA — hoping the tribe of Thaqif would offer support. They refused contemptuously, then set their servants upon him with stones until his feet bled. He took shelter in a garden — and from that garden, wounded and alone, came the famous supplication recorded by Ibn Hisham (Sirat, 2:5–9).</p>
+    <div class="hadith-block">
+      <div class="hadith-ref">📜 The Du'a of Taif — Ibn Hisham, Sirat al-Nabawiyyah, 2:5–9 (Classical Source)</div>
+      <div class="hadith-text">"O Allah, I complain to You of my weakness, my scarcity of resources, and my humiliation before people. O Most Merciful of those who are merciful — You are the Lord of the weak, and You are my Lord. To whom will You entrust me? To a distant stranger who will mistreat me? Or to an enemy who will dominate me? If You are not angry with me, I do not care what I face — but Your wellbeing is more expansive for me. I take refuge in the light of Your face by which all darkness is dispelled... so that there be upon me neither Your anger nor Your wrath. To You belongs reproach until You are pleased. There is no power and no might except by You."<br><br><em><strong>Source note:</strong> This supplication is recorded by Ibn Hisham (Sirat, 2:5–9) and is widely transmitted in Seerah literature. The exact wording is not found in Sahih Bukhari or Sahih Muslim — it is a classical Seerah source and is presented as such.</em></div>
+    </div>
+    <p class="narrative-ur">چند ہفتوں میں خدیجہ رضی اللہ عنہا اور ابو طالب — دونوں رخصت ہو گئے۔ آپ ﷺ طائف گئے مگر ٹھکرا دیے گئے، پتھروا کر نکالے گئے۔ لہولہان پاؤں لیے باغ کی دیوار کے سائے میں بیٹھے — اور وہ دعا کی: "اے اللہ! میں اپنی کمزوری کی تجھ سے شکایت کرتا ہوں... تیری رضا میرے لیے سب سے وسیع ہے۔" یہ دعا ابن ہشام ۲:۵ میں ہے — صحیح بخاری یا مسلم میں اس وضاحت کے ساتھ نہیں۔</p>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3818 — Prophet's words about Khadijah RA</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3884 — death of Abu Talib</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:5–9 — Taif journey and du'a</span>
+      <span class="badge badge-disputed">🟡 Du'a of Taif — classical Seerah; exact wording not in Bukhari/Muslim</span>
+      <span class="badge badge-scholars-differ">⚪ Order of deaths of Khadijah and Abu Talib — scholars differ</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">He named this year himself — Aam al-Huzn. And from its lowest point — a garden wall, bleeding, alone — came the most selfless prayer: not "destroy them," but "Your wellbeing is more expansive for me." He measured reality not by what had been done to him, but by whether Allah was pleased.</div>
+    <div class="reflection-ur">آپ ﷺ نے خود اسے "عام الحزن" کہا۔ اور اس سال کی سب سے نچلی جگہ سے — لہولہان، اکیلے — آئی سب سے بے غرض دعا: "تیری رضا میرے لیے سب سے وسیع ہے۔" آپ ﷺ نے دنیا کو اس سے نہیں ناپا کہ اس نے کیا کیا — بلکہ اس سے کہ اللہ راضی ہے یا نہیں۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">07</span>Al-Isra wal-Miraj — The Night Journey · الإسراء والمعراج</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~620 CE · Scholars differ on exact year</span></div>
+    <div class="meta-item">📍 <span>Makkah → Jerusalem → The Heavens</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا</div>
+    <div class="card-title">Divine Comfort After Sorrow — The Gift of Five Prayers</div>
+    <p class="narrative en-text">After the Year of Sorrow — after loss, rejection, and exile — Allah honoured His Prophet ﷺ with an experience unprecedented in human history: the <span class="highlight">Isra</span>, the night journey from Masjid al-Haram to Masjid al-Aqsa, then the <span class="highlight">Miraj</span>, the ascension through the seven heavens. The Quran declares this in Surat al-Isra (17:1) as its primary source. The hadith account is in Sahih Bukhari (3887). The defining gift for the entire ummah was the <span class="highlight">five daily prayers</span> — our inheritance from that night.</p>
+    <div class="dispute-note"><strong>ℹ Full Account in Dedicated Module:</strong> A complete, deeply researched module covering the Isra wal-Miraj — the seven heavens, prophets met, Sidrat al-Muntaha, and the gift of prayer — is available at <em>isra_miraj.html</em> in Al-Maktaba. What matters here: this night came as divine comfort after the hardest year. When earth closed its doors, heaven opened its own.</div>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Isra (17:1) — Primary Source</div>
+      <div class="ayah-ar">سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ لِنُرِيَهُ مِنْ آيَاتِنَا ۚ إِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ</div>
+      <div class="ayah-en">"Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa, whose surroundings We have blessed, to show him of Our signs. Indeed, He is the Hearing, the Seeing." <em>(Saheeh International · Surat al-Isra 17:1)</em></div>
+      <div class="ayah-ur">"پاک ہے وہ ذات جو اپنے بندے کو رات کے ایک حصے میں مسجد الحرام سے مسجد اقصیٰ تک لے گئی — تاکہ اسے اپنی نشانیاں دکھائے۔ بے شک وہی سننے والا اور دیکھنے والا ہے۔" (الاسراء: ۱)</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Quran 17:1 — Surat al-Isra — primary source</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3887 — Isra and Miraj account</span>
+      <span class="badge badge-scholars-differ">⚪ Exact year — scholars differ (619–621 CE)</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">The pattern is consistent in the life of the Prophet ﷺ: the deepest valleys are followed by the highest ascents. Every time a door on earth closed, Allah opened something from heaven. The five prayers are proof that this night was real — we hold them five times every day.</div>
+    <div class="reflection-ur">نبی ﷺ کی زندگی میں یہ نمونہ بار بار ملتا ہے: گہری وادیوں کے بعد اونچی بلندیاں۔ جب بھی زمین کا دروازہ بند ہوا، آسمان نے اپنا کھولا۔ پانچ نمازیں — اس رات کی حقیقت کا ثبوت — دن میں پانچ بار ہمارے ہاتھ میں ہیں۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">08</span>The Pledges of Aqabah — Dawn of Madinah · بيعة العقبة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>First: ~621 CE · Second: ~622 CE</span></div>
+    <div class="meta-item">📍 <span>Mina · The Pass of Aqabah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">بيعة العقبة الأولى والثانية</div>
+    <div class="card-title">Twelve Men — Then Seventy-Five — and a Covenant Worth Paradise</div>
+    <p class="narrative en-text">During the Hajj season of approximately 621 CE, twelve men from Yathrib — from the tribes of Aws and Khazraj — met the Prophet ﷺ at the pass of <span class="highlight">Aqabah</span> and pledged: not to associate partners with Allah, not to steal, not to commit adultery, not to kill their children, and not to disobey the Prophet ﷺ in what is right. This was the <span class="highlight">First Pledge of Aqabah</span>. Source: Ibn Hisham, Sirat, 2:43–46. The Prophet ﷺ sent <span class="highlight">Mus'ab ibn Umayr RA</span> with them — a young man of noble Qurayshi background who had given up luxury for Islam — to teach them the Quran.</p>
+    <p class="narrative en-text">The <span class="highlight">Second Pledge of Aqabah</span> took place in 622 CE — secretly, in the dead of night, at the same pass. Seventy-three men and two women came. Their pledge: to protect the Prophet ﷺ as they protected their own women and children. <span class="highlight">Al-Abbas ibn Abd al-Muttalib</span> — the Prophet's uncle, not yet a Muslim — attended to witness the seriousness of the contract and to ensure the delegation understood its gravity. He said: "If you cannot fulfil this, say so now." They replied: "We have heard, we understand, we accept." The Prophet ﷺ said: <span class="highlight">"I am of you and you are of me."</span> Sources: Ibn Hisham, Sirat, 2:46–75; Sahih Bukhari 3892.</p>
+    <p class="narrative-ur">۶۲۱ء کے حج میں بارہ یثربی مردوں نے عقبہ پر بیعت کی — شرک نہیں، چوری نہیں، زنا نہیں، اولاد کو قتل نہیں۔ آپ ﷺ نے مصعب بن عمیر رضی اللہ عنہ کو ان کے ساتھ بھیجا۔ ایک سال میں یثرب بدل گیا۔ پھر ۶۲۲ء میں رات کے اندھیرے میں تہتر مرد اور دو خواتین آئے — عہد: آپ ﷺ کی حفاظت کریں گے جیسے اپنے عزیزوں کی۔ عباس بن عبد المطلب گواہ تھے۔ آپ ﷺ نے فرمایا: "میں تم میں سے ہوں اور تم مجھ میں سے ہو۔"</p>
+    <div class="sources">
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:43–46 — First Pledge of Aqabah</span>
+      <span class="badge badge-classical">🔵 Ibn Hisham, Sirat, 2:46–75 — Second Pledge of Aqabah</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3892 — the bay'ah</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">When Makkah would not have him, Madinah offered everything. The Ansar pledged their lives for a man most had never met. And Mus'ab ibn Umayr RA — who had worn the finest clothes in Makkah — changed an entire city, one household at a time, by teaching the Quran. Some of history's most significant transformations begin with one person, in one place, doing one thing faithfully.</div>
+    <div class="reflection-ur">مکہ نے نہ مانا، مدینے نے سب دے دیا۔ انصار نے جانیں لگا دیں ایک ایسے شخص کے لیے جنہیں زیادہ تر نے دیکھا بھی نہ تھا۔ مصعب بن عمیر رضی اللہ عنہ نے ایک انجان شہر میں ایک سال گزارا اور دنیا بدل دی۔ تاریخ کی سب سے بڑی تبدیلیاں ایک شخص، ایک جگہ، ایک کام — وفاداری سے کرنے سے شروع ہوتی ہیں۔</div>
+  </div>
+</div>
+
+<div class="section-title"><span class="section-num">09</span>Permission to Migrate — The Door Opens · إذن الهجرة</div>
+<div class="card">
+  <div class="card-meta">
+    <div class="meta-item">📅 <span>~622 CE · Before the Hijra</span></div>
+    <div class="meta-item">📍 <span>Makkah al-Mukarramah</span></div>
+  </div>
+  <div class="card-body">
+    <div class="card-ar-title">أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا</div>
+    <div class="card-title">The First Verse Permitting Resistance — and Abu Bakr Weeps with Joy</div>
+    <p class="narrative en-text">For twelve years in Makkah, the believers endured persecution without permission to defend themselves by force. The first divine permission came with Quran 22:39–40 — acknowledging that those being fought were wronged, driven from their homes for saying "Our Lord is Allah," and that resistance is now permitted. Scholars note this as one of the most significant legislative revelations — the first Quranic recognition of the right to self-defence.</p>
+    <p class="narrative en-text">With the pledges of Aqabah complete and Yathrib ready, the Prophet ﷺ received Allah's permission to migrate. He went to <span class="highlight">Abu Bakr al-Siddiq RA</span> at an unusual hour — midday — and informed him. Abu Bakr RA had been waiting. He had kept two she-camels prepared for months. When the Prophet ﷺ said: <span class="highlight">"Allah has given permission for migration"</span>, Abu Bakr RA wept with joy — a weeping Aisha RA said she had never seen before — and asked: <span class="highlight">"Companionship, O Messenger of Allah?"</span> The Prophet ﷺ replied: <span class="highlight">"Companionship."</span> Source: Sahih Bukhari 3905, narrated by Aisha RA.</p>
+    <p class="narrative-ur">بارہ سال تک صبر — بغیر لڑنے کی اجازت کے۔ پھر قرآن کریم میں پہلی آیت نازل ہوئی جو مزاحمت کی اجازت دیتی ہے (الحج: ۳۹–۴۰): ان لوگوں کو اجازت دی گئی جن سے لڑائی ہو رہی ہے — کیونکہ ان پر ظلم ہوا۔ آپ ﷺ ابو بکر رضی اللہ عنہ کے گھر دوپہر میں آئے — غیر معمولی وقت۔ فرمایا: "ہجرت کی اجازت مل گئی۔" ابو بکر رضی اللہ عنہ خوشی سے رو پڑے — ایسا رونا جو عائشہ رضی اللہ عنہا نے پہلے نہیں دیکھا تھا — اور پوچھا: "ساتھ؟" آپ ﷺ نے فرمایا: "ساتھ۔" (صحیح بخاری ۳۹۰۵)</p>
+    <div class="ayah-block">
+      <div class="ayah-ref">📖 Quran · Surat al-Hajj (22:39–40) — First Verse Permitting Resistance</div>
+      <div class="ayah-ar">أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا ۚ وَإِنَّ اللَّهَ عَلَىٰ نَصْرِهِمْ لَقَدِيرٌ ﴿٣٩﴾ الَّذِينَ أُخْرِجُوا مِن دِيَارِهِم بِغَيْرِ حَقٍّ إِلَّا أَن يَقُولُوا رَبُّنَا اللَّهُ ﴿٤٠﴾</div>
+      <div class="ayah-en">"Permission has been given to those who are being fought because they were wronged — and indeed, Allah is competent to give them victory. Those who were expelled from their homes without right — only because they said: Our Lord is Allah." <em>(Saheeh International · Surat al-Hajj 22:39–40)</em></div>
+      <div class="ayah-ur">"اجازت دی گئی ان لوگوں کو جن سے لڑائی کی جا رہی ہے — کیونکہ ان پر ظلم ہوا — اور اللہ ان کی مدد پر قادر ہے۔ وہ جنہیں ان کے گھروں سے ناحق نکالا گیا — صرف اس لیے کہ انہوں نے کہا: ہمارا رب اللہ ہے۔" (الحج: ۳۹–۴۰)</div>
+    </div>
+    <div class="hadith-block">
+      <div class="hadith-ref">📚 Sahih Bukhari 3905 — Abu Bakr RA Weeps with Joy (Sahih)</div>
+      <div class="hadith-text">Aisha RA narrated: The Prophet ﷺ came to us at an unusual hour one day. Abu Bakr said: Something important must have happened. The Prophet ﷺ asked permission and entered. He said: "Tell everyone with you to leave." Abu Bakr said: "They are only family — my father and mother be your ransom, O Messenger of Allah." The Prophet ﷺ said: "I have been given permission to migrate." Abu Bakr said: "Companionship, O Messenger of Allah?" The Prophet ﷺ said: "Companionship." Aisha RA said: By Allah, before that day I did not know that anyone could weep with joy — until I saw Abu Bakr weep with joy on that day.</div>
+    </div>
+    <div class="sources">
+      <span class="badge badge-sahih">🟢 Quran 22:39–40 — first verse permitting resistance</span>
+      <span class="badge badge-sahih">🟢 Sahih Bukhari 3905 — Abu Bakr RA weeps with joy</span>
+    </div>
+  </div>
+  <div class="reflection">
+    <div class="reflection-label">✦ Reflection</div>
+    <div class="reflection-text en-text">Abu Bakr RA had kept two camels ready for months — quietly, faithfully, without knowing the day. This is the companion who truly believes: he prepares before the call, so that when it comes, he is already ready. The Hijra was not spontaneous. It was built on years of readiness, by people who believed enough to live prepared.</div>
+    <div class="reflection-ur">ابو بکر رضی اللہ عنہ نے مہینوں پہلے سے اونٹنیاں تیار کر رکھی تھیں — خاموشی سے، بغیر دن جانے۔ یہی حقیقی صحبت ہے: حکم آنے سے پہلے تیار رہنا۔ ہجرت اچانک نہیں تھی — یہ برسوں کی تیاری پر قائم تھی، ایسے لوگوں کی جو اتنا یقین رکھتے تھے کہ ہمیشہ تیار رہیں۔</div>
+  </div>
+</div>
+
+<div class="nav-link-box">
+  <div class="nav-link-label">Part 2 of 5 · Seerah Series</div>
+  <div class="nav-link-sub">The Makkan Period ends. The Hijra begins. The story continues in Part 3.</div>
+  <div class="nav-link-btns">
+    <a href="seerah_1_early_life.html" class="btn-prev">← Part 1: Early Life</a>
+    <a href="seerah_3_hijra.html" class="btn-next">Continue → Part 3: The Hijra</a>
+  </div>
+</div>
+
+</div>
+<script>
+function setLang(l){const b=document.body,e=document.getElementById('btn-en'),u=document.getElementById('btn-ur');if(l==='ur'){b.classList.add('ur-mode');u.classList.add('active');e.classList.remove('active');document.documentElement.setAttribute('lang','ur');}else{b.classList.remove('ur-mode');e.classList.add('active');u.classList.remove('active');document.documentElement.setAttribute('lang','en');}}
+</script>
+
+
+<style>
+.seerah-footer-nav{display:flex;justify-content:space-between;align-items:center;padding:40px 24px 60px;max-width:900px;margin:0 auto;gap:16px}
+.seerah-footer-nav a{display:flex;flex-direction:column;padding:16px 20px;background:#080E1C;border:1px solid rgba(201,168,76,.15);border-radius:10px;text-decoration:none;transition:all .2s;max-width:260px;flex:1}
+.seerah-footer-nav a:hover{border-color:rgba(201,168,76,.4);background:#0C1528}
+.sfn-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;color:#8A9BB0;text-transform:uppercase;margin-bottom:6px}
+.sfn-title{font-family:'Cinzel',serif;font-size:12px;color:#C9A84C;margin-bottom:3px}
+.sfn-period{font-family:'Lora',serif;font-size:11px;color:#5A6B80;font-style:italic}
+.sfn-arrow{font-size:18px;color:#C9A84C;margin-bottom:4px}
+.sfn-next{text-align:right}
+.sfn-center{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:#5A6B80;text-transform:uppercase;text-align:center;padding:16px 20px}
+.sfn-center a{color:#C9A84C;text-decoration:none}
+.sfn-center a:hover{color:#E2C97A}
+</style>
+
+<div class="seerah-footer-nav">
+  <a href="seerah_1_early_life.html">
+        <span class="sfn-label">← Previous</span>
+        <span class="sfn-title">Early Life</span>
+        <span class="sfn-period">570–610 CE</span>
+      </a>
+  <div class="sfn-center">
+    <a href="seerah_index.html">⟨ Seerah Overview ⟩</a>
+  </div>
+  <a href="seerah_3_hijra.html" class="sfn-next">
+        <span class="sfn-label">Next →</span>
+        <span class="sfn-title">The Hijra & Madinah</span>
+        <span class="sfn-period">622–624 CE</span>
+      </a>
+</div>
+
+</body>
+</html>

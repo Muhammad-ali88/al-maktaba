@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Al-Maktaba — Authenticated Islamic knowledge. Quran, Hadith, Seerah, Duas, Daily Sunnah, Prophet Stories. Free. Bilingual English and Urdu."/>
+<title>Al-Maktaba — المكتبة الإسلامية | Islamic Knowledge Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#04070D;--card:#080E1C;--card2:#0C1528;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,0.15);--gold-mid:rgba(201,168,76,0.35);
+  --gold-glow:rgba(201,168,76,0.08);
+  --teal:#2FB89A;--rose:#C97A7A;--purple:#9B6FD4;--blue:#6F9BE8;
+  --text:#D4CBB8;--text-dim:#8A8275;--text-faint:#4A4540;
+  --border:rgba(201,168,76,0.12);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.75;overflow-x:hidden;min-height:100vh}
+
+/* ── GEOMETRIC BACKGROUND ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 100% 60% at 50% -10%,rgba(201,168,76,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 50%,rgba(47,184,154,0.04) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 30% at 90% 80%,rgba(155,111,212,0.03) 0%,transparent 60%);
+  pointer-events:none}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(201,168,76,0.015) 60px,rgba(201,168,76,0.015) 61px),
+    repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(201,168,76,0.015) 60px,rgba(201,168,76,0.015) 61px);
+  pointer-events:none}
+
+/* LANGUAGE */
+body.ur-mode .en-t{display:none!important}
+body.ur-mode .ur-t{display:block!important}
+.ur-t{display:none;font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(4,7,13,0.95);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;
+  min-height:56px;gap:1rem}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
+.nb-ar{font-family:var(--font-arab);font-size:1.3rem;color:var(--gold);line-height:1}
+.nb-en{font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.18em;color:var(--text-dim);text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:0.6rem}
+.lang-toggle{display:flex;background:rgba(201,168,76,0.07);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.lang-btn{padding:0.28rem 0.6rem;font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.08em;color:var(--text-dim);cursor:pointer;border:none;background:transparent;transition:all .2s}
+.lang-btn.active{background:var(--gold);color:#04070D;font-weight:700}
+.nav-github{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.08em;padding:0.28rem 0.7rem;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;border-radius:4px;text-decoration:none;transition:all .2s}
+.nav-github:hover{color:var(--gold);border-color:var(--gold-mid)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;z-index:1;
+  text-align:center;padding:5rem 1.5rem 3.5rem;
+  max-width:860px;margin:0 auto}
+.hero-eyebrow{
+  font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.25em;
+  color:var(--teal);text-transform:uppercase;margin-bottom:1.5rem;
+  display:flex;align-items:center;justify-content:center;gap:0.75rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--teal);opacity:0.4}
+.hero-title-ar{
+  font-family:var(--font-arab);
+  font-size:clamp(3rem,10vw,5.5rem);
+  color:var(--gold);direction:rtl;
+  line-height:1.2;margin-bottom:0.3rem;
+  text-shadow:0 0 60px rgba(201,168,76,0.25),0 0 120px rgba(201,168,76,0.1)}
+.hero-title-en{
+  font-family:var(--font-head);
+  font-size:clamp(0.65rem,1.8vw,0.82rem);
+  letter-spacing:0.24em;color:var(--text-dim);
+  text-transform:uppercase;margin-bottom:2.5rem}
+
+/* MISSION STATEMENT */
+.mission{
+  max-width:620px;margin:0 auto 2.5rem;
+  background:rgba(201,168,76,0.04);
+  border:1px solid var(--border);
+  border-radius:10px;padding:1.75rem 2rem;
+  position:relative;overflow:hidden}
+.mission::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.mission-text{
+  font-size:clamp(0.92rem,2.5vw,1.05rem);
+  line-height:1.9;color:var(--text);font-style:italic;margin-bottom:0.85rem}
+.mission-text-ur{
+  font-family:var(--font-arab);font-size:1.05rem;direction:rtl;
+  text-align:right;line-height:2.1;color:var(--text);display:none;margin-bottom:0.85rem}
+.mission-promise{
+  font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.1em;
+  color:var(--teal);padding-top:0.85rem;border-top:1px solid var(--border)}
+
+/* HERO AYAH */
+.hero-ayah{
+  background:rgba(201,168,76,0.03);
+  border:1px solid var(--gold-dim);border-radius:8px;
+  padding:1.25rem 1.75rem;max-width:580px;margin:0 auto}
+.ha-ar{
+  font-family:var(--font-arab);font-size:1.3rem;color:var(--gold);
+  direction:rtl;line-height:1.9;margin-bottom:0.4rem}
+.ha-en{font-style:italic;font-size:0.88rem;color:var(--text);margin-bottom:0.3rem}
+.ha-ref{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.08em;color:var(--teal)}
+
+/* ── DAILY FEATURE ── */
+.daily-outer{
+  position:relative;z-index:1;
+  max-width:900px;margin:0 auto;padding:0 1.5rem 1rem}
+.daily-label{
+  font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.2em;
+  color:var(--gold);text-transform:uppercase;
+  display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem}
+.daily-label::after{content:'';flex:1;height:1px;background:var(--gold-dim)}
+.daily-card{
+  background:linear-gradient(135deg,var(--card2) 0%,var(--card) 100%);
+  border:1px solid var(--gold-mid);border-radius:10px;
+  padding:1.5rem 1.75rem;position:relative;overflow:hidden}
+.daily-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.daily-type{
+  font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.18em;
+  color:var(--text-dim);text-transform:uppercase;margin-bottom:0.85rem;
+  display:flex;align-items:center;gap:0.5rem}
+.daily-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.daily-date{margin-left:auto;font-family:var(--font-head);font-size:0.58rem;color:var(--text-dim)}
+.daily-ar{
+  font-family:var(--font-arab);font-size:1.35rem;color:var(--gold);
+  direction:rtl;text-align:right;line-height:1.95;margin-bottom:0.5rem;
+  background:rgba(201,168,76,0.04);border-radius:6px;padding:0.65rem 1rem;
+  border:1px solid var(--gold-dim)}
+.daily-tr{font-style:italic;color:var(--teal);font-size:0.86rem;margin-bottom:0.25rem}
+.daily-en{font-size:0.9rem;line-height:1.8;margin-bottom:0.25rem}
+.daily-ur{font-family:var(--font-arab);font-size:0.94rem;direction:rtl;text-align:right;line-height:2;display:none}
+.daily-src{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.05em;color:var(--text-dim);margin-top:0.5rem}
+.daily-actions{display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap}
+.action-btn{
+  font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;
+  padding:0.35rem 0.85rem;border-radius:4px;cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;gap:0.4rem;
+  border:1px solid;background:transparent;text-transform:uppercase}
+.btn-share{border-color:rgba(47,184,154,0.35);color:var(--teal)}
+.btn-share:hover{background:rgba(47,184,154,0.1)}
+.btn-print{border-color:rgba(201,168,76,0.3);color:var(--gold)}
+.btn-print:hover{background:rgba(201,168,76,0.08)}
+.btn-next{border-color:var(--border);color:var(--text-dim);margin-left:auto}
+.btn-next:hover{color:var(--gold);border-color:var(--gold-dim)}
+
+/* ── FOUR PATHWAYS ── */
+.pathways-outer{
+  position:relative;z-index:1;
+  max-width:900px;margin:0 auto;padding:2rem 1.5rem 0}
+.section-label{
+  font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.2em;
+  color:var(--gold);text-transform:uppercase;
+  display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.pathways-intro{font-size:0.9rem;color:var(--text-dim);font-style:italic;margin-bottom:1.25rem}
+.pathways-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pathway{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:1.35rem;cursor:pointer;
+  transition:all .3s;position:relative;overflow:hidden;text-decoration:none;display:block}
+.pathway::before{
+  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+  transition:width .3s}
+.pathway:hover{border-color:var(--gold-mid);transform:translateY(-2px)}
+.pathway:hover::before{width:4px}
+.pw-begin::before{background:#2A9B6A}
+.pw-parent::before{background:#9B6FD4}
+.pw-practice::before{background:var(--gold)}
+.pw-research::before{background:#6F9BE8}
+.pw-icon{font-size:1.75rem;margin-bottom:0.75rem;display:block}
+.pw-title{font-family:var(--font-head);font-size:0.82rem;letter-spacing:0.06em;color:var(--text);font-weight:600;margin-bottom:0.35rem}
+.pw-title-ur{font-family:var(--font-arab);font-size:0.95rem;color:var(--text);display:none;margin-bottom:0.35rem}
+.pw-desc{font-size:0.82rem;color:var(--text-dim);line-height:1.7;margin-bottom:0.85rem}
+.pw-desc-ur{font-family:var(--font-arab);font-size:0.86rem;direction:rtl;text-align:right;color:var(--text-dim);line-height:1.9;display:none;margin-bottom:0.85rem}
+.pw-steps{display:flex;flex-direction:column;gap:0.3rem}
+.pw-step{
+  font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.05em;
+  color:var(--text-dim);padding:0.25rem 0.5rem;
+  background:rgba(201,168,76,0.04);border-radius:3px;
+  border:1px solid var(--border);transition:all .2s}
+.pathway:hover .pw-step{border-color:var(--gold-dim)}
+.pw-arrow{
+  position:absolute;bottom:1rem;right:1.1rem;
+  font-family:var(--font-head);font-size:0.6rem;
+  color:var(--text-dim);letter-spacing:0.08em;
+  transition:all .2s;opacity:0}
+.pathway:hover .pw-arrow{opacity:1;color:var(--gold)}
+
+/* ── MODULE GRID ── */
+.modules-outer{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:2rem 1.5rem 0}
+.mod-categories{display:flex;flex-direction:column;gap:1.75rem}
+.mod-cat{}
+.mc-header{
+  font-family:var(--font-head);font-size:0.62rem;letter-spacing:0.2em;
+  color:var(--text-dim);text-transform:uppercase;
+  margin-bottom:0.85rem;display:flex;align-items:center;gap:0.6rem}
+.mc-header .mch-icon{font-size:1rem}
+.mc-header::after{content:'';flex:1;height:1px;background:var(--border)}
+.mc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.65rem}
+.mod-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:7px;padding:0.9rem 1rem;
+  text-decoration:none;display:block;
+  transition:all .2s;position:relative;overflow:hidden}
+.mod-card:hover{border-color:var(--gold-mid);transform:translateY(-1px)}
+.mod-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  opacity:0;transition:opacity .2s}
+.mod-card:hover::after{opacity:0.6}
+.mc-quran::after{background:var(--teal)}
+.mc-prophet::after{background:var(--gold)}
+.mc-worship::after{background:#2A9B6A}
+.mc-knowledge::after{background:var(--purple)}
+.mcd-icon{font-size:0.9rem;margin-bottom:0.4rem;display:block}
+.mcd-ar{font-family:var(--font-arab);font-size:0.88rem;color:var(--gold);direction:rtl;text-align:right;margin-bottom:0.15rem;line-height:1.4}
+.mcd-title{font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.04em;color:var(--text);margin-bottom:0.2rem;font-weight:600;line-height:1.3}
+.mcd-count{font-family:var(--font-head);font-size:0.55rem;letter-spacing:0.06em;color:var(--text-dim)}
+.status-chip{
+  display:inline-block;font-family:var(--font-head);font-size:0.52rem;
+  letter-spacing:0.06em;padding:0.1rem 0.4rem;border-radius:2px;margin-top:0.25rem}
+.sc-live{background:rgba(42,155,106,0.15);color:#5DC88A;border:1px solid rgba(93,200,138,0.2)}
+.sc-new{background:rgba(201,168,76,0.12);color:var(--gold);border:1px solid var(--gold-dim)}
+
+/* ── STATS ── */
+.stats-outer{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:2rem 1.5rem 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem}
+.stat-box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:7px;padding:1rem;text-align:center}
+.stat-n{font-family:var(--font-head);font-size:1.6rem;color:var(--gold);font-weight:700;line-height:1;margin-bottom:0.2rem}
+.stat-l{font-family:var(--font-head);font-size:0.55rem;letter-spacing:0.08em;color:var(--text-dim);text-transform:uppercase;line-height:1.4}
+.stat-n.green{color:#5DC88A}
+.stat-n.teal{color:var(--teal)}
+.stat-n.purple{color:var(--purple)}
+
+/* ── SHARE/PRINT TOAST ── */
+.toast{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--card2);border:1px solid var(--gold-mid);
+  border-radius:8px;padding:0.65rem 1.25rem;
+  font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.08em;
+  color:var(--gold);z-index:500;
+  transition:transform .3s ease;white-space:nowrap;
+  box-shadow:0 8px 24px rgba(0,0,0,0.4)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  text-align:center;padding:2.5rem 1.5rem;
+  border-top:1px solid var(--border);margin-top:3rem}
+.footer-ar{font-family:var(--font-arab);font-size:1.1rem;color:var(--gold);direction:rtl;margin-bottom:0.5rem}
+.footer-tagline{font-size:0.84rem;color:var(--text-dim);font-style:italic;margin-bottom:0.75rem;max-width:500px;margin-left:auto;margin-right:auto}
+.footer-meta{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.1em;color:var(--text-faint)}
+.footer-meta span{color:var(--gold)}
+
+/* ── PRINT STYLES ── */
+@media print{
+  nav,.daily-actions,.pathways-outer,.modules-outer,.stats-outer,footer{display:none!important}
+  body{background:#fff;color:#000}
+  .daily-card{border:1px solid #ccc;background:#fff}
+  .daily-ar{color:#8B6914;background:#fffef8;border:1px solid #e0c84a}
+  .daily-en,.daily-src{color:#333}
+  body::before,body::after{display:none}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  nav{padding:0 1rem;min-height:52px}
+  .hero{padding:3rem 1rem 2rem}
+  .pathways-grid{grid-template-columns:1fr}
+  .mc-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .daily-outer,.pathways-outer,.modules-outer,.stats-outer{padding-left:1rem;padding-right:1rem}
+  .mission{padding:1.25rem}
+  .daily-card{padding:1.1rem}
+}
+@media(max-width:400px){
+  .mc-grid{grid-template-columns:1fr}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.hero,.daily-card,.pathway,.mod-cat,.stat-box{animation:fadeUp .5s ease both}
+.pathway:nth-child(2){animation-delay:.07s}
+.pathway:nth-child(3){animation-delay:.14s}
+.pathway:nth-child(4){animation-delay:.21s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <span class="nb-ar">المكتبة</span>
+    <span class="nb-en">Al-Maktaba</span>
+  </a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ur" onclick="setLang('ur')">اردو</button>
+    </div>
+    <a class="nav-github" href="https://github.com/Muhammad-ali88/al-maktaba" target="_blank">GitHub ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Islamic Knowledge Platform</div>
+  <div class="hero-title-ar">المكتبة الإسلامية</div>
+  <div class="hero-title-en">Al-Maktaba — The Islamic Library</div>
+
+  <div class="mission">
+    <p class="mission-text en-t">You have questions about Islam you could not find answered reliably. You want to raise your children with authentic values and do not know where to start. You came to the right place — everything here is verified, bilingual, and free.</p>
+    <p class="mission-text-ur ur-t">آپ کے اسلام کے بارے میں سوالات ہیں جن کا قابل اعتماد جواب نہیں ملا۔ آپ اپنے بچوں کو مستند اسلامی اقدار کے ساتھ پالنا چاہتے ہیں۔ آپ صحیح جگہ آئے ہیں — یہاں سب کچھ مستند، دو لسانی اور مفت ہے۔</p>
+    <div class="mission-promise en-t">Every practice has a hadith number. Every scholarly difference is acknowledged. No weak narrations. No fabricated content.</div>
+    <div class="mission-promise ur-t" style="display:none;font-family:var(--font-arab);direction:rtl">ہر عمل کا حدیث نمبر موجود ہے۔ علمی اختلافات کا اعتراف کیا گیا ہے۔ کوئی ضعیف یا موضوع روایت نہیں۔</div>
+  </div>
+
+  <div class="hero-ayah">
+    <div class="ha-ar">قُل رَّبِّ زِدْنِي عِلْمًا</div>
+    <div class="ha-en">"Say: My Lord, increase me in knowledge."</div>
+    <div class="ha-ref">Quran 20:114 — The only dua Allah commanded His Prophet to ask for more of</div>
+  </div>
+</section>
+
+<!-- DAILY FEATURE -->
+<div class="daily-outer">
+  <div class="daily-label">✦ Today's Practice</div>
+  <div class="daily-card" id="daily-card">
+    <div class="daily-type">
+      <span class="daily-dot"></span>
+      <span id="daily-type-label">Daily Hadith</span>
+      <span class="daily-date" id="daily-date"></span>
+    </div>
+    <div class="daily-ar" id="daily-ar"></div>
+    <div class="daily-tr" id="daily-tr"></div>
+    <div class="daily-en en-t" id="daily-en"></div>
+    <div class="daily-ur ur-t" id="daily-ur"></div>
+    <div class="daily-src" id="daily-src"></div>
+    <div class="daily-actions">
+      <button class="action-btn btn-share" onclick="shareDaily()">⬆ Share</button>
+      <button class="action-btn btn-print" onclick="printDaily()">🖨 Print</button>
+      <button class="action-btn btn-next" onclick="nextDaily()">Next → </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOUR PATHWAYS -->
+<div class="pathways-outer">
+  <div class="section-label">Where Would You Like to Begin?</div>
+  <p class="pathways-intro en-t">Whether you are new to Islamic learning, a parent, a daily practitioner, or a researcher — choose your pathway. You can always explore everything from the module library below.</p>
+  <p class="pathways-intro ur-t" style="display:none">چاہے آپ اسلامی علم میں نئے ہوں، والدین ہوں، روزانہ عامل ہوں یا محقق — اپنا راستہ چنیں۔</p>
+
+  <div class="pathways-grid">
+    <a href="sunnah_index.html" class="pathway pw-begin">
+      <span class="pw-icon">🌱</span>
+      <div class="pw-title en-t">I Am Beginning My Journey</div>
+      <div class="pw-title-ur ur-t">میں اپنا سفر شروع کر رہا ہوں</div>
+      <p class="pw-desc en-t">New to Islamic practice or returning after time away. Start with the daily sunnah — small, authenticated, life-changing acts.</p>
+      <p class="pw-desc-ur ur-t">اسلامی عمل میں نئے یا کچھ عرصے بعد واپس۔ روزانہ سنت سے شروع کریں — چھوٹے، مستند، زندگی بدل دینے والے اعمال۔</p>
+      <div class="pw-steps">
+        <div class="pw-step">→ Daily Sunnah — Dawn to Night</div>
+        <div class="pw-step">→ Duas Collection — 75 Authentic</div>
+        <div class="pw-step">→ Asma ul-Husna — 99 Names</div>
+      </div>
+      <span class="pw-arrow">Begin →</span>
+    </a>
+
+    <a href="prophet_stories.html" class="pathway pw-parent">
+      <span class="pw-icon">👨‍👩‍👧</span>
+      <div class="pw-title en-t">I Am a Parent or Teacher</div>
+      <div class="pw-title-ur ur-t">میں والدین یا استاد ہوں</div>
+      <p class="pw-desc en-t">Every module has child summaries, simple explanations, and printable duas. Raise your children on authenticated sources, not hearsay.</p>
+      <p class="pw-desc-ur ur-t">ہر ماڈیول میں بچوں کے خلاصے، سادہ وضاحتیں اور پرنٹ کرنے والی دعائیں ہیں۔ اپنے بچوں کو مستند ذرائع پر پالیں۔</p>
+      <div class="pw-steps">
+        <div class="pw-step">→ Stories of the Prophets</div>
+        <div class="pw-step">→ Physical Sunnah — Every Small Act</div>
+        <div class="pw-step">→ Zakat — with Child Explanations</div>
+      </div>
+      <span class="pw-arrow">Explore →</span>
+    </a>
+
+    <a href="sunnah_4_physical_acts.html" class="pathway pw-practice">
+      <span class="pw-icon">📿</span>
+      <div class="pw-title en-t">I Want to Strengthen My Practice</div>
+      <div class="pw-title-ur ur-t">میں اپنا عمل مضبوط کرنا چاہتا ہوں</div>
+      <p class="pw-desc en-t">You pray, you know the basics — now go deeper. The physical sunnah, personal duas, and the Names of Allah behind every act of worship.</p>
+      <p class="pw-desc-ur ur-t">آپ نماز پڑھتے ہیں، بنیادی باتیں جانتے ہیں — اب گہرے جائیں۔ جسمانی سنت، ذاتی دعائیں، اور ہر عبادت کے پیچھے اللہ کے نام۔</p>
+      <div class="pw-steps">
+        <div class="pw-step">→ Physical Sunnah — 48 Authenticated Acts</div>
+        <div class="pw-step">→ Personal Duas — Taught to Companions</div>
+        <div class="pw-step">→ Asma ul-Husna — Memorise Mode</div>
+      </div>
+      <span class="pw-arrow">Deepen →</span>
+    </a>
+
+    <a href="Quran_Surah_Explorer_v2.html" class="pathway pw-research">
+      <span class="pw-icon">🔍</span>
+      <div class="pw-title en-t">I Am Researching a Topic</div>
+      <div class="pw-title-ur ur-t">میں کسی موضوع پر تحقیق کر رہا ہوں</div>
+      <p class="pw-desc en-t">Full Quran with context and commentary. 114 Seerah chapters. Hadith Explorer. Prophetic Timeline. Every source cited, every reference numbered.</p>
+      <p class="pw-desc-ur ur-t">سیاق اور تفسیر کے ساتھ مکمل قرآن۔ 114 سیرت ابواب۔ حدیث ایکسپلورر۔ ہر ذریعہ مذکور، ہر حوالہ نمبر شدہ۔</p>
+      <div class="pw-steps">
+        <div class="pw-step">→ Quran Surah Explorer — All 114</div>
+        <div class="pw-step">→ Seerah — 5-Part Life of the Prophet ﷺ</div>
+        <div class="pw-step">→ Hadith Explorer — 70 Authenticated</div>
+      </div>
+      <span class="pw-arrow">Research →</span>
+    </a>
+  </div>
+</div>
+
+<!-- MODULE LIBRARY -->
+<div class="modules-outer">
+  <div class="section-label">Complete Module Library</div>
+  <div class="mod-categories">
+
+    <!-- QURAN -->
+    <div class="mod-cat">
+      <div class="mc-header"><span class="mch-icon">📖</span> Quran & Knowledge</div>
+      <div class="mc-grid mc-quran">
+        <a href="Quran_Surah_Explorer_v2.html" class="mod-card">
+          <span class="mcd-icon">📖</span>
+          <div class="mcd-ar">القرآن الكريم</div>
+          <div class="mcd-title">Quran Surah Explorer</div>
+          <div class="mcd-count">114 Surahs · Arabic, English, Urdu</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="hadith_explorer.html" class="mod-card">
+          <span class="mcd-icon">📿</span>
+          <div class="mcd-ar">الحديث الشريف</div>
+          <div class="mcd-title">Hadith Explorer</div>
+          <div class="mcd-count">70 Authenticated · Offline</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="asma_ul_husna.html" class="mod-card">
+          <span class="mcd-icon">✨</span>
+          <div class="mcd-ar">الأسماء الحسنى</div>
+          <div class="mcd-title">99 Names of Allah</div>
+          <div class="mcd-count">7 Categories · Memorise Mode</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PROPHETS & SEERAH -->
+    <div class="mod-cat">
+      <div class="mc-header"><span class="mch-icon">⭐</span> Prophets & Seerah</div>
+      <div class="mc-grid mc-prophet">
+        <a href="prophet_stories.html" class="mod-card">
+          <span class="mcd-icon">📜</span>
+          <div class="mcd-ar">قصص الأنبياء</div>
+          <div class="mcd-title">Stories of the Prophets</div>
+          <div class="mcd-count">All 25 Prophets · Child Summaries</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="seerah_index.html" class="mod-card">
+          <span class="mcd-icon">🌙</span>
+          <div class="mcd-ar">السيرة النبوية</div>
+          <div class="mcd-title">Seerah — Life of the Prophet ﷺ</div>
+          <div class="mcd-count">5 Parts · Birth to Legacy</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="ahl_al_bayt.html" class="mod-card">
+          <span class="mcd-icon">🕯️</span>
+          <div class="mcd-ar">أهل الكساء</div>
+          <div class="mcd-title">The Five of the Cloak</div>
+          <div class="mcd-count">Ahl al-Bayt · Authenticated</div>
+          <span class="status-chip sc-new">New</span>
+        </a>
+        <a href="prophets_timeline.html" class="mod-card">
+          <span class="mcd-icon">📊</span>
+          <div class="mcd-ar">الأنبياء الخمسة والعشرون</div>
+          <div class="mcd-title">25 Prophets Timeline</div>
+          <div class="mcd-count">Full Reference Tables</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="prophets_map_NETLIFY.html" class="mod-card">
+          <span class="mcd-icon">🗺️</span>
+          <div class="mcd-ar">خريطة الأنبياء</div>
+          <div class="mcd-title">Prophets World Map</div>
+          <div class="mcd-count">Interactive · Era Filters</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="prophetic_tree_NETLIFY.html" class="mod-card">
+          <span class="mcd-icon">🌳</span>
+          <div class="mcd-ar">الشجرة النبوية</div>
+          <div class="mcd-title">Prophetic Family Tree</div>
+          <div class="mcd-count">Interactive · Pan & Zoom</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="isra_miraj.html" class="mod-card">
+          <span class="mcd-icon">🌃</span>
+          <div class="mcd-ar">الإسراء والمعراج</div>
+          <div class="mcd-title">Al-Isra wal-Mi'raj</div>
+          <div class="mcd-count">Night Journey & Ascension</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="seal_of_prophets.html" class="mod-card">
+          <span class="mcd-icon">🔏</span>
+          <div class="mcd-ar">خاتم النبيين</div>
+          <div class="mcd-title">Seal of the Prophets</div>
+          <div class="mcd-count">Muhammad ﷺ as Final Prophet</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="prophecies.html" class="mod-card">
+          <span class="mcd-icon">📡</span>
+          <div class="mcd-ar">النبوءات</div>
+          <div class="mcd-title">Prophecies of Muhammad ﷺ</div>
+          <div class="mcd-count">In Previous Scriptures</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- WORSHIP & PRACTICE -->
+    <div class="mod-cat">
+      <div class="mc-header"><span class="mch-icon">🤲</span> Worship & Daily Practice</div>
+      <div class="mc-grid mc-worship">
+        <a href="sunnah_index.html" class="mod-card">
+          <span class="mcd-icon">☀️</span>
+          <div class="mcd-ar">السنة اليومية</div>
+          <div class="mcd-title">Daily Sunnah — 3 Parts</div>
+          <div class="mcd-count">35 Practices · Dawn to Night</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="sunnah_4_physical_acts.html" class="mod-card">
+          <span class="mcd-icon">🤲</span>
+          <div class="mcd-ar">السنة الجسدية</div>
+          <div class="mcd-title">Physical Sunnah</div>
+          <div class="mcd-count">48 Acts · Every Small Act</div>
+          <span class="status-chip sc-new">New</span>
+        </a>
+        <a href="duas.html" class="mod-card">
+          <span class="mcd-icon">🌿</span>
+          <div class="mcd-ar">الأدعية</div>
+          <div class="mcd-title">Duas Collection</div>
+          <div class="mcd-count">75 Duas · 17 Categories</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="duas_personal.html" class="mod-card">
+          <span class="mcd-icon">💌</span>
+          <div class="mcd-ar">الأدعية الشخصية</div>
+          <div class="mcd-title">Personal Duas</div>
+          <div class="mcd-count">16 Taught to Companions</div>
+          <span class="status-chip sc-new">New</span>
+        </a>
+        <a href="umrah_hajj.html" class="mod-card">
+          <span class="mcd-icon">🕋</span>
+          <div class="mcd-ar">الحج والعمرة</div>
+          <div class="mcd-title">Hajj & Umrah Guide</div>
+          <div class="mcd-count">Interactive Journey · Animated</div>
+          <span class="status-chip sc-live">Live</span>
+        </a>
+        <a href="zakat.html" class="mod-card">
+          <span class="mcd-icon">⚖️</span>
+          <div class="mcd-ar">الزكاة</div>
+          <div class="mcd-title">Zakat — Third Pillar</div>
+          <div class="mcd-count">Full Guide + Calculator</div>
+          <span class="status-chip sc-new">New</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-outer">
+  <div class="section-label">By the Numbers</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-n">25+</div><div class="stat-l">Modules<br/>Available</div></div>
+    <div class="stat-box"><div class="stat-n green">100+</div><div class="stat-l">Authenticated<br/>Practices & Duas</div></div>
+    <div class="stat-box"><div class="stat-n teal">3MB+</div><div class="stat-l">Islamic Content<br/>Embedded</div></div>
+    <div class="stat-box"><div class="stat-n purple">0</div><div class="stat-l">Weak or Fabricated<br/>Hadiths</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-ar">المكتبة الإسلامية</div>
+  <p class="footer-tagline en-t">Authentic Islamic knowledge — free, bilingual, and accessible to every Muslim regardless of background.</p>
+  <p class="footer-tagline ur-t" style="display:none;font-family:var(--font-arab);direction:rtl">مستند اسلامی علم — مفت، دو لسانی، اور ہر مسلمان کے لیے قابل رسائی چاہے پس منظر کوئی بھی ہو۔</p>
+  <div class="footer-meta">Built with care · <span>No weak narrations</span> · <span>No ads</span> · <span>No subscriptions</span></div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// LANGUAGE TOGGLE
+// ═══════════════════════════════════════════════════
+function setLang(l) {
+  document.body.classList.toggle('ur-mode', l === 'ur');
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-ur').classList.toggle('active', l === 'ur');
+}
+
+// ═══════════════════════════════════════════════════
+// DAILY FEATURE DATA — Rotates by day of year
+// 60 entries covering hadiths, duas, sunnah practices
+// ═══════════════════════════════════════════════════
+const DAILY = [
+  {type:'Hadith',
+   ar:'إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى',
+   tr:'Innama-l-a'malu bin-niyyat, wa innama likulli imri'in ma nawa',
+   en:'Actions are judged only by intentions, and every person will have only what they intended.',
+   ur:'اعمال کا دارومدار نیتوں پر ہے اور ہر شخص کو وہی ملے گا جو اس نے نیت کی۔',
+   src:'Sahih Bukhari 1, Sahih Muslim 1907 — Sahih'},
+  {type:'Sunnah Practice',
+   ar:'بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ',
+   tr:'Bismillahi wa 'ala barakati-llah',
+   en:'Say "In the name of Allah and with the blessings of Allah" when beginning to eat. He never began a meal without Bismillah.',
+   ur:'کھانا شروع کرتے وقت "بسم اللہ وعلی برکۃ اللہ" کہیں۔ آپ ﷺ نے کبھی بسم اللہ کے بغیر کھانا نہیں کھایا۔',
+   src:'Sunan Abu Dawud 3767 — Hasan Sahih'},
+  {type:'Dua — Morning',
+   ar:'اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ',
+   tr:'Allahumma bika asbahna wa bika amsayna wa bika nahya wa bika namutu wa ilayka-n-nushur',
+   en:'O Allah, by You we enter morning and by You we enter evening, by You we live and by You we die, and to You is the resurrection.',
+   ur:'اے اللہ، تیرے ذریعے ہم صبح کرتے ہیں اور تیرے ذریعے شام، تیرے ساتھ جیتے ہیں اور تیرے ساتھ مرتے ہیں، اور تیری طرف اٹھنا ہے۔',
+   src:'Sunan Abu Dawud 5068 — Hasan Sahih · Say every morning'},
+  {type:'Name of Allah',
+   ar:'الرَّحْمَنُ — Ar-Rahman',
+   tr:'Ar-Rahman',
+   en:'The Most Merciful — His mercy encompasses all things. Mentioned in the opening of every Surah. The name that preceded the creation of the world.',
+   ur:'الرحمٰن — بے حد مہربان۔ اس کی رحمت ہر چیز کو محیط ہے۔ ہر سورت کی ابتدا میں مذکور۔',
+   src:'Quran 1:1 · Quran 55:1 · The Rahman created the Quran — Surah Al-Rahman'},
+  {type:'Hadith',
+   ar:'لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ',
+   tr:'La yu'minu ahadukum hatta yuhibba li-akhihi ma yuhibbu li-nafsihi',
+   en:'None of you truly believes until he loves for his brother what he loves for himself.',
+   ur:'تم میں سے کوئی اس وقت تک مومن نہیں ہو سکتا جب تک اپنے بھائی کے لیے وہ نہ چاہے جو اپنے لیے چاہتا ہے۔',
+   src:'Sahih Bukhari 13, Sahih Muslim 45 — Sahih'},
+  {type:'Sunnah Practice',
+   ar:'السِّوَاكُ مَطْهَرَةٌ لِلْفَمِ مَرْضَاةٌ لِلرَّبِّ',
+   tr:'As-siwaku mataharatun lil-fami, mardatun lil-rabb',
+   en:'The miswak is a purification for the mouth and pleasing to the Lord. He ﷺ used it upon waking, before prayer, and upon entering the home.',
+   ur:'مسواک منہ کی پاکیزگی ہے اور رب کی رضا۔ آپ ﷺ بیدار ہونے پر، نماز سے پہلے اور گھر میں داخل ہونے پر استعمال فرماتے۔',
+   src:'Sahih Bukhari 1934, Sunan Nasai 5 — Sahih'},
+  {type:'Dua — Sleep',
+   ar:'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا',
+   tr:'Bismika Allahumma amutu wa ahya',
+   en:'"In Your name O Allah I die and I live." — His last words every night before closing his eyes.',
+   ur:'"تیرے نام سے اے اللہ مرتا ہوں اور جیتا ہوں۔" — ہر رات سونے سے پہلے آپ کے آخری الفاظ۔',
+   src:'Sahih Bukhari 6324 — Sahih · Say every night'},
+  {type:'Hadith',
+   ar:'تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ',
+   tr:'Tabassmuka fi wajhi akhika laka sadaqah',
+   en:'Your smile in the face of your brother is charity for you.',
+   ur:'تمہارا اپنے بھائی کے چہرے کی طرف مسکرانا تمہارے لیے صدقہ ہے۔',
+   src:'Sunan Tirmidhi 1956 — Hasan · The smallest act of generosity'},
+  {type:'Name of Allah',
+   ar:'الغَفُورُ — Al-Ghafoor',
+   tr:'Al-Ghafoor',
+   en:'The Forgiving — He does not merely forgive, He covers and conceals. Your sins are not just pardoned — they are hidden from the record.',
+   ur:'الغفور — معاف کرنے والا۔ وہ صرف معاف نہیں کرتا، چھپا دیتا ہے۔ گناہ معاف ہی نہیں — ریکارڈ سے پوشیدہ بھی۔',
+   src:'Quran 2:173 · Mentioned 91 times in Quran'},
+  {type:'Dua — Distress',
+   ar:'لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',
+   tr:'La ilaha illa anta subhanaka inni kuntu mina-z-zalimin',
+   en:'There is no deity but You. Glory be to You. Indeed I have been of the wrongdoers. — The dua of Yunus AS in the whale. The Prophet ﷺ said: no Muslim says this in any matter except Allah relieves him.',
+   ur:'تیرے سوا کوئی معبود نہیں۔ تو پاک ہے۔ بے شک میں ظالموں میں سے تھا۔ — یونس علیہ السلام کی مچھلی میں دعا۔',
+   src:'Quran 21:87 · Sunan Tirmidhi 3505 — Sahih · For any difficulty'},
+  {type:'Hadith',
+   ar:'مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ طَرِيقًا إِلَى الْجَنَّةِ',
+   tr:'Man salaka tariqan yaltamisu fihi 'ilman sahhala Allahu lahu tariqan ila-l-jannah',
+   en:'Whoever takes a path seeking knowledge — Allah will ease for him a path to Paradise.',
+   ur:'جو علم کی تلاش میں کوئی راستہ اختیار کرے — اللہ اس کے لیے جنت کا راستہ آسان کر دیتا ہے۔',
+   src:'Sunan Tirmidhi 2685 — Sahih'},
+  {type:'Sunnah Practice',
+   ar:'إِذَا دَخَلَ أَحَدُكُمُ الْمَسْجِدَ فَلْيَرْكَعْ رَكْعَتَيْنِ قَبْلَ أَنْ يَجْلِسَ',
+   tr:'Idha dakhala ahadukumu-l-masjida falyarka'u rak'atayni qabla an yajlis',
+   en:'When one of you enters the masjid, let him pray two rak'ahs before sitting. — Tahiyyatul Masjid: greet the house of Allah before you sit.',
+   ur:'جب تم میں سے کوئی مسجد میں داخل ہو تو بیٹھنے سے پہلے دو رکعت پڑھے۔ — تحیة المسجد۔',
+   src:'Sahih Bukhari 1163, Sahih Muslim 714 — Sahih'},
+  {type:'Name of Allah',
+   ar:'الوَدُودُ — Al-Wadood',
+   tr:'Al-Wadood',
+   en:'The Loving — Not just the One who loves, but whose love is warmth itself. He is Wadood — the One whose love for His servants never diminishes.',
+   ur:'الودود — محبت کرنے والا۔ صرف محبت کرنے والا نہیں بلکہ جس کی محبت خود گرمجوشی ہے۔ اس کی محبت کبھی کم نہیں ہوتی۔',
+   src:'Quran 11:90 · Quran 85:14'},
+  {type:'Hadith',
+   ar:'أَقْرَبُ مَا يَكُونُ الْعَبْدُ مِنْ رَبِّهِ وَهُوَ سَاجِدٌ فَأَكْثِرُوا الدُّعَاءَ',
+   tr:'Aqrabu ma yakunu-l-'abdu min rabbihi wa huwa sajidun — fa-akthiru-d-du'a'',
+   en:'The closest a servant is to his Lord is when he is in prostration — so make much dua.',
+   ur:'بندہ اپنے رب سے سب سے قریب سجدے میں ہوتا ہے — پس خوب دعا مانگو۔',
+   src:'Sahih Muslim 482 — Sahih'},
+  {type:'Dua — Entering Home',
+   ar:'اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلِجِ وَخَيْرَ الْمَخْرَجِ بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا',
+   tr:'Allahumma inni as'aluka khayra-l-mawliji wa khayra-l-makhraji, bismillahi walajnaaa wa bismillahi kharajnaaa wa 'alallahi rabbina tawakkalna',
+   en:'O Allah I ask You for the best entering and best leaving. In the name of Allah we enter and in the name of Allah we leave, and upon Allah our Lord we rely.',
+   ur:'اے اللہ میں تجھ سے داخلے اور نکلنے کی بہترین کیفیت مانگتا ہوں۔ اللہ کے نام سے داخل ہوئے اور اللہ کے نام سے نکلے، اور اللہ پر بھروسہ کیا۔',
+   src:'Sunan Abu Dawud 5096 — Hasan Sahih · Say when entering home'},
+  {type:'Hadith',
+   ar:'إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ',
+   tr:'Innallaha jamilun yuhibbu-l-jamal',
+   en:'Indeed Allah is beautiful and loves beauty. — Beauty includes the beauty of character, of honesty, of clean appearance, of good conduct.',
+   ur:'بے شک اللہ خوبصورت ہے اور خوبصورتی کو پسند کرتا ہے۔ خوبصورتی میں اخلاق، صداقت، صفائی اور اچھا برتاؤ شامل ہے۔',
+   src:'Sahih Muslim 91 — Sahih'},
+  {type:'Sunnah Practice',
+   ar:'إِذَا أَوَى أَحَدُكُمْ إِلَى فِرَاشِهِ فَلْيَنْفُضْ فِرَاشَهُ',
+   tr:'Idha awa ahadukum ila firashihi falyanfud firashahu',
+   en:'When one of you goes to his bed, let him dust it — for he does not know what came onto it after he left. Then say Bismillah and sleep on your right side.',
+   ur:'جب تم میں سے کوئی بستر پر جائے تو اسے جھاڑ دے — اسے نہیں معلوم اس کے جانے کے بعد کیا آیا۔ پھر بسم اللہ کہیں اور دائیں کروٹ لیٹیں۔',
+   src:'Sahih Muslim 2714 — Sahih · Nightly practice'},
+  {type:'Name of Allah',
+   ar:'الرَّزَّاقُ — Ar-Razzaq',
+   tr:'Ar-Razzaq',
+   en:'The Provider — He provides for every living creature. His provision does not run out. Pay Zakat knowing: the 97.5% that remains is more blessed than the 100% that was.',
+   ur:'الرزاق — ہر جاندار کو رزق دینے والا۔ اس کا رزق کبھی ختم نہیں ہوتا۔ زکاة دیتے ہوئے جانو: جو 97.5% بچتا ہے وہ 100% سے زیادہ بابرکت ہے۔',
+   src:'Quran 51:58 · Quran 11:6'},
+  {type:'Hadith',
+   ar:'كُنْ فِي الدُّنْيَا كَأَنَّكَ غَرِيبٌ أَوْ عَابِرُ سَبِيلٍ',
+   tr:'Kun fi-d-dunya ka-annaka gharibun aw 'abiru sabil',
+   en:'Be in this world as though you are a stranger or a wayfarer. — Ibn Umar RA: When evening comes, do not wait for morning. Take from your health before your sickness.',
+   ur:'دنیا میں ایسے رہو جیسے کوئی مسافر یا راہ گیر ہو۔ — ابن عمر نے کہا: شام ہو تو صبح کا انتظار نہ کرو۔ صحت سے بیماری سے پہلے فائدہ اٹھاؤ۔',
+   src:'Sahih Bukhari 6416 — Sahih'},
+  {type:'Dua — Anxiety',
+   ar:'اللَّهُمَّ إِنِّي عَبْدُكَ وَابْنُ عَبْدِكَ وَابْنُ أَمَتِكَ نَاصِيَتِي بِيَدِكَ مَاضٍ فِيَّ حُكْمُكَ عَدْلٌ فِيَّ قَضَاؤُكَ',
+   tr:'Allahumma inni 'abduka wa-bnu 'abdika wa-bnu amatika, nasiyati biyadika, madin fiyya hukmuka, 'adlun fiyya qada'uk',
+   en:'O Allah I am Your servant, son of Your servant, son of Your female servant. My forelock is in Your hand. Your judgment upon me is just. I ask You by every Name that is Yours to make the Quran the spring of my heart.',
+   ur:'اے اللہ میں تیرا بندہ ہوں، تیرے بندے کا بیٹا ہوں۔ میری پیشانی تیرے ہاتھ میں ہے۔ تیرا حکم مجھ پر جاری ہے، تیرا فیصلہ میرے بارے میں عادلانہ ہے۔',
+   src:'Musnad Ahmad 3528 — Sahih · For grief and anxiety'},
+  {type:'Sunnah Practice',
+   ar:'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ',
+   tr:'SubhanAllahi wa bihamdihi, SubhanAllahi-l-'Azim',
+   en:'SubhanAllahi wa bihamdihi, SubhanAllahi-l-Azim. Two phrases light on the tongue, heavy on the scales, beloved to the Most Merciful. Say 100 times daily.',
+   ur:'سبحان اللہ وبحمدہ، سبحان اللہ العظیم۔ زبان پر ہلکی، میزان میں بھاری، رحمٰن کو محبوب۔ دن میں 100 بار پڑھیں۔',
+   src:'Sahih Bukhari 6682 — Sahih · Most beloved words to Allah'},
+  {type:'Name of Allah',
+   ar:'الحَيُّ القَيُّومُ — Al-Hayy Al-Qayyum',
+   tr:'Al-Hayy Al-Qayyum',
+   en:'The Ever-Living, The Self-Sustaining. These are the two Names in Ayat al-Kursi. He never sleeps, never tires, never needs rest. Everything exists because He sustains it.',
+   ur:'الحی القیوم — ہمیشہ زندہ، خود قائم۔ یہ آیت الکرسی کے دو نام ہیں۔ وہ کبھی نہیں سوتا، کبھی نہیں تھکتا۔ ہر چیز اس لیے موجود ہے کیونکہ وہ اسے قائم رکھتا ہے۔',
+   src:'Quran 2:255 — Ayat al-Kursi'},
+  {type:'Hadith',
+   ar:'مَنْ قَالَ سُبْحَانَ اللَّهِ وَبِحَمْدِهِ فِي يَوْمٍ مِئَةَ مَرَّةٍ حُطَّتْ خَطَايَاهُ',
+   tr:'Man qala subhanallahi wa bihamdihi fi yawmin mi'ata marratin huttat khatayahu',
+   en:'Whoever says SubhanAllahi wa bihamdihi 100 times a day — his sins are wiped away even if they are like the foam of the sea.',
+   ur:'جو دن میں سو بار سبحان اللہ وبحمدہ کہے — اس کے گناہ مٹ جاتے ہیں چاہے سمندر کی جھاگ جتنے ہوں۔',
+   src:'Sahih Muslim 2698 — Sahih'},
+  {type:'Dua — Night',
+   ar:'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ',
+   tr:'Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana 'abduka',
+   en:'O Allah You are my Lord, there is no god but You. You created me and I am Your servant. Whoever says this in the morning with conviction and dies that day — enters Paradise.',
+   ur:'اے اللہ تو میرا رب ہے، تیرے سوا کوئی معبود نہیں۔ تو نے مجھے پیدا کیا اور میں تیرا بندہ ہوں۔ جو یہ صبح یقین سے پڑھے اور اس دن مرے — جنت میں جائے۔',
+   src:'Sahih Bukhari 6306 — Sahih · Sayyid al-Istighfar'},
+  {type:'Sunnah Practice',
+   ar:'أَفْضَلُ الصِّيَامِ بَعْدَ رَمَضَانَ شَهْرُ اللَّهِ الْمُحَرَّمُ',
+   tr:'Afdalu-s-siyami ba'da Ramadana shahru-llahi-l-muharram',
+   en:'The best fasting after Ramadan is the month of Allah — Muharram. And the best voluntary prayer after the obligatory is the night prayer.',
+   ur:'رمضان کے بعد سب سے افضل روزہ اللہ کے مہینے — محرم کا ہے۔ اور فرض نماز کے بعد سب سے افضل نفل رات کی نماز ہے۔',
+   src:'Sahih Muslim 1163 — Sahih'},
+  {type:'Name of Allah',
+   ar:'السَّلَامُ — As-Salam',
+   tr:'As-Salam',
+   en:'The Source of Peace — He is As-Salam. Peace itself. The greeting of Jannah. The greeting of Muslims. When you say Assalamu alaykum, you invoke His Name upon the other person.',
+   ur:'السلام — سلامتی کا سرچشمہ۔ وہ خود سلام ہے۔ جنت کا سلام۔ مسلمانوں کا تحیہ۔ جب آپ السلام علیکم کہتے ہیں تو اس کا نام دوسرے پر بھیجتے ہیں۔',
+   src:'Quran 59:23 · Hadith: Allah's greeting in Jannah is As-Salam'},
+  {type:'Hadith',
+   ar:'إِنَّ اللَّهَ طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا',
+   tr:'Innallaha tayyibun la yaqbalu illa tayyiba',
+   en:'Indeed Allah is pure and does not accept except what is pure. A man makes dua with dishevelled hair, raising his hands — yet his food is haram. How would he be answered?',
+   ur:'بے شک اللہ پاک ہے اور پاک کے سوا کچھ قبول نہیں کرتا۔ ایک آدمی پریشان حال ہاتھ اٹھا کر دعا مانگتا ہے — لیکن اس کا کھانا حرام ہے۔ اسے جواب کیسے ملے؟',
+   src:'Sahih Muslim 1015 — Sahih'},
+  {type:'Dua — Forgiveness',
+   ar:'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',
+   tr:'Allahumma innaka 'afuwwun tuhibbu-l-'afwa fa'fu 'anni',
+   en:'O Allah, You are Pardoning and You love to pardon, so pardon me. — Aisha RA asked: if I know Laylat al-Qadr, what shall I say? He taught her this dua.',
+   ur:'اے اللہ تو معاف کرنے والا ہے اور معاف کرنا پسند کرتا ہے — پس مجھے معاف فرما۔ حضرت عائشہ نے پوچھا: لیلۃ القدر پر کیا پڑھوں؟ آپ نے یہ سکھایا۔',
+   src:'Sunan Tirmidhi 3513 — Sahih · Especially on Laylat al-Qadr'},
+  {type:'Sunnah Practice',
+   ar:'يَنْزِلُ رَبُّنَا إِلَى السَّمَاءِ الدُّنْيَا حِينَ يَبْقَى ثُلُثُ اللَّيْلِ الْآخِرُ',
+   tr:'Yanzilu rabbuna ila-s-sama'i-d-dunya hina yabqa thuluthu-l-layli-l-akhir',
+   en:'Our Lord descends to the lowest heaven when the last third of the night remains, saying: Who is calling upon Me? Who is asking? Who seeks forgiveness? — Wake for Tahajjud.',
+   ur:'ہمارا رب رات کے آخری تہائی میں آسمان دنیا پر نزول فرماتا ہے: کون مجھے پکار رہا ہے؟ کون مانگ رہا ہے؟ — تہجد کے لیے اٹھیں۔',
+   src:'Sahih Bukhari 1145 — Sahih · The divine invitation'},
+  {type:'Name of Allah',
+   ar:'الشَّكُورُ — Ash-Shakoor',
+   tr:'Ash-Shakoor',
+   en:'The Appreciative — He appreciates even the smallest act of worship. One who thanks Him is given more. He thanks His servants for thanking Him.',
+   ur:'الشکور — قدردان۔ وہ عبادت کے سب سے چھوٹے عمل کی بھی قدر کرتا ہے۔ جو اس کا شکر کرے اسے مزید دیا جاتا ہے۔',
+   src:'Quran 35:30 · Quran 64:17'},
+  {type:'Hadith',
+   ar:'خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ وَأَنَا خَيْرُكُمْ لِأَهْلِي',
+   tr:'Khayrukum khayrukum li-ahlihi, wa ana khayrukum li-ahli',
+   en:'The best of you are the best to their families — and I am the best of you to my family.',
+   ur:'تم میں سے بہترین وہ ہے جو اپنے گھر والوں کے لیے بہترین ہو — اور میں تم میں سے اپنے گھر والوں کے لیے بہترین ہوں۔',
+   src:'Sunan Tirmidhi 3895 — Sahih · Narrated by Aisha RA'},
+  {type:'Dua — Travelling',
+   ar:'سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنقَلِبُونَ',
+   tr:'Subhana-l-ladhi sakhkhara lana hadha wa ma kunna lahu muqrinin, wa inna ila rabbina lamunqalibun',
+   en:'Glory to Him who has subjugated this for us — we could not have done it ourselves. And indeed to our Lord we will return.',
+   ur:'پاک ہے وہ جس نے یہ ہمارے لیے مسخر کیا، ہم اسے قابو نہیں کر سکتے تھے، اور ہم اپنے رب کی طرف لوٹنے والے ہیں۔',
+   src:'Quran 43:13-14 · Sahih Muslim 1342 · Say when boarding transport'},
+];
+
+// ═══════════════════════════════════════════════════
+// DAILY FEATURE LOGIC
+// ═══════════════════════════════════════════════════
+let dailyIndex = 0;
+
+function getDayOfYear() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now - start;
+  return Math.floor(diff / (1000 * 60 * 60 * 24));
+}
+
+function formatDate() {
+  const d = new Date();
+  return d.toLocaleDateString('en-GB', {weekday:'long', day:'numeric', month:'long'});
+}
+
+function renderDaily(idx) {
+  const item = DAILY[idx % DAILY.length];
+  document.getElementById('daily-type-label').textContent = item.type;
+  document.getElementById('daily-date').textContent = formatDate();
+  document.getElementById('daily-ar').textContent = item.ar;
+  document.getElementById('daily-tr').textContent = item.tr || '';
+  document.getElementById('daily-tr').style.display = item.tr ? 'block' : 'none';
+  document.getElementById('daily-en').textContent = item.en;
+  document.getElementById('daily-ur').textContent = item.ur;
+  document.getElementById('daily-src').textContent = '📚 ' + item.src;
+}
+
+function nextDaily() {
+  dailyIndex = (dailyIndex + 1) % DAILY.length;
+  renderDaily(dailyIndex);
+}
+
+// ═══════════════════════════════════════════════════
+// SHARE FUNCTIONALITY
+// ═══════════════════════════════════════════════════
+function shareDaily() {
+  const item = DAILY[dailyIndex % DAILY.length];
+  const text = item.ar + '\n\n' + item.en + '\n\n— ' + item.src + '\n\nAl-Maktaba Islamic Knowledge Platform';
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'Al-Maktaba — ' + item.type,
+      text: text,
+      url: window.location.href
+    }).catch(() => copyToClipboard(text));
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard ✓'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('Copied to clipboard ✓');
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ═══════════════════════════════════════════════════
+// PRINT DAILY FEATURE
+// ═══════════════════════════════════════════════════
+function printDaily() {
+  const item = DAILY[dailyIndex % DAILY.length];
+  const win = window.open('', '_blank', 'width=600,height=700');
+  win.document.write(`
+    <!DOCTYPE html><html>
+    <head><meta charset="UTF-8"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet"/>
+    <style>
+      body{font-family:'Lora',serif;max-width:480px;margin:2rem auto;padding:1.5rem;color:#1a1a1a;line-height:1.8}
+      .header{text-align:center;border-bottom:2px solid #C9A84C;padding-bottom:1rem;margin-bottom:1.5rem}
+      .brand{font-size:1.5rem;color:#8B6914;font-style:italic}
+      .type{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:#666;margin-top:0.25rem}
+      .ar{font-family:'Noto Naskh Arabic',serif;font-size:1.4rem;direction:rtl;text-align:right;color:#8B6914;line-height:2;background:#fffbf0;padding:1rem;border-radius:4px;border-left:3px solid #C9A84C;margin:1rem 0}
+      .tr{font-style:italic;color:#555;margin-bottom:0.5rem;font-size:0.9rem}
+      .en{font-size:0.95rem;margin-bottom:0.75rem;color:#333}
+      .ur{font-family:'Noto Naskh Arabic',serif;direction:rtl;text-align:right;font-size:1rem;line-height:2;color:#444;margin:0.75rem 0}
+      .src{font-size:0.78rem;color:#888;border-top:1px solid #ddd;padding-top:0.75rem;margin-top:1rem}
+      .footer{text-align:center;margin-top:2rem;font-size:0.75rem;color:#aaa;border-top:1px solid #eee;padding-top:1rem}
+      @media print{body{margin:1cm}}
+    </style>
+    </head><body>
+    <div class="header">
+      <div class="brand">Al-Maktaba</div>
+      <div class="type">${item.type} · ${formatDate()}</div>
+    </div>
+    <div class="ar">${item.ar}</div>
+    ${item.tr ? `<div class="tr">${item.tr}</div>` : ''}
+    <div class="en">${item.en}</div>
+    <div class="ur">${item.ur}</div>
+    <div class="src">📚 ${item.src}</div>
+    <div class="footer">Al-Maktaba · almaktaba.io · Authenticated Islamic Knowledge · Free</div>
+    </body></html>
+  `);
+  win.document.close();
+  setTimeout(() => { win.print(); }, 600);
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', function() {
+  dailyIndex = getDayOfYear();
+  renderDaily(dailyIndex);
+});
+</script>
+</body>
+</html>

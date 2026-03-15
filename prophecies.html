@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Prophecies of Muhammad ﷺ — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#04070D;--bg1:#080E1C;--gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --teal:#2FB89A;--text:#D4CBB8;--text2:#8A9BB0;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);--golddim:rgba(201,168,76,.10);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:"Lora",serif;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 900px 600px at 20% 0%,rgba(201,168,76,.05),transparent 65%);}
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.96);border-bottom:1px solid var(--border2);
+  backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 24px;height:54px;gap:14px}
+.back-btn{font-family:"Cinzel",serif;font-size:10px;letter-spacing:1px;color:var(--text2);
+  padding:6px 12px;border:1px solid var(--border2);border-radius:6px;text-decoration:none;transition:all .15s}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:"Noto Naskh Arabic",serif;font-size:18px;color:var(--gold)}
+.nav-en{font-family:"Cinzel",serif;font-size:11px;font-weight:700;color:var(--gold2);letter-spacing:1.5px}
+.nav-r{margin-left:auto;font-family:"Cinzel",serif;font-size:9px;color:var(--text2)}
+.doc-hero{position:relative;z-index:1;padding:64px 24px 46px;text-align:center;
+  border-bottom:1px solid var(--border2);background:linear-gradient(160deg,rgba(17,30,53,.7),rgba(4,7,13,.9))}
+.doc-bsm{font-family:"Noto Naskh Arabic",serif;font-size:clamp(20px,3.5vw,28px);color:var(--gold);margin-bottom:14px}
+.doc-ar{font-family:"Noto Naskh Arabic",serif;font-size:clamp(26px,5vw,48px);color:var(--gold2);margin-bottom:6px;line-height:1.3;text-shadow:0 0 24px rgba(201,168,76,.2)}
+.doc-en{font-family:"Cinzel",serif;font-size:clamp(14px,2.5vw,24px);font-weight:700;color:#fff;margin-bottom:8px}
+.doc-sub{font-size:13px;color:var(--text2);font-style:italic;max-width:600px;margin:0 auto 20px;line-height:1.7}
+.doc-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto}
+.doc-content{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:44px 28px 80px}
+
+/* TYPOGRAPHY */
+h2.sh{font-family:"Cinzel",serif;font-size:clamp(15px,2.5vw,21px);font-weight:700;color:var(--gold2);
+  margin:44px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--border);letter-spacing:.8px}
+h2.sh:first-child{margin-top:0}
+h3.sub{font-family:"Cinzel",serif;font-size:14px;font-weight:600;color:#fff;
+  margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--gold)}
+p.bt{color:var(--text);font-size:14px;line-height:1.85;margin-bottom:12px}
+.bullet{color:var(--text);font-size:13.5px;line-height:1.7;margin:6px 0 6px 14px;padding-left:14px;
+  border-left:2px solid rgba(201,168,76,.3);color:var(--text2)}
+.av{font-family:"Noto Naskh Arabic",serif;font-size:clamp(18px,3.5vw,26px);color:var(--gold2);
+  direction:rtl;text-align:right;line-height:2.1;padding:12px 16px;
+  border-right:4px solid var(--gold);background:rgba(201,168,76,.05);border-radius:0 10px 10px 0;margin:12px 0 6px}
+.qref{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.8px;color:var(--gold);margin-bottom:16px}
+
+/* SCRIPTURE BLOCKS */
+.scripture-block{border:1px solid var(--border);border-radius:11px;overflow:hidden;margin:16px 0;
+  background:rgba(12,21,40,.8)}
+.sb-source{font-family:"Cinzel",serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);padding:10px 16px;background:rgba(201,168,76,.08);border-bottom:1px solid var(--border2)}
+.sb-quote{font-size:13.5px;color:var(--gold3);font-style:italic;padding:14px 16px;line-height:1.75;
+  border-bottom:1px solid var(--border2);border-left:3px solid var(--gold)}
+.sb-analysis{font-size:12.5px;color:var(--text2);padding:12px 16px;line-height:1.7}
+
+/* ARABIC SCRIPTURE BLOCK */
+.arabic-block .sb-arabic{font-family:"Noto Naskh Arabic",serif;font-size:clamp(18px,3.5vw,26px);
+  color:var(--gold2);direction:rtl;text-align:right;line-height:2;
+  padding:14px 16px;background:rgba(201,168,76,.06);border-bottom:1px solid var(--border2)}
+.arabic-block .sb-trans{font-size:13px;font-style:italic;color:var(--gold3);padding:10px 16px;
+  line-height:1.7;border-bottom:1px solid var(--border2)}
+.arabic-block .sb-ref{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.8px;color:var(--gold);padding:8px 16px}
+
+/* SCHOLAR BOX */
+.scholar-box{background:rgba(47,184,154,.06);border-left:3px solid var(--teal);
+  border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0}
+.sb-lbl{font-family:"Cinzel",serif;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--teal);margin-bottom:8px}
+.sb-content{font-size:13px;color:#a8c8b8;line-height:1.75;font-style:italic}
+
+/* HADITH BOX */
+.hadith-box{background:rgba(201,168,76,.05);border-left:3px solid var(--gold);
+  border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0}
+.hb-quote{font-size:13.5px;color:var(--gold3);font-style:italic;line-height:1.75;margin-bottom:6px}
+.hb-ref{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.5px;color:var(--gold)}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;border-radius:11px;border:1px solid var(--border2);margin:16px 0}
+table.doc-table{width:100%;border-collapse:collapse;min-width:500px}
+table.doc-table th{font-family:"Cinzel",serif;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);padding:11px 14px;background:rgba(201,168,76,.08);border-bottom:1px solid var(--border);text-align:left}
+table.doc-table td{padding:10px 14px;font-size:12.5px;border-bottom:1px solid var(--border2);vertical-align:top;line-height:1.6}
+table.doc-table tr:last-child td{border-bottom:none}
+table.doc-table tr:hover td{background:rgba(255,255,255,.02)}
+
+/* COVER TABLE */
+.cover-table{display:none}
+
+/* BACK TO TOP */
+.btt{position:fixed;bottom:28px;right:24px;z-index:80;width:40px;height:40px;border-radius:50%;
+  background:var(--golddim);border:1px solid var(--border);display:flex;align-items:center;
+  justify-content:center;color:var(--gold2);font-size:16px;cursor:pointer;transition:all .2s;opacity:0;pointer-events:none}
+.btt.show{opacity:1;pointer-events:all}
+@media(max-width:600px){.doc-content{padding:32px 16px 60px}.top-nav{padding:0 14px}}
+
+.lang-toggle{display:flex;align-items:center;gap:2px;margin-left:auto;
+  background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.15);border-radius:20px;padding:3px;flex-shrink:0}
+.lt-btn{font-family:"Cinzel",serif;font-size:9.5px;letter-spacing:1px;padding:4px 12px;
+  border-radius:16px;cursor:pointer;transition:all .2s;color:#8A9BB0;user-select:none}
+.lt-btn.on{background:#C9A84C;color:#000;font-weight:700}
+.lt-btn:hover:not(.on){color:#E2C97A}
+.ur-text{display:none;font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+.ur-mode .en-text{display:none}
+.ur-mode .ur-text{display:block}
+.ur-mode h2.sh,.ur-mode h3.sub{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+.ur-mode p.bt{font-family:"Noto Naskh Arabic",serif;font-size:14px;direction:rtl;text-align:right;line-height:2}
+
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <a class="back-btn" href="index.html">&#8592; Al-Maktaba</a>
+  <div class="nav-ar">&#1575;&#1604;&#1576;&#1588;&#1575;&#1585;&#1575;&#1578; &#1576;&#1575;&#1604;&#1606;&#1576;&#1610; &#65018;</div>
+  <div class="nav-en">Prophecies of Muhammad &#65018;</div>
+  <div class="lang-toggle"><div class="lt-btn on" id="lt-en" onclick="setLang('en')">EN</div><div class="lt-btn" id="lt-ur" onclick="setLang('ur')">اردو</div></div>
+  <div class="nav-r">Al-Maktaba</div>
+</div>
+<div class="doc-hero">
+  <div class="doc-bsm">&#1576;&#1616;&#1587;&#1618;&#1605;&#1616; &#1575;&#1604;&#1604;&#1617;&#1614;&#1607;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1618;&#1605;&#1614;&#1606;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1616;&#1610;&#1605;&#1616;</div>
+  <div class="doc-ar">&#1575;&#1604;&#1576;&#1588;&#1575;&#1585;&#1575;&#1578; &#1576;&#1575;&#1604;&#1606;&#1576;&#1610;&#1617; &#65018; &#1601;&#1610; &#1575;&#1604;&#1603;&#1578;&#1576; &#1575;&#1604;&#1587;&#1617;&#1575;&#1576;&#1602;&#1577;</div>
+  <div class="doc-en">Prophecies of Muhammad &#65018; in Previous Scriptures</div>
+  <div class="doc-sub">Authenticated prophecies of Prophet Muhammad &#65018; preserved in the Torah, Gospel, and Book of Isaiah &mdash; with complete scripture references, original text, scholarly analysis, and testimony of Jewish &amp; Christian scholars who recognised him</div>
+  <div class="doc-rule"></div>
+</div>
+<div class="doc-content">
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">وَإِذْ قَالَ عِيسَى ابْنُ مَرْيَمَ يَا بَنِي إِسْرَائِيلَ إِنِّي رَسُولُ اللَّهِ إِلَيْكُم مُّصَدِّقًا لِّمَا بَيْنَ يَدَيَّ مِنَ التَّوْرَاةِ وَمُبَشِّرًا بِرَسُولٍ يَأْتِي مِن بَعْدِي اسْمُهُ أَحْمَدُ</div>
+  <div class="sb-trans">"And when Isa son of Maryam said: O Children of Israel, indeed I am the messenger of Allah to you, confirming what came before me of the Torah, and bringing good tidings of a messenger to come after me, whose name is Ahmad."</div>
+  <div class="sb-ref">— Quran 61:6</div>
+</div>
+<h2 class="sh"><span class="en-text">Introduction</span><span class="ur-text">تعارف</span></h2>
+<p class="bt"><span class="en-text">Allah sent 124,000 prophets to humanity, each carrying the same core message of Tawhid — the oneness of Allah. The Quran tells us that Allah took a covenant from every prophet: that if Muhammad ﷺ were to appear during their time, they would believe in him and support him (Quran 3:81). This covenant was embedded in the divine scriptures of every nation.</span><span class="ur-text">اللہ تعالیٰ نے انسانیت کی طرف ۱۲۴,۰۰۰ انبیاء بھیجے، ہر ایک توحید کا ایک ہی بنیادی پیغام لے کر آیا — کہ صرف اللہ کی عبادت کرو اور شرک سے بچو۔ ان سب کی تعلیمات کا سلسلہ محمد ﷺ پر ختم ہوا۔</span></p>
+<p class="bt"><span class="en-text">This document examines the direct prophecies of Muhammad ﷺ preserved across four major scriptural traditions — the Torah (Tawrat), the Psalms (Zabur), the Gospel (Injil), and the Quran — alongside the scholarly analysis of Islamic scholars who authenticated each prophecy. The evidence is overwhelming: the coming of Muhammad ﷺ was foretold by name, by description, and by deed long before his birth.</span><span class="ur-text">یہ دستاویز چار بڑی کتبِ مقدسہ میں محفوظ محمد ﷺ کی براہ راست بشارات کا جائزہ لیتی ہے: تورات، انجیل، زبور اور قرآن — مستند حوالوں، اصل متن اور علمائے اسلام کے تجزیے کے ساتھ۔</span></p>
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">الَّذِينَ يَتَّبِعُونَ الرَّسُولَ النَّبِيَّ الْأُمِّيَّ الَّذِي يَجِدُونَهُ مَكْتُوبًا عِندَهُمْ فِي التَّوْرَاةِ وَالْإِنجِيلِ</div>
+  <div class="sb-trans">"Those who follow the Messenger, the unlettered prophet, whom they find written in what they have of the Torah and the Gospel."</div>
+  <div class="sb-ref">— Quran 7:157</div>
+</div>
+<p class="bt"><span class="en-text">The Quran itself is the primary evidence — it explicitly states that Muhammad ﷺ is described in the Torah and the Gospel. This verse (7:157) was accepted as authentic by early Jewish and Christian converts to Islam, many of whom testified they had read these descriptions in their own scriptures before embracing Islam.</span><span class="ur-text">قرآن کریم خود بنیادی دلیل ہے — یہ صریح طور پر بیان کرتا ہے کہ محمد ﷺ توریت اور انجیل میں بیان کیے گئے ہیں (قرآن ۷:۱۵۷)۔</span></p>
+<h2 class="sh"><span class="en-text">The Covenant of the Prophets</span><span class="ur-text">انبیاء کا عہد و پیمان</span></h2>
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">وَإِذْ أَخَذَ اللَّهُ مِيثَاقَ النَّبِيِّينَ لَمَا آتَيْتُكُم مِّن كِتَابٍ وَحِكْمَةٍ ثُمَّ جَاءَكُمْ رَسُولٌ مُّصَدِّقٌ لِّمَا مَعَكُمْ لَتُؤْمِنُنَّ بِهِ وَلَتَنصُرُنَّهُ</div>
+  <div class="sb-trans">"And when Allah took the covenant of the prophets: Whatever I have given you of the Scripture and wisdom, then there comes to you a messenger confirming what is with you — you must believe in him and support him."</div>
+  <div class="sb-ref">— Quran 3:81</div>
+</div>
+<p class="bt">Ibn Kathir (rahimahullah) comments on this verse: 'Allah took a solemn covenant from every prophet He sent — that if Muhammad ﷺ were sent during their time, they would follow him. This is why Muhammad ﷺ is the most honoured of all prophets — all other prophets were his soldiers and supporters.' (Al-Bidayah wal-Nihayah)</p>
+<h2 class="sh"><span class="en-text">Summary — Prophecies at a Glance</span><span class="ur-text">خلاصہ — ایک نظر میں بشارات</span></h2>
+<p class="bt">The following table lists the authenticated prophecies of Muhammad ﷺ found across the scriptures of previous nations:</p>
+<div class="tbl-wrap">
+  <table class="doc-table">
+    <thead><tr><th>#</th><th>Scripture</th><th>Prophecy / Key Words</th><th>Fulfillment</th></tr></thead>
+    <tbody><tr><td>1</td><td>Deuteronomy 18:18</td><td>'A prophet like you (Musa) from among their brethren'</td><td>Muhammad ﷺ from Ismail — brother nation to Bani Israel</td></tr>
+<tr><td>2</td><td>Deuteronomy 33:2</td><td>'He shone forth from Paran' (Faran = Makkah)</td><td>Muhammad ﷺ born in Makkah (Paran/Faran)</td></tr>
+<tr><td>3</td><td>Isaiah 42:1–11</td><td>'My servant… he shall not fail… the isles shall wait for his law'</td><td>Muhammad ﷺ — universal prophet to all nations</td></tr>
+<tr><td>4</td><td>Isaiah 29:12</td><td>'Give the book to him that is not learned'</td><td>Muhammad ﷺ was unlettered — said 'I am not learned'</td></tr>
+<tr><td>5</td><td>Song of Solomon 5:16</td><td>'Hikko mamittaqim… Muhammadim'</td><td>Muhammad's name appears directly in Hebrew</td></tr>
+<tr><td>6</td><td>Gospel of John 14:16</td><td>'He shall give you another Comforter (Paraclete)'</td><td>Ahmad ﷺ — Paraclete = Periclytos = Ahmad</td></tr>
+<tr><td>7</td><td>Gospel of John 16:7</td><td>'It is expedient that I go away — the Comforter will not come'</td><td>Isa (AS) made way for Muhammad ﷺ</td></tr>
+<tr><td>8</td><td>Gospel of Barnabas</td><td>Prophet named 'Muhammad' announced by Isa (AS) directly</td><td>Direct naming confirmed in this gospel</td></tr>
+<tr><td>9</td><td>Quran 61:6</td><td>Isa (AS) announces 'Ahmad' by name</td><td>Fulfilled at the birth of Muhammad ﷺ</td></tr>
+<tr><td>10</td><td>Psalms (Zabur) 72</td><td>'He shall have dominion from sea to sea… all nations shall serve him'</td><td>Islam's global spread under Muhammad ﷺ</td></tr>
+</tbody>
+  </table>
+</div>
+<h2 class="sh"><span class="en-text">Section 1 — Prophecies in the Torah (Tawrat)</span><span class="ur-text">سیکشن ۱ — تورات میں بشارات</span></h2>
+<p class="bt"><span class="en-text">The Torah contains multiple descriptions of a prophet to come after Musa (AS). Islamic scholars — particularly Ibn Taymiyyah in Al-Jawab al-Sahih, and Ibn Kathir in Al-Bidayah wal-Nihayah — identified at least six major references. Three are examined in detail below.</span><span class="ur-text">تورات میں موسیٰ علیہ السلام کے بعد آنے والے ایک نبی کی متعدد تفصیلات ہیں۔ علمائے اسلام نے دستاویزی دلائل سے ثابت کیا ہے کہ یہ وصف بلا شک محمد ﷺ سے مطابقت رکھتا ہے۔</span></p>
+<h3 class="sub"><span class="en-text">1.1  Deuteronomy 18:18 — 'A Prophet Like Moses'</span><span class="ur-text">۱.۱  استثناء ۱۸:۱۸ — 'موسیٰ جیسا ایک نبی'</span></h3>
+<div class="scripture-block">
+  <div class="sb-source">Deuteronomy 18:18 — Torah (King James Version)</div>
+  <div class="sb-quote">"I will raise them up a Prophet from among their brethren, like unto thee, and will put my words in his mouth; and he shall speak unto them all that I shall command him."</div>
+  <div class="sb-analysis">Islamic Scholarly Analysis: The phrase 'from among their brethren' is decisive. 'Their brethren' refers to the brothers of Bani Israel (Children of Israel) — and that is Bani Ismail (Children of Ismail AS). Muhammad ﷺ is from Ismail (AS), making him literally from the brother nation. The words 'I will put my words in his mouth' exactly describes a prophet who did not write but received revelation verbally — Quran 53:3–4.</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ Ibn Taymiyyah's Analysis (Al-Jawab al-Sahih, Vol. 3)</div>
+  <div class="sb-content">Ibn Taymiyyah writes: 'This prophecy cannot refer to Yushua (Joshua) because it says a prophet LIKE Moses — one who receives direct divine speech, brings a complete law, and leads an entire nation. Yushua was not like Musa in any of these qualities. Muhammad ﷺ matches every criterion: he received divine revelation (the Quran), he brought a complete Shari'ah, and he led an entire nation from polytheism to monotheism — just as Musa led Bani Israel from Pharaoh's oppression to the worship of Allah alone.'</div>
+</div>
+<p class="bt">The three matching qualities between Musa (AS) and Muhammad ﷺ that no other prophet shares:</p>
+<div class="bullet">&#9670; Both received divine words placed directly in their mouths (direct revelation without an angel intermediary at times)</div>
+<div class="bullet">&#9670; Both brought complete legal systems (Shari'ah) governing all aspects of life</div>
+<div class="bullet">&#9670; Both led their entire nations in physical migration (Musa to Sinai, Muhammad ﷺ in the Hijra) and military victory</div>
+<div class="bullet">&#9670; Both were initially rejected by their own people and then triumphed over their oppressors</div>
+<h3 class="sub"><span class="en-text">1.2  Deuteronomy 33:2 — 'He Shone Forth from Paran'</span><span class="ur-text">۱.۲  استثناء ۳۳:۲ — 'وہ فاران سے چمکا'</span></h3>
+<div class="scripture-block">
+  <div class="sb-source">Deuteronomy 33:2 — Torah</div>
+  <div class="sb-quote">"And he said: The Lord came from Sinai, and rose up from Seir unto them; He shined forth from mount Paran, and He came with ten thousands of saints: from His right hand went a fiery law for them."</div>
+  <div class="sb-analysis">Islamic Scholarly Analysis: Mount Paran is the Arabic 'Faran' — which classical Arab and Islamic geographers consistently identify with the mountains of Makkah (Hijaz region). This is confirmed by Genesis 21:21 which states Ismail (AS) 'dwelt in the wilderness of Paran.' The ten thousands of saints who came with the law is a direct reference to the 10,000 companions who marched with Muhammad ﷺ in the Conquest of Makkah in 8 AH (630 CE) — the only time 10,000 forces came from Paran/Makkah bringing a law.</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ Historical Confirmation</div>
+  <div class="sb-content">The Conquest of Makkah (Fath Makkah) in 630 CE saw Muhammad ﷺ march on Makkah with exactly 10,000 companions. He entered peacefully, purified the Ka'bah of 360 idols, and established the law of Allah in the very location Deuteronomy 33:2 describes. No other event in history matches: 10,000 people, from Paran/Makkah, bringing a divine law. Sahih al-Bukhari (Book of Maghazi) confirms the number 10,000.</div>
+</div>
+<h3 class="sub"><span class="en-text">1.3  Song of Solomon 5:16 — 'Muhammad' by Name</span><span class="ur-text">۱.۳  غزل الغزلات ۵:۱۶ — نام 'محمد'</span></h3>
+<div class="scripture-block">
+  <div class="sb-source">Song of Solomon 5:16 — Torah (Hebrew Original)</div>
+  <div class="sb-quote">"Hikko mamittaqim we-kullo Muhammadim. Zeh dodi we-zeh re'i, benot Yerushalayim. (His mouth is most sweet: yea, he is altogether lovely. This is my beloved, and this is my friend, O daughters of Jerusalem.)"</div>
+  <div class="sb-analysis">Islamic Scholarly Analysis: The Hebrew word 'Muhammadim' (מַחֲמַדִּים) in this verse is the plural of honour form of the name 'Muhammad' — a standard Hebrew grammatical form adding '-im' for dignity (like Elohim). The root word is identical to the Arabic name Muhammad (meaning 'the praised one'). Ibn Taymiyyah in Al-Jawab al-Sahih dedicates an entire chapter to this verse, declaring it direct evidence that Muhammad's ﷺ name appears in the Torah.</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ Linguistic Evidence — Ibn Taymiyyah (Al-Jawab al-Sahih, Vol. 4)</div>
+  <div class="sb-content">Ibn Taymiyyah writes: 'The name Muhammad appears in the Hebrew Bible as Mahammad or Muhammadim — the suffix -im being a plural of honour, as in Elohim (Allah). The root letters M-H-M-D are identical in Hebrew and Arabic, both meaning the praised, the glorified. This is not a translated word — it is a proper name preserved in the original Hebrew text, and it is the name of our Prophet ﷺ.'</div>
+</div>
+<h2 class="sh"><span class="en-text">Section 2 — Prophecies in the Gospel (Injil)</span><span class="ur-text">سیکشن ۲ — انجیل میں بشارات</span></h2>
+<p class="bt"><span class="en-text">The Gospel of Isa (AS) — the Injil — contained explicit prophecies of Muhammad ﷺ. While the original Injil has not been preserved in its revealed form, traces of these prophecies remain in the existing Gospels, most clearly in the Gospel of John's references to the 'Paraclete' (Comforter). The Quran confirms this in Surah al-Saff (61:6).</span><span class="ur-text">عیسیٰ علیہ السلام کی انجیل — الانجیل — میں محمد ﷺ کی صریح بشارات تھیں۔ اگرچہ اصل انجیل تحریف ہو چکی ہے، تاہم موجودہ نسخوں میں بھی کچھ نشانات باقی ہیں۔</span></p>
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">وَإِذْ قَالَ عِيسَى ابْنُ مَرْيَمَ يَا بَنِي إِسْرَائِيلَ إِنِّي رَسُولُ اللَّهِ إِلَيْكُم مُّصَدِّقًا لِّمَا بَيْنَ يَدَيَّ مِنَ التَّوْرَاةِ وَمُبَشِّرًا بِرَسُولٍ يَأْتِي مِن بَعْدِي اسْمُهُ أَحْمَدُ</div>
+  <div class="sb-trans">"And when Isa son of Maryam said: O Children of Israel, I am the messenger of Allah to you, confirming the Torah before me, and bringing good tidings of a messenger to come after me whose name is Ahmad."</div>
+  <div class="sb-ref">— Quran 61:6</div>
+</div>
+<p class="bt"><span class="en-text">Ahmad is another name of Muhammad ﷺ — both sharing the same Arabic root H-M-D (praise). The Prophet ﷺ himself confirmed: 'I have many names: I am Muhammad, I am Ahmad, I am Al-Mahi...' (Sahih al-Bukhari 3532). The Quran is unambiguous — Isa (AS) announced Ahmad/Muhammad ﷺ by name.</span><span class="ur-text">احمد محمد ﷺ کا ایک اور نام ہے — دونوں ایک ہی عربی جڑ ح-م-د (حمد) سے ہیں۔ عیسیٰ علیہ السلام نے "احمد" نام سے آنے والے کی بشارت دی (قرآن ۶۱:۶)۔</span></p>
+<h3 class="sub"><span class="en-text">2.1  Gospel of John 14:16 — The Paraclete (Parakletos)</span><span class="ur-text">۲.۱  یوحنا ۱۴:۱۶ — فارقلیط (پیراکلیٹوس)</span></h3>
+<div class="scripture-block">
+  <div class="sb-source">Gospel of John 14:16 — New Testament</div>
+  <div class="sb-quote">"And I will pray the Father, and He shall give you another Comforter (Paraclete), that he may abide with you for ever. Even the Spirit of Truth, whom the world cannot receive, because it seeth him not, neither knoweth him."</div>
+  <div class="sb-analysis">Islamic Scholarly Analysis: The Greek word 'Parakletos' (Paraclete = Comforter/Advocate) used in John's Gospel corresponds remarkably to the Greek 'Periclytos' — meaning 'the praised one, the glorified.' Periclytos is the direct Greek translation of the Arabic name 'Ahmad' (the most praised). Islamic scholars argue that the original Gospel of Isa (AS) used 'Periclytos' — corresponding to Ahmad — which was later altered to 'Parakletos' by scribes. The description 'abides forever' and 'Spirit of Truth' cannot refer to any spirit but to a final prophet whose message remains forever.</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ Ahmad ibn Idris al-Qarafi's Analysis</div>
+  <div class="sb-content">Al-Qarafi and Ibn Taymiyyah both note that in several early Greek manuscripts, the word 'Periclytos' (Praised One = Ahmad) appears instead of 'Parakletos' (Comforter). The scribal substitution is linguistically plausible because the two Greek words are near-homophones. Furthermore, the description 'he shall not speak of himself, but whatsoever he shall hear, that shall he speak' (John 16:13) precisely describes a prophet receiving divine revelation — not a spirit, not a ghost, but a human messenger of Allah.</div>
+</div>
+<h3 class="sub"><span class="en-text">2.2  Gospel of John 16:7 — 'It is Better That I Go Away'</span><span class="ur-text">۲.۲  یوحنا ۱۶:۷ — 'میرا جانا تمہارے لیے بہتر ہے'</span></h3>
+<div class="scripture-block">
+  <div class="sb-source">Gospel of John 16:7 — New Testament</div>
+  <div class="sb-quote">"Nevertheless I tell you the truth; It is expedient for you that I go away: for if I go not away, the Comforter will not come unto you; but if I depart, I will send him unto you."</div>
+  <div class="sb-analysis">Islamic Scholarly Analysis: This verse is remarkable: Isa (AS) explicitly states that his departure is a prerequisite for the coming of the Comforter. This perfectly matches the Islamic narrative — Isa (AS) was raised to the heavens by Allah (Quran 4:157), and then Muhammad ﷺ came approximately 570 years later. No spirit or abstract force needs Isa's physical departure as a condition for its arrival. This is a description of a physical prophet whose coming required the completion of Isa's mission.</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ The Five Identifying Marks of the Paraclete</div>
+  <div class="sb-content">Islamic scholars identify five characteristics of the Paraclete (John 14-16) that can only apply to Muhammad ﷺ and not to any spirit: (1) He will not come until after Isa (AS) departs — fulfilled; (2) He will guide into ALL truth — the Quran is the complete and final guidance; (3) He will speak what he hears (divine revelation) — the Quran 53:3-4 confirms this; (4) He will glorify Isa (AS) — the Quran honours Isa (AS) more than any other book; (5) He will abide forever — the Quran and Muhammad's ﷺ Sunnah remain preserved until the Day of Judgment.</div>
+</div>
+<h2 class="sh"><span class="en-text">Section 3 — Isaiah 42 — The Servant of Allah</span><span class="ur-text">سیکشن ۳ — اشعیاء ۴۲ — اللہ کا بندہ</span></h2>
+<p class="bt"><span class="en-text">Isaiah Chapter 42 contains one of the most detailed prophecies of Muhammad ﷺ in the Old Testament. It describes a chosen servant of Allah who will bring a new law to the nations, will not shout in the streets, will be victorious, and whose law will reach the 'isles' (distant lands). Ibn Taymiyyah dedicates twelve pages to this prophecy in Al-Jawab al-Sahih.</span><span class="ur-text">اشعیاء باب ۴۲ میں محمد ﷺ کی سب سے تفصیلی بشارت موجود ہے — "قیدار کے گاؤں خوشی سے گائیں" (قیدار = اسماعیل علیہ السلام کے بیٹے = عرب)۔</span></p>
+<div class="scripture-block">
+  <div class="sb-source">Isaiah 42:1–4, 10–11 — Old Testament</div>
+  <div class="sb-quote">"Behold my servant, whom I uphold; mine elect, in whom my soul delighteth; I have put my spirit upon him: he shall bring forth judgment to the Gentiles. He shall not cry, nor lift up, nor cause his voice to be heard in the street. A bruised reed shall he not break... He shall not fail nor be discouraged, till he have set judgment in the earth: and the isles shall wait for his law... Let them give glory unto the Lord, and declare His praise in the islands. Let the wilderness and the cities thereof lift up their voice, the villages that Kedar doth inhabit (Kedar = son of Ismail)."</div>
+  <div class="sb-analysis">Islamic Scholarly Analysis: Kedar is the son of Ismail (AS) — Genesis 25:13. The specific mention of Kedar's villages lifting their voice in praise is a reference to the Arab tribes of the Hijaz — the tribe of Muhammad ﷺ — breaking into praise and worship of Allah. 'He shall not cry nor lift up his voice in the streets' matches the Prophet's ﷺ famous character of speaking softly and gently. 'The isles shall wait for his law' — Islam today has 1.8 billion followers across every land and island on Earth.</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ Ibn Taymiyyah — Al-Jawab al-Sahih (Vol. 3, Chapter on Isaiah)</div>
+  <div class="sb-content">Ibn Taymiyyah writes: 'The servant described in Isaiah 42 is not Isa (AS), because it says he will not fail or be discouraged — yet according to Christian belief, their messiah was crucified. It cannot be Cyrus the Great because it says he brings a divine law to all nations. It cannot be a collective Israel because it addresses a single individual. Muhammad ﷺ matches every description: he was supported by Allah, he was gentle and never shouted in the streets, he was never defeated despite decades of persecution, he established the law of Allah across Arabia and beyond, and the mention of Kedar (son of Ismail) explicitly points to the Arabian Peninsula — the homeland of Muhammad ﷺ.'</div>
+</div>
+<h2 class="sh"><span class="en-text">Section 4 — Isaiah 29:12 — The Unlettered Prophet</span><span class="ur-text">سیکشن ۴ — اشعیاء ۲۹:۱۲ — امی نبی</span></h2>
+<div class="scripture-block">
+  <div class="sb-source">Isaiah 29:12 — Old Testament</div>
+  <div class="sb-quote">"And the book is delivered to him that is not learned, saying, Read this: and he saith, I am not learned."</div>
+  <div class="sb-analysis">Islamic Scholarly Analysis: This verse was famously fulfilled in Cave Hira when the Angel Jibreel (AS) appeared to Muhammad ﷺ and said 'Iqra' (Read/Recite). Muhammad ﷺ replied: 'Ma ana bi-qari' — I am not a reader/learned. This exchange is recorded in Sahih al-Bukhari (1st hadith of the collection). The exact words of Muhammad ﷺ ('I am not learned') match Isaiah 29:12 with astonishing precision.</div>
+</div>
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">فَأَخَذَنِي فَغَطَّنِي حَتَّى بَلَغَ مِنِّي الجَهْدَ ثُمَّ أَرْسَلَنِي فَقَالَ اقْرَأْ فَقُلْتُ مَا أَنَا بِقَارِئٍ</div>
+  <div class="sb-trans">"He (Jibreel) took me and pressed me so hard that I could not bear it anymore, then he released me and said: 'Read.' I said: 'I am not able to read (ma ana bi-qari).'"</div>
+  <div class="sb-ref">— Sahih al-Bukhari, Hadith 1 — The First Revelation in Cave Hira</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ The Significance of 'Unlettered' (Al-Ummi)</div>
+  <div class="sb-content">The Quran itself uses the term 'Al-Nabi Al-Ummi' (the Unlettered Prophet) in Quran 7:157-158. That a man who could not read or write produced the literary masterpiece of the Arabic language — the Quran — is itself a miracle. Isaiah 29:12 foretells this exact scenario: the book is given to one who is not learned, yet from his mouth comes divine words. Imam al-Nawawi notes: 'The Prophet's ﷺ being unlettered is not a deficiency — it is a sign of the divine origin of his message, because no human teacher could have produced the Quran through his hands.'</div>
+</div>
+<h2 class="sh"><span class="en-text">Section 5 — Testimony of Jewish and Christian Scholars Who Converted</span><span class="ur-text">سیکشن ۵ — یہودی و عیسائی علماء کی گواہی جو ایمان لائے</span></h2>
+<p class="bt"><span class="en-text">Some of the most powerful evidence for these prophecies comes from Jewish rabbis and Christian scholars who read these prophecies in their own scriptures and recognised Muhammad ﷺ as the prophet foretold. Their testimonies are recorded in authentic Islamic sources.</span><span class="ur-text">ان بشارات کے سب سے قوی ثبوت ان یہودی ربیوں اور عیسائی علماء سے آتے ہیں جو خود ایمان لائے — کیونکہ انہوں نے اپنی ہی کتابوں میں محمد ﷺ کا وصف دیکھا۔</span></p>
+<h3 class="sub"><span class="en-text">5.1  Abdullah ibn Salam (RA) — The Chief Rabbi of Madinah</span><span class="ur-text">۵.۱  عبداللہ بن سلام رضی اللہ عنہ — مدینہ کے سردار ربی</span></h3>
+<p class="bt"><span class="en-text">Abdullah ibn Salam (RA) was the greatest rabbi in Madinah at the time of the Prophet's ﷺ arrival. Upon hearing of Muhammad ﷺ, he said:</span><span class="ur-text">عبداللہ بن سلام رضی اللہ عنہ نبی ﷺ کی آمد کے وقت مدینہ کے سب سے بڑے ربی تھے۔ انہوں نے پہلی نظر میں پہچان لیا اور فوری طور پر ایمان لے آئے۔</span></p>
+<div class="hadith-box">
+  <div class="hb-quote">"When I looked at his face I knew it was not the face of a liar. The first thing he said was: 'O people, spread the salaam, feed the hungry, and pray at night while people sleep, and you will enter Paradise in peace.' I recognised him from the description in our Torah — his description and his signs."</div>
+  <div class="hb-ref">— Sahih al-Bukhari 3329 — Abdullah ibn Salam (RA)</div>
+</div>
+<p class="bt">Abdullah ibn Salam (RA) also narrated: 'I found his description in the Torah: Muhammad, the Messenger of Allah, My servant and Messenger — I named him Al-Mutawakkil (the one who relies on Allah). He is not harsh or severe, he does not shout in the marketplaces.' (Sahih al-Bukhari 2125) — This description matches Isaiah 42 word for word.</p>
+<h3 class="sub"><span class="en-text">5.2  Waraqah ibn Nawfal — The Christian Scholar of Makkah</span><span class="ur-text">۵.۲  ورقہ بن نوفل — مکہ کے عیسائی عالم</span></h3>
+<p class="bt"><span class="en-text">Waraqah ibn Nawfal was the cousin of Khadijah (RA) and a Christian scholar who had studied the original scriptures in Hebrew. When Khadijah (RA) brought Muhammad ﷺ to him after the first revelation, Waraqah said:</span><span class="ur-text">ورقہ بن نوفل خدیجہ رضی اللہ عنہا کے چچازاد بھائی اور مکہ کے عیسائی عالم تھے جنہوں نے عبرانی اور یونانی میں انجیل کا مطالعہ کیا تھا۔</span></p>
+<div class="hadith-box">
+  <div class="hb-quote">"This is the Namus (Jibreel) who came to Musa. I wish I were young and could live to the time when your people will turn you out. Would that I could be alive when your people expel you! ...By the One in whose hand is the soul of Waraqah — you are the prophet of this nation."</div>
+  <div class="hb-ref">— Sahih al-Bukhari 3 — Waraqah ibn Nawfal, recognising Muhammad ﷺ from his scriptures</div>
+</div>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ Why Waraqah's Testimony is Decisive</div>
+  <div class="sb-content">Waraqah ibn Nawfal was a scholar of the Hebrew and Arabic scriptures. He was not a Muslim — he died before Islam's revelation was complete. Yet he immediately recognised Muhammad ﷺ as the prophet foretold in the scriptures he had studied for decades. His use of the word 'Namus' (a Greek-derived term for the divine law-bearer, equivalent to Gabriel) shows he connected this event directly to what he had read about Moses receiving revelation. This is not blind faith — it is a scholar recognising what he had studied.</div>
+</div>
+<h2 class="sh"><span class="en-text">Section 6 — Ahmad: The Name Announced by Isa (AS)</span><span class="ur-text">سیکشن ۶ — احمد: وہ نام جو عیسیٰ علیہ السلام نے بتایا</span></h2>
+<p class="bt"><span class="en-text">The Quran's confirmation (61:6) that Isa (AS) announced a messenger named Ahmad is one of the most direct and clear prophecies in Islamic theology. The name Ahmad shares the same Arabic root as Muhammad (H-M-D = praise), making them essentially two forms of the same name.</span><span class="ur-text">قرآن کی تصدیق (۶۱:۶) کہ عیسیٰ علیہ السلام نے "احمد" نامی رسول کی بشارت دی — یہ نبوت کے سلسلے میں سب سے واضح حوالوں میں سے ایک ہے۔</span></p>
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">إِنَّ لِي أَسْمَاءً: أَنَا مُحَمَّدٌ، وَأَنَا أَحْمَدُ، وَأَنَا الْمَاحِي الَّذِي يَمْحُو اللَّهُ بِي الْكُفْرَ</div>
+  <div class="sb-trans">"I have many names: I am Muhammad, I am Ahmad, I am Al-Mahi (the one through whom Allah erases disbelief), I am Al-Hashir (the gatherer — people are gathered at my feet on the Day of Judgment), and I am Al-Aqib (the last — after whom there is no prophet)."</div>
+  <div class="sb-ref">— Sahih al-Bukhari 3532, Sahih Muslim 2354</div>
+</div>
+<p class="bt">The name Ahmad (أَحْمَدُ) means 'the one who praises Allah the most' — the superlative of Hamid (one who praises). Muhammad (مُحَمَّدٌ) means 'the one who is most praised' — the passive superlative. Both names come from the same root (H-M-D) and both were given to the Prophet ﷺ before his birth.</p>
+<div class="scholar-box">
+  <div class="sb-lbl">✦ Why Isa (AS) Used the Name 'Ahmad'</div>
+  <div class="sb-content">Ibn Kathir explains: 'Isa (AS) announced the coming prophet by his name Ahmad — which was his name before birth, and Muhammad was his name on Earth after the revelation. This is why the Quran uses Ahmad in the verse about Isa's announcement — because that is the name Isa (AS) used in his own language, the Aramaic-influenced Injil. The preservation of this specific name Ahmad in Quran 61:6 is itself a miracle, showing that the Quran corrects and restores what was lost from the original Injil.'</div>
+</div>
+<h2 class="sh"><span class="en-text">Section 7 — Physical and Character Description in Previous Scriptures</span><span class="ur-text">سیکشن ۷ — پچھلی کتابوں میں جسمانی و اخلاقی وصف</span></h2>
+<p class="bt"><span class="en-text">Beyond prophecies of his coming, the Torah contained a detailed description of the Prophet ﷺ — his character, his appearance, and the nature of his mission. This description was known to the scholars of Madinah before his arrival, which is why many recognised him immediately.</span><span class="ur-text">آنے کی بشارات سے آگے، تورات میں نبی ﷺ کا تفصیلی جسمانی و اخلاقی وصف بھی موجود تھا۔ عبداللہ بن سلام رضی اللہ عنہ نے اسی وصف سے آپ کو فوری پہچانا۔</span></p>
+<h3 class="sub"><span class="en-text">7.1  The Description Found in the Torah — Narrated by Abdullah ibn Salam (RA)</span><span class="ur-text">۷.۱  تورات میں پایا جانے والا وصف — عبداللہ بن سلام رضی اللہ عنہ کی روایت</span></h3>
+<div class="tbl-wrap">
+  <table class="doc-table">
+    <thead><tr><th>Description in the Torah</th><th>Confirmed in Sunnah</th></tr></thead>
+    <tbody><tr><td>Muhammad, My servant and Messenger — named Al-Mutawakkil (the one who relies on Allah)</td><td>The Prophet ﷺ is called Al-Mutawakkil in multiple narrations (Bukhari 2125)</td></tr>
+<tr><td>Not harsh or severe in character</td><td>Quran 3:159 — 'By the mercy of Allah, you were lenient with them'</td></tr>
+<tr><td>Does not shout or raise his voice in the markets</td><td>Isaiah 42 matches — Aisha (RA) confirmed: 'He never struck anyone with his hand' (Muslim)</td></tr>
+<tr><td>Will not be defeated until he straightens the crooked religion</td><td>The Prophet ﷺ established Islam in Arabia within 23 years</td></tr>
+<tr><td>He will be grateful and pure</td><td>Known as Al-Amin (the trustworthy) before prophethood</td></tr>
+</tbody>
+  </table>
+</div>
+<h2 class="sh"><span class="en-text">Conclusion — The Chain of Prophethood</span><span class="ur-text">خلاصہ — سلسلۂ نبوت</span></h2>
+<p class="bt"><span class="en-text">The prophecies of Muhammad ﷺ in previous scriptures are not isolated coincidences — they form a continuous divine thread woven through every major prophetic tradition. From the Torah's promise of 'a prophet like Musa from the brothers of Bani Israel,' to Isaiah's servant from Kedar's land, to the Song of Solomon's 'Muhammadim,' to the Gospel's Paraclete/Ahmad — each points to the same figure, the same character, and the same mission.</span><span class="ur-text">پچھلی کتابوں میں محمد ﷺ کی بشارات الگ اتفاقات نہیں — یہ الٰہی منصوبے کے سلسلے کی کڑیاں ہیں۔ ہر نبی اپنے بعد آنے والے کی بشارت دیتا رہا — اور یہ سلسلہ محمد ﷺ پر ختم ہوا۔</span></p>
+<p class="bt">The Quran confirms this pattern as intentional divine design — every prophet confirmed the next, and all of them pointed to the Seal of the Prophets. The converts who recognised Muhammad ﷺ from their scriptures — Abdullah ibn Salam, Waraqah ibn Nawfal, and hundreds of Jewish and Christian scholars in the early Islamic period — did so not through blind faith but through scholarly recognition of what their own texts described.</p>
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ</div>
+  <div class="sb-trans">"Muhammad is not but a messenger. [Other] messengers have passed on before him."</div>
+  <div class="sb-ref">— Quran 3:144</div>
+</div>
+<div class="scripture-block arabic-block">
+  <div class="sb-arabic">مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ</div>
+  <div class="sb-trans">"Muhammad is not the father of any of your men, but he is the Messenger of Allah and the Seal of the Prophets."</div>
+  <div class="sb-ref">— Quran 33:40</div>
+</div>
+<h2 class="sh"><span class="en-text">Primary Sources Referenced in This Document</span><span class="ur-text">اس دستاویز کے بنیادی مآخذ</span></h2>
+<div class="tbl-wrap">
+  <table class="doc-table">
+    <thead><tr><th>Source</th><th>Relevance</th></tr></thead>
+    <tbody><tr><td>Ibn Taymiyyah — Al-Jawab al-Sahih (4 Vols.)</td><td>Primary Islamic scholarly response to Jewish and Christian arguments about biblical prophecies</td></tr>
+<tr><td>Ibn Kathir — Al-Bidayah wal-Nihayah</td><td>Historical context and scholarly analysis of prophetic chain and scriptural prophecies</td></tr>
+<tr><td>Sahih al-Bukhari</td><td>Hadith 1 (first revelation), Hadith 2125 (Torah description), Hadith 3329 (Ibn Salam), Hadith 3532 (names)</td></tr>
+<tr><td>Sahih Muslim</td><td>Hadith 2354 (names of the Prophet ﷺ), supporting narrations on prophethood</td></tr>
+<tr><td>Quran — Surah al-Saff (61:6)</td><td>Primary Quranic text on the announcement of Ahmad by Isa (AS)</td></tr>
+<tr><td>Quran — Surah Al-A'raf (7:157)</td><td>Primary Quranic text on the description in Torah and Gospel</td></tr>
+<tr><td>Quran — Surah Al-Imran (3:81)</td><td>The covenant taken from all prophets regarding Muhammad ﷺ</td></tr>
+<tr><td>Old Testament — Deuteronomy 18:18, 33:2</td><td>Prophet like Moses; shining from Paran</td></tr>
+<tr><td>Old Testament — Isaiah 42, Isaiah 29:12</td><td>Servant from Kedar; the unlettered one</td></tr>
+<tr><td>Old Testament — Song of Solomon 5:16</td><td>Muhammadim — the name Muhammad in Hebrew</td></tr>
+<tr><td>New Testament — Gospel of John 14-16</td><td>The Paraclete / Periclytos = Ahmad prophecies</td></tr>
+</tbody>
+  </table>
+</div>
+<div class="av">صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+<p class="bt">May Allah send His peace and blessings upon Muhammad ﷺ, his family, and his companions.</p>
+</div>
+<div class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>window.addEventListener('scroll',()=>document.getElementById('btt').classList.toggle('show',window.scrollY>400));</script>
+<script>
+let LANG='en';
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+}
+</script>
+</body></html>
