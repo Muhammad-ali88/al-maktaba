@@ -668,6 +668,17 @@ mark { background: rgba(201,168,76,0.3); color: var(--gold2); border-radius: 2px
   .focus-arabic { font-size: 1.5rem; padding: 1rem; }
   .focus-body { padding: 24px 16px 100px; justify-content: flex-start; }
 }
+
+/* ── READING MODE & VERSE FIXES ── */
+.ayah { overflow: visible; word-break: break-word; }
+.ayah-english { overflow: visible; }
+.ayah-urdu { overflow: visible; }
+.ptab-panel.on { display: flex; flex: 1; overflow: hidden; flex-direction: column; min-height: 0; }
+.read-mode-bar { display: none; align-items: center; justify-content: space-between; padding: 8px 16px; background: rgba(6,9,15,0.9); border-bottom: 1px solid rgba(201,168,76,0.2); flex-shrink: 0; }
+#panel.reading-mode .read-mode-bar { display: flex; }
+#panel.reading-mode .pull-bar { display: none; }
+.rmb-title { font-family: 'Cinzel',serif; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); }
+.rmb-exit { font-family: 'Cinzel',serif; font-size: 10px; padding: 5px 12px; border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; color: var(--gold); cursor: pointer; background: transparent; }
 </style>
 </head>
 <body>
@@ -2500,124 +2511,8 @@ function printSurah() {
     '.header{text-align:center;border-bottom:2px solid #C9A84C;padding-bottom:1rem;margin-bottom:2rem}' +
     '.brand{font-family:Cinzel,serif;font-size:0.8rem;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem}' +
     '.surah-name{font-family:Noto Naskh Arabic,serif;font-size:1.8rem;color:#8B6914;direction:rtl;margin-bottom:0.25rem}' +
-    '@media print{body{margin:1cm}}
-/* ── READING MODE IMPROVEMENTS ── */
-
-/* Verse card: ensure full verse shows, no clipping */
-.ayah {
-  padding: 16px 18px 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  transition: background .15s;
-  word-break: break-word;
-  overflow: visible;
-}
-
-/* Arabic text: bigger on mobile, no overflow clipping */
-.ayah-arabic {
-  font-family: 'Noto Naskh Arabic', serif;
-  font-size: clamp(1.15rem, 4vw, 1.45rem);
-  line-height: 2.2;
-  direction: rtl;
-  text-align: right;
-  color: var(--gold2, #E4C97A);
-  margin-bottom: 10px;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-}
-
-/* English/Urdu: full display, no truncation */
-.ayah-english {
-  font-size: clamp(0.82rem, 2.5vw, 0.92rem);
-  line-height: 1.75;
-  color: var(--text, #D4CBB8);
-  overflow: visible;
-}
-.ayah-urdu {
-  font-family: 'Noto Naskh Arabic', serif;
-  font-size: clamp(0.9rem, 2.8vw, 1rem);
-  direction: rtl;
-  text-align: right;
-  line-height: 2;
-  color: var(--text, #D4CBB8);
-  margin-top: 6px;
-  overflow: visible;
-}
-
-/* Reading mode active state */
-#panel.reading-mode .ptabs { 
-  position: sticky; 
-  top: 0; 
-  z-index: 10;
-}
-#panel.reading-mode .pull-bar { display: none; }
-#panel.reading-mode .pclose { 
-  font-size: 11px; 
-  padding: 6px 12px;
-}
-
-/* Android: ensure vt-body fills properly */
-.ptab-panel.on {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-  flex-direction: column;
-  min-height: 0;
-}
-
-/* Full read mode bar */
-.read-mode-bar {
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 16px;
-  background: rgba(6,9,15,0.9);
-  border-bottom: 1px solid rgba(201,168,76,0.2);
-  flex-shrink: 0;
-}
-#panel.reading-mode .read-mode-bar { display: flex; }
-.rmb-title {
-  font-family: 'Cinzel', serif;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  color: var(--gold, #C9A84C);
-}
-.rmb-exit {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 1px;
-  padding: 5px 12px;
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 4px;
-  color: var(--gold, #C9A84C);
-  cursor: pointer;
-  background: transparent;
-}
-
-@media (max-width: 600px) {
-  /* Ensure toolbar stays compact on small screens */
-  .vt-toolbar { flex-wrap: wrap; gap: 6px; padding: 10px 12px; }
-  .vt-search { min-width: 120px; font-size: 13px; }
-  .ayah-actions { gap: 3px; }
-  .ayah-btn { padding: 5px 7px; font-size: 12px; }
-  
-  /* Ayah number badge stays visible */
-  .ayah-top { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 6px;
-    margin-bottom: 8px;
-  }
-  .ayah-num {
-    flex-shrink: 0;
-  }
-  .ayah-ref {
-    font-size: 9px;
-    flex-shrink: 0;
-  }
-}
-</style></head><body>' +
+    '@media print{body{margin:1cm}}' +
+    '</style></head><body>' +
     '<div class="header"><div class="brand">Al-Maktaba — Quran Explorer</div>' +
     '<div class="surah-name">' + surahName + '</div></div>' +
     rows +
