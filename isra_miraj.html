@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Al-Isra wal-Mi'raj — The Night Journey & Ascension — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#04070D;--bg1:#080E1C;--gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;--acc:#C9A84C;
+  --golddim:rgba(201,168,76,.10);--text:#D4CBB8;--text2:#8A9BB0;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:'Lora',serif;line-height:1.8;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 900px 600px at 20% 0%,rgba(201,168,76,.05),transparent 65%);}
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.95);
+  border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);
+  display:flex;align-items:center;padding:0 24px;height:54px;gap:14px}
+.back-btn{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--text2);
+  padding:6px 12px;border:1px solid var(--border2);border-radius:6px;text-decoration:none;transition:all .15s}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;font-size:18px;color:var(--gold)}
+.nav-en{font-family:'Cinzel',serif;font-size:11px;font-weight:700;color:var(--gold2);letter-spacing:1.5px}
+.nav-right{margin-left:auto;font-family:'Cinzel',serif;font-size:9px;color:var(--text2);letter-spacing:1px}
+.doc-hero{position:relative;z-index:1;padding:70px 24px 50px;text-align:center;
+  border-bottom:1px solid var(--border2);background:linear-gradient(160deg,rgba(17,30,53,.7),rgba(4,7,13,.9))}
+.doc-bsm{font-family:'Noto Naskh Arabic',serif;font-size:clamp(20px,3.5vw,28px);color:var(--gold);margin-bottom:14px;animation:fadeD .8s both}
+.doc-ar{font-family:'Noto Naskh Arabic',serif;font-size:clamp(32px,6vw,58px);color:var(--gold2);
+  margin-bottom:8px;line-height:1.2;text-shadow:0 0 30px rgba(201,168,76,.25);animation:fadeD .8s .1s both}
+.doc-en{font-family:'Cinzel',serif;font-size:clamp(16px,3vw,28px);font-weight:700;color:#fff;
+  margin-bottom:10px;letter-spacing:1.5px;animation:fadeD .8s .18s both}
+.doc-sub{font-size:13px;color:var(--text2);font-style:italic;max-width:600px;
+  margin:0 auto 22px;line-height:1.7;animation:fadeD .8s .25s both}
+.doc-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto}
+@keyframes fadeD{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.doc-content{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:48px 28px 80px}
+h2.sh{font-family:'Cinzel',serif;font-size:clamp(15px,2.5vw,21px);font-weight:700;color:var(--gold2);
+  margin:42px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--border);letter-spacing:.8px}
+h2.sh:first-child{margin-top:0}
+h3.sub{font-family:'Cinzel',serif;font-size:14px;font-weight:600;color:#fff;
+  margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--acc)}
+p.bt{color:var(--text);font-size:14px;line-height:1.85;margin-bottom:12px}
+.av{font-family:'Noto Naskh Arabic',serif;font-size:clamp(19px,3.5vw,26px);color:var(--gold2);
+  direction:rtl;text-align:right;line-height:2.1;padding:14px 18px;
+  border-right:4px solid var(--gold);background:rgba(201,168,76,.05);
+  border-radius:0 10px 10px 0;margin:14px 0 6px}
+.tr{font-size:13px;font-style:italic;color:var(--gold3);padding:8px 18px 8px 20px;
+  border-left:3px solid var(--gold);background:rgba(201,168,76,.04);
+  border-radius:0 7px 7px 0;margin-bottom:8px;line-height:1.7}
+.qref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.8px;color:var(--gold);margin-bottom:18px}
+.hbox{background:rgba(47,184,154,.07);border-left:3px solid #2FB89A;padding:14px 16px;
+  border-radius:0 9px 9px 0;margin:14px 0;font-size:13px;color:#a8c8b8;
+  line-height:1.75;font-style:italic}
+.ibox{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);
+  border-radius:9px;padding:14px 16px;margin:14px 0;font-size:13px;color:var(--text);line-height:1.75}
+.ilbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;display:block}
+.pc{background:linear-gradient(135deg,rgba(17,30,53,.9),rgba(8,14,28,.95));border:1px solid rgba(201,168,76,.12);
+  border-radius:10px;padding:16px 18px;margin:10px 0;border-top:2px solid var(--acc)}
+.pc-hv{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:5px}
+.pc-nm{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--gold2);margin-bottom:7px}
+.pc-bd{font-size:13px;color:var(--text2);line-height:1.7}
+.btt{position:fixed;bottom:28px;right:24px;z-index:80;width:40px;height:40px;border-radius:50%;
+  background:var(--golddim);border:1px solid var(--border);display:flex;align-items:center;
+  justify-content:center;color:var(--gold2);font-size:16px;cursor:pointer;
+  transition:all .2s;opacity:0;pointer-events:none}
+.btt.show{opacity:1;pointer-events:all}
+@media(max-width:600px){
+  .doc-content{padding:34px 16px 60px}
+  .top-nav{padding:0 12px;gap:8px}
+  .nav-en{display:none}
+  .nav-ar{font-size:15px}
+}
+/* ── HEAVEN CARDS ── */
+.hc{background:linear-gradient(135deg,rgba(17,30,53,.95),rgba(8,14,28,.98));
+  border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:20px 22px;
+  margin:14px 0;position:relative;overflow:hidden}
+.hc::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hc-num{font-family:"Cinzel",serif;font-size:8.5px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--text2);margin-bottom:4px}
+.hc-name{font-family:"Cinzel",serif;font-size:16px;font-weight:700;
+  color:var(--gold2);margin-bottom:6px}
+.hc-ar{font-family:"Noto Naskh Arabic",serif;font-size:20px;color:var(--gold);
+  margin-bottom:10px;direction:rtl;text-align:right}
+.hc-body{font-size:13px;color:var(--text);line-height:1.8;margin-bottom:8px}
+.hc-hadith{font-size:12px;font-style:italic;color:var(--text2);
+  background:rgba(47,184,154,.06);border-left:2px solid rgba(47,184,154,.4);
+  padding:8px 12px;border-radius:0 6px 6px 0;margin-top:10px;line-height:1.7}
+.hc-lesson{font-family:"Cinzel",serif;font-size:9px;letter-spacing:1px;
+  color:var(--acc);margin-top:8px;text-transform:uppercase}
+/* ── WISDOM TABLE ── */
+.wisdom-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.wisdom-table th{font-family:"Cinzel",serif;font-size:9px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);
+  padding:8px 12px;text-align:left}
+.wisdom-table td{padding:10px 12px;border-bottom:1px solid var(--border2);
+  vertical-align:top;line-height:1.7}
+.wisdom-table tr:hover td{background:rgba(201,168,76,.03)}
+.wt-heaven{font-family:"Cinzel",serif;font-size:10px;font-weight:700;color:var(--gold2);white-space:nowrap}
+.wt-prophet{font-family:"Noto Naskh Arabic",serif;font-size:16px;color:var(--gold)}
+.wt-lesson{color:var(--text2);font-size:12.5px}
+/* ── ACTION BAR ── */
+.action-bar{display:flex;gap:8px;justify-content:flex-end;margin-bottom:20px;flex-wrap:wrap}
+.action-btn{font-family:"Cinzel",serif;font-size:9px;letter-spacing:1px;padding:7px 14px;
+  border:1px solid var(--border2);border-radius:6px;cursor:pointer;
+  color:var(--text2);background:transparent;transition:all .15s;text-transform:uppercase}
+.action-btn:hover{color:var(--gold);border-color:var(--border)}
+@media print{.top-nav,.btt,.action-bar{display:none!important}.doc-content{padding:20px}}
+
+.lang-toggle{display:flex;align-items:center;gap:2px;margin-left:auto;
+  background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.15);border-radius:20px;padding:3px;flex-shrink:0}
+.lt-btn{font-family:"Cinzel",serif;font-size:9.5px;letter-spacing:1px;padding:4px 12px;
+  border-radius:16px;cursor:pointer;transition:all .2s;color:#8A9BB0;user-select:none}
+.lt-btn.on{background:#C9A84C;color:#000;font-weight:700}
+.lt-btn:hover:not(.on){color:#E2C97A}
+.ur-text{display:none;font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+.ur-mode .en-text{display:none}
+.ur-mode .ur-text{display:block}
+.ur-mode h2.sh,.ur-mode h3{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+.ur-mode p.bt{font-family:"Noto Naskh Arabic",serif;font-size:14px;direction:rtl;text-align:right;line-height:2}
+.ur-mode .hc-name,.ur-mode .h-title{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+
+
+/* ── UR-MODE: additional element font/direction rules ── */
+.ur-mode .hc-num{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right;line-height:1.8}
+.ur-mode .hc-lesson{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right;line-height:2}
+.ur-mode .hc-hadith{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right;line-height:2.1}
+.ur-mode .qref{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right;line-height:2}
+.ur-mode .ilbl{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+.ur-mode .wt-heaven{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+.ur-mode .wt-lesson{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right;line-height:2.1}
+.ur-mode .ibox{direction:rtl;text-align:right}
+.ur-mode .hc-body{direction:rtl}
+.ur-mode .hc{direction:rtl}
+.ur-mode .doc-sub .ur-text{display:block!important}
+.ur-mode .doc-sub .en-text{display:none!important}
+.ur-mode .wisdom-table th{text-align:right;direction:rtl;font-family:"Noto Naskh Arabic",serif}
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <a class="back-btn" href="index.html">← Al-Maktaba</a>
+  <div class="nav-ar">الإسراء والمعراج</div>
+  <div class="nav-en">Al-Isra wal-Mi'raj</div>
+  <div class="lang-toggle">
+    <div class="lt-btn on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt-btn" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+</div>
+<div class="doc-hero">
+  <div class="doc-bsm">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="doc-ar">الإسراء والمعراج</div>
+  <div class="doc-en">Al-Isra wal-Mi'raj — The Night Journey & Ascension</div>
+  <div class="doc-sub">
+  <span class="en-text">The miraculous Night Journey from Makkah to Jerusalem and through the Seven Heavens — narrated from Sahih al-Bukhari and Sahih Muslim</span>
+  <span class="ur-text" style="display:none;font-family:Noto Naskh Arabic,serif;direction:rtl;text-align:center;line-height:2">معجزاتی شبِ سفر مکہ سے بیت المقدس اور سات آسمانوں سے گزر — صحیح بخاری اور صحیح مسلم کی روایت</span>
+</div>
+  <div class="doc-rule"></div>
+</div>
+<div class="doc-content"><div class="action-bar">
+  <button class="action-btn" onclick="sharePage()">⬆ Share</button>
+  <button class="action-btn" onclick="window.print()">&#128438; Print</button>
+</div>
+
+<h2 class="sh"><span class="en-text">Introduction — The Greatest Night in Human History</span><span class="ur-text">تعارف — انسانی تاریخ کی سب سے عظیم رات</span></h2>
+<p class="bt"><span class="en-text">In the 10th year of prophethood — the Year of Sorrow (Am al-Huzn) — the Prophet Muhammad ﷺ had just endured the most painful period of his mission. His beloved wife Khadijah (RA) had passed away. His uncle and protector Abu Talib had died. He had been rejected and pelted with stones in Ta'if. It was in this state of grief and trial that Allah honoured him with the most extraordinary journey any human being has ever undertaken.</span><span class="ur-text">نبوت کے دسویں سال — غمِ نبوی (عام الحزن) — نبی محمد ﷺ اپنی مہم کے سب سے تکلیف دہ دور سے گزر رہے تھے۔ آپ ﷺ کی محبوب زوجہ خدیجہ رضی اللہ عنہا وفات پا چکی تھیں۔ آپ کے چچا اور سرپرست ابوطالب بھی انتقال کر چکے تھے۔ طائف میں آپ کو پتھر مارے گئے تھے۔ اسی غم و آزمائش کی حالت میں اللہ تعالیٰ نے آپ کو وہ عظیم الشان سفر عطا کیا جو کسی انسان نے کبھی نہیں کیا۔</span></p>
+<p class="bt"><span class="en-text">In a single night, the Prophet ﷺ was taken from Makkah to Jerusalem (Al-Isra — the Night Journey), and then ascended through all seven heavens to the Sidratul Muntaha — the Lote Tree of the Utmost Boundary — where he received the gift of the five daily prayers directly from Allah (Al-Mi'raj — the Ascension). Along the way, he met every major prophet in the heavens and led them all in prayer at Al-Masjid Al-Aqsa.</span><span class="ur-text">ایک ہی رات میں نبی ﷺ کو مکہ سے بیت المقدس لے جایا گیا (الاسراء — شبِ سفر)، پھر آپ سات آسمانوں سے گزرتے ہوئے سدرۃ المنتہیٰ تک پہنچے جہاں آپ کو پانچ روزہ نمازوں کا تحفہ ملا۔</span></p>
+<p class="bt"><span class="en-text">This document covers the complete authenticated narrative from Sahih al-Bukhari and Sahih Muslim, the prophets encountered in each heaven, the significance of the five daily prayers, and the lessons that Islamic scholars have drawn from this miraculous night.</span><span class="ur-text">یہ صفحات صحیح بخاری، صحیح مسلم اور دیگر مستند احادیث سے مکمل تصدیق شدہ روایت پیش کرتے ہیں۔</span></p>
+<h2 class="sh"><span class="en-text">The Date and Context</span><span class="ur-text">تاریخ اور پس منظر</span></h2>
+<div class="av">سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ لِنُرِيَهُ مِنْ آيَاتِنَا ۚ إِنَّهُ هُوَ السَّمِيعُ الْبَصِيرُ</div>
+<div class="tr"><span class="en-text">"Exalted is He who took His Servant by night from Al-Masjid Al-Haram to Al-Masjid Al-Aqsa, whose surroundings We have blessed, to show him of Our signs. Indeed, He is the Hearing, the Seeing."</span><span class="ur-text">«پاک ہے وہ ذات جو اپنے بندے کو رات کے ایک حصے میں مسجد الحرام سے مسجد اقصیٰ لے گئی، جس کے اردگرد ہم نے برکت دی ہے، تاکہ ہم اسے اپنی نشانیاں دکھائیں۔ بیشک وہ سننے والا، دیکھنے والا ہے۔»</span></div>
+<p class="qref"><span class="en-text">Surah Al-Isra 17:1 — The Quranic confirmation of Al-Isra (the Night Journey to Jerusalem)</span><span class="ur-text">سورۃ الاسراء ۱۷:۱ — الاسراء (مکہ سے بیت المقدس رات کے سفر) کی قرآنی تصدیق</span></p>
+
+<div class="av">وَلَقَدْ رَآهُ نَزْلَةً أُخْرَىٰ ﴿١٣﴾ عِندَ سِدْرَةِ الْمُنتَهَىٰ ﴿١٤﴾ عِندَهَا جَنَّةُ الْمَأْوَىٰ ﴿١٥﴾ إِذْ يَغْشَى السِّدْرَةَ مَا يَغْشَىٰ ﴿١٦﴾ مَا زَاغَ الْبَصَرُ وَمَا طَغَىٰ</div>
+<div class="tr"><span class="en-text">"And he saw him (Jibreel) on another descent — at the Sidratul Muntaha. Near it is the Garden of Refuge. When there covered the Lote Tree what covered it — the sight (of the Prophet) did not swerve, nor did it transgress its limit."</span><span class="ur-text">«اور اس نے اسے (جبریل کو) ایک اور اترنے پر دیکھا — سدرۃ المنتہیٰ کے پاس۔ اسی کے پاس جنۃ الماویٰ ہے۔ جب سدرہ کو چھا لیا جو چھا لیا — نگاہ نہ بھٹکی، نہ حد سے گزری۔»</span></div>
+<p class="qref"><span class="en-text">Surah An-Najm 53:13–17 — The Quranic confirmation of Al-Mi'raj (the Ascension to the Sidratul Muntaha)</span><span class="ur-text">سورۃ النجم ۵۳:۱۳–۱۷ — المعراج (سدرۃ المنتہیٰ تک عروج) کی قرآنی تصدیق</span></p>
+
+<p class="bt"><span class="en-text">The majority of Islamic scholars place Al-Isra wal-Mi'raj in the 10th year of prophethood (619–620 CE), approximately three years before the Hijra to Madinah. The event is confirmed in two Quranic Surahs: Surah Al-Isra (17:1) which describes the night journey from Makkah to Jerusalem, and Surah An-Najm (53:1–18) which describes the ascension and the Prophet's ﷺ seeing of Jibreel (AS) in his original form at the Sidratul Muntaha.</span><span class="ur-text">اکثر علماء اسلام الاسراء والمعراج کو نبوت کے دسویں سال ہجرت سے تقریباً ایک سال پہلے رجب کے مہینے میں رکھتے ہیں۔</span></p>
+<h2 class="sh"><span class="en-text">Part One — Al-Isra: The Night Journey (Makkah to Jerusalem)</span><span class="ur-text">حصہ اول — الاسراء: راتوں رات کا سفر (مکہ سے بیت المقدس)</span></h2>
+<p class="bt"><span class="en-text">Al-Isra began at the home of Umm Hani (RA) near Al-Masjid Al-Haram in Makkah. The Prophet ﷺ was in a state between sleep and wakefulness when Jibreel (AS) arrived with Al-Buraq — a white creature, larger than a donkey but smaller than a mule, whose every stride reached the horizon.</span><span class="ur-text">الاسراء کا آغاز مکہ میں ام ہانی رضی اللہ عنہا کے گھر کے قریب مسجد الحرام سے ہوا۔ جبریل علیہ السلام آئے، نبی ﷺ کا سینہ چاک کیا، قلب مبارک کو زمزم سے دھویا اور ایمان و حکمت سے بھر دیا۔ پھر آپ کو براق پر سوار کیا گیا — ایک سفید جانور، گدھے سے بڑا اور خچر سے چھوٹا۔</span></p>
+<p class="bt"><span class="en-text">The Prophet ﷺ was taken to Al-Masjid Al-Aqsa in Jerusalem — a journey of over 1,200 km that was completed in moments. Al-Aqsa had been built by Sulaiman (AS) and was the holiest site of every Israelite prophet. There, the Prophet ﷺ found a gathering unlike any in history.</span><span class="ur-text">نبی ﷺ کو بیت المقدس میں مسجد اقصیٰ لے جایا گیا — ۱۲۰۰ کلومیٹر سے زیادہ کا سفر جو لمحوں میں طے ہوا۔ وہاں تمام انبیاء جمع تھے اور نبی ﷺ نے ان کی امامت کی — یہ خود ایک عظیم نشانی تھی۔</span></p>
+<p class="bt"><span class="en-text">After the prayer, Jibreel (AS) brought two vessels — one of wine and one of milk. The Prophet ﷺ chose the milk. Jibreel (AS) said: 'You have chosen the fitrah (pure natural disposition). If you had chosen the wine, your nation would have gone astray.' (Sahih Muslim 168). This choice established the primacy of the natural, pure path of Islam.</span><span class="ur-text">نماز کے بعد جبریل علیہ السلام دو برتن لائے — ایک شراب کا اور ایک دودھ کا۔ نبی ﷺ نے دودھ کا انتخاب کیا۔ جبریل علیہ السلام نے فرمایا: "آپ نے فطرت کو اختیار کیا۔"</span></p>
+<h2 class="sh"><span class="en-text">Part Two — Al-Miʾraj: The Ascension Through the Seven Heavens</span><span class="ur-text">حصہ دوم — المعراج: سات آسمانوں سے گزر</span></h2>
+<p class="bt"><span class="en-text">From Al-Masjid Al-Aqsa, Jibreel (AS) ascended with the Prophet ﷺ through the seven heavens. At each heaven's gate, Jibreel (AS) knocked and was asked who he was. When he announced that Muhammad ﷺ was with him, the gate was opened and the prophet of that heaven came forward to greet him. The narration is in Sahih al-Bukhari 3207 and Sahih Muslim 162–163.</span><span class="ur-text">مسجد اقصیٰ سے جبریل علیہ السلام نبی ﷺ کے ساتھ سات آسمانوں میں چڑھے۔ ہر آسمان پر دروازے کھلوائے گئے اور نبی ﷺ نے ایک ایک کر کے انبیاء سے ملاقات کی۔</span></p>
+<p class="bt"><span class="en-text">What follows is the complete account of every prophet encountered in each of the seven heavens, with the scholarly significance of why each prophet was placed in that specific heaven.</span><span class="ur-text">ذیل میں ہر آسمان پر ہونے والی مکمل ملاقاتوں کا بیان ہے جیسا کہ صحیح بخاری و مسلم میں مروی ہے۔</span></p>
+<!-- ═══ THE SEVEN HEAVENS ═══ -->
+
+<div class="hc">
+  <div class="hc-num"><span class="en-text">The First Heaven</span><span class="ur-text">پہلا آسمان</span></div>
+  <div class="hc-name"><span class="en-text">Adam (AS) — Abu al-Bashar, Father of All Humanity</span><span class="ur-text">آدم علیہ السلام — ابوالبشر، تمام انسانیت کے باپ</span></div>
+  <div class="hc-ar">آدَمُ عَلَيْهِ السَّلَام</div>
+  <div class="hc-body"><span class="en-text">When Jibreel (AS) announced Muhammad ﷺ at the first heaven's gate, it opened and Adam (AS) came forward. He greeted the Prophet ﷺ with: <em>"Marhaban bil-ibni al-salih wal-nabiyyi al-salih"</em> — "Welcome, O righteous son and righteous prophet."</span><span class="ur-text">جب جبریل علیہ السلام نے پہلے آسمان کے دروازے پر دستک دی اور انہیں بتایا کہ محمد ﷺ ساتھ ہیں، دروازہ کھل گیا اور آدم علیہ السلام آگے آئے۔ انہوں نے نبی ﷺ کو سلام کیا: «مرحباً بالابن الصالح والنبی الصالح» — «خوش آمدید اے صالح بیٹے اور صالح نبی۔»</span></div>
+  <div class="hc-body"><span class="en-text">The Prophet ﷺ saw Adam (AS) with countless souls to his right and countless souls to his left. When Adam (AS) looked to his right, he laughed with joy. When he looked to his left, he wept. Jibreel (AS) explained: "To his right are the souls of his descendants who will be among the people of Paradise — and to his left, those who will be among the people of the Fire." (Sahih al-Bukhari 3207)</span><span class="ur-text">نبی ﷺ نے دیکھا کہ آدم علیہ السلام کے دائیں اور بائیں لاتعداد ارواح ہیں۔ جب وہ دائیں دیکھتے تو ہنستے، جب بائیں دیکھتے تو روتے۔ جبریل علیہ السلام نے بتایا: «دائیں جنت والوں کی ارواح ہیں، بائیں دوزخ والوں کی۔» (بخاری ۳۲۰۷)</span></div>
+  <div class="hc-hadith"><span class="en-text">Significance: Adam (AS) is in the first heaven because he is the beginning — the father of all humanity. His position at the door of the journey establishes the arc: from the first human to the last prophet, from creation's origin to its culmination.</span><span class="ur-text">حکمت: آدم علیہ السلام پہلے آسمان پر ہیں کیونکہ وہ ابتدا ہیں — تمام انسانیت کے باپ۔ ان کا پہلے آسمان پر ہونا سفر کے قوس کو قائم کرتا ہے: پہلے انسان سے آخری نبی تک۔</span></div>
+  <div class="hc-lesson"><span class="en-text">📖 Source: Sahih al-Bukhari 3207 · Sahih Muslim 162–163</span><span class="ur-text">📖 ماخذ: صحیح بخاری ۳۲۰۷ · صحیح مسلم ۱۶۲–۱۶۳</span></div>
+</div>
+
+<div class="hc">
+  <div class="hc-num"><span class="en-text">The Second Heaven</span><span class="ur-text">دوسرا آسمان</span></div>
+  <div class="hc-name"><span class="en-text">Yahya (AS) & Isa (AS) — Cousins, Prophets of the Same Generation</span><span class="ur-text">یحییٰ علیہ السلام اور عیسیٰ علیہ السلام — چچازاد بھائی، ایک دور کے نبی</span></div>
+  <div class="hc-ar">يَحْيَى وَعِيسَى عَلَيْهِمَا السَّلَام</div>
+  <div class="hc-body"><span class="en-text">In the second heaven, the Prophet ﷺ found Yahya (AS) and Isa (AS) together — both greeted him as "the righteous brother and the righteous prophet." Both were cousins in lineage: Yahya was the son of Zakariyya (AS), and Isa (AS) was the son of Maryam (RA), whose mother was the sister of Zakariyya's wife.</span><span class="ur-text">دوسرے آسمان پر نبی ﷺ نے یحییٰ علیہ السلام اور عیسیٰ علیہ السلام دونوں کو اکٹھا پایا — دونوں نے انہیں «صالح بھائی اور صالح نبی» کہہ کر خوش آمدید کہا۔ یہ دونوں رشتے میں چچازاد بھائی تھے۔</span></div>
+  <div class="hc-body"><span class="en-text">The Prophet ﷺ described Isa (AS): "He was of medium height, with a reddish-white complexion, and had hair as if he had just come out of a bath — as though water was dripping from his hair." (Bukhari 3207)</span><span class="ur-text">نبی ﷺ نے عیسیٰ علیہ السلام کے بارے میں فرمایا: «درمیانہ قد، سرخی مائل سفید رنگ، اور بال ایسے جیسے ابھی حمام سے نکلے ہوں۔» (بخاری ۳۲۰۷)</span></div>
+  <div class="hc-hadith"><span class="en-text">Significance: Yahya (AS) and Isa (AS) are together because they shared one mission in one era — both born of miracles, both rejected by their people, both confirming each other's message. Their togetherness in the second heaven is the Quran's picture of complementary prophecy.</span><span class="ur-text">حکمت: یحییٰ اور عیسیٰ علیہما السلام اکٹھے ہیں کیونکہ انہوں نے ایک ہی دور میں ایک ہی مشن اداکیا — دونوں معجزاتی پیدائش، دونوں کی رد کاری، دونوں ایک دوسرے کی تصدیق کرنے والے۔</span></div>
+  <div class="hc-lesson"><span class="en-text">📖 Source: Sahih al-Bukhari 3207 · Sahih Muslim 162</span><span class="ur-text">📖 ماخذ: صحیح بخاری ۳۲۰۷ · صحیح مسلم ۱۶۲</span></div>
+</div>
+
+<div class="hc">
+  <div class="hc-num"><span class="en-text">The Third Heaven</span><span class="ur-text">تیسرا آسمان</span></div>
+  <div class="hc-name"><span class="en-text">Yusuf (AS) — The One Given Half of All Beauty</span><span class="ur-text">یوسف علیہ السلام — جنہیں نصف حسن دیا گیا</span></div>
+  <div class="hc-ar">يُوسُفُ عَلَيْهِ السَّلَام</div>
+  <div class="hc-body"><span class="en-text">In the third heaven, the Prophet ﷺ met Yusuf (AS) — who also greeted him as "the righteous brother and righteous prophet." The Prophet ﷺ described him with one of the most remarkable statements in all the hadith literature:</span><span class="ur-text">تیسرے آسمان پر نبی ﷺ نے یوسف علیہ السلام سے ملاقات کی — انہوں نے بھی «صالح بھائی اور صالح نبی» کہہ کر استقبال کیا۔ نبی ﷺ نے ان کے بارے میں ایک غیر معمولی بیان فرمایا:</span></div>
+  <div class="av" style="margin:10px 0 4px">أُعْطِيَ شَطْرَ الْحُسْنِ</div>
+  <div class="tr"><span class="en-text">"He had been given half of all beauty." (Sahih Muslim 162) — meaning that all the beauty distributed among all of humanity is half of what was given to Yusuf (AS) alone.</span><span class="ur-text">«انہیں نصف حسن دیا گیا تھا» — (مسلم ۱۶۲) یعنی تمام انسانوں میں جتنا حسن بانٹا گیا، وہ سب مل کر یوسف علیہ السلام کو دیے گئے حسن کا آدھا ہے۔</span></div>
+  <div class="hc-hadith"><span class="en-text">Significance: Yusuf (AS) in the third heaven represents the trial of beauty, desire, and steadfastness. His story — thrown into a well, sold as a slave, imprisoned on a false charge, maintaining complete chastity — is the Quran's greatest lesson in sabr (patience) and iffah (chastity). The third heaven is the heaven of perseverance through the most seductive trials.</span><span class="ur-text">حکمت: یوسف علیہ السلام تیسرے آسمان پر حسن، خواہش اور استقامت کی آزمائش کی علامت ہیں۔ ان کی کہانی — کنویں میں پھینکا جانا، غلام بنا کر بیچا جانا، جھوٹے الزام میں قید — صبر اور پاکدامنی کا سب سے بڑا سبق ہے۔</span></div>
+  <div class="hc-lesson"><span class="en-text">📖 Source: Sahih Muslim 162 · Sahih al-Bukhari 3207</span><span class="ur-text">📖 ماخذ: صحیح مسلم ۱۶۲ · صحیح بخاری ۳۲۰۷</span></div>
+</div>
+
+<div class="hc">
+  <div class="hc-num"><span class="en-text">The Fourth Heaven</span><span class="ur-text">چوتھا آسمان</span></div>
+  <div class="hc-name"><span class="en-text">Idris (AS) — Raised to a High Station</span><span class="ur-text">ادریس علیہ السلام — جنہیں بلند مقام عطا کیا گیا</span></div>
+  <div class="hc-ar">إِدْرِيسُ عَلَيْهِ السَّلَام</div>
+  <div class="hc-body"><span class="en-text">In the fourth heaven, the Prophet ﷺ found Idris (AS). Idris (AS) also greeted him warmly as "the righteous brother and righteous prophet." The Quran itself speaks of his elevation: "And We raised him to a high station." (Quran 19:57) — a verse whose full meaning becomes clear in the light of this hadith: he was literally raised to the fourth heaven.</span><span class="ur-text">چوتھے آسمان پر نبی ﷺ نے ادریس علیہ السلام سے ملاقات کی۔ انہوں نے بھی گرمجوشی سے استقبال کیا۔ قرآن نے ان کے بارے میں فرمایا: «ہم نے انہیں بلند مقام پر اٹھایا» (۱۹:۵۷) — اس آیت کا مفہوم اس حدیث کی روشنی میں اور واضح ہو جاتا ہے: انہیں لفظی معنوں میں چوتھے آسمان پر اٹھایا گیا۔</span></div>
+  <div class="hc-hadith"><span class="en-text">Significance: Idris (AS) is known as the first to write with a pen, the first to study the stars, and the first to sew clothes. His placement in the fourth heaven — above Adam, Yahya, Isa, and Yusuf — reflects his unique spiritual elevation. He is the prophet of knowledge and craft: the patron of learning.</span><span class="ur-text">حکمت: ادریس علیہ السلام پہلے تھے جنہوں نے قلم سے لکھا، ستارے پڑھے اور کپڑے سیے۔ چوتھے آسمان پر ان کا مقام — آدم، یحییٰ، عیسیٰ اور یوسف علیہم السلام سے اوپر — ان کی منفرد روحانی بلندی کو ظاہر کرتا ہے۔</span></div>
+  <div class="hc-lesson"><span class="en-text">📖 Source: Sahih al-Bukhari 3207 · Quran 19:57</span><span class="ur-text">📖 ماخذ: صحیح بخاری ۳۲۰۷ · قرآن ۱۹:۵۷</span></div>
+</div>
+
+<div class="hc">
+  <div class="hc-num"><span class="en-text">The Fifth Heaven</span><span class="ur-text">پانچواں آسمان</span></div>
+  <div class="hc-name"><span class="en-text">Harun (AS) — The Beloved of His People</span><span class="ur-text">ہارون علیہ السلام — اپنی قوم کے محبوب</span></div>
+  <div class="hc-ar">هَارُونُ عَلَيْهِ السَّلَام</div>
+  <div class="hc-body"><span class="en-text">In the fifth heaven, the Prophet ﷺ found Harun (AS) — the older brother of Musa (AS), the co-prophet appointed by Allah at Musa's request. Harun (AS) also greeted him as "the righteous brother and righteous prophet." The Prophet ﷺ noted that Harun (AS) was surrounded by a large group of his people — a sign of how beloved he was among Bani Israel.</span><span class="ur-text">پانچویں آسمان پر نبی ﷺ نے ہارون علیہ السلام سے ملاقات کی — موسیٰ علیہ السلام کے بڑے بھائی، اللہ کے مقرر کردہ شریکِ نبوت۔ ہارون علیہ السلام نے بھی «صالح بھائی اور صالح نبی» کہہ کر خوش آمدید کہا۔ آپ نے دیکھا کہ ہارون علیہ السلام اپنی قوم کے بہت سے لوگوں میں گھرے ہوئے ہیں — اس بات کی نشانی کہ وہ کتنے محبوب تھے۔</span></div>
+  <div class="hc-hadith"><span class="en-text">Significance: Harun (AS) in the fifth heaven represents eloquence, leadership, and the art of supporting the mission of truth without seeking personal glory. He is the prophet who served without seeking the leading role — yet was placed above those who led. This is the Quranic teaching: the most beloved to Allah are those who serve faithfully without prominence.</span><span class="ur-text">حکمت: ہارون علیہ السلام فصاحت، قیادت اور خاموشی سے حق کی نبوت کی مدد کی علامت ہیں۔ وہ وہ نبی ہیں جنہوں نے مرکزی کردار کی خواہش کیے بغیر خدمت کی — پھر بھی قائدین سے اونچے مقام پر ہیں۔</span></div>
+  <div class="hc-lesson"><span class="en-text">📖 Source: Sahih al-Bukhari 3207 · Sahih Muslim 162</span><span class="ur-text">📖 ماخذ: صحیح بخاری ۳۲۰۷ · صحیح مسلم ۱۶۲</span></div>
+</div>
+
+<div class="hc" style="border-color:rgba(47,184,154,.3)">
+  <div class="hc-num"><span class="en-text">The Sixth Heaven — The Most Profound Encounter</span><span class="ur-text">چھٹا آسمان — سب سے گہری ملاقات</span></div>
+  <div class="hc-name"><span class="en-text">Musa (AS) — Kalimullah, Who Wept for the Ummah of Muhammad ﷺ</span><span class="ur-text">موسیٰ علیہ السلام — کلیم اللہ، جو امتِ محمدی ﷺ کے لیے روئے</span></div>
+  <div class="hc-ar">مُوسَى عَلَيْهِ السَّلَام</div>
+  <div class="hc-body"><span class="en-text">In the sixth heaven, the Prophet ﷺ found Musa (AS) — the most mentioned prophet in the Quran, the only prophet to have spoken directly with Allah at Mount Sinai. Musa (AS) greeted him, then as the Prophet ﷺ passed, Musa (AS) began to weep. When asked why, he replied:</span><span class="ur-text">چھٹے آسمان پر نبی ﷺ نے موسیٰ علیہ السلام سے ملاقات کی — قرآن میں سب سے زیادہ مذکور نبی، جنہوں نے کوہِ طور پر براہ راست اللہ سے کلام کیا۔ انہوں نے سلام کیا، پھر جیسے ہی نبی ﷺ آگے بڑھے، موسیٰ علیہ السلام رونے لگے۔ پوچھا گیا کیوں؟ انہوں نے کہا:</span></div>
+  <div class="hc-body"><span class="en-text"><em>"This young man will have more of his followers enter Paradise than mine, though he was sent after me."</em> (Sahih al-Bukhari 3207, Muslim 162) — Musa (AS), who led hundreds of thousands from Egypt, who spoke directly to Allah, who received the Tawrat — wept not from jealousy but from a profound recognition: the ummah of Muhammad ﷺ would surpass all others in entry to Paradise. And his tears were an act of love, not rivalry.</span><span class="ur-text">«یہ نوجوان مجھ سے بعد آیا، مگر اس کی امت میں سے میری امت سے زیادہ لوگ جنت میں داخل ہوں گے۔» (بخاری ۳۲۰۷، مسلم ۱۶۲) — موسیٰ علیہ السلام نے حسد سے نہیں بلکہ گہری عظمت کی پہچان سے آنسو بہائے۔</span></div>
+  <div class="hc-hadith"><span class="en-text">Significance: Musa (AS) in the sixth heaven — closer to the Sidratul Muntaha than any prophet except Ibrahim (AS) — represents the pinnacle of the pre-Muhammadan prophetic mission. His weeping establishes an extraordinary truth: the Prophet ﷺ who comes last leads the greatest into Paradise. The one who suffered most arrives highest.</span><span class="ur-text">حکمت: موسیٰ علیہ السلام چھٹے آسمان پر ہیں — سدرۃ المنتہیٰ کے سب سے قریب، سوائے ابراہیم علیہ السلام کے۔ ان کا رونا ایک عظیم حقیقت کو قائم کرتا ہے: آخر میں آنے والا نبی سب سے زیادہ کو جنت میں لے جائے گا۔</span></div>
+  <div class="hc-lesson"><span class="en-text">📖 Source: Sahih al-Bukhari 3207 · Sahih Muslim 162 — Ibn Hajar al-Asqalani: "The weeping of Musa (AS) was from his love for the Ummah of Muhammad ﷺ, not from jealousy." (Fath al-Bari)</span><span class="ur-text">📖 ماخذ: صحیح بخاری ۳۲۰۷ · صحیح مسلم ۱۶۲ — ابن حجر عسقلانی: «موسیٰ علیہ السلام کا رونا محمد ﷺ کی امت کے لیے محبت سے تھا، حسد سے نہیں۔» (فتح الباری)</span></div>
+</div>
+
+<div class="hc" style="border-color:rgba(245,208,96,.35)">
+  <div class="hc-num"><span class="en-text">The Seventh Heaven — The Final Encounter Before the Sidratul Muntaha</span><span class="ur-text">ساتواں آسمان — سدرۃ المنتہیٰ سے پہلے آخری ملاقات</span></div>
+  <div class="hc-name"><span class="en-text">Ibrahim (AS) — Khalilullah, Reclining Against the Bayt al-Ma'mur</span><span class="ur-text">ابراہیم علیہ السلام — خلیل اللہ، بیت المعمور کے ساتھ تکیہ لگائے</span></div>
+  <div class="hc-ar">إِبْرَاهِيمُ عَلَيْهِ السَّلَام</div>
+  <div class="hc-body"><span class="en-text">In the seventh and highest heaven, the Prophet ﷺ found Ibrahim (AS) — the Father of Prophets, the Friend of Allah (Khalilullah). Ibrahim (AS) was reclining with his back against the Bayt al-Ma'mur — the Frequented House, the heavenly counterpart of the Ka'bah on earth.</span><span class="ur-text">ساتویں اور سب سے بلند آسمان پر نبی ﷺ نے ابراہیم علیہ السلام کو پایا — انبیاء کے باپ، اللہ کے خلیل۔ ابراہیم علیہ السلام بیت المعمور کے ساتھ پیٹھ لگائے تکیہ لگائے بیٹھے تھے۔</span></div>
+  <div class="hc-body"><span class="en-text">The Prophet ﷺ asked Jibreel (AS) about the Bayt al-Ma'mur. Jibreel (AS) said: "This is the Bayt al-Ma'mur. Every day 70,000 angels enter it to worship, and when they come out they never return to it again." (Bukhari 3207) — 70,000 fresh angels enter daily; they will never return. The sheer number of worshipping angels is beyond human imagination, yet it continues without end.</span><span class="ur-text">نبی ﷺ نے جبریل علیہ السلام سے بیت المعمور کے بارے میں پوچھا۔ انہوں نے کہا: «یہ بیت المعمور ہے۔ ہر روز ستر ہزار فرشتے اس میں داخل ہوتے ہیں اور جب نکلتے ہیں تو پھر کبھی واپس نہیں آتے۔» (بخاری ۳۲۰۷)</span></div>
+  <div class="hc-body"><span class="en-text">Ibrahim (AS) greeted the Prophet ﷺ and then said: "O Muhammad ﷺ — convey my greetings to your Ummah and inform them that Paradise has pure soil and sweet water, and it is a flat, open plain. Its seeds are: Subhana Allah, Al-hamdulillah, La ilaha illa Allah, Allahu Akbar." (Tirmidhi 3462 — Hasan)</span><span class="ur-text">ابراہیم علیہ السلام نے نبی ﷺ کو سلام کیا اور فرمایا: «اے محمد ﷺ — اپنی امت کو میرا سلام پہنچانا اور بتانا کہ جنت کی مٹی پاک ہے، پانی میٹھا ہے، اور اس کے بیج ہیں: سبحان اللہ، الحمد للہ، لا الہ الا اللہ، اللہ اکبر۔» (ترمذی ۳۴۶۲ — حسن)</span></div>
+  <div class="hc-hadith"><span class="en-text">Significance: Ibrahim (AS) in the seventh heaven — the highest of all — and his reclining against the Bayt al-Ma'mur directly above the Ka'bah completes the circle. The Ka'bah that he built with Ismail (AS) on earth is directly below the Bayt al-Ma'mur in heaven. His message through Muhammad ﷺ to the Ummah — "the seeds of Paradise are the four dhikr" — is one of the most direct instructions from a prophet to an ummah across the heavens.</span><span class="ur-text">حکمت: ابراہیم علیہ السلام ساتویں آسمان پر بیت المعمور کے ساتھ — اور کعبہ جو انہوں نے اسماعیل علیہ السلام کے ساتھ بنایا، عین نیچے ہے۔ امت کے لیے ان کا پیغام — ذکر کے چار کلمات جنت کی کاشت ہیں — آسمانوں سے پار ایک نبی کا پیغام ہے۔</span></div>
+  <div class="hc-lesson"><span class="en-text">📖 Source: Sahih al-Bukhari 3207 · Tirmidhi 3462 — The Bayt al-Ma'mur is described in Quran 52:4</span><span class="ur-text">📖 ماخذ: صحیح بخاری ۳۲۰۷ · ترمذی ۳۴۶۲ — بیت المعمور کا ذکر قرآن ۵۲:۴ میں ہے</span></div>
+</div>
+<h2 class="sh"><span class="en-text">Part Three — The Sidratul Muntaha: The Lote Tree of the Utmost Boundary</span><span class="ur-text">حصہ سوم — سدرۃ المنتہیٰ: آخری حد کا بیری کا درخت</span></h2>
+
+<p class="bt"><span class="en-text">Beyond the seventh heaven, the Prophet ﷺ was taken to the Sidratul Muntaha — the Lote Tree at the absolute boundary of all created existence. No angel, no prophet, no created being has ever passed beyond it — except Muhammad ﷺ on this night. Even Jibreel (AS), who had accompanied him through all seven heavens, stopped here.</span><span class="ur-text">ساتویں آسمان سے آگے نبی ﷺ کو سدرۃ المنتہیٰ لے جایا گیا — وہ بیری کا درخت جو تمام مخلوقات کی آخری حد پر ہے۔ کوئی فرشتہ، کوئی نبی، کوئی مخلوق اس سے آگے کبھی نہیں گئی — سوائے محمد ﷺ کے، اس رات۔ جبریل علیہ السلام، جو ساتوں آسمانوں میں ساتھ تھے، یہاں رک گئے۔</span></p>
+
+<div class="hbox"><span class="en-text">Jibreel (AS) said to the Prophet ﷺ at the Sidratul Muntaha: "This is as far as I go. If I were to advance one step further, I would be consumed — just as a piece of iron is consumed when placed in fire." (Ibn Kathir, Tafsir of Surah An-Najm — authenticated chain). This is the boundary of Jibreel's existence. Beyond it, only the Prophet ﷺ was taken, by a mode of transportation that no human language can describe, to the Presence of Allah.</span><span class="ur-text">جبریل علیہ السلام نے نبی ﷺ سے سدرۃ المنتہیٰ پر کہا: «یہ میری آخری حد ہے۔ اگر میں ایک قدم اور بڑھاؤں تو جل جاؤں گا — جیسے لوہا آگ میں رکھنے سے جل جاتا ہے۔» (ابن کثیر — تفسیر سورۃ النجم) یہ جبریل علیہ السلام کے وجود کی سرحد ہے۔ آگے صرف نبی ﷺ کو لے جایا گیا۔</span></div>
+
+<p class="bt"><span class="en-text">At the Sidratul Muntaha, the Prophet ﷺ saw Jibreel (AS) in his original angelic form for only the second time — his 600 wings filling the entire horizon. The Quran describes this moment: "When there covered the Lote Tree what covered it — the sight did not swerve, nor did it transgress its limit." (Quran 53:16–17)</span><span class="ur-text">سدرۃ المنتہیٰ پر نبی ﷺ نے جبریل علیہ السلام کو ان کی اصل فرشتانہ صورت میں صرف دوسری بار دیکھا — ۶۰۰ پر جن سے پورا افق بھر گیا۔ قرآن اس لمحے کو یوں بیان کرتا ہے: «جب سدرہ کو چھا لیا جو چھا لیا — نگاہ نہ بھٹکی، نہ حد سے گزری۔» (۵۳:۱۶–۱۷)</span></p>
+
+<p class="bt"><span class="en-text">The Prophet ﷺ described the Sidratul Muntaha as having leaves like the ears of elephants and fruits like large clay pots. He said: "Its fruits were like the clay pots of Hajar (earthen vessels), and its leaves were like the ears of elephants — and it was being covered by that which I cannot describe." (Sahih Muslim 173) — the covering was the light of Allah's glory that defies all description.</span><span class="ur-text">نبی ﷺ نے سدرۃ المنتہیٰ کو بیان فرمایا: «اس کے پھل مٹکوں جیسے اور پتے ہاتھی کے کانوں جیسے تھے — اور اسے وہ ڈھانپ رہا تھا جسے میں بیان نہیں کر سکتا۔» (مسلم ۱۷۳) — وہ ڈھانپنا اللہ کے نور کا تھا جو کسی زبان میں بیان نہیں ہو سکتا۔</span></p>
+
+<h2 class="sh"><span class="en-text">Part Four — The Gift of the Five Daily Prayers</span><span class="ur-text">حصہ چہارم — پانچ نمازوں کا تحفہ</span></h2>
+<p class="bt"><span class="en-text">The five daily prayers were not revealed through the Angel Jibreel (AS) as other commandments were. They were given directly by Allah to Muhammad ﷺ at the Sidratul Muntaha — the only commandment given without any angelic intermediary. This is why the five prayers hold a unique status in Islam above all other acts of worship.</span><span class="ur-text">پانچ روزہ نمازیں جبریل علیہ السلام کے ذریعے نازل نہیں ہوئیں جیسا کہ دیگر احکام نازل ہوئے — یہ اللہ نے خود براہ راست نبی ﷺ کو عطا کیں۔ یہ اس کی منفرد حیثیت کو ظاہر کرتا ہے۔</span></p>
+<p class="bt"><span class="en-text">The five daily prayers were given in the following extraordinary exchange — the most repeated negotiation in prophetic history, carried out between the Prophet ﷺ and Musa (AS) on the Prophet's ﷺ descent from the Sidratul Muntaha. The complete narration is in Sahih al-Bukhari 3207 and Sahih Muslim 162:</span><span class="ur-text">پانچ روزہ نمازیں مندرجہ ذیل غیر معمولی مکالمے میں عطا کی گئیں — نبوی تاریخ کا سب سے بار بار دہرایا جانے والا مذاکرہ، جو سدرۃ المنتہیٰ سے نزول کے دوران نبی ﷺ اور موسیٰ علیہ السلام کے درمیان ہوا۔</span></p>
+
+<div class="ibox">
+  <span class="ilbl"><span class="en-text">The Exchange — As narrated in Sahih al-Bukhari 3207 & Sahih Muslim 162</span><span class="ur-text">مکالمہ — صحیح بخاری ۳۲۰۷ اور صحیح مسلم ۱۶۲ کے مطابق</span></span>
+  <span class="en-text">Allah prescribed fifty prayers upon the Prophet ﷺ at the Sidratul Muntaha. On his descent, Musa (AS) said: "What has your Lord obligated upon your nation?" The Prophet ﷺ replied: "Fifty prayers." Musa (AS) said: "Return to your Lord and ask for a reduction — your nation will not be able to bear it. I tested the Children of Israel and they could not." The Prophet ﷺ returned, and the prayers were reduced by ten. He descended again, passed Musa (AS), who again said: "Return." This continued — going back and forth — until the prayers were reduced to five. Musa (AS) said: "Return still and ask for more reduction." The Prophet ﷺ said: <strong>"I am shy before my Lord. But I am pleased with what I have and I submit."</strong> A voice then proclaimed: <strong>"I have established My obligation and made it easy for My servants. Every prayer carries the reward of ten — so five prayers equal fifty in reward."</strong></span>
+  <span class="ur-text">اللہ نے سدرۃ المنتہیٰ پر نبی ﷺ پر پچاس نمازیں فرض کیں۔ نزول پر موسیٰ علیہ السلام نے پوچھا: «آپ کے رب نے آپ کی امت پر کیا فرض کیا؟» نبی ﷺ نے کہا: «پچاس نمازیں۔» موسیٰ علیہ السلام نے کہا: «واپس جاؤ اور کمی مانگو — آپ کی امت یہ نہیں اٹھا پائے گی۔ میں نے بنی اسرائیل کو آزمایا ہے۔» نبی ﷺ واپس گئے، دس کم ہوئیں۔ یہ سلسلہ جاری رہا یہاں تک کہ پانچ رہ گئیں۔ موسیٰ علیہ السلام نے پھر بھی کہا: «واپس جاؤ۔» نبی ﷺ نے فرمایا: <strong>«مجھے اپنے رب سے شرم آتی ہے۔ میں راضی ہوں اور سر تسلیم خم کرتا ہوں۔»</strong> پھر ایک آواز آئی: <strong>«میں نے اپنا فریضہ قائم کیا اور اپنے بندوں کے لیے آسان کیا۔ ہر نماز دس کا ثواب رکھتی ہے — پانچ نمازیں پچاس کے برابر ہیں۔»</strong></span>
+</div>
+
+<p class="bt"><span class="en-text">The Prophet ﷺ then descended and passed Musa (AS) in the sixth heaven. This is where the most remarkable exchange in the Night Journey occurs:</span><span class="ur-text">نبی ﷺ اترے اور چھٹے آسمان پر موسیٰ علیہ السلام کے پاس سے گزرے۔ یہیں سے نمازوں کی تعداد پچاس سے کم کر کے پانچ کرنے کا عظیم واقعہ شروع ہوا۔</span></p>
+<p class="bt"><span class="en-text">When the five prayers were finalised, Musa (AS) still said: 'Return and ask for a further reduction — I tested the Children of Israel and they could not maintain even this.' The Prophet ﷺ replied: 'I am shy before my Lord. But I am pleased and I submit.' At that moment, the voice of Allah confirmed: 'I have established my obligation and made it easy for My servants — one prayer equals ten, so the five prayers equal fifty in reward.'</span><span class="ur-text">جب پانچ نمازیں حتمی ہو گئیں تو موسیٰ علیہ السلام نے پھر بھی کہا: "واپس جاؤ اور مزید کمی مانگو۔" نبی ﷺ نے فرمایا: "مجھے اپنے رب سے شرم آتی ہے۔ میں راضی ہوں اور سر تسلیم خم کرتا ہوں۔"</span></p>
+<h3 class="sub"><span class="en-text">Why the Five Prayers Are the Pillar of Islam</span><span class="ur-text">پانچ نمازیں اسلام کا ستون کیوں ہیں</span></h3>
+
+<div class="av">الصَّلَاةُ عِمَادُ الدِّينِ فَمَنْ أَقَامَهَا فَقَدْ أَقَامَ الدِّينَ وَمَنْ تَرَكَهَا فَقَدْ هَدَمَ الدِّينَ</div>
+<div class="tr"><span class="en-text">"Prayer is the pillar of the religion. Whoever establishes it has established the religion, and whoever abandons it has demolished the religion."</span><span class="ur-text">«نماز دین کا ستون ہے۔ جس نے اسے قائم کیا اس نے دین قائم کیا، اور جس نے اسے چھوڑا اس نے دین کو ڈھا دیا۔»</span></div>
+<p class="qref"><span class="en-text">Al-Bayhaqi, Shu'ab al-Iman · Al-Albani authenticated it in Sahih al-Jami' 3782</span><span class="ur-text">البیہقی، شعب الایمان · البانی نے صحیح الجامع ۳۷۸۲ میں اسے صحیح قرار دیا</span></p>
+
+<div class="ibox">
+  <span class="ilbl"><span class="en-text">Reason 1 — Given Directly by Allah</span><span class="ur-text">وجہ ۱ — اللہ نے براہ راست عطا کیں</span></span>
+  <span class="en-text">Every other commandment in Islam — fasting, Zakat, Hajj, the prohibition of alcohol — was revealed through Jibreel (AS) to the Prophet ﷺ on earth. The five daily prayers alone were given directly by Allah at the Sidratul Muntaha, without any angelic intermediary. This is why the prayer is called "the believer's Mi'raj" — it is the daily ascent to Allah's presence.</span><span class="ur-text">اسلام کا ہر دوسرا حکم — روزہ، زکوٰۃ، حج، شراب کی ممانعت — جبریل علیہ السلام کے ذریعے زمین پر نازل ہوا۔ صرف پانچ نمازیں سدرۃ المنتہیٰ پر براہ راست اللہ نے عطا کیں، کسی فرشتے کے واسطے کے بغیر۔ اسی لیے نماز کو مومن کی معراج کہتے ہیں۔</span>
+</div>
+<div class="ibox">
+  <span class="ilbl"><span class="en-text">Reason 2 — The Divine Reward Mathematics</span><span class="ur-text">وجہ ۲ — رحمتِ الہٰی کی ریاضی</span></span>
+  <span class="en-text">Allah established five prayers but decreed the reward of fifty — each prayer carrying ten times its apparent weight. This is the mathematics of divine mercy: the minimum obligation carries the maximum spiritual yield. The ummah that could not sustain fifty prayers receives the reward of fifty by sustaining five.</span><span class="ur-text">اللہ نے پانچ نمازیں مقرر کیں لیکن پچاس کا ثواب دیا — ہر نماز اپنے ظاہری وزن سے دس گنا اجر رکھتی ہے۔ یہ رحمتِ الہٰی کی ریاضی ہے: کم سے کم فرض زیادہ سے زیادہ روحانی پھل دیتا ہے۔</span>
+</div>
+<div class="ibox">
+  <span class="ilbl"><span class="en-text">Reason 3 — The Continuous Thread</span><span class="ur-text">وجہ ۳ — مسلسل تعلق</span></span>
+  <span class="en-text">The five prayers divide the day into five segments, each anchored by a moment of direct communication with Allah. The Prophet ﷺ said: "Tell me — if there was a river at the door of one of you, and he bathed in it five times daily, would any dirt remain on him?" They said: "No." He said: "That is the likeness of the five prayers — through them, Allah wipes away sins." (Bukhari 528, Muslim 667)</span><span class="ur-text">پانچ نمازیں دن کو پانچ حصوں میں تقسیم کرتی ہیں، ہر حصہ اللہ سے براہ راست گفتگو پر ختم ہوتا ہے۔ نبی ﷺ نے فرمایا: «اگر تم میں سے کسی کے دروازے پر نہر ہو اور وہ روزانہ پانچ بار نہائے تو کیا کوئی میل باقی رہے گی؟» صحابہ نے کہا نہیں۔ فرمایا: «یہی پانچ نمازوں کی مثال ہے — اللہ ان سے گناہ مٹا دیتا ہے۔» (بخاری ۵۲۸)</span>
+</div>
+<h2 class="sh"><span class="en-text">Part Five — The Morning After: Quraysh's Reaction & Abu Bakr's Faith</span><span class="ur-text">حصہ پنجم — اگلی صبح: قریش کا ردعمل اور ابوبکر صدیق کا ایمان</span></h2>
+<p class="bt"><span class="en-text">When the Prophet ﷺ returned to Makkah and recounted his night journey, the reaction of Quraysh was one of mockery and disbelief — a journey of 1,200 km to Jerusalem and back, plus the ascension through the seven heavens, all in a single night? For those without faith, this was the final evidence they needed to call him a madman.</span><span class="ur-text">جب نبی ﷺ مکہ واپس آئے اور اپنی شبِ سفر بیان کی تو قریش کا ردعمل تمسخر اور انکار تھا۔ انہوں نے کہا: "ہم ایک ماہ کا سفر ایک رات میں کیسے ممکن ہے؟" جو ایمان میں کمزور تھے وہ مرتد ہو گئے۔</span></p>
+<h3 class="sub"><span class="en-text">Abu Bakr Al-Siddiq (RA) — Why He Was Named 'Al-Siddiq'</span><span class="ur-text">ابوبکر صدیق رضی اللہ عنہ — انہیں «الصدیق» کیوں کہا گیا</span></h3>
+<p class="bt"><span class="en-text">When the Quraysh went to Abu Bakr (RA) expecting him to doubt or waver, they told him: "Your companion claims that he was taken last night to Bayt al-Maqdis (Jerusalem)." Abu Bakr (RA) said: "Did he say that?" They said: "Yes." Abu Bakr (RA) replied without a moment's hesitation:</span><span class="ur-text">جب قریش ابوبکر رضی اللہ عنہ کے پاس گئے اور کہا: «تمہارے ساتھی کا دعویٰ ہے کہ وہ رات کو بیت المقدس لے جائے گئے۔» ابوبکر رضی اللہ عنہ نے پوچھا: «کیا انہوں نے یہ کہا؟» انہوں نے کہا: «ہاں۔» ابوبکر رضی اللہ عنہ نے بغیر ایک لمحہ توقف کیے کہا:</span></p>
+
+<div class="av">إِنْ كَانَ قَالَ ذَلِكَ فَقَدْ صَدَقَ — أَنَا أُصَدِّقُهُ فِيمَا هُوَ أَبْعَدُ مِنْ ذَلِكَ</div>
+<div class="tr"><span class="en-text">"If he said that, then he has told the truth. I believe him in what is even further than that — I believe him in the news of the heavens that comes to him morning and evening." (Ibn Hisham, Al-Sirah Al-Nabawiyyah — authenticated)</span><span class="ur-text">«اگر انہوں نے یہ کہا تو انہوں نے سچ کہا — میں انہیں اس سے بھی آگے کی خبر میں سچا مانتا ہوں — میں ان کی بات مانتا ہوں جو صبح و شام آسمانوں سے آتی ہے۔» (ابن ہشام — سیرت النبویہ)</span></div>
+
+<p class="bt"><span class="en-text">At that moment, the Prophet ﷺ named Abu Bakr (RA): <strong>Al-Siddiq</strong> — the one who confirms truth absolutely. Not "the one who believes" — that was everyone's title. Al-Siddiq means the one whose first instinct, in the face of the most shocking claim, is confirmation without investigation. Faith so deep it precedes reason.</span><span class="ur-text">اسی لمحے نبی ﷺ نے ابوبکر رضی اللہ عنہ کو لقب دیا: <strong>الصدیق</strong> — وہ جو حق کو بالکل سچا مانے۔ صرف «مومن» نہیں — یہ سب کا لقب تھا۔ الصدیق وہ ہے جس کا پہلا جذبہ، سب سے چونکا دینے والے دعوے کے سامنے بھی، بغیر تحقیق کے تصدیق ہو۔</span></p>
+<p class="bt"><span class="en-text">Umm Hani (RA) — the Prophet's cousin at whose house the journey began — also testified: 'He left from my house, performed the night prayer with us, then slept. When we woke for Fajr, he woke with us. When the morning was established, he told us of the Mi'raj.' (Abu Dawud — authenticated by Al-Albani). This confirms the bodily nature of the journey — it was not merely a dream or a vision, but a physical journey of the body and soul together.</span><span class="ur-text">ام ہانی رضی اللہ عنہا — جن کے گھر سے یہ سفر شروع ہوا — نے بھی گواہی دی: "وہ میرے گھر میں سو رہے تھے اور صبح ہو گئی۔"</span></p>
+<h2 class="sh"><span class="en-text">Part Six — Lessons and Wisdom from Al-Isra wal-Miʾraj</span><span class="ur-text">حصہ ششم — الاسراء والمعراج کے سبق اور حکمتیں</span></h2>
+<h3 class="sub"><span class="en-text">6.1  The Meeting of All Prophets — One Message</span><span class="ur-text">۶.۱  تمام انبیاء کا اجتماع — ایک پیغام</span></h3>
+<p class="bt"><span class="en-text">The gathering of all prophets at Al-Masjid Al-Aqsa and their prayer behind Muhammad ﷺ is the Quran's ultimate statement on the unity of prophethood. Every prophet brought the same core message — Tawhid, the oneness of Allah — and their prayer behind Muhammad ﷺ in a single congregation declares that Islam is not a new religion but the culmination of the one eternal religion of all prophets.</span><span class="ur-text">مسجد اقصیٰ میں تمام انبیاء کا اجتماع اور محمد ﷺ کی امامت یہ ثابت کرتی ہے کہ تمام انبیاء کا پیغام ایک ہی تھا: توحید۔</span></p>
+<p class="bt"><span class="en-text">6.2  Each Heaven Reveals a Prophetic Lesson</span><span class="ur-text">۶.۲  ہر آسمان ایک نبوی سبق</span></p>
+<p class="bt"><span class="en-text">The placement of each prophet in a specific heaven is not random — Islamic scholars have identified profound wisdom in each encounter. Here is the complete analysis:</span><span class="ur-text">ہر آسمان پر کسی مخصوص نبی کا ہونا بے ترتیب نہیں — اسلامی علماء نے ہر ملاقات میں گہری حکمت دریافت کی ہے:</span></p>
+
+<table class="wisdom-table">
+<tr>
+  <th>Heaven</th>
+  <th>Prophet</th>
+  <th>The Wisdom — Scholars' Analysis</th>
+</tr>
+<tr>
+  <td class="wt-heaven"><span class="en-text">1st Heaven</span><span class="ur-text">پہلا آسمان</span></td>
+  <td class="wt-prophet">آدم ؑ</td>
+  <td class="wt-lesson"><span class="en-text">Adam (AS) — the origin of humanity — is at the beginning. His laughter (right) and weeping (left) is Allah showing Muhammad ﷺ the full destiny of his creation before the journey proper begins. Ibn Hajar: "He was shown the beginning and the end in a single glance."</span><span class="ur-text">آدم علیہ السلام — انسانیت کی ابتدا — شروع میں ہیں۔ ان کا ہنسنا (دائیں) اور رونا (بائیں) اللہ کی طرف سے نبی ﷺ کو تمام انسانیت کی منزل دکھانا ہے۔</span></td>
+</tr>
+<tr>
+  <td class="wt-heaven"><span class="en-text">2nd Heaven</span><span class="ur-text">دوسرا آسمان</span></td>
+  <td class="wt-prophet">يَحْيَى وَعِيسَى ؑ</td>
+  <td class="wt-lesson"><span class="en-text">Yahya and Isa (AS) together represent prophets rejected by their own people who remained steadfast. Their togetherness in one heaven signals that their missions were complementary, not competing. Al-Qurtubi: "They are together because they confirmed each other in life and confirm Muhammad ﷺ here."</span><span class="ur-text">یحییٰ اور عیسیٰ علیہما السلام اکٹھے — دونوں اپنی قوم کی طرف سے رد کیے گئے مگر ثابت قدم رہے۔ القرطبی: «وہ اکٹھے ہیں کیونکہ انہوں نے دنیا میں ایک دوسرے کی تصدیق کی اور یہاں محمد ﷺ کی کرتے ہیں۔»</span></td>
+</tr>
+<tr>
+  <td class="wt-heaven"><span class="en-text">3rd Heaven</span><span class="ur-text">تیسرا آسمان</span></td>
+  <td class="wt-prophet">يُوسُف ؑ</td>
+  <td class="wt-lesson"><span class="en-text">Yusuf (AS) — given half of all beauty — represents the prophet who endured the most personal trials (betrayal by family, slavery, false imprisonment) and emerged with the highest character. The third heaven is the station of those who transform the deepest personal wounds into the broadest forgiveness.</span><span class="ur-text">یوسف علیہ السلام — نصف حسن — وہ نبی جنہوں نے سب سے گہرے ذاتی آزمائشوں (اہلِ خانہ کی دغابازی، غلامی، جھوٹا الزام) سے گزر کر عفو کا سب سے بڑا مظاہرہ کیا۔</span></td>
+</tr>
+<tr>
+  <td class="wt-heaven"><span class="en-text">4th Heaven</span><span class="ur-text">چوتھا آسمان</span></td>
+  <td class="wt-prophet">إِدْرِيس ؑ</td>
+  <td class="wt-lesson"><span class="en-text">Idris (AS) — the first to write, study stars, and sew clothes — represents the prophet of knowledge and craft. His placement in the fourth heaven (the middle of seven) suggests that knowledge is the midpoint of all human endeavour — neither base nor pinnacle, but central. Ibn Kathir: "He was raised here because of his intense worship and knowledge."</span><span class="ur-text">ادریس علیہ السلام — قلم، ستاروں اور خیاطی کے پہلے استاد — علم اور ہنر کے نبی۔ چوتھے آسمان (سات میں سے درمیانی) میں ان کا ہونا بتاتا ہے کہ علم تمام انسانی کوشش کا مرکز ہے۔</span></td>
+</tr>
+<tr>
+  <td class="wt-heaven"><span class="en-text">5th Heaven</span><span class="ur-text">پانچواں آسمان</span></td>
+  <td class="wt-prophet">هَارُون ؑ</td>
+  <td class="wt-lesson"><span class="en-text">Harun (AS) — beloved by his people, the eloquent supporter of Musa (AS) who never sought leadership for himself — represents the prophet of selfless service. His position above Musa (AS) despite being the secondary prophet in the pair is the Quran's teaching: the one who serves without seeking prominence is raised higher.</span><span class="ur-text">ہارون علیہ السلام — فصیح، بغیر قیادت طلب کیے موسیٰ علیہ السلام کے مددگار — بے غرض خدمت کے نبی۔ موسیٰ علیہ السلام سے اوپر ان کا مقام یہ سکھاتا ہے: جو بغیر شہرت کے خدمت کرے اسے اللہ زیادہ بلند کرتا ہے۔</span></td>
+</tr>
+<tr>
+  <td class="wt-heaven"><span class="en-text">6th Heaven</span><span class="ur-text">چھٹا آسمان</span></td>
+  <td class="wt-prophet">مُوسَى ؑ</td>
+  <td class="wt-lesson"><span class="en-text">Musa (AS) — in the sixth heaven, closest to the Sidratul Muntaha after Ibrahim — represents the prophet of law and liberation who struggled most with his nation. His weeping shows that even the greatest servants of Allah can be moved by the mercy shown to others. Ibn al-Qayyim: "His station near the top is because he is the closest to Muhammad ﷺ in mission: both brought comprehensive legal systems."</span><span class="ur-text">موسیٰ علیہ السلام — سدرۃ المنتہیٰ کے سب سے قریب — قانون اور آزادی کے نبی، جو اپنی قوم کے ساتھ سب سے زیادہ جدوجہد کرتے رہے۔ ابن القیم: «وہ اوپر ہیں کیونکہ وہ محمد ﷺ کے مشن کے سب سے قریب ہیں: دونوں مکمل قانونی نظام لائے۔»</span></td>
+</tr>
+<tr>
+  <td class="wt-heaven"><span class="en-text">7th Heaven</span><span class="ur-text">ساتواں آسمان</span></td>
+  <td class="wt-prophet">إِبْرَاهِيم ؑ</td>
+  <td class="wt-lesson"><span class="en-text">Ibrahim (AS) at the highest station — reclining against the Bayt al-Ma'mur directly above the Ka'bah he built on earth — is the perfect arc. He built the Ka'bah and its spiritual counterpart is above him. His message to the Ummah through Muhammad ﷺ about the seeds of Paradise is the last gift of one prophet through another to a third. Al-Nawawi: "His reclining against the Bayt al-Ma'mur signals that every Muslim who circles the Ka'bah is connected to its heavenly original."</span><span class="ur-text">ابراہیم علیہ السلام سب سے بلند مقام پر — بیت المعمور کے ساتھ، عین اس کعبہ کے اوپر جو انہوں نے زمین پر بنایا — ایک مکمل دائرہ۔ انہوں نے کعبہ بنایا اور اس کا روحانی مقابل ان کے اوپر ہے۔ امام نووی: «بیت المعمور سے ان کا تکیہ لگانا بتاتا ہے کہ ہر مسلمان جو کعبہ کا طواف کرتا ہے اس کا آسمانی اصل سے تعلق قائم ہے۔»</span></td>
+</tr>
+</table>
+<h3 class="sub"><span class="en-text">Conclusion — What Al-Isra wal-Miʾraj Means for Every Muslim</span><span class="ur-text">خلاصہ — الاسراء والمعراج کا ہر مسلمان کے لیے پیغام</span></h3>
+<p class="bt"><span class="en-text">Al-Isra wal-Mi'raj is not merely a miraculous story from history — it is a living message for every Muslim in every generation. Its core lessons are as relevant today as they were on that extraordinary night in 619 CE.</span><span class="ur-text">الاسراء والمعراج محض تاریخ کا ایک معجزاتی واقعہ نہیں — یہ ہر مسلمان کے لیے ایک زندہ پیغام ہے۔</span></p>
+<p class="bt"><span class="en-text">First: When the world is at its darkest — as it was for the Prophet ﷺ in the Year of Sorrow — Allah does not abandon His servants. He honours them with nearness. The darkest night of the Prophet's ﷺ life produced the greatest spiritual journey in human history.</span><span class="ur-text">اول: جب دنیا سب سے تاریک ہو — جیسی نبی ﷺ کے لیے عام الحزن میں تھی — اللہ کی مدد اور عزت سب سے قریب ہوتی ہے۔</span></p>
+<p class="bt"><span class="en-text">Second: The five daily prayers are not a burden. They are Allah's gift — reduced from 50 through divine mercy, each carrying 10x reward, and each prayer a personal Mi'raj — an ascent to Allah's presence. The Prophet ﷺ said: 'The coolness of my eyes is in prayer.' (Al-Nasa'i 3940 — authenticated by Al-Albani). To pray is to ascend.</span><span class="ur-text">دوم: پانچ روزہ نمازیں بوجھ نہیں ہیں۔ یہ اللہ کا تحفہ ہے — پچاس سے کم کر کے پانچ کی گئیں — ہر نماز میں مسلمان اسی مقام پر ہوتا ہے جہاں نبی ﷺ معراج کی رات تھے۔</span></p>
+<p class="bt"><span class="en-text">Third: Every prophet — Adam to Ibrahim — greeted Muhammad ﷺ as 'the righteous brother and the righteous prophet.' They did not say 'our superior' or 'our master' — they said brother. Prophethood is a brotherhood, and Islam is the culmination of one eternal message carried from the first human to the last prophet.</span><span class="ur-text">سوم: آدم سے ابراہیم تک ہر نبی نے محمد ﷺ کو "صالح بھائی اور نبی" کہہ کر سلام کیا — یہ اس بات کی گواہی ہے کہ تمام انبیاء کی نبوت محمد ﷺ کی نبوت کی تصدیق کرتی ہے۔</span></p>
+<div class="ibox" style="margin-top:32px;border-color:rgba(201,168,76,.25)">
+  <span class="ilbl"><span class="en-text">Primary Sources for this Document</span><span class="ur-text">اس دستاویز کے بنیادی مصادر</span></span>
+  <span class="en-text" style="font-size:12px;line-height:1.9;color:var(--text2)">Sahih al-Bukhari — Book of Prophets, Hadith 3207 (primary narrative) · Sahih Muslim — Book of Faith, Hadith 162–163 (primary narrative) · Sahih Muslim 168 (the choice of milk) · Sahih Muslim 173 (description of Sidratul Muntaha) · Sunan al-Tirmidhi 3462 (Ibrahim's message about Paradise) · Al-Bayhaqi, Shu'ab al-Iman (prayer as pillar) · Ibn Hisham, Al-Sirah Al-Nabawiyyah (Abu Bakr's response) · Ibn Kathir, Tafsir of Surah An-Najm (Jibreel's halt at Sidratul Muntaha) · Fath al-Bari — Ibn Hajar al-Asqalani (commentary on Musa's weeping) · Sharh Sahih Muslim — Al-Nawawi (commentary on the seven heavens)</span>
+  <span class="ur-text" style="font-size:12px;line-height:2;color:var(--text2)">صحیح بخاری — کتاب الانبیاء، حدیث ۳۲۰۷ · صحیح مسلم — کتاب الایمان، حدیث ۱۶۲–۱۶۳ · صحیح مسلم ۱۶۸ · صحیح مسلم ۱۷۳ · سنن ترمذی ۳۴۶۲ · بیہقی، شعب الایمان · ابن ہشام، السیرۃ النبویہ · ابن کثیر، تفسیر سورۃ النجم · فتح الباری — ابن حجر عسقلانی · شرح صحیح مسلم — امام نووی</span>
+</div>
+<div class="av">صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+<p class="bt"><span class="en-text">May Allah send His peace and blessings upon Muhammad ﷺ, his family, and his companions.</span><span class="ur-text">اللہ تعالیٰ محمد ﷺ، ان کے خاندان اور صحابہ کرام پر اپنی رحمت اور سلامتی نازل فرمائے۔</span></p></div>
+<div class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>window.addEventListener('scroll',function(){document.getElementById('btt').classList.toggle('show',window.scrollY>400);});</script>
+
+<script>
+let LANG = 'en';
+function setLang(l) {
+  LANG = l;
+  document.getElementById('lt-en').classList.toggle('on', l==='en');
+  document.getElementById('lt-ur').classList.toggle('on', l==='ur');
+  document.body.classList.toggle('ur-mode', l==='ur');
+}
+function sharePage(){
+  const title = "Al-Isra wal-Mi’raj — The Night Journey & Ascension";
+  const body = title + "\n\nالإسراء والمعراج\n\nAuthenticated from Sahih al-Bukhari & Sahih Muslim · Al-Maktaba\n\n" + window.location.href;
+  if(navigator.share){ navigator.share({title: title, text: body, url: window.location.href}); }
+  else { navigator.clipboard.writeText(body).then(function(){ var b = document.querySelector('.action-btn'); var t = b.textContent; b.textContent = '✓ Copied!'; setTimeout(function(){ b.textContent = t; }, 2000); }).catch(function(){}); }
+}
+</script>
+
+</body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Muhammad ﷺ — Khatam al-Nabiyyin — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#04070D;--bg1:#080E1C;--gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;--acc:#2FB89A;
+  --golddim:rgba(201,168,76,.10);--text:#D4CBB8;--text2:#8A9BB0;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:'Lora',serif;line-height:1.8;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 900px 600px at 20% 0%,rgba(201,168,76,.05),transparent 65%);}
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.95);
+  border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);
+  display:flex;align-items:center;padding:0 24px;height:54px;gap:14px}
+.back-btn{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--text2);
+  padding:6px 12px;border:1px solid var(--border2);border-radius:6px;text-decoration:none;transition:all .15s}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:'Noto Naskh Arabic',serif;font-size:18px;color:var(--gold)}
+.nav-en{font-family:'Cinzel',serif;font-size:11px;font-weight:700;color:var(--gold2);letter-spacing:1.5px}
+.nav-right{margin-left:auto;font-family:'Cinzel',serif;font-size:9px;color:var(--text2);letter-spacing:1px}
+.doc-hero{position:relative;z-index:1;padding:70px 24px 50px;text-align:center;
+  border-bottom:1px solid var(--border2);background:linear-gradient(160deg,rgba(17,30,53,.7),rgba(4,7,13,.9))}
+.doc-bsm{font-family:'Noto Naskh Arabic',serif;font-size:clamp(20px,3.5vw,28px);color:var(--gold);margin-bottom:14px;animation:fadeD .8s both}
+.doc-ar{font-family:'Noto Naskh Arabic',serif;font-size:clamp(32px,6vw,58px);color:var(--gold2);
+  margin-bottom:8px;line-height:1.2;text-shadow:0 0 30px rgba(201,168,76,.25);animation:fadeD .8s .1s both}
+.doc-en{font-family:'Cinzel',serif;font-size:clamp(16px,3vw,28px);font-weight:700;color:#fff;
+  margin-bottom:10px;letter-spacing:1.5px;animation:fadeD .8s .18s both}
+.doc-sub{font-size:13px;color:var(--text2);font-style:italic;max-width:600px;
+  margin:0 auto 22px;line-height:1.7;animation:fadeD .8s .25s both}
+.doc-rule{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto}
+@keyframes fadeD{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.doc-content{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:48px 28px 80px}
+h2.sh{font-family:'Cinzel',serif;font-size:clamp(15px,2.5vw,21px);font-weight:700;color:var(--gold2);
+  margin:42px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--border);letter-spacing:.8px}
+h2.sh:first-child{margin-top:0}
+h3.sub{font-family:'Cinzel',serif;font-size:14px;font-weight:600;color:#fff;
+  margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--acc)}
+p.bt{color:var(--text);font-size:14px;line-height:1.85;margin-bottom:12px}
+.av{font-family:'Noto Naskh Arabic',serif;font-size:clamp(19px,3.5vw,26px);color:var(--gold2);
+  direction:rtl;text-align:right;line-height:2.1;padding:14px 18px;
+  border-right:4px solid var(--gold);background:rgba(201,168,76,.05);
+  border-radius:0 10px 10px 0;margin:14px 0 6px}
+.tr{font-size:13px;font-style:italic;color:var(--gold3);padding:8px 18px 8px 20px;
+  border-left:3px solid var(--gold);background:rgba(201,168,76,.04);
+  border-radius:0 7px 7px 0;margin-bottom:8px;line-height:1.7}
+.qref{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.8px;color:var(--gold);margin-bottom:18px}
+.hbox{background:rgba(47,184,154,.07);border-left:3px solid #2FB89A;padding:14px 16px;
+  border-radius:0 9px 9px 0;margin:14px 0;font-size:13px;color:#a8c8b8;
+  line-height:1.75;font-style:italic}
+.ibox{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);
+  border-radius:9px;padding:14px 16px;margin:14px 0;font-size:13px;color:var(--text);line-height:1.75}
+.ilbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;display:block}
+.pc{background:linear-gradient(135deg,rgba(17,30,53,.9),rgba(8,14,28,.95));border:1px solid rgba(201,168,76,.12);
+  border-radius:10px;padding:16px 18px;margin:10px 0;border-top:2px solid var(--acc)}
+.pc-hv{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin-bottom:5px}
+.pc-nm{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--gold2);margin-bottom:7px}
+.pc-bd{font-size:13px;color:var(--text2);line-height:1.7}
+.btt{position:fixed;bottom:28px;right:24px;z-index:80;width:40px;height:40px;border-radius:50%;
+  background:var(--golddim);border:1px solid var(--border);display:flex;align-items:center;
+  justify-content:center;color:var(--gold2);font-size:16px;cursor:pointer;
+  transition:all .2s;opacity:0;pointer-events:none}
+.btt.show{opacity:1;pointer-events:all}
+@media(max-width:600px){.doc-content{padding:34px 16px 60px}.top-nav{padding:0 14px}}
+
+.lang-toggle{display:flex;align-items:center;gap:2px;margin-left:auto;
+  background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.15);border-radius:20px;padding:3px;flex-shrink:0}
+.lt-btn{font-family:"Cinzel",serif;font-size:9.5px;letter-spacing:1px;padding:4px 12px;
+  border-radius:16px;cursor:pointer;transition:all .2s;color:#8A9BB0;user-select:none}
+.lt-btn.on{background:#C9A84C;color:#000;font-weight:700}
+.lt-btn:hover:not(.on){color:#E2C97A}
+.ur-text{display:none;font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right}
+.ur-mode .en-text{display:none}
+.ur-mode .ur-text{display:block}
+.ur-mode h2.sh,.ur-mode h3{font-family:"Noto Naskh Arabic",serif;direction:rtl;text-align:right;font-size:clamp(14px,2.5vw,19px)}
+.ur-mode p.bt{font-family:"Noto Naskh Arabic",serif;font-size:14px;direction:rtl;text-align:right;line-height:2}
+
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <a class="back-btn" href="index.html">← Al-Maktaba</a>
+  <div class="nav-ar">خاتم النبيين</div>
+  <div class="nav-en">Muhammad ﷺ — Khatam al-Nabiyyin</div>
+  <div class="nav-right">Al-Maktaba · Islamic Knowledge Platform</div>
+</div>
+<div class="doc-hero">
+  <div class="doc-bsm">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="doc-ar">خاتم النبيين</div>
+  <div class="doc-en">Muhammad ﷺ — Khatam al-Nabiyyin</div>
+  <div class="doc-sub">A comprehensive account of Prophet Muhammad ﷺ as the Seal of all Prophets — his names, lineage, character, miracles and the finality of prophethood</div>
+  <div class="doc-rule"></div>
+</div>
+<div class="doc-content"><h2 class="sh"><span class="en-text">Section 1 — Who Is Muhammad ﷺ? Names, Lineage & Mission</span><span class="ur-text">سیکشن ۱ — محمد ﷺ کون ہیں؟ نام، نسب اور مشن</span></h2>
+<p class="bt"><span class="en-text">Muhammad ibn Abdullah ibn Abd al-Muttalib ibn Hashim — born in Makkah in 570 CE, died in Madinah in 632 CE at age 63. Prophet, Messenger, statesman, husband, father, commander, judge, teacher, and the final link in the chain of 124,000 prophets stretching from Adam (AS) to himself. He is the most studied human being in history — his words, actions, appearance, sleep, and laughter all preserved in meticulous detail across hundreds of thousands of narrations.</span><span class="ur-text">محمد بن عبداللہ بن عبدالمطلب بن ہاشم — ۵۷۰ عیسوی میں مکہ مکرمہ میں پیدا ہوئے، خاتم الانبیاء، تمام انسانوں کے لیے اللہ کے رسول، وہ جن کا ذکر توریت، انجیل اور زبور میں موجود تھا۔</span></p>
+<h3 class="sub"><span class="en-text">1.1  His Noble Names</span><span class="ur-text">۱.۱  آپ کے مبارک نام</span></h3>
+<p class="bt"><span class="en-text">The Prophet ﷺ had many names, each capturing a different dimension of his mission and character:</span><span class="ur-text">نبی ﷺ کے کئی نام تھے، ہر نام ان کی رسالت کے ایک مختلف پہلو کو بیان کرتا ہے۔</span></p>
+<h3 class="sub"><span class="en-text">1.2  His Noble Lineage</span><span class="ur-text">۱.۲  آپ کا مبارک نسب</span></h3>
+<p class="bt"><span class="en-text">The Prophet ﷺ came from the most noble lineage in history — the direct descendant of Ibrahim (AS) through Ismail (AS). The chain from Ibrahim to Muhammad ﷺ spans 40 generations over approximately 2,500 years. His lineage was acknowledged as pure by both Muslim and non-Muslim scholars of his time.</span><span class="ur-text">نبی ﷺ تاریخ کے سب سے شریف نسب سے تعلق رکھتے تھے — حضرت ابراہیم علیہ السلام اور حضرت اسماعیل علیہ السلام کے براہ راست نسل سے۔</span></p>
+<p class="bt"><span class="en-text">Full lineage: Muhammad ibn Abdullah ibn Abd al-Muttalib ibn Hashim ibn Abd Manaf ibn Qusayy ibn Kilab ibn Murrah ibn Ka'b ibn Lu'ayy ibn Ghalib ibn Fihr (Quraysh) ibn Malik ibn Al-Nadr ibn Kinanah ibn Khuzaymah ibn Mudrikah ibn Ilyas ibn Mudar ibn Nizar ibn Ma'add ibn Adnan — and from Adnan back to Ismail ibn Ibrahim (AS). (Ibn Hisham, Al-Sirah Al-Nabawiyyah)</span><span class="ur-text">مکمل نسب: محمد بن عبداللہ بن عبدالمطلب بن ہاشم بن عبد مناف بن قصی بن کلاب — بنو ہاشم، قریش قبیلہ، عدنانی عرب، اسماعیل علیہ السلام کی نسل، ابراہیم علیہ السلام تک پہنچتا ہے۔</span></p>
+<h2 class="sh"><span class="en-text">Section 2 — The Early Life: Signs from Before Birth to Prophethood</span><span class="ur-text">سیکشن ۲ — ابتدائی زندگی: ولادت سے نبوت تک کی نشانیاں</span></h2>
+<p class="bt"><span class="en-text">The birth and early life of Muhammad ﷺ were accompanied by signs that, in retrospect, pointed clearly to his extraordinary mission. These signs were observed by those around him — his mother, his wet nurse Halimah, his grandfather Abd al-Muttalib, and later the monk Bahira.</span><span class="ur-text">محمد ﷺ کی ولادت اور ابتدائی زندگی ایسی نشانیوں کے ساتھ تھی جو بعد میں نبوت کی تائید بن گئیں۔</span></p>
+<h3 class="sub"><span class="en-text">2.1  The Year of the Elephant — 570 CE</span><span class="ur-text">۲.۱  عام الفیل — ۵۷۰ عیسوی</span></h3>
+<p class="bt"><span class="en-text">The Prophet ﷺ was born in the Year of the Elephant — the year Abraha Al-Ashram, the Christian governor of Yemen, marched on Makkah with an army and elephants to destroy the Ka'bah. Allah destroyed that army with birds carrying stones of baked clay (Quran 105 — Surah Al-Fil). The destruction of Abraha's army in the year of the Prophet's ﷺ birth was the first divine sign that this year, and this city, were under special protection.</span><span class="ur-text">نبی ﷺ عام الفیل میں پیدا ہوئے — وہ سال جب ابرہہ الاشرم نے ہاتھیوں کی فوج کے ساتھ کعبہ پر حملہ کیا مگر قرآن کی سورہ الفیل میں بیان کردہ طریقے سے تباہ ہوا۔</span></p>
+<h3 class="sub"><span class="en-text">2.2  The Monk Bahira — Recognition at Age 12</span><span class="ur-text">۲.۲  راہب بحیرا — ۱۲ سال کی عمر میں پہچان</span></h3>
+<p class="bt"><span class="en-text">When the Prophet ﷺ was approximately 12 years old, he accompanied his uncle Abu Talib on a trade journey to Syria. At the town of Busra, the Christian monk Bahira observed the caravan and noticed a cloud shading one young boy — and that the trees bowed their branches over him. Bahira invited the caravan to eat, examined the boy, and recognised the seal of prophethood between his shoulder blades.</span><span class="ur-text">جب نبی ﷺ تقریباً ۱۲ سال کے تھے، اپنے چچا ابوطالب کے ساتھ شام گئے۔ راہب بحیرا نے انہیں دیکھا اور پہچانا کہ یہ وہی آخری نبی ہیں جن کی بشارت توریت و انجیل میں ہے۔</span></p>
+<h3 class="sub"><span class="en-text">2.3  Al-Amin — The Trustworthy (Before Prophethood)</span><span class="ur-text">۲.۳  الامین — امانتدار (نبوت سے پہلے)</span></h3>
+<p class="bt"><span class="en-text">Before the first revelation, Muhammad ﷺ was known throughout Makkah by the title Al-Amin — the trustworthy one. Even his enemies acknowledged his character. When the Ka'bah was being rebuilt and a dispute arose over who would place the Black Stone, all the tribal chiefs agreed to let Muhammad ﷺ adjudicate — because they trusted him above all others. He spread his cloak, placed the stone in the middle, and had each tribe's leaders hold a corner — a solution of genius that satisfied all parties without bloodshed.</span><span class="ur-text">پہلی وحی سے پہلے محمد ﷺ پورے مکہ میں "الامین" کے لقب سے مشہور تھے — یعنی سب سے زیادہ قابلِ اعتماد شخص۔ یہاں تک کہ ان کے دشمن بھی اپنی امانتیں ان کے پاس رکھتے تھے۔</span></p>
+<h2 class="sh"><span class="en-text">Section 3 — The Prophethood: 23 Years That Changed the World</span><span class="ur-text">سیکشن ۳ — نبوت: ۲۳ سال جنہوں نے دنیا بدل دی</span></h2>
+<p class="bt">The revelation began in 610 CE in Cave Hira on the Mountain of Light (Jabal al-Nour) above Makkah, when Muhammad ﷺ was 40 years old. The first word revealed — 'Iqra' (Read/Recite) — to a man who could not read is the Quran's first miracle. The 23 years of prophethood that followed transformed a collection of warring tribes into a unified civilisation that would go on to lead the world in science, philosophy, medicine, and governance for centuries.</p>
+<h3 class="sub"><span class="en-text">3.1  The 23 Years — A Timeline</span><span class="ur-text">۳.۱  ۲۳ سال — ایک جائزہ</span></h3>
+<h2 class="sh"><span class="en-text">Section 4 — The Character of Muhammad ﷺ: A Living Quran</span><span class="ur-text">سیکشن ۴ — محمد ﷺ کا کردار: چلتا پھرتا قرآن</span></h2>
+<p class="bt">Aisha (RA) — the Prophet's wife and one of the greatest scholars of Islam — was asked: 'What was the character of the Prophet ﷺ?' She replied with one of the most profound statements in Islamic literature:</p>
+<p class="bt">This single statement captures everything. The Quran commands generosity — he was the most generous of all people (Bukhari 3554). The Quran commands patience — he endured 13 years of persecution in Makkah without raising a hand against his oppressors. The Quran commands justice — he established a society where a Roman slave and an Arab nobleman stood equal before the law. The Quran commands mercy — he forgave the people of Makkah who had persecuted him for 20 years on the day of the conquest.</p>
+<h3 class="sub"><span class="en-text">4.1  Physical Description — The Shama'il</span><span class="ur-text">۴.۱  جسمانی وصف — الشمائل</span></h3>
+<p class="bt">The Prophet's companions described his appearance in extraordinary detail, preserved in the dedicated works of Al-Tirmidhi (Al-Shama'il Al-Muhammadiyyah) and authenticated narrations in Sahih al-Bukhari and Muslim:</p>
+<h3 class="sub"><span class="en-text">4.2  Character Qualities — Attested by Companions and Opponents Alike</span><span class="ur-text">۴.۲  اخلاقی صفات — ساتھیوں اور مخالفوں دونوں کی گواہی</span></h3>
+<p class="bt">Generosity (Al-Karam): 'He was the most generous of people — more generous than the wind that carries rain.' (Bukhari 3554)</p>
+<p class="bt">Humility (Al-Tawadu'): He mended his own sandals, sewed his own clothes, milked his own goat, and served his household (Ibn Hibban — authenticated)</p>
+<p class="bt">Justice (Al-Adl): 'By Allah, if Fatimah the daughter of Muhammad were to steal, I would cut off her hand.' (Bukhari 3475) — Absolute justice, no exceptions</p>
+<p class="bt">Mercy (Al-Rahmah): He never struck a woman, a servant, or an animal — and forgave 20 years of persecution on the day of Makkah's conquest</p>
+<p class="bt">Courage (Al-Shaja'ah): Ali (RA) said: 'When the battle became intense, we would shield ourselves behind the Prophet ﷺ — he was always the closest to the enemy.' (Ahmad, authenticated)</p>
+<p class="bt">Trustworthiness (Al-Amanah): Even his enemies kept their valuables with him for safekeeping — he assigned Ali (RA) to return them all on the day of Hijra</p>
+<h2 class="sh"><span class="en-text">Section 5 — The Miracles of Muhammad ﷺ</span><span class="ur-text">سیکشن ۵ — محمد ﷺ کے معجزات</span></h2>
+<p class="bt">The Prophet ﷺ performed hundreds of miracles throughout his life — each one authenticated through multiple chains of narration. Islamic scholars distinguish between miracles to verify prophethood (Mu'jizat) and blessings that accompanied him (Barakah). The greatest miracle — the Quran — is treated separately in Section 6.</p>
+<h3 class="sub"><span class="en-text">5.1  The Splitting of the Moon (Shaqq al-Qamar)</span><span class="ur-text">۵.۱  شقِ قمر — چاند کا دو ٹکڑا ہونا</span></h3>
+<h3 class="sub"><span class="en-text">5.2  Water Flowing from His Fingers</span><span class="ur-text">۵.۲  انگلیوں سے پانی کا بہنا</span></h3>
+<p class="bt">This miracle occurred on multiple occasions and was witnessed by hundreds to thousands of companions. Al-Bukhari and Muslim record at least four separate incidents. Ibn Hajar al-Asqalani in Fath al-Bari noted: 'This miracle is more extraordinary than the miracle of Musa (AS) striking the rock — because Musa (AS) struck a rock created to hold water, while Muhammad ﷺ produced water from living flesh.'</p>
+<h3 class="sub"><span class="en-text">5.3  The Tree Trunk's Cry</span><span class="ur-text">۵.۳  کھجور کے تنے کا رونا</span></h3>
+<p class="bt">Ibn Umar (RA) narrated that the crying of the trunk could be heard throughout the entire mosque. The companions wept when they heard it. This miracle is narrated by over 20 companions across multiple chains — classified as Mutawatir (mass-transmitted) by Ibn Hajar al-Asqalani.</p>
+<h3 class="sub"><span class="en-text">5.4  Food Multiplications</span><span class="ur-text">۵.۴  کھانے کا بڑھنا</span></h3>
+<p class="bt">On multiple authenticated occasions, the Prophet ﷺ multiplied food to feed large groups from small amounts — parallel to miracles of earlier prophets but on a larger scale:</p>
+<p class="bt">Jabir (RA)'s one goat and a sa' of barley fed the entire army of the Trench (1,000+ people) — Bukhari 4101</p>
+<p class="bt">Abu Hurayrah (RA) narrated: a single bowl of milk filled by the Prophet ﷺ satisfied the entire Ahl al-Suffah — dozens of men — Bukhari 6452</p>
+<p class="bt">The wedding feast of Zainab (RA) — bread and meat for a few people fed hundreds — Bukhari 4791</p>
+<h3 class="sub"><span class="en-text">5.5  Knowledge of the Unseen (Al-Ghayb)</span><span class="ur-text">۵.۵  علمِ غیب</span></h3>
+<p class="bt">The Prophet ﷺ foretold future events that were fulfilled precisely — demonstrating knowledge beyond human capacity, given only through divine revelation:</p>
+<p class="bt">The conquest of Persia and Rome — foretold when Muslims were a small persecuted group in Makkah (Bukhari 2977)</p>
+<p class="bt">The Fitnah (civil war) among Muslims after him — described in detail decades before it occurred (Bukhari 7121)</p>
+<p class="bt">The expansion of Madinah and its wealth — foretold during the digging of the Trench when Muslims were starving (Bukhari 4101)</p>
+<p class="bt">The martyrdom of Uthman (RA) — foretold by name during his lifetime (Tirmidhi 3705 — Sahih)</p>
+<p class="bt">His own death within the year — announced at the Farewell Hajj, confirmed by Fatimah (RA) (Bukhari 4433)</p>
+<h2 class="sh"><span class="en-text">Section 6 — The Eternal Miracle: Al-Quran Al-Karim</span><span class="ur-text">سیکشن ۶ — ابدی معجزہ: القرآن الکریم</span></h2>
+<p class="bt">The Prophet ﷺ himself identified the Quran as his greatest and most enduring miracle — the one that would outlast all others and continue to challenge every generation until the Day of Judgment:</p>
+<h3 class="sub"><span class="en-text">6.1  Why the Quran is the Greatest Miracle</span><span class="ur-text">۶.۱  قرآن سب سے بڑا معجزہ کیوں ہے</span></h3>
+<h3 class="sub"><span class="en-text">6.2  The Quran's Challenge — Al-Tahaddi</span><span class="ur-text">۶.۲  قرآن کا چیلنج — التحدی</span></h3>
+<p class="bt">This challenge was issued to 7th-century Arabia — the golden age of Arabic poetry — whose greatest poets had dedicated their lives to mastering Arabic eloquence. The Mu'allaqat (the seven suspended odes of pre-Islamic Arabia) represented the pinnacle of Arabic literary achievement. Not one of these master poets — many of whom were enemies of Islam with every incentive to disprove the Quran — produced a surah in response. Their silence was the most powerful confirmation of the Quran's divine origin.</p>
+<h2 class="sh"><span class="en-text">Section 7 — Khatam Al-Nabiyyin: The Theology of the Final Prophethood</span><span class="ur-text">سیکشن ۷ — خاتم النبیین: ختمِ نبوت کا عقیدہ</span></h2>
+<p class="bt">The finality of Muhammad's ﷺ prophethood is not merely a biographical fact — it is one of the six core beliefs of Islam, denial of which takes a person outside the fold of Islam by scholarly consensus. The Quran, Sunnah, and the consensus of all Islamic scholars throughout history confirm this doctrine absolutely.</p>
+<h3 class="sub"><span class="en-text">7.1  The Prophet's ﷺ Own Words on His Finality</span><span class="ur-text">۷.۱  ختمِ نبوت پر نبی ﷺ کے اپنے الفاظ</span></h3>
+<h3 class="sub"><span class="en-text">7.2  What the Seal Means — Ibn Kathir's Explanation</span><span class="ur-text">۷.۲  مہر کا مطلب — ابن کثیر کی تفسیر</span></h3>
+<p class="bt">Ibn Kathir writes in his Tafsir of Quran 33:40: 'Khatam al-Nabiyyin means the last of them — he came after all the prophets and sealed the door of prophethood. There will be no prophet after him until the Day of Resurrection. The word Khatam (seal/stamp) in Arabic means the last in a sequence and the one who completes it — as a seal completes a letter. Muhammad ﷺ completes the prophetic letter of Allah to humanity, and the Quran is its seal.'</p>
+<h2 class="sh"><span class="en-text">Section 8 — The Blessed Family: Ahlul Bayt</span><span class="ur-text">سیکشن ۸ — بابرکت خاندان: اہلِ بیت</span></h2>
+<p class="bt">The Prophet's ﷺ household — the Ahlul Bayt — holds a special status in Islam. Allah commanded love for them (Quran 42:23), and the Prophet ﷺ described them as one of the two weighty things left for the Ummah alongside the Quran.</p>
+<h2 class="sh"><span class="en-text">Section 9 — The Legacy: What Muhammad ﷺ Left for the World</span><span class="ur-text">سیکشن ۹ — میراث: محمد ﷺ نے دنیا کو کیا دیا</span></h2>
+<p class="bt">The Prophet ﷺ passed away in 632 CE leaving behind a community of approximately 100,000 Muslims across the Arabian Peninsula. Within 100 years of his death, the Islamic civilisation stretched from the Iberian Peninsula (Spain) to Central Asia — the fastest spread of any religion or civilisation in human history. But the legacy of Muhammad ﷺ is measured not only in geography but in the transformation of every domain of human life.</p>
+<h3 class="sub"><span class="en-text">9.1  The Two Foundational Legacies</span><span class="ur-text">۹.۱  دو بنیادی میراثیں</span></h3>
+<h3 class="sub"><span class="en-text">9.2  The Global Legacy — By the Numbers</span><span class="ur-text">۹.۲  عالمی میراث — اعداد و شمار</span></h3>
+<p class="bt">Conclusion — The Eternal Message</p>
+<p class="bt">Muhammad ﷺ was not merely a historical figure. He was, and remains, the living embodiment of the final divine message to all of humanity. His life — spanning 63 years, 23 of them as a prophet — compressed the entire arc of human spiritual struggle: persecution and patience, migration and return, war and peace, grief and joy, poverty and abundance. He experienced everything the human condition offers, and through all of it, his character remained the Quran.</p>
+<p class="bt">The Quran describes him as a mercy to all the worlds (Rahmatan lil-Alamin, Quran 21:107) — not merely to Muslims, not merely to humans, but to all of creation. The scholars explain: his Shari'ah brought mercy to the poor through Zakah, mercy to the oppressed through justice, mercy to animals through prohibitions on cruelty, mercy to the environment through prohibitions on waste. His mercy was universal.</p>
+<p class="bt">And his message endures. The same Quran he received in Cave Hira is recited today in Cape Town and Jakarta, in London and Lagos, in Makkah and Madinah — word for word, letter for letter, unchanged. The same prayer he performed at the Sidratul Muntaha is performed five times daily by 1.8 billion people. The same salutation — Sallallahu Alayhi wa Sallam — is spoken by billions every time his name is mentioned.</p>
+<p class="bt">Primary Sources Referenced</p>
+<div class="av">صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+<p class="bt">May Allah send His peace and blessings upon Muhammad ﷺ,</p>
+<p class="bt">his family, his companions, and all who follow his guidance until the Day of Judgment.</p></div>
+<div class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>window.addEventListener('scroll',function(){document.getElementById('btt').classList.toggle('show',window.scrollY>400);});</script>
+<script>
+let LANG='en';
+function setLang(l){
+  LANG=l;
+  document.getElementById('lt-en').classList.toggle('on',l==='en');
+  document.getElementById('lt-ur').classList.toggle('on',l==='ur');
+  document.body.classList.toggle('ur-mode',l==='ur');
+}
+</script>
+</body></html>
