@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"/>
+<title>Prophetic Family Tree — Al-Maktaba</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --teal:#2FB89A;--blue:#7A9BE8;--orange:#E8A060;--cyan:#60B8E8;--seal:#F5D060;
+  --red:#E86060;--text:#D4CBB8;--text2:#8A9BB0;--text3:#4A5A70;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.06);
+  --golddim:rgba(201,168,76,.08);
+  --col-main:#C9A84C;--col-arab:#E8A060;--col-israel:#7A9BE8;
+  --col-isa:#60B8E8;--col-seal:#F5D060;--col-dim:rgba(201,168,76,.25);
+
+  /* Era band colours */
+  --era-primordial:rgba(122,155,232,.04);
+  --era-patriarch:rgba(201,168,76,.04);
+  --era-exodus:rgba(47,184,154,.04);
+  --era-kingdom:rgba(160,96,232,.04);
+  --era-final:rgba(245,208,96,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:var(--bg0);color:var(--text);font-family:"Lora",serif;overflow:hidden}
+
+/* ── NAV ── */
+.nav{height:52px;background:rgba(4,7,13,.98);border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;padding:0 16px;gap:12px;z-index:300;position:relative;flex-shrink:0}
+.nav-back{font-family:"Cinzel",serif;font-size:10px;letter-spacing:1px;color:var(--text2);
+  padding:5px 11px;border:1px solid var(--border2);border-radius:5px;text-decoration:none;transition:all .15s;flex-shrink:0}
+.nav-back:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:"Noto Naskh Arabic",serif;font-size:18px;color:var(--gold)}
+.nav-en{font-family:"Cinzel",serif;font-size:11px;font-weight:700;color:var(--gold2);letter-spacing:2px}
+.nav-search{margin-left:auto;position:relative}
+.nav-inp{padding:6px 12px 6px 30px;background:rgba(255,255,255,.05);border:1px solid var(--border2);
+  border-radius:6px;color:var(--text);font-size:11px;outline:none;transition:border-color .2s;
+  width:170px;font-family:"Lora",serif}
+.nav-inp:focus{border-color:var(--gold);width:200px}
+.nav-inp::placeholder{color:var(--text2);font-size:10px}
+.nav-search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);
+  color:var(--text2);font-size:12px;pointer-events:none}
+@media(max-width:600px){.nav-search{display:none}}
+
+/* ── APP ── */
+.app{display:flex;height:calc(100vh - 52px);overflow:hidden}
+
+/* ── TREE AREA ── */
+.tree-area{flex:1;overflow:hidden;position:relative;cursor:grab}
+.tree-area.grabbing{cursor:grabbing}
+.tree-vp{position:absolute;inset:0;overflow:hidden}
+.tree-canvas{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
+
+/* ── SVG EDGES ── */
+#edge-svg{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
+
+/* ── ERA BANDS ── */
+.era-band{position:absolute;left:0;right:0;pointer-events:none;border-top:1px solid rgba(255,255,255,.03)}
+.era-label{position:absolute;right:16px;font-family:"Cinzel",serif;font-size:8px;
+  letter-spacing:2px;text-transform:uppercase;opacity:.5;top:8px}
+
+/* ── NODE BASE ── */
+.t-node{position:absolute;cursor:pointer;user-select:none}
+.t-node-inner{transition:transform .18s,box-shadow .18s}
+.t-node:hover .t-node-inner{transform:translateY(-2px)}
+.t-node.selected .t-node-inner{animation:node-select-pulse .4s ease}
+
+@keyframes node-select-pulse{
+  0%{box-shadow:0 0 0 0 rgba(201,168,76,.5)}
+  50%{box-shadow:0 0 0 8px rgba(201,168,76,0)}
+  100%{box-shadow:0 0 0 0 rgba(201,168,76,0)}
+}
+
+/* ── PROPHET NODE ── */
+.tn-prophet .t-node-inner{
+  background:linear-gradient(150deg,rgba(25,42,70,.98),rgba(8,14,28,.99));
+  border:1px solid rgba(201,168,76,.3);border-radius:10px;
+  padding:10px 14px;min-width:130px;text-align:center;
+  box-shadow:0 4px 24px rgba(0,0,0,.5),0 0 0 1px rgba(201,168,76,.05),inset 0 1px 0 rgba(255,255,255,.04)}
+.tn-prophet .t-node-inner::after{content:"";position:absolute;top:0;left:20%;right:20%;
+  height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);border-radius:1px}
+.tn-prophet .tn-num{font-family:"Cinzel",serif;font-size:8px;letter-spacing:1.5px;color:var(--gold);margin-bottom:4px;opacity:.8}
+.tn-prophet .tn-ar{font-family:"Noto Naskh Arabic",serif;font-size:17px;line-height:1.2;margin-bottom:3px}
+.tn-prophet .tn-en{font-family:"Cinzel",serif;font-size:10.5px;font-weight:700;color:#fff}
+.tn-prophet .tn-era{font-size:8.5px;color:var(--text2);margin-top:3px;font-family:"Lora",serif}
+.tn-prophet:hover .t-node-inner{border-color:rgba(201,168,76,.55);box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 20px rgba(201,168,76,.1)}
+
+/* ── ULUL AZM ── */
+.tn-ulul .t-node-inner{border-color:rgba(201,168,76,.55);
+  box-shadow:0 0 0 1px rgba(201,168,76,.15),0 6px 30px rgba(201,168,76,.12),0 4px 20px rgba(0,0,0,.5)}
+.tn-ulul .tn-ar{color:var(--gold2)}
+.ulul-star{position:absolute;top:-6px;right:-6px;font-size:10px;line-height:1;
+  background:var(--bg0);border-radius:50%;padding:1px 2px;border:1px solid rgba(201,168,76,.4)}
+
+/* ── SEAL NODE (Muhammad ﷺ) ── */
+.tn-seal .t-node-inner{
+  background:linear-gradient(150deg,rgba(60,48,8,.95),rgba(20,16,4,.98));
+  border-color:rgba(245,208,96,.5);
+  box-shadow:0 0 0 1px rgba(245,208,96,.1),0 8px 40px rgba(245,208,96,.15),0 4px 20px rgba(0,0,0,.6)}
+.tn-seal .tn-ar{color:var(--seal);font-size:20px}
+.tn-seal .tn-en{color:var(--seal)}
+.tn-seal .tn-num{color:var(--seal)}
+
+/* ── ISA NODE ── */
+.tn-isa .t-node-inner{border-color:rgba(96,184,232,.4);
+  box-shadow:0 0 0 1px rgba(96,184,232,.08),0 6px 28px rgba(96,184,232,.1)}
+.tn-isa .tn-ar{color:var(--cyan)}
+
+/* ── INTERMEDIATE NODE ── */
+.tn-inter .t-node-inner{
+  background:rgba(12,21,40,.7);border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:5px 14px;text-align:center}
+.tn-inter .tn-en{font-size:9.5px;color:var(--text2);font-family:"Cinzel",serif;letter-spacing:.3px;white-space:nowrap}
+.tn-inter .tn-sub{font-size:8.5px;color:rgba(138,155,176,.45);margin-top:1px;font-family:"Lora",serif}
+.tn-inter:hover .t-node-inner{background:rgba(17,30,53,.8);border-color:rgba(255,255,255,.14)}
+
+/* ── DETAIL PANEL ── */
+.detail-panel{
+  width:320px;flex-shrink:0;
+  background:rgba(6,10,20,.98);
+  border-left:1px solid var(--border2);
+  overflow-y:auto;z-index:100;
+  transform:translateX(100%);
+  transition:transform .28s cubic-bezier(.32,.72,0,1);
+  position:absolute;right:0;top:0;bottom:0}
+.detail-panel.open{transform:translateX(0)}
+.detail-panel::-webkit-scrollbar{width:3px}
+.detail-panel::-webkit-scrollbar-thumb{background:var(--border)}
+
+.dp-header{padding:22px 20px 16px;border-bottom:1px solid var(--border2);position:sticky;top:0;
+  background:rgba(6,10,20,.98);z-index:10}
+.dp-close{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:50%;
+  background:rgba(255,255,255,.05);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  color:var(--text2);font-size:13px;transition:all .15s;flex-shrink:0}
+.dp-close:hover{color:var(--gold2);border-color:var(--border)}
+.dp-badge{font-family:"Cinzel",serif;font-size:7.5px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);background:var(--golddim);
+  border:1px solid var(--border);border-radius:10px;padding:2px 8px;
+  display:inline-block;margin-bottom:8px}
+.dp-ar{font-family:"Noto Naskh Arabic",serif;font-size:32px;line-height:1.2;margin-bottom:4px}
+.dp-en{font-family:"Cinzel",serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px}
+.dp-label{font-family:"Cinzel",serif;font-size:9px;letter-spacing:.8px;color:var(--gold);margin-bottom:6px}
+.dp-era{font-family:"Lora",serif;font-size:11px;color:var(--text2)}
+
+.dp-body{padding:18px 20px 32px}
+.dp-sec{font-family:"Cinzel",serif;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;margin-top:18px;opacity:.8}
+.dp-quran-ar{font-family:"Noto Naskh Arabic",serif;font-size:17px;color:var(--gold2);
+  direction:rtl;text-align:right;line-height:2;
+  padding:10px 14px;border-right:2px solid var(--gold);
+  background:rgba(201,168,76,.05);border-radius:0 8px 8px 0;margin-bottom:6px}
+.dp-quran-tr{font-size:11.5px;font-style:italic;color:var(--gold3);
+  padding:6px 12px;border-left:2px solid rgba(201,168,76,.3);
+  background:rgba(201,168,76,.03);border-radius:0 5px 5px 0;line-height:1.7}
+.dp-text{font-size:12px;color:var(--text2);line-height:1.78;margin-top:6px}
+.dp-hadith{font-size:11.5px;color:var(--text2);line-height:1.75;
+  padding:10px 12px;background:rgba(47,184,154,.04);border-left:2px solid rgba(47,184,154,.3);
+  border-radius:0 6px 6px 0}
+.dp-family{font-size:11px;color:var(--text3);line-height:1.7;
+  padding:8px 12px;background:rgba(255,255,255,.02);border-radius:6px;border:1px solid var(--border2)}
+
+/* ── CONTROLS ── */
+.ctrl-wrap{position:absolute;bottom:20px;right:20px;z-index:200;display:flex;flex-direction:column;gap:6px}
+.ctrl-btn{width:34px;height:34px;border-radius:7px;background:rgba(8,14,28,.92);
+  border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--text2);font-size:15px;transition:all .15s;user-select:none}
+.ctrl-btn:hover{border-color:var(--border);color:var(--gold2)}
+.ctrl-btn:active{transform:scale(.92)}
+
+/* ── ZOOM BADGE ── */
+.zoom-badge{position:absolute;bottom:20px;left:14px;z-index:200;
+  font-family:"Cinzel",serif;font-size:9px;color:var(--text2);
+  background:rgba(8,14,28,.85);padding:4px 9px;border-radius:5px;border:1px solid var(--border2)}
+
+/* ── LEGEND ── */
+.legend{position:absolute;top:14px;left:14px;z-index:200;
+  background:rgba(6,10,20,.92);border:1px solid var(--border2);
+  border-radius:9px;padding:11px 13px}
+.leg-row{display:flex;align-items:center;gap:7px;margin-bottom:5px;
+  font-size:9px;font-family:"Cinzel",serif;color:var(--text2);letter-spacing:.2px}
+.leg-row:last-child{margin-bottom:0}
+.leg-line{width:18px;height:2px;border-radius:1px;flex-shrink:0}
+.leg-dash{width:18px;height:1px;border-top:1.5px dashed;flex-shrink:0;opacity:.6}
+.leg-node{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+/* ── MOBILE OVERLAY ── */
+.mob-btn{display:none;position:absolute;top:14px;right:14px;z-index:200;
+  width:38px;height:38px;border-radius:8px;background:rgba(8,14,28,.95);
+  border:1px solid var(--border);align-items:center;justify-content:center;
+  cursor:pointer;font-size:16px;color:var(--gold2);flex-shrink:0}
+
+/* ── MOBILE SHEET ── */
+@media(max-width:700px){
+  .detail-panel{
+    width:100%;right:0;left:0;
+    top:auto;bottom:0;
+    height:75vh;
+    border-left:none;border-top:1px solid var(--border2);
+    border-radius:16px 16px 0 0;
+    transform:translateY(100%)}
+  .detail-panel.open{transform:translateY(0)}
+  .dp-header{border-radius:16px 16px 0 0}
+  .dp-pull{display:block;width:36px;height:3px;border-radius:2px;
+    background:rgba(255,255,255,.15);margin:0 auto 12px}
+  .legend{display:none}
+  .mob-btn{display:flex}
+  .ctrl-wrap{bottom:16px;right:16px}
+}
+@media(min-width:701px){.dp-pull{display:none}}
+
+/* ── SEARCH HIGHLIGHT ── */
+.t-node.search-match .t-node-inner{
+  box-shadow:0 0 0 2px var(--gold),0 6px 24px rgba(201,168,76,.25)!important}
+.t-node.search-dim .t-node-inner{opacity:.25}
+
+/* ── EMPTY SEARCH MSG ── */
+.search-msg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:"Cinzel",serif;font-size:10px;letter-spacing:1px;color:var(--text2);
+  background:rgba(8,14,28,.9);padding:10px 18px;border-radius:8px;border:1px solid var(--border2);
+  pointer-events:none;opacity:0;transition:opacity .2s;z-index:250}
+.search-msg.show{opacity:1}
+
+/* ── NAV BUTTON FOCUS ── */
+.nav-to-btn{font-family:"Cinzel",serif;font-size:8.5px;letter-spacing:.5px;
+  padding:4px 9px;border:1px solid var(--border2);border-radius:4px;
+  color:var(--text2);cursor:pointer;transition:all .15s;background:transparent;flex-shrink:0}
+.nav-to-btn:hover{color:var(--gold);border-color:var(--border)}
+</style>
+</head>
+<body>
+
+<div class="nav" id="nav">
+  <a class="nav-back" href="index.html">← Al-Maktaba</a>
+  <div class="nav-ar">شجرة الأنبياء</div>
+  <div class="nav-en">Prophetic Family Tree</div>
+  <button class="nav-to-btn" onclick="centerOn('adam')">Adam</button>
+  <button class="nav-to-btn" onclick="centerOn('ibrahim')">Ibrahim</button>
+  <button class="nav-to-btn" onclick="centerOn('muhammad')">Muhammad ﷺ</button>
+  <div class="nav-search">
+    <span class="nav-search-icon">⌕</span>
+    <input class="nav-inp" id="search-inp" placeholder="Search prophet..." oninput="doSearch(this.value)" autocomplete="off"/>
+  </div>
+</div>
+
+<div class="app">
+  <div class="tree-area" id="tree-area">
+    <div class="tree-vp" id="tree-vp">
+      <div class="tree-canvas" id="tree-canvas">
+        <svg id="edge-svg" style="position:absolute;top:0;left:0;pointer-events:none;overflow:visible"></svg>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="leg-row"><div class="leg-line" style="background:var(--col-main)"></div>Main prophetic trunk</div>
+      <div class="leg-row"><div class="leg-line" style="background:var(--col-arab)"></div>Arab lineage</div>
+      <div class="leg-row"><div class="leg-line" style="background:var(--col-israel)"></div>Israelite lineage</div>
+      <div class="leg-row"><div class="leg-line" style="background:var(--col-isa)"></div>Line of Isa (AS)</div>
+      <div class="leg-row"><div class="leg-dash" style="border-color:rgba(201,168,76,.4)"></div>Distant generations</div>
+      <div class="leg-row"><div class="leg-node" style="background:rgba(201,168,76,.35);border:1px solid rgba(201,168,76,.6)"></div>Prophet (Nabi)</div>
+      <div class="leg-row"><div style="font-size:9px;margin-top:1px">⭐</div>Ulul Azm (5 Great)</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="ctrl-wrap">
+      <div class="ctrl-btn" onclick="zoomBy(1.25)" title="Zoom in">+</div>
+      <div class="ctrl-btn" onclick="zoomBy(0.8)" title="Zoom out">−</div>
+      <div class="ctrl-btn" onclick="resetView()" title="Reset view">⌂</div>
+    </div>
+
+    <div class="zoom-badge" id="zoom-badge">100%</div>
+    <div class="search-msg" id="search-msg">No match found</div>
+    <button class="mob-btn" id="mob-btn" onclick="togglePanel()">☰</button>
+  </div>
+
+  <!-- Detail Panel -->
+  <div class="detail-panel" id="detail-panel">
+    <div class="dp-header">
+      <div class="dp-pull"></div>
+      <div class="dp-close" onclick="closePanel()">✕</div>
+      <div id="dp-header-content"></div>
+    </div>
+    <div class="dp-body" id="dp-body">
+      <div style="text-align:center;padding:40px 0;color:var(--text2);font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;opacity:.5">
+        Select a node to view details
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════════════════════════
+
+const S = [
+  { id:"adam", col:4, row:0, name:"Adam (AS)", arabic:"آدم عليه السلام", era:"Primordial", size:"xl",
+    detail:{ label:"1st Prophet", quranArabic:"وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا", quran:"And He taught Adam the names of all things. (Quran 2:31)", text:"The first human and first prophet. Created from clay by Allah. Descended to Earth after the Garden. Father of all mankind. The first to receive divine guidance on Earth.", hadith:"The Prophet ﷺ said: 'Allah created Adam in His image, sixty cubits tall.' (Bukhari 3326)", family:"Father of Sheeth, Qabil, Habil, and all of humanity" }},
+  { id:"sheeth", col:4, row:1, name:"Sheeth (AS)", arabic:"شيث عليه السلام", era:"~3500+ BCE", size:"lg",
+    detail:{ label:"Son of Adam", quranArabic:"", quran:"", text:"Son of Adam (AS). Received 50 scrolls from Allah — the first divine scriptures. He carried the message after Adam (AS). He is the ancestor of Idris (AS) and Nuh (AS).", hadith:"The Prophet ﷺ said: 'Allah sent down one hundred and four scriptures, fifty of which were revealed to Sheeth.' (Ibn Hibban — authenticated)", family:"Son of Adam (AS). Father of Anush." }},
+  { id:"idris", col:4, row:2, name:"Idris (AS)", arabic:"إدريس عليه السلام", era:"Pre-Flood ~3000 BCE", size:"lg",
+    detail:{ label:"2nd Quranic Prophet", quranArabic:"وَرَفَعْنَاهُ مَكَانًا عَلِيًّا", quran:"And We raised him to a high station. (Quran 19:57)", text:"Known as Enoch in biblical tradition. The first to write with a pen, study astronomy, and sew clothes. The Prophet ﷺ met him in the 4th heaven during Al-Isra wal-Mi'raj.", hadith:"Ibn Kathir: 'Idris was the first person to write with a pen and the first to study the stars.'", family:"Descendant of Sheeth (AS). Lived before Nuh (AS)." }},
+  { id:"nuh", col:4, row:3, name:"Nuh (AS)", arabic:"نوح عليه السلام", era:"~3000–2500 BCE", size:"xl", ulul:true,
+    detail:{ label:"Ulul Azm — 3rd Quranic Prophet", quranArabic:"فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا", quran:"He remained among them a thousand years minus fifty years. (Quran 29:14)", text:"The prophet of patience. Preached for 950 years. Built the Ark by Allah's command. The Great Flood destroyed all disbelievers. All humanity today descends from his three sons: Sam, Ham, and Yafith.", hadith:"The Prophet ﷺ said: 'On the Day of Resurrection people will come to Nuh and say: You are the first of the messengers to the people of the earth.' (Bukhari 3340)", family:"Descendants: Sam (Semitic peoples), Ham (African peoples), Yafith (European/Asian peoples)" }},
+  { id:"sam", col:4, row:4, name:"Sam (Shem)", arabic:"سام بن نوح", era:"Post-Flood", size:"sm", gap:true,
+    detail:{ label:"Son of Nuh (AS)", quranArabic:"", quran:"", text:"Son of Nuh (AS). Father of the Semitic peoples — Arabs, Hebrews, and Arameans. From his lineage came Ibrahim (AS) and all subsequent prophets.", hadith:"", family:"Son of Nuh (AS). Ancestor of Ibrahim (AS)." }},
+  { id:"arpakshad", col:4, row:5, name:"Arpakshad…", arabic:"أرفخشذ وأجياله", era:"Generations", size:"sm", gap:true,
+    detail:{ label:"Generations between Sam and Ibrahim", quranArabic:"", quran:"", text:"Multiple generations between Sam (son of Nuh) and Ibrahim (AS). Al-Tabari documents: Arpakshad → Shalikh → Abir → Falij → Ra'u → Saruj → Nahur → Azar (Terah). Eight generations spanning ~800 years.", hadith:"Al-Tabari, Tarikh al-Rusul wal-Muluk, Vol.1", family:"8 generations from Sam to Azar (father of Ibrahim)" }},
+  { id:"ibrahim", col:4, row:6, name:"Ibrahim (AS)", arabic:"إبراهيم عليه السلام", era:"~2000 BCE", size:"xl", ulul:true,
+    detail:{ label:"Khalilullah — Ulul Azm — 6th Quranic Prophet", quranArabic:"وَاتَّخَذَ اللَّهُ إِبْرَاهِيمَ خَلِيلًا", quran:"And Allah took Ibrahim as an intimate friend. (Quran 4:125)", text:"Father of Prophets. Born in Babylon. Thrown into fire — Allah made it cool and safe. Migrated to Canaan. Built the Ka'bah with Ismail (AS). Ancestor of all remaining prophets.", hadith:"The Prophet ﷺ said: 'On the Night Journey I saw Ibrahim and I resembled him most.' (Bukhari)", family:"Two wives: Hajar (mother of Ismail) and Sarah (mother of Ishaq). Father of all prophets after him." }},
+  { id:"ismail", col:1, row:7, name:"Ismail (AS)", arabic:"إسماعيل عليه السلام", era:"~1900 BCE", size:"lg", lineage:"arab",
+    detail:{ label:"8th Quranic Prophet — Sadiq al-Wa'd", quranArabic:"إِنَّهُ كَانَ صَادِقَ الْوَعْدِ وَكَانَ رَسُولًا نَّبِيًّا", quran:"Indeed he was true to his promise, and he was a messenger and a prophet. (Quran 19:54)", text:"First son of Ibrahim (AS) through Hajar (RA). Left as an infant in Makkah — origin of Zamzam. Built the Ka'bah with his father. Forefather of the Arab nation. From his lineage, Muhammad ﷺ was born ~2600 years later.", hadith:"Ibn Kathir: 'Ismail is the ancestor of the Arabs of the Hijaz, and from him descended Adnan, then Quraysh, then Banu Hashim, then Muhammad ﷺ.'", family:"Son of Ibrahim and Hajar. Father of 12 Arab tribes. Ancestor of Muhammad ﷺ." }},
+  { id:"arab-gen", col:1, row:8, name:"Adnan…Quraysh", arabic:"عدنان ← قريش", era:"~1900–570 BCE", size:"sm", gap:true, lineage:"arab",
+    detail:{ label:"Arab Generations: Ismail → Muhammad ﷺ", quranArabic:"", quran:"", text:"From Ismail (AS) to Muhammad ﷺ spans ~40 generations. Authenticated chain from Adnan: Ismail → ... → Adnan → Ma'ad → Nizar → Mudar → Ilyas → Mudrikah → Khuzaymah → Kinanah → Quraysh → Fihr → Ghalib → Lu'ayy → Ka'b → Murrah → Kilab → Qusayy → Abd Manaf → Hashim → Abd al-Muttalib → Abdullah → Muhammad ﷺ.", hadith:"Ibn Hisham, Al-Sirah al-Nabawiyyah. Note: The chain before Adnan is not authenticated in hadith.", family:"~40 generations from Ismail to Muhammad ﷺ" }},
+  { id:"muhammad", col:1, row:9, name:"Muhammad ﷺ", arabic:"مُحَمَّدٌ رَّسُولُ اللَّهِ", era:"570–632 CE", size:"xl", ulul:true, special:"seal",
+    detail:{ label:"Khatam al-Nabiyyin — Seal of All Prophets", quranArabic:"مَّا كَانَ مُحَمَّدٌ أَبَا أَحَدٍ مِّن رِّجَالِكُمْ وَلَٰكِن رَّسُولَ اللَّهِ وَخَاتَمَ النَّبِيِّينَ", quran:"Muhammad is not the father of any of your men, but he is the Messenger of Allah and the seal of the prophets. (Quran 33:40)", text:"The final prophet. Born in Makkah 570 CE. From the noble tribe of Quraysh, clan of Banu Hashim. Son of Abdullah ibn Abd al-Muttalib. Received revelation at age 40 in Cave Hira. Sent to all of humanity and the Jinn until the Day of Judgment. Passed away in Madinah 632 CE at age 63.", hadith:"The Prophet ﷺ said: 'I am the last of the prophets... The similitude of me among the prophets is that of a man who built a house — I am the last brick.' (Bukhari 3535)", family:"Full name: Muhammad ibn Abdullah ibn Abd al-Muttalib ibn Hashim... (Qurayshi Arab from the line of Ismail AS)" }},
+  { id:"ishaq", col:7, row:7, name:"Ishaq (AS)", arabic:"إسحاق عليه السلام", era:"~1900 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"9th Quranic Prophet", quranArabic:"وَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِّنَ الصَّالِحِينَ", quran:"We gave him good tidings of Ishaq, a prophet from among the righteous. (Quran 37:112)", text:"Second son of Ibrahim (AS) through Sarah (RA). Born miraculously to elderly parents. Raised in Canaan. Father of Ya'qub (Israel). His line carried the Israelite prophets.", hadith:"Ibn Kathir: 'The prophets of Bani Israel all descended from Ishaq (AS) through Ya'qub (AS).'", family:"Son of Ibrahim and Sarah. Father of Esau and Ya'qub (Israel)." }},
+  { id:"yaqub", col:7, row:8, name:"Ya'qub (AS)", arabic:"يعقوب عليه السلام", era:"~1800 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"10th Quranic Prophet — Israel", quranArabic:"وَوَهَبْنَا لَهُ إِسْحَاقَ وَيَعْقُوبَ", quran:"And We gave him Ishaq and Ya'qub. (Quran 6:84)", text:"Son of Ishaq (AS). Called Israel — meaning Servant of Allah. Father of 12 sons who became the 12 tribes of Bani Israel. His patience over the loss of Yusuf is the Quran's great lesson in trusting Allah's plan.", hadith:"Ibn Kathir: 'Ya'qub was given the title Israel, meaning the servant who strives.'", family:"12 sons including: Yusuf, Binyamin, Lawi (Levi), Yahuda (Judah)" }},
+  { id:"yusuf", col:6, row:9, name:"Yusuf (AS)", arabic:"يوسف عليه السلام", era:"~1700 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"11th Quranic Prophet — Ahsan al-Qasas", quranArabic:"نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ", quran:"We relate to you the best of stories. (Quran 12:3)", text:"Son of Ya'qub (AS). Thrown into a well by his brothers. Sold as a slave in Egypt. Endured the fitna of Zulaikha. Interpreted Pharaoh's dream. Became Finance Minister of Egypt. His story — Surah Yusuf — is called the best of stories.", hadith:"The Prophet ﷺ said: 'The noble one, son of the noble one, son of the noble one, son of the noble one: Yusuf son of Ya'qub son of Ishaq son of Ibrahim.' (Bukhari 3382)", family:"Son of Ya'qub and his beloved wife Rachel." }},
+  { id:"lawi-musa", col:7, row:9, name:"Lawi → Musa", arabic:"لاوي ← موسى", era:"Generations", size:"sm", gap:true, lineage:"israel",
+    detail:{ label:"From Lawi (Levi) to Musa (AS)", quranArabic:"", quran:"", text:"From Ya'qub's son Lawi (Levi): Lawi → Qahat → Imran → Musa and Harun (AS). Three generations from Ya'qub to Musa — consistent with the ~400 years of Israelites in Egypt.", hadith:"Confirmed in Al-Tabari, Tarikh, Vol.1", family:"Lawi → Qahat → Imran → Musa (AS) and Harun (AS)" }},
+  { id:"yahuda-d", col:8, row:9, name:"Yahuda…Dawud", arabic:"يهودا ← داود", era:"Generations", size:"sm", gap:true, lineage:"israel",
+    detail:{ label:"From Yahuda (Judah) to Dawud (AS)", quranArabic:"", quran:"", text:"From Ya'qub's son Yahuda (Judah): multiple generations leading to Dawud (AS). Al-Tabari and Ibn Kathir document this lineage. Approximately 15 generations from Ya'qub to Dawud.", hadith:"Ibn Kathir, Al-Bidayah wal-Nihayah, Stories of Dawud (AS)", family:"Yahuda ibn Ya'qub → ... → Jesse (Isha) → Dawud (AS)" }},
+  { id:"musa", col:7, row:10, name:"Musa (AS)", arabic:"موسى عليه السلام", era:"~1300 BCE", size:"xl", ulul:true, lineage:"israel",
+    detail:{ label:"Kalimullah — Ulul Azm — 14th Quranic Prophet", quranArabic:"وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا", quran:"And Allah spoke to Musa with direct speech. (Quran 4:164)", text:"Most mentioned prophet in the Quran (136 times). Born under Pharaoh's massacre. Raised in Pharaoh's palace. Received prophethood at the Burning Bush. Led the Great Exodus. Received the Tawrat on Mount Sinai. Spoke directly to Allah — Kalimullah.", hadith:"On the Night Journey: 'I passed by Musa who was praying in his grave... He wept saying more of Muhammad's ﷺ Ummah will enter Paradise than mine.' (Muslim)", family:"Son of Imran ibn Qahat ibn Lawi ibn Ya'qub. Brother of Harun (AS)." }},
+  { id:"harun", col:6, row:10, name:"Harun (AS)", arabic:"هارون عليه السلام", era:"~1300 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"15th Quranic Prophet — Brother of Musa", quranArabic:"وَأَخِي هَارُونُ هُوَ أَفْصَحُ مِنِّي لِسَانًا", quran:"And my brother Harun is more fluent than me in tongue. (Quran 28:34)", text:"Elder brother of Musa (AS). Appointed by Allah as prophet and supporter. Both confronted Pharaoh together. Known for exceptional eloquence. Tried to stop Bani Israel from worshipping the Golden Calf.", hadith:"The Prophet ﷺ said to Ali (RA): 'You are to me as Harun was to Musa, except there is no prophet after me.' (Bukhari)", family:"Son of Imran. Brother of Musa (AS)." }},
+  { id:"dawud", col:8, row:10, name:"Dawud (AS)", arabic:"داود عليه السلام", era:"~1000 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"17th Quranic Prophet — Zabur", quranArabic:"وَلَقَدْ آتَيْنَا دَاوُودَ مِنَّا فَضْلًا", quran:"And We certainly gave Dawud from Us bounty. (Quran 34:10)", text:"Killed Jalut (Goliath) as a young soldier. Became Prophet-King of Israel. Received the Zabur (Psalms). Mountains and birds glorified Allah with his voice. Iron softened in his hands. Established Jerusalem as capital.", hadith:"The Prophet ﷺ said: 'The most beloved prayer to Allah is the prayer of Dawud, and the most beloved fasting is the fasting of Dawud.' (Bukhari)", family:"Son of Jesse (Isha). Father of Sulaiman (AS)." }},
+  { id:"sulaiman", col:8, row:11, name:"Sulaiman (AS)", arabic:"سليمان عليه السلام", era:"~970 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"18th Quranic Prophet — Commanded Jinn & Wind", quranArabic:"وَوَرِثَ سُلَيْمَانُ دَاوُودَ", quran:"And Sulaiman inherited Dawud. (Quran 27:16)", text:"Son of Dawud (AS). Greatest king in history — commanded humans, Jinn, wind, and animals. Understood the speech of birds and ants. Built Masjid al-Aqsa. The Queen of Sheba submitted to Islam through him.", hadith:"The Prophet ﷺ said: 'Last night a Jinn attacked me but Allah gave me power over him... I remembered my brother Sulaiman's prayer.' (Bukhari 3423)", family:"Son of Dawud (AS). Ruled over all of Israel and commanded the Jinn." }},
+  { id:"israel-gen", col:7, row:12, name:"Generations…", arabic:"أجيال بني إسرائيل", era:"~900–100 BCE", size:"sm", gap:true, lineage:"israel",
+    detail:{ label:"Generations of Israelite Prophets", quranArabic:"", quran:"", text:"Between Sulaiman (AS) and Zakariyya (AS) span approximately 800 years and many prophets: Ilyas (AS), Al-Yasa (AS), Yunus (AS), Dhul-Kifl (AS), and Ayyub (AS) — all mentioned in the Quran.", hadith:"", family:"Includes: Ilyas (AS), Al-Yasa (AS), Yunus (AS), Ayyub (AS), Dhul-Kifl (AS)" }},
+  { id:"zakariyya", col:7, row:13, name:"Zakariyya (AS)", arabic:"زكريا عليه السلام", era:"~1st Century BCE", size:"lg", lineage:"israel",
+    detail:{ label:"22nd Quranic Prophet — Guardian of Maryam", quranArabic:"هُنَالِكَ دَعَا زَكَرِيَّا رَبَّهُ", quran:"At that point Zakariyya called upon his Lord. (Quran 3:38)", text:"Priest and guardian of Maryam (RA) in the Temple of Jerusalem. Found miraculous provision with her. Made a beautiful du'a for an heir in extreme old age. Was given Yahya (AS) miraculously.", hadith:"Ibn Kathir: 'Zakariyya was a carpenter who would earn his living from his craft and spend it on himself and his family.'", family:"From the line of Dawud (AS). Father of Yahya (AS). Guardian of Maryam (RA)." }},
+  { id:"yahya", col:7, row:14, name:"Yahya (AS)", arabic:"يحيى عليه السلام", era:"~4 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"23rd Quranic Prophet — Named by Allah", quranArabic:"يَا يَحْيَىٰ خُذِ الْكِتَابَ بِقُوَّةٍ", quran:"O Yahya, take the Scripture with determination. (Quran 19:12)", text:"Born miraculously to very elderly parents. First to bear this name — Allah named him directly: 'We have not assigned to any before this name.' Confirmed the coming of Isa (AS). Martyred by Herod Antipas.", hadith:"The Prophet ﷺ saw Yahya (AS) in the second heaven during Al-Isra wal-Mi'raj, alongside Isa (AS).", family:"Son of Zakariyya (AS). Contemporary of Isa (AS) — they confirmed each other." }},
+  { id:"isa", col:7, row:15, name:"Isa (AS)", arabic:"عيسى عليه السلام", era:"~4 BCE–30 CE", size:"xl", ulul:true, special:"isa", lineage:"isa",
+    detail:{ label:"Ruhullah — Ulul Azm — 24th Quranic Prophet", quranArabic:"إِنَّمَا الْمَسِيحُ عِيسَى ابْنُ مَرْيَمَ رَسُولُ اللَّهِ وَكَلِمَتُهُ", quran:"The Messiah Isa son of Maryam was a messenger of Allah and His word. (Quran 4:171)", text:"Born of the Virgin Maryam (RA) without a father — by Allah's direct command 'Be.' Spoke from the cradle as a newborn. Healed the blind and raised the dead by Allah's permission. Announced Muhammad ﷺ by the name Ahmad. Not crucified — Allah raised him alive. He will return before the Last Day.", hadith:"The Prophet ﷺ said: 'By the One in whose hand is my soul, it is imminent that Isa son of Maryam will descend among you as a just ruler.' (Bukhari 2222)", family:"Son of Maryam bint Imran (RA). No biological father. Last prophet of Bani Israel." }},
+  // ── SIDE PROPHETS ──
+  { id:"hud", col:2, row:5, name:"Hud (AS)", arabic:"هود عليه السلام", era:"~2400 BCE", size:"lg", lineage:"arab",
+    detail:{ label:"4th Quranic Prophet — Arab Prophet", quranArabic:"وَإِلَىٰ عَادٍ أَخَاهُمْ هُودًا", quran:"And to Aad [We sent] their brother Hud. (Quran 7:65)", text:"One of the 4 Arab prophets. Sent to the tribe of Aad in ancient Yemen. People of immense power and towering structures. Destroyed by a howling wind for 7 nights and 8 days.", hadith:"Ibn Kathir: 'Hud (AS) was from the people of Aad themselves, from the Arab tribes of the south.'", family:"From the tribe of Aad (descendants of Sam ibn Nuh through the Arab branch)." }},
+  { id:"saleh", col:2, row:6, name:"Saleh (AS)", arabic:"صالح عليه السلام", era:"~2000 BCE", size:"lg", lineage:"arab",
+    detail:{ label:"5th Quranic Prophet — Arab Prophet", quranArabic:"وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَالِحًا", quran:"And to Thamud [We sent] their brother Saleh. (Quran 7:73)", text:"Sent to the tribe of Thamud in northwestern Arabia — the people who carved homes into mountains. Given the She-Camel as a divine sign. They hamstrung the camel in defiance and were destroyed by a thunderous blast.", hadith:"Ibn Kathir: 'Saleh (AS) was from among the tribe of Thamud themselves.'", family:"From the tribe of Thamud (descendants of Sam ibn Nuh through the Arab branch)." }},
+  { id:"lut", col:9, row:7, name:"Lut (AS)", arabic:"لوط عليه السلام", era:"~1900 BCE", size:"lg",
+    detail:{ label:"7th Quranic Prophet — Nephew of Ibrahim", quranArabic:"وَلُوطًا آتَيْنَاهُ حُكْمًا وَعِلْمًا", quran:"And Lut — We gave him judgement and knowledge. (Quran 21:74)", text:"Nephew of Ibrahim (AS). Accompanied him from Babylon. Settled in Sodom near the Dead Sea. His people committed unprecedented immorality. The cities were overturned and destroyed with rained stones of baked clay.", hadith:"Ibn Kathir: 'Lut was the son of Haran, the brother of Ibrahim (AS).'", family:"Nephew of Ibrahim (AS) — son of Ibrahim's brother Haran." }},
+  { id:"shuayb", col:2, row:8, name:"Shu'ayb (AS)", arabic:"شعيب عليه السلام", era:"~1600 BCE", size:"lg", lineage:"arab",
+    detail:{ label:"12th Quranic Prophet — Khatib al-Anbiya", quranArabic:"قَدْ جَاءَتْكُم بَيِّنَةٌ مِّن رَّبِّكُمْ", quran:"There has come to you clear evidence from your Lord. (Quran 7:73)", text:"Most eloquent of prophets — called Khatib al-Anbiya (Orator of the Prophets). Sent to the people of Madyan who cheated in weights and measures. Father-in-law of Musa (AS).", hadith:"Ibn Kathir: 'Shu'ayb was from the Arab tribe of Madyan, possibly from the lineage of Ibrahim (AS) through Madyan ibn Ibrahim.'", family:"Possibly from Madyan ibn Ibrahim (AS). Father-in-law of Musa (AS)." }},
+  { id:"ayyub", col:9, row:9, name:"Ayyub (AS)", arabic:"أيوب عليه السلام", era:"~1600 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"13th Quranic Prophet — Symbol of Sabr", quranArabic:"أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ", quran:"Adversity has touched me, and You are the Most Merciful of the merciful. (Quran 21:83)", text:"The eternal symbol of patience. Lost wealth, health, and family — afflicted for ~18 years. His humble du'a is the Quran's greatest lesson in turning to Allah. Allah restored everything and more.", hadith:"The Prophet ﷺ mentioned Ayyub as one of the greatest examples of patience for all believers.", family:"Son of Amose ibn Razih. From the descendants of Ishaq (AS) through Esau, or the line of Lut (AS) according to some scholars." }},
+  { id:"dhulkifl", col:9, row:10, name:"Dhul-Kifl (AS)", arabic:"ذو الكفل عليه السلام", era:"~1200 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"16th Quranic Prophet — The One of the Pledge", quranArabic:"وَإِسْمَاعِيلَ وَإِدْرِيسَ وَذَا الْكِفْلِ كُلٌّ مِّنَ الصَّابِرِينَ", quran:"And all were of the patient. (Quran 21:85)", text:"Mentioned in the Quran among the patient. Scholars identify him possibly with Ezekiel. 'Dhul-Kifl' means the one who took on a great pledge — and fulfilled it completely with justice and constant worship.", hadith:"Ibn Taymiyyah confirmed his prophethood. His exact lineage is debated by scholars.", family:"Believed to be from Bani Israel. Possibly from the line of Ya'qub (AS)." }},
+  { id:"ilyas", col:9, row:11, name:"Ilyas (AS)", arabic:"إلياس عليه السلام", era:"~850 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"19th Quranic Prophet", quranArabic:"وَإِنَّ إِلْيَاسَ لَمِنَ الْمُرْسَلِينَ", quran:"And indeed Ilyas was among the messengers. (Quran 37:123)", text:"Sent to the Northern Kingdom of Israel where Ba'l (Baal) worship had spread. Called people back to the worship of Allah alone. His nation rejected him. Allah greeted him directly: 'Peace upon Ilyas.'", hadith:"Ibn Kathir: 'Ilyas is from the sons of Harun ibn Imran, from the descendants of Lawi ibn Ya'qub.'", family:"From the line of Harun (AS) — descendants of Lawi ibn Ya'qub." }},
+  { id:"alyasa", col:9, row:12, name:"Al-Yasa (AS)", arabic:"اليسع عليه السلام", era:"~830 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"20th Quranic Prophet — Successor of Ilyas", quranArabic:"وَإِسْمَاعِيلَ وَالْيَسَعَ وَيُونُسَ وَلُوطًا", quran:"All of them We preferred over the worlds. (Quran 6:86)", text:"Disciple and successor to Ilyas (AS). Continued the prophetic mission to Bani Israel. Mentioned by Allah alongside the greatest of prophets — 'all of whom We preferred over the worlds.'", hadith:"Ibn Kathir: 'Al-Yasa was the student of Ilyas and continued his mission after him.'", family:"From Bani Israel. Student and successor of Ilyas (AS)." }},
+  { id:"yunus", col:9, row:13, name:"Yunus (AS)", arabic:"يونس عليه السلام", era:"~800 BCE", size:"lg", lineage:"israel",
+    detail:{ label:"21st Quranic Prophet — Dhul-Nun", quranArabic:"لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ", quran:"There is no deity except You; exalted are You. I have been of the wrongdoers. (Quran 21:87)", text:"Sent to Nineveh, Iraq. Left his mission prematurely. Swallowed by a whale. Made the most powerful du'a in three darknesses. Returned to find all 100,000+ people of Nineveh had repented — the only full nation saved this way in prophetic history.", hadith:"The Prophet ﷺ said: 'Whoever is in distress and says the du'a of Dhul-Nun, Allah will relieve his distress.' (Tirmidhi — Hasan Sahih)", family:"From Bani Israel — the tribe of Binyamin (Benjamin) according to some scholars." }},
+];
+
+const EDGES = [
+  { from:"adam",      to:"sheeth",     color:"#C9A84C" },
+  { from:"sheeth",    to:"idris",      color:"#C9A84C" },
+  { from:"idris",     to:"nuh",        color:"#C9A84C" },
+  { from:"nuh",       to:"sam",        color:"rgba(201,168,76,.3)", dash:"6,4" },
+  { from:"sam",       to:"arpakshad",  color:"rgba(201,168,76,.3)", dash:"6,4" },
+  { from:"arpakshad", to:"ibrahim",    color:"#C9A84C" },
+  { from:"ibrahim",   to:"ismail",     color:"#E8A060" },
+  { from:"ibrahim",   to:"ishaq",      color:"#7A9BE8" },
+  { from:"ibrahim",   to:"lut",        color:"#C9A84C", dash:"5,4" },
+  { from:"ismail",    to:"arab-gen",   color:"#E8A060", dash:"6,4" },
+  { from:"arab-gen",  to:"muhammad",   color:"#E8A060" },
+  { from:"ishaq",     to:"yaqub",      color:"#7A9BE8" },
+  { from:"yaqub",     to:"yusuf",      color:"#7A9BE8" },
+  { from:"yaqub",     to:"lawi-musa",  color:"#7A9BE8", dash:"5,4" },
+  { from:"yaqub",     to:"yahuda-d",   color:"#7A9BE8", dash:"5,4" },
+  { from:"lawi-musa", to:"musa",       color:"#7A9BE8" },
+  { from:"lawi-musa", to:"harun",      color:"#7A9BE8" },
+  { from:"yahuda-d",  to:"dawud",      color:"#7A9BE8" },
+  { from:"dawud",     to:"sulaiman",   color:"#7A9BE8" },
+  { from:"sulaiman",  to:"israel-gen", color:"rgba(122,155,232,.3)", dash:"6,4" },
+  { from:"israel-gen",to:"zakariyya",  color:"#7A9BE8" },
+  { from:"zakariyya", to:"yahya",      color:"#7A9BE8" },
+  { from:"yahya",     to:"isa",        color:"#60B8E8", dash:"5,4" },
+  { from:"nuh",       to:"hud",        color:"#E8A060", dash:"5,4" },
+  { from:"nuh",       to:"saleh",      color:"#E8A060", dash:"5,4" },
+  { from:"nuh",       to:"shuayb",     color:"#E8A060", dash:"5,4" },
+  { from:"yaqub",     to:"ayyub",      color:"#7A9BE8", dash:"5,4" },
+  { from:"israel-gen",to:"ilyas",      color:"#7A9BE8", dash:"5,4" },
+  { from:"ilyas",     to:"alyasa",     color:"#7A9BE8" },
+  { from:"israel-gen",to:"yunus",      color:"#7A9BE8", dash:"5,4" },
+  { from:"israel-gen",to:"dhulkifl",   color:"#7A9BE8", dash:"5,4" },
+];
+
+// ══════════════════════════════════════════════════════════════
+// LAYOUT ENGINE
+// ══════════════════════════════════════════════════════════════
+const COL_W = 160, ROW_H = 120;
+const CANVAS_PAD_X = 80, CANVAS_PAD_Y = 60;
+
+function nodeX(n){ return CANVAS_PAD_X + (n.col||0) * COL_W; }
+function nodeY(n){ return CANVAS_PAD_Y + (n.row||0) * ROW_H; }
+
+// Compute canvas size
+const maxCol = Math.max(...S.map(n=>n.col||0));
+const maxRow = Math.max(...S.map(n=>n.row||0));
+const CANVAS_W = CANVAS_PAD_X*2 + maxCol * COL_W + 160;
+const CANVAS_H = CANVAS_PAD_Y*2 + maxRow * ROW_H + 100;
+
+// ══════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════
+let tx=0, ty=0, scale=1;
+let isDragging=false, lastX=0, lastY=0;
+let selectedId=null;
+const nodeMap = {};
+S.forEach(n => nodeMap[n.id]=n);
+
+// ══════════════════════════════════════════════════════════════
+// RENDER NODES
+// ══════════════════════════════════════════════════════════════
+const PROPHET_ORDER = ['adam','sheeth','idris','nuh','hud','saleh','ibrahim','ismail','ishaq',
+  'lut','yaqub','yusuf','shuayb','ayyub','musa','harun','dawud','dhulkifl',
+  'sulaiman','ilyas','alyasa','yunus','zakariyya','yahya','isa','muhammad'];
+
+function getProphetNum(id){
+  const i = PROPHET_ORDER.indexOf(id);
+  return i >= 0 ? i+1 : null;
+}
+
+function renderNodes(){
+  const canvas = document.getElementById('tree-canvas');
+  // Set canvas size
+  canvas.style.width  = CANVAS_W + 'px';
+  canvas.style.height = CANVAS_H + 'px';
+
+  // Era bands
+  const eraRanges = [
+    { label:'Primordial', rows:[0,3], color:'rgba(122,155,232,.03)' },
+    { label:'Patriarch',  rows:[4,8], color:'rgba(201,168,76,.03)' },
+    { label:'Exodus',     rows:[9,10], color:'rgba(47,184,154,.03)' },
+    { label:'Kingdom',    rows:[11,12], color:'rgba(160,96,232,.03)' },
+    { label:'Final Era',  rows:[13,15], color:'rgba(245,208,96,.03)' },
+  ];
+  eraRanges.forEach(era => {
+    const top    = CANVAS_PAD_Y + era.rows[0] * ROW_H - ROW_H*0.4;
+    const height = (era.rows[1] - era.rows[0] + 1) * ROW_H + ROW_H*0.2;
+    const band = document.createElement('div');
+    band.className = 'era-band';
+    band.style.cssText = `top:${top}px;height:${height}px;background:${era.color};position:absolute;left:0;right:0;pointer-events:none`;
+    const lbl = document.createElement('div');
+    lbl.className = 'era-label';
+    lbl.textContent = era.label;
+    lbl.style.cssText = 'position:absolute;right:16px;top:6px;font-family:Cinzel,serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;opacity:.35;color:#D4CBB8';
+    band.appendChild(lbl);
+    canvas.appendChild(band);
+  });
+
+  S.forEach(n => {
+    const x = nodeX(n), y = nodeY(n);
+    const isProphet = n.size==='xl' || n.size==='lg';
+    const propNum = getProphetNum(n.id);
+
+    const el = document.createElement('div');
+    el.className = 't-node' + (isProphet ? ' tn-prophet' : ' tn-inter') +
+      (n.ulul ? ' tn-ulul' : '') +
+      (n.special==='seal' ? ' tn-seal' : '') +
+      (n.special==='isa'  ? ' tn-isa'  : '');
+    el.id = 'tn-' + n.id;
+    el.style.left = x + 'px';
+    el.style.top  = y + 'px';
+    el.style.transform = 'translate(-50%,-50%)';
+
+    const inner = document.createElement('div');
+    inner.className = 't-node-inner';
+
+    if(isProphet){
+      // Colour the Arabic name by lineage
+      const arColor = n.special==='seal' ? 'var(--seal)'
+        : n.special==='isa' ? 'var(--cyan)'
+        : n.lineage==='arab' ? 'var(--orange)'
+        : n.lineage==='israel' ? 'var(--blue)'
+        : 'var(--gold2)';
+
+      inner.innerHTML =
+        (propNum ? `<div class="tn-num">${propNum <= 9 ? '0'+propNum : propNum} of 25</div>` : '') +
+        `<div class="tn-ar" style="color:${arColor}">${n.arabic}</div>` +
+        `<div class="tn-en">${n.name}</div>` +
+        `<div class="tn-era">${n.era}</div>`;
+
+      if(n.ulul){
+        const star = document.createElement('div');
+        star.className='ulul-star';
+        star.textContent='⭐';
+        inner.appendChild(star);
+      }
+    } else {
+      inner.innerHTML =
+        `<div class="tn-en">${n.name}</div>` +
+        `<div class="tn-sub">${n.era}</div>`;
+    }
+
+    el.appendChild(inner);
+    el.addEventListener('click', e => { e.stopPropagation(); selectNode(n.id); });
+    el.addEventListener('touchend', e => { e.preventDefault(); selectNode(n.id); }, {passive:false});
+    canvas.appendChild(el);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// RENDER EDGES
+// ══════════════════════════════════════════════════════════════
+function renderEdges(){
+  const svg = document.getElementById('edge-svg');
+  svg.style.width  = CANVAS_W + 'px';
+  svg.style.height = CANVAS_H + 'px';
+  svg.innerHTML = '';
+
+  EDGES.forEach(e => {
+    const from = nodeMap[e.from], to = nodeMap[e.to];
+    if(!from || !to) return;
+    const x1=nodeX(from), y1=nodeY(from);
+    const x2=nodeX(to),   y2=nodeY(to);
+    const dy = y2-y1, dx = x2-x1;
+    // Smooth bezier — vertical lines get a simple curve, diagonal gets S-curve
+    let d;
+    if(Math.abs(dx) < 10){
+      d = `M ${x1} ${y1} C ${x1} ${y1+dy*0.45}, ${x2} ${y2-dy*0.45}, ${x2} ${y2}`;
+    } else {
+      const midY = (y1+y2)/2;
+      d = `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`;
+    }
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', d);
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke', e.color||'#C9A84C');
+    path.setAttribute('stroke-width', e.dash ? '1.5' : '2');
+    path.setAttribute('opacity','0.55');
+    if(e.dash) path.setAttribute('stroke-dasharray', e.dash);
+    svg.appendChild(path);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// TRANSFORM
+// ══════════════════════════════════════════════════════════════
+function applyTransform(){
+  document.getElementById('tree-canvas').style.transform = `translate(${tx}px,${ty}px) scale(${scale})`;
+  document.getElementById('zoom-badge').textContent = Math.round(scale*100)+'%';
+}
+
+function zoomBy(factor, cx, cy){
+  const wrap = document.getElementById('tree-vp');
+  const rect  = wrap.getBoundingClientRect();
+  const pivotX = (cx !== undefined ? cx : rect.width/2)  - rect.left;
+  const pivotY = (cy !== undefined ? cy : rect.height/2) - rect.top;
+  const newScale = Math.min(Math.max(scale*factor, 0.2), 3);
+  const f = newScale/scale;
+  tx = pivotX + (tx - pivotX)*f;
+  ty = pivotY + (ty - pivotY)*f;
+  scale = newScale;
+  applyTransform();
+}
+
+function resetView(){
+  const wrap = document.getElementById('tree-vp');
+  const ww = wrap.clientWidth, wh = wrap.clientHeight;
+  // Fit horizontally — scale so canvas width fits
+  const s = Math.min(ww / CANVAS_W, wh / CANVAS_H, 0.7);
+  scale = Math.max(s, 0.3);
+  tx = (ww - CANVAS_W*scale)/2;
+  ty = 20;
+  applyTransform();
+}
+
+function centerOn(id){
+  const n = nodeMap[id]; if(!n) return;
+  const wrap = document.getElementById('tree-vp');
+  const ww = wrap.clientWidth, wh = wrap.clientHeight;
+  const nx = nodeX(n), ny = nodeY(n);
+  tx = ww/2 - nx*scale;
+  ty = wh/2 - ny*scale;
+  applyTransform();
+  setTimeout(()=>{ selectNode(id); }, 200);
+}
+
+// ══════════════════════════════════════════════════════════════
+// SELECT NODE
+// ══════════════════════════════════════════════════════════════
+function selectNode(id){
+  const n = nodeMap[id]; if(!n) return;
+  // Highlight
+  document.querySelectorAll('.t-node.selected').forEach(el=>el.classList.remove('selected'));
+  document.getElementById('tn-'+id)?.classList.add('selected');
+  selectedId = id;
+
+  const d = n.detail||{};
+  const propNum = getProphetNum(id);
+  const isProphet = n.size==='xl' || n.size==='lg';
+
+  // Header
+  const arColor = n.special==='seal' ? 'var(--seal)'
+    : n.special==='isa' ? 'var(--cyan)'
+    : n.lineage==='arab' ? 'var(--orange)'
+    : n.lineage==='israel' ? 'var(--blue)'
+    : 'var(--gold2)';
+
+  document.getElementById('dp-header-content').innerHTML =
+    (n.ulul ? '<div class="dp-badge">⭐ Ulul Azm — Prophet of Firm Resolve</div>' : '') +
+    (isProphet && propNum ? `<div style="font-family:Cinzel,serif;font-size:8px;letter-spacing:1.5px;color:var(--text2);margin-bottom:4px">Prophet ${propNum} of 25</div>` : '') +
+    `<div class="dp-ar" style="color:${arColor}">${n.arabic||''}</div>` +
+    `<div class="dp-en">${n.name}</div>` +
+    (d.label ? `<div class="dp-label">${d.label}</div>` : '') +
+    `<div class="dp-era">${n.era||''}</div>`;
+
+  // Body
+  let body = '';
+  if(d.quranArabic){
+    body += '<div class="dp-sec">Quranic Reference</div>';
+    body += `<div class="dp-quran-ar">${d.quranArabic}</div>`;
+    body += `<div class="dp-quran-tr">${d.quran}</div>`;
+  }
+  if(d.text){
+    body += '<div class="dp-sec">About</div>';
+    body += `<div class="dp-text">${d.text}</div>`;
+  }
+  if(d.hadith){
+    body += '<div class="dp-sec">Hadith</div>';
+    body += `<div class="dp-hadith">${d.hadith}</div>`;
+  }
+  if(d.family){
+    body += '<div class="dp-sec">Family & Lineage</div>';
+    body += `<div class="dp-family">${d.family}</div>`;
+  }
+
+  document.getElementById('dp-body').innerHTML = body;
+  document.getElementById('detail-panel').classList.add('open');
+}
+
+function closePanel(){
+  document.getElementById('detail-panel').classList.remove('open');
+  document.querySelectorAll('.t-node.selected').forEach(el=>el.classList.remove('selected'));
+  selectedId = null;
+}
+
+function togglePanel(){
+  const dp = document.getElementById('detail-panel');
+  if(dp.classList.contains('open')) closePanel();
+  else if(selectedId) document.getElementById('detail-panel').classList.add('open');
+}
+
+// ══════════════════════════════════════════════════════════════
+// SEARCH
+// ══════════════════════════════════════════════════════════════
+function doSearch(q){
+  const msg = document.getElementById('search-msg');
+  if(!q.trim()){ 
+    S.forEach(n=>{ 
+      const el = document.getElementById('tn-'+n.id); 
+      if(el){ el.classList.remove('search-match','search-dim'); }
+    }); 
+    msg.classList.remove('show');
+    return; 
+  }
+  const lq = q.toLowerCase();
+  let found = [];
+  S.forEach(n => {
+    const el = document.getElementById('tn-'+n.id);
+    if(!el) return;
+    const matches = n.name.toLowerCase().includes(lq) || (n.arabic||'').includes(q) || (n.era||'').toLowerCase().includes(lq);
+    if(matches){ el.classList.add('search-match'); el.classList.remove('search-dim'); found.push(n); }
+    else { el.classList.remove('search-match'); el.classList.add('search-dim'); }
+  });
+  if(found.length === 0){ msg.classList.add('show'); }
+  else { msg.classList.remove('show'); if(found.length===1) centerOn(found[0].id); }
+}
+
+// ══════════════════════════════════════════════════════════════
+// PAN & ZOOM EVENTS
+// ══════════════════════════════════════════════════════════════
+(function(){
+  const area = document.getElementById('tree-area');
+
+  // Mouse drag
+  area.addEventListener('mousedown', e=>{
+    if(e.target.closest('.t-node')||e.target.closest('.ctrl-btn')||e.target.closest('.legend')||e.target.closest('.detail-panel')) return;
+    isDragging=true; lastX=e.clientX; lastY=e.clientY;
+    area.classList.add('grabbing');
+  });
+  window.addEventListener('mousemove', e=>{
+    if(!isDragging) return;
+    tx += e.clientX-lastX; ty += e.clientY-lastY;
+    lastX=e.clientX; lastY=e.clientY;
+    applyTransform();
+  });
+  window.addEventListener('mouseup', ()=>{ isDragging=false; area.classList.remove('grabbing'); });
+
+  // Scroll wheel zoom
+  area.addEventListener('wheel', e=>{
+    e.preventDefault();
+    const rect = area.getBoundingClientRect();
+    zoomBy(e.deltaY < 0 ? 1.1 : 0.9, e.clientX-rect.left, e.clientY-rect.top);
+  }, {passive:false});
+
+  // Touch
+  let lastDist=0, tStartX=0, tStartY=0, tDragging=false;
+  area.addEventListener('touchstart', e=>{
+    if(e.target.closest('.t-node')||e.target.closest('.ctrl-btn')||e.target.closest('.detail-panel')) return;
+    if(e.touches.length===2){
+      lastDist = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+      tDragging=false;
+    } else if(e.touches.length===1){
+      tStartX=e.touches[0].clientX; tStartY=e.touches[0].clientY; tDragging=true;
+    }
+  },{passive:true});
+  area.addEventListener('touchmove', e=>{
+    if(e.touches.length===2){
+      const dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+      if(lastDist){ 
+        const rect=area.getBoundingClientRect();
+        const cx=(e.touches[0].clientX+e.touches[1].clientX)/2-rect.left;
+        const cy=(e.touches[0].clientY+e.touches[1].clientY)/2-rect.top;
+        zoomBy(dist/lastDist, cx, cy);
+      }
+      lastDist=dist; e.preventDefault();
+    } else if(tDragging&&e.touches.length===1){
+      tx += e.touches[0].clientX-tStartX; ty += e.touches[0].clientY-tStartY;
+      tStartX=e.touches[0].clientX; tStartY=e.touches[0].clientY;
+      applyTransform(); e.preventDefault();
+    }
+  },{passive:false});
+  area.addEventListener('touchend', ()=>{ lastDist=0; tDragging=false; });
+
+  // Click on canvas background closes panel
+  area.addEventListener('click', e=>{
+    if(!e.target.closest('.t-node')&&!e.target.closest('.detail-panel')&&!e.target.closest('.ctrl-btn')&&!e.target.closest('.mob-btn')){
+      closePanel();
+    }
+  });
+})();
+
+// ══════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════
+renderNodes();
+renderEdges();
+resetView();
+// Default: show Adam on desktop
+if(window.innerWidth > 700){
+  setTimeout(()=>{ centerOn('adam'); }, 400);
+}
+</script>
+</body>
+</html>
