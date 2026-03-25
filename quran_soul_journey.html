@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Soul's Complete Journey — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.10);--goldbdr:rgba(201,168,76,.15);--goldmid:rgba(201,168,76,.25);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.12);--tealbdr:rgba(47,184,154,.3);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.10);--bluebdr:rgba(122,171,240,.28);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.10);--amberbdr:rgba(224,160,48,.28);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#5A6B80;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 700px 400px at 80% 0%,rgba(47,184,154,.04),transparent 60%)}
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.96);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 16px;height:54px;gap:12px}
+.back-btn{font-family:var(--font-head);font-size:9.5px;letter-spacing:1px;color:var(--text2);padding:5px 10px;border:1px solid var(--border2);border-radius:6px;text-decoration:none;transition:all .15s;flex-shrink:0}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-title{font-family:var(--font-head);font-size:9.5px;font-weight:700;color:var(--gold2);letter-spacing:1px;flex:1;text-align:center}
+.nav-title .ur-only{font-family:var(--font-arab);font-size:13px;letter-spacing:0}
+.lang-toggle{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.05);border:1px solid var(--goldbdr);border-radius:20px;padding:3px;flex-shrink:0}
+.lt-btn{font-family:var(--font-head);font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:#8A9BB0;user-select:none}
+.lt-btn.on{background:var(--gold);color:#000;font-weight:700}
+.progress-bar{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border2);background:rgba(8,14,28,.6)}
+.prog-dot{width:8px;height:8px;border-radius:50%;transition:all .2s;cursor:pointer;text-decoration:none;display:block}
+.prog-dot.done{background:rgba(201,168,76,.4)}
+.prog-dot.active{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.4)}
+.prog-dot.upcoming{background:var(--bg3);border:1px solid var(--border2)}
+.prog-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1px;color:var(--text3);margin:0 4px}
+.prog-label .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0}
+.hero{position:relative;z-index:1;padding:40px 20px 32px;text-align:center;border-bottom:1px solid var(--border2);background:linear-gradient(160deg,rgba(17,30,53,.6),rgba(4,7,13,.9))}
+.hero-module-num{font-family:var(--font-head);font-size:9px;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-bottom:12px}
+.hero-ar{font-family:var(--font-arab);font-size:clamp(22px,5vw,38px);color:var(--gold2);line-height:1.4;margin-bottom:6px}
+.hero-en{font-family:var(--font-head);font-size:clamp(15px,3.5vw,22px);font-weight:700;color:#fff;margin-bottom:16px}
+.hero-rule{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 18px}
+.hero-purpose{font-size:13px;color:var(--text2);line-height:1.85;font-style:italic;max-width:600px;margin:0 auto 20px}
+.hero-ayah{padding:14px 18px;border:1px solid var(--border2);border-radius:10px;background:rgba(201,168,76,.04);display:inline-block;max-width:100%}
+.hero-ayah-ar{font-family:var(--font-arab);font-size:clamp(16px,3.5vw,21px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.hero-ayah-tr{font-size:11.5px;color:var(--text2);font-style:italic;margin-bottom:4px;line-height:1.6}
+.hero-ayah-ref{font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold)}
+.content{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 16px}
+.sec-label{font-family:var(--font-head);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;padding:28px 0 14px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sec-label .ur-only{font-family:var(--font-arab);font-size:12px;letter-spacing:0;text-transform:none}
+.ur-mode .sec-label{flex-direction:row-reverse}
+.ur-mode .sec-label::after{display:none}
+.ur-mode .sec-label::before{content:'';flex:1;height:1px;background:var(--border2)}
+
+/* JOURNEY TIMELINE */
+.journey-timeline{display:flex;flex-direction:column;gap:0;margin-bottom:8px}
+.jt-item{display:flex;gap:14px;position:relative}
+.jt-item:not(:last-child)::after{content:"";position:absolute;left:19px;top:40px;bottom:-4px;width:1px;background:linear-gradient(to bottom,var(--goldbdr),transparent)}
+.jt-dot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:3px;position:relative;z-index:1}
+.jt-dot.pre{background:rgba(224,160,48,.12);border:1px solid var(--amberbdr)}
+.jt-dot.life{background:rgba(201,168,76,.1);border:1px solid var(--goldbdr)}
+.jt-dot.death{background:rgba(47,184,154,.1);border:1px solid var(--tealbdr)}
+.jt-dot.after{background:rgba(122,171,240,.1);border:1px solid var(--bluebdr)}
+.jt-content{flex:1;padding-bottom:20px;cursor:pointer}
+.jt-card{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;transition:all .2s}
+.jt-card:hover,.jt-card.open{border-color:var(--goldbdr)}
+.jt-stage{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
+.jt-title-ar{font-family:var(--font-arab);font-size:17px;color:var(--gold2);margin-bottom:3px}
+.jt-title-en{font-family:var(--font-head);font-size:10.5px;font-weight:700;color:#fff;margin-bottom:6px}
+.jt-title-en .ur-only{font-family:var(--font-arab);font-size:13px;letter-spacing:0}
+.jt-summary{font-size:12px;color:var(--text2);line-height:1.7}
+.jt-summary .ur-only{font-family:var(--font-arab);font-size:13px;direction:rtl;text-align:right;line-height:1.9}
+.jt-chevron{float:right;color:var(--text3);font-size:14px;transition:transform .25s;margin-left:8px}
+.jt-card.open .jt-chevron{transform:rotate(90deg);color:var(--gold)}
+.jt-body{display:none;padding:12px 0 4px}
+.jt-card.open .jt-body{display:block}
+
+/* REUSE MODULE 01 card body styles */
+.root-block{background:rgba(0,0,0,.3);border-radius:8px;padding:12px 14px;margin:12px 0;border-left:3px solid var(--gold)}
+.root-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.root-ar{font-family:var(--font-arab);font-size:19px;color:var(--gold2);margin-bottom:4px;direction:rtl}
+.root-meaning{font-size:12px;color:var(--text2);line-height:1.65}
+.verse-block{background:rgba(201,168,76,.04);border-radius:8px;padding:12px 14px;margin:10px 0;border:1px solid var(--border2)}
+.verse-ar{font-family:var(--font-arab);font-size:clamp(15px,3.5vw,19px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.verse-tr{font-size:12px;color:var(--text);font-style:italic;line-height:1.7;margin-bottom:4px}
+.verse-ref{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;color:var(--gold)}
+.explanation{font-size:12.5px;color:var(--text2);line-height:1.8;margin:10px 0}
+.certainty-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:10px;font-family:var(--font-head);font-size:8px;letter-spacing:.8px;margin-top:8px}
+.cert-qati{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.cert-ling{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.cert-interp{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.cert-spec{background:var(--amberdim);border:1px solid var(--amberbdr);color:var(--amber)}
+.card-actions{display:flex;gap:8px;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2);flex-wrap:wrap}
+.card-act-btn{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;padding:5px 12px;border:1px solid var(--border2);border-radius:6px;cursor:pointer;color:var(--text2);background:transparent;transition:all .15s;text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.card-act-btn:hover{color:var(--gold);border-color:var(--goldbdr)}
+.card-act-btn.saved{color:var(--gold);border-color:var(--goldbdr)}
+.card-act-btn .ur-only{font-family:var(--font-arab);font-size:10px;letter-spacing:0;text-transform:none}
+
+/* JOURNEY TABLE */
+.journey-table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border2);margin:16px 0}
+table.jt{width:100%;border-collapse:collapse;min-width:480px}
+table.jt th{font-family:var(--font-head);font-size:8.5px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);padding:10px 12px;background:rgba(201,168,76,.06);border-bottom:1px solid var(--border2);text-align:left}
+table.jt td{padding:9px 12px;font-size:11.5px;border-bottom:1px solid var(--border2);vertical-align:top;line-height:1.55;color:var(--text2)}
+table.jt tr:last-child td{border-bottom:none}
+table.jt tr:hover td{background:rgba(255,255,255,.02)}
+table.jt .ar-cell{font-family:var(--font-arab);font-size:14px;direction:rtl;color:var(--gold2)}
+.ur-mode table.jt th,.ur-mode table.jt td{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:1.9}
+
+/* PARENT CARD */
+.parent-card{background:var(--bluedim);border:1px solid var(--bluebdr);border-radius:14px;padding:22px 20px;margin:24px 0;position:relative;overflow:hidden}
+.parent-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.parent-card-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.parent-card-label::after{content:'';flex:1;height:1px;background:rgba(122,171,240,.2)}
+.parent-title{font-family:var(--font-head);font-size:14px;font-weight:700;color:#fff;margin-bottom:10px}
+.parent-title .ur-only{font-family:var(--font-arab);font-size:16px}
+.parent-explanation{font-size:13px;color:var(--text);line-height:1.85;margin-bottom:12px}
+.parent-question{background:rgba(0,0,0,.3);border-radius:8px;padding:12px 14px;border-left:3px solid var(--blue);margin-bottom:12px}
+.parent-question-label{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--blue);margin-bottom:6px;text-transform:uppercase}
+.parent-question-text{font-size:12.5px;color:var(--text);line-height:1.75;font-style:italic}
+.parent-daily{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.parent-share-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;padding:8px 16px;border:1px solid var(--bluebdr);border-radius:7px;cursor:pointer;color:var(--blue);background:transparent;transition:all .15s;text-transform:uppercase}
+.parent-share-btn:hover{background:var(--bluedim)}
+.parent-share-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(4,7,13,.97);border-top:1px solid var(--border2);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:58px;gap:8px}
+.bnav-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text2);text-decoration:none;padding:6px 12px;border:1px solid var(--border2);border-radius:7px;transition:all .15s;white-space:nowrap;text-transform:uppercase}
+.bnav-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.bnav-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+
+/* UR-MODE */
+.en-only{display:inline}.ur-only{display:none;font-family:var(--font-arab);direction:rtl}
+.ur-mode .en-only{display:none!important}.ur-mode .ur-only{display:inline!important}
+.ur-mode .explanation,.ur-mode .root-meaning,.ur-mode .verse-tr,.ur-mode .jt-summary,.ur-mode .parent-explanation,.ur-mode .parent-question-text,.ur-mode .parent-daily{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .jt-title-en{font-family:var(--font-arab);direction:rtl;font-size:13px;letter-spacing:0}
+.ur-mode .root-block{border-left:none;border-right:3px solid var(--gold)}
+.ur-mode .parent-question{border-left:none;border-right:3px solid var(--blue)}
+.ur-mode .hero-purpose{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .certainty-badge{font-family:var(--font-arab);font-size:10px;letter-spacing:0}
+@media(max-width:480px){.content{padding:0 12px}.hero{padding:30px 14px 24px}}
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <a class="back-btn" href="quran_architecture_index.html">← <span class="en-only">Index</span><span class="ur-only">فہرست</span></a>
+  <div class="nav-title"><span class="en-only">The Soul's Journey</span><span class="ur-only">روح کا سفر</span></div>
+  <div class="lang-toggle">
+    <div class="lt-btn on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt-btn" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+</div>
+
+<div class="progress-bar">
+  <span class="prog-label"><span class="en-only">Module</span><span class="ur-only">ماڈیول</span></span>
+  <a href="quran_inner_architecture.html" class="prog-dot done"></a>
+  <a href="quran_soul_journey.html" class="prog-dot active"></a>
+  <a href="quran_creation.html" class="prog-dot upcoming"></a>
+  <a href="quran_purpose.html" class="prog-dot upcoming"></a>
+  <a href="quran_return.html" class="prog-dot upcoming"></a>
+  <span class="prog-label">2 / 5</span>
+</div>
+
+<div class="hero">
+  <div class="hero-module-num"><span class="en-only">Module 02 of 05 · Architecture of Existence</span><span class="ur-only">ماڈیول ۰۲ از ۰۵ · معمارِ وجود</span></div>
+  <div class="hero-ar">رِحْلَةُ الرُّوح</div>
+  <div class="hero-en"><span class="en-only">The Soul's Complete Journey</span><span class="ur-only">روح کا مکمل سفر</span></div>
+  <div class="hero-rule"></div>
+  <div class="hero-purpose">
+    <span class="en-only">The Quran describes where the soul came from, how it entered the world, what happens during sleep, what happens at death, where it goes between death and resurrection, and what the final call will be. This is the complete journey — from before birth to the return.</span>
+    <span class="ur-only">قرآن بیان کرتا ہے کہ روح کہاں سے آئی، دنیا میں کیسے داخل ہوئی، نیند میں کیا ہوتا ہے، موت پر کیا ہوتا ہے، موت اور قیامت کے درمیان کہاں جاتی ہے، اور آخری پکار کیا ہوگی۔ یہ مکمل سفر ہے — پیدائش سے پہلے سے واپسی تک۔</span>
+  </div>
+  <div class="hero-ayah">
+    <div class="hero-ayah-ar">إِنَّا لِلَّهِ وَإِنَّآ إِلَيْهِ رَٰجِعُونَ</div>
+    <div class="hero-ayah-tr"><span class="en-only">"Indeed we belong to Allah — and indeed to Him we are returning."</span><span class="ur-only">«بے شک ہم اللہ کے ہیں — اور بے شک اسی کی طرف لوٹنے والے ہیں۔»</span></div>
+    <div class="hero-ayah-ref">Surah Al-Baqarah 2:156 — Not going. Returning.</div>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="sec-label"><span class="en-only">The Complete Journey — At a Glance</span><span class="ur-only">مکمل سفر — ایک نظر میں</span></div>
+
+<div class="journey-table-wrap">
+  <table class="jt">
+    <thead><tr>
+      <th><span class="en-only">Phase</span><span class="ur-only">مرحلہ</span></th>
+      <th><span class="en-only">State</span><span class="ur-only">حالت</span></th>
+      <th><span class="en-only">Key Verse</span><span class="ur-only">اہم آیت</span></th>
+    </tr></thead>
+    <tbody>
+      <tr><td><span class="en-only">Before birth</span><span class="ur-only" style="display:none">پیدائش سے پہلے</span></td><td><span class="en-only">Mustawda' — divine deposit</span><span class="ur-only" style="display:none">مستودع — الٰہی امانت</span></td><td>6:98</td></tr>
+      <tr><td><span class="en-only">The Alastu covenant</span><span class="ur-only" style="display:none">الست کا عہد</span></td><td><span class="en-only">Every soul testified: Bala</span><span class="ur-only" style="display:none">ہر روح نے گواہی دی: بلیٰ</span></td><td>7:172</td></tr>
+      <tr><td><span class="en-only">Entry into world</span><span class="ur-only" style="display:none">دنیا میں داخلہ</span></td><td><span class="en-only">Ruh enters — hearing first</span><span class="ur-only" style="display:none">روح داخل — سماعت پہلے</span></td><td>32:9</td></tr>
+      <tr><td><span class="en-only">Every night in life</span><span class="ur-only" style="display:none">زندگی میں ہر رات</span></td><td><span class="en-only">Nafs taken — then returned</span><span class="ur-only" style="display:none">نفس لیا جاتا — پھر لوٹایا</span></td><td>39:42</td></tr>
+      <tr><td><span class="en-only">At death</span><span class="ur-only" style="display:none">موت پر</span></td><td><span class="en-only">Angel takes permanently</span><span class="ur-only" style="display:none">فرشتہ مستقل لے جاتا ہے</span></td><td>32:11</td></tr>
+      <tr><td><span class="en-only">After death</span><span class="ur-only" style="display:none">موت کے بعد</span></td><td><span class="en-only">Barzakh — conscious, not nothing</span><span class="ur-only" style="display:none">برزخ — شعوری، نہ کہ کچھ نہیں</span></td><td>23:100</td></tr>
+      <tr><td><span class="en-only">Resurrection</span><span class="ur-only" style="display:none">قیامت</span></td><td><span class="en-only">Two trumpet blows — soul+body reunite</span><span class="ur-only" style="display:none">دو صور — روح اور جسم دوبارہ ملتے ہیں</span></td><td>39:68</td></tr>
+      <tr><td><span class="en-only">The final call</span><span class="ur-only" style="display:none">آخری پکار</span></td><td><span class="en-only">Nafs al-mutma'inna — Return</span><span class="ur-only" style="display:none">نفسِ مطمئنہ — لوٹو</span></td><td>89:27-28</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec-label"><span class="en-only">Each Stage — In Depth</span><span class="ur-only">ہر مرحلہ — تفصیل سے</span></div>
+
+<div class="journey-timeline">
+
+<!-- BEFORE BIRTH -->
+<div class="jt-item">
+  <div class="jt-dot pre">🌱</div>
+  <div class="jt-content" onclick="toggleJT('jt-before')">
+    <div class="jt-card" id="jt-before">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 1 — Before Birth</span><span class="ur-only">مرحلہ ۱ — پیدائش سے پہلے</span></div>
+      <div class="jt-title-ar">الْمُسْتَوْدَع</div>
+      <div class="jt-title-en"><span class="en-only">The Mustawda' — Divine Deposit</span><span class="ur-only">مستودع — الٰہی امانت</span></div>
+      <div class="jt-summary"><span class="en-only">Every soul exists in the mustawda' — held in divine safekeeping before entering the body. Not nothing. Not waiting. Held.</span><span class="ur-only">ہر روح مستودع میں ہے — جسم میں داخل ہونے سے پہلے الٰہی نگہداشت میں۔ کچھ نہیں نہیں۔ انتظار نہیں۔ محفوظ۔</span></div>
+      <div class="jt-body">
+        <div class="root-block">
+          <div class="root-label"><span class="en-only">Root: و-د-ع</span><span class="ur-only">جڑ: و-د-ع</span></div>
+          <div class="root-ar">مُسْتَوْدَع</div>
+          <div class="root-meaning"><span class="en-only">Place of deposit — where something is held in trust to be retrieved. The same root as wadi'a (to place in trust). The soul is not created at birth — it is retrieved from the mustawda' where it was held.</span><span class="ur-only">امانت کی جگہ — جہاں کچھ اعتماد میں رکھا جائے۔ ودیعہ سے — امانت رکھنا۔ روح پیدائش پر نہیں بنتی — مستودع سے واپس لی جاتی ہے۔</span></div>
+        </div>
+        <div class="verse-block">
+          <div class="verse-ar">وَهُوَ الَّذِي أَنشَأَكُم مِّن نَّفْسٍ وَاحِدَةٍ فَمُسْتَقَرٌّ وَمُسْتَوْدَعٌ</div>
+          <div class="verse-tr"><span class="en-only">"And He it is who created you from one soul — and there is a place of dwelling and a place of deposit."</span><span class="ur-only">«وہی ہے جس نے تمہیں ایک جان سے پیدا کیا — اور ایک قیام گاہ اور ایک امانت گاہ ہے۔»</span></div>
+          <div class="verse-ref">Surah Al-An'am 6:98</div>
+        </div>
+        <div class="explanation"><span class="en-only">Mustaqarr = place of settlement (the world — where the soul lives, dies, and is brought forth). Mustawda' = place of deposit (the pre-birth existence where the soul is held). The verse places both realities together — the soul has two stages: held in trust before the world, then settled in the world.</span><span class="ur-only">مستقر = قیام کی جگہ (دنیا — جہاں روح رہتی، مرتی اور نکلتی ہے)۔ مستودع = امانت کی جگہ (پیدائش سے پہلے کا وجود جہاں روح رکھی جاتی ہے)۔ آیت دونوں حقیقتیں ایک ساتھ رکھتی ہے۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('before')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-before" onclick="saveCard('before','Mustawda — Before Birth')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE ALASTU -->
+<div class="jt-item">
+  <div class="jt-dot pre">🤝</div>
+  <div class="jt-content" onclick="toggleJT('jt-alastu')">
+    <div class="jt-card" id="jt-alastu">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 2 — The Original Covenant</span><span class="ur-only">مرحلہ ۲ — اصل عہد</span></div>
+      <div class="jt-title-ar">أَلَسْتُ بِرَبِّكُمْ</div>
+      <div class="jt-title-en"><span class="en-only">The Alastu — "Am I Not Your Lord?"</span><span class="ur-only">الست — «کیا میں تمہارا رب نہیں؟»</span></div>
+      <div class="jt-summary"><span class="en-only">Before entering the world, every soul was gathered and asked one question. Every soul answered: Bala — Yes. This testimony is carried in the fitrah — it cannot be destroyed, only buried.</span><span class="ur-only">دنیا میں داخل ہونے سے پہلے ہر روح کو جمع کیا گیا اور ایک سوال پوچھا گیا۔ ہر روح نے جواب دیا: بلیٰ — ہاں۔ یہ گواہی فطرت میں ہے — مٹ نہیں سکتی، صرف دفن ہو سکتی ہے۔</span></div>
+      <div class="jt-body">
+        <div class="verse-block">
+          <div class="verse-ar">وَإِذْ أَخَذَ رَبُّكَ مِنۢ بَنِيٓ ءَادَمَ مِن ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَأَشْهَدَهُمْ عَلَىٰٓ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ ۛ شَهِدْنَآ</div>
+          <div class="verse-tr"><span class="en-only">"And when your Lord took from the children of Adam — from their loins — their descendants, and made them testify about themselves: 'Am I not your Lord?' They said: 'Yes — we testify.'"</span><span class="ur-only">«اور جب آپ کے رب نے بنی آدم کی پشتوں سے ان کی ذریت نکالی اور انہیں خود ان کے بارے میں گواہ بنایا: کیا میں تمہارا رب نہیں ہوں؟ انہوں نے کہا: بلیٰ — ہم گواہ ہیں۔»</span></div>
+          <div class="verse-ref">Surah Al-A'raf 7:172</div>
+        </div>
+        <div class="explanation"><span class="en-only">This is why the Quran calls itself a dhikr — a reminder. Not new information. The reminder of what every soul already testified. The fitrah (30:30) is not created at birth — it is the living echo of the Bala carried into the world. When dhikr reaches the lubb — what is accessed is the certainty of the Alastu becoming lived knowledge rather than borrowed belief.</span><span class="ur-only">اسی لیے قرآن خود کو ذکر کہتا ہے — یاد دہانی۔ نئی معلومات نہیں۔ اس کی یاد دہانی جو ہر روح نے پہلے ہی گواہی دی۔ فطرت پیدائش پر نہیں بنتی — یہ اس بلیٰ کی زندہ گونج ہے جو دنیا میں لائی گئی۔ جب ذکر لب تک پہنچے — جو حاصل ہو وہ الست کا یقین بطور زندہ علم ہے۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('alastu')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-alastu" onclick="saveCard('alastu','The Alastu Covenant')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ENTRY INTO WORLD -->
+<div class="jt-item">
+  <div class="jt-dot life">👶</div>
+  <div class="jt-content" onclick="toggleJT('jt-entry')">
+    <div class="jt-card" id="jt-entry">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 3 — Entry Into the World</span><span class="ur-only">مرحلہ ۳ — دنیا میں داخلہ</span></div>
+      <div class="jt-title-ar">نَفَخَ فِيهِ مِن رُّوحِهِ</div>
+      <div class="jt-title-en"><span class="en-only">The Ruh Breathed In — Hearing First</span><span class="ur-only">روح پھونکی — سماعت پہلے</span></div>
+      <div class="jt-summary"><span class="en-only">The body is formed. Then the ruh enters by divine command. Hearing activates first — then vision — then the hearts (af'idah). Five verses confirm this exact sequence. Never reversed.</span><span class="ur-only">جسم بنتا ہے۔ پھر روح الٰہی حکم سے داخل ہوتی ہے۔ سماعت پہلے فعال — پھر بصارت — پھر دل (افئدہ)۔ پانچ آیات اسی ترتیب کی تصدیق کرتی ہیں۔ کبھی الٹ نہیں۔</span></div>
+      <div class="jt-body">
+        <div class="verse-block">
+          <div class="verse-ar">ثُمَّ سَوَّاهُ وَنَفَخَ فِيهِ مِن رُّوحِهِ ۖ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ</div>
+          <div class="verse-tr"><span class="en-only">"Then He proportioned him and breathed into him from His ruh — and made for you hearing, vision, and hearts (af'idah)."</span><span class="ur-only">«پھر اسے سیدھا کیا اور اس میں اپنی روح پھونکی — اور تمہارے لیے سماعت، بصارت اور دل بنائے۔»</span></div>
+          <div class="verse-ref">Surah As-Sajdah 32:9</div>
+        </div>
+        <div class="explanation"><span class="en-only">The sequence hearing → vision → hearts appears in 32:9, 16:78, 23:78, 67:23, and 76:2 — five completely independent contexts, always the same order. The cochlea is fully formed by week 20 of gestation. The fetus hears in the womb. Visual processing does not become functional until after birth. The Quranic sequence is consonant with developmental biology across five repetitions.</span><span class="ur-only">ترتیب سماعت → بصارت → دل ۳۲:۹، ۱۶:۷۸، ۲۳:۷۸، ۶۷:۲۳ اور ۷۶:۲ میں آتی ہے — پانچ آزاد سیاق، ہمیشہ ایک ہی ترتیب۔ کوکلیا حمل کے ۲۰ویں ہفتے تک مکمل۔ جنین رحم میں سنتا ہے۔ بصری پروسیسنگ پیدائش کے بعد۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive Pattern</span><span class="ur-only">قطعی نمونہ</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('entry')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-entry" onclick="saveCard('entry','Entry Into the World')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLEEP AS DEATH -->
+<div class="jt-item">
+  <div class="jt-dot life">🌙</div>
+  <div class="jt-content" onclick="toggleJT('jt-sleep')">
+    <div class="jt-card" id="jt-sleep">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 4 — Every Night in Life</span><span class="ur-only">مرحلہ ۴ — زندگی میں ہر رات</span></div>
+      <div class="jt-title-ar">الْوَفَاةُ الصُّغْرَى</div>
+      <div class="jt-title-en"><span class="en-only">Sleep — The Minor Death</span><span class="ur-only">نیند — چھوٹی موت</span></div>
+      <div class="jt-summary"><span class="en-only">Every night Allah takes the nafs. Every morning He returns those whose time has not come. Death is the permanent taking. Sleep is the rehearsal — every human experiences the taking and the return nightly.</span><span class="ur-only">ہر رات اللہ نفس لیتا ہے۔ ہر صبح انہیں لوٹاتا ہے جن کا وقت نہیں آیا۔ موت مستقل لینا ہے۔ نیند مشق ہے — ہر انسان ہر رات لینے اور لوٹانے کا تجربہ کرتا ہے۔</span></div>
+      <div class="jt-body">
+        <div class="verse-block">
+          <div class="verse-ar">اللَّهُ يَتَوَفَّى الْأَنفُسَ حِينَ مَوْتِهَا وَالَّتِي لَمْ تَمُتْ فِي مَنَامِهَا ۖ فَيُمْسِكُ الَّتِي قَضَىٰ عَلَيْهَا الْمَوْتَ وَيُرْسِلُ الْأُخْرَىٰ إِلَىٰ أَجَلٍ مُّسَمًّى</div>
+          <div class="verse-tr"><span class="en-only">"Allah takes the souls at death — and those that have not died, during sleep. He retains those for which He has decreed death and releases the others until an appointed term."</span><span class="ur-only">«اللہ روحیں لیتا ہے موت کے وقت — اور جو نہیں مریں انہیں نیند میں۔ جن پر موت کا فیصلہ ہو انہیں روک لیتا ہے اور دوسروں کو مقررہ وقت تک چھوڑ دیتا ہے۔»</span></div>
+          <div class="verse-ref">Surah Az-Zumar 39:42</div>
+        </div>
+        <div class="explanation"><span class="en-only">The Arabic tawaffa (takes in full) is used for both sleep and death — the same root, the same action, different durations. Every morning the person who wakes is experiencing a return that mirrors resurrection. This is one reason the Prophet ﷺ taught specific duas upon waking — the return from sleep is the small rehearsal of the return on the Day of Judgment.</span><span class="ur-only">عربی توفّی (مکمل لینا) نیند اور موت دونوں کے لیے آتا ہے — ایک ہی جڑ، ایک ہی عمل، مختلف مدت۔ ہر صبح جاگنے والا ایسی واپسی کا تجربہ کرتا ہے جو قیامت کی واپسی کی مشق ہے۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('sleep')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-sleep" onclick="saveCard('sleep','Sleep — The Minor Death')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEATH -->
+<div class="jt-item">
+  <div class="jt-dot death">🕊️</div>
+  <div class="jt-content" onclick="toggleJT('jt-death')">
+    <div class="jt-card" id="jt-death">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 5 — At Death</span><span class="ur-only">مرحلہ ۵ — موت پر</span></div>
+      <div class="jt-title-ar">مَلَكُ الْمَوْت</div>
+      <div class="jt-title-en"><span class="en-only">The Angel of Death — Two Experiences</span><span class="ur-only">ملکِ موت — دو تجربات</span></div>
+      <div class="jt-summary"><span class="en-only">The Angel of Death takes every nafs permanently. The Quran describes two completely different experiences at the moment of death — one for those at peace, one for those who wronged themselves. Allah says: "We are closer to him than you — but you do not see."</span><span class="ur-only">ملک الموت ہر نفس کو مستقل لیتا ہے۔ قرآن موت کے لمحے دو بالکل مختلف تجربات بیان کرتا ہے — ایک سکون والوں کے لیے، ایک خود پر ظلم کرنے والوں کے لیے۔ اللہ فرماتا ہے: «ہم اس کے تم سے قریب تر ہیں — لیکن تم نہیں دیکھتے۔»</span></div>
+      <div class="jt-body">
+        <div class="verse-block">
+          <div class="verse-ar">قُلْ يَتَوَفَّاكُم مَّلَكُ الْمَوْتِ الَّذِي وُكِّلَ بِكُمْ</div>
+          <div class="verse-tr"><span class="en-only">"Say: The angel of death who has been entrusted with you will take you in full."</span><span class="ur-only">«کہو: موت کا فرشتہ جو تم پر مقرر کیا گیا ہے تمہیں پوری طرح لے گا۔»</span></div>
+          <div class="verse-ref">Surah As-Sajdah 32:11</div>
+        </div>
+        <div class="explanation"><span class="en-only">16:32 — the good soul: angels say "Peace upon you — enter Paradise for what you used to do." 6:93 — the wrongdoers: angels extending hands — "Bring out your souls." The Arabic yukhriju anfusakum — literally "expel your souls" — forceful extraction versus willing reception. The inner architecture of Module 01 — the nafs, the qalb, the fitrah — determines which experience this will be.</span><span class="ur-only">۱۶:۳۲ — نیک روح: فرشتے کہتے ہیں «سلام ہو تم پر — جنت میں داخل ہو»۔ ۶:۹۳ — ظالم: فرشتے ہاتھ پھیلا کر — «اپنی روحیں نکالو»۔ باطنی معمار — نفس، قلب، فطرت — تعین کرتا ہے کہ کون سا تجربہ ہوگا۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('death')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-death" onclick="saveCard('death','At Death — The Angel')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BARZAKH -->
+<div class="jt-item">
+  <div class="jt-dot after">⏳</div>
+  <div class="jt-content" onclick="toggleJT('jt-barzakh')">
+    <div class="jt-card" id="jt-barzakh">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 6 — After Death</span><span class="ur-only">مرحلہ ۶ — موت کے بعد</span></div>
+      <div class="jt-title-ar">الْبَرْزَخ</div>
+      <div class="jt-title-en"><span class="en-only">The Barzakh — Conscious Barrier</span><span class="ur-only">برزخ — شعوری رکاوٹ</span></div>
+      <div class="jt-summary"><span class="en-only">A conscious intermediate state — not nothing, not the final destination. Cannot be crossed back through. Pharaoh's people are shown fire morning and evening in the barzakh — before the Day of Judgment. From inside, it feels like a marqad — a sleeping place.</span><span class="ur-only">شعوری درمیانی حالت — نہ کچھ نہیں، نہ آخری منزل۔ واپس نہیں جایا جا سکتا۔ فرعون کے لوگوں کو برزخ میں صبح شام آگ دکھائی جاتی ہے — قیامت سے پہلے۔ اندر سے مرقد — سونے کی جگہ — لگتی ہے۔</span></div>
+      <div class="jt-body">
+        <div class="root-block">
+          <div class="root-label"><span class="en-only">Root: ب-ر-ز-خ</span><span class="ur-only">جڑ: ب-ر-ز-خ</span></div>
+          <div class="root-ar">بَرْزَخ</div>
+          <div class="root-meaning"><span class="en-only">A barrier between two things while being between them. Neither fully one nor the other. A partition that separates while still being a realm in itself.</span><span class="ur-only">دو چیزوں کے درمیان رکاوٹ جبکہ خود ان کے درمیان ہو۔ نہ مکمل ایک نہ دوسری۔ ایک ایسی دیوار جو الگ کرے جبکہ خود بھی ایک عالَم ہو۔</span></div>
+        </div>
+        <div class="verse-block">
+          <div class="verse-ar">وَمِن وَرَآئِهِم بَرْزَخٌ إِلَىٰ يَوْمِ يُبْعَثُونَ</div>
+          <div class="verse-tr"><span class="en-only">"And behind them is a barzakh until the Day they are resurrected."</span><span class="ur-only">«اور ان کے پیچھے برزخ ہے قیامت کے دن تک۔»</span></div>
+          <div class="verse-ref">Surah Al-Mu'minun 23:100</div>
+        </div>
+        <div class="explanation"><span class="en-only">40:46 confirms the barzakh is a conscious state — Pharaoh's people are "exposed to the fire morning and evening" before the Day of Judgment arrives. This exposure requires consciousness. 36:51-52 describes the dead calling their barzakh state a marqad (sleeping place) — it felt like sleep from the inside. The full nature of the barzakh belongs to the ghayb — but its consciousness is definitively confirmed.</span><span class="ur-only">۴۰:۴۶ تصدیق کرتی ہے کہ برزخ شعوری حالت ہے — فرعون کے لوگ قیامت سے پہلے صبح شام آگ کے سامنے پیش کیے جاتے ہیں۔ ۳۶:۵۱-۵۲ میں مُردے اپنی برزخ کی حالت کو مرقد (سونے کی جگہ) کہتے ہیں۔ برزخ کی مکمل نوعیت غیب میں ہے — لیکن اس کا شعوری ہونا قطعی تصدیق شدہ ہے۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Conscious state — Definitive</span><span class="ur-only">شعوری حالت — قطعی</span></span>
+        <span class="certainty-badge cert-interp" style="margin-left:4px">◇ <span class="en-only">Full nature — Interpretive</span><span class="ur-only">مکمل نوعیت — تفسیری</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('barzakh')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-barzakh" onclick="saveCard('barzakh','The Barzakh')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESURRECTION -->
+<div class="jt-item">
+  <div class="jt-dot after">🌅</div>
+  <div class="jt-content" onclick="toggleJT('jt-resurrection')">
+    <div class="jt-card" id="jt-resurrection">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 7 — Resurrection</span><span class="ur-only">مرحلہ ۷ — قیامت</span></div>
+      <div class="jt-title-ar">يَوْمُ الْبَعْث</div>
+      <div class="jt-title-en"><span class="en-only">Two Trumpet Blows — Everything Falls, Everything Rises</span><span class="ur-only">دو صور — سب گرتا، سب اٹھتا ہے</span></div>
+      <div class="jt-summary"><span class="en-only">First blow: everything in the heavens and earth falls — except those Allah wills. Second blow: everything rises standing. Then from their graves they rush — yansilun — toward their Lord. Not reluctant. Rushing.</span><span class="ur-only">پہلا صور: آسمانوں اور زمین میں سب گرتا ہے — سوائے جنہیں اللہ چاہے۔ دوسرا صور: سب کھڑے اٹھتے ہیں۔ پھر قبروں سے دوڑتے ہیں — ینسلون — اپنے رب کی طرف۔ ہچکچاہٹ نہیں۔ دوڑتے ہیں۔</span></div>
+      <div class="jt-body">
+        <div class="verse-block">
+          <div class="verse-ar">وَنُفِخَ فِي الصُّورِ فَصَعِقَ مَن فِي السَّمَاوَاتِ وَمَن فِي الْأَرْضِ إِلَّا مَن شَاءَ اللَّهُ ۖ ثُمَّ نُفِخَ فِيهِ أُخْرَىٰ فَإِذَا هُمْ قِيَامٌ يَنظُرُونَ</div>
+          <div class="verse-tr"><span class="en-only">"And the trumpet will be blown — and whoever is in the heavens and whoever is on earth will fall in a dead faint except whom Allah wills. Then it is blown again — and suddenly they are standing, looking on."</span><span class="ur-only">«اور صور پھونکا جائے گا — تو جو آسمانوں میں ہے اور جو زمین میں ہے بیہوش ہو جائے گا سوائے اللہ کے چاہے ہوئے کے۔ پھر دوبارہ پھونکا جائے گا — تو اچانک وہ کھڑے دیکھ رہے ہوں گے۔»</span></div>
+          <div class="verse-ref">Surah Az-Zumar 39:68</div>
+        </div>
+        <div class="explanation"><span class="en-only">Ya-Sin 36:51: "They rush from the graves toward their Lord" — yansilun means swift rushing motion, like water rushing. The Quran uses a word of energetic forward motion, not reluctant dragging. The nafs al-mutma'inna, which spent its life turning toward Allah — rushes. The journey that began in the mustawda' before birth now reaches its destination.</span><span class="ur-only">یس ۳۶:۵۱: «قبروں سے اپنے رب کی طرف دوڑتے ہیں» — ینسلون تیز دوڑنے کی حرکت ہے۔ قرآن توانا آگے بڑھنے کا لفظ استعمال کرتا ہے، ہچکچاہٹ سے کھینچنے کا نہیں۔ نفسِ مطمئنہ جو زندگی بھر اللہ کی طرف پلٹتا رہا — دوڑتا ہے۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('resurrection')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-resurrection" onclick="saveCard('resurrection','Resurrection')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CALL -->
+<div class="jt-item">
+  <div class="jt-dot after">✨</div>
+  <div class="jt-content" onclick="toggleJT('jt-final')">
+    <div class="jt-card" id="jt-final">
+      <span class="jt-chevron">›</span>
+      <div class="jt-stage"><span class="en-only">Phase 8 — The Final Call</span><span class="ur-only">مرحلہ ۸ — آخری پکار</span></div>
+      <div class="jt-title-ar">يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ</div>
+      <div class="jt-title-en"><span class="en-only">O Reassured Soul — Return</span><span class="ur-only">اے نفسِ مطمئنہ — لوٹ آ</span></div>
+      <div class="jt-summary"><span class="en-only">The last two verses of Surah Al-Fajr are the final call. Not: go. Not: be taken. Return. The word irajiʽi — return — confirms what the whole journey was always pointing toward: the soul came from its Lord and is called back to its Lord.</span><span class="ur-only">سورۃ الفجر کی آخری دو آیات آخری پکار ہیں۔ جانا نہیں۔ لے جانا نہیں۔ لوٹنا۔ ارجعی — لوٹ آ — تصدیق کرتا ہے جو پورا سفر ہمیشہ بتا رہا تھا: روح اپنے رب سے آئی اور اپنے رب کی طرف بلائی جاتی ہے۔</span></div>
+      <div class="jt-body">
+        <div class="verse-block">
+          <div class="verse-ar">يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ۞ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً ۞ فَٱدْخُلِى فِى عِبَٰدِى ۞ وَٱدْخُلِى جَنَّتِى</div>
+          <div class="verse-tr"><span class="en-only">"O reassured soul — return to your Lord, well-pleased and pleasing to Him. Enter among My servants. And enter My Paradise."</span><span class="ur-only">«اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔ میرے بندوں میں داخل ہو جا۔ اور میری جنت میں داخل ہو جا۔»</span></div>
+          <div class="verse-ref">Surah Al-Fajr 89:27-30</div>
+        </div>
+        <div class="explanation"><span class="en-only">The word irajiʽi (return) — not idhhabi (go). The ruh came from Allah's amr (17:85). The fitrah carries the imprint of Allah's creation (30:30). The Alastu was its original testimony (7:172). The dhikr was the remembrance of what it already knew. The tawbah was the turning back toward where it always belonged. The nafs al-mutma'inna is not going somewhere new — it is returning to its origin. The circle closes.</span><span class="ur-only">ارجعی (لوٹ آ) — اذھبی (جا) نہیں۔ روح اللہ کے امر سے آئی (۱۷:۸۵)۔ فطرت اللہ کی تخلیق کا نقش لاتی ہے (۳۰:۳۰)۔ الست اس کی اصل گواہی تھی (۷:۱۷۲)۔ ذکر اس کی یاد دہانی تھی۔ توبہ اس کی اصل جگہ کی طرف پھرنا تھا۔ نفسِ مطمئنہ کہیں نئے نہیں جا رہا — اپنی اصل پر لوٹ رہا ہے۔ دائرہ مکمل ہوتا ہے۔</span></div>
+        <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+        <div class="card-actions">
+          <button class="card-act-btn" onclick="shareStage('final')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+          <button class="card-act-btn" id="save-final" onclick="saveCard('final','The Final Call — Return')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end timeline -->
+
+<!-- PARENT CARD -->
+<div class="parent-card">
+  <div class="parent-card-label"><span class="en-only">🌱 For Parents — Share With Your Child</span><span class="ur-only">🌱 والدین کے لیے — اپنے بچے سے شیئر کریں</span></div>
+  <div class="parent-title"><span class="en-only">You were known before you were born</span><span class="ur-only">آپ پیدا ہونے سے پہلے جانے جاتے تھے</span></div>
+  <div class="parent-explanation">
+    <span class="en-only">Before you came into this world, Allah knew you. He held you safely. And He asked every soul — including yours — one question: "Am I not your Lord?" And every soul answered: Yes. You said yes before you were born.<br><br>That is why the Quran is called a reminder — not new information. It is reminding you of something your soul already knows.</span>
+    <span class="ur-only">اس دنیا میں آنے سے پہلے اللہ آپ کو جانتا تھا۔ اس نے آپ کو محفوظ رکھا۔ اور اس نے ہر روح سے — آپ کی روح سے بھی — ایک سوال پوچھا: «کیا میں تمہارا رب نہیں ہوں؟» اور ہر روح نے جواب دیا: ہاں۔ آپ نے پیدا ہونے سے پہلے ہاں کہا۔<br><br>اسی لیے قرآن کو ذکر — یاد دہانی — کہتے ہیں۔ نئی معلومات نہیں۔ آپ کی روح کو یاد دلانا جو وہ پہلے سے جانتی ہے۔</span>
+  </div>
+  <div class="parent-question">
+    <div class="parent-question-label"><span class="en-only">Ask your child</span><span class="ur-only">اپنے بچے سے پوچھیں</span></div>
+    <div class="parent-question-text">
+      <span class="en-only">"If you knew you were going to sleep tonight and wake up tomorrow — you would not be scared, right? Allah taught us that every night is like a small practice run for what happens after we die. And just like you always wake up in the morning — Allah will call everyone back one day."</span>
+      <span class="ur-only">«اگر آپ کو معلوم ہو کہ آج رات سوئیں گے اور کل اٹھیں گے — تو ڈر نہیں لگتا، ٹھیک ہے؟ اللہ نے ہمیں بتایا کہ ہر رات ایک چھوٹی مشق ہے۔ اور جیسے آپ ہمیشہ صبح اٹھتے ہیں — اللہ ایک دن سب کو واپس بلائے گا۔»</span>
+    </div>
+  </div>
+  <div class="parent-daily">
+    <span class="en-only"><strong>Daily connection:</strong> Teach your child the waking dua: "All praise is for Allah who gave us life after having taken it from us." Say it together each morning. It takes ten seconds. It connects the morning to the journey.</span>
+    <span class="ur-only"><strong>روزانہ تعلق:</strong> اپنے بچے کو جاگنے کی دعا سکھائیں: «تمام تعریفیں اللہ کے لیے جس نے ہمیں زندگی دی مرنے کے بعد۔» ہر صبح مل کر پڑھیں۔ دس سیکنڈ لیتی ہے۔ صبح کو سفر سے جوڑتی ہے۔</span>
+  </div>
+  <button class="parent-share-btn" onclick="shareParent()">🌱 <span class="en-only">Share with your child</span><span class="ur-only">اپنے بچے کے ساتھ شیئر کریں</span></button>
+</div>
+
+</div><!-- end content -->
+
+<div class="bottom-nav">
+  <a href="quran_inner_architecture.html" class="bnav-btn">← <span class="en-only">Module 1</span><span class="ur-only">ماڈیول ۱</span></a>
+  <a href="quran_architecture_index.html" class="bnav-btn" style="color:var(--gold);border-color:var(--goldbdr)">⌂</a>
+  <a href="quran_creation.html" class="bnav-btn"><span class="en-only">Module 3 →</span><span class="ur-only">← ماڈیول ۳</span></a>
+</div>
+
+<script>
+let LANG='en';
+function setLang(l){LANG=l;document.getElementById('lt-en').classList.toggle('on',l==='en');document.getElementById('lt-ur').classList.toggle('on',l==='ur');document.body.classList.toggle('ur-mode',l==='ur');document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');document.querySelectorAll('.ur-only').forEach(el=>el.style.display=l==='ur'?'inline':'none');document.querySelectorAll('.en-only').forEach(el=>el.style.display=l==='ur'?'none':'');}
+function toggleJT(id){const c=document.getElementById(id);c.classList.toggle('open');}
+function saveCard(id,title){const key='almaktaba_saved_'+id;const btn=document.getElementById('save-'+id);if(localStorage.getItem(key)){localStorage.removeItem(key);if(btn)btn.classList.remove('saved');showToast(LANG==='ur'?'ہٹا دیا':'Removed');}else{localStorage.setItem(key,JSON.stringify({title,module:'soul-journey',saved:Date.now()}));if(btn)btn.classList.add('saved');showToast(LANG==='ur'?'محفوظ ہو گیا ✓':'Saved ✓');}}
+function shareStage(id){const texts={before:{ar:'وَهُوَ الَّذِي أَنشَأَكُم مِّن نَّفْسٍ وَاحِدَةٍ فَمُسْتَقَرٌّ وَمُسْتَوْدَعٌ',en:'The soul is held in divine safekeeping before birth. Then placed in the world. Then returned. — Quran 6:98 · Al-Maktaba',ur:'روح پیدائش سے پہلے الٰہی نگہداشت میں۔ پھر دنیا میں۔ پھر واپس۔ — قرآن ۶:۹۸ · المکتبہ'},alastu:{ar:'أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ',en:'"Am I not your Lord?" — Every soul: "Yes — we testify." Before birth. Carried in the fitrah. The Quran is the reminder of what you already know. — Quran 7:172 · Al-Maktaba',ur:'«کیا میں تمہارا رب نہیں؟» — ہر روح: «بلیٰ — ہم گواہ ہیں۔» پیدائش سے پہلے۔ فطرت میں۔ قرآن یاد دہانی ہے۔ — قرآن ۷:۱۷۲ · المکتبہ'},sleep:{ar:'اللَّهُ يَتَوَفَّى الْأَنفُسَ حِينَ مَوْتِهَا وَالَّتِي لَمْ تَمُتْ فِي مَنَامِهَا',en:'Every night Allah takes the nafs. Every morning He returns it. Sleep is the rehearsal. Waking is the small resurrection. — Quran 39:42 · Al-Maktaba',ur:'ہر رات اللہ نفس لیتا ہے۔ ہر صبح لوٹاتا ہے۔ نیند مشق ہے۔ جاگنا چھوٹی قیامت ہے۔ — قرآن ۳۹:۴۲ · المکتبہ'},death:{ar:'قُلْ يَتَوَفَّاكُم مَّلَكُ الْمَوْتِ الَّذِي وُكِّلَ بِكُمْ',en:'The Angel of Death takes every nafs permanently. Two different experiences — peace for those who were at peace, extraction for those who wronged themselves. — Quran 32:11 · Al-Maktaba',ur:'ملک الموت ہر نفس کو مستقل لیتا ہے۔ دو مختلف تجربات — سکون والوں کے لیے سکون، ظالموں کے لیے نکالنا۔ — قرآن ۳۲:۱۱ · المکتبہ'},barzakh:{ar:'وَمِن وَرَآئِهِم بَرْزَخٌ إِلَىٰ يَوْمِ يُبْعَثُونَ',en:'The barzakh — a conscious intermediate state after death. Not nothing. Not the final destination. A barrier until the Day of Resurrection. — Quran 23:100 · Al-Maktaba',ur:'برزخ — موت کے بعد شعوری درمیانی حالت۔ کچھ نہیں نہیں۔ آخری منزل نہیں۔ قیامت تک رکاوٹ۔ — قرآن ۲۳:۱۰۰ · المکتبہ'},resurrection:{ar:'ثُمَّ نُفِخَ فِيهِ أُخْرَىٰ فَإِذَا هُمْ قِيَامٌ يَنظُرُونَ',en:'Two trumpet blows. Everything falls. Everything rises. Then they rush from their graves toward their Lord — not reluctant. Rushing. — Quran 39:68 & 36:51 · Al-Maktaba',ur:'دو صور۔ سب گرتا ہے۔ سب اٹھتا ہے۔ پھر قبروں سے اپنے رب کی طرف دوڑتے ہیں — ہچکچاہٹ نہیں۔ دوڑتے ہیں۔ — قرآن ۳۹:۶۸ · المکتبہ'},final:{ar:'يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً',en:'"O reassured soul — return to your Lord, well-pleased and pleasing to Him." Not go. Return. The soul came from Allah and is called back. — Quran 89:27-28 · Al-Maktaba',ur:'«اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔» جانا نہیں۔ لوٹنا۔ روح اللہ سے آئی اور واپس بلائی گئی۔ — قرآن ۸۹:۲۷-۲۸ · المکتبہ'}};const d=texts[id];if(!d)return;const text=d.ar+'\n\n'+(LANG==='ur'?d.ur:d.en);if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
+function shareParent(){const text=LANG==='ur'?'🌱 آپ پیدا ہونے سے پہلے جانے جاتے تھے۔\n\nقرآن ہمیں بتاتا ہے کہ ہر رات ایک چھوٹی مشق ہے۔ ہر صبح چھوٹی قیامت ہے۔\n\nصبح کی دعا: «تمام تعریفیں اللہ کے لیے جس نے ہمیں زندگی دی مرنے کے بعد۔»\n\nAl-Maktaba':'🌱 You were known before you were born.\n\nEvery night is a small practice run. Every morning is a small resurrection.\n\nWaking dua: "All praise is for Allah who gave us life after having taken it from us."\n\nAl-Maktaba';if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
+function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(12,21,40,.97);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 18px;font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;color:#C9A84C;z-index:200;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2200);}
+window.addEventListener('DOMContentLoaded',()=>{['before','alastu','entry','sleep','death','barzakh','resurrection','final'].forEach(id=>{if(localStorage.getItem('almaktaba_saved_'+id)){const btn=document.getElementById('save-'+id);if(btn)btn.classList.add('saved');}});});
+</script>
+</body>
+</html>

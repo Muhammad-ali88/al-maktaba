@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Purpose — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;--golddim:rgba(201,168,76,.10);--goldbdr:rgba(201,168,76,.15);--goldmid:rgba(201,168,76,.25);--teal:#2FB89A;--tealdim:rgba(47,184,154,.12);--tealbdr:rgba(47,184,154,.3);--blue:#7AABF0;--bluedim:rgba(122,171,240,.10);--bluebdr:rgba(122,171,240,.28);--amber:#E0A030;--amberdim:rgba(224,160,48,.10);--amberbdr:rgba(224,160,48,.28);--red:rgba(255,100,100,.7);--reddim:rgba(255,100,100,.06);--redbdr:rgba(255,100,100,.2);--text:#D4CBB8;--text2:#8A9BB0;--text3:#5A6B80;--border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);--font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg0);color:var(--text);font-family:var(--font-body);overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 700px 400px at 30% 0%,rgba(224,160,48,.04),transparent 60%)}
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.96);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 16px;height:54px;gap:12px}
+.back-btn{font-family:var(--font-head);font-size:9.5px;letter-spacing:1px;color:var(--text2);padding:5px 10px;border:1px solid var(--border2);border-radius:6px;text-decoration:none;transition:all .15s;flex-shrink:0}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-title{font-family:var(--font-head);font-size:9.5px;font-weight:700;color:var(--gold2);letter-spacing:1px;flex:1;text-align:center}
+.nav-title .ur-only{font-family:var(--font-arab);font-size:13px;letter-spacing:0}
+.lang-toggle{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.05);border:1px solid var(--goldbdr);border-radius:20px;padding:3px;flex-shrink:0}
+.lt-btn{font-family:var(--font-head);font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:#8A9BB0;user-select:none}
+.lt-btn.on{background:var(--gold);color:#000;font-weight:700}
+.progress-bar{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border2);background:rgba(8,14,28,.6)}
+.prog-dot{width:8px;height:8px;border-radius:50%;transition:all .2s;cursor:pointer;text-decoration:none;display:block}
+.prog-dot.done{background:rgba(201,168,76,.4)}.prog-dot.active{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.4)}.prog-dot.upcoming{background:var(--bg3);border:1px solid var(--border2)}
+.prog-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1px;color:var(--text3);margin:0 4px}
+.prog-label .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0}
+.hero{position:relative;z-index:1;padding:40px 20px 32px;text-align:center;border-bottom:1px solid var(--border2);background:linear-gradient(160deg,rgba(17,30,53,.6),rgba(4,7,13,.9))}
+.hero-module-num{font-family:var(--font-head);font-size:9px;letter-spacing:2px;color:var(--amber);text-transform:uppercase;margin-bottom:12px}
+.hero-ar{font-family:var(--font-arab);font-size:clamp(22px,5vw,38px);color:var(--gold2);line-height:1.4;margin-bottom:6px}
+.hero-en{font-family:var(--font-head);font-size:clamp(15px,3.5vw,22px);font-weight:700;color:#fff;margin-bottom:16px}
+.hero-rule{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 18px}
+.hero-purpose{font-size:13px;color:var(--text2);line-height:1.85;font-style:italic;max-width:600px;margin:0 auto 20px}
+.hero-ayah{padding:14px 18px;border:1px solid var(--border2);border-radius:10px;background:rgba(201,168,76,.04);display:inline-block;max-width:100%}
+.hero-ayah-ar{font-family:var(--font-arab);font-size:clamp(16px,3.5vw,21px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.hero-ayah-tr{font-size:11.5px;color:var(--text2);font-style:italic;margin-bottom:4px;line-height:1.6}
+.hero-ayah-ref{font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold)}
+.content{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 16px}
+.sec-label{font-family:var(--font-head);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;padding:28px 0 14px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sec-label .ur-only{font-family:var(--font-arab);font-size:12px;letter-spacing:0;text-transform:none}
+.ur-mode .sec-label{flex-direction:row-reverse}.ur-mode .sec-label::after{display:none}.ur-mode .sec-label::before{content:'';flex:1;height:1px;background:var(--border2)}
+.concept-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.concept-card.open{border-color:var(--goldbdr)}
+.card-header{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;user-select:none}
+.card-badge{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.cb-gold{background:var(--golddim);border:1px solid var(--goldbdr)}
+.cb-amber{background:var(--amberdim);border:1px solid var(--amberbdr)}
+.cb-red{background:var(--reddim);border:1px solid var(--redbdr)}
+.cb-teal{background:var(--tealdim);border:1px solid var(--tealbdr)}
+.card-titles{flex:1;min-width:0}
+.card-title-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);line-height:1.3;margin-bottom:2px}
+.card-title-en{font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:.6px;color:var(--text2)}
+.card-title-en .ur-only{font-family:var(--font-arab);font-size:12px;letter-spacing:0}
+.card-summary{font-size:12px;color:var(--text2);line-height:1.65;margin-top:3px}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.concept-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border2)}
+.concept-card.open .card-body{display:block}
+.root-block{background:rgba(0,0,0,.3);border-radius:8px;padding:12px 14px;margin:14px 0;border-left:3px solid var(--gold)}
+.root-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.root-ar{font-family:var(--font-arab);font-size:19px;color:var(--gold2);margin-bottom:4px;direction:rtl}
+.root-meaning{font-size:12px;color:var(--text2);line-height:1.65}
+.verse-block{background:rgba(201,168,76,.04);border-radius:8px;padding:12px 14px;margin:10px 0;border:1px solid var(--border2)}
+.verse-ar{font-family:var(--font-arab);font-size:clamp(15px,3.5vw,19px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.verse-tr{font-size:12px;color:var(--text);font-style:italic;line-height:1.7;margin-bottom:4px}
+.verse-ref{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;color:var(--gold)}
+.explanation{font-size:12.5px;color:var(--text2);line-height:1.8;margin:10px 0}
+.certainty-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:10px;font-family:var(--font-head);font-size:8px;letter-spacing:.8px;margin-top:8px}
+.cert-qati{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.cert-ling{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.cert-interp{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-actions{display:flex;gap:8px;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2);flex-wrap:wrap}
+.card-act-btn{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;padding:5px 12px;border:1px solid var(--border2);border-radius:6px;cursor:pointer;color:var(--text2);background:transparent;transition:all .15s;text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.card-act-btn:hover{color:var(--gold);border-color:var(--goldbdr)}.card-act-btn.saved{color:var(--gold);border-color:var(--goldbdr)}
+.card-act-btn .ur-only{font-family:var(--font-arab);font-size:10px;letter-spacing:0;text-transform:none}
+/* IBLIS TABLE */
+.iblis-table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--redbdr);margin:14px 0}
+table.ibt{width:100%;border-collapse:collapse;min-width:520px}
+table.ibt th{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;text-transform:uppercase;color:var(--red);padding:8px 10px;background:var(--reddim);border-bottom:1px solid var(--redbdr);text-align:left}
+table.ibt td{padding:8px 10px;font-size:11px;border-bottom:1px solid var(--border2);vertical-align:top;line-height:1.5;color:var(--text2)}
+table.ibt tr:last-child td{border-bottom:none}
+table.ibt tr:hover td{background:rgba(255,100,100,.03)}
+.ur-mode table.ibt th,.ur-mode table.ibt td{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:1.9;font-size:12px}
+/* ONE CHOICE VISUAL */
+.choice-visual{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+@media(max-width:400px){.choice-visual{grid-template-columns:1fr}}
+.choice-path{border-radius:10px;padding:16px;text-align:center;border:1px solid}
+.cp-zakka{background:var(--tealdim);border-color:var(--tealbdr)}
+.cp-dassa{background:var(--reddim);border-color:var(--redbdr)}
+.cp-ar{font-family:var(--font-arab);font-size:22px;margin-bottom:6px}
+.cp-zakka .cp-ar{color:var(--teal)}.cp-dassa .cp-ar{color:var(--red)}
+.cp-en{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;margin-bottom:8px}
+.cp-zakka .cp-en{color:var(--teal)}.cp-dassa .cp-en{color:var(--red)}
+.cp-desc{font-size:11.5px;color:var(--text2);line-height:1.6}
+/* PARENT CARD */
+.parent-card{background:var(--bluedim);border:1px solid var(--bluebdr);border-radius:14px;padding:22px 20px;margin:24px 0;position:relative;overflow:hidden}
+.parent-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.parent-card-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.parent-card-label::after{content:'';flex:1;height:1px;background:rgba(122,171,240,.2)}
+.parent-title{font-family:var(--font-head);font-size:14px;font-weight:700;color:#fff;margin-bottom:10px}
+.parent-title .ur-only{font-family:var(--font-arab);font-size:16px}
+.parent-explanation{font-size:13px;color:var(--text);line-height:1.85;margin-bottom:12px}
+.parent-question{background:rgba(0,0,0,.3);border-radius:8px;padding:12px 14px;border-left:3px solid var(--blue);margin-bottom:12px}
+.parent-question-label{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--blue);margin-bottom:6px;text-transform:uppercase}
+.parent-question-text{font-size:12.5px;color:var(--text);line-height:1.75;font-style:italic}
+.parent-daily{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.parent-share-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;padding:8px 16px;border:1px solid var(--bluebdr);border-radius:7px;cursor:pointer;color:var(--blue);background:transparent;transition:all .15s;text-transform:uppercase}
+.parent-share-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(4,7,13,.97);border-top:1px solid var(--border2);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:58px;gap:8px}
+.bnav-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text2);text-decoration:none;padding:6px 12px;border:1px solid var(--border2);border-radius:7px;transition:all .15s;white-space:nowrap;text-transform:uppercase}
+.bnav-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.bnav-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+/* UR-MODE */
+.en-only{display:inline}.ur-only{display:none;font-family:var(--font-arab);direction:rtl}
+.ur-mode .en-only{display:none!important}.ur-mode .ur-only{display:inline!important}
+.ur-mode .explanation,.ur-mode .root-meaning,.ur-mode .verse-tr,.ur-mode .card-summary,.ur-mode .parent-explanation,.ur-mode .parent-question-text,.ur-mode .parent-daily,.ur-mode .cp-desc{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .card-title-en{font-family:var(--font-arab);direction:rtl;font-size:13px;letter-spacing:0}
+.ur-mode .root-block{border-left:none;border-right:3px solid var(--gold)}.ur-mode .parent-question{border-left:none;border-right:3px solid var(--blue)}
+.ur-mode .hero-purpose{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .certainty-badge{font-family:var(--font-arab);font-size:10px;letter-spacing:0}
+@media(max-width:480px){.content{padding:0 12px}.hero{padding:30px 14px 24px}}
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <a class="back-btn" href="quran_architecture_index.html">← <span class="en-only">Index</span><span class="ur-only">فہرست</span></a>
+  <div class="nav-title"><span class="en-only">The Purpose</span><span class="ur-only">مقصد</span></div>
+  <div class="lang-toggle"><div class="lt-btn on" id="lt-en" onclick="setLang('en')">EN</div><div class="lt-btn" id="lt-ur" onclick="setLang('ur')">اردو</div></div>
+</div>
+<div class="progress-bar">
+  <span class="prog-label"><span class="en-only">Module</span><span class="ur-only">ماڈیول</span></span>
+  <a href="quran_inner_architecture.html" class="prog-dot done"></a>
+  <a href="quran_soul_journey.html" class="prog-dot done"></a>
+  <a href="quran_creation.html" class="prog-dot done"></a>
+  <a href="quran_purpose.html" class="prog-dot active"></a>
+  <a href="quran_return.html" class="prog-dot upcoming"></a>
+  <span class="prog-label">4 / 5</span>
+</div>
+<div class="hero">
+  <div class="hero-module-num"><span class="en-only">Module 04 of 05 · Architecture of Existence</span><span class="ur-only">ماڈیول ۰۴ از ۰۵ · معمارِ وجود</span></div>
+  <div class="hero-ar">الْأَمَانَة وَالاِبْتِلَاء</div>
+  <div class="hero-en"><span class="en-only">The Purpose — Amanah, Khalifah, the Test</span><span class="ur-only">مقصد — امانت، خلیفہ، آزمائش</span></div>
+  <div class="hero-rule"></div>
+  <div class="hero-purpose">
+    <span class="en-only">The heavens, the earth, and the mountains were offered the Amanah — and trembled. The human being accepted it. This is why you are here, what Iblis's mechanism actually is, and what the one choice comes down to.</span>
+    <span class="ur-only">آسمانوں، زمین اور پہاڑوں کو امانت پیش کی گئی — اور وہ کانپ اٹھے۔ انسان نے قبول کیا۔ یہ ہے کہ آپ یہاں کیوں ہیں، ابلیس کا طریقہ کار کیا ہے، اور ایک انتخاب کیا ہے۔</span>
+  </div>
+  <div class="hero-ayah">
+    <div class="hero-ayah-ar">إِنَّا عَرَضْنَا الْأَمَانَةَ عَلَى السَّمَاوَاتِ وَالْأَرْضِ وَالْجِبَالِ فَأَبَيْنَ أَن يَحْمِلْنَهَا وَأَشْفَقْنَ مِنْهَا وَحَمَلَهَا الْإِنسَانُ</div>
+    <div class="hero-ayah-tr"><span class="en-only">"We offered the Trust to the heavens, the earth, and the mountains — and they refused to bear it and trembled from it. But the human being carried it."</span><span class="ur-only">«ہم نے امانت آسمانوں، زمین اور پہاڑوں کو پیش کی — انہوں نے اسے اٹھانے سے انکار کیا اور اس سے ڈر گئے۔ لیکن انسان نے اسے اٹھایا۔»</span></div>
+    <div class="hero-ayah-ref">Surah Al-Ahzab 33:72</div>
+  </div>
+</div>
+<div class="content">
+
+<div class="sec-label"><span class="en-only">The Amanah — The Trust</span><span class="ur-only">امانت — بھاری بوجھ</span></div>
+
+<div class="concept-card" id="card-amanah">
+  <div class="card-header" onclick="toggleCard('card-amanah')">
+    <div class="card-badge cb-gold">⚖️</div>
+    <div class="card-titles">
+      <div class="card-title-ar">الْأَمَانَة</div>
+      <div class="card-title-en"><span class="en-only">The Amanah — What the Mountains Refused</span><span class="ur-only">امانت — جو پہاڑوں نے قبول نہ کی</span></div>
+      <div class="card-summary"><span class="en-only">The heavens and mountains trembled at the Amanah and refused it. The human being accepted. Understanding what the Amanah actually is explains everything about the human situation.</span><span class="ur-only">آسمان اور پہاڑ امانت سے کانپ اٹھے اور انکار کیا۔ انسان نے قبول کیا۔ امانت کیا ہے — یہ سمجھنا انسانی صورتحال کی ہر چیز سمجھاتا ہے۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Root: أ-م-ن</span><span class="ur-only">جڑ: أ-م-ن</span></div>
+      <div class="root-ar">أَمَانَة — same root as iman, amana, mu'min</div>
+      <div class="root-meaning"><span class="en-only">The trust held in safekeeping. From the same root as iman (faith), amana (he trusted), mu'min (believer). The Amanah is not simply a task — it is a trust relationship. Something held on behalf of the one who gave it, to be returned in the condition it was received.</span><span class="ur-only">امانت اسی جڑ سے جس سے ایمان، آمن، مومن۔ امانت صرف کام نہیں — یہ اعتماد کا رشتہ ہے۔ دینے والے کی طرف سے رکھی گئی، اسی حالت میں واپس کرنی ہے۔</span></div>
+    </div>
+    <div class="explanation"><span class="en-only">Why did the mountains tremble? Not from weakness — from understanding. The mountains submit automatically. Their tasbih is real. But their submission is not the Amanah. The Amanah requires the real possibility of refusal. A mountain cannot say no to glorifying Allah — it glorifies automatically. The Amanah required: consciousness + freedom + accountability + knowledge of Allah. The combination of all four is what makes the Amanah possible and what makes it the weight that caused the mountains to tremble. Without the possibility of saying no — there is no meaning in saying yes.</span><span class="ur-only">پہاڑ کیوں کانپے؟ کمزوری سے نہیں — سمجھ کر۔ پہاڑ خودکار طور پر سرتسلیم خم کرتے ہیں۔ ان کی تسبیح حقیقی ہے۔ لیکن ان کا سجدہ امانت نہیں۔ امانت کے لیے ضروری ہے: شعور + آزادی + جوابدہی + اللہ کا علم۔ چاروں کا مجموعہ امانت ممکن بناتا ہے اور وہی بوجھ جس سے پہاڑ کانپے۔ نہ کہنے کے امکان کے بغیر — ہاں کہنے کا کوئی مطلب نہیں۔</span></div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('amanah','الْأَمَانَة','The heavens, earth, and mountains trembled at the Amanah and refused it. The human being accepted. The Amanah is the capacity for conscious, free, accountable recognition of Allah — what makes meaningful worship possible. — Quran 33:72 · Al-Maktaba','آسمان، زمین اور پہاڑ امانت سے کانپے اور انکار کیا۔ انسان نے قبول کیا۔ امانت اللہ کی شعوری، آزاد، جوابدہ پہچان کی صلاحیت ہے۔ — قرآن ۳۳:۷۲ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-amanah" onclick="saveCard('amanah','The Amanah')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="concept-card" id="card-khalifah">
+  <div class="card-header" onclick="toggleCard('card-khalifah')">
+    <div class="card-badge cb-gold">👑</div>
+    <div class="card-titles">
+      <div class="card-title-ar">خَلِيفَة</div>
+      <div class="card-title-en"><span class="en-only">Khalifah — The Word Contains the Answer</span><span class="ur-only">خلیفہ — لفظ میں ہی جواب ہے</span></div>
+      <div class="card-summary"><span class="en-only">The root of khalifah means one who comes after — a successor. Allah chose this word precisely. A khalifah by definition succeeds something that came before. The angels' question confirms there was a prior history on earth.</span><span class="ur-only">خلیفہ کی جڑ کا مطلب بعد میں آنے والا — جانشین۔ اللہ نے یہ لفظ درستگی سے چنا۔ خلیفہ لازماً کسی پہلے کا جانشین ہوتا ہے۔ فرشتوں کا سوال تصدیق کرتا ہے کہ زمین پر پہلے کی تاریخ تھی۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Root: خ-ل-ف</span><span class="ur-only">جڑ: خ-ل-ف</span></div>
+      <div class="root-ar">خَلِيفَة</div>
+      <div class="root-meaning"><span class="en-only">One who comes after, succeeds, represents in the absence of. The same root as khalafa (he succeeded), ikhtilaf (difference — what comes after the original diverges), and khilaf (opposition — what stands in place of). A khalifah represents the one who sent them.</span><span class="ur-only">وہ جو بعد میں آئے، جانشین بنے، غیر موجودگی میں نمائندگی کرے۔ خلف سے — وہ جانشین بنا۔ خلافت — نمائندگی۔ خلیفہ بھیجنے والے کی نمائندگی کرتا ہے۔</span></div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً ۖ قَالُوا أَتَجْعَلُ فِيهَا مَن يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ</div>
+      <div class="verse-tr"><span class="en-only">"And when your Lord said to the angels: I am placing a khalifah on earth. They said: Will You place one who causes corruption and sheds blood?"</span><span class="ur-only">«اور جب آپ کے رب نے فرشتوں سے فرمایا: میں زمین میں خلیفہ بنانے والا ہوں۔ انہوں نے کہا: کیا آپ اس میں وہ رکھیں گے جو فساد مچائے اور خون بہائے؟»</span></div>
+      <div class="verse-ref">Surah Al-Baqarah 2:30</div>
+    </div>
+    <div class="explanation"><span class="en-only">The angels' question reveals prior empirical knowledge — they described corruption and bloodshed as a definition ("one who causes corruption") not a prediction. This language suggests they had witnessed this pattern from prior inhabitants of earth. The jinn (Al-Hijr 15:27) were created before humans and given the earth. The word khalifah — successor — was not a coincidence. Adam was succeeding a prior era. And crucially: 10:14 — "Then We made you successors (khalifa) on earth after them." After them — plural. The prior inhabitants are acknowledged.</span><span class="ur-only">فرشتوں کا سوال تجرباتی علم ظاہر کرتا ہے — انہوں نے فساد اور خون کو تعریف کے طور پر بیان کیا، پیشگوئی کے طور پر نہیں۔ یہ زبان بتاتی ہے انہوں نے یہ نمونہ پہلے کے باسیوں میں دیکھا۔ جن انسانوں سے پہلے پیدا ہوئے اور زمین کو دیے گئے۔ ۱۰:۱۴ — «پھر ہم نے انہیں زمین میں ان کے بعد خلیفہ بنایا۔» ان کے بعد — جمع۔</span></div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Khalifah as successor — Definitive</span><span class="ur-only">خلیفہ بطور جانشین — قطعی</span></span>
+    <span class="certainty-badge cert-ling" style="margin-left:4px">◈ <span class="en-only">Prior inhabitants implied — Linguistically Strong</span><span class="ur-only">پہلے باسیوں کا اشارہ — لغوی طور پر مضبوط</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('khalifah','خَلِيفَة','The word khalifah means one who comes after — a successor. Allah placed a khalifah on earth. The angels\' question shows they had witnessed prior inhabitants. You are here as a representative. — Quran 2:30 · Al-Maktaba','خلیفہ کا مطلب بعد میں آنے والا — جانشین۔ فرشتوں کا سوال بتاتا ہے پہلے باسی تھے۔ آپ یہاں نمائندے کے طور پر ہیں۔ — قرآن ۲:۳۰ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-khalifah" onclick="saveCard('khalifah','Khalifah')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="sec-label"><span class="en-only">The Iblis Mechanism — All Five Locations</span><span class="ur-only">ابلیس کا طریقہ کار — پانچوں مقامات</span></div>
+
+<div class="concept-card" id="card-iblis">
+  <div class="card-header" onclick="toggleCard('card-iblis')">
+    <div class="card-badge cb-red">⚠️</div>
+    <div class="card-titles">
+      <div class="card-title-ar">إِبْلِيس</div>
+      <div class="card-title-en"><span class="en-only">Iblis — His Own Admission Tells Everything</span><span class="ur-only">ابلیس — اس کا اپنا اعتراف سب بتاتا ہے</span></div>
+      <div class="card-summary"><span class="en-only">The Quran records the Iblis dialogue in five different surahs. Each adds new information. At the end, Iblis himself admits his limit: "I had no authority over you — except that I called you and you responded." No force. No compulsion. He called. You responded.</span><span class="ur-only">قرآن ابلیس کا مکالمہ پانچ مختلف سورتوں میں ریکارڈ کرتا ہے۔ ہر ایک نئی معلومات دیتا ہے۔ آخر میں ابلیس خود اعتراف کرتا ہے: «میرے پاس تم پر کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔» کوئی زور نہیں۔ اس نے بلایا۔ آپ نے جواب دیا۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="iblis-table-wrap">
+      <table class="ibt">
+        <thead><tr>
+          <th><span class="en-only">Surah</span><span class="ur-only">سورت</span></th>
+          <th><span class="en-only">Iblis's Reason</span><span class="ur-only">ابلیس کی دلیل</span></th>
+          <th><span class="en-only">Unique Addition</span><span class="ur-only">منفرد اضافہ</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td>7:11-18</td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Strategy declared: 4 directions on the straight path. Not from above — cannot block the upward path</span><span class="ur-only">حکمت عملی: ۴ سمتیں صراط مستقیم پر۔ اوپر سے نہیں — اوپر کا راستہ بلاک نہیں کر سکتا</span></td></tr>
+          <tr><td>15:28-42</td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Iblis acknowledges: cannot reach al-mukhlaseen (those purified for Allah)</span><span class="ur-only">ابلیس مانتا ہے: المخلصین تک نہیں پہنچ سکتا</span></td></tr>
+          <tr><td>17:61-65</td><td><span class="en-only">Not stated</span><span class="ur-only">بیان نہیں</span></td><td><span class="en-only">Four entry points: voice, cavalry, wealth partnership, children partnership. Over believing servants: no authority</span><span class="ur-only">چار داخلی نقاط: آواز، سواری، مال میں شراکت، اولاد میں شراکت۔ مومن بندوں پر: کوئی اختیار نہیں</span></td></tr>
+          <tr><td>20:115-123</td><td><span class="en-only">Not stated</span><span class="ur-only">بیان نہیں</span></td><td><span class="en-only">Adam had a prior covenant — but forgot. He lacked 'azm. Earth is where 'azm is developed through tested experience</span><span class="ur-only">آدم کا پہلا عہد تھا — لیکن بھول گئے۔ عزم نہیں تھا۔ زمین جہاں عزم آزمائش سے بنتا ہے</span></td></tr>
+          <tr><td>38:71-85</td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Iblis swears by Allah's own might (bi'izzatika). Allah responds: by Truth (al-haqq). Iblis swore by power — Allah responded with Truth</span><span class="ur-only">ابلیس اللہ کی عزت کی قسم کھاتا ہے۔ اللہ جواب دیتا ہے: حق کی قسم۔ ابلیس نے طاقت کی قسم کھائی — اللہ نے حق سے جواب دیا</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">وَمَا كَانَ لِيَ عَلَيْكُم مِّن سُلْطَانٍ إِلَّا أَن دَعَوْتُكُمْ فَاسْتَجَبْتُمْ</div>
+      <div class="verse-tr"><span class="en-only">"I had no authority over you — except that I called you and you responded."</span><span class="ur-only">«میرے پاس تم پر کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔»</span></div>
+      <div class="verse-ref">Surah Ibrahim 14:22 — Iblis's own final admission</div>
+    </div>
+    <div class="explanation"><span class="en-only">The waswasa mechanism: the root W-S-W-S is onomatopoeic — the sound of rustling leaves, barely audible, continuous, unlocatable. Iblis does not shout. He whispers. Al-Khannas (114:4-5) — he withdraws when noticed, then advances when forgotten. The defense is tadhakkaru (they remember) — dhikr, not willpower. Not analysis. Not effort. Remembrance. This is why the inner architecture matters — the qalb that is oriented toward Allah through dhikr does not need to fight waswasa. It simply does not respond to the call.</span><span class="ur-only">وسواس: جڑ و-س-و-س آوازی ہے — پتوں کی سرسراہٹ، مشکل سے سنائی دینے والی، مسلسل، بے مقام۔ ابلیس چلاتا نہیں۔ سرگوشی کرتا ہے۔ الخناس (۱۱۴:۴-۵) — نظر آنے پر چھپ جاتا ہے، بھولنے پر واپس۔ دفاع تذکّروا ہے — ذکر، قوت ارادی نہیں۔ تجزیہ نہیں۔ کوشش نہیں۔ یاد دہانی۔</span></div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive — Five Quranic locations</span><span class="ur-only">قطعی — پانچ قرآنی مقامات</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('iblis','إِبْلِيس','Iblis\' final admission: "I had no authority over you — except that I called you and you responded." No force. No compulsion. He called. The response was always the human\'s own choice. — Quran 14:22 · Al-Maktaba','ابلیس کا آخری اعتراف: «میرے پاس تم پر کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔» — قرآن ۱۴:۲۲ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-iblis" onclick="saveCard('iblis','Iblis Mechanism')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="sec-label"><span class="en-only">The One Choice</span><span class="ur-only">ایک انتخاب</span></div>
+
+<div class="concept-card" id="card-choice">
+  <div class="card-header" onclick="toggleCard('card-choice')">
+    <div class="card-badge cb-teal">⚡</div>
+    <div class="card-titles">
+      <div class="card-title-ar">زَكَّاهَا أَوْ دَسَّاهَا</div>
+      <div class="card-title-en"><span class="en-only">Zakkaha or Dassaha — The Only Choice</span><span class="ur-only">زکّاھا یا دسّاھا — واحد انتخاب</span></div>
+      <div class="card-summary"><span class="en-only">Both paths are shown to every nafs. Both fujur and taqwa are placed inside it. The nafs did not choose its knowledge of right and wrong — that was given. What it chooses to do with that knowledge — that is the test. One choice. Purify or bury.</span><span class="ur-only">ہر نفس کو دونوں راستے دکھائے گئے۔ فجور اور تقویٰ دونوں اس کے اندر رکھے گئے۔ نفس نے اپنا علم نہیں چنا — وہ دیا گیا۔ اس علم کے ساتھ کیا کرنا ہے — یہ آزمائش ہے۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="choice-visual">
+      <div class="choice-path cp-zakka">
+        <div class="cp-ar">زَكَّاهَا</div>
+        <div class="cp-en"><span class="en-only">ZAKKAHA — Purify It</span><span class="ur-only">زکّاھا — پاک کرو</span></div>
+        <div class="cp-desc"><span class="en-only">Root: Z-K-W — to purify, to grow, to flourish. Same root as zakat (purification through giving). The nafs that is purified grows. It moves from ammara to lawwama to mutma'inna. It has succeeded (qad aflaha).</span><span class="ur-only">جڑ: ز-ک-و — پاک کرنا، بڑھنا، پھلنا پھولنا۔ زکوٰۃ (دے کر پاک کرنا) سے ایک جڑ۔ پاک نفس بڑھتا ہے۔ امارہ سے لوامہ سے مطمئنہ۔ فلاح پا گیا۔</span></div>
+      </div>
+      <div class="choice-path cp-dassa">
+        <div class="cp-ar">دَسَّاهَا</div>
+        <div class="cp-en"><span class="en-only">DASSAHA — Bury It</span><span class="ur-only">دسّاھا — دفن کرو</span></div>
+        <div class="cp-desc"><span class="en-only">Root: D-S-S — to bury underground, to conceal deliberately. The nafs that is buried under desires, ego, heedlessness. The fitrah is suppressed. The lawwama goes silent. The nafs has failed (qad khaba).</span><span class="ur-only">جڑ: د-س-س — زمین میں دبانا، جان بوجھ کر چھپانا۔ خواہشات، انا، غفلت کے نیچے دبا نفس۔ فطرت دبائی گئی۔ لوامہ خاموش۔ نفس نے ناکامی پائی۔</span></div>
+      </div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">قَدْ أَفْلَحَ مَن زَكَّاهَا ۞ وَقَدْ خَابَ مَن دَسَّاهَا</div>
+      <div class="verse-tr"><span class="en-only">"He has succeeded who purifies it — and he has failed who buries it."</span><span class="ur-only">«فلاح پا گیا جس نے اسے پاک کیا — اور ناکام ہوا جس نے اسے دبا دیا۔»</span></div>
+      <div class="verse-ref">Surah Ash-Shams 91:9-10</div>
+    </div>
+    <div class="explanation"><span class="en-only">This is the one choice the Quran reduces everything to. Not birth — that is given (49:13). Not livelihood — that is written (11:6). Not family, location, death — all given. What is chosen: zakkaha or dassaha. The Amanah honoured or betrayed. The fitrah surfaced or buried. The nafs that carries the Bala of the Alastu into the world and keeps it alive — or the nafs that suppresses it until it no longer hears the call. Everything else in the Quran — the dhikr, the salah, the tawbah, the dua — is the mechanism for zakkaha. The Iblis waswasa, the nafs al-ammara, the heedlessness — are the mechanism for dassaha.</span><span class="ur-only">یہ ایک انتخاب ہے جس پر قرآن سب کچھ لے آتا ہے۔ پیدائش نہیں — وہ دی جاتی ہے (۴۹:۱۳)۔ رزق نہیں — وہ لکھا ہے (۱۱:۶)۔ خاندان، جگہ، موت — سب دیے گئے۔ جو چنا جاتا ہے: زکّاھا یا دسّاھا۔ امانت یا خیانت۔ فطرت یا دفن۔ ذکر، صلاۃ، توبہ، دعا — سب زکّاھا کا طریقہ۔ وسواس، نفسِ امارہ، غفلت — سب دسّاھا کا طریقہ۔</span></div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('choice','زَكَّاهَا أَوْ دَسَّاهَا','He has succeeded who purifies the nafs — and he has failed who buries it. This is the one choice. Not birth. Not provision. Not family. One choice: zakkaha or dassaha. — Quran 91:9-10 · Al-Maktaba','فلاح پا گیا جس نے نفس کو پاک کیا — ناکام ہوا جس نے دبا دیا۔ یہ ایک انتخاب ہے۔ — قرآن ۹۱:۹-۱۰ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-choice" onclick="saveCard('choice','The One Choice')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- PARENT CARD -->
+<div class="parent-card">
+  <div class="parent-card-label"><span class="en-only">🌱 For Parents — Share With Your Child</span><span class="ur-only">🌱 والدین کے لیے — اپنے بچے سے شیئر کریں</span></div>
+  <div class="parent-title"><span class="en-only">You are here for a reason — and you always had one choice</span><span class="ur-only">آپ ایک مقصد کے لیے یہاں ہیں — اور آپ کے پاس ہمیشہ ایک انتخاب تھا</span></div>
+  <div class="parent-explanation">
+    <span class="en-only">Allah offered something precious to the sky, the earth, and the mountains — and they were scared and said no. But the human being said yes. That means you carry something the mountains could not carry.<br><br>And every single day, you have one choice: to keep that precious thing clean — or to ignore it and let it get covered up. That is it. That is what this life is for.</span>
+    <span class="ur-only">اللہ نے آسمان، زمین اور پہاڑوں کو ایک قیمتی چیز پیش کی — اور وہ ڈر گئے اور انکار کیا۔ لیکن انسان نے ہاں کہا۔ اس کا مطلب آپ کچھ ایسا لے کر چلتے ہیں جو پہاڑ نہ اٹھا سکے۔<br><br>اور ہر روز آپ کے پاس ایک انتخاب ہے: اس قیمتی چیز کو صاف رکھنا — یا نظر انداز کرنا۔ بس یہی ہے۔ یہی اس زندگی کا مقصد ہے۔</span>
+  </div>
+  <div class="parent-question">
+    <div class="parent-question-label"><span class="en-only">Ask your child</span><span class="ur-only">اپنے بچے سے پوچھیں</span></div>
+    <div class="parent-question-text">
+      <span class="en-only">"If you had something very precious — like a gift from someone you love — would you take care of it or leave it in the dirt? Allah put something precious inside every person. Your job is to take care of it."</span>
+      <span class="ur-only">«اگر آپ کے پاس کوئی بہت قیمتی چیز ہو — جیسے کسی پیارے کا تحفہ — کیا آپ اس کا خیال رکھیں گے یا مٹی میں چھوڑ دیں گے؟ اللہ نے ہر انسان کے اندر کچھ قیمتی رکھا ہے۔ آپ کا کام اس کا خیال رکھنا ہے۔»</span>
+    </div>
+  </div>
+  <div class="parent-daily">
+    <span class="en-only"><strong>Daily connection:</strong> Ask your child at the end of each day: "Did you do something today that made the inside of you feel good? Did you do something that made it feel bad?" Help them build the habit of tracking their inner state — not for judgment, but for awareness.</span>
+    <span class="ur-only"><strong>روزانہ تعلق:</strong> ہر دن کے آخر میں پوچھیں: «کیا آج آپ نے کچھ ایسا کیا جس سے اندر سے اچھا لگا؟ کیا کچھ برا لگا؟» انہیں اندرونی حالت ٹریک کرنے کی عادت بنائیں۔</span>
+  </div>
+  <button class="parent-share-btn" onclick="shareParent()">🌱 <span class="en-only">Share with your child</span><span class="ur-only">اپنے بچے کے ساتھ شیئر کریں</span></button>
+</div>
+
+</div>
+<div class="bottom-nav">
+  <a href="quran_creation.html" class="bnav-btn">← <span class="en-only">Module 3</span><span class="ur-only">ماڈیول ۳</span></a>
+  <a href="quran_architecture_index.html" class="bnav-btn" style="color:var(--gold);border-color:var(--goldbdr)">⌂</a>
+  <a href="quran_return.html" class="bnav-btn"><span class="en-only">Module 5 →</span><span class="ur-only">← ماڈیول ۵</span></a>
+</div>
+<script>
+let LANG='en';
+function setLang(l){LANG=l;document.getElementById('lt-en').classList.toggle('on',l==='en');document.getElementById('lt-ur').classList.toggle('on',l==='ur');document.body.classList.toggle('ur-mode',l==='ur');document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');document.querySelectorAll('.ur-only').forEach(el=>el.style.display=l==='ur'?'inline':'none');document.querySelectorAll('.en-only').forEach(el=>el.style.display=l==='ur'?'none':'');}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function saveCard(id,title){const key='almaktaba_saved_'+id;const btn=document.getElementById('save-'+id);if(localStorage.getItem(key)){localStorage.removeItem(key);if(btn)btn.classList.remove('saved');showToast(LANG==='ur'?'ہٹا دیا':'Removed');}else{localStorage.setItem(key,JSON.stringify({title,module:'purpose',saved:Date.now()}));if(btn)btn.classList.add('saved');showToast(LANG==='ur'?'محفوظ ہو گیا ✓':'Saved ✓');}}
+function shareCard(id,ar,en,ur){const text=ar+'\n\n'+(LANG==='ur'?ur:en);if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
+function shareParent(){const text=LANG==='ur'?'🌱 آپ ایک مقصد کے لیے یہاں ہیں۔\n\nاللہ نے آسمان اور پہاڑوں کو ایک قیمتی چیز پیش کی — وہ ڈر گئے۔ انسان نے ہاں کہا۔\n\nہر روز ایک انتخاب: اسے پاک رکھو یا دفن کرو۔\n\nAl-Maktaba':'🌱 You are here for a reason.\n\nAllah offered something precious to the mountains — they were scared and said no. The human said yes.\n\nEvery day one choice: purify it or bury it.\n\nAl-Maktaba';if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
+function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(12,21,40,.97);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 18px;font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;color:#C9A84C;z-index:200;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2200);}
+window.addEventListener('DOMContentLoaded',()=>{['amanah','khalifah','iblis','choice'].forEach(id=>{if(localStorage.getItem('almaktaba_saved_'+id)){const btn=document.getElementById('save-'+id);if(btn)btn.classList.add('saved');}});});
+</script>
+</body>
+</html>

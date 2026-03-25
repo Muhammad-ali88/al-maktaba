@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Inner Architecture — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── DESIGN TOKENS ── */
+:root{
+  --bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;
+  --gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;
+  --golddim:rgba(201,168,76,.10);--goldbdr:rgba(201,168,76,.15);--goldmid:rgba(201,168,76,.25);
+  --teal:#2FB89A;--tealdim:rgba(47,184,154,.12);--tealbdr:rgba(47,184,154,.3);
+  --blue:#7AABF0;--bluedim:rgba(122,171,240,.10);--bluebdr:rgba(122,171,240,.28);
+  --amber:#E0A030;--amberdim:rgba(224,160,48,.10);--amberbdr:rgba(224,160,48,.28);
+  --text:#D4CBB8;--text2:#8A9BB0;--text3:#5A6B80;
+  --border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);
+  --font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--text);font-family:var(--font-body);
+  overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 700px 400px at 20% 0%,rgba(201,168,76,.04),transparent 60%)}
+
+/* ── NAV ── */
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.96);
+  border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);
+  display:flex;align-items:center;padding:0 16px;height:54px;gap:12px}
+.back-btn{font-family:var(--font-head);font-size:9.5px;letter-spacing:1px;
+  color:var(--text2);padding:5px 10px;border:1px solid var(--border2);
+  border-radius:6px;text-decoration:none;transition:all .15s;flex-shrink:0}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-ar{font-family:var(--font-arab);font-size:16px;color:var(--gold)}
+.nav-title{font-family:var(--font-head);font-size:9.5px;font-weight:700;
+  color:var(--gold2);letter-spacing:1px;flex:1;text-align:center}
+.nav-title .ur-only{font-family:var(--font-arab);font-size:13px;letter-spacing:0}
+.lang-toggle{display:flex;align-items:center;gap:2px;
+  background:rgba(255,255,255,.05);border:1px solid var(--goldbdr);
+  border-radius:20px;padding:3px;flex-shrink:0}
+.lt-btn{font-family:var(--font-head);font-size:9px;letter-spacing:1px;
+  padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;
+  color:#8A9BB0;user-select:none}
+.lt-btn.on{background:var(--gold);color:#000;font-weight:700}
+
+/* ── PROGRESS ── */
+.progress-bar{position:relative;z-index:1;display:flex;justify-content:center;
+  align-items:center;gap:8px;padding:12px 16px;
+  border-bottom:1px solid var(--border2);background:rgba(8,14,28,.6)}
+.prog-dot{width:8px;height:8px;border-radius:50%;transition:all .2s;cursor:pointer;
+  text-decoration:none;display:block}
+.prog-dot.active{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.4)}
+.prog-dot.done{background:rgba(201,168,76,.4)}
+.prog-dot.upcoming{background:var(--bg3);border:1px solid var(--border2)}
+.prog-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1px;
+  color:var(--text3);margin:0 4px}
+.prog-label .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;padding:40px 20px 32px;text-align:center;
+  border-bottom:1px solid var(--border2);
+  background:linear-gradient(160deg,rgba(17,30,53,.6),rgba(4,7,13,.9))}
+.hero-module-num{font-family:var(--font-head);font-size:9px;letter-spacing:2px;
+  color:var(--teal);text-transform:uppercase;margin-bottom:12px}
+.hero-ar{font-family:var(--font-arab);font-size:clamp(24px,5vw,40px);
+  color:var(--gold2);line-height:1.4;margin-bottom:6px}
+.hero-en{font-family:var(--font-head);font-size:clamp(16px,3.5vw,24px);
+  font-weight:700;color:#fff;margin-bottom:16px}
+.hero-rule{width:80px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 18px}
+.hero-purpose{font-size:13px;color:var(--text2);line-height:1.85;
+  font-style:italic;max-width:600px;margin:0 auto 20px}
+.hero-ayah{padding:14px 18px;border:1px solid var(--border2);
+  border-radius:10px;background:rgba(201,168,76,.04);
+  display:inline-block;max-width:100%}
+.hero-ayah-ar{font-family:var(--font-arab);font-size:clamp(16px,3.5vw,22px);
+  color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.hero-ayah-tr{font-size:11.5px;color:var(--text2);font-style:italic;margin-bottom:4px;line-height:1.6}
+.hero-ayah-ref{font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold)}
+
+/* ── CONTENT WRAPPER ── */
+.content{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 16px}
+
+/* ── SECTION LABEL ── */
+.sec-label{font-family:var(--font-head);font-size:9.5px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:10px;
+  padding:28px 0 14px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sec-label .ur-only{font-family:var(--font-arab);font-size:12px;
+  letter-spacing:0;text-transform:none}
+.ur-mode .sec-label{flex-direction:row-reverse}
+.ur-mode .sec-label::after{display:none}
+.ur-mode .sec-label::before{content:'';flex:1;height:1px;background:var(--border2)}
+
+/* ── ARCHITECTURE VISUAL ── */
+.arch-visual{background:var(--bg2);border:1px solid var(--border2);
+  border-radius:14px;padding:24px 20px;margin-bottom:16px;text-align:center}
+.arch-title{font-family:var(--font-head);font-size:9px;letter-spacing:1.5px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:20px}
+.arch-layers{display:flex;flex-direction:column;gap:0;align-items:center}
+.arch-layer{width:100%;max-width:500px;padding:10px 16px;
+  border-radius:8px;margin-bottom:4px;cursor:pointer;
+  transition:all .2s;border:1px solid transparent;text-align:center}
+.arch-layer:hover{transform:scale(1.01)}
+.arch-layer.l-sadr{background:rgba(122,171,240,.06);border-color:rgba(122,171,240,.2);
+  max-width:500px}
+.arch-layer.l-qalb{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.2);
+  max-width:420px}
+.arch-layer.l-fuad{background:rgba(47,184,154,.07);border-color:rgba(47,184,154,.2);
+  max-width:340px}
+.arch-layer.l-lubb{background:rgba(224,160,48,.1);border-color:rgba(224,160,48,.3);
+  max-width:260px}
+.arch-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);margin-bottom:3px}
+.arch-en{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;color:var(--text2)}
+.arch-note{font-size:10px;color:var(--text3);margin-top:12px;font-style:italic}
+.arch-nafs{margin-top:16px;padding-top:16px;border-top:1px solid var(--border2)}
+.arch-nafs-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1px;
+  color:var(--text3);text-transform:uppercase;margin-bottom:8px}
+.arch-nafs-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.arch-nafs-item{padding:6px 12px;border-radius:20px;font-family:var(--font-arab);
+  font-size:13px;border:1px solid}
+.ani{background:rgba(255,100,100,.06);border-color:rgba(255,100,100,.2);color:#ff9090}
+.ala{background:rgba(122,171,240,.08);border-color:rgba(122,171,240,.25);color:var(--blue)}
+.atm{background:var(--tealdim);border-color:var(--tealbdr);color:var(--teal)}
+
+/* ── CONCEPT CARD ── */
+.concept-card{background:var(--bg2);border:1px solid var(--border2);
+  border-radius:12px;margin-bottom:10px;overflow:hidden;
+  transition:border-color .2s}
+.concept-card.open{border-color:var(--goldbdr)}
+.card-header{display:flex;align-items:center;gap:12px;padding:16px 18px;
+  cursor:pointer;user-select:none}
+.card-header:active{background:rgba(255,255,255,.02)}
+.card-badge{width:32px;height:32px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.card-titles{flex:1;min-width:0}
+.card-title-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);
+  line-height:1.3;margin-bottom:2px}
+.card-title-en{font-family:var(--font-head);font-size:10px;font-weight:700;
+  letter-spacing:.6px;color:var(--text2)}
+.card-title-en .ur-only{font-family:var(--font-arab);font-size:12px;letter-spacing:0}
+.card-summary{font-size:12px;color:var(--text2);line-height:1.65;margin-top:3px}
+.card-summary .ur-only{font-family:var(--font-arab);font-size:13px;direction:rtl;
+  text-align:right;line-height:1.9}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.concept-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border2)}
+.concept-card.open .card-body{display:block}
+
+/* Card badge colours */
+.cb-ruh{background:rgba(201,168,76,.12);border:1px solid var(--goldbdr)}
+.cb-nafs{background:rgba(122,171,240,.1);border:1px solid var(--bluebdr)}
+.cb-qalb{background:rgba(47,184,154,.1);border:1px solid var(--tealbdr)}
+.cb-fuad{background:rgba(224,160,48,.1);border:1px solid var(--amberbdr)}
+.cb-sadr{background:rgba(122,171,240,.08);border:1px solid var(--bluebdr)}
+.cb-lubb{background:rgba(201,168,76,.15);border:1px solid var(--goldmid)}
+
+/* ── CARD BODY CONTENT ── */
+.root-block{background:rgba(0,0,0,.3);border-radius:8px;padding:12px 14px;
+  margin:14px 0;border-left:3px solid var(--gold)}
+.root-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.root-ar{font-family:var(--font-arab);font-size:20px;color:var(--gold2);
+  margin-bottom:4px;direction:rtl}
+.root-meaning{font-size:12px;color:var(--text2);line-height:1.65}
+.root-meaning .ur-only{font-family:var(--font-arab);font-size:13px;direction:rtl;
+  text-align:right;line-height:1.9;display:block}
+
+.verse-block{background:rgba(201,168,76,.04);border-radius:8px;
+  padding:12px 14px;margin:12px 0;border:1px solid var(--border2)}
+.verse-ar{font-family:var(--font-arab);font-size:clamp(16px,3.5vw,20px);
+  color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.verse-tr{font-size:12px;color:var(--text);font-style:italic;
+  line-height:1.7;margin-bottom:4px}
+.verse-tr .ur-only{font-family:var(--font-arab);font-size:13px;direction:rtl;
+  text-align:right;line-height:1.9;font-style:normal}
+.verse-ref{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;color:var(--gold)}
+
+.explanation{font-size:12.5px;color:var(--text2);line-height:1.8;margin:10px 0}
+.explanation .ur-only{font-family:var(--font-arab);font-size:13.5px;direction:rtl;
+  text-align:right;line-height:2;display:block}
+
+.certainty-badge{display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px;border-radius:10px;font-family:var(--font-head);
+  font-size:8px;letter-spacing:.8px;margin-top:10px}
+.cert-qati{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.cert-ling{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.cert-interp{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+
+/* Card share/save row */
+.card-actions{display:flex;gap:8px;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--border2);flex-wrap:wrap}
+.card-act-btn{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;
+  padding:5px 12px;border:1px solid var(--border2);border-radius:6px;
+  cursor:pointer;color:var(--text2);background:transparent;
+  transition:all .15s;text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.card-act-btn:hover{color:var(--gold);border-color:var(--goldbdr)}
+.card-act-btn.saved{color:var(--gold);border-color:var(--goldbdr)}
+.card-act-btn .ur-only{font-family:var(--font-arab);font-size:10px;
+  letter-spacing:0;text-transform:none}
+
+/* ── PATTERN CARD — Hearing Before Vision ── */
+.pattern-card{background:var(--bg2);border:1px solid var(--tealbdr);
+  border-radius:12px;padding:20px;margin-bottom:10px}
+.pattern-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.pattern-verses{display:flex;flex-direction:column;gap:6px}
+.pattern-row{display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,.2);border-radius:7px;padding:8px 12px}
+.pattern-ref{font-family:var(--font-head);font-size:9px;color:var(--teal);
+  flex-shrink:0;width:48px}
+.pattern-seq{font-size:11.5px;color:var(--text2);line-height:1.5}
+.pattern-seq strong{color:var(--gold2)}
+.pattern-seq .ur-only{font-family:var(--font-arab);font-size:12px;direction:rtl;display:block}
+
+/* ── NAFS STATES CARDS ── */
+.nafs-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.nafs-state{border-radius:10px;padding:16px;border:1px solid}
+.nafs-ammara{background:rgba(255,100,100,.05);border-color:rgba(255,100,100,.2)}
+.nafs-lawwama{background:var(--bluedim);border-color:var(--bluebdr)}
+.nafs-mutmaina{background:var(--tealdim);border-color:var(--tealbdr)}
+.nafs-ar{font-family:var(--font-arab);font-size:20px;margin-bottom:4px}
+.nafs-ammara .nafs-ar{color:#ff9090}
+.nafs-lawwama .nafs-ar{color:var(--blue)}
+.nafs-mutmaina .nafs-ar{color:var(--teal)}
+.nafs-en{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;
+  text-transform:uppercase;margin-bottom:8px;color:var(--text3)}
+.nafs-desc{font-size:12px;color:var(--text2);line-height:1.7}
+.nafs-desc .ur-only{font-family:var(--font-arab);font-size:13px;direction:rtl;
+  text-align:right;line-height:1.9}
+.nafs-verse-ref{font-family:var(--font-head);font-size:9px;
+  color:var(--text3);margin-top:6px}
+
+/* ── PARENT CARD ── */
+.parent-card{background:var(--bluedim);border:1px solid var(--bluebdr);
+  border-radius:14px;padding:22px 20px;margin:24px 0;position:relative;overflow:hidden}
+.parent-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.parent-card-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--blue);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px}
+.parent-card-label::after{content:'';flex:1;height:1px;background:rgba(122,171,240,.2)}
+.parent-title{font-family:var(--font-head);font-size:14px;font-weight:700;
+  color:#fff;margin-bottom:12px}
+.parent-title .ur-only{font-family:var(--font-arab);font-size:16px}
+.parent-explanation{font-size:13px;color:var(--text);line-height:1.85;margin-bottom:14px}
+.parent-explanation .ur-only{font-family:var(--font-arab);font-size:14px;
+  direction:rtl;text-align:right;line-height:2}
+.parent-question{background:rgba(0,0,0,.3);border-radius:8px;
+  padding:12px 14px;border-left:3px solid var(--blue);margin-bottom:12px}
+.parent-question-label{font-family:var(--font-head);font-size:8px;
+  letter-spacing:1px;color:var(--blue);margin-bottom:6px;text-transform:uppercase}
+.parent-question-text{font-size:12.5px;color:var(--text);
+  line-height:1.75;font-style:italic}
+.parent-question-text .ur-only{font-family:var(--font-arab);font-size:13.5px;
+  direction:rtl;text-align:right;line-height:2;font-style:normal}
+.parent-daily{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:14px}
+.parent-daily .ur-only{font-family:var(--font-arab);font-size:13px;
+  direction:rtl;text-align:right;line-height:1.9}
+.parent-share-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;
+  padding:8px 16px;border:1px solid var(--bluebdr);border-radius:7px;
+  cursor:pointer;color:var(--blue);background:transparent;
+  transition:all .15s;text-transform:uppercase}
+.parent-share-btn:hover{background:var(--bluedim)}
+.parent-share-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:80;
+  background:rgba(4,7,13,.97);border-top:1px solid var(--border2);
+  backdrop-filter:blur(20px);display:flex;align-items:center;
+  justify-content:space-between;padding:0 16px;height:58px;gap:8px}
+.bnav-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;
+  color:var(--text2);text-decoration:none;padding:6px 12px;
+  border:1px solid var(--border2);border-radius:7px;
+  transition:all .15s;white-space:nowrap;text-transform:uppercase}
+.bnav-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.bnav-home{color:var(--gold);border-color:var(--goldbdr);font-size:14px;padding:6px 14px}
+.bnav-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+.bnav-btn.disabled{opacity:.3;pointer-events:none}
+
+/* ── UR-MODE ── */
+.en-only{display:inline}
+.ur-only{display:none;font-family:var(--font-arab);direction:rtl}
+.ur-mode .en-only{display:none!important}
+.ur-mode .ur-only{display:inline!important}
+.ur-mode .card-title-en{font-family:var(--font-arab);direction:rtl;font-size:13px;letter-spacing:0}
+.ur-mode .explanation{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .root-meaning{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .verse-tr{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .nafs-desc{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .pattern-seq{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:1.9}
+.ur-mode .parent-explanation{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .parent-question-text{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2;font-style:normal}
+.ur-mode .parent-daily{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:1.9}
+.ur-mode .arch-note{font-family:var(--font-arab);direction:rtl;text-align:right}
+.ur-mode .hero-purpose{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .card-summary{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:1.9}
+.ur-mode .certainty-badge{font-family:var(--font-arab);font-size:10px;letter-spacing:0}
+.ur-mode .pattern-row{flex-direction:row-reverse}
+.ur-mode .root-block{border-left:none;border-right:3px solid var(--gold)}
+.ur-mode .parent-question{border-left:none;border-right:3px solid var(--blue)}
+
+/* ── MOBILE ── */
+@media(max-width:480px){
+  .content{padding:0 12px}
+  .hero{padding:32px 14px 26px}
+  .card-header{padding:14px 14px}
+  .card-body{padding:0 14px 14px}
+  .pattern-row{flex-direction:column;gap:3px}
+  .pattern-ref{width:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="top-nav">
+  <a class="back-btn" href="quran_architecture_index.html">← <span class="en-only">Index</span><span class="ur-only">فہرست</span></a>
+  <div class="nav-title">
+    <span class="en-only">The Inner Architecture</span>
+    <span class="ur-only">باطنی معمار</span>
+  </div>
+  <div class="lang-toggle">
+    <div class="lt-btn on" id="lt-en" onclick="setLang('en')">EN</div>
+    <div class="lt-btn" id="lt-ur" onclick="setLang('ur')">اردو</div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <span class="prog-label"><span class="en-only">Module</span><span class="ur-only">ماڈیول</span></span>
+  <a href="quran_inner_architecture.html" class="prog-dot active" title="The Inner Architecture"></a>
+  <a href="quran_soul_journey.html" class="prog-dot upcoming" title="The Soul's Journey"></a>
+  <a href="quran_creation.html" class="prog-dot upcoming" title="Creation Narrative"></a>
+  <a href="quran_purpose.html" class="prog-dot upcoming" title="The Purpose"></a>
+  <a href="quran_return.html" class="prog-dot upcoming" title="The Return"></a>
+  <span class="prog-label">1 / 5</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-module-num">
+    <span class="en-only">Module 01 of 05 · Architecture of Existence</span>
+    <span class="ur-only">ماڈیول ۰۱ از ۰۵ · معمارِ وجود</span>
+  </div>
+  <div class="hero-ar">الْمَعْمَارُ الْبَاطِنِيُّ</div>
+  <div class="hero-en">
+    <span class="en-only">The Inner Architecture</span>
+    <span class="ur-only">باطنی معمار</span>
+  </div>
+  <div class="hero-rule"></div>
+  <div class="hero-purpose">
+    <span class="en-only">The Quran uses seven distinct Arabic words for the inner self — not synonyms, but a precise architecture. Understanding what each word means changes how you understand yourself, your choices, and your relationship with Allah.</span>
+    <span class="ur-only">قرآن باطنی ذات کے لیے سات الگ عربی الفاظ استعمال کرتا ہے — مترادف نہیں، بلکہ ایک درست معمار۔ ہر لفظ کا مطلب سمجھنا آپ کے اپنے آپ کو، آپ کے انتخابات کو اور اللہ کے ساتھ آپ کے تعلق کو سمجھنے کا طریقہ بدل دیتا ہے۔</span>
+  </div>
+  <div class="hero-ayah">
+    <div class="hero-ayah-ar">وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ</div>
+    <div class="hero-ayah-tr">
+      <span class="en-only">"And within yourselves — do you not see?"</span>
+      <span class="ur-only">«اور خود تمہارے اندر — کیا تم نہیں دیکھتے؟»</span>
+    </div>
+    <div class="hero-ayah-ref">Surah Adh-Dhariyat 51:21</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ARCHITECTURE VISUAL -->
+<div class="sec-label">
+  <span class="en-only">The Architecture — Outside to Inside</span>
+  <span class="ur-only">معمار — باہر سے اندر تک</span>
+</div>
+
+<div class="arch-visual">
+  <div class="arch-title">
+    <span class="en-only">Tap any layer to go to that section</span>
+    <span class="ur-only">کسی بھی پرت کو ٹیپ کریں</span>
+  </div>
+  <div class="arch-layers">
+    <div class="arch-layer l-sadr" onclick="openCard('card-sadr')">
+      <div class="arch-ar">صَدْر</div>
+      <div class="arch-en"><span class="en-only">Sadr — The Container</span><span class="ur-only">صدر — ظرف</span></div>
+    </div>
+    <div class="arch-layer l-qalb" onclick="openCard('card-qalb')">
+      <div class="arch-ar">قَلْب</div>
+      <div class="arch-en"><span class="en-only">Qalb — The Processor</span><span class="ur-only">قلب — کارگر</span></div>
+    </div>
+    <div class="arch-layer l-fuad" onclick="openCard('card-fuad')">
+      <div class="arch-ar">فُؤَاد</div>
+      <div class="arch-en"><span class="en-only">Fu'ad — The Experiencer</span><span class="ur-only">فواد — محسوس کرنے والا</span></div>
+    </div>
+    <div class="arch-layer l-lubb" onclick="openCard('card-lubb')">
+      <div class="arch-ar">لُبّ</div>
+      <div class="arch-en"><span class="en-only">Lubb — The Core</span><span class="ur-only">لب — مرکز</span></div>
+    </div>
+  </div>
+  <div class="arch-nafs">
+    <div class="arch-nafs-label">
+      <span class="en-only">The Nafs inhabits this architecture · The Ruh animates it</span>
+      <span class="ur-only">نفس اس معمار میں رہتا ہے · روح اسے زندہ کرتی ہے</span>
+    </div>
+    <div class="arch-nafs-row">
+      <div class="arch-nafs-item ani">نَفْس</div>
+      <div class="arch-nafs-item ala">رُوح</div>
+    </div>
+  </div>
+  <div class="arch-note">
+    <span class="en-only">22:46 — "It is not the eyes that are blind — but the hearts within the chests." The qalb sits inside the sadr — explicitly confirmed.</span>
+    <span class="ur-only">۲۲:۴۶ — «آنکھیں اندھی نہیں — بلکہ سینوں کے اندر دل اندھے ہیں۔» قلب صدر کے اندر ہے — صراحتاً تصدیق شدہ۔</span>
+  </div>
+</div>
+
+<!-- SEVEN WORDS SECTION -->
+<div class="sec-label">
+  <span class="en-only">The Seven Words — Each Distinct</span>
+  <span class="ur-only">سات الفاظ — ہر ایک منفرد</span>
+</div>
+
+<!-- RUH -->
+<div class="concept-card" id="card-ruh">
+  <div class="card-header" onclick="toggleCard('card-ruh')">
+    <div class="card-badge cb-ruh">✦</div>
+    <div class="card-titles">
+      <div class="card-title-ar">الرُّوح</div>
+      <div class="card-title-en">
+        <span class="en-only">Ruh — The Divine Breath</span>
+        <span class="ur-only">روح — الٰہی پھونک</span>
+      </div>
+      <div class="card-summary">
+        <span class="en-only">Breathed into every human directly from Allah's amr. Animates the entire inner system. Not the nafs — the ruh is the animating force, the nafs is the individual self.</span>
+        <span class="ur-only">ہر انسان میں اللہ کے امر سے براہ راست پھونکی گئی۔ پورے باطنی نظام کو زندہ کرتی ہے۔ نفس نہیں — روح متحرک کرنے والی قوت ہے، نفس انفرادی ذات۔</span>
+      </div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Arabic Root</span><span class="ur-only">عربی جڑ</span></div>
+      <div class="root-ar">ر — و — ح</div>
+      <div class="root-meaning">
+        <span class="en-only">Breath, wind, spirit. Something that moves, that animates, that gives life to what was still. The same root as rawh (rest/relief) and rih (wind).</span>
+        <span class="ur-only">سانس، ہوا، روح۔ وہ چیز جو حرکت کرتی ہے، زندہ کرتی ہے، ساکن کو حیات دیتی ہے۔ رَوح (سکون) اور رِیح (ہوا) سے ایک ہی جڑ۔</span>
+      </div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">قُلِ الرُّوحُ مِنْ أَمْرِ رَبِّي وَمَا أُوتِيتُم مِّنَ الْعِلْمِ إِلَّا قَلِيلًا</div>
+      <div class="verse-tr">
+        <span class="en-only">"Say: The ruh is from the amr of my Lord — and of knowledge you have been given only a little."</span>
+        <span class="ur-only">«کہو: روح میرے رب کے امر سے ہے — اور تمہیں علم بہت کم دیا گیا ہے۔»</span>
+      </div>
+      <div class="verse-ref">Surah Al-Isra 17:85</div>
+    </div>
+    <div class="explanation">
+      <span class="en-only">The Quran closes this question deliberately. The ruh is from divine amr — the same category as "Kun" (Be). What we know: it is breathed into every human (15:29), it animates consciousness (hearing, vision, and af'idah follow its entry — 32:9), it is distinct from the nafs. What we do not know: its precise nature. This belongs to the ghayb by divine design.</span>
+      <span class="ur-only">قرآن یہ سوال جان بوجھ کر بند کرتا ہے۔ روح الٰہی امر سے ہے — وہی زمرہ جس میں «کُن» آتا ہے۔ جو جانتے ہیں: ہر انسان میں پھونکی گئی (۱۵:۲۹)، شعور کو زندہ کرتی ہے (سماعت، بصارت اور افئدہ اس کے بعد آتے ہیں — ۳۲:۹)، نفس سے الگ ہے۔ جو نہیں جانتے: اس کی درست نوعیت۔ یہ ڈیزائن کے لحاظ سے غیب میں ہے۔</span>
+    </div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive — Qat'i</span><span class="ur-only">قطعی</span></span>
+    <span class="certainty-badge cert-interp" style="margin-left:6px">◇ <span class="en-only">Nature — Interpretive</span><span class="ur-only">نوعیت — تفسیری</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('ruh')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-ruh" onclick="saveCard('ruh','الرُّوح — The Divine Breath')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- NAFS -->
+<div class="concept-card" id="card-nafs">
+  <div class="card-header" onclick="toggleCard('card-nafs')">
+    <div class="card-badge cb-nafs">◈</div>
+    <div class="card-titles">
+      <div class="card-title-ar">النَّفْس</div>
+      <div class="card-title-en">
+        <span class="en-only">Nafs — The Individual Self</span>
+        <span class="ur-only">نفس — انفرادی ذات</span>
+      </div>
+      <div class="card-summary">
+        <span class="en-only">The conscious "I" — the self that carries the Amanah, makes choices, and will stand before Allah. Not a location inside the body — it is the identity inhabiting the entire architecture.</span>
+        <span class="ur-only">شعوری «میں» — وہ ذات جو امانت اٹھاتی ہے، انتخاب کرتی ہے، اور اللہ کے سامنے کھڑی ہوگی۔ جسم کے اندر کوئی مقام نہیں — یہ وہ شناخت ہے جو پورے معمار میں رہتی ہے۔</span>
+      </div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Arabic Root</span><span class="ur-only">عربی جڑ</span></div>
+      <div class="root-ar">ن — ف — س</div>
+      <div class="root-meaning">
+        <span class="en-only">Breath, self, identity. Tanaffasa = to breathe. The nafs is the breathing self — the one who experiences existence from the inside. Also connected to nafis (precious, valuable) — the self has inherent worth.</span>
+        <span class="ur-only">سانس، خود، شناخت۔ تنفّس = سانس لینا۔ نفس وہ سانس لینے والی ذات ہے — جو وجود کو اندر سے محسوس کرتی ہے۔ نفیس (قیمتی) سے بھی منسلک — نفس میں فطری قدر ہے۔</span>
+      </div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">وَنَفْسٍ وَمَا سَوَّاهَا ۞ فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا</div>
+      <div class="verse-tr">
+        <span class="en-only">"By the nafs and how He proportioned it — then He inspired it with its wickedness and its piety."</span>
+        <span class="ur-only">«نفس کی قسم اور اس کو سیدھا کرنے کی — پھر اسے اس کی بدکاری اور تقویٰ الہام کیا۔»</span>
+      </div>
+      <div class="verse-ref">Surah Ash-Shams 91:7-8</div>
+    </div>
+    <div class="explanation">
+      <span class="en-only">Both paths are shown to every nafs — fujur (wickedness) and taqwa (God-consciousness). The nafs did not choose its knowledge of right and wrong — it was given. What it chooses to do with that knowledge — that is the test. The nafs is not inherently evil. It is the arena of the one choice.</span>
+      <span class="ur-only">ہر نفس کو دونوں راستے دکھائے گئے — فجور اور تقویٰ۔ نفس نے صحیح اور غلط کا علم نہیں چنا — یہ دیا گیا۔ اس علم کے ساتھ کیا کرنا ہے — یہ آزمائش ہے۔ نفس فطری طور پر برا نہیں۔ یہ ایک انتخاب کا میدان ہے۔</span>
+    </div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('nafs')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-nafs" onclick="saveCard('nafs','النَّفْس — The Individual Self')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- QALB -->
+<div class="concept-card" id="card-qalb">
+  <div class="card-header" onclick="toggleCard('card-qalb')">
+    <div class="card-badge cb-qalb">✦</div>
+    <div class="card-titles">
+      <div class="card-title-ar">الْقَلْب</div>
+      <div class="card-title-en">
+        <span class="en-only">Qalb — The Processor</span>
+        <span class="ur-only">قلب — کارگر</span>
+      </div>
+      <div class="card-summary">
+        <span class="en-only">The qalb turns — toward Allah or away. It processes what enters the sadr and generates orientation. It can soften, harden, become diseased, or become sealed. The Quran gives it more functions than any other inner word.</span>
+        <span class="ur-only">قلب پلٹتا ہے — اللہ کی طرف یا اس سے دور۔ جو صدر میں داخل ہو اسے پروسیس کرتا ہے اور رخ پیدا کرتا ہے۔ نرم، سخت، بیمار یا مہر بند ہو سکتا ہے۔</span>
+      </div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Arabic Root</span><span class="ur-only">عربی جڑ</span></div>
+      <div class="root-ar">ق — ل — ب</div>
+      <div class="root-meaning">
+        <span class="en-only">To turn, to flip, to reverse. Qalb = that which turns. Inqilaba = revolution (something that completely flips). Taqallub = constant turning. The qalb is defined by its capacity to turn — toward or away.</span>
+        <span class="ur-only">پلٹنا، الٹنا، تبدیل ہونا۔ قلب = وہ جو پلٹتا ہے۔ انقلاب = مکمل پلٹنا۔ تقلّب = مسلسل پلٹنا۔ قلب اپنی پلٹنے کی صلاحیت سے تعریف کیا جاتا ہے۔</span>
+      </div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">أَفَلَمْ يَسِيرُوا فِي الْأَرْضِ فَتَكُونَ لَهُمْ قُلُوبٌ يَعْقِلُونَ بِهَا ۖ أَوْ آذَانٌ يَسْمَعُونَ بِهَا ۖ فَإِنَّهَا لَا تَعْمَى الْأَبْصَارُ وَلَٰكِن تَعْمَى الْقُلُوبُ الَّتِي فِي الصُّدُورِ</div>
+      <div class="verse-tr">
+        <span class="en-only">"It is not the eyes that are blind — but the hearts within the chests that are blind."</span>
+        <span class="ur-only">«آنکھیں اندھی نہیں — بلکہ سینوں کے اندر دل اندھے ہیں۔»</span>
+      </div>
+      <div class="verse-ref">Surah Al-Hajj 22:46</div>
+    </div>
+    <div class="explanation">
+      <span class="en-only">This verse confirms the qalb sits inside the sadr — "the hearts within the chests." It also confirms the qalb can become blind — not the eyes, not the ears, but the qalb. The qalb's blindness is not physical — it is the loss of the capacity to turn toward what is real. Dhikr is the mechanism that reverses this: "Verily in the remembrance of Allah do hearts find rest" (13:28) — the qalb returns to its natural orientation.</span>
+      <span class="ur-only">یہ آیت تصدیق کرتی ہے کہ قلب صدر کے اندر ہے — «سینوں کے اندر دل»۔ اور تصدیق کرتی ہے کہ قلب اندھا ہو سکتا ہے۔ قلب کا اندھا پن جسمانی نہیں — یہ حقیقت کی طرف پلٹنے کی صلاحیت کا کھو جانا ہے۔ ذکر اسے واپس لاتا ہے (۱۳:۲۸)۔</span>
+    </div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('qalb')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-qalb" onclick="saveCard('qalb','الْقَلْب — The Processor')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- FUAD -->
+<div class="concept-card" id="card-fuad">
+  <div class="card-header" onclick="toggleCard('card-fuad')">
+    <div class="card-badge cb-fuad">◈</div>
+    <div class="card-titles">
+      <div class="card-title-ar">الْفُؤَاد</div>
+      <div class="card-title-en">
+        <span class="en-only">Fu'ad — The Experiencer</span>
+        <span class="ur-only">فواد — محسوس کرنے والا</span>
+      </div>
+      <div class="card-summary">
+        <span class="en-only">Deeper than the qalb. The fu'ad does not lie — it witnesses directly. It can be emptied by grief, filled by faith, and will be questioned on the Day of Judgment. Where the qalb processes, the fu'ad experiences.</span>
+        <span class="ur-only">قلب سے گہرا۔ فواد جھوٹ نہیں بولتا — براہ راست گواہی دیتا ہے۔ غم سے خالی، ایمان سے بھرا جا سکتا ہے، قیامت میں سوال ہوگا۔ قلب پروسیس کرتا ہے، فواد محسوس کرتا ہے۔</span>
+      </div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Arabic Root</span><span class="ur-only">عربی جڑ</span></div>
+      <div class="root-ar">ف — أ — د</div>
+      <div class="root-meaning">
+        <span class="en-only">To kindle, to burn, to ignite. The fu'ad is the part of the inner self that burns with experience — deeply affected, not easily forgotten. When something reaches the fu'ad it is felt at the deepest level.</span>
+        <span class="ur-only">روشن کرنا، جلانا، بھڑکانا۔ فواد وہ باطنی حصہ ہے جو تجربے سے جلتا ہے — گہرا اثر، آسانی سے نہ بھولے۔ جو چیز فواد تک پہنچے وہ سب سے گہری سطح پر محسوس ہوتی ہے۔</span>
+      </div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">مَا كَذَبَ الْفُؤَادُ مَا رَأَىٰ</div>
+      <div class="verse-tr">
+        <span class="en-only">"The fu'ad did not lie about what it saw."</span>
+        <span class="ur-only">«فواد نے جو دیکھا اس کے بارے میں جھوٹ نہیں بولا۔»</span>
+      </div>
+      <div class="verse-ref">Surah An-Najm 53:11 — Said of the Prophet ﷺ during the first revelation</div>
+    </div>
+    <div class="explanation">
+      <span class="en-only">In 28:10, the fu'ad of Musa's mother "became empty" — fariaghan — when she feared for her son. It can be emptied. In 17:36, hearing, sight, and fu'ad will each be questioned. The fu'ad is listed third — after the two primary senses — as the deepest faculty that processes what is received. When the dhikr reaches the fu'ad — not just the tongue, not just the qalb — the tuma'nina begins.</span>
+      <span class="ur-only">۲۸:۱۰ میں موسیٰ کی ماں کا فواد «فارغ» ہو گیا جب اپنے بیٹے کے لیے ڈرا۔ خالی ہو سکتا ہے۔ ۱۷:۳۶ میں سماعت، بصارت اور فواد سب سے سوال ہوگا۔ جب ذکر فواد تک پہنچے — صرف زبان سے نہیں — طمانینہ شروع ہوتی ہے۔</span>
+    </div>
+    <span class="certainty-badge cert-ling">◈ <span class="en-only">Linguistically Strong</span><span class="ur-only">لغوی طور پر مضبوط</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('fuad')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-fuad" onclick="saveCard('fuad','الْفُؤَاد — The Experiencer')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- SADR -->
+<div class="concept-card" id="card-sadr">
+  <div class="card-header" onclick="toggleCard('card-sadr')">
+    <div class="card-badge cb-sadr">◇</div>
+    <div class="card-titles">
+      <div class="card-title-ar">الصَّدْر</div>
+      <div class="card-title-en">
+        <span class="en-only">Sadr — The Container</span>
+        <span class="ur-only">صدر — ظرف</span>
+      </div>
+      <div class="card-summary">
+        <span class="en-only">The outermost layer. The chest — both physical and spiritual. It expands for Islam and constricts against it. The first thing affected by waswasa. The first thing that opens with tawbah.</span>
+        <span class="ur-only">سب سے بیرونی پرت۔ سینہ — جسمانی اور روحانی دونوں۔ اسلام کے لیے کھلتا ہے، اس کے خلاف تنگ ہوتا ہے۔ وسواس سے پہلے متاثر ہوتا ہے۔ توبہ سے پہلے کھلتا ہے۔</span>
+      </div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Arabic Root</span><span class="ur-only">عربی جڑ</span></div>
+      <div class="root-ar">ص — د — ر</div>
+      <div class="root-meaning">
+        <span class="en-only">Chest, front, the foremost part, origin, source. Sadr = the front — where things originate and are received. In Arabic, the sadr of a gathering is the most important seat — the front. The sadr of the inner self is the outermost container where what enters the person is first received.</span>
+        <span class="ur-only">سینہ، اگلا حصہ، اصل، سرچشمہ۔ صدر = سامنے — جہاں چیزیں شروع ہوتی اور وصول ہوتی ہیں۔ محفل میں صدر سب سے اہم نشست ہے۔ باطنی ذات میں صدر سب سے بیرونی ظرف ہے جہاں جو داخل ہو پہلے ملتا ہے۔</span>
+      </div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ</div>
+      <div class="verse-tr">
+        <span class="en-only">"Did We not expand your chest for you?"</span>
+        <span class="ur-only">«کیا ہم نے تمہارا سینہ تمہارے لیے کھول نہیں دیا؟»</span>
+      </div>
+      <div class="verse-ref">Surah Ash-Sharh 94:1</div>
+    </div>
+    <div class="explanation">
+      <span class="en-only">Sharh al-sadr — the expansion of the chest — is the felt experience of the sadr opening. In 6:125, those Allah wishes to guide: "He expands their sadr for Islam." Those He leaves astray: "He makes their sadr tight and constricted as if they were climbing into the sky." The sadr's state is a direct sign of the person's orientation. When tawbah is genuine the first thing that changes is the sadr — the heaviness lifts.</span>
+      <span class="ur-only">شرح صدر — سینے کا کھلنا — صدر کے کھلنے کا محسوس تجربہ ہے۔ ۶:۱۲۵ میں جسے اللہ ہدایت چاہے: «اس کا صدر اسلام کے لیے کھولتا ہے»۔ جسے گمراہ چھوڑے: «صدر تنگ کرتا ہے جیسے آسمان پر چڑھ رہا ہو»۔ صدر کی حالت رخ کی براہ راست نشانی ہے۔ جب توبہ سچی ہو پہلی چیز جو بدلتی ہے صدر ہے۔</span>
+    </div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('sadr')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-sadr" onclick="saveCard('sadr','الصَّدْر — The Container')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- LUBB -->
+<div class="concept-card" id="card-lubb">
+  <div class="card-header" onclick="toggleCard('card-lubb')">
+    <div class="card-badge cb-lubb">✦</div>
+    <div class="card-titles">
+      <div class="card-title-ar">اللُّبّ</div>
+      <div class="card-title-en">
+        <span class="en-only">Lubb — The Core</span>
+        <span class="ur-only">لب — مرکز</span>
+      </div>
+      <div class="card-summary">
+        <span class="en-only">The innermost. The kernel — what remains when all layers are stripped away. Only "those possessed of the lubb" (ulu al-albab) remember Allah and reflect on creation simultaneously. The deepest knowing — not reached by all.</span>
+        <span class="ur-only">سب سے اندرونی۔ مغز — جو باقی رہے جب سب پرتیں اتر جائیں۔ صرف «اولو الالباب» اللہ کو یاد کرتے اور بیک وقت تخلیق پر غور کرتے ہیں۔ گہرا ترین علم — سب تک نہیں پہنچتا۔</span>
+      </div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Arabic Root</span><span class="ur-only">عربی جڑ</span></div>
+      <div class="root-ar">ل — ب — ب</div>
+      <div class="root-meaning">
+        <span class="en-only">Core, kernel, essence, the innermost part of a thing. Lubb al-ashr = the core of a tree. Lubb al-qamh = the kernel of wheat. The lubb is what you find when everything external is removed — the pure essence of a thing. In the human being: the deepest intellectual-spiritual knowing.</span>
+        <span class="ur-only">مرکز، گودا، جوہر، کسی چیز کا سب سے اندرونی حصہ۔ جب سب کچھ بیرونی ہٹا دیا جائے تو جو ملے — وہ لب۔ انسان میں: گہرا ترین فکری-روحانی علم۔</span>
+      </div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ</div>
+      <div class="verse-tr">
+        <span class="en-only">"Those who remember Allah standing, sitting, and on their sides — and who reflect on the creation of the heavens and earth."</span>
+        <span class="ur-only">«وہ جو اللہ کو کھڑے، بیٹھے اور اپنے پہلوؤں پر لیٹے یاد کرتے ہیں — اور آسمانوں اور زمین کی تخلیق میں غور کرتے ہیں۔»</span>
+      </div>
+      <div class="verse-ref">Surah Ali Imran 3:191 — The definition of Ulu al-Albab</div>
+    </div>
+    <div class="explanation">
+      <span class="en-only">The lubb is mentioned 16 times in the Quran — always in the context of those who truly understand. Ulu al-albab (those possessed of the lubb) are defined in 3:190-191 by two simultaneous activities: dhikr in all positions (constant remembrance) AND tafakkur (deep reflection on creation). Not one or the other. Both together. The lubb is engaged when both channels — the heart remembering Allah and the mind reflecting on His signs — are operating at once. This is the deepest integration of the inner architecture.</span>
+      <span class="ur-only">قرآن میں لب 16 بار آیا — ہمیشہ ان لوگوں کے سیاق میں جو واقعی سمجھتے ہیں۔ اولو الالباب ۳:۱۹۰-۱۹۱ میں دو بیک وقت سرگرمیوں سے تعریف کیے گئے: تمام حالات میں ذکر اور تخلیق پر تفکر۔ ایک یا دوسرا نہیں۔ دونوں ساتھ۔ لب اس وقت فعال ہوتا ہے جب دونوں نہریں — اللہ کو یاد کرتا دل اور اس کی نشانیوں پر غور کرتا ذہن — ایک ساتھ چل رہے ہوں۔</span>
+    </div>
+    <span class="certainty-badge cert-ling">◈ <span class="en-only">Linguistically Strong</span><span class="ur-only">لغوی طور پر مضبوط</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('lubb')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-lubb" onclick="saveCard('lubb','اللُّبّ — The Core')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- NAFS STATES -->
+<div class="sec-label">
+  <span class="en-only">The Three States of the Nafs</span>
+  <span class="ur-only">نفس کی تین حالتیں</span>
+</div>
+
+<p style="font-size:12.5px;color:var(--text2);line-height:1.8;margin-bottom:16px">
+  <span class="en-only">The nafs is not fixed in one state. The Quran names three states — each a stage on the path from being driven by desire to returning to Allah in peace. These are not three different people. They are three conditions of the same nafs.</span>
+  <span class="ur-only">نفس ایک حالت میں ثابت نہیں۔ قرآن تین حالتیں بیان کرتا ہے — ہر ایک خواہش سے چلنے سے اللہ کے پاس سکون سے لوٹنے تک کے راستے کا مرحلہ۔ یہ تین مختلف لوگ نہیں۔ ایک ہی نفس کی تین کیفیات۔</span>
+</p>
+
+<div class="nafs-grid">
+  <div class="nafs-state nafs-ammara">
+    <div class="nafs-ar">النَّفْسُ الْأَمَّارَة</div>
+    <div class="nafs-en"><span class="en-only">Nafs al-Ammara — Commands Toward Evil</span><span class="ur-only">نفسِ امارہ — برائی کا حکم دینے والا</span></div>
+    <div class="nafs-desc">
+      <span class="en-only">Root: amara = commands repeatedly without stopping. The ammara does not suggest — it commands. The nafs in this state is driven by desire, ego, and waswasa without the counter-force of tawbah and dhikr. Yusuf AS himself said this (12:53) — showing no human is exempt from this state.</span>
+      <span class="ur-only">جڑ: امارہ = بار بار بغیر رکے حکم دیتا ہے۔ امارہ مشورہ نہیں دیتا — حکم دیتا ہے۔ اس حالت میں نفس خواہش، انا اور وسواس سے چلتا ہے توبہ اور ذکر کی مزاحمت کے بغیر۔ یوسف علیہ السلام نے خود یہ کہا (۱۲:۵۳)۔</span>
+    </div>
+    <div class="nafs-verse-ref">Surah Yusuf 12:53</div>
+  </div>
+  <div class="nafs-state nafs-lawwama">
+    <div class="nafs-ar">النَّفْسُ اللَّوَّامَة</div>
+    <div class="nafs-en"><span class="en-only">Nafs al-Lawwama — The Self-Reproaching</span><span class="ur-only">نفسِ لوامہ — خود کو ملامت کرنے والا</span></div>
+    <div class="nafs-desc">
+      <span class="en-only">Root: lawwama = to blame, to reproach intensely. The nafs in conflict — it does wrong and then blames itself. This is not weakness — it is the signal that the fitrah is alive. Allah swears by this nafs (75:2) — a sign of its importance. The lawwama is the stage of struggle, tawbah, and gradual purification.</span>
+      <span class="ur-only">جڑ: لوامہ = شدید ملامت کرنا۔ تضاد میں نفس — غلط کرتا ہے پھر خود کو ملامت کرتا ہے۔ یہ کمزوری نہیں — یہ نشانی ہے کہ فطرت زندہ ہے۔ اللہ اس نفس کی قسم کھاتا ہے (۷۵:۲) — اس کی اہمیت کی نشانی۔</span>
+    </div>
+    <div class="nafs-verse-ref">Surah Al-Qiyamah 75:2</div>
+  </div>
+  <div class="nafs-state nafs-mutmaina">
+    <div class="nafs-ar">النَّفْسُ الْمُطْمَئِنَّة</div>
+    <div class="nafs-en"><span class="en-only">Nafs al-Mutma'inna — The Tranquil Self</span><span class="ur-only">نفسِ مطمئنہ — سکون پانے والا</span></div>
+    <div class="nafs-desc">
+      <span class="en-only">Root: tama'anna = completely at rest, no longer agitated. The nafs that has found its resting place — in Allah. The final call of the Day of Judgment is addressed to this nafs: "Return to your Lord — well-pleased and pleasing to Him." Not go. Return. Because the ruh came from Him, the fitrah carries His imprint, the Alastu was its original testimony.</span>
+      <span class="ur-only">جڑ: طمانینہ = مکمل سکون، اب بے چین نہیں۔ وہ نفس جس نے اپنا آرام کا مقام پالیا — اللہ میں۔ قیامت کی آخری پکار اسی نفس سے: «اپنے رب کی طرف لوٹو — راضی اور پسندیدہ۔» جانا نہیں۔ لوٹنا۔</span>
+    </div>
+    <div class="nafs-verse-ref">Surah Al-Fajr 89:27-28</div>
+  </div>
+</div>
+
+<!-- HEARING BEFORE VISION PATTERN -->
+<div class="sec-label">
+  <span class="en-only">The Hearing-Before-Vision Pattern</span>
+  <span class="ur-only">سماعت بصارت سے پہلے کا نمونہ</span>
+</div>
+
+<p style="font-size:12.5px;color:var(--text2);line-height:1.8;margin-bottom:14px">
+  <span class="en-only">Five independent verses list the senses in the same order — hearing first, vision second, hearts third. Never reversed. This is not coincidence — it is a consistent Quranic pattern confirmed across completely different contexts.</span>
+  <span class="ur-only">پانچ آزاد آیات حواس کو ایک ہی ترتیب میں بیان کرتی ہیں — سماعت پہلے، بصارت دوسری، دل تیسرے۔ کبھی الٹ نہیں۔ یہ اتفاق نہیں — مختلف سیاقوں میں تصدیق شدہ مستقل قرآنی نمونہ۔</span>
+</p>
+
+<div class="pattern-card">
+  <div class="pattern-label">
+    <span class="en-only">✦ Definitive Pattern — Five Independent Confirmations</span>
+    <span class="ur-only">✦ قطعی نمونہ — پانچ آزاد تصدیقیں</span>
+  </div>
+  <div class="pattern-verses">
+    <div class="pattern-row">
+      <div class="pattern-ref">32:9</div>
+      <div class="pattern-seq">
+        <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — After the ruh is breathed in</span>
+        <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — روح پھونکنے کے بعد</span>
+      </div>
+    </div>
+    <div class="pattern-row">
+      <div class="pattern-ref">16:78</div>
+      <div class="pattern-seq">
+        <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — Coming from the wombs</span>
+        <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — ماؤں کے پیٹ سے آتے ہوئے</span>
+      </div>
+    </div>
+    <div class="pattern-row">
+      <div class="pattern-ref">23:78</div>
+      <div class="pattern-seq">
+        <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — He who produced these for you</span>
+        <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — جس نے یہ تمہارے لیے بنائے</span>
+      </div>
+    </div>
+    <div class="pattern-row">
+      <div class="pattern-ref">67:23</div>
+      <div class="pattern-seq">
+        <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — He who created you</span>
+        <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — جس نے تمہیں پیدا کیا</span>
+      </div>
+    </div>
+    <div class="pattern-row">
+      <div class="pattern-ref">76:2</div>
+      <div class="pattern-seq">
+        <span class="en-only"><strong>Hearing</strong> → Seeing — Then: "We made him hearing and seeing to TEST him"</span>
+        <span class="ur-only"><strong>سماعت</strong> ← دیکھنا — پھر: «ہم نے اسے سنتا دیکھتا بنایا تاکہ اسے آزمائیں»</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:12px;padding:10px 12px;background:rgba(0,0,0,.2);border-radius:7px">
+    <div style="font-size:11.5px;color:var(--text2);line-height:1.75">
+      <span class="en-only">Scientific parallel: The cochlea (hearing) is fully formed by week 20 of gestation. The fetus hears in the womb. Visual processing does not become functional until after birth. Hearing before vision is consistent with developmental biology. This pattern appears five times in the Quran — never reversed — across completely independent contexts.</span>
+      <span class="ur-only">سائنسی مطابقت: کوکلیا (سماعت) حمل کے 20ویں ہفتے تک مکمل بنتا ہے۔ جنین رحم میں سنتا ہے۔ بصری پروسیسنگ پیدائش کے بعد تک فعال نہیں ہوتی۔ سماعت بصارت سے پہلے ترقیاتی حیاتیات سے مطابقت رکھتی ہے۔</span>
+    </div>
+    <span class="certainty-badge cert-qati" style="margin-top:8px">✦ <span class="en-only">Definitive Pattern · STRONG Compatibility</span><span class="ur-only">قطعی نمونہ · مضبوط مطابقت</span></span>
+  </div>
+</div>
+
+<!-- PARENT CARD -->
+<div class="parent-card">
+  <div class="parent-card-label">
+    <span class="en-only">🌱 For Parents — Share With Your Child</span>
+    <span class="ur-only">🌱 والدین کے لیے — اپنے بچے سے شیئر کریں</span>
+  </div>
+  <div class="parent-title">
+    <span class="en-only">You have an inside and an outside</span>
+    <span class="ur-only">آپ کے اندر اور باہر ہے</span>
+  </div>
+  <div class="parent-explanation">
+    <span class="en-only">Allah gave every person an outside and an inside. Your outside is what people can see — your face, your hands, your actions. Your inside is where you feel things, where you make choices, and where you remember Allah.<br><br>The Quran has seven different Arabic words for the different parts of your inside. That is how important your inside is. Most people spend their whole lives taking care of their outside — their clothes, their appearance, their reputation. The Quran says your inside needs care too.</span>
+    <span class="ur-only">اللہ نے ہر انسان کو ایک باہری اور ایک اندرونی دیا ہے۔ آپ کا باہری وہ ہے جو لوگ دیکھ سکتے ہیں — آپ کا چہرہ، آپ کے ہاتھ، آپ کے اعمال۔ آپ کا اندرونی وہ ہے جہاں آپ محسوس کرتے ہیں، جہاں آپ انتخاب کرتے ہیں، اور جہاں آپ اللہ کو یاد کرتے ہیں۔<br><br>قرآن میں آپ کے اندرونی حصوں کے لیے سات مختلف عربی الفاظ ہیں۔ اتنا اہم ہے آپ کا اندرونی۔</span>
+  </div>
+  <div class="parent-question">
+    <div class="parent-question-label">
+      <span class="en-only">Ask your child</span>
+      <span class="ur-only">اپنے بچے سے پوچھیں</span>
+    </div>
+    <div class="parent-question-text">
+      <span class="en-only">"When you do something wrong and then feel bad about it afterward — what is that feeling? That is your qalb working. It is turning back toward what is right. That feeling is a gift from Allah — it means your inside is alive and working."</span>
+      <span class="ur-only">«جب آپ کچھ غلط کریں اور پھر برا لگے — وہ احساس کیا ہے؟ یہ آپ کا قلب کام کر رہا ہے۔ یہ صحیح کی طرف پلٹ رہا ہے۔ یہ احساس اللہ کی طرف سے تحفہ ہے — اس کا مطلب ہے آپ کا اندرونی زندہ اور کام کر رہا ہے۔»</span>
+    </div>
+  </div>
+  <div class="parent-daily">
+    <span class="en-only"><strong>Daily connection:</strong> Tonight before your child sleeps, ask them: "Did your inside feel good today or did something feel wrong?" Help them notice their inner state — not to judge, but to build the habit of looking inward.</span>
+    <span class="ur-only"><strong>روزانہ تعلق:</strong> آج رات سونے سے پہلے اپنے بچے سے پوچھیں: «آج آپ کا اندرونی اچھا تھا یا کچھ غلط لگا؟» انہیں اپنی اندرونی حالت دیکھنا سکھائیں — فیصلے کے لیے نہیں، بلکہ اندر دیکھنے کی عادت بنانے کے لیے۔</span>
+  </div>
+  <button class="parent-share-btn" onclick="shareParentCard()">
+    🌱 <span class="en-only">Share with your child</span><span class="ur-only">اپنے بچے کے ساتھ شیئر کریں</span>
+  </button>
+</div>
+
+</div><!-- end content -->
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <a href="quran_architecture_index.html" class="bnav-btn">
+    ⌂ <span class="en-only">Index</span><span class="ur-only">فہرست</span>
+  </a>
+  <div style="flex:1;text-align:center">
+    <div style="font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--text3)">
+      <span class="en-only">Module 1 of 5</span><span class="ur-only">ماڈیول ۱ از ۵</span>
+    </div>
+  </div>
+  <a href="quran_soul_journey.html" class="bnav-btn">
+    <span class="en-only">Next →</span><span class="ur-only">اگلا ←</span>
+  </a>
+</div>
+
+<script>
+let LANG = 'en';
+
+// ── LANGUAGE ──
+function setLang(l) {
+  LANG = l;
+  document.getElementById('lt-en').classList.toggle('on', l === 'en');
+  document.getElementById('lt-ur').classList.toggle('on', l === 'ur');
+  document.body.classList.toggle('ur-mode', l === 'ur');
+  document.documentElement.setAttribute('lang', l === 'ur' ? 'ur' : 'en');
+}
+
+// ── CARD TOGGLE ──
+function toggleCard(id) {
+  const card = document.getElementById(id);
+  const wasOpen = card.classList.contains('open');
+  card.classList.toggle('open', !wasOpen);
+}
+
+function openCard(id) {
+  const card = document.getElementById(id);
+  card.classList.add('open');
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── SHARE CARD ──
+const CARD_DATA = {
+  ruh: {
+    ar: '\u0627\u0644\u0631\u064f\u0651\u0648\u062d \u2014 The Divine Breath',
+    verse: '\u0642\u064f\u0644\u0650 \u0627\u0644\u0631\u0651\u064f\u0648\u062d\u064f \u0645\u0650\u0646\u0652 \u0623\u064e\u0645\u0652\u0631\u0650 \u0631\u064e\u0628\u0651\u0650\u064a \u0648\u064e\u0645\u064e\u0627 \u0623\u064f\u0648\u062a\u0650\u064a\u062a\u064f\u0645 \u0645\u0651\u0650\u0646\u064e \u0627\u0644\u0652\u0639\u0650\u0644\u0652\u0645\u0650 \u0625\u0650\u0644\u0651\u064e\u0627 \u0642\u064e\u0644\u0650\u064a\u0644\u0627\u064b',
+    en: '"The ruh is from the amr of my Lord and of knowledge you have been given only a little." — Quran 17:85',
+    ur: '\u0631\u0648\u062d \u0645\u06cc\u0631\u06d2 \u0631\u0628 \u06a9\u06d2 \u0627\u0645\u0631 \u0633\u06d2 \u06c1\u06d2 \u0627\u0648\u0631 \u062a\u0645\u06c1\u06cc\u06ba \u0639\u0644\u0645 \u0628\u06c1\u062a \u06a9\u0645 \u062f\u06cc\u0627 \u06af\u06cc\u0627 \u06c1\u06d2 \u2014 \u0642\u0631\u0622\u0646 \u06f1\u06f7:\u06f8\u06f5'
+  },
+  nafs: {
+    ar: '\u0627\u0644\u0646\u064e\u0651\u0641\u0652\u0633 \u2014 The Individual Self',
+    verse: '\u0648\u064e\u0646\u064e\u0641\u0652\u0633\u064d \u0648\u064e\u0645\u064e\u0627 \u0633\u064e\u0648\u0651\u064e\u0627\u0647\u064e\u0627 \u06d4 \u0641\u064e\u0623\u064e\u0644\u0652\u0647\u064e\u0645\u064e\u0647\u064e\u0627 \u0641\u064f\u062c\u064f\u0648\u0631\u064e\u0647\u064e\u0627 \u0648\u064e\u062a\u064e\u0642\u0652\u0648\u064e\u0627\u0647\u064e\u0627',
+    en: '"By the nafs and how He proportioned it — then He inspired it with its wickedness and its piety." — Quran 91:7-8',
+    ur: '\u0646\u0641\u0633 \u06a9\u06cc \u0642\u0633\u0645 \u0627\u0648\u0631 \u0627\u0633\u06d2 \u0633\u06cc\u062f\u06be\u0627 \u06a9\u0631\u0646\u06d2 \u06a9\u06cc \u2014 \u067e\u06be\u0631 \u0627\u0633\u06d2 \u0641\u062c\u0648\u0631 \u0627\u0648\u0631 \u062a\u0642\u0648\u06cc\u0670 \u0627\u0644\u06c1\u0627\u0645 \u06a9\u06cc\u0627 \u2014 \u0642\u0631\u0622\u0646 \u06f9\u06f1:\u06f7-\u06f8'
+  },
+  qalb: {
+    ar: '\u0627\u0644\u0652\u0642\u064e\u0644\u0652\u0628 \u2014 The Processor',
+    verse: '\u0641\u064e\u0625\u0650\u0646\u0651\u064e\u0647\u064e\u0627 \u0644\u064e\u0627 \u062a\u064e\u0639\u0652\u0645\u064e\u0649 \u0627\u0644\u0652\u0623\u064e\u0628\u0652\u0635\u064e\u0627\u0631\u064f \u0648\u064e\u0644\u064e\u0670\u0643\u0650\u0646 \u062a\u064e\u0639\u0652\u0645\u064e\u0649 \u0627\u0644\u0652\u0642\u064f\u0644\u064f\u0648\u0628\u064f \u0627\u0644\u0651\u064e\u062a\u0650\u064a \u0641\u0650\u064a \u0627\u0644\u0635\u0651\u064f\u062f\u064f\u0648\u0631\u0650',
+    en: '"It is not the eyes that are blind — but the hearts within the chests that are blind." — Quran 22:46',
+    ur: '\u0622\u0646\u06a9\u06be\u06cc\u06ba \u0627\u0646\u062f\u06be\u06cc \u0646\u06c1\u06cc\u06ba \u2014 \u0628\u0644\u06a9\u06c1 \u0633\u06cc\u0646\u0648\u06ba \u06a9\u06d2 \u0627\u0646\u062f\u0631 \u062f\u0644 \u0627\u0646\u062f\u06be\u06d2 \u06c1\u06cc\u06ba \u2014 \u0642\u0631\u0622\u0646 \u06f2\u06f2:\u06f4\u06f6'
+  },
+  fuad: {
+    ar: '\u0627\u0644\u0652\u0641\u064f\u0624\u064e\u0627\u062f \u2014 The Experiencer',
+    verse: '\u0645\u064e\u0627 \u0643\u064e\u0630\u064e\u0628\u064e \u0627\u0644\u0652\u0641\u064f\u0624\u064e\u0627\u062f\u064f \u0645\u064e\u0627 \u0631\u064e\u0623\u064e\u0649\u0670',
+    en: '"The fu\'ad did not lie about what it saw." — Quran 53:11',
+    ur: '\u0641\u0648\u0627\u062f \u0646\u06d2 \u062c\u0648 \u062f\u06cc\u06a9\u06be\u0627 \u0627\u0633 \u06a9\u06d2 \u0628\u0627\u0631\u06d2 \u0645\u06cc\u06ba \u062c\u06be\u0648\u0679 \u0646\u06c1\u06cc\u06ba \u0628\u0648\u0644\u0627 \u2014 \u0642\u0631\u0622\u0646 \u06f5\u06f3:\u06f1\u06f1'
+  },
+  sadr: {
+    ar: '\u0627\u0644\u0635\u064e\u0651\u062f\u0652\u0631 \u2014 The Container',
+    verse: '\u0623\u064e\u0644\u064e\u0645\u0652 \u0646\u064e\u0634\u0652\u0631\u064e\u062d\u0652 \u0644\u064e\u0643\u064e \u0635\u064e\u062f\u0652\u0631\u064e\u0643\u064e',
+    en: '"Did We not expand your chest for you?" — Quran 94:1',
+    ur: '\u06a9\u06cc\u0627 \u06c1\u0645 \u0646\u06d2 \u062a\u0645\u06c1\u0627\u0631\u0627 \u0633\u06cc\u0646\u06c1 \u062a\u0645\u06c1\u0627\u0631\u06d2 \u0644\u06cc\u06d2 \u06a9\u06be\u0648\u0644 \u0646\u06c1\u06cc\u06ba \u062f\u06cc\u0627\u061f \u2014 \u0642\u0631\u0622\u0646 \u06f9\u06f4:\u06f1'
+  },
+  lubb: {
+    ar: '\u0627\u0644\u0644\u064f\u0651\u0628\u0651 \u2014 The Core',
+    verse: '\u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u064a\u064e\u0630\u0652\u0643\u064f\u0631\u064f\u0648\u0646\u064e \u0627\u0644\u0644\u0651\u064e\u0647\u064e \u0642\u0650\u064a\u064e\u0627\u0645\u064b\u0627 \u0648\u064e\u0642\u064f\u0639\u064f\u0648\u062f\u064b\u0627 \u0648\u064e\u0639\u064e\u0644\u064e\u0649\u0670 \u062c\u064f\u0646\u064f\u0648\u0628\u0650\u0647\u0650\u0645\u0652',
+    en: '"Those who remember Allah standing, sitting, and on their sides." — Quran 3:191 — The people of the Lubb.',
+    ur: '\u0648\u06c1 \u062c\u0648 \u0627\u0644\u0644\u06c1 \u06a9\u0648 \u06a9\u06be\u0691\u06d2 \u0628\u06cc\u0679\u06be\u06d2 \u0627\u0648\u0631 \u067e\u06c1\u0644\u0648\u0626\u0648\u06ba \u067e\u0631 \u06cc\u0627\u062f \u06a9\u0631\u062a\u06d2 \u06c1\u06cc\u06ba \u2014 \u0642\u0631\u0622\u0646 \u06f3:\u06f1\u06f9\u06f1'
+  }
+};
+
+function shareCard(id) {
+  const d = CARD_DATA[id];
+  if (!d) return;
+  const isUr = LANG === 'ur';
+  const text = d.ar + '\n\n' + d.verse + '\n\n' + (isUr ? d.ur : d.en) + '\n\nAl-Maktaba';
+  if (navigator.share) {
+    navigator.share({ title: 'Al-Maktaba', text });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(isUr ? '\u06a9\u0627\u067e\u06cc \u06c1\u0648 \u06af\u0626\u06cc \u2713' : 'Copied \u2713');
+    });
+  }
+}
+
+function shareParentCard() {
+  const isUr = LANG === 'ur';
+  const text = isUr
+    ? '\uD83C\uDF31 \u0627\u0644\u0644\u06c1 \u0646\u06d2 \u06c1\u0631 \u0627\u0646\u0633\u0627\u0646 \u06a9\u0648 \u0627\u06cc\u06a9 \u0628\u0627\u06c1\u0631\u06cc \u0627\u0648\u0631 \u0627\u06cc\u06a9 \u0627\u0646\u062f\u0631\u0648\u0646\u06cc \u062f\u06cc\u0627 \u06c1\u06d2\u06d4\n\n\u0642\u0631\u0622\u0646 \u0645\u06cc\u06ba \u0622\u067e \u06a9\u06d2 \u0627\u0646\u062f\u0631\u0648\u0646\u06cc \u062d\u0635\u0648\u06ba \u06a9\u06d2 \u0644\u06cc\u06d2 \u0633\u0627\u062a \u0645\u062e\u062a\u0644\u0641 \u0639\u0631\u0628\u06cc \u0627\u0644\u0641\u0627\u0638 \u06c1\u06cc\u06ba\u06d4\n\n\u0627\u067e\u0646\u06d2 \u0628\u0686\u06d2 \u0633\u06d2 \u067e\u0648\u0686\u06be\u06cc\u06ba: \u062c\u0628 \u06a9\u0686\u06be \u063a\u0644\u0637 \u06a9\u0631\u06cc\u06ba \u0627\u0648\u0631 \u0628\u0631\u0627 \u0644\u06af\u06d2 \u2014 \u0648\u06c1 \u0627\u062d\u0633\u0627\u0633 \u06a9\u06cc\u0627 \u06c1\u06d2\u061f \u06cc\u06c1 \u0622\u067e \u06a9\u0627 \u0642\u0644\u0628 \u06a9\u0627\u0645 \u06a9\u0631 \u0631\u06c1\u0627 \u06c1\u06d2\u06d4\n\nAl-Maktaba'
+    : '\uD83C\uDF31 Allah gave every person an inside and an outside.\n\nThe Quran has seven different Arabic words for the different parts of your inside — that is how important it is.\n\nAsk your child: "When you do something wrong and feel bad afterward — what is that feeling? That is your qalb working."\n\nAl-Maktaba';
+  if (navigator.share) {
+    navigator.share({ title: 'Al-Maktaba', text });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(LANG === 'ur' ? '\u06a9\u0627\u067e\u06cc \u06c1\u0648 \u06af\u0626\u06cc \u2713' : 'Copied \u2713');
+    });
+  }
+}
+
+// ── SAVE TO LOCAL STORAGE ──
+function saveCard(id, title) {
+  const key = 'almaktaba_saved_' + id;
+  const btn = document.getElementById('save-' + id);
+  if (localStorage.getItem(key)) {
+    localStorage.removeItem(key);
+    btn.classList.remove('saved');
+    showToast(LANG === 'ur' ? '\u06c1\u0679\u0627 \u062f\u06cc\u0627' : 'Removed');
+  } else {
+    localStorage.setItem(key, JSON.stringify({ title, module: 'inner-architecture', saved: Date.now() }));
+    btn.classList.add('saved');
+    showToast(LANG === 'ur' ? '\u0645\u062d\u0641\u0648\u0638 \u06c1\u0648 \u06af\u06cc\u0627 \u2713' : 'Saved \u2713');
+  }
+}
+
+function initSavedState() {
+  ['ruh','nafs','qalb','fuad','sadr','lubb'].forEach(id => {
+    if (localStorage.getItem('almaktaba_saved_' + id)) {
+      const btn = document.getElementById('save-' + id);
+      if (btn) btn.classList.add('saved');
+    }
+  });
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.style.cssText = 'position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(12,21,40,.97);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 18px;font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;color:#C9A84C;z-index:200;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  t.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    t.style.opacity = '0';
+    t.style.transform = 'translateX(-50%) translateY(20px)';
+  }, 2200);
+}
+
+window.addEventListener('DOMContentLoaded', initSavedState);
+</script>
+</body>
+</html>

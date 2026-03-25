@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Return — Al-Maktaba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#04070D;--bg1:#080E1C;--bg2:#0C1528;--bg3:#111E35;--gold:#C9A84C;--gold2:#E2C97A;--gold3:#F5E9C0;--golddim:rgba(201,168,76,.10);--goldbdr:rgba(201,168,76,.15);--goldmid:rgba(201,168,76,.25);--teal:#2FB89A;--tealdim:rgba(47,184,154,.12);--tealbdr:rgba(47,184,154,.3);--blue:#7AABF0;--bluedim:rgba(122,171,240,.10);--bluebdr:rgba(122,171,240,.28);--amber:#E0A030;--amberdim:rgba(224,160,48,.10);--amberbdr:rgba(224,160,48,.28);--text:#D4CBB8;--text2:#8A9BB0;--text3:#5A6B80;--border:rgba(201,168,76,.15);--border2:rgba(201,168,76,.07);--font-head:'Cinzel',serif;--font-body:'Lora',serif;--font-arab:'Noto Naskh Arabic',serif;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg0);color:var(--text);font-family:var(--font-body);overflow-x:hidden;padding-bottom:80px}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 700px 400px at 60% 0%,rgba(47,184,154,.05),transparent 60%)}
+.top-nav{position:sticky;top:0;z-index:90;background:rgba(4,7,13,.96);border-bottom:1px solid var(--border2);backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 16px;height:54px;gap:12px}
+.back-btn{font-family:var(--font-head);font-size:9.5px;letter-spacing:1px;color:var(--text2);padding:5px 10px;border:1px solid var(--border2);border-radius:6px;text-decoration:none;transition:all .15s;flex-shrink:0}
+.back-btn:hover{color:var(--gold2);border-color:var(--border)}
+.nav-title{font-family:var(--font-head);font-size:9.5px;font-weight:700;color:var(--gold2);letter-spacing:1px;flex:1;text-align:center}
+.nav-title .ur-only{font-family:var(--font-arab);font-size:13px;letter-spacing:0}
+.lang-toggle{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.05);border:1px solid var(--goldbdr);border-radius:20px;padding:3px;flex-shrink:0}
+.lt-btn{font-family:var(--font-head);font-size:9px;letter-spacing:1px;padding:3px 10px;border-radius:16px;cursor:pointer;transition:all .2s;color:#8A9BB0;user-select:none}
+.lt-btn.on{background:var(--gold);color:#000;font-weight:700}
+.progress-bar{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border2);background:rgba(8,14,28,.6)}
+.prog-dot{width:8px;height:8px;border-radius:50%;transition:all .2s;cursor:pointer;text-decoration:none;display:block}
+.prog-dot.done{background:rgba(201,168,76,.4)}.prog-dot.active{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.4)}.prog-dot.upcoming{background:var(--bg3);border:1px solid var(--border2)}
+.prog-label{font-family:var(--font-head);font-size:8.5px;letter-spacing:1px;color:var(--text3);margin:0 4px}
+.prog-label .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0}
+.hero{position:relative;z-index:1;padding:40px 20px 32px;text-align:center;border-bottom:1px solid var(--border2);background:linear-gradient(160deg,rgba(17,30,53,.6),rgba(4,7,13,.9))}
+.hero-module-num{font-family:var(--font-head);font-size:9px;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-bottom:12px}
+.hero-ar{font-family:var(--font-arab);font-size:clamp(22px,5vw,38px);color:var(--gold2);line-height:1.4;margin-bottom:6px}
+.hero-en{font-family:var(--font-head);font-size:clamp(15px,3.5vw,22px);font-weight:700;color:#fff;margin-bottom:16px}
+.hero-rule{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 18px}
+.hero-purpose{font-size:13px;color:var(--text2);line-height:1.85;font-style:italic;max-width:600px;margin:0 auto 20px}
+.hero-ayah{padding:14px 18px;border:1px solid var(--border2);border-radius:10px;background:rgba(201,168,76,.04);display:inline-block;max-width:100%}
+.hero-ayah-ar{font-family:var(--font-arab);font-size:clamp(16px,3.5vw,21px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.hero-ayah-tr{font-size:11.5px;color:var(--text2);font-style:italic;margin-bottom:4px;line-height:1.6}
+.hero-ayah-ref{font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold)}
+.content{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 16px}
+.sec-label{font-family:var(--font-head);font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;padding:28px 0 14px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sec-label .ur-only{font-family:var(--font-arab);font-size:12px;letter-spacing:0;text-transform:none}
+.ur-mode .sec-label{flex-direction:row-reverse}.ur-mode .sec-label::after{display:none}.ur-mode .sec-label::before{content:'';flex:1;height:1px;background:var(--border2)}
+.concept-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.concept-card.open{border-color:var(--goldbdr)}
+.card-header{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;user-select:none}
+.card-badge{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.cb-teal{background:var(--tealdim);border:1px solid var(--tealbdr)}
+.cb-gold{background:var(--golddim);border:1px solid var(--goldbdr)}
+.cb-blue{background:var(--bluedim);border:1px solid var(--bluebdr)}
+.card-titles{flex:1;min-width:0}
+.card-title-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);line-height:1.3;margin-bottom:2px}
+.card-title-en{font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:.6px;color:var(--text2)}
+.card-title-en .ur-only{font-family:var(--font-arab);font-size:12px;letter-spacing:0}
+.card-summary{font-size:12px;color:var(--text2);line-height:1.65;margin-top:3px}
+.card-chevron{color:var(--text3);font-size:16px;transition:transform .25s;flex-shrink:0}
+.concept-card.open .card-chevron{transform:rotate(90deg);color:var(--gold)}
+.card-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border2)}
+.concept-card.open .card-body{display:block}
+.root-block{background:rgba(0,0,0,.3);border-radius:8px;padding:12px 14px;margin:14px 0;border-left:3px solid var(--gold)}
+.root-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.root-ar{font-family:var(--font-arab);font-size:19px;color:var(--gold2);margin-bottom:4px;direction:rtl}
+.root-meaning{font-size:12px;color:var(--text2);line-height:1.65}
+.verse-block{background:rgba(201,168,76,.04);border-radius:8px;padding:12px 14px;margin:10px 0;border:1px solid var(--border2)}
+.verse-ar{font-family:var(--font-arab);font-size:clamp(15px,3.5vw,19px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:6px}
+.verse-tr{font-size:12px;color:var(--text);font-style:italic;line-height:1.7;margin-bottom:4px}
+.verse-ref{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;color:var(--gold)}
+.explanation{font-size:12.5px;color:var(--text2);line-height:1.8;margin:10px 0}
+.certainty-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:10px;font-family:var(--font-head);font-size:8px;letter-spacing:.8px;margin-top:8px}
+.cert-qati{background:var(--tealdim);border:1px solid var(--tealbdr);color:var(--teal)}
+.cert-ling{background:var(--golddim);border:1px solid var(--goldbdr);color:var(--gold2)}
+.cert-interp{background:var(--bluedim);border:1px solid var(--bluebdr);color:var(--blue)}
+.card-actions{display:flex;gap:8px;margin-top:12px;padding-top:10px;border-top:1px solid var(--border2);flex-wrap:wrap}
+.card-act-btn{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;padding:5px 12px;border:1px solid var(--border2);border-radius:6px;cursor:pointer;color:var(--text2);background:transparent;transition:all .15s;text-transform:uppercase;display:flex;align-items:center;gap:5px}
+.card-act-btn:hover{color:var(--gold);border-color:var(--goldbdr)}.card-act-btn.saved{color:var(--gold);border-color:var(--goldbdr)}
+.card-act-btn .ur-only{font-family:var(--font-arab);font-size:10px;letter-spacing:0;text-transform:none}
+/* DUA QUALITIES GRID */
+.dua-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+@media(max-width:400px){.dua-grid{grid-template-columns:1fr}}
+.dua-qual{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:12px}
+.dq-ar{font-family:var(--font-arab);font-size:17px;color:var(--gold2);margin-bottom:4px}
+.dq-en{font-family:var(--font-head);font-size:8.5px;letter-spacing:.6px;color:var(--gold);margin-bottom:6px}
+.dq-desc{font-size:11.5px;color:var(--text2);line-height:1.6}
+.dq-desc .ur-only{font-family:var(--font-arab);font-size:12px;direction:rtl;text-align:right;line-height:1.9}
+/* CLOSING SECTION */
+.closing{background:linear-gradient(135deg,rgba(17,30,53,.8),rgba(8,14,28,.95));border:1px solid var(--goldbdr);border-radius:14px;padding:28px 24px;margin:24px 0;text-align:center;position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.closing-ar{font-family:var(--font-arab);font-size:clamp(18px,4vw,28px);color:var(--gold2);line-height:1.6;margin-bottom:12px}
+.closing-tr{font-size:13px;color:var(--text2);font-style:italic;margin-bottom:8px;line-height:1.7}
+.closing-ref{font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold);margin-bottom:16px}
+.closing-text{font-size:12.5px;color:var(--text2);line-height:1.85;max-width:580px;margin:0 auto 16px}
+.closing-text .ur-only{font-family:var(--font-arab);font-size:13.5px;direction:rtl;text-align:right;line-height:2}
+.closing-share-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;padding:10px 20px;border:1px solid var(--goldbdr);border-radius:8px;cursor:pointer;color:var(--gold2);background:rgba(201,168,76,.06);transition:all .15s;text-transform:uppercase}
+.closing-share-btn:hover{background:rgba(201,168,76,.12)}
+.closing-share-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+/* PARENT CARD */
+.parent-card{background:var(--bluedim);border:1px solid var(--bluebdr);border-radius:14px;padding:22px 20px;margin:24px 0;position:relative;overflow:hidden}
+.parent-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.parent-card-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.parent-card-label::after{content:'';flex:1;height:1px;background:rgba(122,171,240,.2)}
+.parent-title{font-family:var(--font-head);font-size:14px;font-weight:700;color:#fff;margin-bottom:10px}
+.parent-title .ur-only{font-family:var(--font-arab);font-size:16px}
+.parent-explanation{font-size:13px;color:var(--text);line-height:1.85;margin-bottom:12px}
+.parent-question{background:rgba(0,0,0,.3);border-radius:8px;padding:12px 14px;border-left:3px solid var(--blue);margin-bottom:12px}
+.parent-question-label{font-family:var(--font-head);font-size:8px;letter-spacing:1px;color:var(--blue);margin-bottom:6px;text-transform:uppercase}
+.parent-question-text{font-size:12.5px;color:var(--text);line-height:1.75;font-style:italic}
+.parent-daily{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.parent-share-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;padding:8px 16px;border:1px solid var(--bluebdr);border-radius:7px;cursor:pointer;color:var(--blue);background:transparent;transition:all .15s;text-transform:uppercase}
+.parent-share-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(4,7,13,.97);border-top:1px solid var(--border2);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:58px;gap:8px}
+.bnav-btn{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;color:var(--text2);text-decoration:none;padding:6px 12px;border:1px solid var(--border2);border-radius:7px;transition:all .15s;white-space:nowrap;text-transform:uppercase}
+.bnav-btn:hover{color:var(--gold2);border-color:var(--goldbdr)}
+.bnav-btn .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+/* UR-MODE */
+.en-only{display:inline}.ur-only{display:none;font-family:var(--font-arab);direction:rtl}
+.ur-mode .en-only{display:none!important}.ur-mode .ur-only{display:inline!important}
+.ur-mode .explanation,.ur-mode .root-meaning,.ur-mode .verse-tr,.ur-mode .card-summary,.ur-mode .parent-explanation,.ur-mode .parent-question-text,.ur-mode .parent-daily,.ur-mode .dq-desc,.ur-mode .closing-text{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .card-title-en{font-family:var(--font-arab);direction:rtl;font-size:13px;letter-spacing:0}
+.ur-mode .root-block{border-left:none;border-right:3px solid var(--gold)}.ur-mode .parent-question{border-left:none;border-right:3px solid var(--blue)}
+.ur-mode .hero-purpose{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .certainty-badge{font-family:var(--font-arab);font-size:10px;letter-spacing:0}
+.ur-mode .closing-tr{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2;font-style:normal}
+@media(max-width:480px){.content{padding:0 12px}.hero{padding:30px 14px 24px}}
+</style>
+</head>
+<body>
+<div class="top-nav">
+  <a class="back-btn" href="quran_architecture_index.html">← <span class="en-only">Index</span><span class="ur-only">فہرست</span></a>
+  <div class="nav-title"><span class="en-only">The Return</span><span class="ur-only">واپسی</span></div>
+  <div class="lang-toggle"><div class="lt-btn on" id="lt-en" onclick="setLang('en')">EN</div><div class="lt-btn" id="lt-ur" onclick="setLang('ur')">اردو</div></div>
+</div>
+<div class="progress-bar">
+  <span class="prog-label"><span class="en-only">Module</span><span class="ur-only">ماڈیول</span></span>
+  <a href="quran_inner_architecture.html" class="prog-dot done"></a>
+  <a href="quran_soul_journey.html" class="prog-dot done"></a>
+  <a href="quran_creation.html" class="prog-dot done"></a>
+  <a href="quran_purpose.html" class="prog-dot done"></a>
+  <a href="quran_return.html" class="prog-dot active"></a>
+  <span class="prog-label">5 / 5</span>
+</div>
+<div class="hero">
+  <div class="hero-module-num"><span class="en-only">Module 05 of 05 · Architecture of Existence</span><span class="ur-only">ماڈیول ۰۵ از ۰۵ · معمارِ وجود</span></div>
+  <div class="hero-ar">الْعَوْدَة</div>
+  <div class="hero-en"><span class="en-only">The Return — Tawbah, Dua, the Final Day</span><span class="ur-only">واپسی — توبہ، دعا، یومِ آخر</span></div>
+  <div class="hero-rule"></div>
+  <div class="hero-purpose">
+    <span class="en-only">The architecture is understood. The journey is mapped. The purpose is clear. Now: how do you actually move? Tawbah is the turning. Dua is the direct connection. The Day of Judgment is the final accounting. And the last verse of the last module is an invitation — not a command.</span>
+    <span class="ur-only">معمار سمجھ لیا۔ سفر نقشہ بند ہوا۔ مقصد واضح ہے۔ اب: آپ اصل میں کیسے آگے بڑھتے ہیں؟ توبہ پلٹنا ہے۔ دعا براہ راست تعلق ہے۔ قیامت آخری حساب ہے۔ اور آخری ماڈیول کی آخری آیت دعوت ہے — حکم نہیں۔</span>
+  </div>
+  <div class="hero-ayah">
+    <div class="hero-ayah-ar">وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ</div>
+    <div class="hero-ayah-tr"><span class="en-only">"And when My servants ask you about Me — indeed I am near. I respond to the call of the caller when he calls upon Me."</span><span class="ur-only">«اور جب میرے بندے آپ سے میرے بارے میں پوچھیں — تو بے شک میں قریب ہوں۔ پکارنے والے کی پکار کا جواب دیتا ہوں جب وہ مجھے پکارے۔»</span></div>
+    <div class="hero-ayah-ref">Surah Al-Baqarah 2:186 — No "Say:" intermediary. Direct.</div>
+  </div>
+</div>
+<div class="content">
+
+<div class="sec-label"><span class="en-only">Tawbah — The Turning</span><span class="ur-only">توبہ — پلٹنا</span></div>
+
+<div class="concept-card" id="card-tawbah">
+  <div class="card-header" onclick="toggleCard('card-tawbah')">
+    <div class="card-badge cb-teal">↩️</div>
+    <div class="card-titles">
+      <div class="card-title-ar">التَّوْبَة</div>
+      <div class="card-title-en"><span class="en-only">Tawbah — Not Regret. Turning.</span><span class="ur-only">توبہ — پچھتاوا نہیں۔ پلٹنا۔</span></div>
+      <div class="card-summary"><span class="en-only">The Arabic root of tawbah does not mean regret — it means to turn, to face back toward the origin. And Allah's tawbah is mutual: He turned toward them so that they might turn. The door is always open. The verse that covers all sins is the most quoted of the Quran.</span><span class="ur-only">توبہ کی عربی جڑ پچھتاوے کی نہیں — پلٹنے کی، اصل کی طرف واپس منہ کرنے کی۔ اور اللہ کی توبہ باہمی ہے: وہ ان کی طرف پلٹا تاکہ وہ پلٹ سکیں۔ دروازہ ہمیشہ کھلا ہے۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="root-block">
+      <div class="root-label"><span class="en-only">Root: ت-و-ب</span><span class="ur-only">جڑ: ت-و-ب</span></div>
+      <div class="root-ar">تَابَ — تَوْبَة — التَّوَّاب</div>
+      <div class="root-meaning"><span class="en-only">To turn, to return, to face back toward. Not primarily to feel sorry — to physically reorient. The body turning back toward what it turned away from. At-Tawwab (divine name) — intensive form — the One who repeatedly turns toward those who turn back. Every turn is met. Every return is answered.</span><span class="ur-only">پلٹنا، واپس آنا، اصل کی طرف منہ کرنا۔ بنیادی طور پر افسوس کرنا نہیں — جسمانی رخ موڑنا۔ التواب (الٰہی نام) — مبالغہ — وہ جو بار بار پلٹنے والوں کی طرف پلٹتا ہے۔ ہر پلٹاؤ ملتا ہے۔ ہر واپسی کا جواب ملتا ہے۔</span></div>
+    </div>
+    <div class="verse-block">
+      <div class="verse-ar">قُلْ يَـٰعِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰٓ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا</div>
+      <div class="verse-tr"><span class="en-only">"Say: O My servants who have transgressed against themselves — do not despair of the mercy of Allah. Indeed Allah forgives all sins."</span><span class="ur-only">«کہو: اے میرے وہ بندے جنہوں نے اپنی جانوں پر زیادتی کی — اللہ کی رحمت سے مایوس نہ ہو۔ بے شک اللہ سارے گناہ بخش دیتا ہے۔»</span></div>
+      <div class="verse-ref">Surah Az-Zumar 39:53</div>
+    </div>
+    <div class="explanation"><span class="en-only">Three observations in this one verse: (1) Addressed to those who transgressed against themselves — not to the righteous. This is not a verse for people who have it together. It is for people who do not. (2) Do not despair — qunoot (despair) is the mechanism that prevents tawbah. The verse's first command is: remove the thing that prevents turning. (3) All sins (jami'an) — total scope. Not some sins. Not small sins. All. The condition: tawbah. The replacement promise: 25:70 — "Allah will replace their evil deeds with good ones." Not erase — replace. The nafs that returns most deeply has the most transformed record.</span><span class="ur-only">اس آیت میں تین مشاہدات: (۱) ان کو مخاطب جنہوں نے خود پر زیادتی کی — نیک کو نہیں۔ (۲) مایوس نہ ہو — قنوط وہ چیز ہے جو توبہ روکتی ہے۔ آیت کا پہلا حکم: وہ ہٹاؤ جو پلٹنا روکتا ہے۔ (۳) سارے گناہ — مکمل دائرہ۔ ۲۵:۷۰ — «اللہ برے اعمال کو اچھے سے بدل دیتا ہے۔» مٹانا نہیں — بدلنا۔</span></div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('tawbah','التَّوْبَة','O My servants who have transgressed against themselves — do not despair of the mercy of Allah. Indeed Allah forgives all sins. — Quran 39:53 · Al-Maktaba','اے میرے وہ بندے جنہوں نے اپنی جانوں پر زیادتی کی — اللہ کی رحمت سے مایوس نہ ہو۔ بے شک اللہ سارے گناہ بخش دیتا ہے۔ — قرآن ۳۹:۵۳ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-tawbah" onclick="saveCard('tawbah','Tawbah — The Turning')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="sec-label"><span class="en-only">Dua — The Direct Connection</span><span class="ur-only">دعا — براہ راست تعلق</span></div>
+
+<div class="concept-card" id="card-dua">
+  <div class="card-header" onclick="toggleCard('card-dua')">
+    <div class="card-badge cb-gold">🤲</div>
+    <div class="card-titles">
+      <div class="card-title-ar">الدُّعَاء</div>
+      <div class="card-title-en"><span class="en-only">Dua — When All Seven Layers Activate</span><span class="ur-only">دعا — جب ساتوں پرتیں فعال ہوتی ہیں</span></div>
+      <div class="card-summary"><span class="en-only">The most personal verse in the Quran has no "Say:" intermediary. Allah answers directly. Qarib — near — is present tense, constant, not conditional on the state of the nafs. The condition is one word: idha da'an — when he calls.</span><span class="ur-only">قرآن کی سب سے ذاتی آیت میں کوئی «قل» واسطہ نہیں۔ اللہ براہ راست جواب دیتا ہے۔ قریب — حال — مستقل، نفس کی حالت پر مشروط نہیں۔ شرط ایک لفظ: اذا دعان — جب پکارے۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="verse-block">
+      <div class="verse-ar">وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ</div>
+      <div class="verse-tr"><span class="en-only">"And when My servants ask you about Me — indeed I am near. I respond to the call of the caller when he calls upon Me. So let them respond to Me and believe in Me that they may be guided."</span><span class="ur-only">«اور جب میرے بندے آپ سے میرے بارے میں پوچھیں — تو بے شک میں قریب ہوں۔ پکارنے والے کی پکار کا جواب دیتا ہوں جب وہ مجھے پکارے۔ پس انہیں چاہیے کہ میری بات مانیں اور مجھ پر ایمان لائیں تاکہ وہ راہ پائیں۔»</span></div>
+      <div class="verse-ref">Surah Al-Baqarah 2:186</div>
+    </div>
+    <div class="explanation"><span class="en-only">Five observations: (1) No "Say:" — every other verse where the Prophet ﷺ is asked about Allah begins with "Qul" (say). This verse does not. Allah answers directly — as if He is present in the conversation. (2) Qarib = near. Present tense. Constant. (3) Ujib = I respond. First person. Personal. (4) The condition: idha da'an — when he calls. Not: when he is worthy. Not: when his nafs is pure. When he calls. (5) "Let them respond to Me" — the response is mutual. Dua is not monologue. It is conversation.</span><span class="ur-only">پانچ مشاہدات: (۱) کوئی «قل» نہیں — ہر دوسری آیت جہاں نبی ﷺ سے پوچھا جاتا ہے «قل» سے شروع ہوتی ہے۔ یہ نہیں۔ اللہ براہ راست جواب دیتا ہے۔ (۲) قریب — حال — مستقل۔ (۳) اجیب — میں جواب دیتا ہوں — پہلا شخص — ذاتی۔ (۴) شرط: اذا دعان — جب پکارے۔ اہلیت نہیں۔ جب پکارے۔ (۵) «وہ میری بات مانیں» — جواب باہمی ہے۔ دعا یک طرفہ نہیں۔ گفتگو ہے۔</span></div>
+    <div style="margin:12px 0"><div style="font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold);margin-bottom:10px;text-transform:uppercase"><span class="en-only">The Four Qualities of Deep Dua (7:55-56)</span><span class="ur-only">گہری دعا کی چار خصوصیات (۷:۵۵-۵۶)</span></div>
+    <div class="dua-grid">
+      <div class="dua-qual"><div class="dq-ar">تَضَرُّع</div><div class="dq-en"><span class="en-only">TADARRU' — Humility</span><span class="ur-only">تضرّع — عاجزی</span></div><div class="dq-desc"><span class="en-only">The posture of one who has nothing to offer. Acknowledging complete dependence.</span><span class="ur-only">اس کی حالت جس کے پاس دینے کو کچھ نہیں۔ مکمل انحصار کا اعتراف۔</span></div></div>
+      <div class="dua-qual"><div class="dq-ar">خُفْيَة</div><div class="dq-en"><span class="en-only">KHUFYA — Private</span><span class="ur-only">خفیہ — خلوت میں</span></div><div class="dq-desc"><span class="en-only">The dua between the nafs and Allah alone. Not performed. Not for audience.</span><span class="ur-only">نفس اور اللہ کے درمیان دعا۔ دکھاوا نہیں۔ کسی کے لیے نہیں۔</span></div></div>
+      <div class="dua-qual"><div class="dq-ar">خَوْف</div><div class="dq-en"><span class="en-only">KHAWF — Awareness</span><span class="ur-only">خوف — آگاہی</span></div><div class="dq-desc"><span class="en-only">Not terror — awareness of what it means to be without Allah. A motivating recognition.</span><span class="ur-only">خوف نہیں — بلکہ اللہ کے بغیر ہونے کا مطلب جاننا۔ محرک پہچان۔</span></div></div>
+      <div class="dua-qual"><div class="dq-ar">طَمَع</div><div class="dq-en"><span class="en-only">TAMA' — Longing</span><span class="ur-only">طمع — آرزو</span></div><div class="dq-desc"><span class="en-only">Genuine yearning — not just avoiding the negative but genuinely wanting the real.</span><span class="ur-only">حقیقی آرزو — صرف منفی سے بچنا نہیں بلکہ حقیقی کی چاہت۔</span></div></div>
+    </div></div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('dua','الدُّعَاء','"Indeed I am near. I respond to the call of the caller when he calls upon Me." — Quran 2:186\n\nThe most personal verse in the Quran. No intermediary. Direct. When he calls — not when he is worthy. When he calls. · Al-Maktaba','«بے شک میں قریب ہوں۔ پکارنے والے کی پکار کا جواب دیتا ہوں جب وہ پکارے۔» — قرآن ۲:۱۸۶\n\nجب پکارے — اہلیت نہیں۔ جب پکارے۔ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-dua" onclick="saveCard('dua','Dua — The Direct Connection')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="sec-label"><span class="en-only">The Day of Judgment — The Final Accounting</span><span class="ur-only">یومِ قیامت — آخری حساب</span></div>
+
+<div class="concept-card" id="card-judgment">
+  <div class="card-header" onclick="toggleCard('card-judgment')">
+    <div class="card-badge cb-blue">⚖️</div>
+    <div class="card-titles">
+      <div class="card-title-ar">يَوْمُ الْقِيَامَة</div>
+      <div class="card-title-en"><span class="en-only">The Day — Nothing Hidden, Nothing Lost</span><span class="ur-only">یوم — کچھ چھپا نہیں، کچھ کھویا نہیں</span></div>
+      <div class="card-summary"><span class="en-only">The Quran describes the Day of Judgment with a precision that reveals its purpose: the Amanah is accounted for. Every free choice that was made — recorded. The nafs reads its own record. The faculties given as gifts now testify.</span><span class="ur-only">قرآن قیامت کو ایسی درستگی سے بیان کرتا ہے جو اس کا مقصد ظاہر کرتی ہے: امانت کا حساب ہوتا ہے۔ ہر آزاد انتخاب — ریکارڈ شدہ۔ نفس اپنا ریکارڈ خود پڑھتا ہے۔ تحفے کے طور پر دیے گئے حواس گواہی دیتے ہیں۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+    <div class="verse-block">
+      <div class="verse-ar">وَكُلَّ إِنسَانٍ أَلْزَمْنَاهُ طَائِرَهُ فِي عُنُقِهِ ۖ وَنُخْرِجُ لَهُ يَوْمَ الْقِيَامَةِ كِتَابًا يَلْقَاهُ مَنشُورًا ۞ اقْرَأْ كِتَابَكَ كَفَىٰ بِنَفْسِكَ الْيَوْمَ عَلَيْكَ حَسِيبًا</div>
+      <div class="verse-tr"><span class="en-only">"And every human — We have fastened his record around his neck. And We will bring forth on the Day of Resurrection a book which he will find spread open. Read your record. Sufficient is your own nafs today as your accountant."</span><span class="ur-only">«اور ہر انسان — اس کا عمل نامہ ہم نے اس کی گردن میں لٹکا دیا ہے۔ اور قیامت کے دن ہم ایک کتاب نکالیں گے جسے وہ کھلی ہوئی پائے گا۔ اپنا ریکارڈ پڑھو۔ آج تمہارا اپنا نفس تمہارا حساب کرنے کے لیے کافی ہے۔»</span></div>
+      <div class="verse-ref">Surah Al-Isra 17:13-14</div>
+    </div>
+    <div class="explanation"><span class="en-only">The nafs that did muhasabah (self-accounting, Module 01) already knows what it will read. The nafs that avoided looking inward encounters the record as a stranger. 41:20-22 — hearing, sight, and skin testify. The faculties that were given first (hearing — Module 01) testify first. "Allah who gave speech to all things gave us speech." 21:47 — "No nafs wronged. The weight of a mustard seed — brought." 99:7-8 — "Whoever does an atom's weight of good will see it. And whoever does an atom's weight of evil will see it." The scale misses nothing.</span><span class="ur-only">نفس جس نے محاسبہ کیا (ماڈیول ۰۱) پہلے سے جانتا ہے کیا پڑھے گا۔ ۴۱:۲۰-۲۲ — سماعت، بصارت اور جلد گواہی دیتی ہیں۔ جو حواس پہلے دیے گئے (سماعت — ماڈیول ۰۱) پہلے گواہی دیتے ہیں۔ ۲۱:۴۷ — «کسی نفس پر ظلم نہیں۔ رائی کا دانہ — لایا جائے گا۔» ترازو کچھ نہیں چھوڑتا۔</span></div>
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('judgment','يَوْمُ الْقِيَامَة','"Read your record. Sufficient is your own nafs today as your accountant." — Quran 17:14\n\nThe nafs that looked inward during life already knows what it will read. · Al-Maktaba','«اپنا ریکارڈ پڑھو۔ آج تمہارا اپنا نفس تمہارا حساب کرنے کے لیے کافی ہے۔» — قرآن ۱۷:۱۴\n· المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-judgment" onclick="saveCard('judgment','Day of Judgment')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-ar">يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً</div>
+  <div class="closing-tr"><span class="en-only">"O reassured soul — return to your Lord, well-pleased and pleasing to Him."</span><span class="ur-only">«اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔»</span></div>
+  <div class="closing-ref">Surah Al-Fajr 89:27-28 — The last word of the Architecture of Existence</div>
+  <div class="closing-text">
+    <span class="en-only">This is what the entire architecture was always pointing toward.<br><br>The ruh came from His amr. The fitrah carries His imprint. The Alastu was the original testimony. The dhikr was the remembrance of what was already known. The tawbah was the turning back toward where it always belonged. The dua was the direct line home.<br><br>The nafs al-mutma'inna is not going somewhere new. It is returning to its origin. The word is irajiʽi — return. Not go. Not be taken. Return.<br><br>The circle that began before birth — closes here.<br><br>إِنَّا لِلَّهِ وَإِنَّآ إِلَيْهِ رَٰجِعُونَ</span>
+    <span class="ur-only">یہی ہے جس کی طرف پورا معمار ہمیشہ اشارہ کر رہا تھا۔<br><br>روح اس کے امر سے آئی۔ فطرت اس کا نقش لاتی ہے۔ الست اصل گواہی تھی۔ ذکر اس کی یاد دہانی تھا۔ توبہ اپنی اصل جگہ کی طرف پلٹنا تھا۔ دعا گھر کی سیدھی لائن تھی۔<br><br>نفسِ مطمئنہ کہیں نئے نہیں جا رہا۔ اپنی اصل پر لوٹ رہا ہے۔ لفظ ارجعی ہے — لوٹنا۔ جانا نہیں۔ لے جانا نہیں۔ لوٹنا۔<br><br>پیدائش سے پہلے شروع ہونے والا دائرہ — یہاں مکمل ہوتا ہے۔<br><br>إِنَّا لِلَّهِ وَإِنَّآ إِلَيْهِ رَٰجِعُونَ</span>
+  </div>
+  <button class="closing-share-btn" onclick="shareClosing()">✦ <span class="en-only">Share the closing</span><span class="ur-only">اختتام شیئر کریں</span></button>
+</div>
+
+<!-- PARENT CARD -->
+<div class="parent-card">
+  <div class="parent-card-label"><span class="en-only">🌱 For Parents — Share With Your Child</span><span class="ur-only">🌱 والدین کے لیے — اپنے بچے سے شیئر کریں</span></div>
+  <div class="parent-title"><span class="en-only">When you make a mistake — you can always turn back</span><span class="ur-only">جب غلطی ہو — ہمیشہ پلٹ سکتے ہو</span></div>
+  <div class="parent-explanation">
+    <span class="en-only">Everyone makes mistakes. Even the prophets made mistakes. That is not the problem. The problem is when someone makes a mistake and then thinks: it is too late, Allah will not forgive me, I am too far gone.<br><br>But Allah says: no one is too far gone. The door is always open. All you have to do is turn back. That is what tawbah means — turning. Not a big ceremony. Not perfect words. Just: turning back toward Allah.</span>
+    <span class="ur-only">ہر کوئی غلطیاں کرتا ہے۔ انبیاء نے بھی کیں۔ یہ مسئلہ نہیں۔ مسئلہ تب ہے جب کوئی غلطی کرے اور پھر سوچے: بہت دیر ہو گئی، اللہ نہیں بخشے گا۔<br><br>لیکن اللہ کہتا ہے: کوئی بھی بہت دور نہیں۔ دروازہ ہمیشہ کھلا ہے۔ بس پلٹنا ہے۔ یہی توبہ کا مطلب ہے — پلٹنا۔ کوئی بڑی تقریب نہیں۔ کامل الفاظ نہیں۔ بس: اللہ کی طرف پلٹنا۔</span>
+  </div>
+  <div class="parent-question">
+    <div class="parent-question-label"><span class="en-only">Ask your child</span><span class="ur-only">اپنے بچے سے پوچھیں</span></div>
+    <div class="parent-question-text">
+      <span class="en-only">"If you broke something in the house and you were scared to tell me — would it be better to tell me right away or hide it? Allah is the same way. He already knows. And He is waiting for you to come back and say sorry. And He always forgives."</span>
+      <span class="ur-only">«اگر آپ نے گھر میں کچھ توڑ دیا اور مجھے بتانے سے ڈر رہے ہو — کیا بہتر ہے ابھی بتاؤ یا چھپاؤ؟ اللہ بھی ایسے ہی ہے۔ وہ پہلے سے جانتا ہے۔ اور انتظار کرتا ہے کہ تم واپس آؤ اور معافی مانگو۔ اور وہ ہمیشہ معاف کرتا ہے۔»</span>
+    </div>
+  </div>
+  <div class="parent-daily">
+    <span class="en-only"><strong>Daily connection:</strong> Teach your child Istighfar as a daily habit — not as a punishment after wrongdoing, but as a morning and evening practice. "Astaghfirullah." Three times. Every morning and evening. It is the small daily turning that keeps the connection alive.</span>
+    <span class="ur-only"><strong>روزانہ تعلق:</strong> اپنے بچے کو استغفار روزانہ کی عادت کے طور پر سکھائیں — غلطی کی سزا کے طور پر نہیں، بلکہ صبح اور شام کی مشق کے طور پر۔ «استغفر اللہ۔» تین بار۔ ہر صبح اور شام۔ یہ چھوٹا روزانہ پلٹاؤ ہے جو تعلق زندہ رکھتا ہے۔</span>
+  </div>
+  <button class="parent-share-btn" onclick="shareParent()">🌱 <span class="en-only">Share with your child</span><span class="ur-only">اپنے بچے کے ساتھ شیئر کریں</span></button>
+</div>
+
+</div>
+<div class="bottom-nav">
+  <a href="quran_purpose.html" class="bnav-btn">← <span class="en-only">Module 4</span><span class="ur-only">ماڈیول ۴</span></a>
+  <a href="quran_architecture_index.html" class="bnav-btn" style="color:var(--gold);border-color:var(--goldbdr)">⌂ <span class="en-only">Complete</span><span class="ur-only">مکمل</span></a>
+  <a href="quran_architecture_index.html" class="bnav-btn" style="color:var(--teal);border-color:var(--tealbdr)">↩ <span class="en-only">Index</span><span class="ur-only">فہرست</span></a>
+</div>
+<script>
+let LANG='en';
+function setLang(l){LANG=l;document.getElementById('lt-en').classList.toggle('on',l==='en');document.getElementById('lt-ur').classList.toggle('on',l==='ur');document.body.classList.toggle('ur-mode',l==='ur');document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');document.querySelectorAll('.ur-only').forEach(el=>el.style.display=l==='ur'?'inline':'none');document.querySelectorAll('.en-only').forEach(el=>el.style.display=l==='ur'?'none':'');}
+function toggleCard(id){document.getElementById(id).classList.toggle('open');}
+function saveCard(id,title){const key='almaktaba_saved_'+id;const btn=document.getElementById('save-'+id);if(localStorage.getItem(key)){localStorage.removeItem(key);if(btn)btn.classList.remove('saved');showToast(LANG==='ur'?'ہٹا دیا':'Removed');}else{localStorage.setItem(key,JSON.stringify({title,module:'return',saved:Date.now()}));if(btn)btn.classList.add('saved');showToast(LANG==='ur'?'محفوظ ہو گیا ✓':'Saved ✓');}}
+function shareCard(id,ar,en,ur){const text=ar+'\n\n'+(LANG==='ur'?ur:en);if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
+function shareClosing(){const text=LANG==='ur'?'يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً\n\n«اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔»\n\nلوٹنا۔ جانا نہیں۔ لوٹنا۔\n\nإِنَّا لِلَّهِ وَإِنَّآ إِلَيْهِ رَٰجِعُونَ\n\nAl-Maktaba':'يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً\n\n"O reassured soul — return to your Lord, well-pleased and pleasing to Him."\n\nReturn. Not go. Not be taken. Return.\n\nإِنَّا لِلَّهِ وَإِنَّآ إِلَيْهِ رَٰجِعُونَ\n\nAl-Maktaba';if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
+function shareParent(){const text=LANG==='ur'?'🌱 جب غلطی ہو — ہمیشہ پلٹ سکتے ہو۔\n\nاللہ کا دروازہ ہمیشہ کھلا ہے۔ توبہ کا مطلب صرف پلٹنا ہے۔\n\nروزانہ تین بار استغفر اللہ — صبح اور شام۔\n\nAl-Maktaba':'🌱 When you make a mistake — you can always turn back.\n\nAllah\'s door is always open. Tawbah just means turning.\n\nDaily: three times Astaghfirullah — morning and evening.\n\nAl-Maktaba';if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
+function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(12,21,40,.97);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 18px;font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;color:#C9A84C;z-index:200;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2200);}
+window.addEventListener('DOMContentLoaded',()=>{['tawbah','dua','judgment'].forEach(id=>{if(localStorage.getItem('almaktaba_saved_'+id)){const btn=document.getElementById('save-'+id);if(btn)btn.classList.add('saved');}});});
+</script>
+</body>
+</html>
