@@ -120,6 +120,21 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .ur-mode .certainty-badge{font-family:var(--font-arab);font-size:10px;letter-spacing:0}
 .ur-mode .closing-tr{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2;font-style:normal}
 @media(max-width:480px){.content{padding:0 12px}.hero{padding:30px 14px 24px}}
+
+/* ── VERSE CHIPS ── */
+.vchip{display:inline-flex;align-items:center;font-family:var(--font-head);font-size:7.5px;letter-spacing:.6px;padding:2px 7px;border-radius:8px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.08);color:var(--gold);cursor:pointer;vertical-align:middle;margin:0 2px;transition:all .15s;user-select:none}
+.vchip:hover{background:rgba(201,168,76,.15)}
+.vchip.open{background:rgba(201,168,76,.2);border-color:rgba(201,168,76,.5)}
+.verse-panel{position:fixed;bottom:58px;left:0;right:0;background:rgba(6,11,22,.98);border-top:1px solid rgba(201,168,76,.25);backdrop-filter:blur(24px);z-index:75;padding:16px 20px 14px;transform:translateY(110%);transition:transform .28s ease;max-height:45vh;overflow-y:auto}
+.verse-panel.show{transform:translateY(0)}
+.vp-close{position:absolute;top:10px;right:14px;font-size:17px;color:var(--text3);cursor:pointer;background:none;border:none;padding:4px;line-height:1}
+.vp-close:hover{color:var(--gold)}
+.vp-ar{font-family:var(--font-arab);font-size:clamp(17px,3.5vw,22px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:8px}
+.vp-tr{font-size:12px;color:var(--text);font-style:italic;line-height:1.75;margin-bottom:5px}
+.vp-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;display:none;margin-bottom:5px}
+.vp-ref{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px}
+.ur-mode .vp-tr{display:none}
+.ur-mode .vp-tr-ur{display:block}
 </style>
 </head>
 <body>
@@ -205,7 +220,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
       <div class="verse-ref">Surah Al-Baqarah 2:186</div>
     </div>
     <div class="explanation"><span class="en-only">Five observations: (1) No "Say:" — every other verse where the Prophet ﷺ is asked about Allah begins with "Qul" (say). This verse does not. Allah answers directly — as if He is present in the conversation. (2) Qarib = near. Present tense. Constant. (3) Ujib = I respond. First person. Personal. (4) The condition: idha da'an — when he calls. Not: when he is worthy. Not: when his nafs is pure. When he calls. (5) "Let them respond to Me" — the response is mutual. Dua is not monologue. It is conversation.</span><span class="ur-only">پانچ مشاہدات: (۱) کوئی «قل» نہیں — ہر دوسری آیت جہاں نبی ﷺ سے پوچھا جاتا ہے «قل» سے شروع ہوتی ہے۔ یہ نہیں۔ اللہ براہ راست جواب دیتا ہے۔ (۲) قریب — حال — مستقل۔ (۳) اجیب — میں جواب دیتا ہوں — پہلا شخص — ذاتی۔ (۴) شرط: اذا دعان — جب پکارے۔ اہلیت نہیں۔ جب پکارے۔ (۵) «وہ میری بات مانیں» — جواب باہمی ہے۔ دعا یک طرفہ نہیں۔ گفتگو ہے۔</span></div>
-    <div style="margin:12px 0"><div style="font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold);margin-bottom:10px;text-transform:uppercase"><span class="en-only">The Four Qualities of Deep Dua (7:55-56)</span><span class="ur-only">گہری دعا کی چار خصوصیات (۷:۵۵-۵۶)</span></div>
+    <div style="margin:12px 0"><div style="font-family:var(--font-head);font-size:9px;letter-spacing:1px;color:var(--gold);margin-bottom:10px;text-transform:uppercase"><span class="en-only">The Four Qualities of Deep Dua (<span class="vchip" data-vid="7_55" onclick="showVerse('7_55')">7:55-56</span>)</span><span class="ur-only">گہری دعا کی چار خصوصیات (<span class="vchip" data-vid="7_55" onclick="showVerse('7_55')">۷:۵۵-۵۶</span>)</span></div>
     <div class="dua-grid">
       <div class="dua-qual"><div class="dq-ar">تَضَرُّع</div><div class="dq-en"><span class="en-only">TADARRU' — Humility</span><span class="ur-only">تضرّع — عاجزی</span></div><div class="dq-desc"><span class="en-only">The posture of one who has nothing to offer. Acknowledging complete dependence.</span><span class="ur-only">اس کی حالت جس کے پاس دینے کو کچھ نہیں۔ مکمل انحصار کا اعتراف۔</span></div></div>
       <div class="dua-qual"><div class="dq-ar">خُفْيَة</div><div class="dq-en"><span class="en-only">KHUFYA — Private</span><span class="ur-only">خفیہ — خلوت میں</span></div><div class="dq-desc"><span class="en-only">The dua between the nafs and Allah alone. Not performed. Not for audience.</span><span class="ur-only">نفس اور اللہ کے درمیان دعا۔ دکھاوا نہیں۔ کسی کے لیے نہیں۔</span></div></div>
@@ -238,7 +253,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
       <div class="verse-tr"><span class="en-only">"And every human — We have fastened his record around his neck. And We will bring forth on the Day of Resurrection a book which he will find spread open. Read your record. Sufficient is your own nafs today as your accountant."</span><span class="ur-only">«اور ہر انسان — اس کا عمل نامہ ہم نے اس کی گردن میں لٹکا دیا ہے۔ اور قیامت کے دن ہم ایک کتاب نکالیں گے جسے وہ کھلی ہوئی پائے گا۔ اپنا ریکارڈ پڑھو۔ آج تمہارا اپنا نفس تمہارا حساب کرنے کے لیے کافی ہے۔»</span></div>
       <div class="verse-ref">Surah Al-Isra 17:13-14</div>
     </div>
-    <div class="explanation"><span class="en-only">The nafs that did muhasabah (self-accounting, Module 01) already knows what it will read. The nafs that avoided looking inward encounters the record as a stranger. 41:20-22 — hearing, sight, and skin testify. The faculties that were given first (hearing — Module 01) testify first. "Allah who gave speech to all things gave us speech." 21:47 — "No nafs wronged. The weight of a mustard seed — brought." 99:7-8 — "Whoever does an atom's weight of good will see it. And whoever does an atom's weight of evil will see it." The scale misses nothing.</span><span class="ur-only">نفس جس نے محاسبہ کیا (ماڈیول ۰۱) پہلے سے جانتا ہے کیا پڑھے گا۔ ۴۱:۲۰-۲۲ — سماعت، بصارت اور جلد گواہی دیتی ہیں۔ جو حواس پہلے دیے گئے (سماعت — ماڈیول ۰۱) پہلے گواہی دیتے ہیں۔ ۲۱:۴۷ — «کسی نفس پر ظلم نہیں۔ رائی کا دانہ — لایا جائے گا۔» ترازو کچھ نہیں چھوڑتا۔</span></div>
+    <div class="explanation"><span class="en-only">The nafs that did muhasabah (self-accounting, Module 01) already knows what it will read. The nafs that avoided looking inward encounters the record as a stranger. <span class="vchip" data-vid="41_20" onclick="showVerse('41_20')">41:20-22</span> — hearing, sight, and skin testify. The faculties that were given first (hearing — Module 01) testify first. "Allah who gave speech to all things gave us speech." <span class="vchip" data-vid="21_47" onclick="showVerse('21_47')">21:47</span> — "No nafs wronged. The weight of a mustard seed — brought." <span class="vchip" data-vid="99_7" onclick="showVerse('99_7')">99:7-8</span> — "Whoever does an atom's weight of good will see it. And whoever does an atom's weight of evil will see it." The scale misses nothing.</span><span class="ur-only">نفس جس نے محاسبہ کیا (ماڈیول ۰۱) پہلے سے جانتا ہے کیا پڑھے گا۔ ۴۱:۲۰-۲۲ — سماعت، بصارت اور جلد گواہی دیتی ہیں۔ جو حواس پہلے دیے گئے (سماعت — ماڈیول ۰۱) پہلے گواہی دیتے ہیں۔ <span class="vchip" data-vid="21_47" onclick="showVerse('21_47')">۲۱:۴۷</span> — «کسی نفس پر ظلم نہیں۔ رائی کا دانہ — لایا جائے گا۔» ترازو کچھ نہیں چھوڑتا۔</span></div>
     <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
     <div class="card-actions">
       <button class="card-act-btn" onclick="shareCard('judgment','يَوْمُ الْقِيَامَة','"Read your record. Sufficient is your own nafs today as your accountant." — Quran 17:14\n\nThe nafs that looked inward during life already knows what it will read. · Al-Maktaba','«اپنا ریکارڈ پڑھو۔ آج تمہارا اپنا نفس تمہارا حساب کرنے کے لیے کافی ہے۔» — قرآن ۱۷:۱۴\n· المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
@@ -297,6 +312,37 @@ function shareClosing(){const text=LANG==='ur'?'يَـٰٓأَيَّتُهَا �
 function shareParent(){const text=LANG==='ur'?'🌱 جب غلطی ہو — ہمیشہ پلٹ سکتے ہو۔\n\nاللہ کا دروازہ ہمیشہ کھلا ہے۔ توبہ کا مطلب صرف پلٹنا ہے۔\n\nروزانہ تین بار استغفر اللہ — صبح اور شام۔\n\nAl-Maktaba':'🌱 When you make a mistake — you can always turn back.\n\nAllah\'s door is always open. Tawbah just means turning.\n\nDaily: three times Astaghfirullah — morning and evening.\n\nAl-Maktaba';if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
 function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(12,21,40,.97);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 18px;font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;color:#C9A84C;z-index:200;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2200);}
 window.addEventListener('DOMContentLoaded',()=>{['tawbah','dua','judgment'].forEach(id=>{if(localStorage.getItem('almaktaba_saved_'+id)){const btn=document.getElementById('save-'+id);if(btn)btn.classList.add('saved');}});});
+
+const VERSES = {
+  '39_53':{ar:'قُلْ يَـٰعِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰٓ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا',en:'O My servants who have transgressed — do not despair of Allah\'s mercy. Indeed He forgives all sins.',ur:'اے میرے بندو جنہوں نے زیادتی کی — اللہ کی رحمت سے مایوس نہ ہو۔ وہ سارے گناہ بخش دیتا ہے۔',ref:'Surah Az-Zumar 39:53'},
+  '25_70':{ar:'فَأُو۟لَـٰٓئِكَ يُبَدِّلُ اللَّهُ سَيِّئَاتِهِمْ حَسَنَاتٍ',en:'Those — Allah will replace their evil deeds with good ones.',ur:'یہ وہ لوگ ہیں جن کے برے اعمال اللہ نیکیوں سے بدل دے گا۔',ref:'Surah Al-Furqan 25:70'},
+  '2_186':{ar:'وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ',en:'When My servants ask about Me — I am near. I respond to the caller when he calls.',ur:'جب میرے بندے میرے بارے میں پوچھیں — میں قریب ہوں۔ پکارنے والے کو جواب دیتا ہوں۔',ref:'Surah Al-Baqarah 2:186'},
+  '40_60':{ar:'وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ',en:'And your Lord said: Call upon Me — I will respond to you.',ur:'اور تمہارے رب نے فرمایا: مجھے پکارو — میں تمہیں جواب دوں گا۔',ref:'Surah Ghafir 40:60'},
+  '7_55':{ar:'ادْعُوا رَبَّكُمْ تَضَرُّعًا وَخُفْيَةً',en:'Call upon your Lord in humility and privately.',ur:'اپنے رب کو عاجزی اور خفیہ میں پکارو۔',ref:'Surah Al-A\'raf 7:55-56'},
+  '17_13':{ar:'وَكُلَّ إِنسَانٍ أَلْزَمْنَاهُ طَائِرَهُ فِي عُنُقِهِ',en:'And every human — We have fastened his record around his neck.',ur:'اور ہر انسان — اس کا عمل نامہ اس کی گردن میں لٹکا دیا۔',ref:'Surah Al-Isra 17:13-14'},
+  '41_20':{ar:'حَتَّىٰ إِذَا مَا جَاءُوهَا شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَارُهُمْ وَجُلُودُهُم',en:'Until when they arrive — their hearing, sight, and skin testify against them.',ur:'یہاں تک کہ جب آئیں گے — ان کی سماعت، بصارت اور جلد گواہی دے گی۔',ref:'Surah Fussilat <span class="vchip" data-vid="41_20" onclick="showVerse('41_20')">41:20-22</span>'},
+  '21_47':{ar:'وَنَضَعُ الْمَوَازِينَ الْقِسْطَ لِيَوْمِ الْقِيَامَةِ',en:'We will set up the just scales for the Day of Resurrection.',ur:'ہم قیامت کے دن عدل کی ترازو رکھیں گے۔',ref:'Surah Al-Anbiya 21:47'},
+  '99_7':{ar:'فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ ۞ وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ',en:'Whoever does an atom\'s weight of good will see it. And whoever does an atom\'s weight of evil will see it.',ur:'جس نے ذرے برابر نیکی کی وہ دیکھے گا۔ جس نے ذرے برابر برائی کی وہ بھی دیکھے گا۔',ref:'Surah Az-Zalzalah <span class="vchip" data-vid="99_7" onclick="showVerse('99_7')">99:7-8</span>'},
+  '89_27':{ar:'يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً',en:'O reassured soul — return to your Lord, well-pleased and pleasing to Him.',ur:'اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔',ref:'Surah Al-Fajr 89:27-30'},
+  '17_85':{ar:'قُلِ الرُّوحُ مِنْ أَمْرِ رَبِّي',en:'The ruh is from the amr of my Lord.',ur:'روح میرے رب کے امر سے ہے۔',ref:'Surah Al-Isra 17:85'},
+  '7_172':{ar:'أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ ۛ شَهِدْنَآ',en:'Am I not your Lord? They said: Yes — we testify.',ur:'کیا میں تمہارا رب نہیں؟ انہوں نے کہا: بلیٰ — ہم گواہ ہیں۔',ref:'Surah Al-A\'raf 7:172'},
+  '4_17':{ar:'إِنَّمَا التَّوْبَةُ عَلَى اللَّهِ لِلَّذِينَ يَعْمَلُونَ السُّوءَ بِجَهَالَةٍ ثُمَّ يَتُوبُونَ مِن قَرِيبٍ',en:'Tawbah is only for those who do wrong in ignorance and then repent soon after.',ur:'توبہ انہی کے لیے ہے جو لاعلمی میں برائی کریں پھر جلد توبہ کریں۔',ref:'Surah An-Nisa 4:17'},
+  '4_18':{ar:'وَلَيْسَتِ التَّوْبَةُ لِلَّذِينَ يَعْمَلُونَ السَّيِّئَاتِ حَتَّىٰ إِذَا حَضَرَ أَحَدَهُمُ الْمَوْتُ قَالَ إِنِّي تُبْتُ الْآنَ',en:'Tawbah is not for those who continue doing evil until death arrives.',ur:'توبہ ان کے لیے نہیں جو برائی کرتے رہیں یہاں تک کہ موت آ جائے۔',ref:'Surah An-Nisa 4:18'},
+  '30_30':{ar:'فِطْرَتَ اللَّهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا',en:'The fitrah of Allah upon which He created people.',ur:'اللہ کی وہ فطرت جس پر اس نے لوگوں کو پیدا کیا۔',ref:'Surah Ar-Rum 30:30'},
+  '17_13':{ar:'وَكُلَّ إِنسَانٍ أَلْزَمْنَاهُ طَائِرَهُ فِي عُنُقِهِ ۖ وَنُخْرِجُ لَهُ يَوْمَ الْقِيَامَةِ كِتَابًا يَلْقَاهُ مَنشُورًا',en:'Every human — We fastened his record around his neck. And We bring forth a book on Resurrection Day which he finds spread open.',ur:'ہر انسان کا عمل نامہ اس کی گردن میں۔ قیامت کے دن کھلی کتاب سامنے آئے گی۔',ref:'Surah Al-Isra 17:13-14'},
+};
+
+function showVerse(id){const d=VERSES[id];if(!d)return;document.getElementById('vp-ar').textContent=d.ar;document.getElementById('vp-tr').textContent=d.en;document.getElementById('vp-tr-ur').textContent=d.ur;document.getElementById('vp-ref').textContent=d.ref;document.getElementById('verse-panel').classList.add('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));const ch=document.querySelector('.vchip[data-vid="'+id+'"]');if(ch)ch.classList.add('open');}
+function closeVP(){document.getElementById('verse-panel').classList.remove('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));}
+document.addEventListener('click',function(e){const p=document.getElementById('verse-panel');if(p&&p.classList.contains('show')&&!p.contains(e.target)&&!e.target.classList.contains('vchip')){closeVP();}});
 </script>
+
+<div class="verse-panel" id="verse-panel">
+  <button class="vp-close" onclick="closeVP()">✕</button>
+  <div class="vp-ar" id="vp-ar"></div>
+  <div class="vp-tr" id="vp-tr"></div>
+  <div class="vp-tr-ur" id="vp-tr-ur"></div>
+  <div class="vp-ref" id="vp-ref"></div>
+</div>
 </body>
 </html>

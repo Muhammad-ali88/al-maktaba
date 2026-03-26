@@ -317,6 +317,21 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
   .pattern-row{flex-direction:column;gap:3px}
   .pattern-ref{width:auto}
 }
+
+/* ── VERSE CHIPS ── */
+.vchip{display:inline-flex;align-items:center;font-family:var(--font-head);font-size:7.5px;letter-spacing:.6px;padding:2px 7px;border-radius:8px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.08);color:var(--gold);cursor:pointer;vertical-align:middle;margin:0 2px;transition:all .15s;user-select:none}
+.vchip:hover{background:rgba(201,168,76,.15)}
+.vchip.open{background:rgba(201,168,76,.2);border-color:rgba(201,168,76,.5)}
+.verse-panel{position:fixed;bottom:58px;left:0;right:0;background:rgba(6,11,22,.98);border-top:1px solid rgba(201,168,76,.25);backdrop-filter:blur(24px);z-index:75;padding:16px 20px 14px;transform:translateY(110%);transition:transform .28s ease;max-height:45vh;overflow-y:auto}
+.verse-panel.show{transform:translateY(0)}
+.vp-close{position:absolute;top:10px;right:14px;font-size:17px;color:var(--text3);cursor:pointer;background:none;border:none;padding:4px;line-height:1}
+.vp-close:hover{color:var(--gold)}
+.vp-ar{font-family:var(--font-arab);font-size:clamp(17px,3.5vw,22px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:8px}
+.vp-tr{font-size:12px;color:var(--text);font-style:italic;line-height:1.75;margin-bottom:5px}
+.vp-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;display:none;margin-bottom:5px}
+.vp-ref{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px}
+.ur-mode .vp-tr{display:none}
+.ur-mode .vp-tr-ur{display:block}
 </style>
 </head>
 <body>
@@ -459,8 +474,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
       <div class="verse-ref">Surah Al-Isra 17:85</div>
     </div>
     <div class="explanation">
-      <span class="en-only">The Quran closes this question deliberately. The ruh is from divine amr — the same category as "Kun" (Be). What we know: it is breathed into every human (15:29), it animates consciousness (hearing, vision, and af'idah follow its entry — 32:9), it is distinct from the nafs. What we do not know: its precise nature. This belongs to the ghayb by divine design.</span>
-      <span class="ur-only">قرآن یہ سوال جان بوجھ کر بند کرتا ہے۔ روح الٰہی امر سے ہے — وہی زمرہ جس میں «کُن» آتا ہے۔ جو جانتے ہیں: ہر انسان میں پھونکی گئی (۱۵:۲۹)، شعور کو زندہ کرتی ہے (سماعت، بصارت اور افئدہ اس کے بعد آتے ہیں — ۳۲:۹)، نفس سے الگ ہے۔ جو نہیں جانتے: اس کی درست نوعیت۔ یہ ڈیزائن کے لحاظ سے غیب میں ہے۔</span>
+      <span class="en-only">The Quran closes this question deliberately. The ruh is from divine amr — the same category as "Kun" (Be). What we know: it is breathed into every human <span class="vchip" data-vid="15_29" onclick="showVerse('15_29')">15:29</span>, it animates consciousness (hearing, vision, and af'idah follow its entry — <span class="vchip" data-vid="32_9" onclick="showVerse('32_9')">32:9</span>), it is distinct from the nafs. What we do not know: its precise nature. This belongs to the ghayb by divine design.</span>
+      <span class="ur-only">قرآن یہ سوال جان بوجھ کر بند کرتا ہے۔ روح الٰہی امر سے ہے — وہی زمرہ جس میں «کُن» آتا ہے۔ جو جانتے ہیں: ہر انسان میں پھونکی گئی (<span class="vchip" data-vid="15_29" onclick="showVerse('15_29')">۱۵:۲۹</span>)، شعور کو زندہ کرتی ہے (سماعت، بصارت اور افئدہ اس کے بعد آتے ہیں — <span class="vchip" data-vid="32_9" onclick="showVerse('32_9')">۳۲:۹</span>)، نفس سے الگ ہے۔ جو نہیں جانتے: اس کی درست نوعیت۔ یہ ڈیزائن کے لحاظ سے غیب میں ہے۔</span>
     </div>
     <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive — Qat'i</span><span class="ur-only">قطعی</span></span>
     <span class="certainty-badge cert-interp" style="margin-left:6px">◇ <span class="en-only">Nature — Interpretive</span><span class="ur-only">نوعیت — تفسیری</span></span>
@@ -552,8 +567,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
       <div class="verse-ref">Surah Al-Hajj 22:46</div>
     </div>
     <div class="explanation">
-      <span class="en-only">This verse confirms the qalb sits inside the sadr — "the hearts within the chests." It also confirms the qalb can become blind — not the eyes, not the ears, but the qalb. The qalb's blindness is not physical — it is the loss of the capacity to turn toward what is real. Dhikr is the mechanism that reverses this: "Verily in the remembrance of Allah do hearts find rest" (13:28) — the qalb returns to its natural orientation.</span>
-      <span class="ur-only">یہ آیت تصدیق کرتی ہے کہ قلب صدر کے اندر ہے — «سینوں کے اندر دل»۔ اور تصدیق کرتی ہے کہ قلب اندھا ہو سکتا ہے۔ قلب کا اندھا پن جسمانی نہیں — یہ حقیقت کی طرف پلٹنے کی صلاحیت کا کھو جانا ہے۔ ذکر اسے واپس لاتا ہے (۱۳:۲۸)۔</span>
+      <span class="en-only">This verse confirms the qalb sits inside the sadr — "the hearts within the chests." It also confirms the qalb can become blind — not the eyes, not the ears, but the qalb. The qalb's blindness is not physical — it is the loss of the capacity to turn toward what is real. Dhikr is the mechanism that reverses this: "Verily in the remembrance of Allah do hearts find rest" <span class="vchip" data-vid="13_28" onclick="showVerse('13_28')">13:28</span> — the qalb returns to its natural orientation.</span>
+      <span class="ur-only">یہ آیت تصدیق کرتی ہے کہ قلب صدر کے اندر ہے — «سینوں کے اندر دل»۔ اور تصدیق کرتی ہے کہ قلب اندھا ہو سکتا ہے۔ قلب کا اندھا پن جسمانی نہیں — یہ حقیقت کی طرف پلٹنے کی صلاحیت کا کھو جانا ہے۔ ذکر اسے واپس لاتا ہے (<span class="vchip" data-vid="13_28" onclick="showVerse('13_28')">۱۳:۲۸</span>)۔</span>
     </div>
     <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
     <div class="card-actions">
@@ -598,8 +613,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
       <div class="verse-ref">Surah An-Najm 53:11 — Said of the Prophet ﷺ during the first revelation</div>
     </div>
     <div class="explanation">
-      <span class="en-only">In 28:10, the fu'ad of Musa's mother "became empty" — fariaghan — when she feared for her son. It can be emptied. In 17:36, hearing, sight, and fu'ad will each be questioned. The fu'ad is listed third — after the two primary senses — as the deepest faculty that processes what is received. When the dhikr reaches the fu'ad — not just the tongue, not just the qalb — the tuma'nina begins.</span>
-      <span class="ur-only">۲۸:۱۰ میں موسیٰ کی ماں کا فواد «فارغ» ہو گیا جب اپنے بیٹے کے لیے ڈرا۔ خالی ہو سکتا ہے۔ ۱۷:۳۶ میں سماعت، بصارت اور فواد سب سے سوال ہوگا۔ جب ذکر فواد تک پہنچے — صرف زبان سے نہیں — طمانینہ شروع ہوتی ہے۔</span>
+      <span class="en-only">In <span class="vchip" data-vid="28_10" onclick="showVerse('28_10')">28:10</span>, the fu'ad of Musa's mother "became empty" — fariaghan — when she feared for her son. It can be emptied. In <span class="vchip" data-vid="17_36" onclick="showVerse('17_36')">17:36</span>, hearing, sight, and fu'ad will each be questioned. The fu'ad is listed third — after the two primary senses — as the deepest faculty that processes what is received. When the dhikr reaches the fu'ad — not just the tongue, not just the qalb — the tuma'nina begins.</span>
+      <span class="ur-only">۲۸:۱۰ میں موسیٰ کی ماں کا فواد «فارغ» ہو گیا جب اپنے بیٹے کے لیے ڈرا۔ خالی ہو سکتا ہے۔ <span class="vchip" data-vid="17_36" onclick="showVerse('17_36')">۱۷:۳۶</span> میں سماعت، بصارت اور فواد سب سے سوال ہوگا۔ جب ذکر فواد تک پہنچے — صرف زبان سے نہیں — طمانینہ شروع ہوتی ہے۔</span>
     </div>
     <span class="certainty-badge cert-ling">◈ <span class="en-only">Linguistically Strong</span><span class="ur-only">لغوی طور پر مضبوط</span></span>
     <div class="card-actions">
@@ -644,8 +659,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
       <div class="verse-ref">Surah Ash-Sharh 94:1</div>
     </div>
     <div class="explanation">
-      <span class="en-only">Sharh al-sadr — the expansion of the chest — is the felt experience of the sadr opening. In 6:125, those Allah wishes to guide: "He expands their sadr for Islam." Those He leaves astray: "He makes their sadr tight and constricted as if they were climbing into the sky." The sadr's state is a direct sign of the person's orientation. When tawbah is genuine the first thing that changes is the sadr — the heaviness lifts.</span>
-      <span class="ur-only">شرح صدر — سینے کا کھلنا — صدر کے کھلنے کا محسوس تجربہ ہے۔ ۶:۱۲۵ میں جسے اللہ ہدایت چاہے: «اس کا صدر اسلام کے لیے کھولتا ہے»۔ جسے گمراہ چھوڑے: «صدر تنگ کرتا ہے جیسے آسمان پر چڑھ رہا ہو»۔ صدر کی حالت رخ کی براہ راست نشانی ہے۔ جب توبہ سچی ہو پہلی چیز جو بدلتی ہے صدر ہے۔</span>
+      <span class="en-only">Sharh al-sadr — the expansion of the chest — is the felt experience of the sadr opening. In <span class="vchip" data-vid="6_125" onclick="showVerse('6_125')">6:125</span>, those Allah wishes to guide: "He expands their sadr for Islam." Those He leaves astray: "He makes their sadr tight and constricted as if they were climbing into the sky." The sadr's state is a direct sign of the person's orientation. When tawbah is genuine the first thing that changes is the sadr — the heaviness lifts.</span>
+      <span class="ur-only">شرح صدر — سینے کا کھلنا — صدر کے کھلنے کا محسوس تجربہ ہے۔ <span class="vchip" data-vid="6_125" onclick="showVerse('6_125')">۶:۱۲۵</span> میں جسے اللہ ہدایت چاہے: «اس کا صدر اسلام کے لیے کھولتا ہے»۔ جسے گمراہ چھوڑے: «صدر تنگ کرتا ہے جیسے آسمان پر چڑھ رہا ہو»۔ صدر کی حالت رخ کی براہ راست نشانی ہے۔ جب توبہ سچی ہو پہلی چیز جو بدلتی ہے صدر ہے۔</span>
     </div>
     <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
     <div class="card-actions">
@@ -690,8 +705,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
       <div class="verse-ref">Surah Ali Imran 3:191 — The definition of Ulu al-Albab</div>
     </div>
     <div class="explanation">
-      <span class="en-only">The lubb is mentioned 16 times in the Quran — always in the context of those who truly understand. Ulu al-albab (those possessed of the lubb) are defined in 3:190-191 by two simultaneous activities: dhikr in all positions (constant remembrance) AND tafakkur (deep reflection on creation). Not one or the other. Both together. The lubb is engaged when both channels — the heart remembering Allah and the mind reflecting on His signs — are operating at once. This is the deepest integration of the inner architecture.</span>
-      <span class="ur-only">قرآن میں لب 16 بار آیا — ہمیشہ ان لوگوں کے سیاق میں جو واقعی سمجھتے ہیں۔ اولو الالباب ۳:۱۹۰-۱۹۱ میں دو بیک وقت سرگرمیوں سے تعریف کیے گئے: تمام حالات میں ذکر اور تخلیق پر تفکر۔ ایک یا دوسرا نہیں۔ دونوں ساتھ۔ لب اس وقت فعال ہوتا ہے جب دونوں نہریں — اللہ کو یاد کرتا دل اور اس کی نشانیوں پر غور کرتا ذہن — ایک ساتھ چل رہے ہوں۔</span>
+      <span class="en-only">The lubb is mentioned 16 times in the Quran — always in the context of those who truly understand. Ulu al-albab (those possessed of the lubb) are defined in <span class="vchip" data-vid="3_190" onclick="showVerse('3_190')">3:190-191</span> by two simultaneous activities: dhikr in all positions (constant remembrance) AND tafakkur (deep reflection on creation). Not one or the other. Both together. The lubb is engaged when both channels — the heart remembering Allah and the mind reflecting on His signs — are operating at once. This is the deepest integration of the inner architecture.</span>
+      <span class="ur-only">قرآن میں لب 16 بار آیا — ہمیشہ ان لوگوں کے سیاق میں جو واقعی سمجھتے ہیں۔ اولو الالباب <span class="vchip" data-vid="3_190" onclick="showVerse('3_190')">۳:۱۹۰-۱۹۱</span> میں دو بیک وقت سرگرمیوں سے تعریف کیے گئے: تمام حالات میں ذکر اور تخلیق پر تفکر۔ ایک یا دوسرا نہیں۔ دونوں ساتھ۔ لب اس وقت فعال ہوتا ہے جب دونوں نہریں — اللہ کو یاد کرتا دل اور اس کی نشانیوں پر غور کرتا ذہن — ایک ساتھ چل رہے ہوں۔</span>
     </div>
     <span class="certainty-badge cert-ling">◈ <span class="en-only">Linguistically Strong</span><span class="ur-only">لغوی طور پر مضبوط</span></span>
     <div class="card-actions">
@@ -717,19 +732,19 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
     <div class="nafs-ar">النَّفْسُ الْأَمَّارَة</div>
     <div class="nafs-en"><span class="en-only">Nafs al-Ammara — Commands Toward Evil</span><span class="ur-only">نفسِ امارہ — برائی کا حکم دینے والا</span></div>
     <div class="nafs-desc">
-      <span class="en-only">Root: amara = commands repeatedly without stopping. The ammara does not suggest — it commands. The nafs in this state is driven by desire, ego, and waswasa without the counter-force of tawbah and dhikr. Yusuf AS himself said this (12:53) — showing no human is exempt from this state.</span>
-      <span class="ur-only">جڑ: امارہ = بار بار بغیر رکے حکم دیتا ہے۔ امارہ مشورہ نہیں دیتا — حکم دیتا ہے۔ اس حالت میں نفس خواہش، انا اور وسواس سے چلتا ہے توبہ اور ذکر کی مزاحمت کے بغیر۔ یوسف علیہ السلام نے خود یہ کہا (۱۲:۵۳)۔</span>
+      <span class="en-only">Root: amara = commands repeatedly without stopping. The ammara does not suggest — it commands. The nafs in this state is driven by desire, ego, and waswasa without the counter-force of tawbah and dhikr. Yusuf AS himself said this (<span class="vchip" data-vid="12_53" onclick="showVerse('12_53')">12:53</span>) — showing no human is exempt from this state.</span>
+      <span class="ur-only">جڑ: امارہ = بار بار بغیر رکے حکم دیتا ہے۔ امارہ مشورہ نہیں دیتا — حکم دیتا ہے۔ اس حالت میں نفس خواہش، انا اور وسواس سے چلتا ہے توبہ اور ذکر کی مزاحمت کے بغیر۔ یوسف علیہ السلام نے خود یہ کہا (<span class="vchip" data-vid="12_53" onclick="showVerse('12_53')">۱۲:۵۳</span>)۔</span>
     </div>
-    <div class="nafs-verse-ref">Surah Yusuf 12:53</div>
+    <div class="nafs-verse-ref">Surah Yusuf <span class="vchip" data-vid="12_53" onclick="showVerse('12_53')">12:53</span></div>
   </div>
   <div class="nafs-state nafs-lawwama">
     <div class="nafs-ar">النَّفْسُ اللَّوَّامَة</div>
     <div class="nafs-en"><span class="en-only">Nafs al-Lawwama — The Self-Reproaching</span><span class="ur-only">نفسِ لوامہ — خود کو ملامت کرنے والا</span></div>
     <div class="nafs-desc">
-      <span class="en-only">Root: lawwama = to blame, to reproach intensely. The nafs in conflict — it does wrong and then blames itself. This is not weakness — it is the signal that the fitrah is alive. Allah swears by this nafs (75:2) — a sign of its importance. The lawwama is the stage of struggle, tawbah, and gradual purification.</span>
-      <span class="ur-only">جڑ: لوامہ = شدید ملامت کرنا۔ تضاد میں نفس — غلط کرتا ہے پھر خود کو ملامت کرتا ہے۔ یہ کمزوری نہیں — یہ نشانی ہے کہ فطرت زندہ ہے۔ اللہ اس نفس کی قسم کھاتا ہے (۷۵:۲) — اس کی اہمیت کی نشانی۔</span>
+      <span class="en-only">Root: lawwama = to blame, to reproach intensely. The nafs in conflict — it does wrong and then blames itself. This is not weakness — it is the signal that the fitrah is alive. Allah swears by this nafs (<span class="vchip" data-vid="75_2" onclick="showVerse('75_2')">75:2</span>) — a sign of its importance. The lawwama is the stage of struggle, tawbah, and gradual purification.</span>
+      <span class="ur-only">جڑ: لوامہ = شدید ملامت کرنا۔ تضاد میں نفس — غلط کرتا ہے پھر خود کو ملامت کرتا ہے۔ یہ کمزوری نہیں — یہ نشانی ہے کہ فطرت زندہ ہے۔ اللہ اس نفس کی قسم کھاتا ہے (<span class="vchip" data-vid="75_2" onclick="showVerse('75_2')">۷۵:۲</span>) — اس کی اہمیت کی نشانی۔</span>
     </div>
-    <div class="nafs-verse-ref">Surah Al-Qiyamah 75:2</div>
+    <div class="nafs-verse-ref">Surah Al-Qiyamah <span class="vchip" data-vid="75_2" onclick="showVerse('75_2')">75:2</span></div>
   </div>
   <div class="nafs-state nafs-mutmaina">
     <div class="nafs-ar">النَّفْسُ الْمُطْمَئِنَّة</div>
@@ -738,7 +753,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
       <span class="en-only">Root: tama'anna = completely at rest, no longer agitated. The nafs that has found its resting place — in Allah. The final call of the Day of Judgment is addressed to this nafs: "Return to your Lord — well-pleased and pleasing to Him." Not go. Return. Because the ruh came from Him, the fitrah carries His imprint, the Alastu was its original testimony.</span>
       <span class="ur-only">جڑ: طمانینہ = مکمل سکون، اب بے چین نہیں۔ وہ نفس جس نے اپنا آرام کا مقام پالیا — اللہ میں۔ قیامت کی آخری پکار اسی نفس سے: «اپنے رب کی طرف لوٹو — راضی اور پسندیدہ۔» جانا نہیں۔ لوٹنا۔</span>
     </div>
-    <div class="nafs-verse-ref">Surah Al-Fajr 89:27-28</div>
+    <div class="nafs-verse-ref">Surah Al-Fajr <span class="vchip" data-vid="89_27" onclick="showVerse('89_27')">89:27-28</span></div>
   </div>
 </div>
 
@@ -760,35 +775,35 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
   </div>
   <div class="pattern-verses">
     <div class="pattern-row">
-      <div class="pattern-ref">32:9</div>
+      <div class="pattern-ref"><span class="vchip" data-vid="32_9" onclick="showVerse('32_9')">32:9</span></div>
       <div class="pattern-seq">
         <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — After the ruh is breathed in</span>
         <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — روح پھونکنے کے بعد</span>
       </div>
     </div>
     <div class="pattern-row">
-      <div class="pattern-ref">16:78</div>
+      <div class="pattern-ref"><span class="vchip" data-vid="16_78" onclick="showVerse('16_78')">16:78</span></div>
       <div class="pattern-seq">
         <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — Coming from the wombs</span>
         <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — ماؤں کے پیٹ سے آتے ہوئے</span>
       </div>
     </div>
     <div class="pattern-row">
-      <div class="pattern-ref">23:78</div>
+      <div class="pattern-ref"><span class="vchip" data-vid="23_78" onclick="showVerse('23_78')">23:78</span></div>
       <div class="pattern-seq">
         <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — He who produced these for you</span>
         <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — جس نے یہ تمہارے لیے بنائے</span>
       </div>
     </div>
     <div class="pattern-row">
-      <div class="pattern-ref">67:23</div>
+      <div class="pattern-ref"><span class="vchip" data-vid="67_23" onclick="showVerse('67_23')">67:23</span></div>
       <div class="pattern-seq">
         <span class="en-only"><strong>Hearing</strong> → Vision → Hearts — He who created you</span>
         <span class="ur-only"><strong>سماعت</strong> ← بصارت ← دل — جس نے تمہیں پیدا کیا</span>
       </div>
     </div>
     <div class="pattern-row">
-      <div class="pattern-ref">76:2</div>
+      <div class="pattern-ref"><span class="vchip" data-vid="76_2" onclick="showVerse('76_2')">76:2</span></div>
       <div class="pattern-seq">
         <span class="en-only"><strong>Hearing</strong> → Seeing — Then: "We made him hearing and seeing to TEST him"</span>
         <span class="ur-only"><strong>سماعت</strong> ← دیکھنا — پھر: «ہم نے اسے سنتا دیکھتا بنایا تاکہ اسے آزمائیں»</span>
@@ -990,6 +1005,35 @@ function showToast(msg) {
 }
 
 window.addEventListener('DOMContentLoaded', initSavedState);
+
+const VERSES = {
+  '15_29':{ar:'وَنَفَخَ فِيهِ مِن رُّوحِهِ',en:'And breathed into him from His ruh.',ur:'اور اس میں اپنی روح پھونکی۔',ref:'Surah Al-Hijr 15:29'},
+  '32_9':{ar:'وَنَفَخَ فِيهِ مِن رُّوحِهِ ۖ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'He breathed into him from His ruh — and made for you hearing, vision, and hearts (af\'idah).',ur:'روح پھونکی — اور سماعت، بصارت اور افئدہ بنائے۔',ref:'Surah As-Sajdah 32:9'},
+  '28_10':{ar:'وَأَصْبَحَ فُؤَادُ أُمِّ مُوسَىٰ فَارِغًا',en:'The fu\'ad of Musa\'s mother became empty.',ur:'موسیٰ کی ماں کا فواد خالی ہو گیا۔',ref:'Surah Al-Qasas 28:10'},
+  '17_36':{ar:'إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَـٰئِكَ كَانَ عَنْهُ مَسْئُولًا',en:'Indeed hearing, sight, and the fu\'ad — each will be questioned.',ur:'سماعت، بصارت اور فواد — سب سے سوال ہوگا۔',ref:'Surah Al-Isra 17:36'},
+  '13_28':{ar:'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',en:'Verily in the remembrance of Allah do hearts find rest.',ur:'یاد رکھو — اللہ کے ذکر سے ہی دلوں کو اطمینان ملتا ہے۔',ref:'Surah Ar-Ra\'d 13:28'},
+  '6_125':{ar:'فَمَن يُرِدِ اللَّهُ أَن يَهْدِيَهُ يَشْرَحْ صَدْرَهُ لِلْإِسْلَامِ',en:'Whoever Allah wishes to guide — He expands their sadr for Islam.',ur:'جسے اللہ ہدایت دینا چاہے اس کا سینہ اسلام کے لیے کھول دیتا ہے۔',ref:'Surah Al-An\'am 6:125'},
+  '3_190':{ar:'إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ',en:'In the creation of the heavens and earth are signs for those of the lubb.',ur:'آسمانوں اور زمین کی تخلیق میں اولو الالباب کے لیے نشانیاں ہیں۔',ref:'Surah Ali Imran 3:190-191'},
+  '12_53':{ar:'إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي',en:'Indeed the nafs commands toward evil — except what my Lord has mercy upon.',ur:'بے شک نفس برائی کا حکم دیتا ہے — مگر جس پر میرے رب کی رحمت ہو۔',ref:'Surah Yusuf <span class="vchip" data-vid="12_53" onclick="showVerse('12_53')">12:53</span>'},
+  '75_2':{ar:'وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ',en:'And I swear by the self-reproaching nafs.',ur:'اور قسم ہے ملامت کرنے والے نفس کی۔',ref:'Surah Al-Qiyamah <span class="vchip" data-vid="75_2" onclick="showVerse('75_2')">75:2</span>'},
+  '89_27':{ar:'يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً',en:'O reassured soul — return to your Lord, well-pleased and pleasing to Him.',ur:'اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔',ref:'Surah Al-Fajr <span class="vchip" data-vid="89_27" onclick="showVerse('89_27')">89:27-28</span>'},
+  '16_78':{ar:'وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ ۚ لَعَلَّكُمْ تَشْكُرُونَ',en:'And He made for you hearing, vision, and hearts — that you might be grateful.',ur:'اور اس نے تمہارے لیے سماعت، بصارت اور دل بنائے — تاکہ تم شکر ادا کرو۔',ref:'Surah An-Nahl 16:78'},
+  '23_78':{ar:'وَهُوَ الَّذِي أَنشَأَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'And it is He who produced for you hearing, vision, and hearts.',ur:'اور وہی ہے جس نے تمہارے لیے سماعت، بصارت اور دل بنائے۔',ref:'Surah Al-Mu\'minun 23:78'},
+  '67_23':{ar:'قُلْ هُوَ الَّذِي أَنشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'Say: He it is who created you and made for you hearing, vision, and hearts.',ur:'کہو: وہی ہے جس نے تمہیں بنایا اور سماعت، بصارت اور دل دیے۔',ref:'Surah Al-Mulk 67:23'},
+  '76_2':{ar:'إِنَّا خَلَقْنَا الْإِنسَانَ مِن نُّطْفَةٍ أَمْشَاجٍ نَّبْتَلِيهِ فَجَعَلْنَاهُ سَمِيعًا بَصِيرًا',en:'Indeed We created the human from a sperm-drop mixture to test him — and We made him hearing and seeing.',ur:'ہم نے انسان کو ملے جلے نطفے سے آزمانے کے لیے بنایا — اور اسے سنتا دیکھتا بنایا۔',ref:'Surah Al-Insan 76:2'},
+};
+
+function showVerse(id){const d=VERSES[id];if(!d)return;document.getElementById('vp-ar').textContent=d.ar;document.getElementById('vp-tr').textContent=d.en;document.getElementById('vp-tr-ur').textContent=d.ur;document.getElementById('vp-ref').textContent=d.ref;document.getElementById('verse-panel').classList.add('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));const ch=document.querySelector('.vchip[data-vid="'+id+'"]');if(ch)ch.classList.add('open');}
+function closeVP(){document.getElementById('verse-panel').classList.remove('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));}
+document.addEventListener('click',function(e){const p=document.getElementById('verse-panel');if(p&&p.classList.contains('show')&&!p.contains(e.target)&&!e.target.classList.contains('vchip')){closeVP();}});
 </script>
+
+<div class="verse-panel" id="verse-panel">
+  <button class="vp-close" onclick="closeVP()">✕</button>
+  <div class="vp-ar" id="vp-ar"></div>
+  <div class="vp-tr" id="vp-tr"></div>
+  <div class="vp-tr-ur" id="vp-tr-ur"></div>
+  <div class="vp-ref" id="vp-ref"></div>
+</div>
 </body>
 </html>

@@ -120,6 +120,21 @@ table.ibt tr:hover td{background:rgba(255,100,100,.03)}
 .ur-mode .hero-purpose{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
 .ur-mode .certainty-badge{font-family:var(--font-arab);font-size:10px;letter-spacing:0}
 @media(max-width:480px){.content{padding:0 12px}.hero{padding:30px 14px 24px}}
+
+/* ── VERSE CHIPS ── */
+.vchip{display:inline-flex;align-items:center;font-family:var(--font-head);font-size:7.5px;letter-spacing:.6px;padding:2px 7px;border-radius:8px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.08);color:var(--gold);cursor:pointer;vertical-align:middle;margin:0 2px;transition:all .15s;user-select:none}
+.vchip:hover{background:rgba(201,168,76,.15)}
+.vchip.open{background:rgba(201,168,76,.2);border-color:rgba(201,168,76,.5)}
+.verse-panel{position:fixed;bottom:58px;left:0;right:0;background:rgba(6,11,22,.98);border-top:1px solid rgba(201,168,76,.25);backdrop-filter:blur(24px);z-index:75;padding:16px 20px 14px;transform:translateY(110%);transition:transform .28s ease;max-height:45vh;overflow-y:auto}
+.verse-panel.show{transform:translateY(0)}
+.vp-close{position:absolute;top:10px;right:14px;font-size:17px;color:var(--text3);cursor:pointer;background:none;border:none;padding:4px;line-height:1}
+.vp-close:hover{color:var(--gold)}
+.vp-ar{font-family:var(--font-arab);font-size:clamp(17px,3.5vw,22px);color:var(--gold2);direction:rtl;text-align:right;line-height:2;margin-bottom:8px}
+.vp-tr{font-size:12px;color:var(--text);font-style:italic;line-height:1.75;margin-bottom:5px}
+.vp-tr-ur{font-family:var(--font-arab);font-size:13px;color:var(--text);direction:rtl;text-align:right;line-height:2;display:none;margin-bottom:5px}
+.vp-ref{font-family:var(--font-head);font-size:9px;color:var(--gold);letter-spacing:.8px}
+.ur-mode .vp-tr{display:none}
+.ur-mode .vp-tr-ur{display:block}
 </style>
 </head>
 <body>
@@ -244,12 +259,12 @@ table.ibt tr:hover td{background:rgba(255,100,100,.03)}
     <div class="verse-block">
       <div class="verse-ar">وَمَا كَانَ لِيَ عَلَيْكُم مِّن سُلْطَانٍ إِلَّا أَن دَعَوْتُكُمْ فَاسْتَجَبْتُمْ</div>
       <div class="verse-tr"><span class="en-only">"I had no authority over you — except that I called you and you responded."</span><span class="ur-only">«میرے پاس تم پر کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔»</span></div>
-      <div class="verse-ref">Surah Ibrahim 14:22 — Iblis's own final admission</div>
+      <div class="verse-ref">Surah Ibrahim <span class="vchip" data-vid="14_22" onclick="showVerse('14_22')">14:22</span> — Iblis's own final admission</div>
     </div>
-    <div class="explanation"><span class="en-only">The waswasa mechanism: the root W-S-W-S is onomatopoeic — the sound of rustling leaves, barely audible, continuous, unlocatable. Iblis does not shout. He whispers. Al-Khannas (114:4-5) — he withdraws when noticed, then advances when forgotten. The defense is tadhakkaru (they remember) — dhikr, not willpower. Not analysis. Not effort. Remembrance. This is why the inner architecture matters — the qalb that is oriented toward Allah through dhikr does not need to fight waswasa. It simply does not respond to the call.</span><span class="ur-only">وسواس: جڑ و-س-و-س آوازی ہے — پتوں کی سرسراہٹ، مشکل سے سنائی دینے والی، مسلسل، بے مقام۔ ابلیس چلاتا نہیں۔ سرگوشی کرتا ہے۔ الخناس (۱۱۴:۴-۵) — نظر آنے پر چھپ جاتا ہے، بھولنے پر واپس۔ دفاع تذکّروا ہے — ذکر، قوت ارادی نہیں۔ تجزیہ نہیں۔ کوشش نہیں۔ یاد دہانی۔</span></div>
+    <div class="explanation"><span class="en-only">The waswasa mechanism: the root W-S-W-S is onomatopoeic — the sound of rustling leaves, barely audible, continuous, unlocatable. Iblis does not shout. He whispers. Al-Khannas (<span class="vchip" data-vid="114_4" onclick="showVerse('114_4')">114:4-5</span>) — he withdraws when noticed, then advances when forgotten. The defense is tadhakkaru (they remember) — dhikr, not willpower. Not analysis. Not effort. Remembrance. This is why the inner architecture matters — the qalb that is oriented toward Allah through dhikr does not need to fight waswasa. It simply does not respond to the call.</span><span class="ur-only">وسواس: جڑ و-س-و-س آوازی ہے — پتوں کی سرسراہٹ، مشکل سے سنائی دینے والی، مسلسل، بے مقام۔ ابلیس چلاتا نہیں۔ سرگوشی کرتا ہے۔ الخناس (<span class="vchip" data-vid="114_4" onclick="showVerse('114_4')">۱۱۴:۴-۵</span>) — نظر آنے پر چھپ جاتا ہے، بھولنے پر واپس۔ دفاع تذکّروا ہے — ذکر، قوت ارادی نہیں۔ تجزیہ نہیں۔ کوشش نہیں۔ یاد دہانی۔</span></div>
     <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive — Five Quranic locations</span><span class="ur-only">قطعی — پانچ قرآنی مقامات</span></span>
     <div class="card-actions">
-      <button class="card-act-btn" onclick="shareCard('iblis','إِبْلِيس','Iblis\' final admission: "I had no authority over you — except that I called you and you responded." No force. No compulsion. He called. The response was always the human\'s own choice. — Quran 14:22 · Al-Maktaba','ابلیس کا آخری اعتراف: «میرے پاس تم پر کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔» — قرآن ۱۴:۲۲ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" onclick="shareCard('iblis','إِبْلِيس','Iblis\' final admission: "I had no authority over you — except that I called you and you responded." No force. No compulsion. He called. The response was always the human\'s own choice. — Quran <span class="vchip" data-vid="14_22" onclick="showVerse('14_22')">14:22</span> · Al-Maktaba','ابلیس کا آخری اعتراف: «میرے پاس تم پر کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔» — قرآن <span class="vchip" data-vid="14_22" onclick="showVerse('14_22')">۱۴:۲۲</span> · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
       <button class="card-act-btn" id="save-iblis" onclick="saveCard('iblis','Iblis Mechanism')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
     </div>
   </div>
@@ -285,7 +300,7 @@ table.ibt tr:hover td{background:rgba(255,100,100,.03)}
       <div class="verse-tr"><span class="en-only">"He has succeeded who purifies it — and he has failed who buries it."</span><span class="ur-only">«فلاح پا گیا جس نے اسے پاک کیا — اور ناکام ہوا جس نے اسے دبا دیا۔»</span></div>
       <div class="verse-ref">Surah Ash-Shams 91:9-10</div>
     </div>
-    <div class="explanation"><span class="en-only">This is the one choice the Quran reduces everything to. Not birth — that is given (49:13). Not livelihood — that is written (11:6). Not family, location, death — all given. What is chosen: zakkaha or dassaha. The Amanah honoured or betrayed. The fitrah surfaced or buried. The nafs that carries the Bala of the Alastu into the world and keeps it alive — or the nafs that suppresses it until it no longer hears the call. Everything else in the Quran — the dhikr, the salah, the tawbah, the dua — is the mechanism for zakkaha. The Iblis waswasa, the nafs al-ammara, the heedlessness — are the mechanism for dassaha.</span><span class="ur-only">یہ ایک انتخاب ہے جس پر قرآن سب کچھ لے آتا ہے۔ پیدائش نہیں — وہ دی جاتی ہے (۴۹:۱۳)۔ رزق نہیں — وہ لکھا ہے (۱۱:۶)۔ خاندان، جگہ، موت — سب دیے گئے۔ جو چنا جاتا ہے: زکّاھا یا دسّاھا۔ امانت یا خیانت۔ فطرت یا دفن۔ ذکر، صلاۃ، توبہ، دعا — سب زکّاھا کا طریقہ۔ وسواس، نفسِ امارہ، غفلت — سب دسّاھا کا طریقہ۔</span></div>
+    <div class="explanation"><span class="en-only">This is the one choice the Quran reduces everything to. Not birth — that is given (<span class="vchip" data-vid="49_13" onclick="showVerse('49_13')">49:13</span>). Not livelihood — that is written (<span class="vchip" data-vid="11_6" onclick="showVerse('11_6')">11:6</span>). Not family, location, death — all given. What is chosen: zakkaha or dassaha. The Amanah honoured or betrayed. The fitrah surfaced or buried. The nafs that carries the Bala of the Alastu into the world and keeps it alive — or the nafs that suppresses it until it no longer hears the call. Everything else in the Quran — the dhikr, the salah, the tawbah, the dua — is the mechanism for zakkaha. The Iblis waswasa, the nafs al-ammara, the heedlessness — are the mechanism for dassaha.</span><span class="ur-only">یہ ایک انتخاب ہے جس پر قرآن سب کچھ لے آتا ہے۔ پیدائش نہیں — وہ دی جاتی ہے (<span class="vchip" data-vid="49_13" onclick="showVerse('49_13')">۴۹:۱۳</span>)۔ رزق نہیں — وہ لکھا ہے (<span class="vchip" data-vid="11_6" onclick="showVerse('11_6')">۱۱:۶</span>)۔ خاندان، جگہ، موت — سب دیے گئے۔ جو چنا جاتا ہے: زکّاھا یا دسّاھا۔ امانت یا خیانت۔ فطرت یا دفن۔ ذکر، صلاۃ، توبہ، دعا — سب زکّاھا کا طریقہ۔ وسواس، نفسِ امارہ، غفلت — سب دسّاھا کا طریقہ۔</span></div>
     <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive</span><span class="ur-only">قطعی</span></span>
     <div class="card-actions">
       <button class="card-act-btn" onclick="shareCard('choice','زَكَّاهَا أَوْ دَسَّاهَا','He has succeeded who purifies the nafs — and he has failed who buries it. This is the one choice. Not birth. Not provision. Not family. One choice: zakkaha or dassaha. — Quran 91:9-10 · Al-Maktaba','فلاح پا گیا جس نے نفس کو پاک کیا — ناکام ہوا جس نے دبا دیا۔ یہ ایک انتخاب ہے۔ — قرآن ۹۱:۹-۱۰ · المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
@@ -331,6 +346,32 @@ function shareCard(id,ar,en,ur){const text=ar+'\n\n'+(LANG==='ur'?ur:en);if(navi
 function shareParent(){const text=LANG==='ur'?'🌱 آپ ایک مقصد کے لیے یہاں ہیں۔\n\nاللہ نے آسمان اور پہاڑوں کو ایک قیمتی چیز پیش کی — وہ ڈر گئے۔ انسان نے ہاں کہا۔\n\nہر روز ایک انتخاب: اسے پاک رکھو یا دفن کرو۔\n\nAl-Maktaba':'🌱 You are here for a reason.\n\nAllah offered something precious to the mountains — they were scared and said no. The human said yes.\n\nEvery day one choice: purify it or bury it.\n\nAl-Maktaba';if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
 function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(12,21,40,.97);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 18px;font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;color:#C9A84C;z-index:200;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2200);}
 window.addEventListener('DOMContentLoaded',()=>{['amanah','khalifah','iblis','choice'].forEach(id=>{if(localStorage.getItem('almaktaba_saved_'+id)){const btn=document.getElementById('save-'+id);if(btn)btn.classList.add('saved');}});});
+
+const VERSES = {
+  '33_72':{ar:'إِنَّا عَرَضْنَا الْأَمَانَةَ عَلَى السَّمَاوَاتِ وَالْأَرْضِ وَالْجِبَالِ فَأَبَيْنَ أَن يَحْمِلْنَهَا',en:'We offered the Trust to the heavens, the earth, and the mountains — and they refused to bear it.',ur:'ہم نے امانت آسمانوں، زمین اور پہاڑوں کو پیش کی — انہوں نے اسے اٹھانے سے انکار کیا۔',ref:'Surah Al-Ahzab 33:72'},
+  '2_30':{ar:'إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً',en:'I am placing a khalifah on earth.',ur:'میں زمین میں خلیفہ بنانے والا ہوں۔',ref:'Surah Al-Baqarah 2:30'},
+  '10_14':{ar:'ثُمَّ جَعَلْنَاكُمْ خَلَائِفَ فِي الْأَرْضِ مِنۢ بَعْدِهِمْ',en:'Then We made you successors on earth after them.',ur:'پھر ہم نے تمہیں ان کے بعد زمین میں خلیفہ بنایا۔',ref:'Surah Yunus 10:14'},
+  '15_27':{ar:'وَالْجَانَّ خَلَقْنَاهُ مِن قَبْلُ مِن نَّارِ السَّمُومِ',en:'And the jinn — We created them before from scorching fire.',ur:'اور جنوں کو ہم نے پہلے آگ کی لو سے بنایا۔',ref:'Surah Al-Hijr 15:27'},
+  '91_9':{ar:'قَدْ أَفْلَحَ مَن زَكَّاهَا ۞ وَقَدْ خَابَ مَن دَسَّاهَا',en:'He has succeeded who purifies it — and he has failed who buries it.',ur:'فلاح پا گیا جس نے اسے پاک کیا — ناکام ہوا جس نے دبا دیا۔',ref:'Surah Ash-Shams 91:9-10'},
+  '114_4':{ar:'مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ',en:'From the evil of the retreating whisperer.',ur:'چھپ جانے والے وسوسہ ڈالنے والے کی برائی سے۔',ref:'Surah An-Nas <span class="vchip" data-vid="114_4" onclick="showVerse('114_4')">114:4-5</span>'},
+  '49_13':{ar:'يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ',en:'O people — We created you from a male and a female.',ur:'اے لوگو — ہم نے تمہیں مرد اور عورت سے بنایا۔',ref:'Surah Al-Hujurat 49:13'},
+  '11_6':{ar:'وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا',en:'There is no creature on earth but that its provision is upon Allah.',ur:'زمین میں کوئی جاندار نہیں مگر اس کا رزق اللہ کے ذمے ہے۔',ref:'Surah Hud 11:6'},
+  '18_50':{ar:'وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ كَانَ مِنَ الْجِنِّ',en:'And when We said to the angels: Prostrate to Adam. They prostrated except Iblis — he was from the jinn.',ur:'اور جب ہم نے فرشتوں سے کہا آدم کو سجدہ کرو — سب نے کیا سوائے ابلیس کے — وہ جنوں میں سے تھا۔',ref:'Surah Al-Kahf 18:50'},
+  '91_9':{ar:'قَدْ أَفْلَحَ مَن زَكَّاهَا ۞ وَقَدْ خَابَ مَن دَسَّاهَا',en:'He has succeeded who purifies it — and he has failed who buries it.',ur:'فلاح پا گیا جس نے پاک کیا — ناکام ہوا جس نے دبا دیا۔',ref:'Surah Ash-Shams 91:9-10'},
+  '14_22':{ar:'وَمَا كَانَ لِيَ عَلَيْكُم مِّن سُلْطَانٍ إِلَّا أَن دَعَوْتُكُمْ فَاسْتَجَبْتُمْ',en:'I had no authority over you — except that I called and you responded.',ur:'میرے پاس کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔',ref:'Surah Ibrahim 14:22'},
+};
+
+function showVerse(id){const d=VERSES[id];if(!d)return;document.getElementById('vp-ar').textContent=d.ar;document.getElementById('vp-tr').textContent=d.en;document.getElementById('vp-tr-ur').textContent=d.ur;document.getElementById('vp-ref').textContent=d.ref;document.getElementById('verse-panel').classList.add('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));const ch=document.querySelector('.vchip[data-vid="'+id+'"]');if(ch)ch.classList.add('open');}
+function closeVP(){document.getElementById('verse-panel').classList.remove('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));}
+document.addEventListener('click',function(e){const p=document.getElementById('verse-panel');if(p&&p.classList.contains('show')&&!p.contains(e.target)&&!e.target.classList.contains('vchip')){closeVP();}});
 </script>
+
+<div class="verse-panel" id="verse-panel">
+  <button class="vp-close" onclick="closeVP()">✕</button>
+  <div class="vp-ar" id="vp-ar"></div>
+  <div class="vp-tr" id="vp-tr"></div>
+  <div class="vp-tr-ur" id="vp-tr-ur"></div>
+  <div class="vp-ref" id="vp-ref"></div>
+</div>
 </body>
 </html>
