@@ -388,7 +388,19 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
 </div>
 <script>
 let LANG='en';
-function setLang(l){LANG=l;document.getElementById('lt-en').classList.toggle('on',l==='en');document.getElementById('lt-ur').classList.toggle('on',l==='ur');document.body.classList.toggle('ur-mode',l==='ur');document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');document.querySelectorAll('.ur-only').forEach(el=>el.style.display=l==='ur'?'inline':'none');document.querySelectorAll('.en-only').forEach(el=>el.style.display=l==='ur'?'none':'');}
+function setLang(l) {
+  LANG = l;
+  document.getElementById('lt-en').classList.toggle('on', l === 'en');
+  document.getElementById('lt-ur').classList.toggle('on', l === 'ur');
+  document.body.classList.toggle('ur-mode', l === 'ur');
+  document.documentElement.setAttribute('lang', l === 'ur' ? 'ur' : 'en');
+  document.querySelectorAll('.ur-only').forEach(function(el) {
+    el.style.display = l === 'ur' ? 'inline' : 'none';
+  });
+  document.querySelectorAll('.en-only').forEach(function(el) {
+    el.style.display = l === 'ur' ? 'none' : '';
+  });
+}
 function toggleCard(id){document.getElementById(id).classList.toggle('open');}
 function saveCard(id,title){const key='almaktaba_saved_'+id;const btn=document.getElementById('save-'+id);if(localStorage.getItem(key)){localStorage.removeItem(key);if(btn)btn.classList.remove('saved');showToast(LANG==='ur'?'ہٹا دیا':'Removed');}else{localStorage.setItem(key,JSON.stringify({title,module:'creation',saved:Date.now()}));if(btn)btn.classList.add('saved');showToast(LANG==='ur'?'محفوظ ہو گیا ✓':'Saved ✓');}}
 function shareCard(id,ar,en,ur){const text=ar+'\n\n'+(LANG==='ur'?ur:en);if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}

@@ -879,6 +879,12 @@ function setLang(l) {
   document.getElementById('lt-ur').classList.toggle('on', l === 'ur');
   document.body.classList.toggle('ur-mode', l === 'ur');
   document.documentElement.setAttribute('lang', l === 'ur' ? 'ur' : 'en');
+  document.querySelectorAll('.ur-only').forEach(function(el) {
+    el.style.display = l === 'ur' ? 'inline' : 'none';
+  });
+  document.querySelectorAll('.en-only').forEach(function(el) {
+    el.style.display = l === 'ur' ? 'none' : '';
+  });
 }
 
 // ── CARD TOGGLE ──
@@ -1014,9 +1020,9 @@ const VERSES = {
   '13_28':{ar:'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',en:'Verily in the remembrance of Allah do hearts find rest.',ur:'یاد رکھو — اللہ کے ذکر سے ہی دلوں کو اطمینان ملتا ہے۔',ref:'Surah Ar-Ra\'d 13:28'},
   '6_125':{ar:'فَمَن يُرِدِ اللَّهُ أَن يَهْدِيَهُ يَشْرَحْ صَدْرَهُ لِلْإِسْلَامِ',en:'Whoever Allah wishes to guide — He expands their sadr for Islam.',ur:'جسے اللہ ہدایت دینا چاہے اس کا سینہ اسلام کے لیے کھول دیتا ہے۔',ref:'Surah Al-An\'am 6:125'},
   '3_190':{ar:'إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ',en:'In the creation of the heavens and earth are signs for those of the lubb.',ur:'آسمانوں اور زمین کی تخلیق میں اولو الالباب کے لیے نشانیاں ہیں۔',ref:'Surah Ali Imran 3:190-191'},
-  '12_53':{ar:'إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي',en:'Indeed the nafs commands toward evil — except what my Lord has mercy upon.',ur:'بے شک نفس برائی کا حکم دیتا ہے — مگر جس پر میرے رب کی رحمت ہو۔',ref:'Surah Yusuf <span class="vchip" data-vid="12_53" onclick="showVerse('12_53')">12:53</span>'},
-  '75_2':{ar:'وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ',en:'And I swear by the self-reproaching nafs.',ur:'اور قسم ہے ملامت کرنے والے نفس کی۔',ref:'Surah Al-Qiyamah <span class="vchip" data-vid="75_2" onclick="showVerse('75_2')">75:2</span>'},
-  '89_27':{ar:'يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً',en:'O reassured soul — return to your Lord, well-pleased and pleasing to Him.',ur:'اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔',ref:'Surah Al-Fajr <span class="vchip" data-vid="89_27" onclick="showVerse('89_27')">89:27-28</span>'},
+  '12_53':{ar:'إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي',en:'Indeed the nafs commands toward evil — except what my Lord has mercy upon.',ur:'بے شک نفس برائی کا حکم دیتا ہے — مگر جس پر میرے رب کی رحمت ہو۔',ref:'Surah Yusuf 12:53'},
+  '75_2':{ar:'وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ',en:'And I swear by the self-reproaching nafs.',ur:'اور قسم ہے ملامت کرنے والے نفس کی۔',ref:'Surah Al-Qiyamah 75:2'},
+  '89_27':{ar:'يَـٰٓأَيَّتُهَا ٱلنَّفْسُ ٱلْمُطْمَئِنَّةُ ٱرْجِعِىٓ إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً',en:'O reassured soul — return to your Lord, well-pleased and pleasing to Him.',ur:'اے نفسِ مطمئنہ — اپنے رب کی طرف لوٹ آ، راضی اور پسندیدہ۔',ref:'Surah Al-Fajr 89:27-28'},
   '16_78':{ar:'وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ ۚ لَعَلَّكُمْ تَشْكُرُونَ',en:'And He made for you hearing, vision, and hearts — that you might be grateful.',ur:'اور اس نے تمہارے لیے سماعت، بصارت اور دل بنائے — تاکہ تم شکر ادا کرو۔',ref:'Surah An-Nahl 16:78'},
   '23_78':{ar:'وَهُوَ الَّذِي أَنشَأَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'And it is He who produced for you hearing, vision, and hearts.',ur:'اور وہی ہے جس نے تمہارے لیے سماعت، بصارت اور دل بنائے۔',ref:'Surah Al-Mu\'minun 23:78'},
   '67_23':{ar:'قُلْ هُوَ الَّذِي أَنشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'Say: He it is who created you and made for you hearing, vision, and hearts.',ur:'کہو: وہی ہے جس نے تمہیں بنایا اور سماعت، بصارت اور دل دیے۔',ref:'Surah Al-Mulk 67:23'},

@@ -339,7 +339,19 @@ table.ibt tr:hover td{background:rgba(255,100,100,.03)}
 </div>
 <script>
 let LANG='en';
-function setLang(l){LANG=l;document.getElementById('lt-en').classList.toggle('on',l==='en');document.getElementById('lt-ur').classList.toggle('on',l==='ur');document.body.classList.toggle('ur-mode',l==='ur');document.documentElement.setAttribute('lang',l==='ur'?'ur':'en');document.querySelectorAll('.ur-only').forEach(el=>el.style.display=l==='ur'?'inline':'none');document.querySelectorAll('.en-only').forEach(el=>el.style.display=l==='ur'?'none':'');}
+function setLang(l) {
+  LANG = l;
+  document.getElementById('lt-en').classList.toggle('on', l === 'en');
+  document.getElementById('lt-ur').classList.toggle('on', l === 'ur');
+  document.body.classList.toggle('ur-mode', l === 'ur');
+  document.documentElement.setAttribute('lang', l === 'ur' ? 'ur' : 'en');
+  document.querySelectorAll('.ur-only').forEach(function(el) {
+    el.style.display = l === 'ur' ? 'inline' : 'none';
+  });
+  document.querySelectorAll('.en-only').forEach(function(el) {
+    el.style.display = l === 'ur' ? 'none' : '';
+  });
+}
 function toggleCard(id){document.getElementById(id).classList.toggle('open');}
 function saveCard(id,title){const key='almaktaba_saved_'+id;const btn=document.getElementById('save-'+id);if(localStorage.getItem(key)){localStorage.removeItem(key);if(btn)btn.classList.remove('saved');showToast(LANG==='ur'?'ہٹا دیا':'Removed');}else{localStorage.setItem(key,JSON.stringify({title,module:'purpose',saved:Date.now()}));if(btn)btn.classList.add('saved');showToast(LANG==='ur'?'محفوظ ہو گیا ✓':'Saved ✓');}}
 function shareCard(id,ar,en,ur){const text=ar+'\n\n'+(LANG==='ur'?ur:en);if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
@@ -353,7 +365,7 @@ const VERSES = {
   '10_14':{ar:'ثُمَّ جَعَلْنَاكُمْ خَلَائِفَ فِي الْأَرْضِ مِنۢ بَعْدِهِمْ',en:'Then We made you successors on earth after them.',ur:'پھر ہم نے تمہیں ان کے بعد زمین میں خلیفہ بنایا۔',ref:'Surah Yunus 10:14'},
   '15_27':{ar:'وَالْجَانَّ خَلَقْنَاهُ مِن قَبْلُ مِن نَّارِ السَّمُومِ',en:'And the jinn — We created them before from scorching fire.',ur:'اور جنوں کو ہم نے پہلے آگ کی لو سے بنایا۔',ref:'Surah Al-Hijr 15:27'},
   '91_9':{ar:'قَدْ أَفْلَحَ مَن زَكَّاهَا ۞ وَقَدْ خَابَ مَن دَسَّاهَا',en:'He has succeeded who purifies it — and he has failed who buries it.',ur:'فلاح پا گیا جس نے اسے پاک کیا — ناکام ہوا جس نے دبا دیا۔',ref:'Surah Ash-Shams 91:9-10'},
-  '114_4':{ar:'مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ',en:'From the evil of the retreating whisperer.',ur:'چھپ جانے والے وسوسہ ڈالنے والے کی برائی سے۔',ref:'Surah An-Nas <span class="vchip" data-vid="114_4" onclick="showVerse('114_4')">114:4-5</span>'},
+  '114_4':{ar:'مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ',en:'From the evil of the retreating whisperer.',ur:'چھپ جانے والے وسوسہ ڈالنے والے کی برائی سے۔',ref:'Surah An-Nas 114:4-5'},
   '49_13':{ar:'يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ',en:'O people — We created you from a male and a female.',ur:'اے لوگو — ہم نے تمہیں مرد اور عورت سے بنایا۔',ref:'Surah Al-Hujurat 49:13'},
   '11_6':{ar:'وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا',en:'There is no creature on earth but that its provision is upon Allah.',ur:'زمین میں کوئی جاندار نہیں مگر اس کا رزق اللہ کے ذمے ہے۔',ref:'Surah Hud 11:6'},
   '18_50':{ar:'وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ كَانَ مِنَ الْجِنِّ',en:'And when We said to the angels: Prostrate to Adam. They prostrated except Iblis — he was from the jinn.',ur:'اور جب ہم نے فرشتوں سے کہا آدم کو سجدہ کرو — سب نے کیا سوائے ابلیس کے — وہ جنوں میں سے تھا۔',ref:'Surah Al-Kahf 18:50'},
