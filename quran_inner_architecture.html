@@ -318,6 +318,100 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
   .pattern-ref{width:auto}
 }
 
+/* ── HIERARCHY SECTION ── */
+.hier-intro{font-size:12.5px;color:var(--text2);line-height:1.85;margin-bottom:20px}
+.hier-intro .ur-only{font-family:var(--font-arab);font-size:13.5px;direction:rtl;text-align:right;line-height:2;display:block}
+
+/* Flow visual */
+.hier-flow{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:24px 20px;margin-bottom:20px;position:relative;overflow:hidden}
+.hier-flow::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hier-flow-title{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:22px}
+.hier-nodes{display:flex;flex-direction:column;align-items:center;gap:0}
+.hier-node{width:100%;max-width:560px;border-radius:10px;padding:14px 18px;border:1px solid;position:relative;transition:all .2s}
+.hier-node:hover{transform:scale(1.005)}
+.hn-sadr{background:rgba(122,171,240,.06);border-color:rgba(122,171,240,.22)}
+.hn-qalb{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.22)}
+.hn-fuad{background:rgba(47,184,154,.07);border-color:rgba(47,184,154,.22)}
+.hn-lubb{background:rgba(224,160,48,.10);border-color:rgba(224,160,48,.35)}
+.hn-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.hn-ar{font-family:var(--font-arab);font-size:20px;line-height:1}
+.hn-sadr .hn-ar{color:var(--blue)}
+.hn-qalb .hn-ar{color:var(--gold2)}
+.hn-fuad .hn-ar{color:var(--teal)}
+.hn-lubb .hn-ar{color:var(--amber)}
+.hn-label{flex:1}
+.hn-en{font-family:var(--font-head);font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:2px}
+.hn-function{font-size:11px;color:var(--text2);line-height:1.55}
+.hn-function .ur-only{font-family:var(--font-arab);font-size:12px;direction:rtl;display:block;line-height:1.9}
+.hn-verse-tag{font-family:var(--font-head);font-size:8px;letter-spacing:.5px;padding:2px 8px;border-radius:6px;border:1px solid;margin-left:auto;flex-shrink:0;white-space:nowrap}
+.hn-sadr .hn-verse-tag{background:rgba(122,171,240,.08);border-color:rgba(122,171,240,.25);color:var(--blue)}
+.hn-qalb .hn-verse-tag{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.25);color:var(--gold)}
+.hn-fuad .hn-verse-tag{background:rgba(47,184,154,.08);border-color:rgba(47,184,154,.25);color:var(--teal)}
+.hn-lubb .hn-verse-tag{background:rgba(224,160,48,.10);border-color:rgba(224,160,48,.30);color:var(--amber)}
+.hier-arrow{text-align:center;color:var(--text3);font-size:13px;line-height:1;padding:4px 0;opacity:.6}
+.hier-flow-note{margin-top:16px;padding:10px 14px;background:rgba(0,0,0,.25);border-radius:8px;font-size:11px;color:var(--text3);line-height:1.7;font-style:italic;text-align:center}
+.hier-flow-note .ur-only{font-family:var(--font-arab);font-size:12px;direction:rtl;line-height:1.9}
+
+/* Qalb vs Fu'ad distinction */
+.distinction-wrap{margin-bottom:20px}
+.distinction-title{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--text3);margin-bottom:12px}
+.distinction-title .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+.distinction-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:420px){.distinction-grid{grid-template-columns:1fr}}
+.dist-cell{border-radius:10px;padding:14px;border:1px solid}
+.dist-qalb{background:rgba(201,168,76,.05);border-color:rgba(201,168,76,.2)}
+.dist-fuad{background:rgba(47,184,154,.05);border-color:rgba(47,184,154,.2)}
+.dist-ar{font-family:var(--font-arab);font-size:22px;margin-bottom:4px;line-height:1.3}
+.dist-qalb .dist-ar{color:var(--gold2)}
+.dist-fuad .dist-ar{color:var(--teal)}
+.dist-en{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px}
+.dist-qalb .dist-en{color:var(--gold)}
+.dist-fuad .dist-en{color:var(--teal)}
+.dist-rows{display:flex;flex-direction:column;gap:6px}
+.dist-row{background:rgba(0,0,0,.2);border-radius:6px;padding:7px 10px}
+.dist-row-label{font-family:var(--font-head);font-size:7.5px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:3px}
+.dist-qalb .dist-row-label{color:var(--gold)}
+.dist-fuad .dist-row-label{color:var(--teal)}
+.dist-row-text{font-size:11px;color:var(--text2);line-height:1.6}
+.dist-row-text .ur-only{font-family:var(--font-arab);font-size:12px;direction:rtl;display:block;line-height:1.9}
+.dist-verse{margin-top:8px;padding:7px 10px;background:rgba(201,168,76,.04);border-radius:6px;border:1px solid var(--border2)}
+.dist-verse-ar{font-family:var(--font-arab);font-size:14px;color:var(--gold2);direction:rtl;text-align:right;line-height:1.8;margin-bottom:4px}
+.dist-verse-tr{font-size:10.5px;color:var(--text);font-style:italic;line-height:1.6;margin-bottom:3px}
+.dist-verse-tr .ur-only{font-family:var(--font-arab);font-size:11.5px;direction:rtl;text-align:right;line-height:1.9;font-style:normal}
+.dist-verse-ref{font-family:var(--font-head);font-size:8px;color:var(--gold);letter-spacing:.6px}
+
+/* Lubb 16 occurrences table */
+.lubb16-wrap{margin-bottom:20px}
+.lubb16-title{font-family:var(--font-head);font-size:8.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.lubb16-title::after{content:'';flex:1;height:1px;background:rgba(224,160,48,.15)}
+.lubb16-title .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+.lubb16-table-wrap{overflow-x:auto;border-radius:10px;border:1px solid rgba(224,160,48,.2)}
+table.l16t{width:100%;border-collapse:collapse;min-width:480px}
+table.l16t th{font-family:var(--font-head);font-size:8px;letter-spacing:.8px;text-transform:uppercase;color:var(--amber);padding:8px 10px;background:rgba(224,160,48,.07);border-bottom:1px solid rgba(224,160,48,.15);text-align:left}
+table.l16t td{padding:8px 10px;font-size:11px;border-bottom:1px solid var(--border2);vertical-align:top;line-height:1.55;color:var(--text2)}
+table.l16t tr:last-child td{border-bottom:none}
+table.l16t tr:hover td{background:rgba(224,160,48,.03)}
+table.l16t td:first-child{font-family:var(--font-head);font-size:8.5px;color:var(--amber);white-space:nowrap;width:80px}
+table.l16t td:nth-child(2){font-family:var(--font-arab);font-size:12px;direction:rtl;text-align:right;line-height:1.9;color:var(--gold2);width:120px}
+.ur-mode table.l16t th,.ur-mode table.l16t td{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:1.9;font-size:12px}
+
+/* Integration block */
+.integration-block{background:linear-gradient(135deg,rgba(224,160,48,.06),rgba(201,168,76,.04));border:1px solid rgba(224,160,48,.25);border-radius:12px;padding:18px 20px;margin-bottom:16px;position:relative;overflow:hidden}
+.integration-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.integration-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.integration-label .ur-only{font-family:var(--font-arab);font-size:11px;letter-spacing:0;text-transform:none}
+.integration-text{font-size:12.5px;color:var(--text2);line-height:1.85}
+.integration-text .ur-only{font-family:var(--font-arab);font-size:13.5px;direction:rtl;text-align:right;line-height:2;display:block}
+.ur-mode .hier-intro{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .hier-flow-note{font-family:var(--font-arab);direction:rtl;line-height:2}
+.ur-mode .hn-top{flex-direction:row-reverse}
+.ur-mode .hn-verse-tag{margin-left:0;margin-right:auto}
+.ur-mode .dist-cell{direction:rtl;text-align:right}
+.ur-mode .integration-text{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
+.ur-mode .lubb16-title{flex-direction:row-reverse}
+.ur-mode .lubb16-title::after{display:none}
+.ur-mode .lubb16-title::before{content:'';flex:1;height:1px;background:rgba(224,160,48,.15)}
+
 /* ── VERSE CHIPS ── */
 .vchip{display:inline-flex;align-items:center;font-family:var(--font-head);font-size:7.5px;letter-spacing:.6px;padding:2px 7px;border-radius:8px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.08);color:var(--gold);cursor:pointer;vertical-align:middle;margin:0 2px;transition:all .15s;user-select:none}
 .vchip:hover{background:rgba(201,168,76,.15)}
@@ -819,6 +913,241 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
   </div>
 </div>
 
+<!-- HIERARCHY SECTION -->
+<div class="sec-label">
+  <span class="en-only">The Hierarchy — How They Connect</span>
+  <span class="ur-only">درجہ بندی — یہ کیسے جڑتے ہیں</span>
+</div>
+
+<p class="hier-intro">
+  <span class="en-only">The seven words are not a flat list of synonyms. They form a precise architecture from outside to inside — each layer deeper, each with a distinct function. The Sadr receives. The Qalb processes and orients. The Fu'ad witnesses without distortion. The Lubb integrates everything into pure knowing. These are not four separate organs. They are four depths of the same inner space — and the Quran addresses each one differently because each one fails and recovers differently.</span>
+  <span class="ur-only">سات الفاظ مترادفات کی ایک سپاٹ فہرست نہیں۔ یہ باہر سے اندر تک ایک درست معمار بناتے ہیں — ہر پرت گہری، ہر ایک کا الگ کام۔ صدر وصول کرتا ہے۔ قلب پروسیس کرتا اور رخ دیتا ہے۔ فواد بغیر تحریف کے گواہی دیتا ہے۔ لب سب کچھ خالص علم میں ضم کرتا ہے۔ یہ چار الگ اعضاء نہیں۔ ایک ہی باطنی فضاء کی چار گہرائیاں ہیں — اور قرآن ہر ایک کو الگ طریقے سے مخاطب کرتا ہے کیونکہ ہر ایک الگ طریقے سے ناکام ہوتا اور صحت یاب ہوتا ہے۔</span>
+</p>
+
+<!-- FLOW VISUAL -->
+<div class="hier-flow">
+  <div class="hier-flow-title">
+    <span class="en-only">Sadr → Qalb → Fu'ad → Lubb · Outer to Inner</span>
+    <span class="ur-only">صدر ← قلب ← فواد ← لب · باہر سے اندر</span>
+  </div>
+  <div class="hier-nodes">
+
+    <div class="hier-node hn-sadr">
+      <div class="hn-top">
+        <div class="hn-ar">صَدْر</div>
+        <div class="hn-label">
+          <div class="hn-en"><span class="en-only">Sadr — The Receiver</span><span class="ur-only">صدر — وصول کرنے والا</span></div>
+          <div class="hn-function">
+            <span class="en-only">The outermost layer. Everything that enters the person passes through the sadr first — waswasa, hidayah, grief, joy. It expands and constricts. Its state is readable: a constricted sadr signals distance from Allah; an expanded sadr signals openness. The qalb sits inside it — confirmed explicitly in 22:46.</span>
+            <span class="ur-only">سب سے بیرونی پرت۔ جو کچھ انسان میں داخل ہو پہلے صدر سے گزرتا ہے — وسواس، ہدایت، غم، خوشی۔ کھلتا اور تنگ ہوتا ہے۔ اس کی حالت پڑھی جا سکتی ہے: تنگ صدر اللہ سے دوری کی علامت، کھلا صدر آمادگی کی۔ قلب اس کے اندر ہے — ۲۲:۴۶ میں صراحتاً تصدیق۔</span>
+          </div>
+        </div>
+        <span class="hn-verse-tag"><span class="vchip" data-vid="6_125" onclick="showVerse('6_125')">6:125</span> <span class="vchip" data-vid="94_1" onclick="showVerse('94_1')">94:1</span></span>
+      </div>
+    </div>
+
+    <div class="hier-arrow">↓</div>
+
+    <div class="hier-node hn-qalb">
+      <div class="hn-top">
+        <div class="hn-ar">قَلْب</div>
+        <div class="hn-label">
+          <div class="hn-en"><span class="en-only">Qalb — The Orientor</span><span class="ur-only">قلب — رخ دینے والا</span></div>
+          <div class="hn-function">
+            <span class="en-only">The processing centre — it takes what the sadr receives and generates orientation: toward Allah or away. The qalb can turn (its defining nature), harden (qaswah — 2:74), become diseased (marad — 2:10), be sealed (khatm — 2:7), or go blind (22:46). It holds iman, and iman lives or dies here. The dhikr that reverses qalb-blindness is specifically targeting this layer.</span>
+            <span class="ur-only">پروسیسنگ کا مرکز — جو صدر نے وصول کیا اسے رخ دیتا ہے: اللہ کی طرف یا اس سے دور۔ قلب پلٹ سکتا ہے (اس کی فطری خاصیت)، سخت ہو سکتا ہے (قسوۃ — ۲:۷۴)، بیمار ہو سکتا ہے (مرض — ۲:۱۰)، مہر بند ہو سکتا ہے (ختم — ۲:۷)، یا اندھا ہو سکتا ہے (۲۲:۴۶)۔ ایمان اسی میں رہتا ہے۔ ذکر جو قلب کے اندھے پن کو واپس لاتا ہے خاص طور پر اسی پرت کو مخاطب کرتا ہے۔</span>
+          </div>
+        </div>
+        <span class="hn-verse-tag"><span class="vchip" data-vid="22_46" onclick="showVerse('22_46')">22:46</span> <span class="vchip" data-vid="13_28" onclick="showVerse('13_28')">13:28</span></span>
+      </div>
+    </div>
+
+    <div class="hier-arrow">↓</div>
+
+    <div class="hier-node hn-fuad">
+      <div class="hn-top">
+        <div class="hn-ar">فُؤَاد</div>
+        <div class="hn-label">
+          <div class="hn-en"><span class="en-only">Fu'ad — The Witness</span><span class="ur-only">فواد — گواہ</span></div>
+          <div class="hn-function">
+            <span class="en-only">Deeper than the qalb. Where the qalb processes and can be biased, the fu'ad witnesses directly and cannot lie — 53:11 says this explicitly of the Prophet's ﷺ direct encounter. The fu'ad burns with raw experience. It can be emptied by grief (28:10 — Musa's mother), filled by fear, and will be questioned by name on the Day of Judgment (17:36). It is the seat of direct encounter — where revelation lands, where grief hollows, where certainty lives.</span>
+            <span class="ur-only">قلب سے گہرا۔ جہاں قلب پروسیس کرتا اور متعصب ہو سکتا ہے، فواد براہ راست گواہی دیتا ہے اور جھوٹ نہیں بول سکتا — ۵۳:۱۱ یہ نبی ﷺ کی براہ راست ملاقات کے بارے میں صراحتاً کہتا ہے۔ فواد خام تجربے سے جلتا ہے۔ غم سے خالی ہو سکتا ہے (۲۸:۱۰ — موسیٰ کی ماں)، ڈر سے بھر سکتا ہے، اور قیامت میں نام سے سوال ہوگا (۱۷:۳۶)۔ یہ براہ راست ملاقات کی نشست ہے۔</span>
+          </div>
+        </div>
+        <span class="hn-verse-tag"><span class="vchip" data-vid="53_11" onclick="showVerse('53_11')">53:11</span> <span class="vchip" data-vid="17_36" onclick="showVerse('17_36')">17:36</span></span>
+      </div>
+    </div>
+
+    <div class="hier-arrow">↓</div>
+
+    <div class="hier-node hn-lubb">
+      <div class="hn-top">
+        <div class="hn-ar">لُبّ</div>
+        <div class="hn-label">
+          <div class="hn-en"><span class="en-only">Lubb — The Integrator</span><span class="ur-only">لب — ضم کرنے والا</span></div>
+          <div class="hn-function">
+            <span class="en-only">The innermost. Not just deeper — qualitatively different. The lubb does not process or witness separately. It integrates everything: the sadr open, the qalb oriented, the fu'ad witnessing — and from that complete inner alignment emerges the lubb's knowing. This is why the Quran never says "the lubb was sealed" or "the lubb went blind." It is not a layer that fails. It is the state that emerges when all the other layers are working. The ulu al-albab are not a different kind of person. They are people whose full architecture is engaged simultaneously.</span>
+            <span class="ur-only">سب سے اندرونی۔ صرف گہرا نہیں — معیاری طور پر مختلف۔ لب الگ سے پروسیس یا گواہی نہیں دیتا۔ یہ سب کو ضم کرتا ہے: کھلا صدر، رخ یافتہ قلب، گواہی دیتا فواد — اور اس مکمل باطنی ہم آہنگی سے لب کا علم پیدا ہوتا ہے۔ اسی لیے قرآن کبھی نہیں کہتا «لب مہر بند ہو گیا» یا «لب اندھا ہو گیا»۔ یہ ناکام ہونے والی پرت نہیں۔ یہ وہ کیفیت ہے جو سب پرتوں کے کام کرنے پر پیدا ہوتی ہے۔ اولو الالباب کوئی الگ قسم کے لوگ نہیں۔ یہ وہ لوگ ہیں جن کا پورا معمار بیک وقت فعال ہے۔</span>
+          </div>
+        </div>
+        <span class="hn-verse-tag"><span class="vchip" data-vid="3_190" onclick="showVerse('3_190')">3:190</span> <span class="vchip" data-vid="39_9" onclick="showVerse('39_9')">39:9</span></span>
+      </div>
+    </div>
+
+  </div>
+  <div class="hier-flow-note">
+    <span class="en-only">22:46 confirms the qalb sits inside the sadr. The fu'ad and lubb are not given physical locations — they are depths, not places. The architecture is functional, not anatomical.</span>
+    <span class="ur-only">۲۲:۴۶ تصدیق کرتی ہے کہ قلب صدر کے اندر ہے۔ فواد اور لب کو جسمانی مقامات نہیں دیے گئے — یہ گہرائیاں ہیں، جگہیں نہیں۔ یہ معمار فعلی ہے، تشریحی نہیں۔</span>
+  </div>
+</div>
+
+<!-- QALB VS FUAD DISTINCTION -->
+<div class="distinction-wrap">
+  <div class="distinction-title">
+    <span class="en-only">✦ The Critical Distinction — Qalb vs Fu'ad</span>
+    <span class="ur-only">✦ اہم فرق — قلب بنام فواد</span>
+  </div>
+  <div class="distinction-grid">
+
+    <div class="dist-cell dist-qalb">
+      <div class="dist-ar">الْقَلْب</div>
+      <div class="dist-en"><span class="en-only">Processes · Orients · Can Fail</span><span class="ur-only">پروسیس · رخ · ناکام ہو سکتا</span></div>
+      <div class="dist-rows">
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">Root Action</span><span class="ur-only">جڑ کا فعل</span></div>
+          <div class="dist-row-text"><span class="en-only">Qalaba — to flip, to turn. The qalb is defined by movement.</span><span class="ur-only">قلب = پلٹنا، موڑنا۔ قلب حرکت سے تعریف پاتا ہے۔</span></div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">What It Does</span><span class="ur-only">کیا کرتا ہے</span></div>
+          <div class="dist-row-text"><span class="en-only">Evaluates, generates orientation, holds iman or kufr, makes moral decisions.</span><span class="ur-only">جائزہ لیتا، رخ بناتا، ایمان یا کفر رکھتا، اخلاقی فیصلے کرتا ہے۔</span></div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">How It Fails</span><span class="ur-only">کیسے ناکام ہوتا</span></div>
+          <div class="dist-row-text"><span class="en-only">Hardens (qaswah), becomes diseased (marad), gets sealed (khatm), goes blind (2:7, 2:10, 2:74, 22:46).</span><span class="ur-only">سخت ہوتا (قسوۃ)، بیمار ہوتا (مرض)، مہر بند ہوتا (ختم)، اندھا ہوتا — ۲:۷، ۲:۱۰، ۲:۷۴، ۲۲:۴۶۔</span></div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">How It Heals</span><span class="ur-only">کیسے ٹھیک ہوتا</span></div>
+          <div class="dist-row-text"><span class="en-only">Dhikr — "Verily in the remembrance of Allah do hearts find rest." <span class="vchip" data-vid="13_28" onclick="showVerse('13_28')">13:28</span></span><span class="ur-only">ذکر — «اللہ کی یاد سے دلوں کو سکون ملتا ہے۔» <span class="vchip" data-vid="13_28" onclick="showVerse('13_28')">۱۳:۲۸</span></span></div>
+        </div>
+      </div>
+      <div class="dist-verse">
+        <div class="dist-verse-ar">فَإِنَّهَا لَا تَعْمَى الْأَبْصَارُ وَلَٰكِن تَعْمَى الْقُلُوبُ الَّتِي فِي الصُّدُورِ</div>
+        <div class="dist-verse-tr"><span class="en-only">"It is not the eyes that are blind — but the hearts within the chests."</span><span class="ur-only">«آنکھیں اندھی نہیں — بلکہ سینوں کے اندر دل اندھے ہیں۔»</span></div>
+        <div class="dist-verse-ref">22:46</div>
+      </div>
+    </div>
+
+    <div class="dist-cell dist-fuad">
+      <div class="dist-ar">الْفُؤَاد</div>
+      <div class="dist-en"><span class="en-only">Witnesses · Burns · Cannot Lie</span><span class="ur-only">گواہی · جلنا · جھوٹ نہیں</span></div>
+      <div class="dist-rows">
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">Root Action</span><span class="ur-only">جڑ کا فعل</span></div>
+          <div class="dist-row-text"><span class="en-only">Fa'ada — to kindle, to burn. The fu'ad is defined by intensity of felt experience.</span><span class="ur-only">فأد = روشن کرنا، جلانا۔ فواد محسوس تجربے کی شدت سے تعریف پاتا ہے۔</span></div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">What It Does</span><span class="ur-only">کیا کرتا ہے</span></div>
+          <div class="dist-row-text"><span class="en-only">Records raw experience directly — grief, awe, revelation. Bears witness to what it encountered without filtering or bias.</span><span class="ur-only">خام تجربہ براہ راست ریکارڈ کرتا ہے — غم، ہیبت، وحی۔ جو سامنا ہوا اس کی بغیر فلٹر گواہی دیتا ہے۔</span></div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">How It Suffers</span><span class="ur-only">کیسے متاثر ہوتا</span></div>
+          <div class="dist-row-text"><span class="en-only">Emptied by devastating grief (fariaghan — 28:10). Filled with dread. It cannot be sealed — but it can be overwhelmed.</span><span class="ur-only">تباہ کن غم سے خالی ہوتا (فارغاً — ۲۸:۱۰)۔ خوف سے بھر جاتا۔ مہر بند نہیں ہو سکتا — لیکن مغلوب ہو سکتا ہے۔</span></div>
+        </div>
+        <div class="dist-row">
+          <div class="dist-row-label"><span class="en-only">Its Defining Property</span><span class="ur-only">اس کی اساسی خصوصیت</span></div>
+          <div class="dist-row-text"><span class="en-only">It does not lie about what it saw — 53:11. The fu'ad is the truth-teller of the inner self. It will be questioned precisely because it cannot fabricate.</span><span class="ur-only">جو دیکھا اس کے بارے میں جھوٹ نہیں بولتا — ۵۳:۱۱۔ فواد باطن کا سچ بولنے والا ہے۔ اس سے سوال ہوگا کیونکہ یہ بنا نہیں سکتا۔</span></div>
+        </div>
+      </div>
+      <div class="dist-verse">
+        <div class="dist-verse-ar">مَا كَذَبَ الْفُؤَادُ مَا رَأَىٰ</div>
+        <div class="dist-verse-tr"><span class="en-only">"The fu'ad did not lie about what it saw."</span><span class="ur-only">«فواد نے جو دیکھا اس کے بارے میں جھوٹ نہیں بولا۔»</span></div>
+        <div class="dist-verse-ref">53:11 — The Prophet ﷺ during the first revelation</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LUBB 16 OCCURRENCES -->
+<div class="lubb16-wrap">
+  <div class="lubb16-title">
+    <span class="en-only">الْلُبّ Appears 16 Times — Five Categories of Use</span>
+    <span class="ur-only">لب قرآن میں ۱۶ بار — پانچ زمرے</span>
+  </div>
+  <div class="lubb16-table-wrap">
+    <table class="l16t">
+      <thead><tr>
+        <th><span class="en-only">Reference</span><span class="ur-only">حوالہ</span></th>
+        <th><span class="en-only">Arabic</span><span class="ur-only">عربی</span></th>
+        <th><span class="en-only">Category</span><span class="ur-only">زمرہ</span></th>
+        <th><span class="en-only">What it reveals about the Lubb</span><span class="ur-only">لب کے بارے میں کیا ظاہر کرتا ہے</span></th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="vchip" data-vid="2_179" onclick="showVerse('2_179')">2:179</span></td>
+          <td>يَا أُولِي الْأَلْبَابِ</td>
+          <td><span class="en-only">⚖ Law &amp; Justice</span><span class="ur-only">⚖ قانون و انصاف</span></td>
+          <td><span class="en-only">Qisas (retribution) contains life — ulu al-albab are the ones who can see the wisdom beneath the apparent harshness. The lubb reads below the surface of law.</span><span class="ur-only">قصاص میں زندگی ہے — اولو الالباب وہ ہیں جو ظاہری سختی کے نیچے حکمت دیکھ سکتے ہیں۔ لب قانون کی سطح کے نیچے پڑھتا ہے۔</span></td>
+        </tr>
+        <tr>
+          <td><span class="vchip" data-vid="2_197" onclick="showVerse('2_197')">2:197</span></td>
+          <td>وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ</td>
+          <td><span class="en-only">🛡 Taqwa</span><span class="ur-only">🛡 تقویٰ</span></td>
+          <td><span class="en-only">"Have taqwa of Me — O ulu al-albab." Taqwa is addressed specifically to the lubb-possessing, not just to believers in general. The lubb is the faculty through which taqwa operates at its deepest level.</span><span class="ur-only">«میرا تقویٰ اختیار کرو — اے اولو الالباب۔» تقویٰ خاص طور پر لب والوں کو مخاطب — عام مومنوں کو نہیں۔ لب وہ قوت ہے جس کے ذریعے تقویٰ گہری سطح پر کام کرتا ہے۔</span></td>
+        </tr>
+        <tr>
+          <td><span class="vchip" data-vid="3_190" onclick="showVerse('3_190')">3:190-191</span></td>
+          <td>لِّأُولِي الْأَلْبَابِ</td>
+          <td><span class="en-only">🌌 Tafakkur + Dhikr</span><span class="ur-only">🌌 تفکر + ذکر</span></td>
+          <td><span class="en-only">Signs of the cosmos are for ulu al-albab — defined immediately as those who do dhikr in all positions AND reflect on creation simultaneously. Both streams at once. This is the lubb's defining activity.</span><span class="ur-only">کائنات کی نشانیاں اولو الالباب کے لیے — فوری تعریف: وہ جو ہر حالت میں ذکر کرتے اور بیک وقت تخلیق پر غور کرتے ہیں۔ دونوں دھارے ایک ساتھ — لب کی تعریفی سرگرمی۔</span></td>
+        </tr>
+        <tr>
+          <td><span class="vchip" data-vid="5_100" onclick="showVerse('5_100')">5:100</span></td>
+          <td>فَاتَّقُوا اللَّهَ يَا أُولِي الْأَلْبَابِ</td>
+          <td><span class="en-only">⚖ Discernment</span><span class="ur-only">⚖ تمیز</span></td>
+          <td><span class="en-only">The impure and pure are not equal even if the abundance of the impure dazzles you. The lubb is the faculty that can see the qualitative difference — not just the quantitative. It discerns what the dazzled eye cannot.</span><span class="ur-only">پلید اور پاک برابر نہیں خواہ پلید کی کثرت تمہیں چکاچوند کرے۔ لب وہ قوت ہے جو معیاری فرق دیکھ سکتی ہے — صرف مقداری نہیں۔ وہ تمیز کرتا ہے جو چندھیائی آنکھ نہیں کر سکتی۔</span></td>
+        </tr>
+        <tr>
+          <td><span class="vchip" data-vid="12_111" onclick="showVerse('12_111')">12:111</span></td>
+          <td>لِأُولِي الْأَلْبَابِ</td>
+          <td><span class="en-only">📖 Prophetic Narratives</span><span class="ur-only">📖 انبیاء کے قصص</span></td>
+          <td><span class="en-only">The stories of the prophets contain ibra (lessons) for ulu al-albab. Not information — ibra means something you cross over, a lesson that transfers. The lubb is what allows a person to extract transferable meaning from historical events — to read narrative as instruction.</span><span class="ur-only">انبیاء کے قصوں میں اولو الالباب کے لیے عبرت ہے۔ معلومات نہیں — عبرت وہ ہے جو پار ہو، جو منتقل ہو۔ لب وہ ہے جو تاریخی واقعات سے منتقل ہونے والا سبق نکالتا ہے — بیانیے کو ہدایت کے طور پر پڑھتا ہے۔</span></td>
+        </tr>
+        <tr>
+          <td><span class="vchip" data-vid="38_29" onclick="showVerse('38_29')">38:29</span></td>
+          <td>لِّيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ</td>
+          <td><span class="en-only">📘 The Quran's Target Faculty</span><span class="ur-only">📘 قرآن کی ہدف قوت</span></td>
+          <td><span class="en-only">The Quran was revealed so that ulu al-albab may tadabbur its verses — deep contemplation, not surface reading. The lubb is the faculty the Quran itself was addressed to. The Quran has a target inside the human being. That target is the lubb.</span><span class="ur-only">قرآن اس لیے نازل ہوا کہ اولو الالباب اس کی آیات پر تدبر کریں — گہرا غور، سطحی پڑھنا نہیں۔ لب وہ قوت ہے جسے خود قرآن مخاطب کرتا ہے۔ قرآن کا ایک ہدف انسان کے اندر ہے۔ وہ ہدف لب ہے۔</span></td>
+        </tr>
+        <tr>
+          <td><span class="vchip" data-vid="39_9" onclick="showVerse('39_9')">39:9</span></td>
+          <td>إِنَّمَا يَتَذَكَّرُ أُولُو الْأَلْبَابِ</td>
+          <td><span class="en-only">🔍 The Knowing vs Unknowing</span><span class="ur-only">🔍 جاننے والے بنام نہ جاننے والے</span></td>
+          <td><span class="en-only">"Are those who know equal to those who do not know? Only ulu al-albab take heed." The lubb is explicitly the faculty of the one who knows — not mere information, but the deep knowing that changes behaviour. The distinction between 'alim (knowing) and jahil (ignorant) maps onto the lubb's presence or absence.</span><span class="ur-only">«کیا جاننے والے اور نہ جاننے والے برابر ہیں؟ صرف اولو الالباب نصیحت حاصل کرتے ہیں۔» لب صراحتاً جاننے والے کی قوت ہے — محض معلومات نہیں، وہ گہرا علم جو رویہ بدلتا ہے۔</span></td>
+        </tr>
+        <tr>
+          <td><span class="vchip" data-vid="65_10" onclick="showVerse('65_10')">65:10</span></td>
+          <td>يَا أُولِي الْأَلْبَابِ</td>
+          <td><span class="en-only">🛡 Taqwa as Provision</span><span class="ur-only">🛡 تقویٰ بطور توشہ</span></td>
+          <td><span class="en-only">Allah has prepared severe punishment for those who disbelieve, and forgiveness and great reward for those who believe and do good — then addresses ulu al-albab directly: have taqwa. Taqwa is the specific provision given to those whose lubb is active. Not just a command — a recognition of what the lubb enables.</span><span class="ur-only">اللہ نے کافروں کے لیے سخت عذاب اور مومنوں کے لیے مغفرت تیار کی — پھر اولو الالباب کو براہ راست مخاطب: تقویٰ اختیار کرو۔ تقویٰ وہ خاص توشہ ہے جو فعال لب والوں کو دیا جاتا ہے۔</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- INTEGRATION BLOCK -->
+<div class="integration-block">
+  <div class="integration-label">
+    <span class="en-only">◈ The Lubb as the Goal of the Architecture</span>
+    <span class="ur-only">◈ لب بطور معمار کا مقصد</span>
+  </div>
+  <div class="integration-text">
+    <span class="en-only">The inner architecture is not a flat map — it has a direction. The Sadr is the entry point. The Qalb is the processor. The Fu'ad is the witness. The Lubb is the destination.<br><br>The Quran never speaks of a sealed lubb, a diseased lubb, or a blind lubb — because the lubb is not a layer that can malfunction in isolation. It is the integrated state of the entire architecture functioning correctly. When the sadr is expanded, the qalb is oriented toward Allah, and the fu'ad is witnessing clearly — the lubb emerges. When any of those layers fails, the lubb is not destroyed. It is simply not reached.<br><br>This is why the Quran calls on "ulu al-albab" — those possessed of the lubb — for the most demanding cognitive and spiritual tasks: reading the cosmos for signs, extracting wisdom from the prophetic narratives, making the qualitative distinctions that dazzled eyes cannot make, and receiving the Quran at the depth it was intended. The lubb is not a special gift given to scholars. It is the natural outcome of a fully functioning inner architecture. The path to it runs through every other layer.</span>
+    <span class="ur-only">باطنی معمار ایک سپاٹ نقشہ نہیں — اس کی ایک سمت ہے۔ صدر داخلی نقطہ ہے۔ قلب کارگر ہے۔ فواد گواہ ہے۔ لب منزل ہے۔<br><br>قرآن کبھی مہر بند لب، بیمار لب، یا اندھے لب کی بات نہیں کرتا — کیونکہ لب ایسی پرت نہیں جو اکیلے ناکام ہو سکے۔ یہ پورے معمار کی صحیح کارکردگی کی مربوط کیفیت ہے۔ جب صدر کھلا ہو، قلب اللہ کی طرف متوجہ ہو، اور فواد صاف گواہی دے رہا ہو — لب پیدا ہوتا ہے۔ جب کوئی پرت ناکام ہو تو لب تباہ نہیں ہوتا۔ بس اس تک پہنچا نہیں جاتا۔<br><br>اسی لیے قرآن سب سے مطالبہ انگیز علمی اور روحانی کاموں کے لیے «اولو الالباب» کو پکارتا ہے: کائنات میں نشانیاں پڑھنا، انبیائی بیانیوں سے حکمت نکالنا، وہ معیاری تمیز کرنا جو چندھیائی آنکھ نہیں کر سکتی، اور قرآن کو اس گہرائی پر وصول کرنا جس کے لیے اسے بھیجا گیا۔ لب علماء کو دیا گیا خصوصی تحفہ نہیں۔ یہ مکمل فعال باطنی معمار کا فطری نتیجہ ہے۔ اس تک کا راستہ ہر دوسری پرت سے گزرتا ہے۔</span>
+  </div>
+</div>
+
 <!-- PARENT CARD -->
 <div class="parent-card">
   <div class="parent-card-label">
@@ -1027,6 +1356,17 @@ const VERSES = {
   '23_78':{ar:'وَهُوَ الَّذِي أَنشَأَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'And it is He who produced for you hearing, vision, and hearts.',ur:'اور وہی ہے جس نے تمہارے لیے سماعت، بصارت اور دل بنائے۔',ref:'Surah Al-Mu\'minun 23:78'},
   '67_23':{ar:'قُلْ هُوَ الَّذِي أَنشَأَكُمْ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'Say: He it is who created you and made for you hearing, vision, and hearts.',ur:'کہو: وہی ہے جس نے تمہیں بنایا اور سماعت، بصارت اور دل دیے۔',ref:'Surah Al-Mulk 67:23'},
   '76_2':{ar:'إِنَّا خَلَقْنَا الْإِنسَانَ مِن نُّطْفَةٍ أَمْشَاجٍ نَّبْتَلِيهِ فَجَعَلْنَاهُ سَمِيعًا بَصِيرًا',en:'Indeed We created the human from a sperm-drop mixture to test him — and We made him hearing and seeing.',ur:'ہم نے انسان کو ملے جلے نطفے سے آزمانے کے لیے بنایا — اور اسے سنتا دیکھتا بنایا۔',ref:'Surah Al-Insan 76:2'},
+  /* ── HIERARCHY SECTION VERSES ── */
+  '94_1':{ar:'أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ',en:'Did We not expand your chest for you?',ur:'کیا ہم نے تمہارا سینہ تمہارے لیے کھول نہیں دیا؟',ref:'Surah Ash-Sharh 94:1'},
+  '22_46':{ar:'فَإِنَّهَا لَا تَعْمَى الْأَبْصَارُ وَلَٰكِن تَعْمَى الْقُلُوبُ الَّتِي فِي الصُّدُورِ',en:'It is not the eyes that are blind — but the hearts within the chests that are blind.',ur:'آنکھیں اندھی نہیں — بلکہ سینوں کے اندر دل اندھے ہیں۔',ref:'Surah Al-Hajj 22:46'},
+  '53_11':{ar:'مَا كَذَبَ الْفُؤَادُ مَا رَأَىٰ',en:'The fu\'ad did not lie about what it saw.',ur:'فواد نے جو دیکھا اس کے بارے میں جھوٹ نہیں بولا۔',ref:'Surah An-Najm 53:11 — The Prophet ﷺ during the first revelation'},
+  '2_179':{ar:'وَلَكُمْ فِي الْقِصَاصِ حَيَاةٌ يَا أُولِي الْأَلْبَابِ لَعَلَّكُمْ تَتَّقُونَ',en:'And in retribution there is life for you — O people of understanding — that you may have taqwa.',ur:'اور قصاص میں تمہارے لیے زندگی ہے — اے عقل والو — تاکہ تم تقویٰ اختیار کرو۔',ref:'Surah Al-Baqarah 2:179'},
+  '2_197':{ar:'وَاتَّقُونِ يَا أُولِي الْأَلْبَابِ',en:'And have taqwa of Me — O people of the lubb.',ur:'اور میرا تقویٰ اختیار کرو — اے لب والو۔',ref:'Surah Al-Baqarah 2:197'},
+  '5_100':{ar:'فَاتَّقُوا اللَّهَ يَا أُولِي الْأَلْبَابِ لَعَلَّكُمْ تُفْلِحُونَ',en:'Have taqwa of Allah — O people of the lubb — that you may succeed.',ur:'اللہ کا تقویٰ اختیار کرو — اے لب والو — تاکہ تم کامیاب ہو۔',ref:'Surah Al-Ma\'idah 5:100'},
+  '12_111':{ar:'لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِّأُولِي الْأَلْبَابِ',en:'There was in their stories a lesson for people of the lubb.',ur:'ان کے قصوں میں اولو الالباب کے لیے عبرت ہے۔',ref:'Surah Yusuf 12:111'},
+  '38_29':{ar:'كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِّيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ',en:'A blessed Book We sent down to you — that they may contemplate its verses and that people of the lubb may take heed.',ur:'یہ بابرکت کتاب ہم نے تم پر نازل کی — تاکہ لوگ اس کی آیات پر غور کریں اور اولو الالباب نصیحت حاصل کریں۔',ref:'Surah Sad 38:29'},
+  '39_9':{ar:'قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ ۗ إِنَّمَا يَتَذَكَّرُ أُولُو الْأَلْبَابِ',en:'Say: Are those who know equal to those who do not know? Only the people of the lubb take heed.',ur:'کہو: کیا جاننے والے اور نہ جاننے والے برابر ہیں؟ صرف اولو الالباب ہی نصیحت حاصل کرتے ہیں۔',ref:'Surah Az-Zumar 39:9'},
+  '65_10':{ar:'فَاتَّقُوا اللَّهَ يَا أُولِي الْأَلْبَابِ الَّذِينَ آمَنُوا ۚ قَدْ أَنزَلَ اللَّهُ إِلَيْكُمْ ذِكْرًا',en:'Have taqwa of Allah — O people of the lubb who have believed. Allah has sent down to you a Reminder.',ur:'اللہ کا تقویٰ اختیار کرو — اے لب والو جو ایمان لائے۔ اللہ نے تمہاری طرف ذکر نازل کیا ہے۔',ref:'Surah At-Talaq 65:10'},
 };
 
 function showVerse(id){const d=VERSES[id];if(!d)return;document.getElementById('vp-ar').textContent=d.ar;document.getElementById('vp-tr').textContent=d.en;document.getElementById('vp-tr-ur').textContent=d.ur;document.getElementById('vp-ref').textContent=d.ref;document.getElementById('verse-panel').classList.add('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));const ch=document.querySelector('.vchip[data-vid="'+id+'"]');if(ch)ch.classList.add('open');}

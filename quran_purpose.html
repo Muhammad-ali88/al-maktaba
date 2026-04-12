@@ -120,6 +120,30 @@ table.ibt tr:hover td{background:rgba(255,100,100,.03)}
 .ur-mode .hero-purpose{font-family:var(--font-arab);direction:rtl;text-align:right;line-height:2}
 .ur-mode .certainty-badge{font-family:var(--font-arab);font-size:10px;letter-spacing:0}
 @media(max-width:480px){.content{padding:0 12px}.hero{padding:30px 14px 24px}}
+/* ── ADAM CREATION STAGES ── */
+.stages-wrap{margin:16px 0;position:relative}
+.stages-wrap::before{content:'';position:absolute;left:19px;top:28px;bottom:28px;width:1px;background:linear-gradient(180deg,var(--goldbdr),var(--goldbdr) 80%,transparent);z-index:0}
+.ur-mode .stages-wrap::before{left:auto;right:19px}
+.stage-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;position:relative;z-index:1}
+.ur-mode .stage-row{flex-direction:row-reverse}
+.stage-num{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:10px;font-weight:700;flex-shrink:0;border:1px solid}
+.sn-gold{background:var(--golddim);border-color:var(--goldbdr);color:var(--gold2)}
+.sn-amber{background:var(--amberdim);border-color:var(--amberbdr);color:var(--amber)}
+.sn-teal{background:var(--tealdim);border-color:var(--tealbdr);color:var(--teal)}
+.sn-blue{background:var(--bluedim);border-color:var(--bluebdr);color:var(--blue)}
+.sn-white{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff}
+.stage-content{flex:1;background:rgba(0,0,0,.25);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;transition:border-color .2s}
+.stage-content:hover{border-color:var(--goldbdr)}
+.stage-ar{font-family:var(--font-arab);font-size:18px;color:var(--gold2);direction:rtl;line-height:1.5;margin-bottom:3px}
+.stage-term{font-family:var(--font-head);font-size:8.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.stage-meaning{font-size:11.5px;color:var(--text2);line-height:1.65;margin-bottom:5px}
+.stage-refs{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+/* IBLIS BRIDGE BLOCK */
+.iblis-bridge{background:linear-gradient(135deg,rgba(255,100,100,.05),rgba(255,100,100,.03));border:1px solid var(--redbdr);border-radius:10px;padding:14px 16px;margin:16px 0}
+.iblis-bridge-label{font-family:var(--font-head);font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;opacity:.8}
+.iblis-bridge-text{font-size:12px;color:var(--text2);line-height:1.8}
+.iblis-bridge-text .ur-only{font-family:var(--font-arab);font-size:13px;direction:rtl;display:block;text-align:right;line-height:2}
+.ur-mode .iblis-bridge-text .en-only{display:none!important}
 
 /* ── VERSE CHIPS ── */
 .vchip{display:inline-flex;align-items:center;font-family:var(--font-head);font-size:7.5px;letter-spacing:.6px;padding:2px 7px;border-radius:8px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.08);color:var(--gold);cursor:pointer;vertical-align:middle;margin:0 2px;transition:all .15s;user-select:none}
@@ -227,6 +251,131 @@ table.ibt tr:hover td{background:rgba(255,100,100,.03)}
   </div>
 </div>
 
+<div class="sec-label"><span class="en-only">The Creation of Adam — Six Stages</span><span class="ur-only">آدم کی تخلیق — چھ مراحل</span></div>
+
+<div class="concept-card" id="card-adam">
+  <div class="card-header" onclick="toggleCard('card-adam')">
+    <div class="card-badge cb-amber">🏺</div>
+    <div class="card-titles">
+      <div class="card-title-ar">خَلْقُ آدَم</div>
+      <div class="card-title-en"><span class="en-only">The Making of Adam — What Iblis Actually Saw</span><span class="ur-only">آدم کی تخلیق — ابلیس نے کیا دیکھا</span></div>
+      <div class="card-summary"><span class="en-only">The Quran describes Adam's creation across six distinct stages — distributed across multiple surahs deliberately. Iblis witnessed every stage. He judged the clay and missed the Ruh entirely. His entire rebellion is a category error.</span><span class="ur-only">قرآن آدم کی تخلیق کو چھ مراحل میں بیان کرتا ہے — جان بوجھ کر متعدد سورتوں میں پھیلایا گیا۔ ابلیس نے ہر مرحلہ دیکھا۔ اس نے مٹی دیکھی اور روح کو بالکل نظر انداز کیا۔ اس کی پوری بغاوت ایک فہمی غلطی ہے۔</span></div>
+    </div>
+    <div class="card-chevron">›</div>
+  </div>
+  <div class="card-body">
+
+    <div class="stages-wrap">
+
+      <!-- STAGE 1: TURAB -->
+      <div class="stage-row">
+        <div class="stage-num sn-gold">①</div>
+        <div class="stage-content">
+          <div class="stage-term"><span class="en-only">Stage 1 — Turab · The Origin</span><span class="ur-only">مرحلہ ۱ — تراب · اصل مادہ</span></div>
+          <div class="stage-ar">تُرَاب</div>
+          <div class="stage-meaning"><span class="en-only">Dry earth — dust. The absolute starting material. This is what Adam and every human being ultimately returns to. Allah names this first material precisely: not rich soil, not mineral, but turab — the humblest, most ordinary substance on earth. The origin is deliberate humility.</span><span class="ur-only">خشک مٹی — خاک۔ بالکل ابتدائی مادہ۔ آدم اور ہر انسان بالآخر یہیں لوٹتا ہے۔ اللہ نے اس پہلے مادے کو درستگی سے نام دیا: زرخیز مٹی نہیں، معدنیات نہیں — تراب — زمین کا سب سے عاجز، سب سے عام مادہ۔ آغاز عمدًا عاجزی ہے۔</span></div>
+          <div class="stage-refs">
+            <span class="vchip" data-vid="3_59" onclick="showVerse('3_59')">3:59</span>
+            <span class="vchip" data-vid="18_37" onclick="showVerse('18_37')">18:37</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 2: TIN -->
+      <div class="stage-row">
+        <div class="stage-num sn-gold">②</div>
+        <div class="stage-content">
+          <div class="stage-term"><span class="en-only">Stage 2 — Tin · Clay Mixed with Water</span><span class="ur-only">مرحلہ ۲ — طین · پانی ملی مٹی</span></div>
+          <div class="stage-ar">طِين</div>
+          <div class="stage-meaning"><span class="en-only">Wet clay — turab mixed with water (ma'). This is the stage Iblis refers to repeatedly when he says "you created me from fire and him from clay (tin)." He is technically correct about this stage. But he stops here. The entire Quranic account continues far beyond this point — Iblis did not.</span><span class="ur-only">گیلی مٹی — تراب پانی کے ساتھ ملا ہوا۔ یہ وہ مرحلہ ہے جس کا حوالہ ابلیس بار بار دیتا ہے جب کہتا ہے «آپ نے مجھے آگ سے اور اسے مٹی (طین) سے بنایا۔» یہ درست ہے — لیکن صرف اس مرحلے تک۔ قرآنی بیان یہاں سے بہت آگے جاتا ہے — ابلیس نہیں گیا۔</span></div>
+          <div class="stage-refs">
+            <span class="vchip" data-vid="7_12" onclick="showVerse('7_12')">7:12</span>
+            <span class="vchip" data-vid="38_76" onclick="showVerse('38_76')">38:76</span>
+            <span class="vchip" data-vid="32_7" onclick="showVerse('32_7')">32:7</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 3: SALSALIN -->
+      <div class="stage-row">
+        <div class="stage-num sn-amber">③</div>
+        <div class="stage-content">
+          <div class="stage-term"><span class="en-only">Stage 3 — Salsāl · Dried Ringing Clay</span><span class="ur-only">مرحلہ ۳ — صلصال · خشک بجتی مٹی</span></div>
+          <div class="stage-ar">صَلْصَال</div>
+          <div class="stage-meaning"><span class="en-only">The root S-L-S-L is onomatopoeic — it describes the ringing sound dry clay makes when struck. The wet clay was left to dry until it rang. Two distinct sub-stages are named: salsalin min hama'in masnun (from altered black mud — 15:26) and salsalin kal-fakhkhar (like pottery — 55:14). The form was being perfected before anything was breathed into it.</span><span class="ur-only">جڑ ص-ل-ص-ل آوازی ہے — خشک مٹی کو ٹھوکنے پر جو آواز آتی ہے۔ گیلی مٹی کو خشک ہونے دیا گیا یہاں تک کہ بجنے لگی۔ دو ذیلی مراحل: صلصال من حمإ مسنون (تبدیل شدہ کالی مٹی سے — ۱۵:۲۶) اور صلصال کالفخار (مٹی کے برتن جیسا — ۵۵:۱۴)۔ روح پھونکنے سے پہلے شکل مکمل کی جا رہی تھی۔</span></div>
+          <div class="stage-refs">
+            <span class="vchip" data-vid="15_26" onclick="showVerse('15_26')">15:26</span>
+            <span class="vchip" data-vid="55_14" onclick="showVerse('55_14')">55:14</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 4: TASWIYAH -->
+      <div class="stage-row">
+        <div class="stage-num sn-amber">④</div>
+        <div class="stage-content">
+          <div class="stage-term"><span class="en-only">Stage 4 — Taswiyah · The Perfecting of Form</span><span class="ur-only">مرحلہ ۴ — تسویہ · شکل کی تکمیل</span></div>
+          <div class="stage-ar">تَسْوِيَة</div>
+          <div class="stage-meaning"><span class="en-only">From the root S-W-Y — to make even, to balance, to perfect proportion. Allah says: "When I have sawwaytu-hu (perfected him)." This is not mere shaping — it is the deliberate balancing of every faculty, organ, and capacity in precise proportion. The same root appears in 82:7 applied to every human being: "He who created you, proportioned you (sawwaka) and assembled you."</span><span class="ur-only">جڑ س-و-ی سے — برابر کرنا، توازن بنانا، نسبت مکمل کرنا۔ اللہ فرماتا ہے: «جب میں اسے سوّیتُہ (مکمل) کر دوں۔» یہ محض شکل دینا نہیں — یہ ہر قوت، عضو اور صلاحیت کا جان بوجھ کر درست تناسب میں توازن ہے۔ یہی جڑ ۸۲:۷ میں ہر انسان پر آتی ہے: «جس نے تجھے بنایا، تجھے تناسب دیا (سوّاک) اور جوڑا۔»</span></div>
+          <div class="stage-refs">
+            <span class="vchip" data-vid="15_29a" onclick="showVerse('15_29a')">15:29</span>
+            <span class="vchip" data-vid="82_7" onclick="showVerse('82_7')">82:7</span>
+            <span class="vchip" data-vid="38_72a" onclick="showVerse('38_72a')">38:72</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 5: NAFKH AR-RUH -->
+      <div class="stage-row">
+        <div class="stage-num sn-teal">⑤</div>
+        <div class="stage-content">
+          <div class="stage-term"><span class="en-only">Stage 5 — Nafkh ar-Rūh · The Breathing of the Spirit</span><span class="ur-only">مرحلہ ۵ — نفخ الروح · روح کا پھونکا جانا</span></div>
+          <div class="stage-ar">نَفْخُ الرُّوح</div>
+          <div class="stage-meaning"><span class="en-only">The decisive moment. After the form is perfected, Allah breathes from His own Ruh into the clay body. This is the stage Iblis entirely missed — he saw clay and judged the container. The Ruh is described as "min ruhi" — from My spirit — an attribution to Allah Himself that no other created thing carries. This is what the angels then prostrated to. Not clay. The Ruh-carrying clay.</span><span class="ur-only">فیصلہ کن لمحہ۔ شکل کی تکمیل کے بعد اللہ مٹی کے جسم میں اپنی روح پھونکتا ہے۔ یہ وہ مرحلہ ہے جسے ابلیس نے بالکل نظر انداز کیا — اس نے مٹی دیکھی اور ظرف کا فیصلہ کر دیا۔ روح کو «من روحی» کہا گیا — میری روح سے — اللہ کی طرف نسبت جو کسی اور مخلوق کو حاصل نہیں۔ یہی وہ چیز ہے جسے فرشتوں نے سجدہ کیا۔ مٹی کو نہیں۔ روح والی مٹی کو۔</span></div>
+          <div class="stage-refs">
+            <span class="vchip" data-vid="15_29b" onclick="showVerse('15_29b')">15:29</span>
+            <span class="vchip" data-vid="32_9" onclick="showVerse('32_9')">32:9</span>
+            <span class="vchip" data-vid="38_72b" onclick="showVerse('38_72b')">38:72</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE 6: SUJUD -->
+      <div class="stage-row">
+        <div class="stage-num sn-white">⑥</div>
+        <div class="stage-content">
+          <div class="stage-term"><span class="en-only">Stage 6 — The Prostration — Recognition of What Was Made</span><span class="ur-only">مرحلہ ۶ — سجدہ — جو بنایا گیا اس کا اعتراف</span></div>
+          <div class="stage-ar">السُّجُود</div>
+          <div class="stage-meaning"><span class="en-only">Allah commands the angels to prostrate to Adam — not as worship, but as recognition (ta'zim). The angels obey immediately. They do not question what was made from. They respond to what stands before them: a clay body carrying the Ruh of Allah, fashioned in perfect proportion, appointed as khalifah, entrusted with the Amanah. All except one. Iblis refused. His reason: clay.</span><span class="ur-only">اللہ فرشتوں کو آدم کو سجدہ کرنے کا حکم دیتا ہے — عبادت کے طور پر نہیں، بلکہ تعظیم کے طور پر۔ فرشتے فوری مانتے ہیں۔ وہ یہ نہیں پوچھتے کہ کس چیز سے بنایا گیا۔ وہ جواب دیتے ہیں اس کو جو ان کے سامنے کھڑا ہے: اللہ کی روح اٹھانے والا مٹی کا جسم، کامل تناسب میں ڈھلا، خلیفہ مقرر، امانت کا امین۔ سوائے ایک کے۔ ابلیس نے انکار کیا۔ اس کی وجہ: مٹی۔</span></div>
+          <div class="stage-refs">
+            <span class="vchip" data-vid="2_34" onclick="showVerse('2_34')">2:34</span>
+            <span class="vchip" data-vid="17_61b" onclick="showVerse('17_61b')">17:61</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /stages-wrap -->
+
+    <div class="iblis-bridge">
+      <div class="iblis-bridge-label"><span class="en-only">⚠ The Fatal Misjudgement</span><span class="ur-only">⚠ مہلک غلط فہمی</span></div>
+      <div class="iblis-bridge-text">
+        <span class="en-only">Iblis was present for every stage. He watched the clay mixed, dried, shaped, and perfected. Then the Ruh entered — and everything changed. The angels fell in prostration instantly. Iblis had already made his judgment before Stage 5. He evaluated a vessel and ignored what was placed inside it. This is why his argument — "I am better, you made me from fire and him from clay" — is not a theological point. It is a statement of his blindness. He saw the material. He missed the meaning.</span>
+        <span class="ur-only">ابلیس ہر مرحلے میں موجود تھا۔ اس نے مٹی کو ملتے، خشک ہوتے، شکل لیتے اور مکمل ہوتے دیکھا۔ پھر روح داخل ہوئی — اور سب کچھ بدل گیا۔ فرشتے فوری سجدے میں گر گئے۔ ابلیس مرحلہ ۵ سے پہلے ہی فیصلہ کر چکا تھا۔ اس نے ظرف کا جائزہ لیا اور جو اس میں رکھا گیا اسے نظر انداز کیا۔ اسی لیے اس کا دلیل — «میں بہتر ہوں، آپ نے مجھے آگ سے اور اسے مٹی سے بنایا» — کوئی الہیاتی نقطہ نہیں۔ یہ اس کے اندھے پن کا بیان ہے۔ اس نے مادہ دیکھا۔ معنی چھوٹ گیا۔</span>
+      </div>
+    </div>
+
+    <div class="explanation"><span class="en-only">The six-stage sequence also applies to every human being — not only Adam. Surah As-Sajdah 32:7-9 applies the full sequence (clay → perfecting → Ruh) to the creation of bashar (humanity generally). Surah Al-Infitar 82:7 confirms that every person was created, proportioned (sawwaka), and assembled by Allah. The stages of Adam are the stages of you. This is why carrying the Amanah is not a special burden placed on one person — it is the architectural reality of what every human being is.</span><span class="ur-only">چھ مراحل کا یہ سلسلہ صرف آدم پر نہیں بلکہ ہر انسان پر لاگو ہوتا ہے۔ سورہ السجدہ ۳۲:۷-۹ پورا سلسلہ (مٹی → تکمیل → روح) بشر عام کی تخلیق پر لاگو کرتی ہے۔ سورہ الانفطار ۸۲:۷ تصدیق کرتی ہے کہ ہر شخص کو اللہ نے بنایا، تناسب دیا اور جوڑا۔ آدم کے مراحل آپ کے مراحل ہیں۔ اسی لیے امانت اٹھانا ایک شخص پر خصوصی بوجھ نہیں — یہ ہر انسان کی تعمیراتی حقیقت ہے۔</span></div>
+
+    <span class="certainty-badge cert-qati">✦ <span class="en-only">Definitive — All stages directly Quranic</span><span class="ur-only">قطعی — تمام مراحل براہ راست قرآنی</span></span>
+    <span class="certainty-badge cert-ling" style="margin-left:4px">◈ <span class="en-only">Sequence synthesis — Classical scholarship</span><span class="ur-only">مرحلہ وار ترتیب — کلاسیکل علماء</span></span>
+
+    <div class="card-actions">
+      <button class="card-act-btn" onclick="shareCard('adam','خَلْقُ آدَم','Allah created Adam in stages: dust → clay → dried ringing clay → perfected form → Ruh breathed in → angels prostrated. Iblis judged the clay and missed the Ruh. His entire rebellion is a category error. — Al-Maktaba','اللہ نے آدم کو مراحل میں بنایا: تراب → طین → صلصال → تسویہ → نفخ روح → سجدہ۔ ابلیس نے مٹی دیکھی، روح چھوٹ گئی۔ — المکتبہ')">⬆ <span class="en-only">Share</span><span class="ur-only">شیئر</span></button>
+      <button class="card-act-btn" id="save-adam" onclick="saveCard('adam','Creation of Adam')">🔖 <span class="en-only">Save</span><span class="ur-only">محفوظ</span></button>
+    </div>
+  </div>
+</div>
+
 <div class="sec-label"><span class="en-only">The Iblis Mechanism — All Five Locations</span><span class="ur-only">ابلیس کا طریقہ کار — پانچوں مقامات</span></div>
 
 <div class="concept-card" id="card-iblis">
@@ -248,11 +397,11 @@ table.ibt tr:hover td{background:rgba(255,100,100,.03)}
           <th><span class="en-only">Unique Addition</span><span class="ur-only">منفرد اضافہ</span></th>
         </tr></thead>
         <tbody>
-          <tr><td>7:11-18</td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Strategy declared: 4 directions on the straight path. Not from above — cannot block the upward path</span><span class="ur-only">حکمت عملی: ۴ سمتیں صراط مستقیم پر۔ اوپر سے نہیں — اوپر کا راستہ بلاک نہیں کر سکتا</span></td></tr>
-          <tr><td>15:28-42</td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Iblis acknowledges: cannot reach al-mukhlaseen (those purified for Allah)</span><span class="ur-only">ابلیس مانتا ہے: المخلصین تک نہیں پہنچ سکتا</span></td></tr>
-          <tr><td>17:61-65</td><td><span class="en-only">Not stated</span><span class="ur-only">بیان نہیں</span></td><td><span class="en-only">Four entry points: voice, cavalry, wealth partnership, children partnership. Over believing servants: no authority</span><span class="ur-only">چار داخلی نقاط: آواز، سواری، مال میں شراکت، اولاد میں شراکت۔ مومن بندوں پر: کوئی اختیار نہیں</span></td></tr>
-          <tr><td>20:115-123</td><td><span class="en-only">Not stated</span><span class="ur-only">بیان نہیں</span></td><td><span class="en-only">Adam had a prior covenant — but forgot. He lacked 'azm. Earth is where 'azm is developed through tested experience</span><span class="ur-only">آدم کا پہلا عہد تھا — لیکن بھول گئے۔ عزم نہیں تھا۔ زمین جہاں عزم آزمائش سے بنتا ہے</span></td></tr>
-          <tr><td>38:71-85</td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Iblis swears by Allah's own might (bi'izzatika). Allah responds: by Truth (al-haqq). Iblis swore by power — Allah responded with Truth</span><span class="ur-only">ابلیس اللہ کی عزت کی قسم کھاتا ہے۔ اللہ جواب دیتا ہے: حق کی قسم۔ ابلیس نے طاقت کی قسم کھائی — اللہ نے حق سے جواب دیا</span></td></tr>
+          <tr><td><span class="vchip" data-vid="7_11" onclick="showVerse('7_11')">7:11-18</span></td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Strategy declared: 4 directions on the straight path. Not from above — cannot block the upward path</span><span class="ur-only">حکمت عملی: ۴ سمتیں صراط مستقیم پر۔ اوپر سے نہیں — اوپر کا راستہ بلاک نہیں کر سکتا</span></td></tr>
+          <tr><td><span class="vchip" data-vid="15_28" onclick="showVerse('15_28')">15:28-42</span></td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Iblis acknowledges: cannot reach al-mukhlaseen (those purified for Allah)</span><span class="ur-only">ابلیس مانتا ہے: المخلصین تک نہیں پہنچ سکتا</span></td></tr>
+          <tr><td><span class="vchip" data-vid="17_61" onclick="showVerse('17_61')">17:61-65</span></td><td><span class="en-only">Not stated</span><span class="ur-only">بیان نہیں</span></td><td><span class="en-only">Four entry points: voice, cavalry, wealth partnership, children partnership. Over believing servants: no authority</span><span class="ur-only">چار داخلی نقاط: آواز، سواری، مال میں شراکت، اولاد میں شراکت۔ مومن بندوں پر: کوئی اختیار نہیں</span></td></tr>
+          <tr><td><span class="vchip" data-vid="20_115" onclick="showVerse('20_115')">20:115-123</span></td><td><span class="en-only">Not stated</span><span class="ur-only">بیان نہیں</span></td><td><span class="en-only">Adam had a prior covenant — but forgot. He lacked 'azm. Earth is where 'azm is developed through tested experience</span><span class="ur-only">آدم کا پہلا عہد تھا — لیکن بھول گئے۔ عزم نہیں تھا۔ زمین جہاں عزم آزمائش سے بنتا ہے</span></td></tr>
+          <tr><td><span class="vchip" data-vid="38_71" onclick="showVerse('38_71')">38:71-85</span></td><td><span class="en-only">Fire over clay</span><span class="ur-only">آگ مٹی سے بہتر</span></td><td><span class="en-only">Iblis swears by Allah's own might (bi'izzatika). Allah responds: by Truth (al-haqq). Iblis swore by power — Allah responded with Truth</span><span class="ur-only">ابلیس اللہ کی عزت کی قسم کھاتا ہے۔ اللہ جواب دیتا ہے: حق کی قسم۔ ابلیس نے طاقت کی قسم کھائی — اللہ نے حق سے جواب دیا</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -357,7 +506,7 @@ function saveCard(id,title){const key='almaktaba_saved_'+id;const btn=document.g
 function shareCard(id,ar,en,ur){const text=ar+'\n\n'+(LANG==='ur'?ur:en);if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
 function shareParent(){const text=LANG==='ur'?'🌱 آپ ایک مقصد کے لیے یہاں ہیں۔\n\nاللہ نے آسمان اور پہاڑوں کو ایک قیمتی چیز پیش کی — وہ ڈر گئے۔ انسان نے ہاں کہا۔\n\nہر روز ایک انتخاب: اسے پاک رکھو یا دفن کرو۔\n\nAl-Maktaba':'🌱 You are here for a reason.\n\nAllah offered something precious to the mountains — they were scared and said no. The human said yes.\n\nEvery day one choice: purify it or bury it.\n\nAl-Maktaba';if(navigator.share){navigator.share({title:'Al-Maktaba',text});}else{navigator.clipboard.writeText(text).then(()=>showToast(LANG==='ur'?'کاپی ہو گئی ✓':'Copied ✓'));}}
 function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:72px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(12,21,40,.97);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 18px;font-family:Cinzel,serif;font-size:10px;letter-spacing:1px;color:#C9A84C;z-index:200;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},2200);}
-window.addEventListener('DOMContentLoaded',()=>{['amanah','khalifah','iblis','choice'].forEach(id=>{if(localStorage.getItem('almaktaba_saved_'+id)){const btn=document.getElementById('save-'+id);if(btn)btn.classList.add('saved');}});});
+window.addEventListener('DOMContentLoaded',()=>{['amanah','khalifah','adam','iblis','choice'].forEach(id=>{if(localStorage.getItem('almaktaba_saved_'+id)){const btn=document.getElementById('save-'+id);if(btn)btn.classList.add('saved');}});});
 
 const VERSES = {
   '33_72':{ar:'إِنَّا عَرَضْنَا الْأَمَانَةَ عَلَى السَّمَاوَاتِ وَالْأَرْضِ وَالْجِبَالِ فَأَبَيْنَ أَن يَحْمِلْنَهَا',en:'We offered the Trust to the heavens, the earth, and the mountains — and they refused to bear it.',ur:'ہم نے امانت آسمانوں، زمین اور پہاڑوں کو پیش کی — انہوں نے اسے اٹھانے سے انکار کیا۔',ref:'Surah Al-Ahzab 33:72'},
@@ -371,6 +520,28 @@ const VERSES = {
   '18_50':{ar:'وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ كَانَ مِنَ الْجِنِّ',en:'And when We said to the angels: Prostrate to Adam. They prostrated except Iblis — he was from the jinn.',ur:'اور جب ہم نے فرشتوں سے کہا آدم کو سجدہ کرو — سب نے کیا سوائے ابلیس کے — وہ جنوں میں سے تھا۔',ref:'Surah Al-Kahf 18:50'},
   '91_9':{ar:'قَدْ أَفْلَحَ مَن زَكَّاهَا ۞ وَقَدْ خَابَ مَن دَسَّاهَا',en:'He has succeeded who purifies it — and he has failed who buries it.',ur:'فلاح پا گیا جس نے پاک کیا — ناکام ہوا جس نے دبا دیا۔',ref:'Surah Ash-Shams 91:9-10'},
   '14_22':{ar:'وَمَا كَانَ لِيَ عَلَيْكُم مِّن سُلْطَانٍ إِلَّا أَن دَعَوْتُكُمْ فَاسْتَجَبْتُمْ',en:'I had no authority over you — except that I called and you responded.',ur:'میرے پاس کوئی اختیار نہ تھا — سوائے اس کے کہ میں نے بلایا اور تم نے جواب دیا۔',ref:'Surah Ibrahim 14:22'},
+  /* ── ADAM CREATION STAGES ── */
+  '3_59':{ar:'إِنَّ مَثَلَ عِيسَىٰ عِندَ اللَّهِ كَمَثَلِ آدَمَ ۖ خَلَقَهُ مِن تُرَابٍ ثُمَّ قَالَ لَهُ كُن فَيَكُونُ',en:'The likeness of Jesus before Allah is as the likeness of Adam — He created him from dust, then said to him: Be — and he was.',ur:'اللہ کے نزدیک عیسیٰ کی مثال آدم جیسی ہے — انہیں مٹی سے بنایا، پھر فرمایا: ہو جا — اور وہ ہو گیا۔',ref:'Surah Aal-Imran 3:59'},
+  '18_37':{ar:'خَلَقَكَ مِن تُرَابٍ ثُمَّ مِن نُّطْفَةٍ ثُمَّ سَوَّاكَ رَجُلًا',en:'He created you from dust, then from a drop of fluid, then proportioned you as a man.',ur:'اس نے تجھے مٹی سے بنایا، پھر نطفے سے، پھر تجھے مرد کی شکل دی۔',ref:'Surah Al-Kahf 18:37'},
+  '7_12':{ar:'قَالَ مَا مَنَعَكَ أَلَّا تَسْجُدَ إِذْ أَمَرْتُكَ ۖ قَالَ أَنَا۠ خَيْرٌ مِّنْهُ خَلَقْتَنِي مِن نَّارٍ وَخَلَقْتَهُ مِن طِينٍ',en:'Allah said: What prevented you from prostrating when I commanded you? He said: I am better than him — You created me from fire and created him from clay.',ur:'اللہ نے فرمایا: جب میں نے حکم دیا تو سجدہ کرنے سے کیا چیز رکی؟ اس نے کہا: میں اس سے بہتر ہوں — آپ نے مجھے آگ سے بنایا اور اسے مٹی سے۔',ref:'Surah Al-A\'raf 7:12'},
+  '38_76':{ar:'قَالَ أَنَا۠ خَيْرٌ مِّنْهُ ۖ خَلَقْتَنِي مِن نَّارٍ وَخَلَقْتَهُ مِن طِينٍ',en:'He said: I am better than him — You created me from fire and created him from clay.',ur:'کہا: میں اس سے بہتر ہوں — آپ نے مجھے آگ سے اور اسے مٹی سے بنایا۔',ref:'Surah Sad 38:76'},
+  '32_7':{ar:'الَّذِي أَحْسَنَ كُلَّ شَيْءٍ خَلَقَهُ ۖ وَبَدَأَ خَلْقَ الْإِنسَانِ مِن طِينٍ',en:'He who perfected everything He created — and began the creation of the human being from clay.',ur:'جس نے ہر چیز جو بنائی اچھی بنائی — اور انسان کی تخلیق مٹی سے شروع کی۔',ref:'Surah As-Sajdah 32:7'},
+  '15_26':{ar:'وَلَقَدْ خَلَقْنَا الْإِنسَانَ مِن صَلْصَالٍ مِّنْ حَمَإٍ مَّسْنُونٍ',en:'We created the human being from dried clay — from altered black mud.',ur:'ہم نے انسان کو صلصال سے بنایا — تبدیل شدہ کالی مٹی سے۔',ref:'Surah Al-Hijr 15:26'},
+  '55_14':{ar:'خَلَقَ الْإِنسَانَ مِن صَلْصَالٍ كَالْفَخَّارِ',en:'He created the human being from dried clay like pottery.',ur:'اس نے انسان کو مٹی کے برتن جیسے صلصال سے بنایا۔',ref:'Surah Ar-Rahman 55:14'},
+  '15_29a':{ar:'فَإِذَا سَوَّيْتُهُ',en:'When I have perfected him — proportioned him completely.',ur:'جب میں اسے مکمل سنوار دوں —',ref:'Surah Al-Hijr 15:29'},
+  '82_7':{ar:'الَّذِي خَلَقَكَ فَسَوَّاكَ فَعَدَلَكَ',en:'He who created you, proportioned you, and assembled you in whatever form He willed.',ur:'جس نے تجھے بنایا، تجھے تناسب دیا، اور تجھے جوڑا جس شکل میں چاہا۔',ref:'Surah Al-Infitar 82:7'},
+  '38_72a':{ar:'فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِن رُّوحِي',en:'When I have perfected him and breathed into him of My spirit — fall down in prostration to him.',ur:'جب اسے مکمل سنوار دوں اور اپنی روح پھونک دوں — اسے سجدہ کرنا۔',ref:'Surah Sad 38:72'},
+  '15_29b':{ar:'وَنَفَخْتُ فِيهِ مِن رُّوحِي فَقَعُوا لَهُ سَاجِدِينَ',en:'And I breathe into him of My spirit — then fall down in prostration to him.',ur:'اور میں اس میں اپنی روح پھونکوں — تو اسے سجدہ کرتے گر پڑنا۔',ref:'Surah Al-Hijr 15:29'},
+  '32_9':{ar:'ثُمَّ سَوَّاهُ وَنَفَخَ فِيهِ مِن رُّوحِهِ ۖ وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ',en:'Then He proportioned him and breathed into him of His spirit — and gave you hearing, sight, and hearts.',ur:'پھر اسے سنوارا اور اس میں اپنی روح پھونکی — اور تمہیں سماعت، بصارت اور دل عطا کیے۔',ref:'Surah As-Sajdah 32:9'},
+  '38_72b':{ar:'فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِن رُّوحِي فَقَعُوا لَهُ سَاجِدِينَ',en:'When I have perfected him and breathed into him of My spirit — fall down in prostration.',ur:'جب اسے مکمل سنوار کر اپنی روح پھونک دوں — تو سجدے میں گر جانا۔',ref:'Surah Sad 38:72'},
+  '2_34':{ar:'وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ',en:'And when We said to the angels: Prostrate to Adam. They prostrated — except Iblis. He refused and was arrogant.',ur:'اور جب ہم نے فرشتوں سے کہا آدم کو سجدہ کرو — سب نے کیا سوائے ابلیس کے۔ اس نے انکار کیا اور تکبر کیا۔',ref:'Surah Al-Baqarah 2:34'},
+  '17_61b':{ar:'وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ قَالَ أَأَسْجُدُ لِمَنْ خَلَقْتَ طِينًا',en:'And when We said to the angels: Prostrate to Adam — they prostrated, except Iblis, who said: Shall I prostrate to one You created from clay?',ur:'اور جب ہم نے فرشتوں کو آدم کو سجدہ کرنے کا حکم دیا — سب نے کیا سوائے ابلیس کے جس نے کہا: کیا میں اسے سجدہ کروں جسے آپ نے مٹی سے بنایا؟',ref:'Surah Al-Isra 17:61'},
+  /* ── IBLIS FIVE LOCATIONS ── */
+  '7_11':{ar:'وَلَقَدْ خَلَقْنَاكُمْ ثُمَّ صَوَّرْنَاكُمْ ثُمَّ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ لَمْ يَكُن مِّنَ السَّاجِدِينَ',en:'We created you, then shaped you, then said to the angels: Prostrate to Adam. They prostrated — except Iblis, who was not among those who prostrated.',ur:'ہم نے تمہیں بنایا، پھر شکل دی، پھر فرشتوں سے کہا آدم کو سجدہ کرو — سب نے کیا سوائے ابلیس کے۔',ref:'Surah Al-A\'raf 7:11-18'},
+  '15_28':{ar:'وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي خَالِقٌ بَشَرًا مِّن صَلْصَالٍ مِّنْ حَمَإٍ مَّسْنُونٍ ۞ فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِن رُّوحِي فَقَعُوا لَهُ سَاجِدِينَ',en:'Your Lord said to the angels: I am creating a human from dried clay. When I have fashioned him and breathed My spirit into him — fall down in prostration to him.',ur:'آپ کے رب نے فرشتوں سے کہا: میں مٹی سے انسان بنانے والا ہوں۔ جب اسے سنوار کر اپنی روح پھونک دوں — اسے سجدہ کرنا۔',ref:'Surah Al-Hijr 15:28-42'},
+  '17_61':{ar:'وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ قَالَ أَأَسْجُدُ لِمَنْ خَلَقْتَ طِينًا',en:'When We said to the angels: Prostrate to Adam. They prostrated — except Iblis, who said: Shall I prostrate to one You created from clay?',ur:'جب ہم نے فرشتوں سے کہا آدم کو سجدہ کرو — سب نے کیا سوائے ابلیس کے جس نے کہا: کیا میں اسے سجدہ کروں جسے آپ نے مٹی سے بنایا؟',ref:'Surah Al-Isra 17:61-65'},
+  '20_115':{ar:'وَلَقَدْ عَهِدْنَا إِلَىٰ آدَمَ مِن قَبْلُ فَنَسِيَ وَلَمْ نَجِدْ لَهُ عَزْمًا',en:'We had covenanted with Adam before — but he forgot, and We found in him no firm resolve.',ur:'ہم نے پہلے آدم سے عہد لیا تھا — لیکن وہ بھول گئے، اور ہم نے ان میں عزم نہ پایا۔',ref:'Surah Ta-Ha 20:115-123'},
+  '38_71':{ar:'إِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي خَالِقٌ بَشَرًا مِّن طِينٍ ۞ فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِن رُّوحِي فَقَعُوا لَهُ سَاجِدِينَ',en:'Your Lord said to the angels: I am creating a human from clay. When I have fashioned him and breathed My spirit into him — fall down in prostration.',ur:'آپ کے رب نے فرشتوں سے کہا: میں مٹی سے انسان بنانے والا ہوں۔ جب اسے سنوار کر اپنی روح پھونک دوں — سجدے میں گر جانا۔',ref:'Surah Sad 38:71-85'},
 };
 
 function showVerse(id){const d=VERSES[id];if(!d)return;document.getElementById('vp-ar').textContent=d.ar;document.getElementById('vp-tr').textContent=d.en;document.getElementById('vp-tr-ur').textContent=d.ur;document.getElementById('vp-ref').textContent=d.ref;document.getElementById('verse-panel').classList.add('show');document.querySelectorAll('.vchip').forEach(c=>c.classList.remove('open'));const ch=document.querySelector('.vchip[data-vid="'+id+'"]');if(ch)ch.classList.add('open');}
